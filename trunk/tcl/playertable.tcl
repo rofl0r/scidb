@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1 $
-# Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+# Version: $Revision: 9 $
+# Date   : $Date: 2011-05-05 12:47:35 +0000 (Thu, 05 May 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -531,7 +531,7 @@ proc countryFlag {code} {
 
 	if {[llength $code] == 0} { return {} }
 	if {[info exists _Flags($code)]} { return [set _Flags($code)] }
-	set file [file join $::scidb::dir::share/flags/$code.png]
+	set file [file join $::scidb::dir::share flags $code.png]
 	if {[catch {set _Flags($code) [image create photo -file $file]}]} { return {} }
 	return [set _Flags($code)]
 }

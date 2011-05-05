@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 9 $
+// Date   : $Date: 2011-05-05 12:47:35 +0000 (Thu, 05 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -36,8 +36,6 @@
 #include "m_list.h"
 #include "m_ref_counter.h"
 #include "m_ref_counted_ptr.h"
-
-#define SHOW_TREE_INFO
 
 namespace util { class Progress; }
 namespace util { class ByteStream; }

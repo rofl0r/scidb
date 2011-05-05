@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 5 $
-# Date   : $Date: 2011-05-05 07:51:24 +0000 (Thu, 05 May 2011) $
+# Version: $Revision: 9 $
+# Date   : $Date: 2011-05-05 12:47:35 +0000 (Thu, 05 May 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -29,17 +29,17 @@
 namespace eval scidb {
 namespace eval dir {
 
-set home		[file nativename "~"]
-set exec		[file dirname [info nameofexecutable]]
-set user		[file join $home .[string range [file tail [info nameofexecutable]] 2 end]]
-set config	[file join $user config]
-
 if {$tcl_platform(platform) eq "windows"} {
 	set share $exec
 } else {
 	# already defined in tkscidb
 }
 
+set home		[file nativename "~"]
+set exec		[file dirname [info nameofexecutable]]
+set user		[file join $home .[string range [file tail [info nameofexecutable]] 2 end]]
+set data		[file join $share data]
+set config	[file join $user config]
 
 if {![file isdirectory $user]} {
 	set setup 1

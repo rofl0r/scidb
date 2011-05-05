@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1 $
-# Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+# Version: $Revision: 9 $
+# Date   : $Date: 2011-05-05 12:47:35 +0000 (Thu, 05 May 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1063,7 +1063,7 @@ proc TableFill {path args} {
 						if {$codec eq "cbh"} {
 							lappend text $mc::NotAvailable
 						} else {
-							lappend text [string map {: " - "} $item]
+							lappend text [::fonts::translate [string map {: " - "} $item]]
 						}
 					}
 
@@ -1087,7 +1087,7 @@ proc TableFill {path args} {
 						if {$codec eq "cbh"} {
 							lappend text $mc::NotAvailable
 						} else {
-							lappend text $item
+							lappend text [::fonts::translate $item]
 						}
 					}
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 9 $
+// Date   : $Date: 2011-05-05 12:47:35 +0000 (Thu, 05 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -809,14 +809,9 @@ Tree::makeTree(TreeP tree,
 		}
 
 		tree->m_complete = true;
-		tree->m_filter.finish();
 
 #ifdef SHOW_TREE_INFO
 		fprintf(stderr, "games parsed: %u\n", tree->m_numGamesParsed);
-	}
-	else
-	{
-		tree->m_filter.finish();
 #endif
 	}
 

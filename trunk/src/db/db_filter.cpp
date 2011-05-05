@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 9 $
+// Date   : $Date: 2011-05-05 12:47:35 +0000 (Thu, 05 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -44,6 +44,7 @@ Filter::Filter(unsigned size)
 	,m_count(size)
 {
 	m_set.set();
+	M_ASSERT(checkClassInvariance());
 }
 
 
@@ -52,6 +53,7 @@ Filter::set()
 {
 	m_set.set();
 	m_count = m_set.size();
+	M_ASSERT(checkClassInvariance());
 }
 
 
@@ -60,6 +62,7 @@ Filter::reset()
 {
 	m_set.reset();
 	m_count = 0;
+	M_ASSERT(checkClassInvariance());
 }
 
 
@@ -68,6 +71,7 @@ Filter::negate()
 {
 	m_set.flip();
 	m_count = m_set.size() - m_count;
+	M_ASSERT(checkClassInvariance());
 }
 
 
@@ -124,7 +128,7 @@ Filter::resize(unsigned newSize, ResizeMode mode)
 	if (mode == AddNewIndices && newSize > size)
 		m_set.set(size, newSize - 1);
 
-	M_ASSERT(m_count == m_set.count());
+	M_ASSERT(checkClassInvariance());
 }
 
 
@@ -250,7 +254,7 @@ Filter::search(Query const& query, DatabaseContent const& content)
 			break;
 	}
 
-	M_ASSERT(m_count == m_set.count());
+	M_ASSERT(checkClassInvariance());
 }
 
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 9 $
+// Date   : $Date: 2011-05-05 12:47:35 +0000 (Thu, 05 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -296,7 +296,6 @@ View::filterPlayers()
 			m_playerFilter.add(i);
 	}
 
-	m_playerFilter.finish();
 	m_playerSelector.update(m_playerFilter);
 }
 
@@ -317,7 +316,6 @@ View::filterEvents()
 			m_eventFilter.add(i);
 	}
 
-	m_eventFilter.finish();
 	m_eventSelector.update(m_eventFilter);
 }
 
