@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 5 $
+// Date   : $Date: 2011-05-05 07:51:24 +0000 (Thu, 05 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -93,19 +93,19 @@ stack<T>::operator=(stack const& v)
 
 template <typename T>
 inline
-bool
-stack<T>::empty() const
+typename stack<T>::size_type
+stack<T>::size() const
 {
-	return this->m_start > this->m_finish;
+	return size_type(this->m_finish - this->m_start) + 1;
 }
 
 
 template <typename T>
 inline
-typename stack<T>::size_type
-stack<T>::size() const
+bool
+stack<T>::empty() const
 {
-	return size_type(this->m_finish - this->m_start) + 1;
+	return size() == 0;
 }
 
 

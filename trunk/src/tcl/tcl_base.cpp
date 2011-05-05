@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 5 $
+// Date   : $Date: 2011-05-05 07:51:24 +0000 (Thu, 05 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -821,16 +821,7 @@ tcl::init(Tcl_Interp* ti)
 	Tcl_IncrRefCount(::m_postponed = Tcl_NewStringObj("::remote::postponed", -1));
 
 	// setup share directory
-	{
-#define STRING(s) #s
-		Tcl_Obj* var = Tcl_NewStringObj("::scidb::dir::share", 1);
-		Tcl_Obj* shareDir = Tcl_NewStringObj(STRING(SHAREDIR), -1);
-		Tcl_IncrRefCount(shareDir);
-		Tcl_IncrRefCount(var);
-		Tcl_ObjSetVar2(ti, var, 0, shareDir, TCL_GLOBAL_ONLY);
-		Tcl_DecrRefCount(var);
-#undef STRING
-	}
+	Tcl_SetVar2(ti, "::scidb::dir::share", 0, SHAREDIR, TCL_GLOBAL_ONLY);
 
 	app::init(ti);
 	db::init(ti);

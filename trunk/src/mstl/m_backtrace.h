@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 5 $
+// Date   : $Date: 2011-05-05 07:51:24 +0000 (Thu, 05 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -49,6 +49,7 @@ private:
 	void symbols();
 # ifdef __unix__
 	bool symbols_gdb();
+	bool symbols_linux();
 # endif
 
 	void*			m_addresses[64];	///< Addresses of each function on the stack.

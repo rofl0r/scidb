@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1 $
-# Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+# Version: $Revision: 5 $
+# Date   : $Date: 2011-05-05 07:51:24 +0000 (Thu, 05 May 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -224,14 +224,16 @@ array set encoding2Region {
 }
 
 
-foreach entry $::i18n::languages {
-	lassign $entry language code encoding file
-	set f [file join $::scidb::dir::share lang $file]
+if {[info exists ::i18n::languages]} {
+	foreach entry $::i18n::languages {
+		lassign $entry language code encoding file
+		set f [file join $::scidb::dir::share lang $file]
 
-	if [file readable $f] {
-		set lang$language $code
-		set encoding$language $encoding
-		set input($language) $file
+		if [file readable $f] {
+			set lang$language $code
+			set encoding$language $encoding
+			set input($language) $file
+		}
 	}
 }
 

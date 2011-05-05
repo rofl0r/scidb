@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 5 $
+// Date   : $Date: 2011-05-05 07:51:24 +0000 (Thu, 05 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -33,10 +33,14 @@ lower_bound(ForwardIterator first, ForwardIterator last, LessThanComparable cons
 
 template <typename ForwardIterator, typename LessThanComparable>
 ForwardIterator
+upper_bound(ForwardIterator first, ForwardIterator last, LessThanComparable const& value);
+
+template <typename ForwardIterator, typename LessThanComparable>
+ForwardIterator
 binary_search(ForwardIterator first, ForwardIterator last, LessThanComparable const& value);
 
 template <typename ForwardIterator>
-ForwardIterator rotate (ForwardIterator first, ForwardIterator middle, ForwardIterator last);
+ForwardIterator rotate(ForwardIterator first, ForwardIterator middle, ForwardIterator last);
 
 } // namespace mstl
 

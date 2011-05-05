@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 5 $
+// Date   : $Date: 2011-05-05 07:51:24 +0000 (Thu, 05 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -391,7 +391,7 @@ prepare()
 						last = b;
 					}
 					else if (	last
-								&& !exists.testAndSet(last->second.first)
+								&& !exists.test_and_set(last->second.first)
 								&& b->second.second != Move(line[k + 1]).index()
 								&& position.find(hash) == position.end())
 					{

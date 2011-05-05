@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 5 $
+// Date   : $Date: 2011-05-05 07:51:24 +0000 (Thu, 05 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -131,7 +131,20 @@ bool
 ListToken::isEqualTo(Token const& token) const
 {
 	M_REQUIRE(dynamic_cast<ListToken const*>(&token));
-	return m_tokenList == static_cast<ListToken const&>(token).m_tokenList;
+
+	if (m_tokenList.size() != static_cast<ListToken const&>(token).m_tokenList.size())
+		return false;
+
+	for (unsigned i = 0; i < m_tokenList.size(); ++i)
+	{
+		Token const* lhs = m_tokenList[i].get();
+		Token const* rhs = static_cast<ListToken const&>(token).m_tokenList[i].get();
+
+		if (!(*lhs == *rhs))
+			return false;
+	}
+
+	return true;
 }
 
 
@@ -358,6 +371,18 @@ ListToken::append(Value value1, Value value2, Value value3)
 	list->append(value1);
 	list->append(value2);
 	list->append(value3);
+	append(list);
+}
+
+
+void
+ListToken::append(Value value1, Value value2, Value value3, Value value4)
+{
+	ListToken* list = new ListToken;
+	list->append(value1);
+	list->append(value2);
+	list->append(value3);
+	list->append(value4);
 	append(list);
 }
 

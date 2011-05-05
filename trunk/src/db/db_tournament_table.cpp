@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 5 $
+// Date   : $Date: 2011-05-05 07:51:24 +0000 (Thu, 05 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1307,7 +1307,7 @@ TournamentTable::emitKnockoutTable(TeXt::Receptacle& receptacle, KnockoutOrder o
 						// we need a preliminary test, probably this tournament isn't a knockout system
 						if (!used.test(p->player->ranking) && !used.test(p->opponent->player->ranking))
 						{
-							unsigned clashIndex;
+							unsigned clashIndex = 0; // shut up compiler
 
 							M_ASSERT(p->round == round);
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 5 $
+// Date   : $Date: 2011-05-05 07:51:24 +0000 (Thu, 05 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -663,7 +663,7 @@ EcoTable::Loader::load()
 		m_strm.read(buf, sizeof(buf));
 		unsigned version = bstrm.uint16();
 
-		if (version != 100)
+		if (version != 99)
 			DB_RAISE("unknown ECO version (%u)", version);
 
 		unsigned countCodes		= bstrm.uint32();

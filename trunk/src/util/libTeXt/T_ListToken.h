@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 5 $
+// Date   : $Date: 2011-05-05 07:51:24 +0000 (Thu, 05 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -58,6 +58,7 @@ public:
 	void append(Value value);
 	void append(Value value1, Value value2);
 	void append(Value value1, Value value2, Value value3);
+	void append(Value value1, Value value2, Value value3, Value value4);
 	void append(Value const* first, Value const* last);
 
 	TokenP front() const;

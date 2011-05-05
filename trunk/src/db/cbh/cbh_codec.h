@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 5 $
+// Date   : $Date: 2011-05-05 07:51:24 +0000 (Thu, 05 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -33,7 +33,6 @@
 #include "m_fstream.h"
 #include "m_map.h"
 #include "m_vector.h"
-#include "m_hash.h"
 #include "m_chunk_allocator.h"
 
 namespace sys { namespace utf8 { class Codec; }; };
@@ -117,7 +116,7 @@ private:
 
 	typedef mstl::map<uint32_t,NamebaseEntry*>				BaseMap;
 	typedef mstl::map<uint32_t,uint32_t>					AnnotationMap;
-	typedef mstl::hash<GameInfo const*,Source*>			SourceMap;
+	typedef mstl::map<GameInfo const*,Source*>				SourceMap;
 	typedef mstl::map<NamebaseEvent const*,Tournament>	TournamentMap;
 	typedef mstl::chunk_allocator<NamebaseEvent>			Allocator;
 	typedef mstl::vector<Team*>								TeamBase;
