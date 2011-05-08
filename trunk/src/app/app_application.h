@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 13 $
+// Date   : $Date: 2011-05-08 21:36:57 +0000 (Sun, 08 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -134,7 +134,7 @@ public:
 	void closeAllGames(Cursor& cursor);
 	void switchBase(Cursor& cursor);
 	void switchBase(mstl::string const& name);
-	void refreshGames();
+	void refreshGame() const;
 
 	Cursor& clipBase();
 	Cursor const& clipBase() const;
@@ -184,8 +184,8 @@ public:
 	static void stopUpdateTree();
 	static void cancelUpdateTree();
 
-	void startTrialMode(unsigned position);
-	void endTrialMode(unsigned position);
+	void startTrialMode();
+	void endTrialMode();
 
 	void searchGames(Cursor& cursor, db::Query const& query, unsigned view = 0, unsigned filter = None);
 	void recode(Cursor& cursor, mstl::string const& encoding, db::Log& log);

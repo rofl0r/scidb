@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1 $
-# Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+# Version: $Revision: 13 $
+# Date   : $Date: 2011-05-08 21:36:57 +0000 (Sun, 08 May 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -38,7 +38,7 @@ set Priv(sbset:cmd)		{}
 set Priv(sbset:orient)	{}
 
 
-set ButtonOrder { previous next update clear close ok cancel apply reset revert }
+set ButtonOrder { previous next update clear close ok apply cancel reset revert }
 	
 
 bind TScrollbar <ButtonPress-1>	{+ set ::widget::Priv(sbset:orient) [%W cget -orient] }

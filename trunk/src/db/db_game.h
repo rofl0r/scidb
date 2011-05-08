@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 13 $
+// Date   : $Date: 2011-05-08 21:36:57 +0000 (Sun, 08 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -133,7 +133,7 @@ public:
 		virtual void boardMove(Board const& board, Move const& move, bool forward) = 0;
 
 		virtual void updateEditor(edit::Root const* node) = 0;
-		virtual void updateEditor(DiffList const& nodes, TagSet const& tags, edit::Key const& lastKey) = 0;
+		virtual void updateEditor(DiffList const& nodes, TagSet const& tags) = 0;
 
 		static void setFlag(unsigned& value, unsigned flag, bool set);
 	};
@@ -304,7 +304,7 @@ public:
 	/// Get next moves (mainline and sub-variations)
 	void getNextMoves(StringList& result, unsigned flags = ExportFormat) const;
 	/// Get current key.
-	edit::Key currentKey() const;
+	edit::Key const& currentKey() const;
 	/// Get next keys (mainline and sub-variations).
 	void getNextKeys(StringList& result) const;
 	/// Get key of start position
@@ -430,6 +430,8 @@ public:
 	void setSubscriber(SubscriberP subscriber, unsigned action = NoUpdate);
 	/// Traverse whole game.
 	void updateSubscriber(unsigned action = UpdateBoard | UpdatePgn);
+	/// Traverse whole game.
+	void refreshSubscriber();
 	/// Set undo level.
 	void setUndoLevel(unsigned level);
 	/// Set game tags.

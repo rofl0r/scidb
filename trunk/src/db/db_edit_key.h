@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 13 $
+// Date   : $Date: 2011-05-08 21:36:57 +0000 (Sun, 08 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -44,6 +44,7 @@ public:
 	Key();
 	explicit Key(unsigned firstPly);
 	Key(mstl::string const& key);
+	Key(mstl::string const& key, char prefix);
 	Key(Key const& key, char prefix);
 
 	bool operator==(Key const& key) const;
@@ -53,7 +54,6 @@ public:
 
 	bool isVariationId() const;
 	bool isMainlineId() const;
-	bool isPrefixed() const;
 
 	mstl::string const& id() const;
 	char prefix() const;
@@ -65,6 +65,7 @@ public:
 	void addPly(unsigned ply);
 	void exchangePly(unsigned ply);
 	void removePly();
+	void incrementPly();
 
 	void addVariation(unsigned varno);
 	void exchangeVariation(unsigned varno);
@@ -73,10 +74,10 @@ public:
 
 	void clear();
 	void reset(unsigned firstPly);
-	Key& strip();
 
 	bool setPosition(Game& game) const;
 	bool setBoard(MoveNode const* root, Board& board) const;
+	Key successorKey(MoveNode const* current) const;
 
 	static bool isValid(mstl::string const& key);
 

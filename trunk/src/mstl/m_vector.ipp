@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 13 $
+// Date   : $Date: 2011-05-08 21:36:57 +0000 (Sun, 08 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -679,10 +679,9 @@ vector<T>::insert(iterator position, Iterator first, Iterator last)
 
 	if (size_type(this->m_end_of_storage - this->m_finish) >= n)
 	{
-		mstl::uninitialized_move(position, position + n, position + n);
+		mstl::uninitialized_move(position, position + n, this->m_finish);
 		bits::destroy(position, position + n);
-		mstl::uninitialized_copy(first, last, position);
-		this->m_finish += n;
+		this->m_finish = mstl::uninitialized_copy(first, last, position);
 	}
 	else
 	{

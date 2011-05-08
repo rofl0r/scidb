@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 9 $
-# Date   : $Date: 2011-05-05 12:47:35 +0000 (Thu, 05 May 2011) $
+# Version: $Revision: 13 $
+# Date   : $Date: 2011-05-08 21:36:57 +0000 (Sun, 08 May 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -73,7 +73,7 @@ toplevel .application -class $::scidb::app
 wm withdraw .application
 
 if {[::scidb::misc::debug?]} {
-	proc grab {args} {}
+#	proc grab {args} {}
 	if {[tk windowingsystem] eq "x11"} { ::scidb::tk::wm sync }
 }
 
