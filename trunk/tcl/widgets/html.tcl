@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1 $
-# Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+# Version: $Revision: 14 $
+# Date   : $Date: 2011-05-09 16:16:33 +0000 (Mon, 09 May 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -176,13 +176,6 @@ proc WidgetProc {w command args} {
 			return
 		}
 
-		measure {
-			if {[llength $args] != 1} {
-				error "wrong # args: should be \"[namespace current] $command <string>\""
-			}
-			return []
-		}
-
 		stimulate {
 			array unset HoverNodes
 			set Priv(lastNode) {}
@@ -211,7 +204,7 @@ proc ComputeBoundingBox {w node} {
 
 	if {[string length $tag]} {
 		switch $tag {
-			html - body { #skip }
+			html - body { ;# skip }
 
 			default {
 				set bbox [$w bbox $node]

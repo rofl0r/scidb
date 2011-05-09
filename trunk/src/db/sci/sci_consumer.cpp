@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 14 $
+// Date   : $Date: 2011-05-09 16:16:33 +0000 (Mon, 09 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -147,9 +147,7 @@ Consumer::sendComment(Comment const& comment, Annotation const& annotation, Mark
 			m_data.buffer()[-1] = '\n';
 		}
 
-		mstl::string text;
-		PgnReader::convertCommentToXml(comment, text);
-		m_data.put(text, text.size() + 1);
+		m_data.put(comment.content(), comment.size() + 1);
 		m_endOfRun = true;
 	}
 }

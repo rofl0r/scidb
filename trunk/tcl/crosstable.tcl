@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1 $
-# Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+# Version: $Revision: 14 $
+# Date   : $Date: 2011-05-09 16:16:33 +0000 (Mon, 09 May 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -698,9 +698,11 @@ proc ShowTrace {which} {
 	variable Vars
 
 	set dlg [winfo toplevel $Vars(html)].$which
+	set txt $dlg.f.text
 
 	if {[winfo exists $dlg]} {
-		$dlg.f.text delete 1.0 end
+		$txt configure -state normal
+		$txt delete 1.0 end
 	} else {
 		toplevel $dlg -class Scidb
 		set f [::ttk::frame $dlg.f]
@@ -729,7 +731,8 @@ proc ShowTrace {which} {
 		wm deiconify $dlg
 	}
 
-	$dlg.f.text insert end $Vars(output:$which)
+	$txt insert end $Vars(output:$which)
+	$txt configure -state disabled
 }
 
 
@@ -1097,22 +1100,6 @@ proc BuildMenu {m} {
 	}
 
 	$m add cascade -label $mc::Debugging -menu $sub
-}
-
-
-proc GenerateMotionEvent {} {
-	variable Vars
-
-	set drawable [$Vars(html) drawable]
-	set x [expr {[winfo pointerx .] - [winfo rootx $drawable]}]
-	set y [expr {[winfo pointery .] - [winfo rooty $drawable]}]
-	incr x 50
-	incr y 50
-	event generate $drawable <Motion> -x $x -y $y
-	incr x -50
-	incr y -50
-	event generate $drawable <Motion> -x $x -y $y
-	::tooltip::hide
 }
 
 

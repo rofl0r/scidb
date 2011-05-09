@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 14 $
+// Date   : $Date: 2011-05-09 16:16:33 +0000 (Mon, 09 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -4299,6 +4299,8 @@ PgnReader::replaceFigurineSet(char const* fromSet, char const* toSet, mstl::stri
 bool
 PgnReader::convertCommentToXml(mstl::string const& comment, mstl::string& result)
 {
+	M_REQUIRE(comment.c_str() != result.c_str());
+
 	char const* s		= comment.c_str();
 	bool hasDiagram	= false;
 

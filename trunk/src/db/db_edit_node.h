@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 13 $
-// Date   : $Date: 2011-05-08 21:36:57 +0000 (Sun, 08 May 2011) $
+// Version: $Revision: 14 $
+// Date   : $Date: 2011-05-09 16:16:33 +0000 (Mon, 09 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -350,7 +350,7 @@ class PreComment : public KeyNode
 {
 public:
 
-	PreComment(Work& work, db::Comment const& comment);
+	PreComment(Work const& work, db::Comment const& comment);
 
 	bool operator==(Node const* node) const;
 
@@ -360,10 +360,7 @@ public:
 
 private:
 
-	db::Comment	m_comment;
-	unsigned		m_level;
-	unsigned		m_spacing;
-	Bracket		m_bracket;
+	db::Comment m_comment;
 };
 
 
