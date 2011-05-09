@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 15 $
+// Date   : $Date: 2011-05-09 21:26:47 +0000 (Mon, 09 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -111,13 +111,17 @@ Encoder::encodeComments(MoveNode* node)
 
 	for (node = node->next(); node; node = node->next())
 	{
-		mstl::string comment(node->comment());
-
-		m_codec.fromUtf8(comment, comment);
-//		PgnWriter::convertExtensions(comment, PgnWriter::Mode_Extended);
-
 		if (node->hasComment() || node->hasMark())
 		{
+			mstl::string comment;
+
+			if (node->hasComment())
+			{
+				node->comment().flatten(comment);
+				m_codec.fromUtf8(comment, comment);
+//				PgnWriter::convertExtensions(comment, PgnWriter::Mode_Extended);
+			}
+
 			if (node->hasMark())
 			{
 				if (!comment.empty())
@@ -127,21 +131,9 @@ Encoder::encodeComments(MoveNode* node)
 
 				for (unsigned i = 0; i < marks.count(); ++i)
 					marks[i].toString(comment);
+			}
 
-				m_strm.put(comment, comment.size() + 1);
-			}
-			else
-			{
-				if (m_codec.is7BitAscii(comment, comment.size()))
-				{
-					m_strm.put(comment, comment.size() + 1);
-				}
-				else
-				{
-					m_codec.fromUtf8(comment, buf);
-					m_strm.put(buf.c_str(), buf.size() + 1);
-				}
-			}
+			m_strm.put(comment, comment.size() + 1);
 		}
 
 		if (node->hasVariation())
