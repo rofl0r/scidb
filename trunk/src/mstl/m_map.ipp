@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 16 $
+// Date   : $Date: 2011-05-10 10:29:31 +0000 (Tue, 10 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -130,7 +130,7 @@ map<K,V>::erase(iterator first, iterator last)
 
 template <typename K, typename V>
 typename map<K,V>::iterator
-map<K,V>::map<K,V>::lower_bound(const_key_ref k)
+map<K,V>::lower_bound(const_key_ref k)
 {
 	iterator first(begin());
 	iterator last(end());

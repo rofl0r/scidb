@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 16 $
+// Date   : $Date: 2011-05-10 10:29:31 +0000 (Tue, 10 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -19,8 +19,6 @@
 #include "jpeg_stream.h"
 #include "jpeg_exception.h"
 #include "jpeg_reader.h"
-
-#include <tcl.h>
 
 #include <string.h>
 #include <stdint.h>
