@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 9 $
-// Date   : $Date: 2011-05-05 12:47:35 +0000 (Thu, 05 May 2011) $
+// Version: $Revision: 20 $
+// Date   : $Date: 2011-05-15 12:32:40 +0000 (Sun, 15 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -401,7 +401,7 @@ View::dumpGame(unsigned index,
 	{
 		game.forward(lengths[i]);
 		positions.push_back();
-		game.board().toFen(positions.back());
+		game.currentBoard().toFen(positions.back());
 	}
 
 	return Result(ok, count);

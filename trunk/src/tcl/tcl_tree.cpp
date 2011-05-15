@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 20 $
+// Date   : $Date: 2011-05-15 12:32:40 +0000 (Sun, 15 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -363,7 +363,7 @@ cmdMove(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 {
 	if (Tree const* tree = Scidb.currentTree())
 	{
-		Board const& board = Scidb.game().board();
+		Board const& board = Scidb.game().currentBoard();
 
 		if (tree->isTreeFor(Scidb.cursor().database(), board))
 		{

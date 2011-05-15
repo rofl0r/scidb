@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 20 $
+// Date   : $Date: 2011-05-15 12:32:40 +0000 (Sun, 15 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -49,8 +49,6 @@ inline
 bool
 MoveNode::hasComment() const
 {
-	M_ASSERT(!(m_flags & HasComment) == m_comment.isEmpty());
-
 	return m_flags & HasComment;
 }
 
@@ -59,8 +57,6 @@ inline
 bool
 MoveNode::hasMark() const
 {
-	M_ASSERT(!(m_flags & HasMark) == !checkHasMark());
-
 	return m_flags & HasMark;
 }
 
@@ -69,8 +65,6 @@ inline
 bool
 MoveNode::hasAnnotation() const
 {
-	M_ASSERT(!(m_flags & HasAnnotation) == !checkHasAnnotation());
-
 	return m_flags & HasAnnotation;
 }
 
@@ -79,8 +73,6 @@ inline
 bool
 MoveNode::hasVariation() const
 {
-	M_ASSERT(!(m_flags & HasVariation) == m_variations.empty());
-
 	return m_flags & HasVariation;
 }
 
@@ -89,8 +81,6 @@ inline
 bool
 MoveNode::hasNote() const
 {
-	M_ASSERT(bool(m_flags & HasNote) == (!m_comment.isEmpty() || checkHasAnnotation() || checkHasMark()));
-
 	return m_flags & HasNote;
 }
 
@@ -99,11 +89,6 @@ inline
 bool
 MoveNode::hasSupplement() const
 {
-	M_ASSERT(bool(m_flags & HasSupplement) == (	!m_comment.isEmpty()
-															|| !m_variations.empty()
-															|| checkHasAnnotation()
-															|| checkHasMark()));
-
 	return m_flags & HasSupplement;
 }
 

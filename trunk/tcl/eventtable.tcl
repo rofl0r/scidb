@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1 $
-# Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+# Version: $Revision: 20 $
+# Date   : $Date: 2011-05-15 12:32:40 +0000 (Sun, 15 May 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -486,7 +486,7 @@ proc PopupMenu {path menu base index} {
 
 	$menu add command \
 		-label $::gametable::mc::ShowTournamentTable \
-		-command [namespace code [list ::crosstable::open $path $base $index $view]] \
+		-command [list ::crosstable::open $path $base $index $view] \
 		;
 }
 

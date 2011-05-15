@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 13 $
-# Date   : $Date: 2011-05-08 21:36:57 +0000 (Sun, 08 May 2011) $
+# Version: $Revision: 20 $
+# Date   : $Date: 2011-05-15 12:32:40 +0000 (Sun, 15 May 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -24,7 +24,7 @@
 # (at your option) any later version.
 # ======================================================================
 
-#set tcl_traceExec=1
+#set tcl_traceExec 1
 
 namespace eval scidb {
 namespace eval dir {
@@ -170,8 +170,7 @@ proc databasePath {file} {
 namespace eval remote {
 
 proc openBase {path} {
-	# TODO: raise main window
-	puts "raise .application"
+	raise .application
 
 	if {[llength $path]} {
 		# TODO: extend path with extension if needed

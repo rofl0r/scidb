@@ -1,7 +1,7 @@
 # # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1 $
-# Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+# Version: $Revision: 20 $
+# Date   : $Date: 2011-05-15 12:32:40 +0000 (Sun, 15 May 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -913,7 +913,7 @@
 ### save/replace #######################################################
 ::dialog::save::mc::SaveGame						"Partie speichern"
 ::dialog::save::mc::ReplaceGame					"Partie ersetzen"
-::dialog::save::mc::EditCharacteristics		"Kenndaten ändern"
+::dialog::save::mc::EditCharacteristics		"Kenndaten bearbeiten"
 	
 ::dialog::save::mc::GameData						"Partiedaten"
 ::dialog::save::mc::Event							"Turnier"

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 13 $
-// Date   : $Date: 2011-05-08 21:36:57 +0000 (Sun, 08 May 2011) $
+// Version: $Revision: 20 $
+// Date   : $Date: 2011-05-15 12:32:40 +0000 (Sun, 15 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -166,6 +166,8 @@ public:
 	bool isEmpty() const;
 	/// Return whether the game contains illegal moves.
 	bool containsIllegalMoves() const;
+	/// Return whether
+	bool containsLanguage(edit::Key const& key, mstl::string const& lang) const;
 	/// Return whether the game is currently at the start position of the mainline
 	bool atMainlineStart() const;
 	/// Return whether the game is at the end of the mainline
@@ -188,7 +190,7 @@ public:
 	// Accessing game information
 
 	/// Return current position
-	Board const& board() const;
+	Board const& currentBoard() const;
 	/// Return position at given key
 	Board board(edit::Key const& key) const;
 	/// Return position at given key

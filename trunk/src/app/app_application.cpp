@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 13 $
-// Date   : $Date: 2011-05-08 21:36:57 +0000 (Sun, 08 May 2011) $
+// Version: $Revision: 20 $
+// Date   : $Date: 2011-05-15 12:32:40 +0000 (Sun, 15 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -96,7 +96,7 @@ struct Runnable
 		,m_hpsig(game.currentLine(m_currentLine))
 		,m_idn(game.idn())
 		,m_startPosition(game.startBoard())
-		,m_currentPosition(game.board())
+		,m_currentPosition(game.currentBoard())
 		,m_tree(tree)
 	{
 	}
@@ -993,7 +993,7 @@ Application::updateTree(tree::Mode mode, rating::Type ratingType, PipedProgress&
 
 	base.openAsyncReader();
 
-	Runnable::TreeP tree(Tree::lookup(base, g.game->board(), mode, ratingType));
+	Runnable::TreeP tree(Tree::lookup(base, g.game->currentBoard(), mode, ratingType));
 
 	if (tree)
 	{
@@ -1026,7 +1026,7 @@ Application::finishUpdateTree(tree::Mode mode, rating::Type ratingType, attribut
 			Tree::addToCache(tree.get());
 
 			if (	m_referenceBase == 0
-				|| !tree->isTreeFor(m_referenceBase->base(), game().board(), mode, ratingType))
+				|| !tree->isTreeFor(m_referenceBase->base(), game().currentBoard(), mode, ratingType))
 			{
 				tree->compressFilter();
 				tree.reset(0);	// tree is incomplete or outdated
@@ -1046,7 +1046,7 @@ Application::finishUpdateTree(tree::Mode mode, rating::Type ratingType, attribut
 	{
 		if (!tree)
 		{
-			tree.reset(Tree::lookup(m_referenceBase->base(), game().board(), mode, ratingType));
+			tree.reset(Tree::lookup(m_referenceBase->base(), game().currentBoard(), mode, ratingType));
 
 			if (tree && !tree->isComplete())
 				tree.reset(0);

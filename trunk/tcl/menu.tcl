@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 5 $
-# Date   : $Date: 2011-05-05 07:51:24 +0000 (Thu, 05 May 2011) $
+# Version: $Revision: 20 $
+# Date   : $Date: 2011-05-15 12:32:40 +0000 (Sun, 15 May 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -45,8 +45,8 @@ set FileQuit				"&Quit"
 set GameNew					"&New Game"
 set GameNewShuffle		"New Game: &Shuffle"
 set GameNewShuffleSymm	"New Game: S&huffle (symmetrical only)"
-set GameSave				"&Save Game"		;# NEW
-set GameReplace			"&Replace Game"	;# NEW
+set GameSave				"&Save Game"
+set GameReplace			"&Replace Game"
 
 set HelpInfo				"&Info..."
 set HelpContents			"&Contents"

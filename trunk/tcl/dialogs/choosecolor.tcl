@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1 $
-# Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+# Version: $Revision: 20 $
+# Date   : $Date: 2011-05-15 12:32:40 +0000 (Sun, 15 May 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -29,26 +29,27 @@ namespace export chooseColor
 namespace eval choosecolor {
 namespace eval mc {
 ### Client Relevant Data ########################################
-set Ok				"&OK"
-set Cancel			"&Cancel"
+set Ok					"&OK"
+set Cancel				"&Cancel"
 
-set BaseColors		"Base Colors"
-set UserColors		"User Colors"
-set RecentColors	"Recent Colors"
-set OldColor		"Old Color"
-set CurrentColor	"Current Color"
-set Old				"Old"
-set Current			"Current"
-set Color			"Color"
-set Red				"Red"
-set Green			"Green"
-set Blue				"Blue"
-set Hue				"Hue"
-set Saturation		"Saturation"
-set Value			"Value"
-set Enter			"Enter"
-set AddColor		"Add current color to user colors"
-set ClickToEnter	"Click to enter hexadecimal value"
+set BaseColors			"Base Colors"
+set UserColors			"User Colors"
+set RecentColors		"Recent Colors"
+set OldColor			"Old Color"
+set CurrentColor		"Current Color"
+set Old					"Old"
+set Current				"Current"
+set Color				"Color"
+set ColorSelection	"Color Selection"
+set Red					"Red"
+set Green				"Green"
+set Blue					"Blue"
+set Hue					"Hue"
+set Saturation			"Saturation"
+set Value				"Value"
+set Enter				"Enter"
+set AddColor			"Add current color to user colors"
+set ClickToEnter		"Click to enter hexadecimal value"
 #################################################################
 } ;# namespace mc
 

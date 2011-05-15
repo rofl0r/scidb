@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1 $
-# Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+# Version: $Revision: 20 $
+# Date   : $Date: 2011-05-15 12:32:40 +0000 (Sun, 15 May 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -120,6 +120,10 @@ proc build {w menu width height} {
 	::toolbar::add $tbTools button -image $::icon::toolbarEcoBrowser		-command {}
 	::toolbar::add $tbTools button -image $::icon::toolbarTreeWindow		-command {}
 
+	::toolbar::add $tbTools button \
+		-image $::icon::toolbarCrossTable \
+		-command [namespace code ShowCrossTable] \
+		;
 	::toolbar::add $tbTools button \
 		-image $::icon::toolbarEngine \
 		-command [namespace code StartAnalysis] \
@@ -823,6 +827,15 @@ proc UpdateControls {} {
 
 proc StartAnalysis {} {
 	puts "StartAnalysis"
+}
+
+
+proc ShowCrossTable {} {
+	set base [::scidb::game::query database]
+	set index [::scidb::game::index]
+	set eventIndex [::scidb::db::fetch eventIndex $base $index]
+
+	::crosstable::open .application $base $eventIndex
 }
 
 

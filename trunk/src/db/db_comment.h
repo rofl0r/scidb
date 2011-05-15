@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 20 $
+// Date   : $Date: 2011-05-15 12:32:40 +0000 (Sun, 15 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -75,6 +75,7 @@ public:
 
 	bool isEmpty() const;
 	bool isXml() const;
+	bool containsLanguage(mstl::string const& lang) const;
 
 	unsigned size() const;
 	mstl::string const& content() const;
@@ -82,6 +83,7 @@ public:
 	mstl::string& content();
 
 	void remove(mstl::string const& lang);
+	void strip(LanguageSet const& set);
 	void setContent(mstl::string const& s);
 	void swap(Comment& comment);
 	void swap(mstl::string& content);

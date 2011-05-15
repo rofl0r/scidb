@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1 $
-# Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+# Version: $Revision: 20 $
+# Date   : $Date: 2011-05-15 12:32:40 +0000 (Sun, 15 May 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1366,8 +1366,8 @@ proc PopupMenu {table x y X Y} {
 			-command [namespace code [list OpenConfigureDialog $table $id $header]]
 
 		if {	!$Options(-pixels:$id)
-			&& (	$Options(-maxwidth:$id) == 0
-				|| $Options(-maxwidth:$id) > $Options(-width:$id))} {
+			&& (	($Options(-maxwidth:$id) == 0 && $Options(-minwidth:$id) > 0)
+				|| $Options(-maxwidth:$id) > $Options(-minwidth:$id))} {
 			$menu add separator
 			$menu add check \
 				-label $mc::AutoStretchColumn \
@@ -1666,10 +1666,10 @@ proc OpenConfigureDialog {table id header} {
 	}
 	::util::place $top center $table
 	wm deiconify $top
-	focus $f.bforeground
-	ttk::grabWindow $dlg
+	::focus $tbl.bforeground
+	ttk::grabWindow $top
 	tkwait window $top
-	ttk::releaseGrab $dlg
+	ttk::releaseGrab $top
 	keepFocus $table false
 }
 

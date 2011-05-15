@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 14 $
-# Date   : $Date: 2011-05-09 16:16:33 +0000 (Mon, 09 May 2011) $
+# Version: $Revision: 20 $
+# Date   : $Date: 2011-05-15 12:32:40 +0000 (Sun, 15 May 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -774,14 +774,14 @@ proc Open {which gameIndex} {
 	variable Vars
 
 	set base $Vars(base)
-	set info [::scidb::db::get gameInfo $gameIndex 0 $base]
+	set info [::scidb::db::get gameInfo $gameIndex -1 $base]
 	set path .application
 
 	if {$which eq "pgn"} {
 		::widget::busyOperation ::game::new $path $base $info $gameIndex
 	} else {
 		set Vars(${which}Id) \
-			[::widget::busyOperation ::${which}::load $path $base $info 0 $gameIndex $Vars(${which}Id)]
+			[::widget::busyOperation ::${which}::load $path $base $info -1 $gameIndex $Vars(${which}Id)]
 	}
 }
 
@@ -952,7 +952,7 @@ proc Mouse2Down {node} {
 	set gameIndex [$node attribute -default {} game]
 	if {[string length $gameIndex]} {
 		MouseEnter $node
-		::gametable::showMoves $Path $Vars(base) 0 $gameIndex 
+		::gametable::showMoves $Path $Vars(base) -1 $gameIndex 
 	} else {
 		set rank [$node attribute -default {} rank]
 		if {[string length $rank]} {

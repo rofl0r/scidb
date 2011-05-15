@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1 $
-# Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+# Version: $Revision: 20 $
+# Date   : $Date: 2011-05-15 12:32:40 +0000 (Sun, 15 May 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -42,7 +42,7 @@ set BackgroundSelection	"Background Selection"
 set Zoom						"Zoom"
 set Shadow					"Shadow"
 set Opacity					"Opacity"
-set ShadowDiffusion		"Shadow Diffusion"	;# NEW
+set ShadowDiffusion		"Shadow Diffusion"
 set None						"None"
 set Linear					"Linear"
 set Quadratic				"Quadratic"

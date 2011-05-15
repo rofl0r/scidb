@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1 $
-# Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+# Version: $Revision: 20 $
+# Date   : $Date: 2011-05-15 12:32:40 +0000 (Sun, 15 May 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -38,7 +38,7 @@ namespace import ::tcl::mathfunc::min
 
 variable List	{}	;# {<timestamp> <modified> {<base> <codec> <number>} <info>}
 variable Max	9
-variable Size	1
+variable Size	3
 variable Count	0
 
 array set Options {

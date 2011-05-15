@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1 $
-# Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+# Version: $Revision: 20 $
+# Date   : $Date: 2011-05-15 12:32:40 +0000 (Sun, 15 May 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -327,6 +327,7 @@ proc OpenBase {parent file encoding readonly} {
 	variable Vars
 	variable RecentFiles
 	variable Types
+	variable Defaults
 
 	if {![file readable $file]} {
 		set i [FindRecentFile $file]
@@ -363,8 +364,9 @@ proc OpenBase {parent file encoding readonly} {
 				set args {}
 				if {$readonly == -1} {
 					switch $ext {
-						.cbh		{ set readonly 1 }
-						default	{ set readonly 0 }
+						.cbh			{ set readonly 1 }
+						.si3 - .si4	{ set readonly $Defaults(si4-readonly) }
+						default		{ set readonly 0 }
 					}
 				}
 				if {[llength $encoding]} { lappend args -encoding $encoding }

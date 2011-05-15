@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1 $
-# Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+# Version: $Revision: 20 $
+# Date   : $Date: 2011-05-15 12:32:40 +0000 (Sun, 15 May 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -444,7 +444,7 @@ proc open {parent} {
 		bind $cb <ButtonRelease-1>	{+ ::tooltip::tooltip hide }
 		bind $cb <Enter> [namespace code { Tooltip %W }]
 		bind $cb <Leave> [namespace code { Tooltip hide }]
-		bind $cb <<ComboboxSelected>> [namespace code [list CheckNag $dlg $i]]
+		bind $cb <<ComboboxSelected>> [namespace code [list CheckNag $cb $i]]
 		bind $cb <<ComboBoxConfigured>> [namespace code [list Configured $cb]]
 
 		grid $cb -row 3 -column $col -sticky ew
@@ -705,16 +705,18 @@ proc CountNags {} {
 }
 
 
-proc CheckNag {dlg index} {
+proc CheckNag {cb index} {
 	variable Value
 	variable MaxNags
 
 	if {[CountNags] > $MaxNags} {
 		set Value(nag:$index) {}
-		TooManyNagsWarning $dlg
+		TooManyNagsWarning [winfo toplevel $cb]
 	} else {
-		SendNags $dlg
+		SendNags [winfo toplevel $cb]
 	}
+
+	if {[$cb get] eq "0"} { $cb set "" }
 }
 
 
