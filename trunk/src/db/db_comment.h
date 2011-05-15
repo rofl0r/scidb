@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 20 $
-// Date   : $Date: 2011-05-15 12:32:40 +0000 (Sun, 15 May 2011) $
+// Version: $Revision: 22 $
+// Date   : $Date: 2011-05-15 15:40:55 +0000 (Sun, 15 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -96,6 +96,8 @@ public:
 
 	unsigned countLength(mstl::string const& lang) const;
 	unsigned countLength(LanguageSet const& set) const;
+
+	static bool convertCommentToXml(mstl::string const& comment, mstl::string& result);
 
 private:
 

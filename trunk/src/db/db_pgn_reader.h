@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 22 $
+// Date   : $Date: 2011-05-15 15:40:55 +0000 (Sun, 15 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -156,7 +156,6 @@ public:
 	static country::Code extractCountryFromSite(mstl::string& data);
 	static time::Mode getTimeModeFromTimeControl(mstl::string const& value);
 	static event::Mode getEventMode(char const* event, char const* site);
-	static bool convertCommentToXml(mstl::string const& comment, mstl::string& result);
 	static bool parseRound(mstl::string const& data, unsigned& round, unsigned& subround);
 
 private:

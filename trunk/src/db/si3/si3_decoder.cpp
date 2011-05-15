@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 20 $
-// Date   : $Date: 2011-05-15 12:32:40 +0000 (Sun, 15 May 2011) $
+// Version: $Revision: 22 $
+// Date   : $Date: 2011-05-15 15:40:55 +0000 (Sun, 15 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -32,6 +32,7 @@
 #include "db_tag_set.h"
 #include "db_mark_set.h"
 #include "db_annotation.h"
+#include "db_comment.h"
 #include "db_move_node.h"
 #include "db_database_codec.h"
 #include "db_pgn_reader.h"
@@ -564,7 +565,7 @@ Decoder::decodeComments(MoveNode* node)
 			marks.extractFromComment(comment);
 			m_codec.toUtf8(comment);
 
-			if (PgnReader::convertCommentToXml(comment, result))
+			if (Comment::convertCommentToXml(comment, result))
 				node->addAnnotation(nag::Diagram);
 
 			node->swapMarks(marks);
@@ -707,7 +708,7 @@ Decoder::decodeComments(Consumer& consumer, unsigned flags, MoveNode* node)
 			marks.extractFromComment(comment);
 			m_codec.toUtf8(comment);
 
-			if (PgnReader::convertCommentToXml(comment, result))
+			if (Comment::convertCommentToXml(comment, result))
 				node->addAnnotation(nag::Diagram);
 
 			node->swapComment(result);
