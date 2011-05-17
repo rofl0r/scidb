@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 9 $
-# Date   : $Date: 2011-05-05 12:47:35 +0000 (Thu, 05 May 2011) $
+# Version: $Revision: 23 $
+# Date   : $Date: 2011-05-17 16:53:45 +0000 (Tue, 17 May 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -515,6 +515,10 @@ proc showInfo {path info} {
 		grid columnconfigure $top 0 -minsize 2
 		grid columnconfigure $top 2 -minsize $::theme::padding
 		grid rowconfigure $top {0 2} -minsize 2
+
+		if {[winfo exists $top.lt.photo] && [winfo exists $top.lt.flag]} {
+			grid rowconfigure $top.lt 2 -minsize 3
+		}
 	}
 
 	::tooltip::popup $path $w cursor

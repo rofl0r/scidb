@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 23 $
+// Date   : $Date: 2011-05-17 16:53:45 +0000 (Tue, 17 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1043,6 +1043,17 @@ namespace save
 		TooManyAnnotatorNames,
 	};
 }
+
+namespace display
+{
+	enum
+	{
+		CompactStyle	= 1 << 0,
+		ColumnStyle		= 1 << 1,
+		NarrowLines		= 1 << 2,
+		ShowDiagrams	= 1 << 3,
+	};
+};
 
 namespace type
 {

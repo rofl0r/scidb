@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 13 $
-// Date   : $Date: 2011-05-08 21:36:57 +0000 (Sun, 08 May 2011) $
+// Version: $Revision: 23 $
+// Date   : $Date: 2011-05-17 16:53:45 +0000 (Tue, 17 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -134,7 +134,7 @@ public:
 	void closeAllGames(Cursor& cursor);
 	void switchBase(Cursor& cursor);
 	void switchBase(mstl::string const& name);
-	void refreshGame() const;
+	void refreshGame(bool radical = false) const;
 
 	Cursor& clipBase();
 	Cursor const& clipBase() const;
@@ -171,6 +171,11 @@ public:
 	void clearGame(db::Board const* startPosition = 0);
 	db::save::State saveGame(Cursor& cursor, bool replace);
 	db::save::State updateCharacteristics(Cursor& cursor, unsigned index, db::TagSet const& tags);
+	void setupGame(unsigned linebreakThreshold,
+						unsigned linebreakMaxLineLengthMain,
+						unsigned linebreakMaxLineLengthVar,
+						unsigned linebreakMinCommentLength,
+						unsigned displayStyle);
 
 	void clearBase(Cursor& cursor);
 	void setReferenceBase(Cursor* cursor);

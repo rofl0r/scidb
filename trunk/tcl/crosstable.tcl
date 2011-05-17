@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 20 $
-# Date   : $Date: 2011-05-15 12:32:40 +0000 (Sun, 15 May 2011) $
+# Version: $Revision: 23 $
+# Date   : $Date: 2011-05-17 16:53:45 +0000 (Tue, 17 May 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -952,7 +952,7 @@ proc Mouse2Down {node} {
 	set gameIndex [$node attribute -default {} game]
 	if {[string length $gameIndex]} {
 		MouseEnter $node
-		::gametable::showMoves $Path $Vars(base) -1 $gameIndex 
+		::gametable::showGame $Path $Vars(base) -1 $gameIndex 
 	} else {
 		set rank [$node attribute -default {} rank]
 		if {[string length $rank]} {
@@ -972,7 +972,7 @@ proc Mouse2Up {node} {
 	set attr [$node attribute -default {} recv]
 	if {[string length $attr] == 0} { return }
 
-	::gametable::hideMoves $Path
+	::gametable::hideGame $Path
 	::playertable::hideInfo $Path
 	MouseLeave $node 1
 }

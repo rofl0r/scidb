@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 20 $
-# Date   : $Date: 2011-05-15 12:32:40 +0000 (Sun, 15 May 2011) $
+# Version: $Revision: 23 $
+# Date   : $Date: 2011-05-17 16:53:45 +0000 (Tue, 17 May 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -284,6 +284,8 @@ proc BuildTab {nb boardSize sw sh specified} {
 			grid $board -column [expr {2*($col + 1)}] -row [expr {4*($row + 1)}]
 			grid $text  -column [expr {2*($col + 1)}] -row [expr {4*($row + 1) + 2}] -sticky ew
 			$text tag configure figurine -font $::font::figurine
+			bind $text <Enter> [namespace code [list ShowMoves $text]]
+			bind $text <Leave> [namespace code [list HideMoves $text]]
 		}
 	}
 
@@ -301,6 +303,18 @@ proc BuildTab {nb boardSize sw sh specified} {
 
 	grid columnconfigure $f [list 1 [lindex $cols end]] -weight 1 -minsize 5
 	grid rowconfigure $f [list 3 [lindex $rows end]] -weight 1 -minsize 5
+}
+
+
+proc ShowMoves {text} {
+	if {[$text count -displaylines 1.0 2.0] > 2} {
+		::gametable::showMoves $text [$text get 1.0 end]
+	}
+}
+
+
+proc HideMoves {text} {
+	::gametable::hideMoves $text
 }
 
 

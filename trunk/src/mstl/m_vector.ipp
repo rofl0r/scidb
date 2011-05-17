@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 13 $
-// Date   : $Date: 2011-05-08 21:36:57 +0000 (Sun, 08 May 2011) $
+// Version: $Revision: 23 $
+// Date   : $Date: 2011-05-17 16:53:45 +0000 (Tue, 17 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -755,16 +755,17 @@ vector<T>::insert_aux(iterator position, const_reference value)
 		if (is_movable<T>::value)
 		{
 			::memmove(position + 1, position, mstl::distance(position, end())*sizeof(T));
-			::memset(position, 0, sizeof(T));
+			mstl::bits::construct(position, value);
 		}
 		else
 		{
 			mstl::bits::construct(this->m_finish, *(this->m_finish - 1));
-			mstl::copy_backward(position, this->m_finish - 1, this->m_finish);
+			if (position < this->m_finish)
+				mstl::copy_backward(position, this->m_finish - 1, this->m_finish);
+			*position = value;
 		}
 
 		++this->m_finish;
-		*position = value;
 	}
 	else
 	{

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 20 $
-# Date   : $Date: 2011-05-15 12:32:40 +0000 (Sun, 15 May 2011) $
+# Version: $Revision: 23 $
+# Date   : $Date: 2011-05-17 16:53:45 +0000 (Tue, 17 May 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -272,6 +272,7 @@ proc open {parent base info view index {fen {}}} {
 	bind $rt.header <<Language>> [namespace code [list UpdateHeader $position $info]]
 	bind $rt.header <Configure> [namespace code [list ConfigureHeader $position]]
 
+	::scidb::game::setup $position 240 80 0 0 no no no
 	::scidb::game::subscribe board $position [namespace current]::UpdateBoard
 	::scidb::game::subscribe pgn $position [namespace current]::UpdatePGN true
 	::scidb::db::subscribe gameList [namespace current]::Update [namespace current]::Close $position
@@ -285,17 +286,17 @@ proc open {parent base info view index {fen {}}} {
 }
 
 
-proc load {parent base info view index windowId} {
-	if {[llength $windowId] == 0} { set windowId _ }
-
-	if {![namespace exists [namespace current]::${windowId}]} {
-		return [open $parent $base $info $view $index]
-	}
-
-	variable ${windowId}::Vars
-	NextGame $Vars(dlg) $windowId {} [expr {$index - $Vars(index)}]
-	return $windowId
-}
+#proc load {parent base info view index windowId} {
+#	if {[llength $windowId] == 0} { set windowId _ }
+#
+#	if {![namespace exists [namespace current]::${windowId}]} {
+#		return [open $parent $base $info $view $index]
+#	}
+#
+#	variable ${windowId}::Vars
+#	NextGame $Vars(dlg) $windowId {} [expr {$index - $Vars(index)}]
+#	return $windowId
+#}
 
 
 proc makeOpeningLines {data} {

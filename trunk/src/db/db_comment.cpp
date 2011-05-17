@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 22 $
-// Date   : $Date: 2011-05-15 15:40:55 +0000 (Sun, 15 May 2011) $
+// Version: $Revision: 23 $
+// Date   : $Date: 2011-05-17 16:53:45 +0000 (Tue, 17 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -218,9 +218,10 @@ struct Normalize : public Comment::Callback
 			{
 				switch (s[0])
 				{
-					case '<': m_lang->str.append("&lt;", 4); break;
-					case '>': m_lang->str.append("&gt;", 4); break;
-					case '&': m_lang->str.append("&amp;", 5); break;
+					case '<':	m_lang->str.append("&lt;", 4); break;
+					case '>':	m_lang->str.append("&gt;", 4); break;
+					case '&':	m_lang->str.append("&amp;", 5); break;
+					default:		m_lang->str.append(s[0]); break;
 				}
 			}
 			else

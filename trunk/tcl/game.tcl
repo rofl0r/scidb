@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 20 $
-# Date   : $Date: 2011-05-15 12:32:40 +0000 (Sun, 15 May 2011) $
+# Version: $Revision: 23 $
+# Date   : $Date: 2011-05-17 16:53:45 +0000 (Tue, 17 May 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -54,9 +54,7 @@ proc new {parent base info {index -1}} {
 	variable Size
 	variable Count
 
-	if {[llength $List] == 0} {
-		::scidb::db::subscribe gameInfo [namespace current]::Update
-	}
+	set init [expr {[llength $List] == 0}]
 
 	if {$index == -1} { set index [incr Count] }
 	if {[llength $base] == 0} {
@@ -94,6 +92,10 @@ proc new {parent base info {index -1}} {
 		::scidb::game::switch $pos
 		::application::pgn::add $pos $base $info [::scidb::game::tags $pos]
 		lset List $pos $entry
+	}
+
+	if {$init} {
+		::scidb::db::subscribe gameInfo [namespace current]::Update
 	}
 
 	return $pos
