@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 26 $
+// Date   : $Date: 2011-05-19 22:11:39 +0000 (Thu, 19 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -80,7 +80,6 @@ inline rating::Type Tree::ratingType() const				{ return m_key.ratingType(); }
 
 inline void Tree::compressFilter()		{ m_filter.compress(); }
 inline void Tree::uncompressFilter()	{ m_filter.uncompress(); }
-inline void Tree::setIncomplete()		{ m_complete = false; }
 
 
 inline

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 26 $
+// Date   : $Date: 2011-05-19 22:11:39 +0000 (Thu, 19 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -82,6 +82,7 @@ private:
 
 	Move nextMove();
 	void skipVariations();
+	void checkVariant(TagSet& tags);
 
 	Decoder(Decoder const&);
 	Decoder& operator=(Decoder const&);
@@ -91,6 +92,7 @@ private:
 	decoder::Position	m_position;
 	MoveNode*			m_currentNode;
 	Move					m_move;
+	bool					m_hasVariantTag;
 
 #ifdef DEBUG_SI4
 	HomePawns m_homePawns;

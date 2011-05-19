@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 25 $
-// Date   : $Date: 2011-05-19 14:05:57 +0000 (Thu, 19 May 2011) $
+// Version: $Revision: 26 $
+// Date   : $Date: 2011-05-19 22:11:39 +0000 (Thu, 19 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1047,6 +1047,7 @@ Application::finishUpdateTree(tree::Mode mode, rating::Type ratingType, attribut
 			Tree::addToCache(tree.get());
 
 			if (	m_referenceBase == 0
+				|| m_referenceBase->base().countGames() != tree->filter().size()
 				|| !tree->isTreeFor(m_referenceBase->base(), game().currentBoard(), mode, ratingType))
 			{
 				tree->compressFilter();
@@ -1069,8 +1070,14 @@ Application::finishUpdateTree(tree::Mode mode, rating::Type ratingType, attribut
 		{
 			tree.reset(Tree::lookup(m_referenceBase->base(), game().currentBoard(), mode, ratingType));
 
-			if (tree && !tree->isComplete())
-				tree.reset(0);
+			if (tree)
+			{
+				if (tree->filter().size() != m_referenceBase->base().countGames())
+					tree->setIncomplete();
+
+				if (!tree->isComplete())
+					tree.reset(0);
+			}
 		}
 
 		if (tree)
@@ -1097,6 +1104,9 @@ Application::finishUpdateTree(tree::Mode mode, rating::Type ratingType, attribut
 			{
 				if (send)
 				{
+					M_ASSERT(m_referenceBase->database().id() == tree->database().id());
+					M_ASSERT(tree->filter().size() == m_referenceBase->database().countGames());
+
 					m_referenceBase->treeView().setGameFilter(tree->filter());
 
 					if (m_subscriber && m_referenceBase->hasTreeView())

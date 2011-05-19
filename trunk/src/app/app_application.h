@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 25 $
-// Date   : $Date: 2011-05-19 14:05:57 +0000 (Thu, 19 May 2011) $
+// Version: $Revision: 26 $
+// Date   : $Date: 2011-05-19 22:11:39 +0000 (Thu, 19 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -249,7 +249,7 @@ private:
 	EditGame* findGame(Cursor* cursor, unsigned index);
 
 	typedef mstl::map<unsigned,EditGame>		GameMap;
-	typedef mstl::map<unsigned,unsigned> 	IndexMap;
+	typedef mstl::map<unsigned,unsigned> 		IndexMap;
 	typedef mstl::map<mstl::string,Cursor*>	CursorMap;
 
 	Cursor*			m_current;

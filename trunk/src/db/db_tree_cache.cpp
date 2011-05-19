@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 26 $
+// Date   : $Date: 2011-05-19 22:11:39 +0000 (Thu, 19 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -120,6 +120,14 @@ TreeCache::setIncomplete()
 {
 	for (unsigned i = 0; i < m_inUse; ++i)
 		m_cache[i]->setIncomplete();
+}
+
+
+void
+TreeCache::setIncomplete(unsigned index)
+{
+	for (unsigned i = 0; i < m_inUse; ++i)
+		m_cache[i]->setIncomplete(index);
 }
 
 // vi:set ts=3 sw=3:

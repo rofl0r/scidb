@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 26 $
+// Date   : $Date: 2011-05-19 22:11:39 +0000 (Thu, 19 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -122,8 +122,10 @@ file::open(int fd, char const* mode)
 		set_unbuffered();
 	}
 
-	if (m_binary)			set_binary();
-	if (m_bufsize)			set_bufsize(m_bufsize);
+	if (m_binary)
+		set_binary();
+	if (m_bufsize)
+		set_bufsize(m_bufsize);
 }
 
 
@@ -143,31 +145,35 @@ file::open(FILE* fp)
 		set_unbuffered();
 	}
 
-	if (m_binary)			set_binary();
-	if (m_bufsize)			set_bufsize(m_bufsize);
+	if (m_binary)
+		set_binary();
+	if (m_bufsize)
+		set_bufsize(m_bufsize);
 }
 
 
 void
 file::close()
 {
-	if (m_open)
+	if (!m_open)
+		return;
+
+	int rc = 0;
+
+	if (fileno(m_fp) > 2)
 	{
-		if (fileno(m_fp) > 2)
-		{
-			if (::fclose(m_fp))
-				setstate(failbit);
-
-			m_fp = 0;
-		}
-
-		m_open = false;
+		rc = ::fclose(m_fp);
+		m_fp = 0;
 	}
 
+	m_open = false;
 	m_filename.clear();
 	delete [] m_buffer;
 	m_buffer = 0;
 	m_bufsize = 0;
+
+	if (rc)
+		setstate(failbit);
 }
 
 

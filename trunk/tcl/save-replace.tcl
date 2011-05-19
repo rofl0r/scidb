@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 23 $
-# Date   : $Date: 2011-05-17 16:53:45 +0000 (Tue, 17 May 2011) $
+# Version: $Revision: 26 $
+# Date   : $Date: 2011-05-19 22:11:39 +0000 (Thu, 19 May 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -2558,7 +2558,6 @@ proc CheckFields {top title fields} {
 	foreach tag [array names Lookup] {
 		if {![info exists Tags($tag)]} {
 			set value $Lookup($tag)
-puts "$tag --> $value"
 			if {[string length $value] == 0} {
 				lappend warnings [format $mc::TagIsEmpty $tag]
 			} elseif {$value ne "?"} {

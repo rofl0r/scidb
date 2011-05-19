@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 26 $
+// Date   : $Date: 2011-05-19 22:11:39 +0000 (Thu, 19 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -31,7 +31,7 @@ inline void ofstream::set_bufsize(unsigned size)	{ bits::file::set_bufsize(size)
 
 inline unsigned ofstream::bufsize() const	{ return bits::file::bufsize(); }
 inline char* ofstream::buffer() const		{ return bits::file::buffer(); }
-inline uint64_t ofstream::mtime()				{ return bits::file::mtime(); }
+inline uint64_t ofstream::mtime()			{ return bits::file::mtime(); }
 
 inline mstl::string const& ofstream::filename() const { return bits::file::filename(); }
 
