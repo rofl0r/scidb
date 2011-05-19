@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 15 $
-// Date   : $Date: 2011-05-09 21:26:47 +0000 (Mon, 09 May 2011) $
+// Version: $Revision: 25 $
+// Date   : $Date: 2011-05-19 14:05:57 +0000 (Thu, 19 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -117,7 +117,7 @@ Encoder::encodeComments(MoveNode* node)
 
 			if (node->hasComment())
 			{
-				node->comment().flatten(comment);
+				node->comment().flatten(comment, m_codec.isUtf8() ? Comment::Unicode : Comment::Latin1);
 				m_codec.fromUtf8(comment, comment);
 //				PgnWriter::convertExtensions(comment, PgnWriter::Mode_Extended);
 			}

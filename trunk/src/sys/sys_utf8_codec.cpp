@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 25 $
+// Date   : $Date: 2011-05-19 14:05:57 +0000 (Thu, 19 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1817,11 +1817,24 @@ Codec::utfNextChar(char const* s)
 }
 
 
+char const*
+Codec::utfNextChar(char const* s, uint16_t& code)
+{
+	return s + ::utfToUniChar(s, code);
+}
+
+
 bool
 Codec::convertFromUtf8(mstl::string const& in, mstl::string& out)
 {
 	M_REQUIRE(hasEncoding());
 	M_REQUIRE(validateUtf8(in));
+
+	if (m_isUtf8)
+	{
+		out = in;
+		return true;
+	}
 
 	Tcl_EncodingState state;
 
@@ -1886,6 +1899,12 @@ bool
 Codec::convertToUtf8(mstl::string const& in, mstl::string& out)
 {
 	M_REQUIRE(hasEncoding());
+
+	if (m_isUtf8)
+	{
+		out = in;
+		return true;
+	}
 
 	Tcl_EncodingState state;
 
@@ -1968,7 +1987,7 @@ Codec::fromUtf8(mstl::string const& in, mstl::string& out)
 {
 	M_REQUIRE(hasEncoding());
 
-	if (!is7BitAscii(in, in.size()))
+	if (!m_isUtf8 && !is7BitAscii(in, in.size()))
 		return convertFromUtf8(in, out);
 
 	out = in;
@@ -1981,7 +2000,7 @@ Codec::toUtf8(mstl::string const& in, mstl::string& out)
 {
 	M_REQUIRE(hasEncoding());
 
-	if (!is7BitAscii(in, in.size()))
+	if (!m_isUtf8 && !is7BitAscii(in, in.size()))
 		return convertToUtf8(in, out);
 
 	out = in;

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 25 $
+// Date   : $Date: 2011-05-19 14:05:57 +0000 (Thu, 19 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -150,7 +150,7 @@ public:
 	/// Saves a game at the given position.
 	void replaceGame(unsigned index, Game const& game);
 	/// Adds a game to the database.
-	void newGame(Game* game = 0);
+	save::State newGame(Game& game, GameInfo const& info);
 	/// Deletes (or undeletes) a game from the database.
 	void deleteGame(unsigned index, bool flag = true);
 	/// Set the game flags of the specified game.

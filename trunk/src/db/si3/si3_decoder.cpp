@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 22 $
-// Date   : $Date: 2011-05-15 15:40:55 +0000 (Sun, 15 May 2011) $
+// Version: $Revision: 25 $
+// Date   : $Date: 2011-05-19 14:05:57 +0000 (Thu, 19 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -565,7 +565,7 @@ Decoder::decodeComments(MoveNode* node)
 			marks.extractFromComment(comment);
 			m_codec.toUtf8(comment);
 
-			if (Comment::convertCommentToXml(comment, result))
+			if (Comment::convertCommentToXml(comment, result, Comment::Unicode))
 				node->addAnnotation(nag::Diagram);
 
 			node->swapMarks(marks);
@@ -708,7 +708,7 @@ Decoder::decodeComments(Consumer& consumer, unsigned flags, MoveNode* node)
 			marks.extractFromComment(comment);
 			m_codec.toUtf8(comment);
 
-			if (Comment::convertCommentToXml(comment, result))
+			if (Comment::convertCommentToXml(comment, result, Comment::Unicode))
 				node->addAnnotation(nag::Diagram);
 
 			node->swapComment(result);

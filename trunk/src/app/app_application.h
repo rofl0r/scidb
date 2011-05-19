@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 23 $
-// Date   : $Date: 2011-05-17 16:53:45 +0000 (Tue, 17 May 2011) $
+// Version: $Revision: 25 $
+// Date   : $Date: 2011-05-19 14:05:57 +0000 (Thu, 19 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -236,6 +236,8 @@ private:
 		uint64_t			crcIndex;
 		uint64_t			crcMoves;
 		bool				refresh;
+		mstl::string	sourceBase;
+		unsigned			sourceIndex;
 	};
 
 	EditGame& insertScratchGame(unsigned position);
@@ -250,17 +252,17 @@ private:
 	typedef mstl::map<unsigned,unsigned> 	IndexMap;
 	typedef mstl::map<mstl::string,Cursor*>	CursorMap;
 
-	Cursor*		m_current;
-	Cursor*		m_clipBase;
-	Cursor*		m_scratchBase;
-	Cursor*		m_referenceBase;
-	bool			m_switchReference;
-	bool			m_isUserSet;
-	unsigned		m_position;
-	GameMap		m_gameMap;
-	CursorMap	m_cursorMap;
-	IndexMap		m_indexMap;
-	TreeP			m_currentTree;
+	Cursor*			m_current;
+	Cursor*			m_clipBase;
+	Cursor*			m_scratchBase;
+	Cursor*			m_referenceBase;
+	bool				m_switchReference;
+	bool				m_isUserSet;
+	unsigned			m_position;
+	GameMap			m_gameMap;
+	CursorMap		m_cursorMap;
+	IndexMap			m_indexMap;
+	TreeP				m_currentTree;
 
 	mutable SubscriberP m_subscriber;
 

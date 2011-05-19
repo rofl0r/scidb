@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 5 $
-# Date   : $Date: 2011-05-05 07:51:24 +0000 (Thu, 05 May 2011) $
+# Version: $Revision: 25 $
+# Date   : $Date: 2011-05-19 14:05:57 +0000 (Thu, 19 May 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -480,6 +480,9 @@ proc ::tk::MenuUnpost menu {
                 ### FEATURE begin ####################################################
 		# We need a message after the grab is released,
                 # and after any menu button is invoked.
+                # This (simple) feature provides the possiblity
+                # to have popup menus with modal behavior, and
+                # this is very, very useful.
                 set m $menu
                 set parent [winfo parent $m]
                 while {[winfo class $parent] eq "Menu"} {

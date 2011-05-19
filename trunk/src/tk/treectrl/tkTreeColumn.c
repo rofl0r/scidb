@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 25 $
+// Date   : $Date: 2011-05-19 14:05:57 +0000 (Thu, 19 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -5822,10 +5822,10 @@ LayoutColumns(
 	if (visWidth < totalWidth &&
 			numSqueeze > 0 &&
 			(tree->alwaysSqueeze ||
-				(tree->prevTreeWidth > Tk_Width(tree->tkwin) ||
-					tree->prevVisWidth > visWidth ||
-					tree->prevColumnWidth > totalWidth ||
-					tree->prevColumnCount < columnCount))) {
+				(totalWidth == tree->prevColumnWidth &&
+					width < tree->prevTreeWidth &&
+					tree->prevColumnWidth <= tree->prevTreeWidth) ||
+					tree->prevColumnCount < columnCount)) {
 		int overplus = 0;
 		int numColumns = 0;
 		int spaceRemaining = totalWidth - visWidth;

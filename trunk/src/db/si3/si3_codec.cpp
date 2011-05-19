@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 9 $
-// Date   : $Date: 2011-05-05 12:47:35 +0000 (Thu, 05 May 2011) $
+// Version: $Revision: 25 $
+// Date   : $Date: 2011-05-19 14:05:57 +0000 (Thu, 19 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1652,7 +1652,7 @@ Codec::doEncoding(util::ByteStream& strm, GameData const& data, Signature const&
 db::Consumer*
 Codec::getConsumer(format::Type srcFormat)
 {
-	return new Consumer(srcFormat, *this);
+	return new Consumer(srcFormat, *this, encoding());
 }
 
 

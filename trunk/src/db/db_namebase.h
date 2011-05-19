@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 25 $
+// Date   : $Date: 2011-05-19 14:05:57 +0000 (Thu, 19 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -105,10 +105,12 @@ public:
 	void setMaxUsage(unsigned usage);
 
 	Entry* insert();
+	Entry* insert(mstl::string const& name);
 	Entry* insert(mstl::string const& name, unsigned limit);
 	Entry* insert(mstl::string const& name, unsigned id, unsigned limit);
 	Entry const* append(mstl::string const& name, unsigned id);
 
+	SiteEntry* insertSite(mstl::string const& name);
 	SiteEntry* insertSite(	mstl::string const& name,
 									unsigned id,
 									country::Code country,
@@ -117,6 +119,8 @@ public:
 	SiteEntry* appendSite(	mstl::string const& name, unsigned id);
 	SiteEntry* appendSite(	mstl::string const& name, unsigned id, country::Code country);
 
+	EventEntry* insertEvent(	mstl::string const& name,
+										NamebaseSite* site);
 	EventEntry* insertEvent(	mstl::string const& name,
 										unsigned id,
 										unsigned limit,
@@ -158,6 +162,7 @@ public:
 											event::Mode eventMode,
 											NamebaseSite* site);
 
+	PlayerEntry* insertPlayer(	mstl::string const& name);
 	PlayerEntry* insertPlayer(	mstl::string const& name, unsigned id, unsigned limit);
 	PlayerEntry* insertPlayer(	mstl::string const& name,
 										country::Code country,

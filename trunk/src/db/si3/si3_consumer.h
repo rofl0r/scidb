@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 25 $
+// Date   : $Date: 2011-05-19 14:05:57 +0000 (Thu, 19 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -53,7 +53,7 @@ class Consumer : private Encoder, public db::Consumer
 {
 public:
 
-	Consumer(format::Type srcFormat, Codec& codec);
+	Consumer(format::Type srcFormat, Codec& codec, mstl::string const& encoding);
 
 private:
 

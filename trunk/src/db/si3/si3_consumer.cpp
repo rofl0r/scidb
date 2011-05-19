@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 25 $
+// Date   : $Date: 2011-05-19 14:05:57 +0000 (Thu, 19 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -41,9 +41,9 @@ using namespace util;
 namespace db {
 namespace si3 {
 
-Consumer::Consumer(format::Type srcFormat, Codec& codec)
+Consumer::Consumer(format::Type srcFormat, Codec& codec, mstl::string const& encoding)
 	:Encoder(m_stream, codec.codec())
-	,db::Consumer(srcFormat)
+	,db::Consumer(srcFormat, encoding)
 	,m_stream(m_buffer, codec.blockSize())
 	,m_codec(codec)
 	,m_flagPos(0)
@@ -151,7 +151,7 @@ Consumer::sendComment(	Comment const& comment,
 	if (!marks.isEmpty())
 	{
 		mstl::string text;
-		comment.flatten(text);
+		comment.flatten(text, codec().isUtf8() ? Comment::Unicode : Comment::Latin1);
 
 		if (!text.empty())
 			text += ' ';
@@ -167,7 +167,7 @@ Consumer::sendComment(	Comment const& comment,
 		if (comment.isXml())
 		{
 			mstl::string text;
-			comment.flatten(text);
+			comment.flatten(text, codec().isUtf8() ? Comment::Unicode : Comment::Latin1);
 			m_comments.push_back(text);
 		}
 		else

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 25 $
+// Date   : $Date: 2011-05-19 14:05:57 +0000 (Thu, 19 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -3544,8 +3544,12 @@ nag::fromSymbol(mstl::string const& symbol)
 {
 	CommentToken const* p = mstl::lower_bound(Map, Map + U_NUMBER_OF(Map), symbol);
 
-	if (p == Map + U_NUMBER_OF(Map) || symbol.size() != p->token.size() || symbol != p->token)
+	if (	p == Map + U_NUMBER_OF(Map)
+		|| symbol.size() != p->token.size()
+		|| ::strncmp(symbol, p->token, symbol.size()) != 0)
+	{
 		return Null;
+	}
 
 	return nag::ID(p->value);
 }

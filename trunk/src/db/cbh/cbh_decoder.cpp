@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 22 $
-// Date   : $Date: 2011-05-15 15:40:55 +0000 (Sun, 15 May 2011) $
+// Version: $Revision: 25 $
+// Date   : $Date: 2011-05-19 14:05:57 +0000 (Thu, 19 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -617,6 +617,7 @@ Decoder::decodeComment(MoveNode* node, unsigned length, unsigned flags)
 					case '<':	str += '\x01'; break;
 					case '>':	str += '\x02'; break;
 					case '&':	str += '\x03'; break;
+					case '"':	str += '\x04'; break;
 					default:		str += c; break;
 				}
 			}

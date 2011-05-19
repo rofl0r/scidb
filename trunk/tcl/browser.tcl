@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 23 $
-# Date   : $Date: 2011-05-17 16:53:45 +0000 (Tue, 17 May 2011) $
+# Version: $Revision: 25 $
+# Date   : $Date: 2011-05-19 14:05:57 +0000 (Thu, 19 May 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -286,17 +286,17 @@ proc open {parent base info view index {fen {}}} {
 }
 
 
-#proc load {parent base info view index windowId} {
-#	if {[llength $windowId] == 0} { set windowId _ }
-#
-#	if {![namespace exists [namespace current]::${windowId}]} {
-#		return [open $parent $base $info $view $index]
-#	}
-#
-#	variable ${windowId}::Vars
-#	NextGame $Vars(dlg) $windowId {} [expr {$index - $Vars(index)}]
-#	return $windowId
-#}
+proc load {parent base info view index windowId} {
+	if {[llength $windowId] == 0} { set windowId _ }
+
+	if {![namespace exists [namespace current]::${windowId}]} {
+		return [open $parent $base $info $view $index]
+	}
+
+	variable ${windowId}::Vars
+	NextGame $Vars(dlg) $windowId {} [expr {$index - $Vars(index)}]
+	return $windowId
+}
 
 
 proc makeOpeningLines {data} {

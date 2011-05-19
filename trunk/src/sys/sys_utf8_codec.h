@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 25 $
+// Date   : $Date: 2011-05-19 14:05:57 +0000 (Thu, 19 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -70,6 +70,7 @@ public:
 	static unsigned countUtfChars(mstl::string const& s);
 	static unsigned utfCharLength(char const* s);
 	static char const* utfNextChar(char const* s);
+	static char const* utfNextChar(char const* s, uint16_t& code);
 	static unsigned levenstein(mstl::string const& lhs,
 										mstl::string const& rhs,
 										unsigned ins = 2,

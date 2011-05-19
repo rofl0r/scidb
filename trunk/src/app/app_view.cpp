@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 20 $
-// Date   : $Date: 2011-05-15 12:32:40 +0000 (Sun, 15 May 2011) $
+// Version: $Revision: 25 $
+// Date   : $Date: 2011-05-19 14:05:57 +0000 (Thu, 19 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -500,7 +500,7 @@ View::exportGames(mstl::string const& filename,
 //		else
 		{
 			format::Type format(ext == "si3" ? format::Scid3 : format::Scid4);
-			si3::Consumer consumer(format, dynamic_cast<si3::Codec&>(destination.codec()));
+			si3::Consumer consumer(format, dynamic_cast<si3::Codec&>(destination.codec()), encoding);
 			count = exportGames(consumer, gameMode, log, progress);
 		}
 
