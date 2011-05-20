@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 27 $
+// Date   : $Date: 2011-05-20 14:02:53 +0000 (Fri, 20 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -38,6 +38,8 @@ namespace db {
 class MarkSet
 {
 public:
+
+	MarkSet();
 
 	bool operator==(MarkSet const& marks) const;
 	bool operator!=(MarkSet const& marks) const;

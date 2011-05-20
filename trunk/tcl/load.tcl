@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 9 $
-# Date   : $Date: 2011-05-05 12:47:35 +0000 (Thu, 05 May 2011) $
+# Version: $Revision: 27 $
+# Date   : $Date: 2011-05-20 14:02:53 +0000 (Fri, 20 May 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -78,8 +78,10 @@ proc load {msg type path} {
 	set currentFile $path
 
 	if {[catch {::scidb::app::load $type $path} err]} {
-		::log::error [format $mc::FileIsCorrupt $path]
+		set msg [format $mc::FileIsCorrupt $path]
+		::log::error $msg
 		::log::error $err
+		puts "$msg -- $err"
 	} else {
 		::log::info "$msg: $path"
 	}

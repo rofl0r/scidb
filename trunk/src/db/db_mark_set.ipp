@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 27 $
+// Date   : $Date: 2011-05-20 14:02:53 +0000 (Fri, 20 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -27,6 +27,8 @@
 #include "m_assert.h"
 
 namespace db {
+
+inline MarkSet::MarkSet() {} // gcc-4.6 complains w/o explicit default constructor
 
 inline bool MarkSet::isEmpty() const						{ return m_marks.empty(); }
 inline unsigned MarkSet::count() const						{ return m_marks.size(); }

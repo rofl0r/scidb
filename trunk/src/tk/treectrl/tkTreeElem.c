@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 27 $
+// Date   : $Date: 2011-05-20 14:02:53 +0000 (Fri, 20 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -3407,7 +3407,6 @@ static void HeightProcText(TreeElementArgs *args)
 	ElementText *masterX = (ElementText *) elem->master;
 	int state = args->state;
 	int height = 0;
-	char *text = NULL;
 	int textLen = 0;
 	Tk_Font tkfont;
 	Tk_FontMetrics fm;
@@ -3419,10 +3418,8 @@ static void HeightProcText(TreeElementArgs *args)
 		TextLayout_Size(etl2->layout, NULL, &height);
 	} else {
 		if (elemX->text != NULL) {
-			text = elemX->text;
 			textLen = elemX->textLen;
 		} else if ((masterX != NULL) && (masterX->text != NULL)) {
-			text = masterX->text;
 			textLen = masterX->textLen;
 		}
 		if (textLen > 0) {

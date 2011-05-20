@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 26 $
-// Date   : $Date: 2011-05-19 22:11:39 +0000 (Thu, 19 May 2011) $
+// Version: $Revision: 27 $
+// Date   : $Date: 2011-05-20 14:02:53 +0000 (Fri, 20 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -171,7 +171,7 @@ struct Normalize : public Comment::Callback
 
 		if (m_isXml)
 		{
-			m_result.insert(0u, "<xml>");
+			m_result.insert(size_t(0), "<xml>");
 			m_result += "</xml>";
 		}
 	}

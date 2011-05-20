@@ -1,6 +1,6 @@
 // ======================================================================
-// @version $Revision: 1 $
-// @lastmodified $LastChangedDate: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// @version $Revision: 27 $
+// @lastmodified $LastChangedDate: 2011-05-20 14:02:53 +0000 (Fri, 20 May 2011) $
 // @modifiedby $LastChangedBy$
 // ======================================================================
 
@@ -2605,9 +2605,7 @@ Item_ToggleOpen(
 	int stateOn					/* STATE_OPEN or 0 */
 	)
 {
-	int mask;
-
-	mask = TreeItem_ChangeState(tree, item, stateOff, stateOn);
+	TreeItem_ChangeState(tree, item, stateOff, stateOn);
 
 	if (IS_ROOT(item) && !tree->showRoot)
 		return;

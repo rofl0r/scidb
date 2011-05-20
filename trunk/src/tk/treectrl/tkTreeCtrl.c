@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 27 $
+// Date   : $Date: 2011-05-20 14:02:53 +0000 (Fri, 20 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2643,6 +2643,9 @@ Tree_AddToSelection(
 				TreeItem_GetID(tree, item));
 	TreeItem_ChangeState(tree, item, 0, STATE_SELECTED);
 	hPtr = Tcl_CreateHashEntry(&tree->selection, (char *) item, &isNew);
+	if (hPtr == NULL)
+		panic("Tree_AddToSelection: item %d not found in selection hash table",
+				TreeItem_GetID(tree, item));
 	if (!isNew)
 		panic("Tree_AddToSelection: item %d already in selection hash table",
 				TreeItem_GetID(tree, item));
