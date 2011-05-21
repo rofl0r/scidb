@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 9 $
-// Date   : $Date: 2011-05-05 12:47:35 +0000 (Thu, 05 May 2011) $
+// Version: $Revision: 28 $
+// Date   : $Date: 2011-05-21 14:57:26 +0000 (Sat, 21 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -72,7 +72,8 @@ Filter::add(unsigned index)
 	if (!m_set.test_and_set(index))
 		++m_count;
 
-	M_ASSERT(checkClassInvariance());
+// too slow!
+//	M_ASSERT(checkClassInvariance());
 }
 
 

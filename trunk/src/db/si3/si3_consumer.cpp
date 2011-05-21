@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 25 $
-// Date   : $Date: 2011-05-19 14:05:57 +0000 (Thu, 19 May 2011) $
+// Version: $Revision: 28 $
+// Date   : $Date: 2011-05-21 14:57:26 +0000 (Sat, 21 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -118,6 +118,22 @@ Consumer::endMoveSection(result::ID)
 
 
 void
+Consumer::pushComment(Comment const& comment)
+{
+	if (comment.isXml())
+	{
+		mstl::string text;
+		comment.flatten(text, codec().isUtf8() ? Comment::Unicode : Comment::Latin1);
+		m_comments.push_back(text);
+	}
+	else
+	{
+		m_comments.push_back(comment.content());
+	}
+}
+
+
+void
 Consumer::sendComment(	Comment const& comment,
 								Annotation const& annotation,
 								MarkSet const& marks,
@@ -163,18 +179,18 @@ Consumer::sendComment(	Comment const& comment,
 	else if (!comment.isEmpty())
 	{
 		m_strm.put(token::Comment);
-
-		if (comment.isXml())
-		{
-			mstl::string text;
-			comment.flatten(text, codec().isUtf8() ? Comment::Unicode : Comment::Latin1);
-			m_comments.push_back(text);
-		}
-		else
-		{
-			m_comments.push_back(comment.content());
-		}
+		pushComment(comment);
 	}
+}
+
+
+void
+Consumer::sendComment(Comment const& comment)
+{
+	m_strm.put(token::Start_Marker);
+	m_strm.put(token::Comment);
+	m_strm.put(token::End_Marker);
+	pushComment(comment);
 }
 
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 5 $
-// Date   : $Date: 2011-05-05 07:51:24 +0000 (Thu, 05 May 2011) $
+// Version: $Revision: 28 $
+// Date   : $Date: 2011-05-21 14:57:26 +0000 (Sat, 21 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -134,7 +134,7 @@ DatabaseCodec::CustomFlags::set(unsigned n, char const* text)
 {
 	M_REQUIRE(n < 6);
 
-	unsigned len = mstl::min(8u, ::strlen(text));
+	unsigned len = mstl::min(size_t(8), ::strlen(text));
 	::strncpy(m_text[n], text, len);
 	m_text[n][len] = '\0';
 }
@@ -145,7 +145,7 @@ DatabaseCodec::CustomFlags::set(unsigned n, mstl::string const& text)
 {
 	M_REQUIRE(n < 6);
 
-	unsigned len = mstl::min(8u, text.size());
+	unsigned len = mstl::min(size_t(8), text.size());
 	::memcpy(m_text[n], text, len);
 	m_text[n][len] = '\0';
 }

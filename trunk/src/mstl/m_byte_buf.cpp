@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 28 $
+// Date   : $Date: 2011-05-21 14:57:26 +0000 (Sat, 21 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -136,7 +136,7 @@ Codec::compress(unsigned src_bytes, byte const* data)
 			while (p < end && *p == value)
 				++p;
 
-			unsigned rle = mstl::min(16777215, p - src);
+			unsigned rle = mstl::min(size_t(16777215), size_t(p - src));
 
 			if (rle >= Min_RLE_Length)
 			{
@@ -206,7 +206,7 @@ Codec::uncompress(byte_buf const& buf, byte* dst, unsigned dst_bytes)
 	if (*buf.data() == Flag_Copied)
 	{
 		M_ASSERT(dst_bytes + 1 == buf.size());
-		::memcpy(dst, buf.data() + 1, mstl::min(buf.size(), dst_bytes));
+		::memcpy(dst, buf.data() + 1, mstl::min(buf.size(), size_t(dst_bytes)));
 		return;
 	}
 

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 5 $
-# Date   : $Date: 2011-05-05 07:51:24 +0000 (Thu, 05 May 2011) $
+# Version: $Revision: 28 $
+# Date   : $Date: 2011-05-21 14:57:26 +0000 (Sat, 21 May 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -235,6 +235,14 @@ if {[info exists ::i18n::languages]} {
 			set input($language) $file
 		}
 	}
+}
+
+
+proc countryForLang {lang} {
+	variable langToCountry
+
+	if {[info exists langToCountry($lang)]} { return $langToCountry($lang) }
+	return UNK
 }
 
 

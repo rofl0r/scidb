@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 25 $
-// Date   : $Date: 2011-05-19 14:05:57 +0000 (Thu, 19 May 2011) $
+// Version: $Revision: 28 $
+// Date   : $Date: 2011-05-21 14:57:26 +0000 (Sat, 21 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -73,6 +73,7 @@ private:
 							MarkSet const& marks,
 							bool isPreComment);
 
+	void sendComment(Comment const& comment);
 	void sendComment(Comment const& comment, Annotation const& annotation, MarkSet const& marks);
 	bool sendMove(Move const& move);
 	bool sendMove(	Move const& move,
@@ -84,6 +85,8 @@ private:
 	void endMoveSection(result::ID result);
 	void beginVariation();
 	void endVariation();
+
+	void pushComment(Comment const& comment);
 
 	bool checkMove(Move const& move);
 

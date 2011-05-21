@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 25 $
-// Date   : $Date: 2011-05-19 14:05:57 +0000 (Thu, 19 May 2011) $
+// Version: $Revision: 28 $
+// Date   : $Date: 2011-05-21 14:57:26 +0000 (Sat, 21 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1770,7 +1770,7 @@ PgnReader::checkTag(ID tag, mstl::string& value)
 				if (::isElo(value.begin(), value.end()))
 				{
 					if (value[0] == '0')
-						value.erase(0u, 1u);
+						value.erase(size_t(0), size_t(1));
 
 					int rat = ::strtoul(value, 0, 10);
 

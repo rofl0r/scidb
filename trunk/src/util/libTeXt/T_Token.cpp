@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 28 $
+// Date   : $Date: 2011-05-21 14:57:26 +0000 (Sat, 21 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -77,7 +77,7 @@ Token::name(Environment& env) const
 		if (0 <= escapeChar && escapeChar <= 255)
 			result[0] = escapeChar;
 		else
-			result.erase(0u, 1u);
+			result.erase(size_t(0), size_t(1));
 	}
 
 	return result;

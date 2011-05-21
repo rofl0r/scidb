@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 20 $
-// Date   : $Date: 2011-05-15 12:32:40 +0000 (Sun, 15 May 2011) $
+// Version: $Revision: 28 $
+// Date   : $Date: 2011-05-21 14:57:26 +0000 (Sat, 21 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -653,8 +653,8 @@ TournamentTable::guessBestMode()
 		Player const* player = i->second;
 		Player::ClashList const& clashList = player->clashList;
 
-		minGameCount = mstl::min(minGameCount, clashList.size());
-		maxGameCount = mstl::max(maxGameCount, clashList.size());
+		minGameCount = mstl::min(size_t(minGameCount), clashList.size());
+		maxGameCount = mstl::max(size_t(maxGameCount), clashList.size());
 
 		Player const* opponent = 0;
 

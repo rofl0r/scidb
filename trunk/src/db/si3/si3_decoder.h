@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 26 $
-// Date   : $Date: 2011-05-19 22:11:39 +0000 (Thu, 19 May 2011) $
+// Version: $Revision: 28 $
+// Date   : $Date: 2011-05-21 14:57:26 +0000 (Sat, 21 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -78,7 +78,6 @@ private:
 	void decodePawn(sq::ID from, Byte nybble);
 
 	void decodeVariation(Consumer& consumer, MoveNode const* node);
-	void decodeComments(Consumer& consumer, unsigned flags, MoveNode* node);
 
 	Move nextMove();
 	void skipVariations();

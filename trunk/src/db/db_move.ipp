@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 28 $
+// Date   : $Date: 2011-05-21 14:57:26 +0000 (Sat, 21 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -107,6 +107,17 @@ Move::Move(Square from, Square to, unsigned color)
 	:m(from | (to << 6) | (color << Shift_SideToMove))
 	,u(0)
 {
+}
+
+
+inline
+void
+Move::setLegalMove(bool flag)
+{
+	if (flag)
+		setLegalMove();
+	else
+		setIllegalMove();
 }
 
 

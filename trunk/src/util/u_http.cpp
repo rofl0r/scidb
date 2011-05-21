@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 28 $
+// Date   : $Date: 2011-05-21 14:57:26 +0000 (Sat, 21 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -560,7 +560,7 @@ Http::get(char const* url, mstl::ostream& stream)
 
 		char buffer[500];
 
-		rc = sock.recv(mstl::min(sizeof(buffer), unsigned(contentSize)), buffer);
+		rc = sock.recv(mstl::min(sizeof(buffer), size_t(contentSize)), buffer);
 
 		if (rc <= 0)
 			return rc == 0 ? bytesRead : rc;
@@ -618,7 +618,7 @@ void
 Http::makeRequest(char const* command, mstl::string const& url, mstl::string& result)
 {
 	static mstl::string const HttpVersion("HTTP/1.0");
-	static mstl::string const DefaultUserAgent("HTTP/Scidb ($Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $)");
+	static mstl::string const DefaultUserAgent("HTTP/Scidb ($Date: 2011-05-21 14:57:26 +0000 (Sat, 21 May 2011) $)");
 
 	result += command;
 	result += " ";

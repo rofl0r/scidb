@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1 $
-# Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+# Version: $Revision: 28 $
+# Date   : $Date: 2011-05-21 14:57:26 +0000 (Sat, 21 May 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -189,8 +189,8 @@ proc BuildContributionsFrame {w} {
 	grid columnconfigure $w 0 -weight 1
 
 	$t insert end "[set [namespace current]::mc::Localization]:\n" caption
-	$t insert end "Giovanni Ornaghi ($::encoding::mc::Lang(it)), "
-	$t insert end "Gregor Cramer ($::encoding::mc::Lang(en))"
+	$t insert end "Giovanni Ornaghi ([::encoding::languageName it]), "
+	$t insert end "Gregor Cramer ([::encoding::languageName en])"
 
 	$t insert end "\n\n"
 	$t insert end "[set [namespace current]::mc::Testing]:\n" caption

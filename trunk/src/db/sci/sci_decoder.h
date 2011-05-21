@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 28 $
+// Date   : $Date: 2011-05-21 14:57:26 +0000 (Sat, 21 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -65,8 +65,8 @@ private:
 
 	void decodeRun(unsigned count);
 	void decodeRun(unsigned count, Consumer& consumer);
-	void decodeVariation(unsigned flags, unsigned level = 0);
-	void decodeVariation(Consumer& consumer, util::ByteStream& text, unsigned flags, unsigned level = 0);
+	void decodeVariation(unsigned flags);
+	void decodeVariation(Consumer& consumer, util::ByteStream& text, unsigned flags);
 	void decodeComments(MoveNode* node);
 	void decodeTags(util::ByteStream& strm, TagSet& tags);
 	void skipTags();

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 28 $
+// Date   : $Date: 2011-05-21 14:57:26 +0000 (Sat, 21 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -79,7 +79,7 @@ Tokenizer::fixLine()
 //			++m;
 
 		if (m > 0)
-			m_line.erase(0u, m);
+			m_line.erase(size_t(0), m);
 
 		mstl::string::size_type n = 0;
 		m = mstl::string::npos;

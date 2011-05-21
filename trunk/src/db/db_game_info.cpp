@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 28 $
+// Date   : $Date: 2011-05-21 14:57:26 +0000 (Sat, 21 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -115,7 +115,7 @@ encodeCount(unsigned count)
 		15,													// >= 45
 	};
 
-	return Lookup[mstl::min(count, U_NUMBER_OF(Lookup) - 1)];
+	return Lookup[mstl::min(size_t(count), U_NUMBER_OF(Lookup) - 1)];
 }
 
 

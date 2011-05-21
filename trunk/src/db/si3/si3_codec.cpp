@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 25 $
-// Date   : $Date: 2011-05-19 14:05:57 +0000 (Thu, 19 May 2011) $
+// Version: $Revision: 28 $
+// Date   : $Date: 2011-05-21 14:57:26 +0000 (Sat, 21 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -874,7 +874,7 @@ Codec::writeIndexHeader(mstl::fstream& fstrm)
 	strm << uint32_t(Encoder::encodeType(type()));	// base type
 	strm << uint24_t(gameInfoList().size());			// number of games
 	strm << uint24_t(autoLoad);							// auto load
-	strm.put(description(), mstl::min(description().size(), 119 - strm.tellp()));
+	strm.put(description(), mstl::min(description().size(), size_t(119 - strm.tellp())));
 
 	if (!fstrm.seekp(8, mstl::ios_base::beg))	// skip magic
 		IO_RAISE(Index, Corrupted, "unexpected end of index file");

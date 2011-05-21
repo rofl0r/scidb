@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 26 $
-# Date   : $Date: 2011-05-19 22:11:39 +0000 (Thu, 19 May 2011) $
+# Version: $Revision: 28 $
+# Date   : $Date: 2011-05-21 14:57:26 +0000 (Sat, 21 May 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -641,7 +641,7 @@ proc BuildOptionsFrame_pdf {w} {
 	set Figurines {}
 	foreach lang [array names ::font::figurines] {
 		if {$lang ne "graphic"} {
-			lappend Figurines [list $lang $::encoding::mc::Lang($lang)]
+			lappend Figurines [list $lang [::encoding::languageName $lang]]
 		}
 	}
 	set Figurines [lsort -index 1 -dictionary $Figurines]
