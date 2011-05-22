@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 28 $
-// Date   : $Date: 2011-05-21 14:57:26 +0000 (Sat, 21 May 2011) $
+// Version: $Revision: 29 $
+// Date   : $Date: 2011-05-22 15:48:52 +0000 (Sun, 22 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -142,15 +142,6 @@ Encoder::encodeComments(MoveNode* node)
 			{
 				for (unsigned i = 0; i < node->variationCount(); ++i)
 					encodeComments(node->variation(i));
-			}
-
-			if (node->hasPreComment())
-			{
-				mstl::string comment;
-
-				node->preComment().flatten(comment, m_codec.isUtf8() ? Comment::Unicode : Comment::Latin1);
-				m_codec.fromUtf8(comment, comment);
-				m_strm.put(comment, comment.size() + 1);
 			}
 		}
 	}
@@ -542,15 +533,6 @@ Encoder::encodeVariation(MoveNode const* node, unsigned level)
 			m_strm.put(token::Start_Marker);
 			encodeVariation(var, level + 1);
 			m_position.pop();
-		}
-
-		if (node->hasPreComment())
-		{
-			// Scid cannot handle comments preceding next move. As a workaround
-			// we will insert an empty variation.
-			m_strm.put(token::Start_Marker);
-			m_strm.put(token::Comment);
-			m_strm.put(token::End_Marker);
 		}
 	}
 

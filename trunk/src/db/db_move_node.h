@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 28 $
-// Date   : $Date: 2011-05-21 14:57:26 +0000 (Sat, 21 May 2011) $
+// Version: $Revision: 29 $
+// Date   : $Date: 2011-05-22 15:48:52 +0000 (Sun, 22 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -128,6 +128,7 @@ public:
 	void setComment();
 	void setPreComment();
 	void unsetComment();
+	void unsetPreComment();
 	void setMark();
 
 	void setMove(Board const& board, Move const& move);

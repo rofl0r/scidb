@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 28 $
-// Date   : $Date: 2011-05-21 14:57:26 +0000 (Sat, 21 May 2011) $
+// Version: $Revision: 29 $
+// Date   : $Date: 2011-05-22 15:48:52 +0000 (Sun, 22 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -335,7 +335,7 @@ Decoder::decodeVariation(unsigned flags, unsigned level)
 									// This is the last variation. Handle this comment as a pre-comment.
 									current->deleteVariation(current->countVariations() - 1);
 									m_currentNode->unsetComment();
-									current->setPreComment();
+									// XXX but for next node!
 								}
 							}
 							else
@@ -556,17 +556,6 @@ Decoder::decodeComments(MoveNode* node)
 
 			for (unsigned i = 0; i < node->variationCount(); ++i)
 				decodeComments(node->variation(i));
-
-			if (node->hasPreComment())
-			{
-				mstl::string comment;
-				mstl::string result;
-
-				m_strm.get(comment);
-				m_codec.toUtf8(comment);
-				Comment::convertCommentToXml(comment, result, Comment::Unicode);
-				node->swapComment(result);
-			}
 		}
 	}
 }
@@ -714,9 +703,6 @@ Decoder::decodeVariation(Consumer& consumer, MoveNode const* node)
 			consumer.finishVariation();
 		}
 	}
-
-	if (node->hasPreComment())
-		consumer.putPreComment(node->preComment());
 }
 
 

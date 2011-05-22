@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 28 $
-// Date   : $Date: 2011-05-21 14:57:26 +0000 (Sat, 21 May 2011) $
+// Version: $Revision: 29 $
+// Date   : $Date: 2011-05-22 15:48:52 +0000 (Sun, 22 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -53,6 +53,7 @@ inline unsigned MoveNode::variationCount() const		{ return m_variations.size(); 
 inline void MoveNode::setComment()							{ m_flags |= HasComment; }
 inline void MoveNode::setPreComment()						{ m_flags |= HasPreComment; }
 inline void MoveNode::unsetComment()						{ m_flags &= ~HasComment; }
+inline void MoveNode::unsetPreComment()					{ m_flags &= ~HasPreComment; }
 inline MoveNode* MoveNode::clone() const					{ return clone(0); }
 
 

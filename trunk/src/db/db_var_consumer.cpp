@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 29 $
+// Date   : $Date: 2011-05-22 15:48:52 +0000 (Sun, 22 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -54,6 +54,13 @@ void VarConsumer::start() {}
 void VarConsumer::finish() {}
 void VarConsumer::beginMoveSection() {}
 void VarConsumer::endMoveSection(result::ID) {}
+
+
+void
+VarConsumer::sendComment(Comment const& comment)
+{
+	m_current->setComment(comment);
+}
 
 
 void
