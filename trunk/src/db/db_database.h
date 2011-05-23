@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 25 $
-// Date   : $Date: 2011-05-19 14:05:57 +0000 (Thu, 19 May 2011) $
+// Version: $Revision: 30 $
+// Date   : $Date: 2011-05-23 14:49:04 +0000 (Mon, 23 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -180,7 +180,7 @@ public:
 	void recode(mstl::string const& encoding, Log& log);
 
 	/// Build tournament table for given event index.
-	TournamentTable* makeTournamentTable(unsigned eventIndex) const;
+	TournamentTable* makeTournamentTable(NamebaseEvent const& event) const;
 
 	/// Open an asynchronous game stream (block file) reader for findExactPositionAsync() operation.
 	void openAsyncReader();

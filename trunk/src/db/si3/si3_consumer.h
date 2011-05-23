@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 29 $
-// Date   : $Date: 2011-05-22 15:48:52 +0000 (Sun, 22 May 2011) $
+// Version: $Revision: 30 $
+// Date   : $Date: 2011-05-23 14:49:04 +0000 (Mon, 23 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -68,7 +68,8 @@ private:
 	bool beginGame(TagSet const& tags);
 	save::State endGame(TagSet const& tags);
 
-	void sendComment(	Comment const& comment,
+	void sendComment(	Comment const& preComment,
+							Comment const& comment,
 							Annotation const& annotation,
 							MarkSet const& marks,
 							bool isPreComment);
@@ -78,6 +79,7 @@ private:
 	bool sendMove(	Move const& move,
 						Annotation const& annotation,
 						MarkSet const& marks,
+						Comment const& preComment,
 						Comment const& comment);
 
 	void beginMoveSection();

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 29 $
-// Date   : $Date: 2011-05-22 15:48:52 +0000 (Sun, 22 May 2011) $
+// Version: $Revision: 30 $
+// Date   : $Date: 2011-05-23 14:49:04 +0000 (Mon, 23 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -134,7 +134,8 @@ Consumer::pushComment(Comment const& comment)
 
 
 void
-Consumer::sendComment(	Comment const& comment,
+Consumer::sendComment(	Comment const& preComment,
+								Comment const& comment,
 								Annotation const& annotation,
 								MarkSet const& marks,
 								bool isPreComment)
@@ -187,7 +188,7 @@ Consumer::sendComment(	Comment const& comment,
 void
 Consumer::sendComment(Comment const& comment, Annotation const& annotation, MarkSet const& marks)
 {
-	sendComment(comment, annotation, marks, false);
+	sendComment(Comment(), comment, annotation, marks, false);
 }
 
 
@@ -260,6 +261,7 @@ bool
 Consumer::sendMove(	Move const& move,
 							Annotation const& annotation,
 							MarkSet const& marks,
+							Comment const& preComment,
 							Comment const& comment)
 {
 	M_REQUIRE(move);
@@ -269,7 +271,7 @@ Consumer::sendMove(	Move const& move,
 
 	m_position.doMove(move);
 	encodeMove(m_move = move);
-	sendComment(comment, annotation, marks, false);
+	sendComment(preComment, comment, annotation, marks, false);
 
 	return true;
 }

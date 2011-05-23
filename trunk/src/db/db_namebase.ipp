@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 25 $
-// Date   : $Date: 2011-05-19 14:05:57 +0000 (Thu, 19 May 2011) $
+// Version: $Revision: 30 $
+// Date   : $Date: 2011-05-23 14:49:04 +0000 (Mon, 23 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -40,34 +40,6 @@ inline bool Namebase::isConsistent() const			{ return m_isConsistent; }
 inline bool Namebase::isPrepared() const				{ return m_isPrepared; }
 
 inline void Namebase::setMaxUsage(unsigned usage)	{ m_maxUsage = usage; }
-
-
-inline
-bool
-Namebase::contains(Entry const* entry) const
-{
-	return findIndex(entry) < m_list.size();
-}
-
-
-inline
-unsigned
-Namebase::lookup(Entry const* entry) const
-{
-	M_REQUIRE(contains(entry));
-	return findIndex(entry);
-}
-
-
-inline
-unsigned
-Namebase::lookup(unsigned index) const
-{
-	M_REQUIRE(isConsistent());
-	M_REQUIRE(index < used());
-
-	return findIndex(m_list[m_map[index]]);
-}
 
 
 inline

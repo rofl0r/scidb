@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 23 $
-# Date   : $Date: 2011-05-17 16:53:45 +0000 (Tue, 17 May 2011) $
+# Version: $Revision: 30 $
+# Date   : $Date: 2011-05-23 14:49:04 +0000 (Mon, 23 May 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -449,6 +449,7 @@ proc popup {w b {i {}}} {
 	wm geometry $b +$x+$y
 	wm deiconify $b
 	raise $b
+	focus $b
 
 	if {[tk windowingsystem] eq "aqua" && $focus ne ""} {
 		# Aqua's help window steals focus on display

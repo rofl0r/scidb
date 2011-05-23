@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 28 $
-# Date   : $Date: 2011-05-21 14:57:26 +0000 (Sat, 21 May 2011) $
+# Version: $Revision: 30 $
+# Date   : $Date: 2011-05-23 14:49:04 +0000 (Mon, 23 May 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -804,10 +804,8 @@ proc Indent {w level key} {
 	variable Options
 
 	if {$level > 0} {
-		if {$Options(column-style)} {
-			if {$level == 1} { return }
-			incr level -1
-		}
+		if {$Options(column-style) && [incr level -1] == 0} { return }
+		set level [expr {min($level, $Options(indent-max))}]
 		$w tag add indent$level $key current
 	}
 }
@@ -892,7 +890,7 @@ proc InsertBreak {w level bracket} {
 
 	switch $level {
 		0 - 1 - 2	{ set space "\n" }
-		3				{ if {$Options(column-style)} { set space "\n" } { set space " " } }
+		3				{ if {$Options(column-style)} { set space "\n" } else { set space " " } }
 		default		{ $w insert current " " }
 	}
 

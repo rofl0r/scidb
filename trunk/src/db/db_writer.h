@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 26 $
-// Date   : $Date: 2011-05-19 22:11:39 +0000 (Thu, 19 May 2011) $
+// Version: $Revision: 30 $
+// Date   : $Date: 2011-05-23 14:49:04 +0000 (Mon, 23 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -90,6 +90,7 @@ public:
 	bool sendMove(	Move const& move,
 						Annotation const& annotation,
 						MarkSet const& marks,
+						Comment const& preComment,
 						Comment const& comment);
 
 	void beginMoveSection();
@@ -109,6 +110,7 @@ protected:
 									mstl::string const& moveNumber,
 									Annotation const& annotation,
 									MarkSet const& marks,
+									Comment const& preComment,
 									Comment const& comment) = 0;
 	virtual void writeBeginMoveSection() = 0;
 	virtual void writeEndMoveSection(result::ID result) = 0;
@@ -124,6 +126,7 @@ private:
 	void writeMove(Move const& move,
 						Annotation const& annotation,
 						MarkSet const& marks,
+						mstl::string const& preComment,
 						mstl::string const& comment);
 
 	unsigned			m_flags;

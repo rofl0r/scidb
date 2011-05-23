@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 25 $
-// Date   : $Date: 2011-05-19 14:05:57 +0000 (Thu, 19 May 2011) $
+// Version: $Revision: 30 $
+// Date   : $Date: 2011-05-23 14:49:04 +0000 (Mon, 23 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -69,7 +69,6 @@ public:
 	bool isEmpty() const;
 	bool isPrepared() const;
 	bool isConsistent() const;
-	bool contains(Entry const* entry) const;
 
 	Type type() const;
 
@@ -79,9 +78,6 @@ public:
 	unsigned maxFrequency() const;
 	unsigned maxUsage() const;
 	unsigned nextId() const;
-
-	unsigned lookup(unsigned id) const;
-	unsigned lookup(Entry const* entry) const;
 
 	PlayerEntry const* player(unsigned index) const;
 	PlayerEntry* player(unsigned index);
@@ -115,9 +111,9 @@ public:
 									unsigned id,
 									country::Code country,
 									unsigned limit);
-	SiteEntry* insertSite(	mstl::string const& name, country::Code country, unsigned limit);
-	SiteEntry* appendSite(	mstl::string const& name, unsigned id);
-	SiteEntry* appendSite(	mstl::string const& name, unsigned id, country::Code country);
+	SiteEntry* insertSite(mstl::string const& name, country::Code country, unsigned limit);
+	SiteEntry* appendSite(mstl::string const& name, unsigned id);
+	SiteEntry* appendSite(mstl::string const& name, unsigned id, country::Code country);
 
 	EventEntry* insertEvent(	mstl::string const& name,
 										NamebaseSite* site);
@@ -216,7 +212,6 @@ private:
 	typedef mstl::chunk_allocator<char>				StringAllocator;
 
 	unsigned nextFreeId();
-	unsigned findIndex(Entry const* entry) const;
 
 	Entry* makeEntry(mstl::string const& name);
 	EventEntry* makeEventEntry(mstl::string const& name);

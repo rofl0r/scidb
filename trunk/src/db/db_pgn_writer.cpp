@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 25 $
-// Date   : $Date: 2011-05-19 14:05:57 +0000 (Thu, 19 May 2011) $
+// Version: $Revision: 30 $
+// Date   : $Date: 2011-05-23 14:49:04 +0000 (Mon, 23 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -412,6 +412,7 @@ PgnWriter::writeMove(Move const& move,
 							mstl::string const& moveNumber,
 							Annotation const& annotation,
 							MarkSet const& marks,
+							Comment const& preComment,
 							Comment const& comment)
 {
 	if (needSpace())

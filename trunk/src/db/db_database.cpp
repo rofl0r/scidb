@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 26 $
-// Date   : $Date: 2011-05-19 22:11:39 +0000 (Thu, 19 May 2011) $
+// Version: $Revision: 30 $
+// Date   : $Date: 2011-05-23 14:49:04 +0000 (Mon, 23 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -761,15 +761,13 @@ Database::closeAsyncReader()
 
 
 TournamentTable*
-Database::makeTournamentTable(unsigned eventIndex) const
+Database::makeTournamentTable(NamebaseEvent const& event) const
 {
 	M_REQUIRE(isOpen());
-	M_REQUIRE(eventIndex < countEvents());
 
-	NamebaseEvent const& ev = event(eventIndex);
 	Filter filter(countGames());
-	filter.search(Query(new SearchEvent(&ev)), content());
-	return new TournamentTable(*this, ev, filter);
+	filter.search(Query(new SearchEvent(&event)), content());
+	return new TournamentTable(*this, event, filter);
 }
 
 // vi:set ts=3 sw=3:

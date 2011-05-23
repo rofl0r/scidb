@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 29 $
-// Date   : $Date: 2011-05-22 15:48:52 +0000 (Sun, 22 May 2011) $
+// Version: $Revision: 30 $
+// Date   : $Date: 2011-05-23 14:49:04 +0000 (Mon, 23 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -687,12 +687,12 @@ Decoder::decodeVariation(Consumer& consumer, MoveNode const* node)
 	M_ASSERT(node);
 
 	if (node->hasNote())
-		consumer.putPreComment(node->comment(), node->annotation(), node->marks());
+		consumer.putComment(node->comment(), node->annotation(), node->marks());
 
 	for (MoveNode* n = node->next(); n; n = n->next())
 	{
 		if (n->hasNote())
-			consumer.putMove(n->move(), n->annotation(), n->comment(), n->marks());
+			consumer.putMove(n->move(), n->annotation(), n->preComment(), n->comment(), n->marks());
 		else
 			consumer.putMove(n->move());
 

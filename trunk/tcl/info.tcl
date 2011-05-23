@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 28 $
-# Date   : $Date: 2011-05-21 14:57:26 +0000 (Sat, 21 May 2011) $
+# Version: $Revision: 30 $
+# Date   : $Date: 2011-05-23 14:49:04 +0000 (Mon, 23 May 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -79,9 +79,9 @@ proc openDialog {parent} {
 	set dlg ${path}infoDialog
 
 	if {[winfo exists $dlg]} {
-		# raise window
-		wm withdraw $dlg
 		wm deiconify $dlg
+		raise $dlg
+		focus $dlg
 	} else {
 		toplevel $dlg -class $::scidb::app
 		wm iconname $dlg ""

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 25 $
-# Date   : $Date: 2011-05-19 14:05:57 +0000 (Thu, 19 May 2011) $
+# Version: $Revision: 30 $
+# Date   : $Date: 2011-05-23 14:49:04 +0000 (Mon, 23 May 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1122,8 +1122,7 @@ proc LeaveFlag {gamebar id} {
 
 proc GetPlayerInfo {gamebar id side} {
 	lassign [::scidb::game::sink? $id] base index
-	set playerIndex [::scidb::db::fetch ${side}PlayerIndex $base $index]
-	return [scidb::db::get playerInfo $playerIndex -1 $base -card -ratings {Elo Elo}]
+	return [scidb::db::fetch ${side}PlayerInfo $index $base -card -ratings {Elo Elo}]
 }
 
 

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1 $
-# Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+# Version: $Revision: 30 $
+# Date   : $Date: 2011-05-23 14:49:04 +0000 (Mon, 23 May 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -346,6 +346,7 @@ proc popup {parent args} {
 	util::place $top below $parent
 	wm deiconify $top
 	raise $top
+	focus $top
 	if {[tk windowingsystem] == "x11"} {
 		tkwait visibility $top
 		update

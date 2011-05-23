@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 28 $
-# Date   : $Date: 2011-05-21 14:57:26 +0000 (Sat, 21 May 2011) $
+# Version: $Revision: 30 $
+# Date   : $Date: 2011-05-23 14:49:04 +0000 (Mon, 23 May 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -990,6 +990,7 @@ proc Select {nb index} {
 				set encoding $Values($Values(type),encoding)
 			}
 			raise $nb.encoding.$encTab
+			focus $nb.encoding.$encTab
 			::encoding::select $nb.encoding.$encTab $encoding
 		}
 	}

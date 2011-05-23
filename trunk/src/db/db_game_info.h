@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 30 $
+// Date   : $Date: 2011-05-23 14:49:04 +0000 (Mon, 23 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -334,7 +334,7 @@ private:
 
 	static const GameInfo m_initializer;
 }
-#ifdef __i386__ // Intel has hardware support for unaligned word access
+#if defined(__i386__) || defined(__x86_64__) // Intel/AMD has hardware support for unaligned word access
 __attribute__((packed))
 #endif
 ;
