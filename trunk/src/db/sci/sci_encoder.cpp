@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 30 $
-// Date   : $Date: 2011-05-23 14:49:04 +0000 (Mon, 23 May 2011) $
+// Version: $Revision: 31 $
+// Date   : $Date: 2011-05-24 09:11:31 +0000 (Tue, 24 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -359,13 +359,13 @@ Encoder::encodeNote(MoveNode const* node)
 
 	if (node->hasAnyComment())
 	{
-		uint8_t flag = (node->hasPreComment() ? 1 : 0) | (node->hasComment() ? 2 : 0);
+		uint8_t flag = (node->hasComment(move::Ante) ? 1 : 0) | (node->hasComment(move::Post) ? 2 : 0);
 
 		m_data.put(flag);
 		if (flag & 1)
-			m_data.put(node->preComment().content(), node->preComment().size() + 1);
+			m_data.put(node->comment(move::Ante).content(), node->comment(move::Ante).size() + 1);
 		if (flag & 2)
-			m_data.put(node->comment().content(), node->comment().size() + 1);
+			m_data.put(node->comment(move::Post).content(), node->comment(move::Post).size() + 1);
 
 		m_strm.put(token::Comment);
 	}

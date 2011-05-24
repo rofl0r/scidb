@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 20 $
-// Date   : $Date: 2011-05-15 12:32:40 +0000 (Sun, 15 May 2011) $
+// Version: $Revision: 31 $
+// Date   : $Date: 2011-05-24 09:11:31 +0000 (Tue, 24 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -84,7 +84,7 @@ struct MyPipedProgress : public util::PipedProgress
 		Tcl_Obj* n = Tcl_NewIntObj(c);
 
 		Tcl_IncrRefCount(n);
-		invoke(__func__, m_cmd, m_arg, n, 0);
+		invoke(__func__, m_cmd, m_arg, n, NULL);
 		Tcl_DecrRefCount(n);
 	}
 

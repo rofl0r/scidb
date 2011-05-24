@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 31 $
+// Date   : $Date: 2011-05-24 09:11:31 +0000 (Tue, 24 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -67,8 +67,8 @@ InputOutput::searchFile(mstl::string const& searchDirs, mstl::string& filename)
 	if (fileExists(filename))
 		return true;
 
-	unsigned start	= 0;
-	unsigned end	= searchDirs.find(':');
+	mstl::string::size_type start	= 0;
+	mstl::string::size_type end	= searchDirs.find(':');
 
 	if (end == mstl::string::npos)
 		end = searchDirs.size();

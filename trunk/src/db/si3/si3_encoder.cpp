@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 29 $
-// Date   : $Date: 2011-05-22 15:48:52 +0000 (Sun, 22 May 2011) $
+// Version: $Revision: 31 $
+// Date   : $Date: 2011-05-24 09:11:31 +0000 (Tue, 24 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -113,13 +113,15 @@ Encoder::encodeComments(MoveNode* node)
 	{
 		if (node->hasSupplement())
 		{
-			if (node->hasComment() || node->hasMark())
+			if (node->hasComment(move::Post) || node->hasMark())
 			{
 				mstl::string comment;
 
-				if (node->hasComment())
+				if (node->hasComment(move::Post))
 				{
-					node->comment().flatten(comment, m_codec.isUtf8() ? Comment::Unicode : Comment::Latin1);
+					node->comment(move::Post).flatten(
+						comment,
+						m_codec.isUtf8() ? Comment::Unicode : Comment::Latin1);
 					m_codec.fromUtf8(comment, comment);
 //					PgnWriter::convertExtensions(comment, PgnWriter::Mode_Extended);
 				}
@@ -500,7 +502,7 @@ Encoder::encodeMove(Move const& move)
 void
 Encoder::encodeVariation(MoveNode const* node, unsigned level)
 {
-	if (node->hasComment() || node->hasMark())
+	if (node->hasComment(move::Post) || node->hasMark())
 		m_strm.put(token::Comment);
 
 	for (node = node->next(); node; node = node->next())
@@ -521,7 +523,7 @@ Encoder::encodeVariation(MoveNode const* node, unsigned level)
 			}
 		}
 
-		if (node->hasComment() || node->hasMark())
+		if (node->hasComment(move::Post) || node->hasMark())
 			m_strm.put(token::Comment);
 
 		for (unsigned i = 0; i < node->variationCount(); ++i)

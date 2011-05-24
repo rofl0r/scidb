@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 26 $
-# Date   : $Date: 2011-05-19 22:11:39 +0000 (Thu, 19 May 2011) $
+# Version: $Revision: 31 $
+# Date   : $Date: 2011-05-24 09:11:31 +0000 (Tue, 24 May 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1139,7 +1139,8 @@
 ::info::mc::Reference(MicroMax)	"is probably the smallest C Chess program in existence. The Micro-Max site is %url%. Micro-Max is written by H.G. Muller."
 
 ### comment ############################################################
-::comment::mc::CommentEditor			"Comment"
+::comment::mc::CommentBeforeMove		"Comment before Move"
+::comment::mc::CommentAfterMove		"Comment after Move"
 ::comment::mc::Language					"Language"
 ::comment::mc::AllLanguages			"All languages"
 ::comment::mc::AddLanguage				"Add language..."

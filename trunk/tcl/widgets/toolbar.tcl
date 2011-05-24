@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 20 $
-# Date   : $Date: 2011-05-15 12:32:40 +0000 (Sun, 15 May 2011) $
+# Version: $Revision: 31 $
+# Date   : $Date: 2011-05-24 09:11:31 +0000 (Tue, 24 May 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1766,6 +1766,7 @@ proc Tooltip {mode w} {
 	set toolbar [winfo parent $w]
 
 	if {![llength $Specs(tooltip:$w:$toolbar)] && ![llength $Specs(tooltipvar:$w:$toolbar)]} { return }
+
 	if {	$mode eq "show"
 		&& [info exists Specs(state:$w:$toolbar)]
 		&& $Specs(state:$w:$toolbar) ne "normal"} {
@@ -1775,7 +1776,7 @@ proc Tooltip {mode w} {
 
 	if {![string match *floating.frame $toolbar]} {
 		set focus [focus]
-		if {![llength $focus] || [winfo toplevel $w] ne [winfo toplevel $focus]} {
+		if {[llength $focus] == 0 || [winfo toplevel $w] ne [winfo toplevel $focus]} {
 			set mode hide
 		}
 	}
@@ -2222,34 +2223,6 @@ proc UndockToolbar {toolbar x y} {
 
 	foreach child [pack slaves $toolbar.widgets] {
 		if {$Specs(float:$child:$toolbar)} { CloneWidget $toolbar $child }
-#			set Specs(child:$child:$floatingToolbar) $widget
-#
-#			if {[llength $widget]} {
-#				bind $widget <Destroy> [namespace code [list array unset Specs *:$widget:$floatingToolbar]]
-#
-#				foreach attr [list default {*}$iconSizes tooltip tooltipvar] {
-#					set Specs($attr:$widget:$floatingToolbar) $Specs($attr:$child:$toolbar)
-#				}
-#				if {$HaveTooltips} {
-#					if {	[llength $Specs(tooltip:$widget:$floatingToolbar)]
-#						|| [llength $Specs(tooltipvar:$widget:$floatingToolbar)]} {
-#						bind $widget <Enter> +[namespace code { Tooltip show %W }]
-#						bind $widget <Leave> +[namespace code { Tooltip hide %W }]
-#					}
-#				}
-#				if {[winfo class $child] eq "Button"} {
-#					foreach attr {relief overrelief active command} {
-#						set Specs($attr:$widget:$floatingToolbar) $Specs($attr:$child:$toolbar)
-#					}
-#				}
-#
-#				foreach var $Specs(variables:$toolbar) {
-#					if {[info exists Specs(value:$var:$child:$toolbar)]} {
-#						set Specs(value:$var:$widget:$floatingToolbar) $Specs(value:$var:$child:$toolbar)
-#						lappend Specs(variable:$var:$floatingToolbar) $widget
-#					}
-#				}
-#			}
 	}
 
 	wm withdraw $win

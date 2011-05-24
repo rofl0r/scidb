@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 9 $
-// Date   : $Date: 2011-05-05 12:47:35 +0000 (Thu, 05 May 2011) $
+// Version: $Revision: 31 $
+// Date   : $Date: 2011-05-24 09:11:31 +0000 (Tue, 24 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -420,7 +420,7 @@ NameList::prepareSite(NamebaseSite const* entry, mstl::string const*& str)
 	{
 		char const* country = country::toString(entry->country());
 
-		unsigned n = str->find(country);
+		mstl::string::size_type n = str->find(country);
 
 		if (	n == mstl::string::npos
 			|| (n == 0

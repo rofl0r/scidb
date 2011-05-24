@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 23 $
-// Date   : $Date: 2011-05-17 16:53:45 +0000 (Tue, 17 May 2011) $
+// Version: $Revision: 31 $
+// Date   : $Date: 2011-05-24 09:11:31 +0000 (Tue, 24 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -403,7 +403,8 @@ namespace castling
 
 namespace move {
 
-	enum Constraint { DontAllowIllegalMove, AllowIllegalMove };
+	enum Constraint	{ DontAllowIllegalMove, AllowIllegalMove };
+	enum Position		{ Ante, Post };
 
 } // namespace move
 

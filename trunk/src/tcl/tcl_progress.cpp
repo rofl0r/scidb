@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 31 $
+// Date   : $Date: 2011-05-24 09:11:31 +0000 (Tue, 24 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -70,7 +70,7 @@ Progress::Progress(Tcl_Obj* cmd, Tcl_Obj* arg)
 	,m_sendFinish(false)
 	,m_firstStart(true)
 {
-	invoke(__func__, m_cmd, m_open, m_arg, 0);
+	invoke(__func__, m_cmd, m_open, m_arg, NULL);
 }
 
 
@@ -79,7 +79,7 @@ Progress::~Progress() throw()
 	if (m_sendFinish)
 		sendFinish();
 
-	invoke(__func__, m_cmd, m_close, m_arg, 0);
+	invoke(__func__, m_cmd, m_close, m_arg, NULL);
 }
 
 
@@ -130,7 +130,7 @@ Progress::start(unsigned total)
 
 	Tcl_Obj* maximum = Tcl_NewLongObj(m_maximum = total);
 	Tcl_IncrRefCount(maximum);
-	int rc = invoke(__func__, m_cmd, m_start, m_arg, maximum, 0);
+	int rc = invoke(__func__, m_cmd, m_start, m_arg, maximum, NULL);
 	Tcl_DecrRefCount(maximum);
 	m_sendFinish = rc == TCL_OK;
 	checkResult(rc, m_cmd, m_start, m_arg);
@@ -142,7 +142,7 @@ Progress::update(unsigned progress)
 {
 	Tcl_Obj* value = Tcl_NewLongObj(progress);
 	Tcl_IncrRefCount(value);
-	int rc = invoke(__func__, m_cmd, m_update, m_arg, value, 0);
+	int rc = invoke(__func__, m_cmd, m_update, m_arg, value, NULL);
 	Tcl_DecrRefCount(value);
 	checkResult(rc, m_cmd, m_update, m_arg);
 }
@@ -153,7 +153,7 @@ Progress::sendFinish() throw()
 {
 	Tcl_Obj* maximum = Tcl_NewLongObj(m_maximum);
 	Tcl_IncrRefCount(maximum);
-	int rc = invoke(__func__, m_cmd, m_finish, m_arg, maximum, 0);
+	int rc = invoke(__func__, m_cmd, m_finish, m_arg, maximum, NULL);
 	Tcl_DecrRefCount(maximum);
 	return rc;
 }
