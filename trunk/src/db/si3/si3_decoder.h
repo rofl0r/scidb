@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 28 $
-// Date   : $Date: 2011-05-21 14:57:26 +0000 (Sat, 21 May 2011) $
+// Version: $Revision: 33 $
+// Date   : $Date: 2011-05-29 12:27:45 +0000 (Sun, 29 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -57,14 +57,14 @@ public:
 
 	Move findExactPosition(Board const& position, bool skipVariations);
 
-	unsigned doDecoding(unsigned flags, GameData& data);
-	save::State doDecoding(db::Consumer& consumer, unsigned flags, TagSet& tags);
+	unsigned doDecoding(/*unsigned flags, */GameData& data);
+	save::State doDecoding(db::Consumer& consumer/*, unsigned flags*/, TagSet& tags);
 
 	static type::ID decodeType(unsigned type);
 
 private:
 
-	void decodeVariation(unsigned flags, unsigned level = 0);
+	void decodeVariation(/*unsigned flags, */unsigned level = 0);
 	Byte decodeMove(Byte value);
 	void decodeComments(MoveNode* node);
 	void decodeTags(TagSet& tags);

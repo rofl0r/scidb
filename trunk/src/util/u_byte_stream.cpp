@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 33 $
+// Date   : $Date: 2011-05-29 12:27:45 +0000 (Sun, 29 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -463,6 +463,18 @@ ByteStream::operator<<(uint64_t i)
 	m_putp[-1] = i;
 
 	return *this;
+}
+
+
+void
+ByteStream::setup(Byte* buf, Byte* end)
+{
+	if (m_owner)
+		delete [] m_base;
+
+	m_base = m_getp = m_putp = buf;
+	m_endp = end;
+	m_owner = false;
 }
 
 

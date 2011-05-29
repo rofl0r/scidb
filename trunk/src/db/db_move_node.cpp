@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 31 $
-// Date   : $Date: 2011-05-24 09:11:31 +0000 (Tue, 24 May 2011) $
+// Version: $Revision: 33 $
+// Date   : $Date: 2011-05-29 12:27:45 +0000 (Sun, 29 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -722,6 +722,32 @@ MoveNode::containsIllegalMoves() const
 					return true;
 			}
 		}
+	}
+
+	return false;
+}
+
+
+bool
+MoveNode::containsEnglishLang() const
+{
+	for (MoveNode const* p = this; p; p = p->m_next)
+	{
+		if (p->m_comment[0].engFlag() || p->m_comment[1].engFlag())
+			return true;
+	}
+
+	return false;
+}
+
+
+bool
+MoveNode::containsOtherLang() const
+{
+	for (MoveNode const* p = this; p; p = p->m_next)
+	{
+		if (p->m_comment[0].othFlag() || p->m_comment[1].othFlag())
+			return true;
 	}
 
 	return false;

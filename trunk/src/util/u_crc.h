@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 33 $
+// Date   : $Date: 2011-05-29 12:27:45 +0000 (Sun, 29 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -25,7 +25,7 @@ namespace util {
 namespace crc {
 
 uint32_t compute(uint32_t crc, char const* bytes, unsigned len);
-uint32_t compute(uint32_t crc, unsigned char* const bytes, unsigned len);
+uint32_t compute(uint32_t crc, unsigned char const* bytes, unsigned len);
 uint32_t combine(uint32_t crc1, uint32_t crc2, unsigned len2);
 
 } // namespace crc

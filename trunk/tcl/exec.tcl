@@ -1,8 +1,8 @@
 #!/bin/sh
 #! ======================================================================
 #! $RCSfile: tk_init.h,v $
-#! $Revision: 1 $
-#! $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+#! $Revision: 33 $
+#! $Date: 2011-05-29 12:27:45 +0000 (Sun, 29 May 2011) $
 #! $Author: gregor $
 #! ======================================================================
 
@@ -61,6 +61,56 @@ if {[string compare [::scidb::misc::version] $scidb::version]} {
 	tk_messageBox -type ok -icon error -title "$scidb::app: version error" -message $msg
 	exit 1
 }
+
+
+namespace eval process {
+
+array set Options {}
+variable Arguments {}
+
+
+proc arguments {} { return [set [namespace current]::Arguments] }
+
+
+proc testOption {arg} {
+	set rc 0
+	catch { set rc [set [namespace current]::Options($arg)] }
+	return $rc
+}
+
+
+proc setOption {arg {value 1}} {
+	set [namespace current]::Options($arg) $value
+}
+
+
+proc ParseArgs {} {
+	global argc argv
+	variable Options
+	variable Arguments
+
+	for {set i 0} {$i < $argc} {incr i} {
+		set arg [lindex $argv $i]
+		if {$arg eq "--"} {
+			incr i
+			break
+		}
+		if {[string range $arg 0 1] ne "--"} {
+			break
+		}
+		set Options([string range $arg 2 end]) 1
+	}
+
+	if {[::scidb::misc::debug?]} {
+		set Options(single-process) 1
+	}
+
+	set Arguments [lrange $argv $i end]
+}
+
+ParseArgs
+
+} ;# namespace process
 
 
 namespace eval remote {
@@ -205,7 +255,7 @@ proc Execute {path} {
 #rename ::remote::Vwait ::vwait
 
 
-if {[lsearch $argv "--force"] == -1} {
+if {![::process::testOption single-process]} {
 	# Pick a port number based on the name of the main script executing
 	set port [expr {1024 + [::scidb::misc::crc32 [file normalize $::argv0]] % 30000}]
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 5 $
-// Date   : $Date: 2011-05-05 07:51:24 +0000 (Thu, 05 May 2011) $
+// Version: $Revision: 33 $
+// Date   : $Date: 2011-05-29 12:27:45 +0000 (Sun, 29 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -96,6 +96,7 @@ public:
 					sys::utf8::Codec& newCodec);
 
 	unsigned putGame(util::ByteStream const& strm);
+	unsigned putGame(util::ByteStream const& strm, unsigned prevOffset, unsigned prevRecordLength);
 	util::ByteStream getGame(GameInfo const& info);
 	void replaceBlockFile(util::BlockFile* blockFile);
 	void save(mstl::string const& rootname, unsigned start, util::Progress& progress);
@@ -105,13 +106,14 @@ public:
 	void updateHeader(mstl::string const& rootname);
 	void unlock(mstl::string const& rootname);
 	void close();
+	void sync();
 
-	save::State doDecoding(db::Consumer& consumer, unsigned flags, TagSet& tags, GameInfo const& info);
+	save::State doDecoding(db::Consumer& consumer, /*unsigned flags, */TagSet& tags, GameInfo const& info);
 	save::State doDecoding(	db::Consumer& consumer,
 									util::ByteStream& strm,
-									unsigned flags,
+//									unsigned flags,
 									TagSet& tags);
-	void doDecoding(unsigned flags, GameData& data, GameInfo& info);
+	void doDecoding(/*unsigned flags, */GameData& data, GameInfo& info);
 
 	void doEncoding(util::ByteStream& strm, GameData const& data, Signature const& signature);
 	Consumer* getConsumer(format::Type srcFormat);

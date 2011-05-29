@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 30 $
-# Date   : $Date: 2011-05-23 14:49:04 +0000 (Mon, 23 May 2011) $
+# Version: $Revision: 33 $
+# Date   : $Date: 2011-05-29 12:27:45 +0000 (Sun, 29 May 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -333,8 +333,8 @@ array set Flags {
 	pgn,convert_lost_result_to_comment		23
 	pgn,append_mode_to_event_type				24
 	pgn,use_chessbase_format					25
-	pgn,comment_to_html							25
-	pgn,exclude_games_with_illegal_moves	26
+	pgn,comment_to_html							26
+	pgn,exclude_games_with_illegal_moves	27
 }
 
 array set Defaults {

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 33 $
+// Date   : $Date: 2011-05-29 12:27:45 +0000 (Sun, 29 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -164,6 +164,17 @@ string::append(const_pointer s)
 {
 	M_REQUIRE(s);
 	return append(s, ::strlen(s));
+}
+
+
+inline
+string&
+string::append(string const& s, size_type sp, size_type len)
+{
+	M_REQUIRE(sp <= s.size());
+	M_REQUIRE(len == npos || sp + len <= s.size());
+
+	return append(s.c_str() + sp, len == npos ? s.size() - sp : len);
 }
 
 

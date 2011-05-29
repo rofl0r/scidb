@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1 $
-# Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+# Version: $Revision: 33 $
+# Date   : $Date: 2011-05-29 12:27:45 +0000 (Sun, 29 May 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -126,8 +126,6 @@ array set Vars {
 
 
 proc open {} {
-	global argc
-	global argv
 	variable Attr
 
 	# setup
@@ -248,21 +246,14 @@ proc open {} {
 	ChooseLanguage $app
 	focus $nb
 	TabChanged $nb $app
+	::load::writeLog
 	update
 
-	after idle ::remote::update
-
-	set extensions {.sci .si4 .si3 .cbh .pgn .zip}
-	for {set i 0} {$i < $argc} {incr i} {
-		set file [lindex $argv $i]
-		if {[string index $file 0] ne "-"} {
-			set file [::util::databasePath $file]
-			set ::remote::blocked 0
-			return [::application::database::openBase .application $file]
-		}
-	}
-
 	set ::remote::blocked 0
+
+	foreach file [::process::arguments] {
+		::application::database::openBase .application [::util::databasePath $file]
+	}
 }
 
 
@@ -340,6 +331,7 @@ proc Exit {w} {
 
 	if {$w eq ".application"} {
 		::options::write
+		::load::write
 		exit
 	}
 }

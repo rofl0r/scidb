@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 26 $
-# Date   : $Date: 2011-05-19 22:11:39 +0000 (Thu, 19 May 2011) $
+# Version: $Revision: 33 $
+# Date   : $Date: 2011-05-29 12:27:45 +0000 (Sun, 29 May 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -2188,7 +2188,7 @@ proc Save {top title base number position fields} {
 
 	if {$rc} {
 		if {$Priv(characteristics-only)} {
-			::scidb::db::update $base $number [array get Tags] 
+			::scidb::db::update characteristics $base $number [array get Tags] 
 		} else {
 			::log::open $title
 			::log::delay

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 30 $
-// Date   : $Date: 2011-05-23 14:49:04 +0000 (Mon, 23 May 2011) $
+// Version: $Revision: 33 $
+// Date   : $Date: 2011-05-29 12:27:45 +0000 (Sun, 29 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -121,13 +121,13 @@ protected:
 
 private:
 
-	mstl::string const& conv(Comment const& comment);
+	mstl::string const& conv(mstl::string const& comment);
 
 	void writeMove(Move const& move,
 						Annotation const& annotation,
 						MarkSet const& marks,
-						mstl::string const& preComment,
-						mstl::string const& comment);
+						Comment const& preComment,
+						Comment const& comment);
 
 	unsigned			m_flags;
 	unsigned			m_count;
@@ -137,7 +137,7 @@ private:
 	bool				m_needMoveNumber;
 	bool				m_needSpace;
 	result::ID		m_result;
-	mstl::string	m_buf;
+	mstl::string	m_stringBuf;
 };
 
 } // namespace db

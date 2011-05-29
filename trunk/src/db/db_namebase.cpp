@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 30 $
-// Date   : $Date: 2011-05-23 14:49:04 +0000 (Mon, 23 May 2011) $
+// Version: $Revision: 33 $
+// Date   : $Date: 2011-05-29 12:27:45 +0000 (Sun, 29 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -597,7 +597,7 @@ void
 Namebase::shrink(unsigned oldLength, unsigned newLength)
 {
 	M_REQUIRE(newLength <= NamebaseEntry::MaxNameLength);
-	m_stringAllocator.shrink(oldLength + 1, newLength + 1);
+	m_stringAllocator.shrink(oldLength + 1, newLength ? newLength + 1 : 0u);
 }
 
 

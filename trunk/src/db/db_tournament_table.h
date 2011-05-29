@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 30 $
-// Date   : $Date: 2011-05-23 14:49:04 +0000 (Mon, 23 May 2011) $
+// Version: $Revision: 33 $
+// Date   : $Date: 2011-05-29 12:27:45 +0000 (Sun, 29 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -169,7 +169,7 @@ private:
 	unsigned		m_parity;
 	unsigned		m_maxRound;
 	unsigned		m_maxSubround;
-	bool			m_excludeKnockout;
+	bool			m_missingRoundInfo;
 	Map			m_orderMap;
 	Allocator	m_allocator;
 };

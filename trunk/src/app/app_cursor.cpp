@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 20 $
-// Date   : $Date: 2011-05-15 12:32:40 +0000 (Sun, 15 May 2011) $
+// Version: $Revision: 33 $
+// Date   : $Date: 2011-05-29 12:27:45 +0000 (Sun, 29 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -259,6 +259,7 @@ Cursor::save(util::Progress& progress, unsigned start)
 	M_REQUIRE(isOpen());
 	M_REQUIRE(start <= countGames());
 
+	// TODO: handle return code!
 	m_db->save(progress, start);
 }
 
@@ -269,7 +270,19 @@ Cursor::updateCharacteristics(unsigned index, TagSet const& tags)
 	M_REQUIRE(isOpen());
 	M_REQUIRE(index < countGames());
 
+	// TODO: handle return code!
 	m_app.updateCharacteristics(*this, index, tags);
+}
+
+
+void
+Cursor::updateMoves(unsigned index)
+{
+	M_REQUIRE(isOpen());
+	M_REQUIRE(index < countGames());
+
+	// TODO: handle return code!
+	m_app.updateMoves(*this, index);
 }
 
 

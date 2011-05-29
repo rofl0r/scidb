@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 30 $
-// Date   : $Date: 2011-05-23 14:49:04 +0000 (Mon, 23 May 2011) $
+// Version: $Revision: 33 $
+// Date   : $Date: 2011-05-29 12:27:45 +0000 (Sun, 29 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -369,8 +369,11 @@ PgnWriter::writeComment(mstl::string const& comment)
 
 
 void
-PgnWriter::writeComment(Comment const& comment, MarkSet const& marks)
+PgnWriter::writeComment(Comment const& comment)
 {
+	if (comment.isEmpty())
+		return;
+
 	mstl::string text;
 
 	if (test(Flag_Comment_To_Html))
@@ -379,17 +382,23 @@ PgnWriter::writeComment(Comment const& comment, MarkSet const& marks)
 	}
 	else if (codec().isUtf8())
 	{
-		comment.flatten(text, Comment::Unicode);
+		comment.flatten(text, encoding::Utf8);
 	}
 	else
 	{
-		comment.flatten(text, Comment::Latin1);
+		comment.flatten(text, encoding::Latin1);
 		codec().fromUtf8(text);
 	}
 
 	replaceCurlyBraces(text);
 	writeComment(text);
+	putSpace();
+}
 
+
+void
+PgnWriter::writeMarks(MarkSet const& marks)
+{
 	if (!marks.isEmpty())
 	{
 		m_marks.clear();
@@ -404,6 +413,14 @@ PgnWriter::writeComment(Comment const& comment, MarkSet const& marks)
 
 		writeComment(m_marks);
 	}
+}
+
+
+void
+PgnWriter::writeComment(Comment const& comment, MarkSet const& marks)
+{
+	writeComment(comment);
+	writeMarks(marks);
 }
 
 
@@ -446,9 +463,11 @@ PgnWriter::writeMove(Move const& move,
 		annotation.print(m_move, f);
 	}
 
+	writeComment(preComment);
 	putToken(m_move);
 	putTokens(m_annotation);
-	writeComment(comment, marks);
+	writeComment(comment);
+	writeMarks(marks);
 }
 
 

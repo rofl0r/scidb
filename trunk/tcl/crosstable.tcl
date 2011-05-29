@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 30 $
-# Date   : $Date: 2011-05-23 14:49:04 +0000 (Mon, 23 May 2011) $
+# Version: $Revision: 33 $
+# Date   : $Date: 2011-05-29 12:27:45 +0000 (Sun, 29 May 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -363,7 +363,7 @@ proc open {parent base index {view -1}} {
 	wm deiconify $dlg
 
 	update
-	wm minsize $dlg [expr {[winfo width [::toolbar::realpath $tb]] + 4}] 400
+	wm minsize $dlg [expr {max(840, [winfo width [::toolbar::realpath $tb]] + 4)}] 400
 }
 
 
@@ -1125,8 +1125,8 @@ proc PopupMenu {} {
 
 
 proc WriteOptions {chan} {
-	::options::writeItem $chan [namespace current]::RecentlyUsedHistory
-	::options::writeItem $chan [namespace current]::MostRecentHistory
+	::options::writeList $chan [namespace current]::RecentlyUsedHistory
+	::options::writeList $chan [namespace current]::MostRecentHistory
 	::options::writeItem $chan [namespace current]::RecentlyUsedTiebreaks
 	::options::writeItem $chan [namespace current]::Options
 }

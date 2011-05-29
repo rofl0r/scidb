@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 31 $
-// Date   : $Date: 2011-05-24 09:11:31 +0000 (Tue, 24 May 2011) $
+// Version: $Revision: 33 $
+// Date   : $Date: 2011-05-29 12:27:45 +0000 (Sun, 29 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -100,6 +100,8 @@ public:
 	bool hasNote() const;
 	bool hasSupplement() const;
 	bool containsIllegalMoves() const;
+	bool containsEnglishLang() const;
+	bool containsOtherLang() const;
 
 	unsigned variationCount() const;
 	unsigned variationNumber(MoveNode const* node) const;
@@ -137,9 +139,7 @@ public:
 	void setMarks(MarkSet const& marks);
 	void replaceMarks(MarkSet const& marks);
 	void swapComment(Comment& comment, move::Position position);
-	void swapComment(mstl::string& str, move::Position position);
 	void setComment(Comment const& comment, move::Position position);
-	void setComment(mstl::string const& str, move::Position position);
 	void swapVariations(unsigned varNo1, unsigned varNo2);
 	void prepareForSan(Board const& board);
 	void transpose();

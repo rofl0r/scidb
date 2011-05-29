@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 33 $
+// Date   : $Date: 2011-05-29 12:27:45 +0000 (Sun, 29 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -31,17 +31,17 @@
 
 #include <zlib.h>
 
-#undef _ZLIB_Byte
-#undef _ZLIB_uInt
-#undef _ZLIB_uLong
-#undef _ZLIB_Bytef
-#undef _ZLIB_charf
-#undef _ZLIB_intf
-#undef _ZLIB_uIntf
-#undef _ZLIB_uLongf
-#undef _ZLIB_voidpc
-#undef _ZLIB_voidpf
-#undef _ZLIB_voidp
+#undef Byte
+#undef uInt
+#undef uLong
+#undef Bytef
+#undef charf
+#undef intf
+#undef uIntf
+#undef uLongf
+#undef voidpc
+#undef voidpf
+#undef voidp
 
 namespace util {
 namespace crc {

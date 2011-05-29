@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 30 $
-// Date   : $Date: 2011-05-23 14:49:04 +0000 (Mon, 23 May 2011) $
+// Version: $Revision: 33 $
+// Date   : $Date: 2011-05-29 12:27:45 +0000 (Sun, 29 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -165,6 +165,8 @@ public:
 	save::State updateGame(Game const& game);
 	/// Update the characteristics of a game
 	save::State updateCharacteristics(unsigned index, TagSet const& tags);
+	/// Update the move data of a game
+	save::State updateMoves(Game const& game);
 
 	/// Removes all games from the database.
 	void clear();

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 31 $
-# Date   : $Date: 2011-05-24 09:11:31 +0000 (Tue, 24 May 2011) $
+# Version: $Revision: 33 $
+# Date   : $Date: 2011-05-29 12:27:45 +0000 (Sun, 29 May 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -27,8 +27,9 @@
 namespace eval comment {
 namespace eval mc {
 
-set CommentBeforeMove		"Comment before Move"
-set CommentAfterMove			"Comment after Move"
+set CommentBeforeMove		"Comment before move"
+set CommentAfterMove			"Comment after move"
+set CommentAtStart			"Comment at start"
 set Language					"Language"
 set AllLanguages				"All languages"
 set AddLanguage				"Add language..."
@@ -258,7 +259,13 @@ proc open {parent pos lang} {
 		-value xx \
 		;
 	
-	if {$Vars(pos) eq "a"} { set titleVar CommentBeforeMove } else { set titleVar CommentAfterMove }
+	if {[::scidb::game::position atStart?]} {
+		set titleVar CommentAtStart
+	} elseif {$Vars(pos) eq "a"} {
+		set titleVar CommentBeforeMove
+	} else {
+		set titleVar CommentAfterMove
+	}
 
 	::update idletasks
 	bind $dlg <Configure> [namespace code [list RecordGeometry $dlg $parent]]
@@ -1608,7 +1615,7 @@ proc UpdateFormatButtons {w} {
 
 
 proc WriteOptions {chan} {
-	::options::writeItem $chan [namespace current]::Geometry
+	::options::writeList $chan [namespace current]::Geometry
 }
 
 
@@ -2038,21 +2045,16 @@ proc TextSetCursorExt {w pos {dir -1}} {
 	TextSetCursor $w $pos
 
 	if {$w eq $Vars(widget:text)} {
-		if {$dir < 0} {
-			if {[$w compare insert != 1.0]} {
-				set c [$w get insert]
-				if {$c eq "\n"} {
-					$w mark set insert insert-1c
-					$w see insert
-				}
-			}
-		} else {
-			if {[$w compare insert != end-1c]} {
-				set c [$w get insert]
-				if {$c eq "\n"} {
+		if {[$w compare insert != end-1c]} {
+			if {$dir > 0} {
+				if {[$w get insert] eq "\n"} {
 					$w mark set insert insert+1c
 					$w see insert
-				} else {
+				}
+			} elseif {[$w compare insert != 1.0]} {
+				if {[$w get insert] eq "\n"} {
+					$w mark set insert insert-1c
+					$w see insert
 				}
 			}
 		}

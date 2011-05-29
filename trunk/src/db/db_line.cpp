@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 33 $
+// Date   : $Date: 2011-05-29 12:27:45 +0000 (Sun, 29 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -68,7 +68,7 @@ Line::print(mstl::string& result) const
 			result.format("%u.", mstl::div2(i) + 1);
 
 		board.prepareForSan(m);
-		m.printSan(result, Move::Unicode);
+		m.printSan(result, encoding::Utf8);
 		board.doMove(m);
 	}
 

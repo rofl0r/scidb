@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 20 $
-// Date   : $Date: 2011-05-15 12:32:40 +0000 (Sun, 15 May 2011) $
+// Version: $Revision: 33 $
+// Date   : $Date: 2011-05-29 12:27:45 +0000 (Sun, 29 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -947,6 +947,9 @@ Eco
 EcoTable::getEco(Board const& startBoard, Line const& line, EcoSet* reachable) const
 {
 	M_REQUIRE(isLoaded());
+
+	// IMPORTANT NOTE:
+	// If the line contains null moves this function will return the zero.
 
 	Board		board(startBoard);
 	MoveList	moves;

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 33 $
+// Date   : $Date: 2011-05-29 12:27:45 +0000 (Sun, 29 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -29,6 +29,8 @@ namespace db {
 inline bool Consumer::isMainline() const					{ return m_stack.size() == 2; }
 inline bool Consumer::variationIsEmpty() const			{ return m_stack.top().empty; }
 inline bool Consumer::terminated() const					{ return m_terminated; }
+inline bool Consumer::commentEngFlag() const				{ return m_commentEngFlag; }
+inline bool Consumer::commentOthFlag() const				{ return m_commentOthFlag; }
 
 inline format::Type Consumer::sourceFormat() const		{ return m_format; }
 inline Board& Consumer::getBoard()							{ return m_stack.top().board; }

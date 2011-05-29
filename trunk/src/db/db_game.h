@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 31 $
-// Date   : $Date: 2011-05-24 09:11:31 +0000 (Tue, 24 May 2011) $
+// Version: $Revision: 33 $
+// Date   : $Date: 2011-05-29 12:27:45 +0000 (Sun, 29 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -169,10 +169,14 @@ public:
 	bool isEmpty() const;
 	/// Return whether the game contains illegal moves.
 	bool containsIllegalMoves() const;
-	/// Return whether
+	/// Return whether the game contains the given language at specified position.
 	bool containsLanguage(	edit::Key const& key,
 									move::Position position,
 									mstl::string const& lang) const;
+	/// Return whether any comment contains English language.
+	bool commentEngFlag() const;
+	/// Return whether any comment contains any other language than English.
+	bool commentOthFlag() const;
 	/// Return whether the game is currently at the start position of the mainline
 	bool atMainlineStart() const;
 	/// Return whether the game is at the end of the mainline

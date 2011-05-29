@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 30 $
-// Date   : $Date: 2011-05-23 14:49:04 +0000 (Mon, 23 May 2011) $
+// Version: $Revision: 33 $
+// Date   : $Date: 2011-05-29 12:27:45 +0000 (Sun, 29 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -59,6 +59,8 @@ public:
 	bool isMainline() const;
 	bool variationIsEmpty() const;
 	bool terminated() const;
+	bool commentEngFlag() const;
+	bool commentOthFlag() const;
 
 	format::Type sourceFormat() const;
 	virtual format::Type format() const = 0;
@@ -174,6 +176,8 @@ private:
 	Consumer*			m_consumer;
 	bool					m_setupBoard;
 	bool					m_hasComment;
+	bool					m_commentEngFlag;
+	bool					m_commentOthFlag;
 };
 
 } // namespace db

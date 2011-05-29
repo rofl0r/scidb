@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 28 $
-# Date   : $Date: 2011-05-21 14:57:26 +0000 (Sat, 21 May 2011) $
+# Version: $Revision: 33 $
+# Date   : $Date: 2011-05-29 12:27:45 +0000 (Sun, 29 May 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1018,7 +1018,7 @@ proc PopupMenu {table menu base index} {
 
 
 proc WriteOptions {chan} {
-	::options::writeItem $chan [namespace current]::Find
+	::options::writeList $chan [namespace current]::Find
 	::options::writeItem $chan [namespace current]::Options
 }
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 33 $
+// Date   : $Date: 2011-05-29 12:27:45 +0000 (Sun, 29 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -30,8 +30,9 @@ namespace db {
 
 inline bool Comment::isXml() const							{ return ::strncmp(m_content, "<xml>", 5) == 0; }
 inline bool Comment::isEmpty() const							{ return m_content.empty(); }
+inline bool Comment::engFlag() const						{ return m_engFlag; }
+inline bool Comment::othFlag() const						{ return m_othFlag; }
 inline unsigned Comment::size() const						{ return m_content.size(); }
-inline mstl::string& Comment::content()						{ return m_content; }
 inline mstl::string const& Comment::content() const		{ return m_content; }
 inline Comment::operator mstl::string const& () const	{ return m_content; }
 

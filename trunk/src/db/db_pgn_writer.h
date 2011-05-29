@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 30 $
-// Date   : $Date: 2011-05-23 14:49:04 +0000 (Mon, 23 May 2011) $
+// Version: $Revision: 33 $
+// Date   : $Date: 2011-05-29 12:27:45 +0000 (Sun, 29 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -85,6 +85,8 @@ public:
 
 private:
 
+	void writeComment(Comment const& comment);
+	void writeMarks(MarkSet const& marks);
 	void writeComment(mstl::string const& comment);
 
 	void putSpace();

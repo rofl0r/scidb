@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 26 $
-// Date   : $Date: 2011-05-19 22:11:39 +0000 (Thu, 19 May 2011) $
+// Version: $Revision: 33 $
+// Date   : $Date: 2011-05-29 12:27:45 +0000 (Sun, 29 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -171,6 +171,7 @@ public:
 	void clearGame(db::Board const* startPosition = 0);
 	db::save::State saveGame(Cursor& cursor, bool replace);
 	db::save::State updateCharacteristics(Cursor& cursor, unsigned index, db::TagSet const& tags);
+	db::save::State updateMoves(Cursor& cursor, unsigned index);
 	void setupGame(unsigned linebreakThreshold,
 						unsigned linebreakMaxLineLengthMain,
 						unsigned linebreakMaxLineLengthVar,

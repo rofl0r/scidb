@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 28 $
-# Date   : $Date: 2011-05-21 14:57:26 +0000 (Sat, 21 May 2011) $
+# Version: $Revision: 33 $
+# Date   : $Date: 2011-05-29 12:27:45 +0000 (Sun, 29 May 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -535,6 +535,7 @@ proc Import {position dlg} {
 	$log configure -state normal -takefocus 1
 	$log delete 0 end
 	set content [$txt get 1.0 end]
+	set figurine [$Priv($position:figurines) get fig]
 	if {$Priv($position:mode) eq "game"} { set isVar 0 } else { set isVar 1 }
 
 	set n [::scidb::game::import \

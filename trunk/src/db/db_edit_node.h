@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 31 $
-// Date   : $Date: 2011-05-24 09:11:31 +0000 (Tue, 24 May 2011) $
+// Version: $Revision: 33 $
+// Date   : $Date: 2011-05-29 12:27:45 +0000 (Sun, 29 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -63,7 +63,7 @@ public:
 	{
 		TRoot, TOpening, TLanguages,						// root level (unused)
 		TAction,													// root level (used)
-		TPreComment, TMove, TDiagram, TVariation,		// variation level
+		TMove, TDiagram, TVariation,						// variation level
 		TPly, TAnnotation, TMarks, TComment, TSpace,	// move level
 	};
 
@@ -230,7 +230,6 @@ private:
 };
 
 
-
 class Opening : public Node
 {
 public:
@@ -352,7 +351,7 @@ public:
 
 private:
 
-	void preSpacing(Work& work, bool atLineStart);
+	void preSpacing(Work& work, bool atLineStart, unsigned space);
 	unsigned putComment(Work& work, db::Comment const& comment, move::Position position);
 
 	List	m_list;

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 31 $
-// Date   : $Date: 2011-05-24 09:11:31 +0000 (Tue, 24 May 2011) $
+// Version: $Revision: 33 $
+// Date   : $Date: 2011-05-29 12:27:45 +0000 (Sun, 29 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -384,7 +384,7 @@ public:
 	{
 		mstl::string san;
 
-		move.printSan(san, Move::Unicode);
+		move.printSan(san, encoding::Utf8);
 
 		Tcl_Obj* objv_1[4];
 
