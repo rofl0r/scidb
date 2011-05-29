@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 33 $
-# Date   : $Date: 2011-05-29 12:27:45 +0000 (Sun, 29 May 2011) $
+# Version: $Revision: 35 $
+# Date   : $Date: 2011-05-29 22:18:50 +0000 (Sun, 29 May 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -154,6 +154,7 @@ proc build {parent menu width height} {
 	set Vars(index) 0
 	set Vars(break) 0
 	set Vars(height) 0
+	set Vars(varKey) ""
 
 	for {set i 0} {$i < 9} {incr i} {
 		set f [::ttk::frame $top.f$i]
@@ -694,12 +695,13 @@ proc Update {position data} {
 			}
 
 			begin {
-				set level [lindex $node 2]
-				set startVar($level) [lindex $node 1]
+				set level [lindex $node 3]
+				set Vars(varKey) [lindex $node 1]
+				set startVar($level) [lindex $node 2]
 			}
 
 			end {
-				set level [lindex $node 2]
+				set level [lindex $node 3]
 				Indent $w $level $startVar($level)
 				incr level -1
 			}
