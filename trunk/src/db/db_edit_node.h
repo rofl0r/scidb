@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 33 $
-// Date   : $Date: 2011-05-29 12:27:45 +0000 (Sun, 29 May 2011) $
+// Version: $Revision: 34 $
+// Date   : $Date: 2011-05-29 21:45:50 +0000 (Sun, 29 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -487,8 +487,8 @@ public:
 	virtual void start(result::ID result) = 0;
 	virtual void finish(result::ID result) = 0;
 
-	virtual void startVariation(Key const& startKey, Key const& endKey) = 0;
-	virtual void endVariation(Key const& startKey, Key const& endKey) = 0;
+	virtual void startVariation(Key const& key, Key const& startKey, Key const& endKey) = 0;
+	virtual void endVariation(Key const& key, Key const& startKey, Key const& endKey) = 0;
 
 	virtual void startMove(Key const& key) = 0;
 	virtual void endMove(Key const& key) = 0;

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 33 $
-// Date   : $Date: 2011-05-29 12:27:45 +0000 (Sun, 29 May 2011) $
+// Version: $Revision: 34 $
+// Date   : $Date: 2011-05-29 21:45:50 +0000 (Sun, 29 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -430,6 +430,10 @@ public:
 	bool transpose(Force flag = OnlyIfRemainsConsistent);
 	/// Clean up variations.
 	unsigned cleanupVariations();
+	/// Set given variation folded/unfolded.
+	void setFolded(edit::Key const& key, unsigned variationNumber, bool flag = true);
+	/// Fold/unfold all variations.
+	void setFolded(bool flag = true);
 
 	// modification methods
 

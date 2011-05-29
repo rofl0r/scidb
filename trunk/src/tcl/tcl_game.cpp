@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 33 $
-// Date   : $Date: 2011-05-29 12:27:45 +0000 (Sun, 29 May 2011) $
+// Version: $Revision: 34 $
+// Date   : $Date: 2011-05-29 21:45:50 +0000 (Sun, 29 May 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -502,24 +502,26 @@ public:
 		m_objv[m_objc++] = Tcl_NewListObj(U_NUMBER_OF(objv), objv);
 	}
 
-	void startVariation(edit::Key const& startKey, edit::Key const& endKey)
+	void startVariation(edit::Key const& key, edit::Key const& startKey, edit::Key const& endKey)
 	{
-		Tcl_Obj* objv[3];
+		Tcl_Obj* objv[4];
 
 		objv[0] = m_begin;
-		objv[1] = Tcl_NewStringObj(startKey.id(), startKey.id().size());
-		objv[2] = Tcl_NewIntObj(startKey.level());
+		objv[1] = Tcl_NewStringObj(key.id(), key.id().size());
+		objv[2] = Tcl_NewStringObj(startKey.id(), startKey.id().size());
+		objv[3] = Tcl_NewIntObj(startKey.level());
 
 		Tcl_ListObjAppendElement(0, m_list, Tcl_NewListObj(U_NUMBER_OF(objv), objv));
 	}
 
-	void endVariation(edit::Key const& startKey, edit::Key const& endKey)
+	void endVariation(edit::Key const& key, edit::Key const& startKey, edit::Key const& endKey)
 	{
-		Tcl_Obj* objv[3];
+		Tcl_Obj* objv[4];
 
 		objv[0] = m_end;
-		objv[1] = Tcl_NewStringObj(endKey.id(), endKey.id().size());
-		objv[2] = Tcl_NewIntObj(startKey.level());
+		objv[1] = Tcl_NewStringObj(key.id(), key.id().size());
+		objv[2] = Tcl_NewStringObj(endKey.id(), endKey.id().size());
+		objv[3] = Tcl_NewIntObj(startKey.level());
 
 		Tcl_ListObjAppendElement(0, m_list, Tcl_NewListObj(U_NUMBER_OF(objv), objv));
 	}
