@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 33 $
-// Date   : $Date: 2011-05-29 12:27:45 +0000 (Sun, 29 May 2011) $
+// Version: $Revision: 36 $
+// Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -316,6 +316,14 @@ Decoder::decodeVariation(/*unsigned flags, */unsigned level)
 				case token::End_Game:
 					if (level > 0)
 						::throwCorruptData();
+					if (preComment)
+					{
+						// We are at the end of game. Re-insert dangling comment as
+						// a sub-variation.
+						MoveNode* node = new MoveNode(m_position.board().makeNullMove());
+						node->setComment(move::Ante);
+						m_currentNode->addVariation(node);
+					}
 					return;
 
 				case token::End_Marker:

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1 $
-# Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+# Version: $Revision: 36 $
+# Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -78,7 +78,7 @@ proc new {w size {borderSize 0} {flipped 0}} {
 	set Board(animate) 1
 
    set boardSize [expr {8*$size}]
-   frame $w -class Board
+   tk::frame $w -class Board
    canvas $w.c -width $boardSize -height $boardSize -borderwidth $borderSize -relief raised -takefocus 0
    pack $w.c
 

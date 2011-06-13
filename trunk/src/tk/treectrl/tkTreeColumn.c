@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 30 $
-// Date   : $Date: 2011-05-23 14:49:04 +0000 (Mon, 23 May 2011) $
+// Version: $Revision: 36 $
+// Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -5711,7 +5711,7 @@ LayoutColumns(
 {
 	TreeCtrl *tree;
 	TreeColumn column;
-	int width, visWidth = 0, totalWidth = 0;
+	int width = 0, visWidth = 0, totalWidth = 0;
 	int numExpand = 0, numSqueeze = 0;
 	Tcl_HashEntry *hPtr;
 	Tcl_HashSearch search;

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 33 $
-# Date   : $Date: 2011-05-29 12:27:45 +0000 (Sun, 29 May 2011) $
+# Version: $Revision: 36 $
+# Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -425,7 +425,7 @@ proc open {parent} {
 	set selectbg $::board::square::style(hilite,selected)
 	set activebg [::theme::getActiveBackgroundColor]
 	if {[string length $activebg] == 0} {
-		button $top.temp
+		tk::button $top.temp
 		set activebg [$top.temp cget -activebackground]
 		destroy $top.temp
 	}
@@ -434,7 +434,7 @@ proc open {parent} {
 		set col 1
 		foreach side {w b} {
 			set fig $side$piece
-			radiobutton $panel.$fig \
+			tk::radiobutton $panel.$fig \
 				-image photo_Piece($fig,$squareSize) \
 				-indicatoron no \
 				-value $fig \

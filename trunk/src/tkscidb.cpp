@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 33 $
-// Date   : $Date: 2011-05-29 12:27:45 +0000 (Sun, 29 May 2011) $
+// Version: $Revision: 36 $
+// Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -36,13 +36,12 @@
 #include <tcl.h>
 #include <tk.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 
 static int
 init(Tcl_Interp* ti)
 {
-	db::Annotation::initialize();	// initializing before main() is not working for any reason
-
 	try
 	{
 		util::ZStream::setZipFileSuffixes(util::ZStream::Strings(1, "pgn"));

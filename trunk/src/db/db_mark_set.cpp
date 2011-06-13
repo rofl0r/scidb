@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 15 $
-// Date   : $Date: 2011-05-09 21:26:47 +0000 (Mon, 09 May 2011) $
+// Version: $Revision: 36 $
+// Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -94,7 +94,7 @@ MarkSet::add(MarkSet const& set)
 }
 
 
-void
+bool
 MarkSet::extractFromComment(mstl::string& comment)
 {
 	mstl::string result;
@@ -160,7 +160,9 @@ MarkSet::extractFromComment(mstl::string& comment)
 		}
 	}
 
-	if (!isEmpty())
+	bool rc = !isEmpty();
+
+	if (rc)
 	{
 		result.append(p, comment.end());
 		comment = result;
@@ -169,6 +171,8 @@ MarkSet::extractFromComment(mstl::string& comment)
 	M_ASSERT(!isEmpty() || result.empty());
 
 	::trim(comment);
+
+	return rc;
 }
 
 

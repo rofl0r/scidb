@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 33 $
-// Date   : $Date: 2011-05-29 12:27:45 +0000 (Sun, 29 May 2011) $
+// Version: $Revision: 36 $
+// Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -357,10 +357,22 @@ Decoder::decodeVariation(Consumer& consumer, util::ByteStream& data, ByteStream&
 				m_position.doMove(move, pieceNum);
 			}
 			// TODO: not needed if consumer.startVariation(DoNotTakeBackMove) was called
-			else if (lastMove)
+			else
 			{
-				m_position.doMove(lastMove, pieceNum);
-				lastMove.clear();
+				if (lastMove)
+				{
+					m_position.doMove(lastMove, pieceNum);
+					lastMove.clear();
+				}
+
+				if (hasNote)
+				{
+					consumer.putComment(comment, annotation, marks);
+					marks.clear();
+					annotation.clear();
+					comment.clear();
+					hasNote = false;
+				}
 			}
 
 			pieceNum = decodeMove(b, move);

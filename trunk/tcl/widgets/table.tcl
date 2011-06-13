@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 30 $
-# Date   : $Date: 2011-05-23 14:49:04 +0000 (Mon, 23 May 2011) $
+# Version: $Revision: 36 $
+# Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -132,7 +132,7 @@ proc table {args} {
 	variable KeySqueezeColumns
 
 	set parent [lindex $args 0]
-	set table [frame $parent]
+	set table [tk::frame $parent]
 
 	namespace eval [namespace current]::$table {}
 	variable ${table}::Vars

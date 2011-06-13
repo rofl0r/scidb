@@ -1,7 +1,7 @@
 // ======================================================================
 // $RCSfile: m_bit_functions.h,v $
-// $Revision: 1 $
-// $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// $Revision: 36 $
+// $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
 // $Author: gregor $
 // ======================================================================
 
@@ -18,14 +18,6 @@
 
 #include <byteswap.h>
 #include <endian.h>
-
-extern "C" {
-
-inline static uint16_t __attribute__((always_inline)) __mstl_bswap_16(uint16_t a) { return bswap_16(a); }
-inline static uint32_t __attribute__((always_inline)) __mstl_bswap_32(uint32_t a) { return bswap_32(a); }
-inline static uint64_t __attribute__((always_inline)) __mstl_bswap_64(uint64_t a) { return bswap_64(a); }
-
-} // extern "C"
 
 namespace mstl {
 namespace bo {

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1 $
-# Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+# Version: $Revision: 36 $
+# Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -41,6 +41,8 @@ set Default						"Default"
 set WorkingSet					"Working Set"
 
 } ;# namespace mc
+
+variable Version 1.0
 
 variable workingSetId	"Working Set"
 variable defaultId		"Default"
@@ -84,10 +86,11 @@ array set Default {
 	hint,coordinates			#d3ff02
 }
 set Default(identifier) $defaultId
-
+set Default(version) [set [namespace parent]::Version]
 
 array set Working [array get Default]
 set Working(identifier) $workingSetId
+set Working(version) [set [namespace parent]::Version]
 
 upvar 0 Working style
 
@@ -169,9 +172,11 @@ array set Default {
 	gradient,b,y2			1
 }
 set Default(identifier) $defaultId
+set Default(version) [set [namespace parent]::Version]
 
 array set Working [array get Default]
 set Working(identifier) $workingSetId
+set Working(version) [set [namespace parent]::Version]
 
 upvar 0 Working style
 
@@ -213,9 +218,11 @@ array set Default {
 	piece-set		Merida
 }
 set Default(identifier) $defaultId
+set Default(version) [set [namespace parent]::Version]
 
 array set Working [array get Default]
 set Working(identifier) $workingSetId
+set Working(version) [set [namespace parent]::Version]
 
 upvar 0 Working style
 

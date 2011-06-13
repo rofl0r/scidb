@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 36 $
+// Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -336,6 +336,11 @@ Board::hashEnPassant()
 bool
 Board::isIntoCheck(Move const& move) const
 {
+	M_REQUIRE(move);
+
+	if (move.isNull())
+		return false;
+
 	Board peek(*this);
 	peek.doMove(move);
 	return peek.givesCheck();
@@ -3632,7 +3637,16 @@ Board::isValidMove(Move const& move, move::Constraint flag) const
 	if (!checkMove(move, flag))
 		return false;
 
-	return flag == move::AllowIllegalMove || !isIntoCheck(move);
+	if (move.isNull())
+	{
+		Status state = checkState();
+		return state != CheckMate && state != StaleMate;
+	}
+
+	if (flag == move::AllowIllegalMove)
+		return true;
+
+	return !isIntoCheck(move);
 }
 
 

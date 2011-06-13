@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 36 $
+// Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -49,6 +49,7 @@ class EcoTable
 {
 public:
 
+	enum { FileVersion = 90 };
 	enum { Max_Successors = 20 };
 	enum { Num_Name_Parts = 6 };
 
@@ -86,7 +87,6 @@ public:
 	bool isUsed(Eco code) const;
 
 	Eco lookup(	Line const& line,
-					Eco& opening,
 					unsigned* length = 0,
 					Successors* successors = 0,
 					EcoSet* reachable = 0) const;

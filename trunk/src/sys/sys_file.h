@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 5 $
-// Date   : $Date: 2011-05-05 07:51:24 +0000 (Thu, 05 May 2011) $
+// Version: $Revision: 36 $
+// Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -19,6 +19,8 @@
 #ifndef _sys_file_included
 #define _sys_file_included
 
+#include "sys_time.h"
+
 #include "m_types.h"
 
 namespace sys {
@@ -32,21 +34,9 @@ enum Mode
 	Readable		= 4,
 };
 
-struct Time
-{
-	Time();
-
-	uint16_t	year;
-	uint16_t month;
-	uint16_t day;
-	uint16_t hour;
-	uint16_t minute;
-	uint16_t second;
-};
-
 bool access(char const* filename, Mode mode);
 long size(char const* filename);
-bool changed(char const* filename, Time& result);
+bool changed(char const* filename, uint32_t& time);
 
 void rename(char const* oldFilename, char const* newFilename);
 void deleteIt(char const* filename);

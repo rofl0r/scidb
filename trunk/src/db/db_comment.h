@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 33 $
-// Date   : $Date: 2011-05-29 12:27:45 +0000 (Sun, 29 May 2011) $
+// Version: $Revision: 36 $
+// Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -82,6 +82,7 @@ public:
 	bool containsLanguage(mstl::string const& lang) const;
 
 	unsigned size() const;
+	unsigned length() const;
 	mstl::string const& content() const;
 
 	void append(Comment const& comment, char delim = '\0');

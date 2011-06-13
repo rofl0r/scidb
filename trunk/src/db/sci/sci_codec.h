@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 33 $
-// Date   : $Date: 2011-05-29 12:27:45 +0000 (Sun, 29 May 2011) $
+// Version: $Revision: 36 $
+// Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -48,7 +48,6 @@ class GameData;
 class GameInfo;
 class Namebase;
 class Consumer;
-class Producer;
 class TagSet;
 
 namespace sci {
@@ -80,7 +79,6 @@ public:
 	void filterTag(TagSet& tags, tag::ID tag) const;
 	mstl::string const& extension() const;
 	mstl::string const& encoding() const;
-	uint32_t computeChecksum(unsigned flags, GameInfo const& info, unsigned crc) const;
 	util::BlockFile* newBlockFile() const;
 
 	void doOpen(mstl::string const& encoding);

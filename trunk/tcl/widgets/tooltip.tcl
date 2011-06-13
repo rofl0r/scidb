@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 31 $
-# Date   : $Date: 2011-05-24 09:11:31 +0000 (Tue, 24 May 2011) $
+# Version: $Revision: 36 $
+# Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -225,7 +225,7 @@ proc init {} {
 	wm positionfrom $b program
 	wm withdraw $b
 
-	label $b.label \
+	tk::label $b.label \
 		-highlightthickness 0 \
 		-relief solid \
 		-borderwidth 1 \

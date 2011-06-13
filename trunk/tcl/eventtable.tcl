@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 20 $
-# Date   : $Date: 2011-05-15 12:32:40 +0000 (Sun, 15 May 2011) $
+# Version: $Revision: 36 $
+# Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -360,7 +360,9 @@ proc TableFill {path args} {
 				switch $id {
 					eventCountry {
 						if {[string length $item] == 0} {
-							if {$Options(country-code) eq "flags"} {
+							if {$codec eq "si3" || $codec eq "si4"} {
+								lappend text $::mc::NotAvailable
+							} elseif {$Options(country-code) eq "flags"} {
 								lappend text [list @ {}]
 							} else {
 								lappend text {}
@@ -375,14 +377,14 @@ proc TableFill {path args} {
 					}
 
 					eventType {
-						if {$codec eq "si3" || $codec eq "si4"} {
-							lappend text $::gametable::mc::NotAvailable
-						} elseif {[llength $item]} {
+						if {[llength $item]} {
 							if {$Options(eventtype-icon)} {
 								lappend text [list @ $::eventtypebox::icon::12x12::Type($item)]
 							} else {
 								lappend text $::gametable::mc::EventType($item)
 							}
+						} elseif {$codec eq "si3" || $codec eq "si4"} {
+							lappend text $::mc::NotAvailable
 						} else {
 							lappend text {}
 						}

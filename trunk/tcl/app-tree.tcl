@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 20 $
-# Date   : $Date: 2011-05-15 12:32:40 +0000 (Sun, 15 May 2011) $
+# Version: $Revision: 36 $
+# Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -406,7 +406,7 @@ proc build {parent menu width height} {
 		-allow {top bottom} \
 		]
 	set progress [::toolbar::add $tbProgress frame -width 130 -height 7 -borderwidth 1 -relief sunken]
-	frame $progress.bar -background $Defaults(progress:color) -height 5
+	tk::frame $progress.bar -background $Defaults(progress:color) -height 5
 	$switcher addcol text -id name
 	bind $switcher <<Language>> [namespace code LanguageChanged]
 	bind $switcher <<ComboboxCurrent>> [namespace code [list SetReferenceBase $switcher]]
@@ -464,7 +464,7 @@ proc update {position} {
 	variable Vars
 	variable Options
 
-	if {$Options(search:automatic) && [llength [::scidb::tree::get]]} {
+	if {$Options(search:automatic) && ![::scidb::tree::isUpToDate?] && [llength [::scidb::tree::get]]} {
 		after cancel $Vars(after)
 		set Vars(after) [after 250 [namespace code [list DoSearch $Vars(table)]]]
 		Enabled false

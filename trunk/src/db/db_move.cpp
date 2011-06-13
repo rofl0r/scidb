@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 33 $
-// Date   : $Date: 2011-05-29 12:27:45 +0000 (Sun, 29 May 2011) $
+// Version: $Revision: 36 $
+// Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -252,13 +252,10 @@ Move::dump(mstl::string& result) const
 			if (pieceMoved() != piece::Pawn)
 				result += piece::print(pieceMoved());
 
-			if (captured() != piece::None)
-			{
-				if (pieceMoved() == piece::Pawn)
-					result += sq::printFyle(from());
+			result += sq::printFyle(from());
+			result += sq::printRank(from());
 
-				result += "x";
-			}
+			result += captured() == piece::None ? "-" : "x";
 
 			result += sq::printFyle(to());
 			result += sq::printRank(to());

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 36 $
+// Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -33,7 +33,6 @@ using namespace db;
 GameData::GameData()
 	:m_startNode(new MoveNode)
 	,m_startBoard(Board::standardBoard())
-	,m_crc(0)
 {
 	m_tags.set(tag::Event,	"?", 1);
 	m_tags.set(tag::Site,	"?", 1);

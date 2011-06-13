@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 33 $
-// Date   : $Date: 2011-05-29 12:27:45 +0000 (Sun, 29 May 2011) $
+// Version: $Revision: 36 $
+// Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -272,17 +272,6 @@ Cursor::updateCharacteristics(unsigned index, TagSet const& tags)
 
 	// TODO: handle return code!
 	m_app.updateCharacteristics(*this, index, tags);
-}
-
-
-void
-Cursor::updateMoves(unsigned index)
-{
-	M_REQUIRE(isOpen());
-	M_REQUIRE(index < countGames());
-
-	// TODO: handle return code!
-	m_app.updateMoves(*this, index);
 }
 
 

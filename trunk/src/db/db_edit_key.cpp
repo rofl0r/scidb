@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 20 $
-// Date   : $Date: 2011-05-15 12:32:40 +0000 (Sun, 15 May 2011) $
+// Version: $Revision: 36 $
+// Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -316,10 +316,12 @@ Key::findPosition(MoveNode* node, unsigned plyNumber) const
 
 		for ( ; plyNumber < nextPly; ++plyNumber)
 		{
-			node = node->next();
+			// NOTE: plyNumber may be one position too high
+			// due to the logic of db_edit_node
+			if (!node->next())
+				return node;
 
-			if (!node)
-				return 0;
+			node = node->next();
 		}
 
 		s = *e == '.' ? e + 1 : e;
@@ -331,7 +333,8 @@ Key::findPosition(MoveNode* node, unsigned plyNumber) const
 			if (varNo >= node->variationCount())
 				return 0;
 
-			node = node->variation(varNo);
+			node = node->variation(varNo)->next();
+			M_ASSERT(node);
 			s = *e == '.' ? e + 1 : e;
 		}
 	}

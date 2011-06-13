@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 33 $
-// Date   : $Date: 2011-05-29 12:27:45 +0000 (Sun, 29 May 2011) $
+// Version: $Revision: 36 $
+// Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -91,7 +91,7 @@ Writer::sendComment(Comment const& comment, Annotation const& annotation, MarkSe
 			m_needSpace = true;
 		}
 
-		if (!comment.isEmpty())
+		if (!comment.isEmpty() || !marks.isEmpty())
 		{
 			writeComment(comment, marks);
 			m_needSpace = true;
@@ -416,8 +416,8 @@ bool
 Writer::sendMove(	Move const& move,
 						Annotation const& annotation,
 						MarkSet const& marks,
-						Comment const& comment,
-						Comment const& preComment)
+						Comment const& preComment,
+						Comment const& comment)
 {
 	writeMove(move, annotation, marks, preComment, comment);
 	return true;

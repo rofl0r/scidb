@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1 $
-# Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+# Version: $Revision: 36 $
+# Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -105,13 +105,13 @@ package provide scrolledframe $version
 proc scrolledframe {w args} {
 	variable {}
 	# create a scrolled frame
-	frame $w
+	tk::frame $w
 	# trap the reference
 	rename $w ::scrolledframe::_$w
 	# redirect to dispatch
 	interp alias {} $w {} ::scrolledframe::Dispatch $w
 	# create scrollable internal frame
-	frame $w.scrolled
+	tk::frame $w.scrolled
 	# place it
 	place $w.scrolled -in $w -x 0 -y 0
 	if {$(debug,place)} { puts "place $w.scrolled -in $w -x 0 -y 0" }
@@ -228,6 +228,10 @@ proc Config {w args} {
 proc resize {w {force {}}} {
 	variable {}
 	set force [llength $force]
+
+	if {![string match *.__scrolledframe__ $w]} {
+		set w $w.__scrolledframe__
+	}
 
 	set _vheight      $($w:vheight)
 	set _vwidth       $($w:vwidth)

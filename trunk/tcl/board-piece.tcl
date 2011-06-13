@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 20 $
-# Date   : $Date: 2011-05-15 12:32:40 +0000 (Sun, 15 May 2011) $
+# Version: $Revision: 36 $
+# Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1565,7 +1565,7 @@ proc openConfigDialog {parent size closeCmd updateCmd resetCmd} {
 													Shadow shadow rt 1 0 $Constant(shadowMaxTick) \
 													Opacity opacity rt 3 0 255 \
 												] {
-		scale $bot.$side.s$var \
+		tk::scale $bot.$side.s$var \
 			-from $min \
 			-to $max \
 			-bigincrement 10 \

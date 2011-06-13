@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 33 $
-// Date   : $Date: 2011-05-29 12:27:45 +0000 (Sun, 29 May 2011) $
+// Version: $Revision: 36 $
+// Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -263,21 +263,28 @@ Consumer::putMove(Move const& move,
 	}
 
 	if (!comment.isEmpty())
+	{
+		if (comment.engFlag())
+			m_commentEngFlag = true;
+		if (comment.othFlag())
+			m_commentOthFlag = true;
 		++m_commentCount;
+	}
+
+	if (!preComment.isEmpty())
+	{
+		if (preComment.engFlag())
+			m_commentEngFlag = true;
+		if (preComment.othFlag())
+			m_commentOthFlag = true;
+		++m_commentCount;
+	}
+
 	m_annotationCount += annotation.count();
 	m_markCount += marks.count();
 
 	entry.move = move;
 	entry.board.prepareUndo(entry.move);
-
-	if (comment.engFlag())
-		m_commentEngFlag = true;
-	if (comment.othFlag())
-		m_commentOthFlag = true;
-	if (preComment.engFlag())
-		m_commentEngFlag = true;
-	if (preComment.othFlag())
-		m_commentOthFlag = true;
 
 	if (sendMove(entry.move, annotation, marks, preComment, comment))
 	{

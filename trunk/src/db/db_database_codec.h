@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 33 $
-// Date   : $Date: 2011-05-29 12:27:45 +0000 (Sun, 29 May 2011) $
+// Version: $Revision: 36 $
+// Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -30,6 +30,8 @@
 #include "db_database_content.h"
 #include "db_time.h"
 #include "db_move.h"
+
+#include "u_crc.h"
 
 #include "m_string.h"
 
@@ -117,7 +119,8 @@ public:
 	virtual mstl::string const& extension() const = 0;
 	virtual mstl::string const& encoding() const = 0;
 	virtual Time modified(mstl::string const& rootname) const;
-	virtual uint32_t computeChecksum(/*unsigned flags, */GameInfo const& info, unsigned crc) const;
+	uint32_t created() const;
+	virtual util::crc::checksum_t computeChecksum(GameInfo const& info, unsigned crc) const;
 	virtual util::BlockFile* newBlockFile() const;
 
 	virtual void updateHeader(mstl::string const& rootname);
@@ -222,6 +225,7 @@ protected:
 	Namebases& namebases();
 
 	void setType(DatabaseContent::Type type);
+	void setCreated(uint32_t time);
 	void setDescription(char const* description);
 
 	void checkPermissions(mstl::string const& filename);

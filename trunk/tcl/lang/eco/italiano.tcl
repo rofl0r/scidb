@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1 $
-# Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+# Version: $Revision: 36 $
+# Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -343,7 +343,6 @@
 "Magnus Smith Trap"					"Trappola di Magnus Smith"
 "Main Line"						"Linea Principale"
 "Main Line (Czerniak Variation)"			"Linea Principale (Variante Czerniak)"
-"Main Lines"						"Linee Principali"
 "Maltese Falcon"					"Falco Maltese"
 "Manhattan Gambit"					"Gambetto di Manhattan"
 "Manhattan Variation"					"Variante di Manhattan"
@@ -502,7 +501,6 @@
 "Soller Gambit Deferred"				"Gambetto Soller Ritardato"
 "Solid Line"						"Linea Solida"
 "Spanish Countergambit"					"Controgambetto Spagnolo"
-"Spanish: Duras Variation"				"Spagnola: Variante Duras"
 "Spielmann (Reifir) Variation"				"Variante Spielmann (Reifir)"
 "Spike Attack"						"Attacco con Spinta Laterale"
 "Spike Gambit"						"Gambetto con Spinta Laterale"
@@ -526,7 +524,7 @@
 "Symmetrical Variation"					"Variante Simmetrica"
 "Szen Variation (Anti-Taimanov Variation)"		"Variante Szen (Variante Anti-Taimanov)"
 "Taimanov (Alatortsev) Variation"			"Variante Taimanov (Alatortsev)"
-"Taimanov (Barnes) Variation"				"Variante Timanov (Barnes)"
+"Taimanov (Barnes) Variation"				"Variante Taimanov (Barnes)"
 "Taimanov (Wing, Norwegian) Variation"			"Variante Taimanov (o dell'Ala, Norvegese)"
 "Tajero Lamana-Gimeno System"				"Sistema Tajero Lamana-Gimeno"
 "Tartakower (Nimzovich) Variation"			"Variante Tartakower (Nimzowitsch)"
@@ -558,7 +556,6 @@
 "Venice Attack"						"Attacco di Venezia"
 "Veresov (Göring) Attack"				"Attacco Veresov (Göring)"
 "Vienna (Kramnik-Shirov) Counterattack"			"Contrattacco Viennese (Kramnik-Shirov)"
-"Vienna: Boden-Kieseritsky Gambit"			"Viennese: Boden-Kieseritsky"
 "Vistaneckis (Nimzovich) Variation"			"Variante Vistaneckis (Nimzowitsch)"
 "Vulture"						"Avvoltoio"
 "Vulture-Penguin (Eagle)"				"Avvoltoio-Pinguino (Aquila)"
@@ -571,7 +568,7 @@
 "Wolf Variation "					"Variante Wolf"
 "Woozle-Penguin"					"Woozle-Pinguino"
 "Yugoslav Attack"					"Attacco Yugoslavo"
-"Yugoslav Panno Variation"				"Variante Yugoslava Panno"
+"Yugoslav (Panno) Variation"				"Variante Yugoslava (Panno)"
 "Yugoslav System"					"Sistema Yugoslavo"
 "Yugoslav Variation"					"Variante Yugoslava"
 "Yugoslavian Line"					"Linea Yugoslava"

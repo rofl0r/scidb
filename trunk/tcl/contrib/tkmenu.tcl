@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 25 $
-# Date   : $Date: 2011-05-19 14:05:57 +0000 (Thu, 19 May 2011) $
+# Version: $Revision: 36 $
+# Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -712,8 +712,8 @@ proc ::tk::MenuInvoke {w buttonRelease} {
 	set menu [$w entrycget active -menu]
 	MenuFirstEntry $menu
     ### FIX begin ####################################################################
-    } elseif {     [llength $Priv(fix:active)]
-                && [winfo exists $Priv(fix:active)]
+    } elseif {     [info exists Priv(fix:active)]
+                && [string length $Priv(fix:active)]
                 && [$Priv(fix:active) type active] eq "cascade"} {
 	$Priv(fix:active) postcascade active
 	set menu [$Priv(fix:active) entrycget active -menu]

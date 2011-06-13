@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 33 $
-// Date   : $Date: 2011-05-29 12:27:45 +0000 (Sun, 29 May 2011) $
+// Version: $Revision: 36 $
+// Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -31,6 +31,8 @@
 #include "db_tree_cache.h"
 #include "db_time.h"
 #include "db_move.h"
+
+#include "u_crc.h"
 
 #include "m_string.h"
 
@@ -114,6 +116,8 @@ public:
 	mstl::string const& encoding() const;
 	/// Returns date of last modification.
 	Time modified() const;
+	/// Returns date of creation.
+	Time created() const;
 	/// Returns statistic of database
 	Statistic const& statistic() const;
 	/// Returh maximal length of description.
@@ -121,7 +125,7 @@ public:
 	/// Return timestamp of last change.
 	uint64_t lastChange() const;
 	/// Compute CRC for given game index.
-	uint32_t computeChecksum(unsigned index) const;
+	util::crc::checksum_t computeChecksum(unsigned index) const;
 
 	/// Returns game information at given index.
 	GameInfo const& gameInfo(unsigned index) const;

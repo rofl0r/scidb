@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 33 $
-# Date   : $Date: 2011-05-29 12:27:45 +0000 (Sun, 29 May 2011) $
+# Version: $Revision: 36 $
+# Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -83,13 +83,13 @@ proc open {parent} {
 	bind $dlg <<Language>> [namespace code [list LanguageChanged $dlg %W]]
 
 	if {[tk windowingsystem] ne "win32"} {
-		set decor [label $top.decor -justify left -text $title -font TkSmallCaptionFont]
+		set decor [tk::label $top.decor -justify left -text $title -font TkSmallCaptionFont]
 		set font [$decor cget -font]
 		$decor configure -font [list [font configure $font -family] [font configure $font -size] bold]
 		pack $decor -fill x -expand yes
-		button $decor.close \
+		tk::button $decor.close \
 			-command [namespace code [list Close $dlg]] \
-			-image $::gamebar::icon::15x15::close \
+			-image $::gamebar::icon::15x15::close(locked) \
 			;
 		Focus $dlg out
 		pack $decor.close -side right

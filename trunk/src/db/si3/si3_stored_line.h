@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 36 $
+// Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -48,6 +48,7 @@ public:
 	Eco opening() const;
 	Line const& line() const;
 
+	static StoredLine const& lookup(Eco const& key);
 	static StoredLine const& getLine(uint8_t index);
 	static StoredLine const& findLine(Line const& line);
 	static char const* getText(uint8_t index);

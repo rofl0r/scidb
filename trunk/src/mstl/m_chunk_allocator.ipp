@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 36 $
+// Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -36,9 +36,9 @@ chunk_allocator<T>::chunk_allocator(size_t chunk_size)
 
 	m_chunk_size = mstl::max(chunk_size, page_size);
 
-	if ((chunk_size & (chunk_size - 1)) != 0)
+	if (is_not_pow_2(chunk_size))
 	{
-		// chunk_size is not power of 2. we round up to next power of 2.
+		// we round up to next power of 2.
 		chunk_size = 1 << (bf::msb_index(chunk_size) + 1);
 	}
 

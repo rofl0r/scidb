@@ -1,8 +1,8 @@
 #!/bin/sh
 #! ======================================================================
 #! $RCSfile: tk_init.h,v $
-#! $Revision: 33 $
-#! $Date: 2011-05-29 12:27:45 +0000 (Sun, 29 May 2011) $
+#! $Revision: 36 $
+#! $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
 #! $Author: gregor $
 #! ======================================================================
 
@@ -158,6 +158,11 @@ proc update {} {
 		after cancel $Vars(after)
 		set Vars(after) [after idle [namespace code Update]]
 	}
+}
+
+
+proc cleanup {} {
+	set [namespace current]::Vars(pending) {}
 }
 
 

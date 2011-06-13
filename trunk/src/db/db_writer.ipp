@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 36 $
+// Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -34,6 +34,9 @@ inline bool Writer::needSpace() const		{ return m_needSpace; }
 inline bool Writer::insideComment() const	{ return m_nullLevel; }
 
 inline bool Writer::test(unsigned flags) const { return m_flags & flags; }
+
+inline void Writer::addFlag(unsigned flag)		{ m_flags |= flag; }
+inline void Writer::removeFlag(unsigned flag)	{ m_flags &= ~flag; }
 
 } // namespace db
 

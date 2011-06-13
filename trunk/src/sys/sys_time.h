@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 36 $
+// Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -24,11 +24,26 @@
 namespace sys {
 namespace time {
 
+struct Time
+{
+	Time();
+
+	uint16_t	year;
+	uint8_t  month;
+	uint8_t  day;
+	uint8_t  hour;
+	uint8_t  minute;
+	uint8_t  second;
+};
+
 /// Returns the time since the Epoch (00:00:00 UTC, January 1, 1970), measured in seconds.
 uint32_t time();
 
 /// Returns a timestamp, measured in milliseconds.
 uint64_t timestamp();
+
+/// Convert UTC time to local time.
+void localtime(uint32_t time, Time& tm);
 
 } // namespace time
 } // namespace sys

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1 $
-# Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+# Version: $Revision: 36 $
+# Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -757,7 +757,7 @@ proc Create {w class} {
 		wm withdraw $w
 	}
 	set contents [ttk::frame $w.contents]
-	set buttons [frame $w.buttons]
+	set buttons [tk::frame $w.buttons]
 	set lt $contents
 	set rt $contents
 	ttk::style configure fsbox.TButton -anchor w
@@ -783,7 +783,7 @@ proc Create {w class} {
 	set data(dirMenuBtn) $rt.dirMenu
 	set data(dirMenu) $rt.dirMenu.m
 
-	ttk::menubutton $data(dirMenuBtn) \
+	tmenubutton $data(dirMenuBtn) \
 		-menu $data(dirMenu) \
 		-takefocus 1 \
 		-direction flush \
@@ -863,7 +863,7 @@ proc Create {w class} {
 		set data(typeMenuLab) [::tk::AmpWidget ttk::label $rt.fType \
 										-text [Tr FilesType] \
 										-anchor e]
-		set data(typeMenuBtn) [ttk::menubutton $rt.typeMenu -menu $rt.typeMenu.m]
+		set data(typeMenuBtn) [tmenubutton $rt.typeMenu -menu $rt.typeMenu.m]
 		set data(typeMenu) [menu $data(typeMenuBtn).m -tearoff 0]
 		bind $data(typeMenuLab) <<AltUnderlined>> [list focus $data(typeMenuBtn)]
 		tooltip $data(typeMenuBtn) [Tr SelectWhichType]

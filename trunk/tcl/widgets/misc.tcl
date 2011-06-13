@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 25 $
-# Date   : $Date: 2011-05-19 14:05:57 +0000 (Thu, 19 May 2011) $
+# Version: $Revision: 36 $
+# Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -107,7 +107,7 @@ proc dialogButtons {dlg buttons dflt {useIcons yes}} {
 
 	bind $dlg <Alt-Key> [list tk::AltKeyInDialog $dlg %A]
 	::ttk::separator $dlg.__sep -class Dialog
-	frame $dlg.__buttons -class Dialog
+	tk::frame $dlg.__buttons -class Dialog
 	set slaves [pack slaves $dlg]
 	if {[llength $slaves]} {
 		pack $dlg.__sep -fill x -side bottom -before [lindex $slaves 0]

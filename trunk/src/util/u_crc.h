@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 33 $
-// Date   : $Date: 2011-05-29 12:27:45 +0000 (Sun, 29 May 2011) $
+// Version: $Revision: 36 $
+// Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -24,9 +24,16 @@
 namespace util {
 namespace crc {
 
-uint32_t compute(uint32_t crc, char const* bytes, unsigned len);
-uint32_t compute(uint32_t crc, unsigned char const* bytes, unsigned len);
-uint32_t combine(uint32_t crc1, uint32_t crc2, unsigned len2);
+typedef uint32_t checksum_t;
+
+checksum_t compute(checksum_t crc, char const* bytes, unsigned len);
+checksum_t compute(checksum_t crc, unsigned char const* bytes, unsigned len);
+checksum_t compute(checksum_t crc, uint8_t value);
+checksum_t compute(checksum_t crc, uint16_t value);
+checksum_t compute(checksum_t crc, uint32_t value);
+checksum_t compute(checksum_t crc, uint64_t value);
+
+checksum_t combine(checksum_t crc1, checksum_t crc2, unsigned len2);
 
 } // namespace crc
 } // namespace util

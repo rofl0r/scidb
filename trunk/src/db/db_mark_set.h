@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 27 $
-// Date   : $Date: 2011-05-20 14:02:53 +0000 (Fri, 20 May 2011) $
+// Version: $Revision: 36 $
+// Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -62,7 +62,7 @@ public:
 	void swap(MarkSet& marks);
 	void clear();
 
-	void extractFromComment(mstl::string& comment);
+	bool extractFromComment(mstl::string& comment);
 	mstl::string& toString(mstl::string& result) const;
 	mstl::string& print(mstl::string& result) const;
 

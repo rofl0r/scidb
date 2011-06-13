@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1 $
-# Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+# Version: $Revision: 36 $
+# Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -32,7 +32,7 @@ proc open {} {
 	toplevel .splash -class Scidb
 	wm title .splash $::scidb::app
 	wm attributes .splash -alpha 0.8
-	frame .splash.f -relief raised -borderwidth 1
+	tk::frame .splash.f -relief raised -borderwidth 1
 	canvas .splash.f.c -borderwidth 0 -width [image width $Picture] -height [image height $Picture]
 	.splash.f.c create image 0 0 -image $Picture -anchor nw
 	ttk::label .splash.f.text -padding {1 0 0 0}

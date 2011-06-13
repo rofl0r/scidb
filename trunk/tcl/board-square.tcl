@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1 $
-# Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+# Version: $Revision: 36 $
+# Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -882,7 +882,7 @@ proc openConfigDialog {parent size closeCmd updateCmd resetCmd} {
 					-labelwidget [ttk::label $bot.lborderline -textvar [namespace current]::mc::Borderline]]
 
 	ttk::label $brl.lwidth -textvar [namespace current]::mc::Width
-	scale $brl.swidth \
+	tk::scale $brl.swidth \
 		-from 0 \
 		-to 20 \
 		-orient horizontal \
@@ -894,7 +894,7 @@ proc openConfigDialog {parent size closeCmd updateCmd resetCmd} {
 	ttk::label $brl.lopacity -textvar [namespace current]::mc::Opacity
 	ttk::frame $brl.fopacity -borderwidth 1 -relief flat
 	set Widget(opacity) [ \
-		scale $brl.sopacity \
+		tk::scale $brl.sopacity \
 			-from 0 \
 			-to 255 \
 			-orient horizontal \

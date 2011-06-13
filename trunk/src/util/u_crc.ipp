@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 33 $
-// Date   : $Date: 2011-05-29 12:27:45 +0000 (Sun, 29 May 2011) $
+// Version: $Revision: 36 $
+// Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -15,6 +15,8 @@
 // the Free Software Foundation; either version 2 of the License, or
 // (at your option) any later version.
 // ======================================================================
+
+#include "m_byte_order.h"
 
 // We have to hide typedef's in zlib.h!
 #define Byte	_ZLIB_Byte
@@ -45,26 +47,87 @@
 
 namespace util {
 namespace crc {
+namespace detail {
 
 inline
-uint32_t
-compute(uint32_t crc, char const* bytes, unsigned len)
+checksum_t
+__attribute__((always_inline))
+compute(checksum_t crc, uint16_t value)
+{
+	return ::crc32(crc, reinterpret_cast<unsigned char const*>(&value), sizeof(uint16_t));
+}
+
+
+inline
+checksum_t
+__attribute__((always_inline))
+compute(checksum_t crc, uint32_t value)
+{
+	return ::crc32(crc, reinterpret_cast<unsigned char const*>(&value), sizeof(uint32_t));
+}
+
+
+inline
+checksum_t
+__attribute__((always_inline))
+compute(checksum_t crc, uint64_t value)
+{
+	return ::crc32(crc, reinterpret_cast<unsigned char const*>(&value), sizeof(uint64_t));
+}
+
+} // namespace detail
+
+inline
+checksum_t
+compute(checksum_t crc, char const* bytes, unsigned len)
 {
 	return ::crc32(crc, reinterpret_cast<unsigned char const*>(bytes), len);
 }
 
 
 inline
-uint32_t
-compute(uint32_t crc, unsigned char const* bytes, unsigned len)
+checksum_t
+compute(checksum_t crc, unsigned char const* bytes, unsigned len)
 {
 	return ::crc32(crc, bytes, len);
 }
 
 
 inline
-uint32_t
-combine(uint32_t crc1, uint32_t crc2, unsigned len2)
+checksum_t
+compute(checksum_t crc, uint8_t value)
+{
+	return ::crc32(crc, reinterpret_cast<unsigned char const*>(&value), sizeof(uint8_t));
+}
+
+
+inline
+checksum_t
+compute(checksum_t crc, uint16_t value)
+{
+	return detail::compute(crc, mstl::bo::swapBE(value));
+}
+
+
+inline
+checksum_t
+compute(checksum_t crc, uint32_t value)
+{
+	return detail::compute(crc, mstl::bo::swapBE(value));
+}
+
+
+inline
+checksum_t
+compute(checksum_t crc, uint64_t value)
+{
+	return detail::compute(crc, mstl::bo::swapBE(value));
+}
+
+
+inline
+checksum_t
+combine(checksum_t crc1, checksum_t crc2, unsigned len2)
 {
 	return ::crc32_combine(crc1, crc2, len2);
 }

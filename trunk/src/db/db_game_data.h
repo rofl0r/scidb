@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 36 $
+// Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -44,7 +44,6 @@ public:
 	MoveNode*	m_startNode;	/// Keeps the starting node of the game
 	Board			m_startBoard;	/// Keeps the start position of the game
 	TagSet		m_tags;
-	uint64_t		m_crc;			// XXX unused
 
 private:
 

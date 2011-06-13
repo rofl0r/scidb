@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 36 $
+// Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -28,12 +28,12 @@
 
 namespace db {
 
+
 inline Annotation::Annotation() : m_count(0) {}
 
-inline bool Annotation::isEmpty() const								{ return m_count == 0; }
-inline unsigned Annotation::count() const								{ return m_count; }
-inline Annotation const* Annotation::defaultSet(nag::ID nag)	{ return &DefaultSets[nag]; }
-inline uint8_t const* Annotation::data() const						{ return m_annotation; }
+inline bool Annotation::isEmpty() const			{ return m_count == 0; }
+inline unsigned Annotation::count() const			{ return m_count; }
+inline uint8_t const* Annotation::data() const	{ return m_annotation; }
 
 
 inline

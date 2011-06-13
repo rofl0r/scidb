@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 33 $
-// Date   : $Date: 2011-05-29 12:27:45 +0000 (Sun, 29 May 2011) $
+// Version: $Revision: 36 $
+// Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -38,20 +38,6 @@ using namespace db;
 using namespace db::nag;
 
 
-void
-Annotation::initialize()
-{
-	for (unsigned i = 0; i < U_NUMBER_OF(DefaultSets); ++i)
-	{
-		if (nag::ID(i) != nag::Null)
-			DefaultSets[i].m_annotation[DefaultSets[i].m_count++] = i;
-	}
-}
-
-
-Annotation Annotation::DefaultSets[nag::Scidb_Last];
-
-
 static void
 addNumber(mstl::string& str, unsigned n)
 {
@@ -77,6 +63,31 @@ append(mstl::string& result, mstl::string const& s)
 		result += ' ';
 	result += s;
 }
+
+
+struct Annotation::Default
+{
+	Default()
+	{
+		for (unsigned i = 0; i < U_NUMBER_OF(m_sets); ++i)
+		{
+			if (nag::ID(i) != nag::Null)
+				m_sets[i].m_annotation[m_sets[i].m_count++] = nag::ID(i);
+		}
+	}
+
+	bool contains(Annotation const* p) const
+	{
+		return &m_sets[0] <= p && p <= &m_sets[U_NUMBER_OF(m_sets) - 1];
+	}
+
+	Annotation* get(nag::ID nag) { return &m_sets[nag]; }
+
+	Annotation m_sets[nag::Scidb_Last];
+};
+
+
+static Annotation::Default defaultSets;
 
 
 Annotation::Annotation(nag::ID nag)
@@ -116,11 +127,8 @@ Annotation::operator==(Annotation const& annotation) const
 }
 
 
-bool
-Annotation::isDefaultSet() const
-{
-	return &DefaultSets[0] <= this && this <= &DefaultSets[U_NUMBER_OF(DefaultSets) - 1];
-}
+bool Annotation::isDefaultSet() const { return ::defaultSets.contains(this); }
+Annotation const* Annotation::defaultSet(nag::ID nag) { return ::defaultSets.get(nag); }
 
 
 bool
