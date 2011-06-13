@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 33 $
-# Date   : $Date: 2011-05-29 12:27:45 +0000 (Sun, 29 May 2011) $
+# Version: $Revision: 42 $
+# Date   : $Date: 2011-06-13 23:31:52 +0000 (Mon, 13 Jun 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -248,7 +248,7 @@ foreach idx [glob -directory [file join $::scidb::dir::user photos] -nocomplain 
 # --- Load localization file -------------------------------------------
 set file [file join $scidb::dir::share lang localization.tcl]
 if {[file readable $file]} {
-	load::source $file -message [format $load::mc::Loading $load::mc::LocalizationFile]
+	load::source $file -message [format $load::mc::Loading $load::mc::LocalizationFile] -encoding utf-8
 }
 
 # --- Load piece sets --------------------------------------------------

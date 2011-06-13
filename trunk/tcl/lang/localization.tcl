@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1 $
-# Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+# Version: $Revision: 42 $
+# Date   : $Date: 2011-06-13 23:31:52 +0000 (Mon, 13 Jun 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -26,14 +26,15 @@
 
 namespace eval i18n {
 
-#	Language		Code	Encoding		Filename
+#   Language   Code  Encoding    Filename
 #-------------------------------------------------
 set languages {
-	{ Deutsch	de		iso8859-1	deutsch.tcl  }
-	{ English	en		iso8859-1	english.tcl  }
-	{ Italiano	it		utf-8			italiano.tcl }
+   { Deutsch   de    iso8859-1   deutsch.tcl  }
+   { English   en    iso8859-1   english.tcl  }
+   { Español  es    utf-8       espanol.tcl  }
+   { Italiano  it    utf-8       italiano.tcl }
 }
 
 } ;# namespace i18n
 
-# vi:set ts=3 sw=3:
+# vi:set et:

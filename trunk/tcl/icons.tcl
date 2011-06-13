@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 36 $
-# Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
+# Version: $Revision: 42 $
+# Date   : $Date: 2011-06-13 23:31:52 +0000 (Mon, 13 Jun 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -864,6 +864,24 @@ namespace eval 16x16 {
 		QEuN3Nv7Jk9Nnza5r93dCGixmIpDY3PPhKQJva0NjmpKDAwsspbF1VVNcS31lblWCkJAWyQ1
 		XWrK8mJyisq9tOTYgALc8mY+tSXRBRXe5gqiYJcKGyS7ZkZnuiYbyjCCBVij5MUVtVWl+aK4
 		GBgAuzY/p12iymAAAAAASUVORK5CYII=
+	}]
+
+	set question [image create photo -data {
+		iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABfVBMVEUAAAAAAAAAAAALIyEM
+		JiMBBQQAAAAAAAANKCUKIB0EDg0AAAAAAAAAAAAAAAAMJiMNKSYLIiAAAAAJHBoFEQ8EDAsM
+		JCENKSYCCAcIGhgAAQEGExENKSYAAAAIGBYHFRMZS0UAAAAUPjkWQjwLIyEMJSIAAAAGExFB
+		fXZCfnc6eHFBfXYeWlMeW1QcVE5/raiDr6pflY91paBCfndSi4RNh4EFDw4JHBoKHxwKIB0L
+		IR4MJCEMJSINJyQNKSYOKygOLCkPLSoPLioPLysQMCwRNTASODQTOTUTOjYUPjkVPzoWQz4W
+		RD8XRUAZS0UZTEYZTUcaUEobUUscVk8dWFIeWlMeW1QfXlcgYFgiYlonZ18oaGApaWEsa2Qu
+		bWYvbmc1c2w2dG05d286eHFCfndFgXpHg3xQioNYkIlbkotrnphwopx1paB3p6F8qqWHsq2M
+		trGQuLSSurWUu7aYvrmixMCkxsKqysawzsq10c271dK/19XK3tzT5OL8/f3lX10EAAAANnRS
+		TlMAAgMHBwkKExUWGRwmJzI+Pj9CQkdITFZbXF1hY2Vsbnh6fHyGhoiToaGioqysr9LS1NTX
+		19ykAOoWAAAA+0lEQVQYGQXBvUvDQBgH4N99vE36eakFLThZEFwc3EQdxFkc+oe6uCm4ubm5
+		qIMWFZWWS3pJWpO+Sc7nEQAQhgGBy6IAIADdHUaXHuLGJasKAmo0msZ5jK3e8Dq2tUI0vnpd
+		Bb0OEnvyxYVqb09fgpYZm8iXi+P3QneM9T5FEYxUw0vjVDT9oazJLWk70zh8lsRxU+dZf6d4
+		kxw3pEVTl39eHeCJ4GsvdCXNhoAHhIDvo1KBm8xDyLO9bynL3Uer125A3PZAC+tw4NaK1fz0
+		M9OzDyzl0Z11Cux/z7t5yp3J/u0iaYQgMv3BBYD7NHPMQhJJ3dUErlaV3/A/rRx2BUUCGd8A
+		AAAASUVORK5CYII=
 	}]
 
 	set internet [image create photo -data {

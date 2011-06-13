@@ -1,7 +1,7 @@
 # # ======================================================================
 # Author : $Author$
-# Version: $Revision: 36 $
-# Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
+# Version: $Revision: 42 $
+# Date   : $Date: 2011-06-13 23:31:52 +0000 (Mon, 13 Jun 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1931,7 +1931,7 @@
 ::encoding::mc::Lang(kl)	"Grönländisch"
 ::encoding::mc::Lang(ko)	"Koreanisch"
 ::encoding::mc::Lang(ku)	"Kurdisch"
-::encoding::mc::Lang(ku)	"Kirgisisch"
+::encoding::mc::Lang(ky)	"Kirgisisch"
 ::encoding::mc::Lang(la)	"Latein"
 ::encoding::mc::Lang(lb)	"Luxemburgisch"
 ::encoding::mc::Lang(lt)	"Litauisch"
