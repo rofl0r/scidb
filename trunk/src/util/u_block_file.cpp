@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 36 $
-// Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
+// Version: $Revision: 39 $
+// Date   : $Date: 2011-06-13 21:08:21 +0000 (Mon, 13 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -22,7 +22,6 @@
 #include "m_utility.h"
 #include "m_bit_functions.h"
 #include "m_fstream.h"
-#include "m_endian.h"
 #include "m_assert.h"
 
 #include <string.h>

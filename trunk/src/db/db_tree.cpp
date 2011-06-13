@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 36 $
-// Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
+// Version: $Revision: 39 $
+// Date   : $Date: 2011-06-13 21:08:21 +0000 (Mon, 13 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -341,7 +341,7 @@ Tree::buildTree518(	unsigned myIdn,
 	EcoSet				reachable;
 	pawns::Progress	myProgress;
 
-	Eco myEco = EcoTable::specimen().getEco(myLine);
+//	Eco myEco = EcoTable::specimen().getEco(myLine);
 	Eco myKey = EcoTable::specimen().lookup(myLine, &myLength, &successors, &reachable);
 
 	myProgress.side[color::White] = myPosition.signature().progress(color::White);
