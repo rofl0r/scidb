@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 20 $
-# Date   : $Date: 2011-05-15 12:32:40 +0000 (Sun, 15 May 2011) $
+# Version: $Revision: 43 $
+# Date   : $Date: 2011-06-14 21:57:41 +0000 (Tue, 14 Jun 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -144,7 +144,7 @@ proc Select {path base index} {
 
 	set position [::scidb::db::get lookupPlayer $index $Vars($base:view) $base]
 	::playertable::see $path.players $position
-	update idle
+	update idletasks
 	set row [::playertable::indexToRow $path.players $position]
 	::playertable::setSelection $path.players $row
 }

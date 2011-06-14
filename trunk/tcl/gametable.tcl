@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 36 $
-# Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
+# Version: $Revision: 43 $
+# Date   : $Date: 2011-06-14 21:57:41 +0000 (Tue, 14 Jun 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -213,7 +213,7 @@ variable Columns {
 	{ eventCountry		event		center	 0		 0		 5			0			1			0			{}				}
 	{ site				event		left		10		 0		16			1			1			1			{}				}
 	{ date				{}			left		 5		10		10			0			1			0			darkred		}
-	{ round				{}			right		 2		 5		 8			0			1			1			{}				}
+	{ round				{}			right		 2		 0		 5			0			1			1			{}				}
 	{ annotator			{}			left		10		 0		10			0			1			1			darkred		}
 	{ idn					{}			right		 0		 0		 5			0			1			1			#68480a		}
 	{ position			{}			left		 0		 0		13			0			1			1			#68480a		}

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 36 $
-# Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
+# Version: $Revision: 43 $
+# Date   : $Date: 2011-06-14 21:57:41 +0000 (Tue, 14 Jun 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -185,6 +185,8 @@ proc toolbar {parent args} {
 			default			{ lappend options $arg $val }
 		}
 	}
+
+	set Specs(hide:$toolbar) 0 ;# # XXX BETA
 
 	if {!$haveId} { set Specs(keepoptions:$toolbar) 0 }
 	set parent [join [lrange [split $toolbar .] 0 end-1] .]
@@ -1941,13 +1943,11 @@ proc MenuOrientation {toolbar menu} {
 			-command [namespace code [list ChangeState $toolbar flat]]
 	}
 
-if {0} { ;# XXX currently not supported
 	if {$Specs(hide:$toolbar)} {
 		$menu add command \
 			-label [Tr Hide] \
 			-command [namespace code [list ChangeState $toolbar hide]]
 	}
-}
 
 	if {[llength $Specs(allow:$toolbar)] > 1} {
 		if {$Specs(float:$toolbar) || $Specs(flat:$toolbar)} { $menu add separator }

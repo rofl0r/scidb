@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 36 $
-# Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
+# Version: $Revision: 43 $
+# Date   : $Date: 2011-06-14 21:57:41 +0000 (Tue, 14 Jun 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -930,7 +930,7 @@ proc Accept {} {
 	variable Vars
 	variable History
 
-	update
+	update idletasks
 	set Vars(fen) [string trim $Vars(fen)]
 
 	switch $Vars(field) {

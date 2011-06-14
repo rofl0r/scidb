@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 36 $
-# Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
+# Version: $Revision: 43 $
+# Date   : $Date: 2011-06-14 21:57:41 +0000 (Tue, 14 Jun 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -485,7 +485,7 @@ proc alert {args} {
 	vwait ::dialog::Reply
 	::ttk::releaseGrab $w
 	destroy $w
-#	update
+#	update idletasks
 	set Current ""
 
 	return $::dialog::Reply

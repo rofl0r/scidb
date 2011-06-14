@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1 $
-# Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+# Version: $Revision: 43 $
+# Date   : $Date: 2011-06-14 21:57:41 +0000 (Tue, 14 Jun 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -134,7 +134,7 @@ proc Select {path base index} {
 
 	set position [::scidb::db::get lookupEvent $index $Vars($base:view) $base]
 	::eventtable::see $path.events $position
-	update idle
+	update idletasks
 	set row [::eventtable::indexToRow $path.events $position]
 	::eventtable::setSelection $path.events $row
 }

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 36 $
-# Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
+# Version: $Revision: 43 $
+# Date   : $Date: 2011-06-14 21:57:41 +0000 (Tue, 14 Jun 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1166,7 +1166,7 @@ proc EditStyles {parent which} {
 	wm transient $dlg [winfo toplevel $parent]
 	wm protocol $dlg WM_DELETE_WINDOW "destroy $dlg"
 	wm title $dlg $::scidb::app
- 	update
+ 	update idletasks
  	scan [wm grid $dlg] "%d %d %d %d" bw bh wi hi
  	wm minsize $dlg $bw $bh
  	wm deiconify $dlg
@@ -1517,7 +1517,7 @@ proc DrawBoard {h w} {
 	bind $canv <Configure> {}
 	set SquareSize [min $SquareSize [expr {($h - 60)/4}]]
 	set BorderWidth -1
-	update
+	update idletasks
 
 	set needRefresh(piece,$SquareSize) true
 	set needRefresh(lite,$SquareSize) true
@@ -1682,7 +1682,7 @@ proc ThemeSelected {list {nameList {}}} {
 	if {[$list cget -state] eq "disabled"} { return }
 
 	[winfo toplevel $list] configure -cursor watch
-	update
+	update idletasks
 	setTheme [GetCurrentSelection $list $nameList theme] $SquareSize
 	[winfo toplevel $list] configure -cursor {}
 
@@ -1738,7 +1738,7 @@ proc SquareStyleSelected {list {nameList {}}} {
 	variable Widget
 
 	[winfo toplevel $list] configure -cursor watch
-	update
+	update idletasks
 	setSquareStyle [GetCurrentSelection $list $nameList square] $SquareSize
 	[winfo toplevel $list] configure -cursor {}
 
@@ -1754,7 +1754,7 @@ proc PieceStyleSelected {list {nameList {}}} {
 	variable SquareSize
 
 	[winfo toplevel $list] configure -cursor watch
-	update
+	update idletasks
 	setPieceStyle [GetCurrentSelection $list $nameList piece] $SquareSize
 	[winfo toplevel $list] configure -cursor {}
 
@@ -1768,7 +1768,7 @@ proc PieceSetSelected {identifier} {
 	variable Widget
 
 	[winfo toplevel $Widget(pieceset)] configure -cursor watch
-	update
+	update idletasks
 	setPieceSet $identifier $SquareSize
 	[namespace parent]::piece::notifyPieceSetChanged
 	[winfo toplevel $Widget(pieceset)] configure -cursor {}

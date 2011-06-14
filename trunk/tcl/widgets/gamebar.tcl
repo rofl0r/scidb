@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 36 $
-# Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
+# Version: $Revision: 43 $
+# Date   : $Date: 2011-06-14 21:57:41 +0000 (Tue, 14 Jun 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1069,15 +1069,17 @@ proc Layout {gamebar} {
 			if {$Options(alignment) eq "center"} {
 				set maxWidth 0
 				set colors white
-				if {$line == 0} { lappend colors black }
+#				if {$line == 0} { lappend colors black }
 
 				for {set i 0} {$i < $Specs(size:$gamebar)} {incr i} {
 					set id $Specs(lookup:$i:$gamebar)
 					foreach color $colors {
-						set state [$gamebar itemcget $color$id -state]
-						$gamebar itemconfigure $color$id -state normal
-						lassign [$gamebar bbox $color$id] x1 y1 x2 y2
-						set maxWidth [expr {max($maxWidth, $x2 - $x1)}]
+						if {$id ne $Specs(selected:$gamebar)} {
+							set state [$gamebar itemcget $color$id -state]
+							$gamebar itemconfigure $color$id -state normal
+							lassign [$gamebar bbox $color$id] x1 y1 x2 y2
+							set maxWidth [expr {max($maxWidth, $x2 - $x1)}]
+						}
 					}
 				}
 			}

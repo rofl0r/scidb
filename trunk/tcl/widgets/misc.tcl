@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 36 $
-# Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
+# Version: $Revision: 43 $
+# Date   : $Date: 2011-06-14 21:57:41 +0000 (Tue, 14 Jun 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -257,7 +257,7 @@ proc busyCursor {w {state on}} {
 	if {$state eq "on"} {
 		SaveCursors .
 		BusyCursor . watch
-		update
+		update idletasks
 	} else {
 		BusyCursor .
 	}
@@ -282,7 +282,7 @@ if {[info tclversion] >= "8.6"} {
 
 			if {$state eq "on"} {
 				tk_busy hold .
-				update
+				update idletasks
 			} else {
 				tk_busy forget .
 			}

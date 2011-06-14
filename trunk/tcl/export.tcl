@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 36 $
-# Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
+# Version: $Revision: 43 $
+# Date   : $Date: 2011-06-14 21:57:41 +0000 (Tue, 14 Jun 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -955,6 +955,7 @@ proc Select {nb index} {
 			set Info(configure-style) 1
 			set var $mc::PdfFiles
 			set ext .pdf
+			::beta::notYetImplemented $nb pdf
 		}
 
 		html {
@@ -968,6 +969,7 @@ proc Select {nb index} {
 			set Info(configure-style) 1
 			set var $mc::HtmlFiles
 			if {$::tcl_platform(platform) eq "windows"} { set ext .htm } else { set ext .html }
+			::beta::notYetImplemented $nb html
 		}
 
 		tex {
@@ -982,6 +984,7 @@ proc Select {nb index} {
 			set Values(useCustom) 0
 			set var $mc::TeXFiles
 			set ext {.tex .ltx}
+			::beta::notYetImplemented $nb tex
 		}
 	}
 
@@ -1828,7 +1831,7 @@ proc SaveScidb {parent dlg file} {
 	::log::delay
 	::log::info [format $mc::ExportingDatabase $Info(name) $file]
 	set count [::progress::start $parent.progress $cmd $args $options]
-	update idle ;# be sure the following will be appended
+	update idletasks ;# be sure the following will be appended
 	::log::info [format $mc::ExportedGames [::locale::formatNumber $count]]
 	::log::close
 }
@@ -1848,7 +1851,7 @@ proc Log {unused arguments} {
 	}
 
 	::log::$type $line
-	update
+	update idletasks
 }
 
 

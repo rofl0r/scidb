@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1 $
-# Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+# Version: $Revision: 43 $
+# Date   : $Date: 2011-06-14 21:57:41 +0000 (Tue, 14 Jun 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -398,7 +398,7 @@ proc Unposted {w focus} {
 
 
 proc PlaceIcon {w icon} {
-	update
+	update idletasks
 	$w placeicon $icon
 	bind $w <Map> {}
 }

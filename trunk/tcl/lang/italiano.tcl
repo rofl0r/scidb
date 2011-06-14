@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 36 $
-# Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
+# Version: $Revision: 43 $
+# Date   : $Date: 2011-06-14 21:57:41 +0000 (Tue, 14 Jun 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -178,7 +178,7 @@
 ::application::mc::Shutdown				"Shutdown..." ;# NEW
 
 ### application::board #################################################
-::application::board::mc::AutoPlayMoves		"Usa Autoplay"
+::application::board::mc::ShowCrosstable		"Show tournament table for this game" ;# NEW
 
 ::application::board::mc::Tools					"Strumenti"
 ::application::board::mc::Control				"Controllo"

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 40 $
-# Date   : $Date: 2011-06-13 21:16:57 +0000 (Mon, 13 Jun 2011) $
+# Version: $Revision: 43 $
+# Date   : $Date: 2011-06-14 21:57:41 +0000 (Tue, 14 Jun 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -440,7 +440,7 @@ proc Open {type args} {
 				wm geometry $dlg $geometry${x}${y}
 			}
 			wm minsize $dlg $rw $rh
-			update
+			update idletasks
 #			set Priv(min:bookmarks) [winfo width $data(bookmarks)]
 			set Priv(min:selection) [winfo width $data(selection)]
 		}
@@ -783,7 +783,7 @@ proc Create {w class} {
 	set data(dirMenuBtn) $rt.dirMenu
 	set data(dirMenu) $rt.dirMenu.m
 
-	menubutton $data(dirMenuBtn) \
+	ttk::menubutton $data(dirMenuBtn) \
 		-menu $data(dirMenu) \
 		-takefocus 1 \
 		-direction flush \
@@ -863,7 +863,7 @@ proc Create {w class} {
 		set data(typeMenuLab) [::tk::AmpWidget ttk::label $rt.fType \
 										-text [Tr FilesType] \
 										-anchor e]
-		set data(typeMenuBtn) [menubutton $rt.typeMenu -menu $rt.typeMenu.m]
+		set data(typeMenuBtn) [ttk::menubutton $rt.typeMenu -menu $rt.typeMenu.m]
 		set data(typeMenu) [menu $data(typeMenuBtn).m -tearoff 0]
 		bind $data(typeMenuLab) <<AltUnderlined>> [list focus $data(typeMenuBtn)]
 		tooltip $data(typeMenuBtn) [Tr SelectWhichType]

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 14 $
-# Date   : $Date: 2011-05-09 16:16:33 +0000 (Mon, 09 May 2011) $
+# Version: $Revision: 43 $
+# Date   : $Date: 2011-06-14 21:57:41 +0000 (Tue, 14 Jun 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -149,13 +149,13 @@ proc WidgetProc {w command args} {
 			set Priv(lastNode) {}
 			$f.html reset
 			$f.html configure -width $MaxWidth
-			update idle
+			update idletasks
 			$f.html parse -final [lindex $args 0]
 			set Priv(bbox) [ComputeBoundingBox $f.html [$f.html node]]
 			if {[llength $Priv(bbox)]} {
 				lset Priv(bbox) 2 [expr {[lindex $Priv(bbox) 2] + $Margin}]
 				$f.html configure -width [lindex $Priv(bbox) 2]
-				update
+				update idletasks
 				::scrolledframe::resize $w.__scrolledframe__
 			}
 			return

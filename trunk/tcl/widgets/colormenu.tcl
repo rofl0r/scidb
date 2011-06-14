@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 36 $
-# Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
+# Version: $Revision: 43 $
+# Date   : $Date: 2011-06-14 21:57:41 +0000 (Tue, 14 Jun 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -348,7 +348,7 @@ proc popup {parent args} {
 	focus $top
 	if {[tk windowingsystem] == "x11"} {
 		tkwait visibility $top
-		update
+		update idletasks
 	}
 	if {$useGrab} { ttk::globalGrab $top.f }
 	catch { focus -force $top.f.close }
@@ -356,7 +356,7 @@ proc popup {parent args} {
 	if {$useGrab} { ttk::releaseGrab $top.f }
 	destroy [winfo toplevel $top]
 	Tooltip on
-	update
+	update idletasks
 
 	switch $selection {
 		close		{ return "" }
