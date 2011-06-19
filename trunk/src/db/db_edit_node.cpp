@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 36 $
-// Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
+// Version: $Revision: 44 $
+// Date   : $Date: 2011-06-19 19:56:08 +0000 (Sun, 19 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1118,6 +1118,9 @@ Root::makeList(Work& work, KeyNode::List& result, MoveNode const* node)
 
 	if (work.isFolded)
 	{
+//		too confusing!
+//		if (node->atLineEnd() && !node->hasNote() && !node->prev()->hasNote())
+//			work.isFolded = false;
 		work.key.addPly(work.board.plyNumber() + 1);
 		result.push_back(new Move(work, node));
 		work.board.doMove(node->move());

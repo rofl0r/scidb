@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 44 $
+// Date   : $Date: 2011-06-19 19:56:08 +0000 (Sun, 19 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -43,6 +43,28 @@ Namebases::Namebases()
 	M_ASSERT(&m_player + Namebase::Event     == &m_event    );
 	M_ASSERT(&m_player + Namebase::Annotator == &m_annotator);
 	M_ASSERT(&m_player + Namebase::Round     == &m_round);
+}
+
+
+bool
+Namebases::isModified() const
+{
+	return	m_player.isModified()
+			|| m_site.isModified()
+			|| m_event.isModified()
+			|| m_annotator.isModified()
+			|| m_round.isModified();
+}
+
+
+void
+Namebases::resetModified()
+{
+	m_player.setModified(false);
+	m_site.setModified(false);
+	m_event.setModified(false);
+	m_annotator.setModified(false);
+	m_round.setModified(false);
 }
 
 

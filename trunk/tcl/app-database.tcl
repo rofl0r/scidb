@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 43 $
-# Date   : $Date: 2011-06-14 21:57:41 +0000 (Tue, 14 Jun 2011) $
+# Version: $Revision: 44 $
+# Date   : $Date: 2011-06-19 19:56:08 +0000 (Sun, 19 Jun 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -290,15 +290,6 @@ proc newBase {parent file} {
 		::dialog::error -parent $parent -message [format $mc::DatabaseAlreadyOpen $file]
 	}
 	Switch $file
-}
-
-
-proc closeAllBases {} {
-	variable Vars
-
-	foreach base $Vars(bases) {
-		::scidb::db::close [lindex $base 2]
-	}
 }
 
 

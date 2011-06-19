@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 36 $
-// Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
+// Version: $Revision: 44 $
+// Date   : $Date: 2011-06-19 19:56:08 +0000 (Sun, 19 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -791,6 +791,18 @@ MoveNode::containsOtherLang() const
 	}
 
 	return false;
+}
+
+
+void
+MoveNode::unfold()
+{
+	MoveNode* node = this;
+
+	while (!node->atLineStart())
+		node = node->m_prev;
+
+	node->m_flags &= ~IsFolded;
 }
 
 

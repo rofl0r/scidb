@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 36 $
-// Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
+// Version: $Revision: 44 $
+// Date   : $Date: 2011-06-19 19:56:08 +0000 (Sun, 19 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -53,6 +53,7 @@ class Statistic;
 class NamebaseEntry;
 class NamebasePlayer;
 class TournamentTable;
+class Filter;
 class Log;
 
 class Database : private DatabaseContent
@@ -185,8 +186,8 @@ public:
 	/// Recode content of database.
 	void recode(mstl::string const& encoding, Log& log);
 
-	/// Build tournament table for given event index.
-	TournamentTable* makeTournamentTable(NamebaseEvent const& event) const;
+	/// Build tournament table for selected games.
+	TournamentTable* makeTournamentTable(Filter const& gameFilter) const;
 
 	/// Open an asynchronous game stream (block file) reader for findExactPositionAsync() operation.
 	void openAsyncReader();

@@ -14,7 +14,7 @@
 // ======================================================================
 
 // ======================================================================
-// Copyright: (C) 2009-2011 Gregor Cramer
+// Copyright: (C) 2011 Gregor Cramer
 // ======================================================================
 
 // ======================================================================
@@ -26,38 +26,55 @@
 
 #include "m_assert.h"
 
-namespace db {
-namespace si3 {
+#include <string.h>
 
-inline bool NameList::isEmpty() const				{ return m_size == 0; }
+namespace tcl {
 
-inline unsigned NameList::size() const				{ return m_size; }
-inline unsigned NameList::maxFrequency() const	{ return m_maxFrequency; }
+inline Obj::operator Tcl_Obj* () const { return m_obj; }
 
-#ifdef DEBUG_SI4
-inline NameList::Node* NameList::back() { return m_list.back(); }
-#endif
+inline Obj::Obj(Tcl_Obj* obj) :m_obj(obj) {}
 
 
 inline
-NameList::Node const*
-NameList::next() const
+void
+Obj::ref()
 {
-	return (++m_first == m_last) ? 0 : *m_first;
+	if (m_obj)
+		Tcl_IncrRefCount(m_obj);
 }
 
 
 inline
-NameList::Node const*
-NameList::lookup(unsigned id) const
+void
+Obj::deref()
 {
-	M_ASSERT(id < m_lookup.size());
-	M_ASSERT(m_lookup[id]);
-
-	return m_lookup[id];
+	if (m_obj)
+		Tcl_DecrRefCount(m_obj);
 }
 
-} // namespace si3
-} // namespace db
+
+inline
+Tcl_Obj*
+Obj::operator()() const
+{
+	M_ASSERT(m_obj);
+	return m_obj;
+}
+
+
+inline
+bool
+Obj::operator==(Obj const& obj) const
+{
+	if (m_obj == 0)
+		return obj.m_obj == 0;
+
+	if (obj.m_obj == 0)
+		return false;
+
+	return ::strcmp(Tcl_GetStringFromObj(m_obj, 0), Tcl_GetStringFromObj(obj.m_obj, 0)) == 0;
+}
+
+} // namespace tcl
 
 // vi:set ts=3 sw=3:

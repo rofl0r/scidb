@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 44 $
+// Date   : $Date: 2011-06-19 19:56:08 +0000 (Sun, 19 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -109,7 +109,8 @@ ref_counted_ptr<T>::operator=(by_ref<T> ref)
 		if (m_p && mstl::ref_counted_traits<T>::release(m_p))
 			delete m_p;
 
-		m_p = ref.m_p;
+		if ((m_p = ref.m_p))
+			mstl::ref_counted_traits<T>::ref(m_p);
 	}
 
 	return *this;

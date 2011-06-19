@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 43 $
-# Date   : $Date: 2011-06-14 21:57:41 +0000 (Tue, 14 Jun 2011) $
+# Version: $Revision: 44 $
+# Date   : $Date: 2011-06-19 19:56:08 +0000 (Sun, 19 Jun 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -91,7 +91,7 @@ array set NagSet {
 }
 
 variable DingbatSet {
-	"\u00bd" "\u2212" "\u2022" "\u2139" "\u20a4" "\u20ac" "\u270e" "\u263a" "\u2605" "\u25cf"
+	"\u00bd" "\u2212" "\u2026" "\u2022" "\u2139" "\u20a4" "\u20ac" "\u270e" "\u2605" "\u25cf"
 }
 variable Colors {darkgreen darkred darkblue darkgreen darkred darkblue}
 

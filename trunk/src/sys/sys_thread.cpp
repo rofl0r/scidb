@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 5 $
-// Date   : $Date: 2011-05-05 07:51:24 +0000 (Thu, 05 May 2011) $
+// Version: $Revision: 44 $
+// Date   : $Date: 2011-06-19 19:56:08 +0000 (Sun, 19 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -127,7 +127,7 @@ atomic_test(atomic_t* v)
 	return *v == 1;
 }
 
-#elif 0 && __GNUC_PREREQ(4,1)	// XXX not working
+#elif __GNUC_PREREQ(4,1)
 
 # define ATOMIC_INIT(x) { x }
 
@@ -142,7 +142,7 @@ template <int N>
 void
 Guard<N>::acquire()
 {
-	while (__sync_add_and_fetch(&m_lock, 1) > 1)
+	while (__sync_fetch_and_add(&m_lock, 1) > 0)
 	{
 		__sync_sub_and_fetch(&m_lock, 1);
 		yield();
@@ -159,7 +159,7 @@ Guard<N>::release()
 inline static int
 atomic_cmpxchg(atomic_t* v, int oldval, int newval)
 {
-	return __sync_bool_compare_and_swap(v, oldval, newval);
+	return __sync_val_compare_and_swap(v, oldval, newval);
 }
 
 inline static bool

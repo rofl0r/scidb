@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 42 $
-# Date   : $Date: 2011-06-13 23:31:52 +0000 (Mon, 13 Jun 2011) $
+# Version: $Revision: 44 $
+# Date   : $Date: 2011-06-19 19:56:08 +0000 (Sun, 19 Jun 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -445,26 +445,32 @@ proc gameNew {parent {variant {}}} {
 
 
 proc gameSave {parent} {
-	::dialog::save::open $parent [::scidb::db::get name] -1
+	if {[::scidb::game::current] != 9} {
+		::dialog::save::open $parent [::scidb::db::get name] -1
+	}
 }
 
 
 proc gameReplace {parent} {
-	::dialog::save::open $parent [::scidb::db::get name] -1 [::scidb::game::number]
+	if {[::scidb::game::current] != 9} {
+		::dialog::save::open $parent [::scidb::db::get name] -1 [::scidb::game::number]
+	}
 }
 
 
 proc gameReplaceMoves {parent} {
-	set base [::scidb::db::get name]
+	if {[::scidb::game::current] != 9} {
+		set base [::scidb::db::get name]
 
-	if {[::scidb::db::get readonly? $base]} {
-		::dialog::info \
-			-parent $parent \
-			-message [format $::dialog::save::mc::CurrentBaseIsReadonly [::util::databaseName $base]] \
-			-title "[tk appname] - $::dialog::save::mc::ReplaceGame" \
-			;
-	} else {
-		::scidb::db::update moves $base [expr {[::scidb::game::number] - 1}]
+		if {[::scidb::db::get readonly? $base]} {
+			::dialog::info \
+				-parent $parent \
+				-message [format $::dialog::save::mc::CurrentBaseIsReadonly [::util::databaseName $base]] \
+				-title "[tk appname] - $::dialog::save::mc::ReplaceGame" \
+				;
+		} else {
+			::scidb::game::update moves $base [expr {[::scidb::game::number] - 1}]
+		}
 	}
 }
 

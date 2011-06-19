@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 44 $
+// Date   : $Date: 2011-06-19 19:56:08 +0000 (Sun, 19 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -37,6 +37,7 @@ inline bool Application::haveClipbase() const			{ return m_clipBase; }
 inline bool Application::haveReferenceBase() const		{ return m_referenceBase; }
 inline bool Application::switchReferenceBase() const	{ return m_switchReference; }
 inline bool Application::hasInstance()						{ return m_instance; }
+inline bool Application::isClosed() const					{ return m_isClosed; }
 
 inline Cursor const& Application::scratchBase() const	{ return *m_scratchBase; }
 inline Cursor& Application::scratchBase()					{ return *m_scratchBase; }

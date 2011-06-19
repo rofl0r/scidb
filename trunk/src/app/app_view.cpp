@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 25 $
-// Date   : $Date: 2011-05-19 14:05:57 +0000 (Thu, 19 May 2011) $
+// Version: $Revision: 44 $
+// Date   : $Date: 2011-06-19 19:56:08 +0000 (Sun, 19 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -327,6 +327,13 @@ View::setGameFilter(Filter const& filter)
 
 	m_gameFilter = filter;
 	m_gameSelector.update(m_gameFilter);
+}
+
+
+db::TournamentTable*
+View::makeTournamentTable() const
+{
+	return m_db.makeTournamentTable(m_gameFilter);
 }
 
 

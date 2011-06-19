@@ -1,8 +1,8 @@
 #!/bin/sh
 #! ======================================================================
 #! $RCSfile: tk_init.h,v $
-#! $Revision: 43 $
-#! $Date: 2011-06-14 21:57:41 +0000 (Tue, 14 Jun 2011) $
+#! $Revision: 44 $
+#! $Date: 2011-06-19 19:56:08 +0000 (Sun, 19 Jun 2011) $
 #! $Author: gregor $
 #! ======================================================================
 
@@ -123,13 +123,15 @@ if {[testOption help]} {
 	puts "  --print-recovery-files  Print recovery files from last session and exit"
 	puts "  --delete-recovery-files Delete recovery files and exit"
 	puts "  --dont-recover          Do not recover unsaved games from last session"
+	puts "  --recover-old           Recover games from older sessions"
+	puts "                          (will skip games from last session)"
 	puts "  --from-the-scratch      Delete option file and recovery files at startup"
 	puts "                          ($::scidb::app will be started as it would be the first time)"
 	puts "  --fast-load             Do only load the mandatory files at startup"
 	puts "  --elo-only              Do not load rating files except for ELO rating"
 	puts "  --no-photos             Skip the load of the photo files"
-	puts "  --single-process        Forcing a new process of $::scidb::app"
-	puts "                          (normally you shouldn't use this option)"
+	puts "  --single-process        Forcing a single process of $::scidb::app"
+	puts "                          (you shouldn't use this option; only for testing)"
 	puts ""
 	puts "Arguments recognised by GUI (Tk) library:"
 	puts "  -geometry <geom>        Use <geom> for initial geometry"

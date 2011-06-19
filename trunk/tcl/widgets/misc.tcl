@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 43 $
-# Date   : $Date: 2011-06-14 21:57:41 +0000 (Tue, 14 Jun 2011) $
+# Version: $Revision: 44 $
+# Date   : $Date: 2011-06-19 19:56:08 +0000 (Sun, 19 Jun 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -30,6 +30,8 @@ set Revert		"&Revert"
 set Update		"&Update"
 set Previous	"&Previous"
 set Next			"&Next"
+set Last			"&Last"
+set First		"Firs&t"
 
 } ;# namespace mc
 
@@ -140,6 +142,8 @@ proc dialogButtons {dlg buttons dflt {useIcons yes}} {
 				revert	{ set icon $icon::iconReset }
 				previous	{ set icon $icon::iconBackward }
 				next		{ set icon $icon::iconForward }
+				first		{ set icon $icon::iconFirst }
+				last		{ set icon $icon::iconLast }
 			}
 		}
 
@@ -159,6 +163,8 @@ proc dialogButtons {dlg buttons dflt {useIcons yes}} {
 			revert	{ set var [namespace current]::mc::Revert }
 			previous	{ set var [namespace current]::mc::Previous }
 			next		{ set var [namespace current]::mc::Next }
+			first		{ set var [namespace current]::mc::First }
+			last		{ set var [namespace current]::mc::Last }
 
 			default	{
 				if {![info exists var]} {

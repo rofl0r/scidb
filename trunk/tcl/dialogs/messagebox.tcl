@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 43 $
-# Date   : $Date: 2011-06-14 21:57:41 +0000 (Tue, 14 Jun 2011) $
+# Version: $Revision: 44 $
+# Date   : $Date: 2011-06-19 19:56:08 +0000 (Sun, 19 Jun 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -57,6 +57,7 @@ namespace export alert error warning info question
 
 namespace eval messagebox {
 
+variable ButtonOrder {ok cancel abort retry ignore yes no}
 variable Current ""
 
 
@@ -269,6 +270,7 @@ proc alert {args} {
 	variable iconYes
 	variable infoFont
 	variable alertFont
+	variable messagebox::ButtonOrder
 	variable messagebox::Current
 
 	set specs {
@@ -346,7 +348,7 @@ proc alert {args} {
 		set f [tk::frame $alertBox.embed -borderwidth 0]
 		eval $opts(-embed) $f [list $infoFont $alertFont]
 		grid $f -row 2 -column 0 -sticky we
-		bind $alertBox <Configure> [namespace code [list Resize $alertBox %w]]
+		bind $alertBox <Configure> [namespace code [list messagebox::Resize $alertBox %w]]
 
 		if {[llength $post]} {
 			grid [tk::message $alertBox.post -font $alertFont -text $post -width 384 -justify left] \
@@ -365,7 +367,13 @@ proc alert {args} {
 	set iconLabel		[tk::label $w.icon -image [set [namespace current]::icon::64x64::$opts(-type)]]
 	set buttonFrame	[tk::frame $w.buttonFrame]
 
-	set entries $opts(-buttons)
+	set entries {}
+	foreach entry $opts(-buttons) {
+		lassign $entry type text icon
+		set index [lsearch $ButtonOrder $type]
+		lappend entries [list $type $text $icon $index]
+	}
+	set entries [lsort -integer -index 3 $entries]
 	set defaultButton {}
 	set col 0
 
@@ -492,7 +500,7 @@ proc alert {args} {
 }
 
 
-proc Resize {alertBox width} {
+proc messagebox::Resize {alertBox width} {
 	if {$width > 384} {
 		if {[winfo exists $alertBox.ante]} {
 			$alertBox.ante configure -width $width

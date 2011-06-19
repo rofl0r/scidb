@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 44 $
+// Date   : $Date: 2011-06-19 19:56:08 +0000 (Sun, 19 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -35,6 +35,11 @@ public:
 	tuple(T0 const& t0);
 	tuple(T0 const& t0, T1 const& t1);
 	tuple(T0 const& t0, T1 const& t1, T2 const& t2);
+
+	tuple& operator=(tuple const& t);
+
+	bool operator==(tuple const& t) const;
+	bool operator!=(tuple const& t) const;
 
 	template <int N> typename tl::type_at<type_list,N>::result const& get() const;
 	template <int N> typename tl::type_at<type_list,N>::result& get();

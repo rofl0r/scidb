@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 33 $
-// Date   : $Date: 2011-05-29 12:27:45 +0000 (Sun, 29 May 2011) $
+// Version: $Revision: 44 $
+// Date   : $Date: 2011-06-19 19:56:08 +0000 (Sun, 19 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -62,12 +62,41 @@ append(mstl::string& result, char const* s, unsigned len)
 
 	result.reserve(result.size() + len);
 
-	for ( ; s < e; ++s)
+	while (s < e)
 	{
-		if (*s == '{')
-			result += "<brace/>";
-		else
-			result += *s;
+		switch (*s)
+		{
+			case '{':
+				result += "<brace/>";
+				++s;
+				break;
+
+			case '&':
+				if (strncmp("&lt;", s, 4) == 0)
+				{
+					result += '<';
+					s += 4;
+				}
+				else if (strncmp("&gt;", s, 4) == 0)
+				{
+					result += '>';
+					s += 4;
+				}
+				else if (strncmp("&amp;", s, 4) == 0)
+				{
+					result += '&';
+					s += 5;
+				}
+				else
+				{
+					result += *s++;
+				}
+				break;
+
+			default:
+				result += *s++;
+				break;
+		}
 	}
 }
 

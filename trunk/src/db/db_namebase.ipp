@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 30 $
-// Date   : $Date: 2011-05-23 14:49:04 +0000 (Mon, 23 May 2011) $
+// Version: $Revision: 44 $
+// Date   : $Date: 2011-06-19 19:56:08 +0000 (Sun, 19 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -38,8 +38,10 @@ inline unsigned Namebase::nextId() const				{ return m_nextId; }
 
 inline bool Namebase::isConsistent() const			{ return m_isConsistent; }
 inline bool Namebase::isPrepared() const				{ return m_isPrepared; }
+inline bool Namebase::isModified() const				{ return m_isModified; }
 
 inline void Namebase::setMaxUsage(unsigned usage)	{ m_maxUsage = usage; }
+inline void Namebase::setModified(bool flag)			{ m_isModified = false; }
 
 
 inline

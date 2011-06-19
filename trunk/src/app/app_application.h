@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 43 $
-// Date   : $Date: 2011-06-14 21:57:41 +0000 (Tue, 14 Jun 2011) $
+// Version: $Revision: 44 $
+// Date   : $Date: 2011-06-19 19:56:08 +0000 (Sun, 19 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -109,6 +109,7 @@ public:
 
 	static bool hasInstance();
 
+	bool isClosed() const;
 	bool contains(Cursor& cursor) const;
 	bool contains(mstl::string const& name) const;
 	bool containsGameAt(unsigned position) const;
@@ -135,6 +136,7 @@ public:
 						mstl::string const& encoding,
 						db::type::ID type = db::type::Unspecific);
 
+	void close();
 	void close(Cursor& cursor);
 	void close(mstl::string const& name);
 	void closeAll(CloseMode mode);
@@ -284,6 +286,7 @@ private:
 	CursorMap	m_cursorMap;
 	IndexMap		m_indexMap;
 	TreeP			m_currentTree;
+	bool			m_isClosed;
 
 	mutable SubscriberP m_subscriber;
 

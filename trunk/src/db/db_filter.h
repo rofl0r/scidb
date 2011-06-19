@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 9 $
-// Date   : $Date: 2011-05-05 12:47:35 +0000 (Thu, 05 May 2011) $
+// Version: $Revision: 44 $
+// Date   : $Date: 2011-06-19 19:56:08 +0000 (Sun, 19 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -44,6 +44,8 @@ public:
 	Filter();
 	Filter(unsigned size);
 
+	/// return true if filter is empty
+	bool isEmpty() const;
 	/// return true if the game is in the filter
 	bool contains(unsigned index) const;
 	/// return true if all games are selected

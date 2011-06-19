@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 44 $
+// Date   : $Date: 2011-06-19 19:56:08 +0000 (Sun, 19 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -55,6 +55,18 @@ tuple<T0,T1,T2>::tuple(T0 const& t0, T1 const& t1, T2 const& t2)
 
 
 template <typename T0, typename T1, typename T2>
+inline
+tuple<T0,T1,T2>&
+tuple<T0,T1,T2>::operator=(tuple const& t)
+{
+	get<0>() = t.get<0>();
+	get<1>() = t.get<1>();
+	get<2>() = t.get<2>();
+	return *this;
+}
+
+
+template <typename T0, typename T1, typename T2>
 template <int N>
 inline
 typename tl::type_at<typename tuple<T0,T1,T2>::type_list,N>::result const&
@@ -77,6 +89,24 @@ tuple<T0,T1,T2>::get()
 	M_STATIC_CHECK(N < tl::length<type_list>::Value, Index_Too_Large);
 
 	return tl::bits::accessor<members,N>::get(m_members);
+}
+
+
+template <typename T0, typename T1, typename T2>
+inline
+bool
+tuple<T0,T1,T2>::operator==(tuple const& t) const
+{
+	return get<0>() == t.get<0>() && get<1>() == t.get<1>() && get<2>() == t.get<2>();
+}
+
+
+template <typename T0, typename T1, typename T2>
+inline
+bool
+tuple<T0,T1,T2>::operator!=(tuple const& t) const
+{
+	return !operator==(t);
 }
 
 } // namespace mstl

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 36 $
-// Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
+// Version: $Revision: 44 $
+// Date   : $Date: 2011-06-19 19:56:08 +0000 (Sun, 19 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -34,6 +34,9 @@
 
 using namespace db;
 using namespace app;
+
+
+Cursor::Subscriber::~Subscriber() throw() {}
 
 
 Cursor::Cursor(Application& app, Database* database)
@@ -70,7 +73,7 @@ Cursor::clear() throw()
 bool
 Cursor::isViewOpen(unsigned view) const
 {
-	M_REQUIRE(view == BaseView || view <= maxViewNumber());
+	M_REQUIRE(isValidView(view));
 	return view == BaseView ? true : m_viewList[view + 1] != 0;
 }
 
@@ -110,6 +113,7 @@ void
 Cursor::closeView(unsigned view)
 {
 	M_REQUIRE(view != BaseView);
+	M_REQUIRE(isValidView(view));
 
 	if (view != 0 && m_viewList[view])
 	{
@@ -119,6 +123,9 @@ Cursor::closeView(unsigned view)
 
 		if (m_treeView == int(view))
 			m_treeView = -1;
+
+		if (m_subscriber)
+			m_subscriber->close(view);
 	}
 }
 
@@ -244,6 +251,9 @@ Cursor::close()
 {
 	if (m_db)
 	{
+		for (unsigned i = 1; i < m_viewList.size(); ++i)
+			closeView(i - 1);
+
 		m_db->close();
 		delete m_db;
 		m_db = 0;

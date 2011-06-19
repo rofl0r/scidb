@@ -1,7 +1,7 @@
 // ======================================================================
 // $RCSfile: db_eco_table.cpp,v $
-// $Revision: 1 $
-// $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// $Revision: 44 $
+// $Date: 2011-06-19 19:56:08 +0000 (Sun, 19 Jun 2011) $
 // $Author: gregor $
 // ======================================================================
 
@@ -51,7 +51,17 @@ EcoTable::Successors::find(uint16_t) const
 }
 
 
+
+EcoTable::Entry const&
+EcoTable::getEntry(Eco code) const
+{
+	M_ASSERT(!"cannot execute stubs");
+	static Entry dummy;
+	return dummy;
+}
+
+
 uint8_t EcoTable::getStoredLine(Eco, Eco) const { return 0; }
-Eco EcoTable::lookup(Line const&, Eco&, unsigned*, Successors*, EcoSet*) const { return Eco(); }
+Eco EcoTable::lookup(Line const&, unsigned*, Successors*, EcoSet*) const { return Eco(); }
 
 // vi:set ts=3 sw=3:

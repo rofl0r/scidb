@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 43 $
-# Date   : $Date: 2011-06-14 21:57:41 +0000 (Tue, 14 Jun 2011) $
+# Version: $Revision: 44 $
+# Date   : $Date: 2011-06-19 19:56:08 +0000 (Sun, 19 Jun 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -863,7 +863,7 @@ proc GameSwitched {position} {
 proc ShowCrossTable {parent} {
 	set base [::scidb::game::query database]
 	set index [::scidb::game::index]
-	::crosstable::open .application $base $index
+	::crosstable::open .application $base $index -1 game
 }
 
 

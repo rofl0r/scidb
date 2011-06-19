@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 28 $
-// Date   : $Date: 2011-05-21 14:57:26 +0000 (Sat, 21 May 2011) $
+// Version: $Revision: 44 $
+// Date   : $Date: 2011-06-19 19:56:08 +0000 (Sun, 19 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -34,6 +34,8 @@ inline bool Filter::checkClassInvariance() const	{ return m_count == m_set.count
 
 inline unsigned Filter::count() const	{ return m_count; }
 inline unsigned Filter::size() const	{ return m_set.size(); }
+
+inline bool Filter::isEmpty() const		{ return m_count == 0; }
 
 
 inline

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 44 $
+// Date   : $Date: 2011-06-19 19:56:08 +0000 (Sun, 19 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -40,6 +40,7 @@ namespace util { class Progress; }
 
 namespace db {
 
+class TournamentTable;
 class Database;
 class Query;
 class Consumer;
@@ -155,6 +156,9 @@ public:
 	void update(UpdateMode mode);
 	/// Set game filter.
 	void setGameFilter(db::Filter const& filter);
+
+	/// Build tournament table for all games in current view.
+	db::TournamentTable* makeTournamentTable() const;
 
 	/// Export games in view.
 	unsigned exportGames(	mstl::string const& filename,

@@ -14,7 +14,7 @@
 // ======================================================================
 
 // ======================================================================
-// Copyright: (C) 2009-2011 Gregor Cramer
+// Copyright: (C) 2011 Gregor Cramer
 // ======================================================================
 
 // ======================================================================
@@ -24,40 +24,37 @@
 // (at your option) any later version.
 // ======================================================================
 
-#include "m_assert.h"
+#ifndef _tcl_obj_included
+#define _tcl_obj_included
 
-namespace db {
-namespace si3 {
+#include <tcl.h>
 
-inline bool NameList::isEmpty() const				{ return m_size == 0; }
+namespace tcl {
 
-inline unsigned NameList::size() const				{ return m_size; }
-inline unsigned NameList::maxFrequency() const	{ return m_maxFrequency; }
-
-#ifdef DEBUG_SI4
-inline NameList::Node* NameList::back() { return m_list.back(); }
-#endif
-
-
-inline
-NameList::Node const*
-NameList::next() const
+class Obj
 {
-	return (++m_first == m_last) ? 0 : *m_first;
-}
+public:
 
+	Obj(Tcl_Obj* obj);
 
-inline
-NameList::Node const*
-NameList::lookup(unsigned id) const
-{
-	M_ASSERT(id < m_lookup.size());
-	M_ASSERT(m_lookup[id]);
+	operator Tcl_Obj* () const;
 
-	return m_lookup[id];
-}
+	Tcl_Obj* operator()() const;
 
-} // namespace si3
-} // namespace db
+	bool operator==(Obj const& obj) const;
+
+	void ref();
+	void deref();
+
+private:
+
+	Tcl_Obj* m_obj;
+};
+
+} // namespace tcl
+
+#include "tcl_obj.ipp"
+
+#endif // _tcl_obj_included
 
 // vi:set ts=3 sw=3:

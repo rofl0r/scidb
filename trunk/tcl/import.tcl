@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 43 $
-# Date   : $Date: 2011-06-14 21:57:41 +0000 (Tue, 14 Jun 2011) $
+# Version: $Revision: 44 $
+# Date   : $Date: 2011-06-19 19:56:08 +0000 (Sun, 19 Jun 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -278,7 +278,7 @@ proc makeLog {arguments} {
 	if {$column} {
 		append line " (" $mc::Column " " [::locale::formatNumber $column] ")"
 	}
-	if {$Priv(gameNo) && [llength $gameNo] && $gameNo > 0} {
+	if {[::info exists Priv(gameNo)] && $Priv(gameNo) && [llength $gameNo] && $gameNo > 0} {
 		append line " " $mc::GameNumber " " [::locale::formatNumber $gameNo]
 	}
 	append line ": "

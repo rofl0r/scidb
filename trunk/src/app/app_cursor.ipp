@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 20 $
-// Date   : $Date: 2011-05-15 12:32:40 +0000 (Sun, 15 May 2011) $
+// Version: $Revision: 44 $
+// Date   : $Date: 2011-06-19 19:56:08 +0000 (Sun, 19 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -37,8 +37,17 @@ inline db::Database const& Cursor::database() const	{ return *m_db; }
 inline db::Database& Cursor::base()							{ return *m_db; }
 inline int Cursor::treeViewIdentifier() const			{ return m_treeView; }
 inline unsigned Cursor::maxViewNumber() const			{ return m_viewList.size() - 1; }
+inline Cursor::SubscriberP Cursor::subscriber() const	{ return m_subscriber; }
 
 inline void Cursor::setReferenceBase(bool flag)	{ m_isRefBase = flag; }
+
+
+inline
+bool
+Cursor::isValidView(unsigned view) const
+{
+	return view == BaseView || view <= maxViewNumber();
+}
 
 
 inline View const&
@@ -94,6 +103,14 @@ Cursor::treeView()
 	M_REQUIRE(isViewOpen(treeViewIdentifier()));
 
 	return *m_viewList[m_treeView + 1];
+}
+
+
+inline
+void
+Cursor::setSubscriber(SubscriberP subscriber)
+{
+	m_subscriber = subscriber;
 }
 
 } // namespace app
