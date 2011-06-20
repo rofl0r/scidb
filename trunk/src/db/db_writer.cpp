@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 36 $
-// Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
+// Version: $Revision: 47 $
+// Date   : $Date: 2011-06-20 17:56:21 +0000 (Mon, 20 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -96,6 +96,17 @@ Writer::sendComment(Comment const& comment, Annotation const& annotation, MarkSe
 			writeComment(comment, marks);
 			m_needSpace = true;
 		}
+	}
+}
+
+
+void
+Writer::sendFinalComment(Comment const& comment)
+{
+	if (test(Flag_Include_Comments) && !comment.isEmpty())
+	{
+		writeComment(comment, MarkSet());
+		m_needSpace = true;
 	}
 }
 

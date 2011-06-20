@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 33 $
-// Date   : $Date: 2011-05-29 12:27:45 +0000 (Sun, 29 May 2011) $
+// Version: $Revision: 47 $
+// Date   : $Date: 2011-06-20 17:56:21 +0000 (Mon, 20 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -68,12 +68,14 @@ private:
 							Comment const& comment,
 							Annotation const& annotation,
 							MarkSet const& marks);
+	void sendFinalComment(Comment const& comment);
 	bool sendMove(Move const& move);
 	bool sendMove(	Move const& move,
 						Annotation const& annotation,
 						MarkSet const& marks,
 						Comment const& preComment,
 						Comment const& comment);
+	Byte writeComment(Byte position, Comment const& comment);
 
 	void beginMoveSection();
 	void endMoveSection(result::ID result);
@@ -88,9 +90,7 @@ private:
 	unsigned				m_runLength;
 	bool					m_endOfRun;
 	bool					m_danglingPop;
-#ifndef NREQ
 	bool					m_putComment;
-#endif
 };
 
 } // namespace sci

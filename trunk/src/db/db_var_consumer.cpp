@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 31 $
-// Date   : $Date: 2011-05-24 09:11:31 +0000 (Tue, 24 May 2011) $
+// Version: $Revision: 47 $
+// Date   : $Date: 2011-06-20 17:56:21 +0000 (Mon, 20 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -79,6 +79,28 @@ VarConsumer::sendComment(	Comment const& comment,
 									MarkSet const& marks)
 {
 	sendComment(Comment(), comment, annotation, marks);
+}
+
+
+void
+VarConsumer::sendFinalComment(Comment const& comment)
+{
+	if (!comment.isEmpty())
+	{
+		move::Position pos = m_current->atLineStart() ? move::Ante : move::Post;
+
+		if (m_current->comment(pos).isEmpty())
+		{
+			m_current->setComment(comment, pos);
+		}
+		else
+		{
+			Comment comm;
+			m_current->swapComment(comm, pos);
+			comm.append(comment, '\n');
+			m_current->swapComment(comm, pos);
+		}
+	}
 }
 
 

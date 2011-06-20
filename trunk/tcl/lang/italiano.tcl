@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 44 $
-# Date   : $Date: 2011-06-19 19:56:08 +0000 (Sun, 19 Jun 2011) $
+# Version: $Revision: 47 $
+# Date   : $Date: 2011-06-20 17:56:21 +0000 (Mon, 20 Jun 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -127,6 +127,7 @@
 ::menu::mc::HelpBugReport			"Segnala &Bug (apre il browser)"
 
 ::menu::mc::ViewShowLog				"Mostra &Log..."
+::menu::mc::ViewFullscreen			"Schermo intero"
 
 ::menu::mc::OpenFile					"Apri un file Scidb"
 ::menu::mc::NewFile					"Crea un file Scidb"

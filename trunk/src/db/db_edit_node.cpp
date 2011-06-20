@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 44 $
-// Date   : $Date: 2011-06-19 19:56:08 +0000 (Sun, 19 Jun 2011) $
+// Version: $Revision: 47 $
+// Date   : $Date: 2011-06-20 17:56:21 +0000 (Mon, 20 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -749,7 +749,7 @@ Move::Move(Work& work, db::Comment const& comment)
 {
 	if (work.m_level == 0)
 	{
-		if (work.isEmpty)
+		if (work.isEmpty && comment.isEmpty())
 			m_list.push_back(new Space(Empty));
 		else
 			m_list.push_back(new Space(Start));

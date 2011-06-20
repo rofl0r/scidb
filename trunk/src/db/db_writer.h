@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 36 $
-// Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
+// Version: $Revision: 47 $
+// Date   : $Date: 2011-06-20 17:56:21 +0000 (Mon, 20 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -87,6 +87,7 @@ public:
 	save::State endGame(TagSet const& tags);
 
 	void sendComment(Comment const& comment, Annotation const& annotation, MarkSet const& marks);
+	void sendFinalComment(Comment const& comment);
 
 	bool sendMove(Move const& move);
 	bool sendMove(	Move const& move,
