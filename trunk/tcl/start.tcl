@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 43 $
-# Date   : $Date: 2011-06-14 21:57:41 +0000 (Tue, 14 Jun 2011) $
+# Version: $Revision: 49 $
+# Date   : $Date: 2011-06-20 18:43:22 +0000 (Mon, 20 Jun 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -94,6 +94,7 @@ if {[::process::testOption delete-recovery-files]} {
 
 if {[::process::testOption from-the-scratch]} {
 	file delete $::scidb::file::options
+	file copy [file join $share themes] $user
 	::process::setOption dont-recover
 	set ::scidb::dir::setup 1
 }
