@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 44 $
-// Date   : $Date: 2011-06-19 19:56:08 +0000 (Sun, 19 Jun 2011) $
+// Version: $Revision: 52 $
+// Date   : $Date: 2011-06-21 12:24:24 +0000 (Tue, 21 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1649,9 +1649,14 @@ Comment::convertCommentToXml(	mstl::string const& comment,
 
 				s = e;
 			}
-			else if (::isprint(*s))
+			else if (::isgraph(*s))
 			{
 				result.m_content += *s++;
+			}
+			else
+			{
+				result.m_content += '?';
+				++s;
 			}
 		}
 		else

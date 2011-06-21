@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 33 $
-# Date   : $Date: 2011-05-29 12:27:45 +0000 (Sun, 29 May 2011) $
+# Version: $Revision: 52 $
+# Date   : $Date: 2011-06-21 12:24:24 +0000 (Tue, 21 Jun 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -206,7 +206,7 @@ proc InitBase {path base} {
 	variable Defaults
 
 	if {![info exists Vars($base:view)]} {
-		set Vars($base:view) [::scidb::view::new $base]
+		set Vars($base:view) [::scidb::view::new $base slave slave slave master]
 		set Vars($base:update) 1
 		set Vars($base:sort) $Defaults(sort)
 		set Vars($base:annotator) {}

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 47 $
-# Date   : $Date: 2011-06-20 17:56:21 +0000 (Mon, 20 Jun 2011) $
+# Version: $Revision: 52 $
+# Date   : $Date: 2011-06-21 12:24:24 +0000 (Tue, 21 Jun 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -218,7 +218,7 @@ proc open {parent base index view source} {
 	set Vars(prevMode) ""
 	set Vars(prevTiebreaks) ""
 	set Vars(tooltip) ""
-	set Vars(viewId) [::scidb::view::new $base]
+	set Vars(viewId) [::scidb::view::new $base slave slave slave slave]
 
 	if {$source eq "game"} { set search gameevent } else { set search event }
 	::scidb::view::search $base $Vars(viewId) null none [list $search $number]

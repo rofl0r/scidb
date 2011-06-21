@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 44 $
-// Date   : $Date: 2011-06-19 19:56:08 +0000 (Sun, 19 Jun 2011) $
+// Version: $Revision: 52 $
+// Date   : $Date: 2011-06-21 12:24:24 +0000 (Tue, 21 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -569,14 +569,17 @@ Namebase::clear()
 	m_list.clear();
 	m_freeSet.clear();
 	m_reuseSet.clear();
-	m_freeSetIsEmpty = true;
 	m_map.clear();
 
 	m_maxFreq = 0;
 	m_maxUsage = 0;
+	m_used = 0;
+	m_nextId = 0;
+
 	m_isConsistent = true;
 	m_isPrepared = true;
 	m_isModified = true;
+	m_freeSetIsEmpty = true;
 
 	m_stringAllocator.clear();
 

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 47 $
-# Date   : $Date: 2011-06-20 17:56:21 +0000 (Mon, 20 Jun 2011) $
+# Version: $Revision: 52 $
+# Date   : $Date: 2011-06-21 12:24:24 +0000 (Tue, 21 Jun 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -293,6 +293,7 @@ proc shutdown {} {
 	::remote::cleanup
 	::scidb::app::close
 	if {$backup} { ::game::backup }
+	::scidb::app::finalize
 
 	::widget::busyCursor off
 	::ttk::releaseGrab $dlg

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 44 $
-// Date   : $Date: 2011-06-19 19:56:08 +0000 (Sun, 19 Jun 2011) $
+// Version: $Revision: 52 $
+// Date   : $Date: 2011-06-21 12:24:24 +0000 (Tue, 21 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -223,13 +223,22 @@ buildSearch(Database const& db, Tcl_Interp* ti, Tcl_Obj* query)
 static int
 cmdNew(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 {
-	if (objc != 2)
+	char const*			base		= stringFromObj(objc, objv, 1);
+	View::UpdateMode	mode[4];
+
+	for (unsigned i = 0; i < U_NUMBER_OF(mode); ++i)
 	{
-		Tcl_WrongNumArgs(ti, 1, objv, "<database>");
-		return TCL_ERROR;
+		char const* arg = stringFromObj(objc, objv, i + 2);
+
+		if (::strcmp(arg, "master") == 0)
+			mode[i] = View::AddNewGames;
+		else if (::strcmp(arg, "slave") == 0)
+			mode[i] = View::LeaveEmpty;
+		else
+			error(CmdNew, 0, 0, "unknown resize mode '%s'", arg);
 	}
 
-	appendResult("%u", scidb.cursor(Tcl_GetStringFromObj(objv[1], 0)).newView());
+	appendResult("%u", scidb.cursor(base).newView(mode[0], mode[1], mode[2], mode[3]));
 	return TCL_OK;
 }
 

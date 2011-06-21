@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 43 $
-# Date   : $Date: 2011-06-14 21:57:41 +0000 (Tue, 14 Jun 2011) $
+# Version: $Revision: 52 $
+# Date   : $Date: 2011-06-21 12:24:24 +0000 (Tue, 21 Jun 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -174,7 +174,7 @@ proc InitBase {path base} {
 	variable Defaults
 
 	if {![info exists Vars($base:view)]} {
-		set Vars($base:view) [::scidb::view::new $base]
+		set Vars($base:view) [::scidb::view::new $base slave master slave slave]
 		set Vars($base:update:players) 1
 		set Vars($base:sort:players) $Defaults(sort:players)
 		set Vars($base:sort:events) $Defaults(sort:events)

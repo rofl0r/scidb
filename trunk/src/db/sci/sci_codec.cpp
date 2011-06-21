@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 44 $
-// Date   : $Date: 2011-06-19 19:56:08 +0000 (Sun, 19 Jun 2011) $
+// Version: $Revision: 52 $
+// Date   : $Date: 2011-06-21 12:24:24 +0000 (Tue, 21 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1434,8 +1434,8 @@ Codec::readPlayerbase(ByteStream& bstrm, Namebase& base, unsigned count)
 			{
 				uint16_t extraneous = bstrm.uint16();
 
-				country = country::Code(extraneous & 0x0100);
-				title = title::ID((extraneous >> 4) & 0x000f);
+				country = country::Code(extraneous & 0x01ff);
+				title = title::ID((extraneous >> 4) & 0x0f);
 			}
 			else
 			{
@@ -1686,7 +1686,7 @@ Codec::writePlayerbase(util::ByteStream& bstrm, Namebase& base)
 		flags = (entry->type() & 0x03) | ((entry->sex() & 0x03) << 3);
 
 		if (uint16_t extranouos = (uint16_t(entry->title() & 0x0f) << 4)
-										 | uint16_t(entry->federation() & 0x0100))
+										 | uint16_t(entry->federation() & 0x01ff))
 		{
 			bstrm.put(flags | 0x80);
 			bstrm << extranouos;

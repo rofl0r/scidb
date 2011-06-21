@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 44 $
-// Date   : $Date: 2011-06-19 19:56:08 +0000 (Sun, 19 Jun 2011) $
+// Version: $Revision: 52 $
+// Date   : $Date: 2011-06-21 12:24:24 +0000 (Tue, 21 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -26,6 +26,8 @@
 
 #ifndef _app_cursor_included
 #define _app_cursor_included
+
+#include "app_view.h"
 
 #include "db_common.h"
 
@@ -101,13 +103,18 @@ public:
 	int treeViewIdentifier() const;
 
 	/// Create new view and return the identifier.
-	unsigned newView();
+	unsigned newView(	View::UpdateMode gameUpdateMode,
+							View::UpdateMode playerUpdateMode,
+							View::UpdateMode eventUpdateMode,
+							View::UpdateMode annotatorUpdateMode);
 	/// Create new view for tree and return the identifier.
 	unsigned newTreeView();
 	/// Close an existing view.
 	void closeView(unsigned view);
 	/// Close an existing tree view.
 	void closeTreeView();
+	/// Update all open views.
+	void updateViews();
 
 	/// Return database object.
 	db::Database const& database() const;

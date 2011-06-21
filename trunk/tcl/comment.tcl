@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 44 $
-# Date   : $Date: 2011-06-19 19:56:08 +0000 (Sun, 19 Jun 2011) $
+# Version: $Revision: 52 $
+# Date   : $Date: 2011-06-21 12:24:24 +0000 (Tue, 21 Jun 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -2327,11 +2327,11 @@ bind Text <Option-Down>		{ tk::TextSetCursorExt %W [tk::TextNextPara %W insert] 
 
 
 # TODO
-bind Text <Control-k> {}
-bind Text <Meta-d> {}
-bind Text <Meta-BackSpace> {}
-bind Text <Meta-Delete> {}
-bind Text <Control-h> {}
-bind Text <Control-o> {}
+bind Text <Control-k> {#}
+bind Text <Meta-d> {#}
+bind Text <Meta-BackSpace> {#}
+bind Text <Meta-Delete> {#}
+bind Text <Control-h> {#}
+bind Text <Control-o> {#}
 
 # vi:set ts=3 sw=3:
