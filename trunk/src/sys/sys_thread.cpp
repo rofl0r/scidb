@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 44 $
-// Date   : $Date: 2011-06-19 19:56:08 +0000 (Sun, 19 Jun 2011) $
+// Version: $Revision: 53 $
+// Date   : $Date: 2011-06-23 13:43:55 +0000 (Thu, 23 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -127,7 +127,7 @@ atomic_test(atomic_t* v)
 	return *v == 1;
 }
 
-#elif __GNUC_PREREQ(4,1)
+#elif __GNUC_PREREQ(4,1) && !defined(DONT_USE_SYNC_BUILTIN)
 
 # define ATOMIC_INIT(x) { x }
 
