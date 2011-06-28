@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 56 $
-// Date   : $Date: 2011-06-28 14:04:22 +0000 (Tue, 28 Jun 2011) $
+// Version: $Revision: 58 $
+// Date   : $Date: 2011-06-28 14:56:12 +0000 (Tue, 28 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1691,9 +1691,11 @@ Codec::readNamebase(	ByteIStream& bstrm,
 				break;
 
 			case Namebase::Site:
-				tmp.assign(name);
-				country::Code country = PgnReader::extractCountryFromSite(tmp);
-				shadowBase.append(str, base.insertSite(name, index, country, limit), *m_codec);
+				{
+					tmp.assign(name);
+					country::Code country = PgnReader::extractCountryFromSite(tmp);
+					shadowBase.append(str, base.insertSite(name, index, country, limit), *m_codec);
+				}
 				break;
 
 			case Namebase::Event:

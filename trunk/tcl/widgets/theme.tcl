@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 36 $
-# Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
+# Version: $Revision: 58 $
+# Date   : $Date: 2011-06-28 14:56:12 +0000 (Tue, 28 Jun 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -447,6 +447,7 @@ proc ComboboxSelected {w} {
 	if {[currentTheme] ne "clam"} { $w selection clear }
 }
 
+option add *background #efefef
 
 option add *Spinbox.background white
 option add *Spinbox.selectForeground white

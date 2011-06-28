@@ -1,7 +1,7 @@
 # # ======================================================================
 # Author : $Author$
-# Version: $Revision: 56 $
-# Date   : $Date: 2011-06-28 14:04:22 +0000 (Tue, 28 Jun 2011) $
+# Version: $Revision: 58 $
+# Date   : $Date: 2011-06-28 14:56:12 +0000 (Tue, 28 Jun 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -833,7 +833,7 @@
 ::import::mc::InvalidCountryCode					"Ungültiger Länderkode"
 ::import::mc::InvalidRating						"Ungültige Wertungszahl"
 ::import::mc::InvalidNag							"Ungültiges NAG"
-::import::mc::BraceSeenOutsideComment			"\"\}\" ausserhalb eines Partiekommentars (wird ignoriert)""
+::import::mc::BraceSeenOutsideComment			"\"\}\" ausserhalb eines Partiekommentars (wird ignoriert)"
 ::import::mc::MissingFen							"Kein FEN-Tag vorhanden (das Varianten-Tag wird ignoriert)"
 ::import::mc::UnknownEventType					"Unbekannter Ereignistyp"
 ::import::mc::UnknownTitle							"Unbekannter Titel (wird ignoriert)"
