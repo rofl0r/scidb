@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 25 $
-// Date   : $Date: 2011-05-19 14:05:57 +0000 (Thu, 19 May 2011) $
+// Version: $Revision: 56 $
+// Date   : $Date: 2011-06-28 14:04:22 +0000 (Tue, 28 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -50,6 +50,8 @@ public:
 
 	bool convertFromUtf8(mstl::string const& in, mstl::string& out);
 	bool convertToUtf8(mstl::string const& in, mstl::string& out);
+
+	void forceValidUtf8(mstl::string& str);
 
 	static mstl::string const& utf8();
 	static mstl::string const& latin1();

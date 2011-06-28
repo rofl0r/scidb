@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 56 $
+// Date   : $Date: 2011-06-28 14:04:22 +0000 (Tue, 28 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -67,7 +67,6 @@ public:
 		Unknown_Error_Type,
 		Open_Failed,
 		Read_Only,
-		Old_Format,
 		Unknown_Version,
 		Unexpected_Version,
 		Corrupted,

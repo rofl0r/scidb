@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 52 $
-// Date   : $Date: 2011-06-21 12:24:24 +0000 (Tue, 21 Jun 2011) $
+// Version: $Revision: 56 $
+// Date   : $Date: 2011-06-28 14:04:22 +0000 (Tue, 28 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -213,7 +213,7 @@ public:
 	void endTrialMode();
 
 	void searchGames(Cursor& cursor, db::Query const& query, unsigned view = 0, unsigned filter = None);
-	void recode(Cursor& cursor, mstl::string const& encoding, db::Log& log);
+	void recode(Cursor& cursor, mstl::string const& encoding, util::Progress& progress);
 	void finalize();
 
 	void sort(	Cursor& cursor,

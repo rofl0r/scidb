@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 44 $
-// Date   : $Date: 2011-06-19 19:56:08 +0000 (Sun, 19 Jun 2011) $
+// Version: $Revision: 56 $
+// Date   : $Date: 2011-06-28 14:04:22 +0000 (Tue, 28 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -93,6 +93,9 @@ public:
 
 	bool atLineStart() const;
 	bool atLineEnd() const;
+	bool isBeforeLineEnd() const;
+	bool isOneBeforeLineEnd() const;
+	bool isAfterLineStart() const;
 
 	bool hasComment(move::Position position) const;
 	bool hasAnyComment() const;
@@ -106,6 +109,7 @@ public:
 	bool containsOtherLang() const;
 	bool contains(MoveNode const* node) const;
 	bool isFolded() const;
+	bool isEmptyLine() const;
 
 	unsigned variationCount() const;
 	unsigned unfoldedVariationCount() const;
@@ -117,6 +121,10 @@ public:
 	unsigned countComments() const;
 	unsigned countComments(mstl::string const& lang) const;
 	unsigned countVariations() const;
+
+	MoveNode* getLineStart();
+	MoveNode* getLineEnd();
+	MoveNode* getOneBeforeLineEnd();
 
 	Move& move();
 	Move const& move() const;
@@ -155,6 +163,7 @@ public:
 	void deleteNext();
 	void deleteVariation(unsigned varNo);
 	void clearAnnotation();
+	void clearMarks();
 	void swapData(MoveNode* node);
 
 	void stripAnnotations();

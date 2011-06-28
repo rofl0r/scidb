@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 47 $
-// Date   : $Date: 2011-06-20 17:56:21 +0000 (Mon, 20 Jun 2011) $
+// Version: $Revision: 56 $
+// Date   : $Date: 2011-06-28 14:04:22 +0000 (Tue, 28 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -26,6 +26,8 @@
 
 #include "db_var_consumer.h"
 #include "db_move_node.h"
+#include "db_annotation.h"
+#include "db_mark_set.h"
 
 #include "m_assert.h"
 
@@ -74,16 +76,16 @@ VarConsumer::sendComment(	Comment const& preComment,
 
 
 void
-VarConsumer::sendComment(	Comment const& comment,
-									Annotation const& annotation,
-									MarkSet const& marks)
+VarConsumer::sendPrecedingComment(Comment const& comment,
+											Annotation const& annotation,
+											MarkSet const& marks)
 {
 	sendComment(Comment(), comment, annotation, marks);
 }
 
 
 void
-VarConsumer::sendFinalComment(Comment const& comment)
+VarConsumer::sendTrailingComment(Comment const& comment)
 {
 	if (!comment.isEmpty())
 	{
@@ -148,14 +150,12 @@ VarConsumer::beginVariation()
 
 
 void
-VarConsumer::endVariation()
+VarConsumer::endVariation(bool isEmpty)
 {
-	while (!m_current->atLineStart())
-	{
-		M_ASSERT(m_current->prev());
-		m_current = m_current->prev();
-	}
+	if (isEmpty)
+		sendMove(Move::null());
 
+	m_current = m_current->getLineStart();
 	M_ASSERT(m_current->prev());
 	m_current = m_current->prev();
 }

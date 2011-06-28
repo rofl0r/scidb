@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 56 $
+// Date   : $Date: 2011-06-28 14:04:22 +0000 (Tue, 28 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -27,9 +27,6 @@
 #include "m_assert.h"
 
 namespace db {
-
-inline uint8_t Signature::promotions() const			{ return m_promotions; }
-inline uint8_t Signature::underPromotions() const	{ return m_underPromotions; }
 
 inline bool Signature::hasPromotion() const			{ return m_promotions; }
 inline bool Signature::hasUnderPromotion() const	{ return m_underPromotions; }

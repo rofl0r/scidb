@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 47 $
-# Date   : $Date: 2011-06-20 17:56:21 +0000 (Mon, 20 Jun 2011) $
+# Version: $Revision: 56 $
+# Date   : $Date: 2011-06-28 14:04:22 +0000 (Tue, 28 Jun 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -361,8 +361,8 @@ proc verifyPath {w path} {
 proc dbNew {parent} {
 	set filetypes [list                             \
 		[list $mc::ScidbBases		.sci]             \
-		[list $mc::Scid3Bases		.si3]             \
 		[list $mc::Scid4Bases		.si4]             \
+		[list $mc::Scid3Bases		.si3]             \
 		[list $mc::AllScidBases		{.si3 .si4}]      \
 		[list $mc::AllScidbBases	{.sci .si3 .si4}] \
 	]

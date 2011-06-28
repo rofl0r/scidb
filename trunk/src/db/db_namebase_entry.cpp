@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 56 $
+// Date   : $Date: 2011-06-28 14:04:22 +0000 (Tue, 28 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -63,6 +63,7 @@ NamebasePlayer::NamebasePlayer()
 	,m_titleFlag(1)
 	,m_sexFlag(1)
 	,m_speciesFlag(1)
+	,m_fideIdFlag(0)
 	,m_ratingType(rating::Any)
 	,m_unused_(0)
 {

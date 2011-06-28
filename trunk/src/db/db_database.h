@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 44 $
-// Date   : $Date: 2011-06-19 19:56:08 +0000 (Sun, 19 Jun 2011) $
+// Version: $Revision: 56 $
+// Date   : $Date: 2011-06-28 14:04:22 +0000 (Tue, 28 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -177,6 +177,8 @@ public:
 	void clear();
 	/// Compacts the database.
 	void compact();
+	/// Re-open the database.
+	void reopen(mstl::string const& encoding, util::Progress& progress);
 	/// Close database.
 	void close();
 	/// Attach database to a file.
@@ -184,7 +186,7 @@ public:
 	/// Update database files.
 	void save(util::Progress& progress, unsigned start = 0);
 	/// Recode content of database.
-	void recode(mstl::string const& encoding, Log& log);
+	void recode(mstl::string const& encoding, util::Progress& progress);
 
 	/// Build tournament table for selected games.
 	TournamentTable* makeTournamentTable(Filter const& gameFilter) const;

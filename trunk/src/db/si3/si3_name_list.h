@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 44 $
-// Date   : $Date: 2011-06-19 19:56:08 +0000 (Sun, 19 Jun 2011) $
+// Version: $Revision: 56 $
+// Date   : $Date: 2011-06-28 14:04:22 +0000 (Tue, 28 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -73,7 +73,7 @@ public:
 #endif
 
 	void append(mstl::string const& originalName, NamebaseEntry* entry, sys::utf8::Codec& codec);
-	void add(unsigned originalId, NamebaseEntry* entry);
+	void addEntry(unsigned originalId, NamebaseEntry* entry);
 	void update(Namebase& base, sys::utf8::Codec& codec);
 	void reserve(unsigned size);
 
@@ -95,7 +95,6 @@ private:
 	Node* makeNode(NamebaseEntry* entry, mstl::string const* str);
 
 	mstl::bitset		m_usedIdSet;
-	mstl::bitset		m_newIdSet;
 	List					m_list;
 	List					m_lookup;
 	List					m_access;

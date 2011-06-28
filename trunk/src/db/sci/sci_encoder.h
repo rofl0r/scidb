@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 33 $
-// Date   : $Date: 2011-05-29 12:27:45 +0000 (Sun, 29 May 2011) $
+// Version: $Revision: 56 $
+// Date   : $Date: 2011-06-28 14:04:22 +0000 (Tue, 28 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -74,6 +74,7 @@ protected:
 	void encodeMainline(MoveNode const* node);
 	void encodeVariation(MoveNode const* node);
 	void encodeNote(MoveNode const* node);
+	void encodeComment(MoveNode const* node);
 
 	void setup(Board const& board);
 	Byte makeMoveByte(Square from, Byte value);

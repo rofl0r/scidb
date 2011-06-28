@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 47 $
-// Date   : $Date: 2011-06-20 17:56:21 +0000 (Mon, 20 Jun 2011) $
+// Version: $Revision: 56 $
+// Date   : $Date: 2011-06-28 14:04:22 +0000 (Tue, 28 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -64,14 +64,6 @@ bool
 Consumer::startGame(TagSet const& tags, Board const& board)
 {
 	return startGame(tags, &board);
-}
-
-
-inline
-void
-Consumer::putFinalComment(Comment const& comment)
-{
-	sendFinalComment(comment);
 }
 
 } // namespace db

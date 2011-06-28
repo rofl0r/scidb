@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 47 $
-// Date   : $Date: 2011-06-20 17:56:21 +0000 (Mon, 20 Jun 2011) $
+// Version: $Revision: 56 $
+// Date   : $Date: 2011-06-28 14:04:22 +0000 (Tue, 28 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -68,14 +68,8 @@ private:
 	bool beginGame(TagSet const& tags);
 	save::State endGame(TagSet const& tags);
 
-	void sendComment( Comment const& comment,
-							Annotation const& annotation,
-							MarkSet const& marks,
-							bool isPreComment);
-	void sendFinalComment(Comment const& comment);
-
-	void sendPreComment(Comment const& comment);
-	void sendComment(Comment const& comment, Annotation const& annotation, MarkSet const& marks);
+	void sendTrailingComment(Comment const& comment);
+	void sendPrecedingComment(Comment const& comment, Annotation const& annotation, MarkSet const& marks);
 	bool sendMove(Move const& move);
 	bool sendMove(	Move const& move,
 						Annotation const& annotation,
@@ -83,10 +77,16 @@ private:
 						Comment const& preComment,
 						Comment const& comment);
 
+	void sendPreComment(Comment const& comment);
+	void sendComment( Comment const& comment,
+							Annotation const& annotation,
+							MarkSet const& marks,
+							bool isPreComment);
+
 	void beginMoveSection();
 	void endMoveSection(result::ID result);
 	void beginVariation();
-	void endVariation();
+	void endVariation(bool isEmpty);
 
 	void pushComment(Comment const& comment);
 

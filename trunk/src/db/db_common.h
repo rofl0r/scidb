@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 44 $
-// Date   : $Date: 2011-06-19 19:56:08 +0000 (Sun, 19 Jun 2011) $
+// Version: $Revision: 56 $
+// Date   : $Date: 2011-06-28 14:04:22 +0000 (Tue, 28 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1102,6 +1102,7 @@ namespace attribute
 		{
 			Number,
 			WhitePlayer,
+			WhiteFideID,
 			WhiteRating1,
 			WhiteRating2,
 			WhiteRatingType,
@@ -1110,6 +1111,7 @@ namespace attribute
 			WhiteType,
 			WhiteSex,
 			BlackPlayer,
+			BlackFideID,
 			BlackRating1,
 			BlackRating2,
 			BlackRatingType,
@@ -1170,6 +1172,7 @@ namespace attribute
 		enum ID
 		{
 			Name,
+			FideID,
 			Type,
 			Sex,
 			Rating1,
@@ -1183,7 +1186,6 @@ namespace attribute
 			// additional attributes
 			DateOfBirth,
 			DateOfDeath,
-			FideID,
 			DsbID,
 			EcfID,
 			IccfID,

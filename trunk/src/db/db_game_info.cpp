@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 36 $
-// Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
+// Version: $Revision: 56 $
+// Date   : $Date: 2011-06-28 14:04:22 +0000 (Tue, 28 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -119,23 +119,6 @@ Int
 setFlag(Int flags, unsigned at, bool value)
 {
 	return value ? flags | at : flags & ~at;
-}
-
-
-static void
-recode(	NamebaseEntry* entry,
-			sys::utf8::Codec& oldCodec,
-			sys::utf8::Codec& newCodec,
-			mstl::string& buf)
-{
-	M_ASSERT(entry);
-
-	if (sys::utf8::Codec::is7BitAscii(entry->name()))
-		return;
-
-	oldCodec.convertFromUtf8(entry->name(), buf);
-	newCodec.convertToUtf8(buf, buf);
-	entry->setName(buf);
 }
 
 
@@ -728,7 +711,7 @@ GameInfo::reallocate(Namebases& namebases)
 		name.hook(s, name.size());
 
 		namebase.insertPlayer(
-			name, entry->federation(), entry->title(), entry->type(), entry->sex(), Limit);
+			name, entry->federation(), entry->title(), entry->type(), entry->sex(), entry->fideID(), Limit);
 	}
 	{
 		Namebase& namebase = namebases(Namebase::Player);
@@ -739,7 +722,7 @@ GameInfo::reallocate(Namebases& namebases)
 		name.hook(s, name.size());
 
 		namebase.insertPlayer(
-			name, entry->federation(), entry->title(), entry->type(), entry->sex(), Limit);
+			name, entry->federation(), entry->title(), entry->type(), entry->sex(), entry->fideID(), Limit);
 	}
 	{
 		Namebase& namebase = namebases(Namebase::Site);
@@ -846,6 +829,10 @@ GameInfo::setupTags(TagSet& tags) const
 		tags.set(tag::WhiteSex, sex::toString(m_player[White]->sex()));
 	if (m_player[Black]->sex() != sex::Unspecified)
 		tags.set(tag::BlackSex, sex::toString(m_player[Black]->sex()));
+	if (m_player[White]->fideID())
+		tags.set(tag::WhiteFideId, m_player[White]->fideID());
+	if (m_player[Black]->fideID())
+		tags.set(tag::BlackFideId, m_player[Black]->fideID());
 
 	if (m_dateYear == Date::Zero10Bits)
 	{
@@ -961,22 +948,6 @@ GameInfo::setRecord(uint32_t offset, uint32_t length)
 
 	if (m_recordLengthFlag)
 		setGameRecordLength(length);
-}
-
-
-void
-GameInfo::recode(sys::utf8::Codec& oldCodec, sys::utf8::Codec& newCodec)
-{
-	mstl::string buf;
-
-	// XXX wrong! namebase should be recoded!
-	::recode(m_event,				oldCodec, newCodec, buf);
-	::recode(m_event->site(),	oldCodec, newCodec, buf);
-	::recode(m_player[White],	oldCodec, newCodec, buf);
-	::recode(m_player[Black],	oldCodec, newCodec, buf);
-
-	if (!m_recordLengthFlag)
-		::recode(m_annotator, oldCodec, newCodec, buf);
 }
 
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 44 $
-// Date   : $Date: 2011-06-19 19:56:08 +0000 (Sun, 19 Jun 2011) $
+// Version: $Revision: 56 $
+// Date   : $Date: 2011-06-28 14:04:22 +0000 (Tue, 28 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -158,12 +158,13 @@ public:
 											NamebaseSite* site);
 
 	PlayerEntry* insertPlayer(	mstl::string const& name);
-	PlayerEntry* insertPlayer(	mstl::string const& name, unsigned id, unsigned limit);
+	PlayerEntry* insertPlayer(	mstl::string const& name, uint32_t fideID, unsigned id, unsigned limit);
 	PlayerEntry* insertPlayer(	mstl::string const& name,
 										country::Code country,
 										title::ID title,
 										species::ID type,
 										sex::ID sex,
+										uint32_t fideID,
 										unsigned limit);
 	PlayerEntry* insertPlayer(	mstl::string const& name,
 										unsigned id,
@@ -171,6 +172,7 @@ public:
 										title::ID title,
 										species::ID type,
 										sex::ID sex,
+										uint32_t fideID,
 										unsigned limit);
 	PlayerEntry const* appendPlayer(mstl::string const& name, unsigned id);
 	PlayerEntry const* appendPlayer(	mstl::string const& name,
@@ -178,7 +180,9 @@ public:
 												country::Code country,
 												title::ID title,
 												species::ID type,
-												sex::ID sex);
+												sex::ID sex,
+												uint32_t fideID);
+	void rename(NamebaseEntry* entry, mstl::string const& name);
 
 	void update();
 	void setPrepared(unsigned maxFrequency, unsigned maxUsage);
@@ -239,7 +243,7 @@ private:
 		PlayerAllocator*	m_playerAllocator;
 	};
 
-	StringAllocator	m_stringAllocator;
+	StringAllocator m_stringAllocator;
 };
 
 } // namespace db

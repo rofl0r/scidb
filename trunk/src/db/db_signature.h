@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 56 $
+// Date   : $Date: 2011-06-28 14:04:22 +0000 (Tue, 28 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -46,8 +46,6 @@ public:
 	/// Return whether under-promotion(s) has been detected
 	bool hasUnderPromotion() const;
 
-	uint8_t promotions() const;
-	uint8_t underPromotions() const;
 	material::Signature material() const;
 	material::SigPart material(color::ID color) const;
 	pawns::Side progress(color::ID color) const;

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 36 $
-// Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
+// Version: $Revision: 56 $
+// Date   : $Date: 2011-06-28 14:04:22 +0000 (Tue, 28 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -41,6 +41,8 @@ GameData::GameData()
 	m_tags.set(tag::White,	"?", 1);
 	m_tags.set(tag::Black,	"?", 1);
 	m_tags.set(tag::Result,	"*", 1);
+
+	m_startNode->setNext(new MoveNode);
 }
 
 GameData::~GameData() throw() { delete m_startNode; }

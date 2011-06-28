@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 36 $
-// Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
+// Version: $Revision: 56 $
+// Date   : $Date: 2011-06-28 14:04:22 +0000 (Tue, 28 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -93,6 +93,7 @@ public:
 		InvalidCountryCode,
 		InvalidRating,
 		InvalidNag,
+		BraceSeenOutsideComment,
 		MissingFen,
 		UnknownEventType,
 		UnknownTitle,
@@ -107,7 +108,6 @@ public:
 		IllegalCastling,
 		IllegalMove,
 		ValueTooLong,
-		CommentAtEndOfGame,
 		MaximalErrorCountExceeded,
 		MaximalWarningCountExceeded,
 
@@ -237,6 +237,8 @@ private:
 	Token searchTag();
 	Token nextToken(Token prevToken);
 	Token resultToken(result::ID result);
+
+	bool partOfMove(Token token) const;
 
 	void checkTags();
 	bool checkTag(tag::ID tag, mstl::string& value);
