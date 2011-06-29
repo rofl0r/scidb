@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 56 $
-# Date   : $Date: 2011-06-28 14:04:22 +0000 (Tue, 28 Jun 2011) $
+# Version: $Revision: 59 $
+# Date   : $Date: 2011-06-29 10:08:30 +0000 (Wed, 29 Jun 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1438,13 +1438,13 @@ proc PopupMenu {path menu base index} {
 			$menu add command \
 				-compound left \
 				-image $::icon::16x16::browse \
-				-label $::browser::mc::BrowseGame \
+				-label " $::browser::mc::BrowseGame" \
 				-command [namespace code [list OpenBrowser $path $index]] \
 				;
 			$menu add command \
 				-compound left \
 				-image $::icon::16x16::overview \
-				-label $::overview::mc::Overview \
+				-label " $::overview::mc::Overview" \
 				-command [namespace code [list OpenOverview $path $index]] \
 				;
 			$menu add command \
@@ -1463,7 +1463,7 @@ proc PopupMenu {path menu base index} {
 			$menu add command \
 				-compound left \
 				-image $::icon::16x16::filetypeScidbBase \
-				-label $::browser::mc::BrowseGame \
+				-label " $::browser::mc::BrowseGame" \
 				-accelerator $mc::AccelBrowse \
 				-command [namespace code [list OpenBrowser $path $index]] \
 				;

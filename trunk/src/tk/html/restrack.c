@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 59 $
+// Date   : $Date: 2011-06-29 10:08:30 +0000 (Wed, 29 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -269,7 +269,7 @@ ResFree(v1, v2)
         for (i = 0; i < pRec->nStack; i++) {
             ckfree((char *)pRec->aStack[i]);
         }
-        ckfree((char *)pRec->aStack);
+       ckfree((char *)pRec->aStack);
         ckfree((char *)pRec);
 
         Tcl_DeleteHashEntry(pEntry);
@@ -467,7 +467,7 @@ freeMallocHash(p, nBytes)
 
     if (aData[0] == 0) {
         Tcl_DeleteHashEntry(pEntryMalloc);
-        ckfree((char *)aData);
+       ckfree((char *)aData);
     }
     Tcl_DeleteHashEntry(pEntryAllocationType);
 }

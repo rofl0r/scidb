@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1 $
-# Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+# Version: $Revision: 59 $
+# Date   : $Date: 2011-06-29 10:08:30 +0000 (Wed, 29 Jun 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -214,6 +214,13 @@ proc WidgetProc {w command args} {
 			scan $args "%d.%d.%d" y m d
 			SetDate $w [list $y $m $d]
 			return $w
+		}
+
+		cget {
+			if {[llength $args] != 1} {
+				error "wrong # args: should be \"[namespace current] cget <option>\""
+			}
+			if {[lindex $args 0] eq "-state"} { return "normal" }
 		}
 	}
 

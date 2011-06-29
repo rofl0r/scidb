@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 56 $
-# Date   : $Date: 2011-06-28 14:04:22 +0000 (Tue, 28 Jun 2011) $
+# Version: $Revision: 59 $
+# Date   : $Date: 2011-06-29 10:08:30 +0000 (Wed, 29 Jun 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -177,7 +177,7 @@
 
 ::load::mc::ECOFile					"ECO file"
 ::load::mc::EngineFile				"engine file"
-::load::mc::SpellcheckFile			"spell-check file"
+::load::mc::SpellcheckFile			"player information file"
 ::load::mc::LocalizationFile		"localization file"
 ::load::mc::RatingList				"%s rating list"
 ::load::mc::WikipediaLinks			"Wikipedia links"
@@ -1011,7 +1011,8 @@
 ::dialog::save::mc::Matches						"&Matches"
 ::dialog::save::mc::Tags							"&Tags"
 
-::dialog::save::mc::Name							"Name/Fide ID"
+::dialog::save::mc::Name							"Name"
+::dialog::save::mc::NameFideID					"Name/Fide-ID"
 ::dialog::save::mc::Value							"Value"
 ::dialog::save::mc::Title							"Title"
 ::dialog::save::mc::Rating							"Rating"
