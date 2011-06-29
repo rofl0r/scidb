@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 56 $
-// Date   : $Date: 2011-06-28 14:04:22 +0000 (Tue, 28 Jun 2011) $
+// Version: $Revision: 60 $
+// Date   : $Date: 2011-06-29 21:26:40 +0000 (Wed, 29 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -33,12 +33,10 @@
 #include <assert.h>
 
 extern "C" { extern int Treectrl_Init(Tcl_Interp*); }
+extern "C" { static Tcl_FreeProc* __tcl_static = TCL_STATIC; }
 
 using namespace ::tcl;
 using namespace ::db;
-
-
-extern "C" { static Tcl_FreeProc* __tcl_static = TCL_STATIC; }
 
 Tcl_Interp* tcl::bits::interp = 0;
 
@@ -799,7 +797,7 @@ namespace crosstable	{ void init(Tcl_Interp* interp); }
 void
 tcl::init(Tcl_Interp* ti)
 {
-	bits::interp = ti;
+	::tcl::bits::interp = ti;
 
 	Treectrl_Init(ti);
 

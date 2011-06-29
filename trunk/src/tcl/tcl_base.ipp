@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 60 $
+// Date   : $Date: 2011-06-29 21:26:40 +0000 (Wed, 29 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -18,6 +18,9 @@
 
 #include <string.h>
 
+namespace tcl { namespace bits { extern Tcl_Interp* interp; } }
+
+inline Tcl_Interp* tcl::interp() { return bits::interp; }
 
 inline
 bool

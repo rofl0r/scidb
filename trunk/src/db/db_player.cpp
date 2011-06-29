@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 56 $
-// Date   : $Date: 2011-06-28 14:04:22 +0000 (Tue, 28 Jun 2011) $
+// Version: $Revision: 60 $
+// Date   : $Date: 2011-06-29 21:26:40 +0000 (Wed, 29 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1737,7 +1737,7 @@ Player::parseSpellcheckFile(mstl::istream& stream)
 
 						::exclude.assign(s, t);
 
-						if (exclude.find_first_of('\'') == mstl::string::npos)
+						if (exclude.find('\'') == mstl::string::npos)
 							::exclude += '\'';	// forgotten character
 					}
 				}

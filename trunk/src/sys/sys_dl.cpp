@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 60 $
+// Date   : $Date: 2011-06-29 21:26:40 +0000 (Wed, 29 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -17,8 +17,7 @@
 // ======================================================================
 
 #include "sys_dl.h"
-
-#include "tcl_base.h"
+#include "sys_base.h"
 
 #include "m_string.h"
 #include "m_assert.h"
@@ -78,7 +77,7 @@ sys::dl::open(char const* path, mstl::string* error)
 
 	Tcl_IncrRefCount(pathObj);
 
-	int rc = TclLoadFile(tcl::interp(),
+	int rc = TclLoadFile(::sys::tcl::interp(),
 								pathObj,
 								0, 0, 0,
 								&loadHandle,
@@ -90,9 +89,9 @@ sys::dl::open(char const* path, mstl::string* error)
 	if (rc != TCL_OK)
 	{
 		if (error)
-			error->assign(Tcl_GetStringResult(tcl::interp()));
+			error->assign(Tcl_GetStringResult(::sys::tcl::interp()));
 
-		Tcl_ResetResult(tcl::interp());
+		Tcl_ResetResult(::sys::tcl::interp());
 		return 0;
 	}
 
@@ -125,7 +124,7 @@ sys::dl::lookup(Handle* handle, char const* symbol)
 	M_REQUIRE(symbol);
 
 	typedef void* VoidPtr;
-	return VoidPtr(TclpFindSymbol(tcl::interp(), handle->loadHandle, symbol));
+	return VoidPtr(TclpFindSymbol(::sys::tcl::interp(), handle->loadHandle, symbol));
 }
 
 // vi:set ts=3 sw=3:

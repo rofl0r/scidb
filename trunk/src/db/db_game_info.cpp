@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 56 $
-// Date   : $Date: 2011-06-28 14:04:22 +0000 (Tue, 28 Jun 2011) $
+// Version: $Revision: 60 $
+// Date   : $Date: 2011-06-29 21:26:40 +0000 (Wed, 29 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -161,7 +161,7 @@ GameInfo::GameInfo(Initializer const&)
 	,m_dateDay(0)
 	,m_result(result::Unknown)
 {
-	M_STATIC_CHECK(sizeof(GameInfo) == 64, XXX);
+//	M_STATIC_CHECK(sizeof(GameInfo) == 64, Should_Be_64_Bytes);
 
 	m_pd[White].value = m_pd[Black].value = 0;
 	m_player[White] = m_player[Black] = &g_player;

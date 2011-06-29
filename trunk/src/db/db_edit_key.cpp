@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 56 $
-// Date   : $Date: 2011-06-28 14:04:22 +0000 (Tue, 28 Jun 2011) $
+// Version: $Revision: 60 $
+// Date   : $Date: 2011-06-29 21:26:40 +0000 (Wed, 29 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -128,7 +128,7 @@ Key::exchangePly(unsigned ply)
 
 	char buf[32];
 
-	unsigned pos = m_id.find_last_of('.') + 1;
+	unsigned pos = m_id.rfind('.') + 1;
 	m_id.replace(pos, m_id.size() - pos, buf, ::sprintf(buf, "%u", ply));
 }
 
@@ -137,7 +137,7 @@ void
 Key::removePly()
 {
 	M_REQUIRE(!isVariationId());
-	m_id.erase(m_id.find_last_of('.'), mstl::string::npos);
+	m_id.erase(m_id.rfind('.'), mstl::string::npos);
 }
 
 
@@ -177,7 +177,7 @@ Key::exchangeVariation(unsigned varno)
 
 	char buf[32];
 
-	unsigned pos = m_id.find_last_of('.')  + 1;
+	unsigned pos = m_id.rfind('.')  + 1;
 	m_id.replace(pos, m_id.size() - pos, buf, ::sprintf(buf, "%u", varno));
 }
 
@@ -188,7 +188,7 @@ Key::removeVariation()
 	M_REQUIRE(isVariationId());
 	M_REQUIRE(level() > 0);
 
-	m_id.erase(m_id.find_last_of('.'), mstl::string::npos);
+	m_id.erase(m_id.rfind('.'), mstl::string::npos);
 }
 
 

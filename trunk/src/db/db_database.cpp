@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 56 $
-// Date   : $Date: 2011-06-28 14:04:22 +0000 (Tue, 28 Jun 2011) $
+// Version: $Revision: 60 $
+// Date   : $Date: 2011-06-29 21:26:40 +0000 (Wed, 29 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -512,7 +512,7 @@ Database::exportGame(unsigned index, Consumer& consumer)
 
 	try
 	{
-		rc = m_codec->exportGame(consumer, /*DatabaseCodec::Decode_All, */tags, *info);
+		rc = m_codec->exportGame(consumer, tags, *info);
 	}
 	catch (DecodingFailedException const& exc)
 	{

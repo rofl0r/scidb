@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 60 $
+// Date   : $Date: 2011-06-29 21:26:40 +0000 (Wed, 29 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -17,8 +17,8 @@
 // ======================================================================
 
 #include "sys_timer.h"
-
-#include "tcl_base.h"
+#include "sys_base.h"
+#include "sys_base.h"
 
 #include <tcl.h>
 
@@ -42,7 +42,7 @@ Timer::~Timer() throw()
 bool
 Timer::expired() const
 {
-	return m_expired || Tcl_LimitExceeded(tcl::interp());
+	return m_expired || Tcl_LimitExceeded(::sys::tcl::interp());
 }
 
 

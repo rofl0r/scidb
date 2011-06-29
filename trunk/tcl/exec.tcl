@@ -1,8 +1,8 @@
 #!/bin/sh
 #! ======================================================================
 #! $RCSfile: tk_init.h,v $
-#! $Revision: 44 $
-#! $Date: 2011-06-19 19:56:08 +0000 (Sun, 19 Jun 2011) $
+#! $Revision: 60 $
+#! $Date: 2011-06-29 21:26:40 +0000 (Wed, 29 Jun 2011) $
 #! $Author: gregor $
 #! ======================================================================
 
@@ -114,9 +114,9 @@ ParseArgs
 if {[testOption help]} {
 	puts "$::scidb::app version $::scidb::version"
 	puts ""
-	puts "Usage: $::argv0 \[arguments] \[database ...]"
+	puts "Usage: $::argv0 \[options ...] \[database ...]"
 	puts ""
-	puts "Arguments:"
+	puts "Options:"
 	puts "  --                      Only file names after this"
 	puts "  --help                  Print Help (this message) and exit"
 	puts "  --version               Print version information and exit"
@@ -133,7 +133,7 @@ if {[testOption help]} {
 	puts "  --single-process        Forcing a single process of $::scidb::app"
 	puts "                          (you shouldn't use this option; only for testing)"
 	puts ""
-	puts "Arguments recognised by GUI (Tk) library:"
+	puts "Options recognised by GUI (Tk) library:"
 	puts "  -geometry <geom>        Use <geom> for initial geometry"
 	puts "  -display <display>      Run $::scidb::app on <display>"
 	exit 0

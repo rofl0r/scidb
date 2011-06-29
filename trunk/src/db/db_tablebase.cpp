@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 31 $
-// Date   : $Date: 2011-05-24 09:11:31 +0000 (Tue, 24 May 2011) $
+// Version: $Revision: 60 $
+// Date   : $Date: 2011-06-29 21:26:40 +0000 (Wed, 29 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -138,7 +138,7 @@ Tablebase::getOnlineQuery(Board const& board, Move& result)
 	if (http.get(url, answer) <= 0)
 		return tb::Not_Found;
 
-	mstl::string::size_type n = answer.find_first_of(NextColor);
+	mstl::string::size_type n = answer.find(NextColor);
 
 	if (n == mstl::string::npos)
 		return tb::Broken;

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 36 $
-// Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
+// Version: $Revision: 60 $
+// Date   : $Date: 2011-06-29 21:26:40 +0000 (Wed, 29 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -47,6 +47,7 @@ using namespace db;
 using namespace app;
 using namespace tcl;
 using namespace tcl::app;
+
 
 static char const* CmdFetch		= "::scidb::tree::fetch";
 static char const* CmdFinish		= "::scidb::tree::finish";

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 56 $
-// Date   : $Date: 2011-06-28 14:04:22 +0000 (Tue, 28 Jun 2011) $
+// Version: $Revision: 60 $
+// Date   : $Date: 2011-06-29 21:26:40 +0000 (Wed, 29 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1638,7 +1638,7 @@ PgnReader::checkTag(ID tag, mstl::string& value)
 
 			// standardize player names
 			{
-				mstl::string::size_type k = value.find_first_of(',');
+				mstl::string::size_type k = value.find(',');
 
 				if (k != mstl::string::npos)
 				{
@@ -1763,7 +1763,7 @@ PgnReader::checkTag(ID tag, mstl::string& value)
 
 				// strip values like "team-" or "team-tourn", but take into account that
 				// an entry like "tourn-blitz" contains the time mode.
-				mstl::string::size_type n = value.find_first_of('-');
+				mstl::string::size_type n = value.find('-');
 
 				if (n != mstl::string::npos)
 				{
@@ -2398,10 +2398,10 @@ PgnReader::getTimeModeFromTimeControl(mstl::string const& value)
 		if (field >= value.size() || (value[field] != '*' && !::isdigit(value[++field])))
 			return time::Unknown;
 
-		unsigned nextDelim = value.find_first_of(':', field);
+		unsigned nextDelim = value.find(':', field);
 		unsigned n;
 
-		if ((n = value.find_first_of('/', field)) < nextDelim)
+		if ((n = value.find('/', field)) < nextDelim)
 		{
 			moves += ::strtoul(value.c_str() + field, 0, 10);
 			seconds += ::strtoul(value.c_str() + n + 1, 0, 10);
@@ -2413,7 +2413,7 @@ PgnReader::getTimeModeFromTimeControl(mstl::string const& value)
 
 			seconds += ::strtoul(value.c_str() + field, 0, 10);
 
-			if ((n = value.find_first_of('+', field)) < nextDelim)
+			if ((n = value.find('+', field)) < nextDelim)
 			{
 				unsigned increment = ::strtoul(value.c_str() + n + 1, 0, 10);
 				seconds += mstl::max(0, 60 - int(moves))*increment;
@@ -4451,7 +4451,7 @@ PgnReader::extractPlayerData(mstl::string& data, mstl::string& value)
 
 	if (data.back() == ')')
 	{
-		mstl::string::size_type k = data.find_last_of('(');
+		mstl::string::size_type k = data.rfind('(');
 
 		if (k != mstl::string::npos)
 		{
