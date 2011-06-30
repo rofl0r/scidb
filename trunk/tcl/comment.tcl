@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 56 $
-# Date   : $Date: 2011-06-28 14:04:22 +0000 (Tue, 28 Jun 2011) $
+# Version: $Revision: 61 $
+# Date   : $Date: 2011-06-30 15:34:21 +0000 (Thu, 30 Jun 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -692,15 +692,13 @@ proc LanguageChanged {dlg w} {
 
 	if {$dlg ne $w} { return }
 
-	if {[::scidb::game::position atStart?]} {
-		set titleVar PrecedingComment
-	} else {
-		switch $Vars(pos) {
-			a { set titleVar CommentBeforeMove }
-			p { set titleVar CommentAfterMove }
-			e { set titleVar TrailingComment }
-		}
+	switch $Vars(pos) {
+		a { set titleVar CommentBeforeMove }
+		p { set titleVar CommentAfterMove }
+		s { set titleVar PrecedingComment }
+		e { set titleVar TrailingComment }
 	}
+
 	wm title $dlg [set mc::$titleVar]
 
 	set Vars(lang:label) [LanguageName]

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 56 $
-// Date   : $Date: 2011-06-28 14:04:22 +0000 (Tue, 28 Jun 2011) $
+// Version: $Revision: 61 $
+// Date   : $Date: 2011-06-30 15:34:21 +0000 (Thu, 30 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -363,11 +363,13 @@ Decoder::decodeVariation(unsigned level)
 								if (	!m_currentNode->annotation().isEmpty()
 									|| m_strm.peek() == token::Start_Marker)
 								{
+#ifndef DONT_ALLOW_EMPTY_VARS
 									// As a workaround we insert a null move.
 
 									MoveNode* node = new MoveNode(m_position.board().makeNullMove());
 									node->setNext(m_currentNode->removeNext());
 									m_currentNode->setNext(node);
+#endif
 								}
 								else
 								{

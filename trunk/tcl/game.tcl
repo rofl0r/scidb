@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 44 $
-# Date   : $Date: 2011-06-19 19:56:08 +0000 (Sun, 19 Jun 2011) $
+# Version: $Revision: 61 $
+# Date   : $Date: 2011-06-30 15:34:21 +0000 (Thu, 30 Jun 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -399,7 +399,7 @@ proc queryCloseApplication {parent} {
 		lassign $entry time modified locked database crc tags
 		lassign $database name codec number
 
-		if {$modified} {
+		if {$modified && ![::scidb::game::query $pos empty?]} {
 			set index [expr {[::gamebar::getIndex [::application::pgn::gamebar] $pos] + 1}]
 			lappend games [list $pos $index $time $name $number $tags]
 		}

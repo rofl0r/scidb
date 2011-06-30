@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 44 $
-// Date   : $Date: 2011-06-19 19:56:08 +0000 (Sun, 19 Jun 2011) $
+// Version: $Revision: 61 $
+// Date   : $Date: 2011-06-30 15:34:21 +0000 (Thu, 30 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -40,8 +40,8 @@ public:
 	typedef const_pointer		const_iterator;
 	typedef value_type&			reference;
 	typedef value_type const&	const_reference;
-	typedef size_t					size_type;
 	typedef ptrdiff_t				difference_type;
+	typedef size_t					size_type;
 
 	class reverse_iterator
 	{

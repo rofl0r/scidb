@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 5 $
-// Date   : $Date: 2011-05-05 07:51:24 +0000 (Thu, 05 May 2011) $
+// Version: $Revision: 61 $
+// Date   : $Date: 2011-06-30 15:34:21 +0000 (Thu, 30 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -37,7 +37,7 @@ public:
 	bool empty() const;
 
 	backtrace const& operator=(backtrace const& v);
-	void text_write(ostringstream& os, size_t skip = 0) const;
+	void text_write(ostringstream& os, unsigned skip = 0) const;
 
 	static bool is_debug_mode();
 

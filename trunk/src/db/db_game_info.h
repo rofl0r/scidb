@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 56 $
-// Date   : $Date: 2011-06-28 14:04:22 +0000 (Tue, 28 Jun 2011) $
+// Version: $Revision: 61 $
+// Date   : $Date: 2011-06-30 15:34:21 +0000 (Thu, 30 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -349,7 +349,7 @@ private:
 //#endif
 ;
 
-// NOTE: 64 bytes on all platforms (63 bytes if packed on Intel based platforms)
+// NOTE: 64 bytes on all 32 bit platforms (63 bytes if packed on Intel based platforms)
 // NOTE: IndexEntry (Scid) has 48 bytes
 
 } // namespace db

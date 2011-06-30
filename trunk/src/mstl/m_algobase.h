@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 61 $
+// Date   : $Date: 2011-06-30 15:34:21 +0000 (Thu, 30 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -33,7 +33,7 @@ template <typename ForwardIterator, typename T>
 void fill(ForwardIterator first, ForwardIterator last, T const& value);
 
 template <typename OutputIterator, typename T>
-OutputIterator fill_n(OutputIterator first, size_t count, T const& value);
+OutputIterator fill_n(OutputIterator first, unsigned count, T const& value);
 
 template <typename BidirectionalIterator>
 void reverse(BidirectionalIterator first, BidirectionalIterator last);

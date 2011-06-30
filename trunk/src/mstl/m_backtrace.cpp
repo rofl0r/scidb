@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 56 $
-// Date   : $Date: 2011-06-28 14:04:22 +0000 (Tue, 28 Jun 2011) $
+// Version: $Revision: 61 $
+// Date   : $Date: 2011-06-30 15:34:21 +0000 (Thu, 30 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -699,7 +699,7 @@ mstl::backtrace::symbols()
 
 
 void
-mstl::backtrace::text_write(ostringstream& os, size_t skip) const
+mstl::backtrace::text_write(ostringstream& os, unsigned skip) const
 {
 	unsigned i = 0;
 

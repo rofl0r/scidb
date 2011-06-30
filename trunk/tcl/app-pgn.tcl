@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 56 $
-# Date   : $Date: 2011-06-28 14:04:22 +0000 (Tue, 28 Jun 2011) $
+# Version: $Revision: 61 $
+# Date   : $Date: 2011-06-30 15:34:21 +0000 (Thu, 30 Jun 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1811,7 +1811,7 @@ proc PopupMenu {parent position} {
 				-command [namespace code [list editComment a $position]] \
 				;
 		}
-		if {[::scidb::game::position atEnd?] || [::scidb::game::query empty?]} {
+		if {[::scidb::game::position atEnd?] || [::scidb::game::query length] == 0} {
 			$menu add command \
 				-label "$mc::EditTrailingComment..." \
 				-command [namespace code [list editComment e $position]] \
@@ -2215,7 +2215,7 @@ proc LanguageChanged {} {
 	variable Vars 
 
 	foreach position [::game::usedPositions?] {
-		if {[::scidb::game::query $position empty]} {
+		if {[::scidb::game::query $position length] == 0} {
 			::scidb::game::refresh $position -radical
 		} else {
 			set w $Vars(pgn:$position)

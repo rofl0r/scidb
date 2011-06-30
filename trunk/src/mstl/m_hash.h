@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 28 $
-// Date   : $Date: 2011-05-21 14:57:26 +0000 (Sat, 21 May 2011) $
+// Version: $Revision: 61 $
+// Date   : $Date: 2011-06-30 15:34:21 +0000 (Thu, 30 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -41,8 +41,8 @@ public:
 	typedef value_type const&	const_reference;
 	typedef value_type*			pointer;
 	typedef value_type const*	const_pointer;
-	typedef size_t					size_type;
 	typedef pair<Key,Value>		assoc_t;
+	typedef size_t					size_type;
 
 	class const_iterator
 	{

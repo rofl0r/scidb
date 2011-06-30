@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 44 $
-# Date   : $Date: 2011-06-19 19:56:08 +0000 (Sun, 19 Jun 2011) $
+# Version: $Revision: 61 $
+# Date   : $Date: 2011-06-30 15:34:21 +0000 (Thu, 30 Jun 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -516,7 +516,7 @@ proc Goto {position step} {
 proc LanguageChanged {position info} {
 	variable ${position}::Vars
 
-	if {[::scidb::game::query $position empty?]} {
+	if {[::scidb::game::query $position length] == 0} {
 		set w $Vars(pgn)
 		$w configure -state normal
 		$w delete 1.0 end
@@ -679,7 +679,7 @@ proc UpdatePGN {position data} {
 			result {
 				set key $Vars(key)
 				set Vars(result) [list [::util::formatResult [lindex $node 1]] [list $key result]]
-				if {[::scidb::game::query $position empty?]} {
+				if {[::scidb::game::query $position length] == 0} {
 					$w insert end "<$::application::pgn::mc::EmptyGame>" empty
 				}
 				$w insert end " "

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 56 $
-// Date   : $Date: 2011-06-28 14:04:22 +0000 (Tue, 28 Jun 2011) $
+// Version: $Revision: 61 $
+// Date   : $Date: 2011-06-30 15:34:21 +0000 (Thu, 30 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -108,7 +108,7 @@ private:
 	unsigned			m_pendingSpace;
 	bool				m_needPreComment;
 	bool				m_needPostComment;
-	bool				m_hasPostComment;
+	bool				m_hasPrecedingComment;
 };
 
 } // namespace db

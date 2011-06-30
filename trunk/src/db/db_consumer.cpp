@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 56 $
-// Date   : $Date: 2011-06-28 14:04:22 +0000 (Tue, 28 Jun 2011) $
+// Version: $Revision: 61 $
+// Date   : $Date: 2011-06-30 15:34:21 +0000 (Thu, 30 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -221,7 +221,6 @@ void
 Consumer::putTrailingComment(Comment const& comment)
 {
 	M_REQUIRE(!comment.isEmpty());
-	M_REQUIRE(!variationIsEmpty());
 
 	if (!m_terminated)
 	{
@@ -231,7 +230,8 @@ Consumer::putTrailingComment(Comment const& comment)
 		if (comment.othFlag())
 			m_commentOthFlag = true;
 
-		sendTrailingComment(comment);
+		sendTrailingComment(comment, m_stack.top().empty);
+		m_stack.top().move = Move::null();
 	}
 }
 

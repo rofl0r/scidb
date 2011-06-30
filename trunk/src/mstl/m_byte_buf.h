@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 61 $
+// Date   : $Date: 2011-06-30 15:34:21 +0000 (Thu, 30 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -28,8 +28,8 @@ class byte_buf
 public:
 
 	typedef unsigned char byte;
-
 	typedef size_t size_type;
+
 	typedef byte value_type;
 
 	byte_buf(size_type size);

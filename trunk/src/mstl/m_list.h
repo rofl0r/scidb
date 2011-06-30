@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 61 $
+// Date   : $Date: 2011-06-30 15:34:21 +0000 (Thu, 30 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -38,8 +38,8 @@ public:
 	typedef pointer_const_iterator<T>	const_iterator;
 	typedef value_type&						reference;
 	typedef value_type const&				const_reference;
-	typedef size_t								size_type;
 	typedef ptrdiff_t							difference_type;
+	typedef size_t								size_type;
 
 	list();
 	explicit list(size_type n);
