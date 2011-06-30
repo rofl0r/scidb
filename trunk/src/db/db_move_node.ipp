@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 56 $
-// Date   : $Date: 2011-06-28 14:04:22 +0000 (Tue, 28 Jun 2011) $
+// Version: $Revision: 62 $
+// Date   : $Date: 2011-06-30 21:38:12 +0000 (Thu, 30 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -55,7 +55,7 @@ inline MoveNode* MoveNode::clone() const					{ return clone(0); }
 
 inline Comment const& MoveNode::comment(move::Position position) const { return m_comment[position]; }
 
-inline void MoveNode::setComment(move::Position position)	{ m_flags |= (1 << position); }
+inline void MoveNode::setComment(move::Position position)		{ m_flags |= (1 << position); }
 inline void MoveNode::unsetComment(move::Position position)	{ m_flags &= ~(1 << position); }
 
 

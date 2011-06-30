@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 39 $
-// Date   : $Date: 2011-06-13 21:08:21 +0000 (Mon, 13 Jun 2011) $
+// Version: $Revision: 62 $
+// Date   : $Date: 2011-06-30 21:38:12 +0000 (Thu, 30 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -752,9 +752,9 @@ BlockFile::openAsyncReader()
 void
 BlockFile::closeAsyncReader(Reader*& reader)
 {
-	M_REQUIRE(reader == 0 || viewIsActive(reader));
+	M_REQUIRE(reader == 0 || viewIsActive(reader) || isClosed());
 
-	if (reader)
+	if (reader && !isClosed())
 	{
 		if (m_stream)
 			delete [] reader->m_buffer.m_data;

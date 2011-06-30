@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 62 $
+// Date   : $Date: 2011-06-30 21:38:12 +0000 (Thu, 30 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -303,6 +303,10 @@ public:
 	void setCastlingFyle(color::ID color, sq::Fyle fyle);
 	/// Remove all castling rights
 	void removeCastlingRights();
+	/// Remove castling rights for given color
+	void removeCastlingRights(color::ID color);
+	/// Remove castling rights for given rook
+	void removeCastlingRights(Square rook);
 	/// Fix bad castling rights (may happen in Scid or in PGN files)
 	void fixBadCastlingRights();
 

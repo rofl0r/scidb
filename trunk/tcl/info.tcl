@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 44 $
-# Date   : $Date: 2011-06-19 19:56:08 +0000 (Sun, 19 Jun 2011) $
+# Version: $Revision: 62 $
+# Date   : $Date: 2011-06-30 21:38:12 +0000 (Thu, 30 Jun 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -193,7 +193,7 @@ proc BuildContributionsFrame {w} {
 
 	$t insert end [Enc "[set [namespace current]::mc::Localization]:\n"] caption
 	$t insert end [Enc "Giovanni Ornaghi ([::encoding::languageName it]), "]
-#	$t insert end [Enc "Fernando González ([::encoding::languageName es]), "]
+	$t insert end [Enc "Fernando González ([::encoding::languageName es]), "]
 	$t insert end [Enc "Gregor Cramer ([::encoding::languageName en], [::encoding::languageName de])"]
 
 	$t insert end [Enc "\n\n"]
@@ -201,7 +201,7 @@ proc BuildContributionsFrame {w} {
 	$t insert end [Enc "Steven Atkinson, "]
 	$t insert end [Enc "Paolo Casaschi, "]
 	$t insert end [Enc "Lars Ekman, "]
-#	$t insert end [Enc "Fernando González, "]
+	$t insert end [Enc "Fernando González, "]
 	$t insert end [Enc "Austen Green, "]
 	$t insert end [Enc "Giovanni Ornaghi, "]
 	$t insert end [Enc "Matthew Simpson, "]

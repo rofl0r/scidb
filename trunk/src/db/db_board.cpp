@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 36 $
-// Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
+// Version: $Revision: 62 $
+// Date   : $Date: 2011-06-30 21:38:12 +0000 (Thu, 30 Jun 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1234,6 +1234,33 @@ Board::removeCastlingRights()
 			m_castleRookAtStart[i] = Null;
 			m_unambiguous[i] = false;
 		}
+	}
+}
+
+
+void
+Board::removeCastlingRights(color::ID color)
+{
+	hashCastling(color::ID(color));
+	destroyCastle(color::ID(color));
+	m_castleRookCurrent[::kingSideIndex(color)] = Null;
+	m_castleRookCurrent[::queenSideIndex(color)] = Null;
+}
+
+
+void
+Board::removeCastlingRights(Square rook)
+{
+	M_REQUIRE(piece(rook) == piece::Rook);
+
+	Byte castling = m_destroyCastle[rook];
+
+	if (m_castle & ~castling)
+	{
+		Index index = Index(lsb(uint8_t(~castling)));
+		hashCastling(index);
+		m_castle &= castling;
+		m_castleRookCurrent[index] = Null;
 	}
 }
 
