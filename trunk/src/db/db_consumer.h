@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 61 $
-// Date   : $Date: 2011-06-30 15:34:21 +0000 (Thu, 30 Jun 2011) $
+// Version: $Revision: 64 $
+// Date   : $Date: 2011-07-01 23:42:38 +0000 (Fri, 01 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -60,7 +60,6 @@ public:
 	bool commentEngFlag() const;
 	bool commentOthFlag() const;
 
-	format::Type sourceFormat() const;
 	virtual format::Type format() const = 0;
 
 	unsigned variationLevel() const;
@@ -155,7 +154,6 @@ private:
 
 	friend class Producer;
 
-	format::Type		m_format;
 	Stack					m_stack;
 	unsigned				m_variationCount;
 	unsigned				m_commentCount;

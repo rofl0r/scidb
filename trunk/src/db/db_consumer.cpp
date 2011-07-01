@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 61 $
-// Date   : $Date: 2011-06-30 15:34:21 +0000 (Thu, 30 Jun 2011) $
+// Version: $Revision: 64 $
+// Date   : $Date: 2011-07-01 23:42:38 +0000 (Fri, 01 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -42,7 +42,7 @@ using namespace db;
 
 
 Consumer::Consumer(format::Type srcFormat, mstl::string const& encoding)
-	:m_format(srcFormat)
+	:Provider(srcFormat)
 	,m_stack(1)
 	,m_variationCount(0)
 	,m_commentCount(0)

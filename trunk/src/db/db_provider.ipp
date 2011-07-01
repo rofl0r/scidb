@@ -1,8 +1,8 @@
 // ======================================================================
 //
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 64 $
+// Date   : $Date: 2011-07-01 23:42:38 +0000 (Fri, 01 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -27,8 +27,9 @@
 
 namespace db {
 
-inline int Provider::index() const			{ return m_index; }
-inline void Provider::setIndex(int index)	{ m_index = index; }
+inline format::Type Provider::sourceFormat() const	{ return m_format; }
+inline int Provider::index() const						{ return m_index; }
+inline void Provider::setIndex(int index)				{ m_index = index; }
 
 } // namespace db
 

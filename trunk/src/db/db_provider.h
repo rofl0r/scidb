@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 33 $
-// Date   : $Date: 2011-05-29 12:27:45 +0000 (Sun, 29 May 2011) $
+// Version: $Revision: 64 $
+// Date   : $Date: 2011-07-01 23:42:38 +0000 (Fri, 01 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -27,6 +27,8 @@
 #ifndef _db_provider_included
 #define _db_provider_included
 
+#include "db_common.h"
+
 #include "u_base.h"
 
 namespace db {
@@ -38,8 +40,10 @@ class Provider
 {
 public:
 
-	Provider();
+	Provider(format::Type srcFormat);
 	virtual ~Provider() throw() = 0;
+
+	format::Type sourceFormat() const;
 
 	virtual Board const& getFinalBoard() const = 0;
 	virtual Board const& getStartBoard() const = 0;
@@ -62,7 +66,8 @@ public:
 
 private:
 
-	int m_index;
+	format::Type	m_format;
+	int				m_index;
 };
 
 } // namespace db

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 63 $
-# Date   : $Date: 2011-07-01 10:41:25 +0000 (Fri, 01 Jul 2011) $
+# Version: $Revision: 64 $
+# Date   : $Date: 2011-07-01 23:42:38 +0000 (Fri, 01 Jul 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -475,7 +475,7 @@ proc gameSave {parent} {
 
 proc gameReplace {parent} {
 	if {[::scidb::game::current] != 9} {
-		::dialog::save::open $parent [::scidb::db::get name] -1 [::scidb::game::number]
+		::application::replaceMoves $parent
 	}
 }
 
@@ -491,7 +491,7 @@ proc gameReplaceMoves {parent} {
 				-title "[tk appname] - $::dialog::save::mc::ReplaceGame" \
 				;
 		} else {
-			::scidb::game::update moves $base [expr {[::scidb::game::number] - 1}]
+			::application::replaceMoves $parent
 		}
 	}
 }

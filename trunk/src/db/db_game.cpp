@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 56 $
-// Date   : $Date: 2011-06-28 14:04:22 +0000 (Tue, 28 Jun 2011) $
+// Version: $Revision: 64 $
+// Date   : $Date: 2011-07-01 23:42:38 +0000 (Fri, 01 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -149,7 +149,8 @@ Game::Undo::clear()
 
 
 Game::Game()
-	:GameData()
+	:Provider(format::Scidb)
+	,GameData()
 	,m_currentNode(m_startNode)
 	,m_editNode(0)
 	,m_currentBoard(m_startBoard)
@@ -175,7 +176,8 @@ Game::Game()
 
 
 Game::Game(Game const& game)
-	:GameData()
+	:Provider(format::Scidb)
+	,GameData()
 	,m_editNode(0)
 	,m_line(m_lineBuf[0])
 {

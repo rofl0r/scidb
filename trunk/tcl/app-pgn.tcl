@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 61 $
-# Date   : $Date: 2011-06-30 15:34:21 +0000 (Thu, 30 Jun 2011) $
+# Version: $Revision: 64 $
+# Date   : $Date: 2011-07-01 23:42:38 +0000 (Fri, 01 Jul 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -448,6 +448,13 @@ proc scroll {args} {
 
 proc undo {} { Undo undo }
 proc redo {} { Undo redo }
+
+
+proc replaceMoves {parent} {
+	if {![::util::catchIoError [list ::scidb::game::update moves]]} {
+		::dialog::info -parent $parent -message $mc::ReplaceMovesSucceeded
+	}
+}
 
 
 proc ensureScratchGame {} {
@@ -1876,14 +1883,14 @@ proc PopupMenu {parent position} {
 
 			$menu add command \
 				-label [format $mc::ReplaceGame $name] \
-				-command [list ::dialog::save::open $parent $base $position $index] \
+				-command [list ::dialog::save::open $parent $base $position [expr {$index + 1}]] \
 				-state $state \
 				;
 
 			if {![::scidb::game::query modified?]} { set state disabled }
 			$menu add command \
 				-label [format $mc::ReplaceMoves $name] \
-				-command [namespace code [list ReplaceMoves $parent $base $index]] \
+				-command [namespace code [list replaceMoves $parent]] \
 				-state $state \
 				;
 		}
@@ -1897,7 +1904,7 @@ proc PopupMenu {parent position} {
 		}
 		$menu add command \
 			-label [format $mc::AddNewGame [::util::databaseName $actual]] \
-			-command [list ::dialog::save::open $parent $actual $position -1] \
+			-command [list ::dialog::save::open $parent $actual $position] \
 			-state $state \
 			;
 
@@ -1909,7 +1916,7 @@ proc PopupMenu {parent position} {
 				set name [::util::databaseName $base]
 				$menu.save add command \
 					-label $name \
-					-command [list ::dialog::save::open $parent $base $position -1] \
+					-command [list ::dialog::save::open $parent $base $position] \
 					;
 				incr count
 			}
@@ -1986,12 +1993,6 @@ proc PasteClipboardVariation {} {
 
 	set position $Vars(index)
 	::import::openEdit $Vars(frame:$position) $position variation
-}
-
-
-proc ReplaceMoves {parent base index} {
-	::scidb::game::update moves $base $index
-	::dialog::info -parent $parent -message $mc::ReplaceMovesSucceeded
 }
 
 

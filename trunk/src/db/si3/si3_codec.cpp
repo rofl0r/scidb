@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 63 $
-// Date   : $Date: 2011-07-01 10:41:25 +0000 (Fri, 01 Jul 2011) $
+// Version: $Revision: 64 $
+// Date   : $Date: 2011-07-01 23:42:38 +0000 (Fri, 01 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1647,8 +1647,7 @@ Codec::readNamebase(	ByteIStream& bstrm,
 					species::ID		type		= species::Unspecified;
 					sex::ID			sex		= sex::Unspecified;
 
-					tmp.assign(name);
-					tmp.unhook();
+					tmp.assign(name.c_str(), name.size());
 
 					while (PgnReader::Tag tag = PgnReader::extractPlayerData(tmp, value))
 					{
@@ -1684,8 +1683,7 @@ Codec::readNamebase(	ByteIStream& bstrm,
 
 			case Namebase::Site:
 				{
-					tmp.assign(name);
-					tmp.unhook();
+					tmp.assign(name.c_str(), name.size());
 					country::Code country = PgnReader::extractCountryFromSite(tmp);
 					shadowBase.append(str, index, base.insertSite(name, index, country, limit), *m_codec);
 				}

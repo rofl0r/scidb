@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 60 $
-// Date   : $Date: 2011-06-29 21:26:40 +0000 (Wed, 29 Jun 2011) $
+// Version: $Revision: 64 $
+// Date   : $Date: 2011-07-01 23:42:38 +0000 (Fri, 01 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1840,8 +1840,7 @@ Player::parseSpellcheckFile(mstl::istream& stream)
 #ifndef USE_CONFLICT_MAP
 							if (::hasTrailingCountryCode(name))
 							{
-								mstl::string str(name);
-								str.unhook();
+								mstl::string str(name.c_str(), name.size());
 								insertAlias(str, 0, player);
 								::stripCountryCode(name);
 							}
@@ -1881,8 +1880,7 @@ Player::parseSpellcheckFile(mstl::istream& stream)
 
 						if (::hasTrailingCountryCode(line))
 						{
-							alias.assign(line);
-							alias.unhook();
+							alias.assign(line.c_str(), line.size());
 							::stripCountryCode(line);
 						}
 #endif

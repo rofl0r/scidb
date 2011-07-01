@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 59 $
-# Date   : $Date: 2011-06-29 10:08:30 +0000 (Wed, 29 Jun 2011) $
+# Version: $Revision: 64 $
+# Date   : $Date: 2011-07-01 23:42:38 +0000 (Fri, 01 Jul 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -2281,14 +2281,16 @@ proc Save {top title base number position fields} {
 				[list %white $Tags(White) %black $Tags(Black) %event $Tags(Event) %base $base] \
 				$mc::SavingGameLogInfo]
 			set replace [expr {$number >= 0}]
-			if {[::scidb::game::save \
-						$base \
-						[array get Tags] \
-						$WhiteRating \
-						$BlackRating \
-						[namespace current]::Log {} \
-						-replace $replace \
-			]} {
+			set cmd [list ::scidb::game::save \
+				$base \
+				[array get Tags] \
+				$WhiteRating \
+				$BlackRating \
+				[namespace current]::Log {} \
+				-replace $replace \
+			]
+			if {[::util::catchIoError $cmd rc]} { return }
+			if {$rc} {
 				::log::hide
 			} else {
 				::dialog::error \

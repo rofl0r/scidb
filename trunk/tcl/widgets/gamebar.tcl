@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 56 $
-# Date   : $Date: 2011-06-28 14:04:22 +0000 (Tue, 28 Jun 2011) $
+# Version: $Revision: 64 $
+# Date   : $Date: 2011-07-01 23:42:38 +0000 (Fri, 01 Jul 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -500,7 +500,9 @@ proc getIdList {gamebar} {
 
 	set result {}
 	foreach key [array names Specs -glob lookup:*:$gamebar] {
-		lappend result $Specs($key)
+		set id $Specs($key)
+		if {$id != -1} {lappend result $id }
+
 	}
 
 	return $result

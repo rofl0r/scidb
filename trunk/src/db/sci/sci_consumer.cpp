@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 61 $
-// Date   : $Date: 2011-06-30 15:34:21 +0000 (Thu, 30 Jun 2011) $
+// Version: $Revision: 64 $
+// Date   : $Date: 2011-07-01 23:42:38 +0000 (Fri, 01 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -225,6 +225,7 @@ Consumer::beginVariation()
 	if (m_danglingPop)
 	{
 		m_danglingPop = false;
+		m_move.clear();
 	}
 	else
 	{
@@ -232,13 +233,12 @@ Consumer::beginVariation()
 		{
 			m_position.push();
 			m_position.doMove(m_position.previous(), m_move);
+			m_move.clear();
 		}
 		else
 		{
 			m_position.push();
 		}
-
-		m_move.clear();
 	}
 
 	if (!m_endOfRun)

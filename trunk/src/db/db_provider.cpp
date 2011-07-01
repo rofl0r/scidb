@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 64 $
+// Date   : $Date: 2011-07-01 23:42:38 +0000 (Fri, 01 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -28,7 +28,7 @@
 
 using namespace db;
 
-Provider::Provider() : m_index(-1) {}
+Provider::Provider(format::Type srcFormat) :m_format(srcFormat), m_index(-1) {}
 Provider::~Provider() throw() {}
 
 // vi:set ts=3 sw=3:
