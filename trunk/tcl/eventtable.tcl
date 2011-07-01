@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 44 $
-# Date   : $Date: 2011-06-19 19:56:08 +0000 (Sun, 19 Jun 2011) $
+# Version: $Revision: 63 $
+# Date   : $Date: 2011-07-01 10:41:25 +0000 (Fri, 01 Jul 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -361,9 +361,7 @@ proc TableFill {path args} {
 
 				switch $id {
 					eventCountry {
-						if {$codec eq "si3" || $codec eq "si4"} {
-							lappend text $::mc::NotAvailable
-						} elseif {[string length $item] == 0} {
+						if {[string length $item] == 0} {
 							if {$Options(country-code) eq "flags"} {
 								lappend text [list @ {}]
 							} else {
