@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 44 $
-// Date   : $Date: 2011-06-19 19:56:08 +0000 (Sun, 19 Jun 2011) $
+// Version: $Revision: 66 $
+// Date   : $Date: 2011-07-02 18:14:00 +0000 (Sat, 02 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -54,6 +54,39 @@ Namebases::isModified() const
 			|| m_event.isModified()
 			|| m_annotator.isModified()
 			|| m_round.isModified();
+}
+
+
+bool
+Namebases::isChanged() const
+{
+	return	m_player.isChanged()
+			|| m_site.isChanged()
+			|| m_event.isChanged()
+			|| m_annotator.isChanged()
+			|| m_round.isChanged();
+}
+
+
+bool
+Namebases::isOriginal() const
+{
+	return	m_player.isOriginal()
+			&& m_site.isOriginal()
+			&& m_event.isOriginal()
+			&& m_annotator.isOriginal()
+			&& m_round.isOriginal();
+}
+
+
+void
+Namebases::setReadonly(bool flag)
+{
+	m_player.setReadonly(flag);
+	m_site.setReadonly(flag);
+	m_event.setReadonly(flag);
+	m_annotator.setReadonly(flag);
+	m_round.setReadonly(flag);
 }
 
 

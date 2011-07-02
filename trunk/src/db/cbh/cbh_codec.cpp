@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 56 $
-// Date   : $Date: 2011-06-28 14:04:22 +0000 (Tue, 28 Jun 2011) $
+// Version: $Revision: 66 $
+// Date   : $Date: 2011-07-02 18:14:00 +0000 (Sat, 02 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -590,20 +590,18 @@ Codec::doOpen(mstl::string const& rootname, mstl::string const& encoding, util::
 	readTeamData(rootname, progress);
 	readIndexData(rootname, progress);
 
+	namebases().setReadonly();
+
 	// delete unused annotators (because we are discarding guiding text)
 	namebase(Namebase::Annotator).cleanup();
-	namebase(Namebase::Annotator).renumber();
 
 	// delete unused events (sometimes it contains unused entries)
-	namebase(Namebase::Event    ).cleanup();
-	namebase(Namebase::Event    ).renumber();
+	namebase(Namebase::Event).cleanup();
 
-	namebase(Namebase::Player   ).update();
-	namebase(Namebase::Site     ).update();
-	namebase(Namebase::Event    ).update();
-	namebase(Namebase::Annotator).update();
-
+	namebases().setReadonly(false);
 	namebases().resetModified();
+	namebases().update();
+	namebases().setReadonly();
 
 	mstl::string filename(rootname + ".cbg");
 	checkPermissions(filename);
@@ -1082,11 +1080,15 @@ Codec::reloadNamebases(mstl::string const& rootname, util::Progress& progress)
 {
 	ProgressWatcher watcher(progress, 0);
 
+	namebases().setReadonly(false);
+
 	reloadPlayerData(rootname, progress);
 	reloadAnnotatorData(rootname, progress);
 	reloadTournamentData(rootname, progress);
 	reloadTeamData(rootname, progress);
 	reloadSourceData(rootname, progress);
+
+	namebases().setReadonly(true);
 }
 
 

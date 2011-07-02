@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 60 $
-// Date   : $Date: 2011-06-29 21:26:40 +0000 (Wed, 29 Jun 2011) $
+// Version: $Revision: 66 $
+// Date   : $Date: 2011-07-02 18:14:00 +0000 (Sat, 02 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -633,6 +633,7 @@ Database::recode(mstl::string const& encoding, util::Progress& progress)
 	M_REQUIRE(!isMemoryOnly());
 	M_REQUIRE(encoding != sys::utf8::Codec::utf8() || format() != format::Scidb);
 	M_REQUIRE(!usingAsyncReader());
+	M_REQUIRE(namebases().isOriginal());
 
 	if (encoding == m_encoding)
 		return;

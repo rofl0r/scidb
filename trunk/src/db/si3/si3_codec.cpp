@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 64 $
-// Date   : $Date: 2011-07-01 23:42:38 +0000 (Fri, 01 Jul 2011) $
+// Version: $Revision: 66 $
+// Date   : $Date: 2011-07-02 18:14:00 +0000 (Sat, 02 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -557,11 +557,8 @@ Codec::doOpen(mstl::string const& rootname, mstl::string const& encoding, Progre
 	// NOTE:
 	// 1. we cannot trust the maximal frequency, Scid's value is possibly faulty
 	// 2. we need to recompute the frequency values of the Event and Site bases
-	namebase(Namebase::Player   ).update();
-	namebase(Namebase::Site     ).update();
-	namebase(Namebase::Event    ).update();
-	namebase(Namebase::Annotator).update();
-	namebase(Namebase::Round    ).update();
+	namebases().resetModified();
+	namebases().update();
 
 	if (m_hasMagic)
 		m_gameData = new BlockFile(&m_gameStream, m_blockSize, BlockFile::RequireLength, m_magicGameFile);
@@ -1338,7 +1335,7 @@ Codec::reloadDescription(mstl::string const& rootname)
 {
 	char header[MaxIndexHeaderSize];
 
-	mstl::string	filename(rootname + m_extNamebase);
+	mstl::string	filename(rootname + m_extIndex);
 	mstl::fstream	stream;
 
 	checkPermissions(filename);

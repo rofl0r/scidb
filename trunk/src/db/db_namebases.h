@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 44 $
-// Date   : $Date: 2011-06-19 19:56:08 +0000 (Sun, 19 Jun 2011) $
+// Version: $Revision: 66 $
+// Date   : $Date: 2011-07-02 18:14:00 +0000 (Sat, 02 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -43,9 +43,12 @@ public:
 	Namebase const& operator()(Type type) const;
 
 	bool isModified() const;
+	bool isChanged() const;
+	bool isOriginal() const;
 
 	void update();
 	void clear();
+	void setReadonly(bool flag = true);
 	void resetModified();
 
 private:
