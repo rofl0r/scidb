@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 5 $
-// Date   : $Date: 2011-05-05 07:51:24 +0000 (Thu, 05 May 2011) $
+// Version: $Revision: 68 $
+// Date   : $Date: 2011-07-03 19:01:51 +0000 (Sun, 03 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -215,6 +215,7 @@ inline
 void
 stack<T>::pop()
 {
+	M_REQUIRE(!empty());
 	::mstl::bits::destroy(this->m_finish--);
 }
 
