@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 64 $
-// Date   : $Date: 2011-07-01 23:42:38 +0000 (Fri, 01 Jul 2011) $
+// Version: $Revision: 69 $
+// Date   : $Date: 2011-07-05 21:45:37 +0000 (Tue, 05 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -328,13 +328,6 @@ DatabaseCodec::getConsumer(format::Type)
 {
 	M_RAISE("should not be used");
 	return 0;
-}
-
-
-void
-DatabaseCodec::filterTag(TagSet&, tag::ID) const
-{
-	M_RAISE("should not be used");
 }
 
 

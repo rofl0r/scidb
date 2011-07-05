@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 64 $
-# Date   : $Date: 2011-07-01 23:42:38 +0000 (Fri, 01 Jul 2011) $
+# Version: $Revision: 69 $
+# Date   : $Date: 2011-07-05 21:45:37 +0000 (Tue, 05 Jul 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -200,6 +200,7 @@ proc WriteOptions {chan} {
 	::options::writeItem $chan ::dialog::fsbox::showHiddenBtn
 	::options::writeItem $chan ::table::options
 	::options::writeItem $chan ::menu::Theme
+	::options::writeItem $chan ::toolbar::Options
 	puts $chan "::dialog::fsbox::setBookmarks {[::dialog::fsbox::getBookmarks]}"
 }
 ::options::hookWriter [namespace current]::WriteOptions

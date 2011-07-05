@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 56 $
-// Date   : $Date: 2011-06-28 14:04:22 +0000 (Tue, 28 Jun 2011) $
+// Version: $Revision: 69 $
+// Date   : $Date: 2011-07-05 21:45:37 +0000 (Tue, 05 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -76,6 +76,7 @@ public:
 
 	mstl::string const& extension() const;
 	mstl::string const& encoding() const;
+	void filterTag(TagSet& tags, tag::ID tag, Section section) const;
 
 	void doOpen(mstl::string const& rootname,
 					mstl::string const& encoding,

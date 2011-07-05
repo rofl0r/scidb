@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 66 $
-# Date   : $Date: 2011-07-02 18:14:00 +0000 (Sat, 02 Jul 2011) $
+# Version: $Revision: 69 $
+# Date   : $Date: 2011-07-05 21:45:37 +0000 (Tue, 05 Jul 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -25,7 +25,7 @@
 # ======================================================================
 
 # ======================================================================
-# File encoding: is08859-1
+# File encoding: iso8859-1
 # ======================================================================
 
 ### global #############################################################
@@ -1306,6 +1306,10 @@
 ::dialog::mc::Question		"Question"
 
 ::dialog::mc::DontAskAgain	"Don't ask again"
+
+### web ################################################################
+::web::mc::CannotFindBrowser			"Couldn't find a suitable web browser."
+::web::mc::CannotFindBrowserDetail	"Set the BROWSER environment variable to your desired browser."
 
 ### colormenu ##########################################################
 ::colormenu::mc::BaseColor			"Base Color"

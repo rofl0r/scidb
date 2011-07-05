@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 56 $
-// Date   : $Date: 2011-06-28 14:04:22 +0000 (Tue, 28 Jun 2011) $
+// Version: $Revision: 69 $
+// Date   : $Date: 2011-07-05 21:45:37 +0000 (Tue, 05 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -139,7 +139,8 @@ public:
 	/// Returns the annotator at given index.
 	NamebaseEntry const& annotator(unsigned index) const;
 	/// Collect tags specific for current database format.
-	void getTags(unsigned index, TagSet& tags) const;
+	void getInfoTags(unsigned index, TagSet& tags) const;
+	void getGameTags(unsigned index, TagSet& tags) const;
 
 	/// Returns the codec.
 	DatabaseCodec& codec();

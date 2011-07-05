@@ -1,7 +1,7 @@
 # # ======================================================================
 # Author : $Author$
-# Version: $Revision: 66 $
-# Date   : $Date: 2011-07-02 18:14:00 +0000 (Sat, 02 Jul 2011) $
+# Version: $Revision: 69 $
+# Date   : $Date: 2011-07-05 21:45:37 +0000 (Tue, 05 Jul 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1303,6 +1303,10 @@
 ::dialog::mc::Question		"Frage"
 
 ::dialog::mc::DontAskAgain	"Nicht mehr abfragen"
+
+### web ################################################################
+::web::mc::CannotFindBrowser			"Es konnte kein geeigneter Webbrowser gefunden werden."
+::web::mc::CannotFindBrowserDetail	"Setze die Umbegungsvariable BROWSER auf den gewünschten browser."
 
 ### colormenu ##########################################################
 ::colormenu::mc::BaseColor			"Grundfarbe"

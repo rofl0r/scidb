@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 33 $
-// Date   : $Date: 2011-05-29 12:27:45 +0000 (Sun, 29 May 2011) $
+// Version: $Revision: 69 $
+// Date   : $Date: 2011-07-05 21:45:37 +0000 (Tue, 05 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -56,7 +56,6 @@ public:
 	void doEncoding(Signature const& signature, GameData const& data);
 
 	static unsigned encodeType(db::type::ID type);
-
 	static bool skipTag(tag::ID tag);
 
 protected:

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 66 $
-# Date   : $Date: 2011-07-02 18:14:00 +0000 (Sat, 02 Jul 2011) $
+# Version: $Revision: 69 $
+# Date   : $Date: 2011-07-05 21:45:37 +0000 (Tue, 05 Jul 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -387,7 +387,7 @@ proc ClickLink {w xpos ypos} {
 	$w tag add $url {*}$range
 	$w tag configure $url -foreground red
 	update idletasks
-	::web::open $url
+	::web::open $w $url
 }
 
 

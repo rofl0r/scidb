@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 43 $
-# Date   : $Date: 2011-06-14 21:57:41 +0000 (Tue, 14 Jun 2011) $
+# Version: $Revision: 69 $
+# Date   : $Date: 2011-07-05 21:45:37 +0000 (Tue, 05 Jul 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -498,12 +498,14 @@ proc open {parent base type name view {closeViewAfterExit 0}} {
 	bind $list <<ListboxSelect>> [namespace code [list Select $nb %d]]
 	bind $nb <ButtonPress-1> [list focus $nb]
 	ttk::notebook::enableTraversal $nb
+	set initialfile [file rootname [file tail $base]]
+	if {$initialfile eq $::application::database::clipbaseName} { set initialfile $::util::clipbaseName }
 	lappend opts -ok [namespace code [list SaveScidb $parent $dlg]]
 	lappend opts -cancel [list destroy $dlg]
 	lappend opts -parent $nb
 	lappend opts -embed 1
 	lappend opts -verifycmd [namespace code VerifyPath]
-	lappend opts -initialfile [file rootname [file tail $base]]
+	lappend opts -initialfile $initialfile
 	set Info(fsbox) [::dialog::saveFile {*}$opts]
 	$nb add $Info(fsbox) -sticky nsew
 	::widget::notebookTextvarHook $nb $Info(fsbox) [namespace current]::mc::FileSelection

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 36 $
-# Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
+# Version: $Revision: 69 $
+# Date   : $Date: 2011-07-05 21:45:37 +0000 (Tue, 05 Jul 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -24,7 +24,9 @@
 # (at your option) any later version.
 # ======================================================================
 
-# encoding: utf-8
+# ======================================================================
+# File encoding: utf-8
+# ======================================================================
 
 # 1. unusual descriptions
 "Anderssen's Opening"			"Apertura di Anderssen"
@@ -599,5 +601,6 @@
 "* Gambit Declined"	"Gambetto %1 Rifiutato"
 "* Deferred"		"%1 Ritardato"
 "Reversed *"		"%1 Invertita"
+"* Game"		"Partita del %1"
 
 # vi:set ts=8 sw=8:

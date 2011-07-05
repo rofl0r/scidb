@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 56 $
-// Date   : $Date: 2011-06-28 14:04:22 +0000 (Tue, 28 Jun 2011) $
+// Version: $Revision: 69 $
+// Date   : $Date: 2011-07-05 21:45:37 +0000 (Tue, 05 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1796,7 +1796,7 @@ static int
 getTags(int index, char const* database)
 {
 	TagSet tags;
-	Scidb.cursor(database).database().getTags(index, tags);
+	Scidb.cursor(database).database().getInfoTags(index, tags);
 	return getTags(tags, false);
 }
 

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 59 $
-# Date   : $Date: 2011-06-29 10:08:30 +0000 (Wed, 29 Jun 2011) $
+# Version: $Revision: 69 $
+# Date   : $Date: 2011-07-05 21:45:37 +0000 (Tue, 05 Jul 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -492,6 +492,7 @@ proc build {path getViewCmd {visibleColumns {}} {args {}}} {
 
 	::bind $path <<TableFill>>			[namespace code [list TableFill $path %d]]
 	::bind $path <<TableSelected>>	[namespace code [list TableSelected $path %d]]
+	::bind $path <<TableInvoked>>		[namespace code [list TableInvoked $path %d]]
 	::bind $path <<TableVisit>>		[namespace code [list TableVisit $path %d]]
 	::bind $path <<TableHide>>			[namespace code [list TableHide $path %d 1]]
 	::bind $path <<TableShow>>			[namespace code [list TableHide $path %d 0]]
@@ -726,6 +727,11 @@ proc TableSelected {path index} {
 	if {$pos >= 0 && [llength $Vars(positioncmd)]} {
 		::scidb::game::go $pos position [{*}$Vars(positioncmd)]
 	}
+}
+
+
+proc TableInvoked {path index} {
+	::application::switchTab board
 }
 
 

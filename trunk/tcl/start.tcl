@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 66 $
-# Date   : $Date: 2011-07-02 18:14:00 +0000 (Sat, 02 Jul 2011) $
+# Version: $Revision: 69 $
+# Date   : $Date: 2011-07-05 21:45:37 +0000 (Tue, 05 Jul 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -161,9 +161,16 @@ set IOError(LoadFailed)				"load failed (too many event entries)"
 
 }
 
-set Extensions {.sci .si4 .si3 .cbh .pgn .zip}
+set Extensions		{.sci .si4 .si3 .cbh .pgn .zip}
+set clipbaseName	Clipbase
 
 proc databaseName {base} {
+	variable clipbaseName
+
+	if {$base eq [::scidb::db::get clipbase name]} {
+		return $clipbaseName
+	}
+
 	set name [lindex [file split $base] end]
 	set ext [file extension $name]
 	set name [file rootname $name]

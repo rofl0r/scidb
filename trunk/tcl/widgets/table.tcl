@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 43 $
-# Date   : $Date: 2011-06-14 21:57:41 +0000 (Tue, 14 Jun 2011) $
+# Version: $Revision: 69 $
+# Date   : $Date: 2011-07-05 21:45:37 +0000 (Tue, 05 Jul 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -64,6 +64,7 @@ namespace import ::tcl::mathfunc::min
 event add <<TableFill>>			TableFill
 event add <<TableResized>>		TableResized
 event add <<TableSelected>>	TableSelected
+event add <<TableInvoked>>		TableInvoked
 event add <<TableActivated>>	TableActivated
 event add <<TableScroll>>		TableScroll
 event add <<TableHide>>			TableHide
@@ -216,7 +217,7 @@ proc table {args} {
 	::bind $table.t <ButtonPress-1>		[namespace code [list Highlight $table %x %y]]
 	::bind $table.t <ButtonRelease-1>	[namespace code [list Release $table %x %y]]
 	::bind $table.t <ButtonPress-3>		[namespace code [list PopupMenu $table %x %y %X %Y]]
-	::bind $table.t <Double-Button-1>	[namespace code [list SetSelection $table %x %y]]
+	::bind $table.t <Double-Button-1>	[namespace code [list SetSelection $table %x %y %s]]
 	::bind $table.t <FocusIn>				[namespace code [list FocusIn $table]]
 	::bind $table.t <FocusOut>				[namespace code [list FocusOut $table]]
 	::bind $table.t <Home>					[namespace code [list Scroll $table home]]
@@ -1122,16 +1123,21 @@ proc SetSelection {table args} {
 
 	if {$Vars(active) < 0} { return }
 
+	set invoke 0
+
 	if {[llength $args] == 2} {
 		lassign $args x y
 		set id [$table.t identify $x $y]
 		if {[lindex $id 0] eq "header"} { return }
 		set row [$table.t item order [lindex $id 1] -visible]
 		if {$row >= $Vars(rows)} { return }
+	} elseif {[lindex $args 2] & 1} {
+		set invoke 1
 	}
 
 	select $table $Vars(active)
 	event generate $table <<TableSelected>> -data $Vars(active)
+	if {$invoke} { event generate $table <<TableInvoked>> -data $Vars(active) }
 }
 
 

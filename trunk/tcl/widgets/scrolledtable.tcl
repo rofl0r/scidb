@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 43 $
-# Date   : $Date: 2011-06-14 21:57:41 +0000 (Tue, 14 Jun 2011) $
+# Version: $Revision: 69 $
+# Date   : $Date: 2011-07-05 21:45:37 +0000 (Tue, 05 Jul 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -162,6 +162,7 @@ proc build {path columns args} {
 	::bind $tb <<TableFill>>					 [namespace code [list TableFill $tb %d]]
 	::bind $tb <<TableResized>>				 [namespace code [list TableResized $tb %d]]
 	::bind $tb <<TableSelected>>				 [namespace code [list TableSelected $tb %d]]
+	::bind $tb <<TableInvoked>>				 [namespace code [list TableInvoked $tb %d]]
 	::bind $tb <<TableActivated>>				 [namespace code [list TableActivated $tb %d]]
 	::bind $tb <<TableScroll>>					 [namespace code [list TableScroll $tb %d]]
 	::bind $tb <<TableMinSize>>				 [namespace code [list TableMinSize $tb %d]]
@@ -707,6 +708,12 @@ proc TableSelected {table number} {
 
 	set Vars(selection) [expr {$number + $Vars(start)}]
 	event generate [winfo parent [winfo parent $table]] <<TableSelected>> -data $Vars(selection)
+}
+
+
+proc TableInvoked {table number} {
+	variable ${table}::Vars
+	event generate [winfo parent [winfo parent $table]] <<TableInvoked>> -data $Vars(selection)
 }
 
 
