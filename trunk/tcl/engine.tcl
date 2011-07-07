@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 33 $
-# Date   : $Date: 2011-05-29 12:27:45 +0000 (Sun, 29 May 2011) $
+# Version: $Revision: 71 $
+# Date   : $Date: 2011-07-07 23:16:51 +0000 (Thu, 07 Jul 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -76,11 +76,6 @@ proc choose {parent} {
 }
 
 
-proc engine {entry} {
-	lappend [namespace current]::Engines $entry
-}
-
-
 proc engines {} {
 	variable Engines
 
@@ -96,6 +91,101 @@ proc engines {} {
 	set list {}
 	foreach entry $entries { lappend list [lindex $entry 0] }
 	return $list
+}
+
+
+proc setup {} {
+	variable Engines
+
+	if {[llength $Engines] == 0} {
+		set Engines {
+			{
+				Name			Stockfish
+				Elo			0
+				CCRL			0
+				Command		stockfish-191-32-ja
+				Parameters	{}
+				Logo			stockfish
+				Url			http://www.stockfishchess.com/download/all/index.html
+				Protocol		UCI
+				Options		{}
+				Timestamp	0
+			}
+			{
+				Name			Crafty
+				Elo			0
+				CCRL			0
+				Command		crafty
+				Parameters	{}
+				Logo			crafty
+				Url			ftp://ftp.cis.uab.edu/pub/hyatt
+				Protocol		WB
+				Options		{}
+				Timestamp	0
+			}
+			{
+				Name			Fruit
+				Elo			0
+				CCRL			0
+				Command		fruit
+				Parameters	{}
+				Logo			fruit
+				Url			http://www.fruitchess.com
+				Protocol		UCI/FRC
+				Options		{}
+				Timestamp	0
+			}
+			{
+				Name			Phalanx
+				Elo			0
+				CCRL			0
+				Command		phalanx
+				Parameters	{}
+				Logo			phalanx
+				Url			http://phalanx.sourceforge.net
+				Protocol		WB
+				Options		{}
+				Timestamp	0
+			}
+			{
+				Name			{Gullydeckel 2}
+				Elo			0
+				CCRL			0
+				Command		gully2
+				Parameters	{}
+				Logo			gully2
+				Url			http://borriss.com
+				Protocol		WB
+				Options		{}
+				Timestamp	0
+			}
+			{
+				Name			Micro-Max
+				Elo			0
+				CCRL			0
+				Command		micromax
+				Parameters	{}
+				Logo			micromax
+				Url			http://home.hccnet.nl/h.g.muller/max-src2.html
+				Protocol		WB
+				Options		{}
+				Timestamp	0
+			}
+		}
+	}
+
+	set list $Engines
+	set Engines {}
+
+	foreach entry $list {
+		array set arr $entry
+		set arr(Directory) $::scidb::dir::user
+		set arr(Command) "[file join $::scidb::dir::share engines $arr(Command)]"
+
+		if {[file executable $arr(Command)]} {
+			lappend Engines $entry
+		}
+	}
 }
 
 

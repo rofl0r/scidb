@@ -1,7 +1,7 @@
 // ======================================================================
 // $RCSfile: tk_image.cpp,v $
-// $Revision: 66 $
-// $Date: 2011-07-02 18:14:00 +0000 (Sat, 02 Jul 2011) $
+// $Revision: 71 $
+// $Date: 2011-07-07 23:16:51 +0000 (Thu, 07 Jul 2011) $
 // $Author: gregor $
 // ======================================================================
 
@@ -49,6 +49,13 @@ using namespace db;
 
 
 static unsigned rejected = 0;
+
+
+struct TclInterpreter
+{
+	TclInterpreter()	{ ::tcl::bits::interp = Tcl_CreateInterp(); }
+	~TclInterpreter()	{ Tcl_DeleteInterp(::tcl::bits::interp); }
+};
 
 
 struct Progress : public util::Progress
@@ -190,8 +197,7 @@ exportGames(Database& src, Consumer& dst, Progress& progress)
 int
 main(int argc, char* argv[])
 {
-	::tcl::bits::interp = Tcl_CreateInterp();
-
+	TclInterpreter	tclInterpreter;
 	mstl::string	convertto("iso8859-1");
 	mstl::string	convertfrom("cp1252");
 	bool				force(false);

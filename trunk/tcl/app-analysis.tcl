@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 36 $
-# Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
+# Version: $Revision: 71 $
+# Date   : $Date: 2011-07-07 23:16:51 +0000 (Thu, 07 Jul 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -239,9 +239,10 @@ proc build {parent menu width height} {
 					-command [namespace code [list LinesPerPV $tree]] \
 				]
 	::toolbar::addSeparator $tbControl
+	if {[llength [::engine::engines]] == 0} { set state disabled } else { set state readonly }
 	set switcher [::toolbar::add $tbSwitcher ::ttk::tcombobox \
 		-exportselection no \
-		-state readonly \
+		-state $state \
 		-width 15 \
 		-textvariable [namespace current]::Options(engine:current) \
 		-tooltipvar [namespace current]::mc::Engine \

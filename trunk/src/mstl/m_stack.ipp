@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 68 $
-// Date   : $Date: 2011-07-03 19:01:51 +0000 (Sun, 03 Jul 2011) $
+// Version: $Revision: 71 $
+// Date   : $Date: 2011-07-07 23:16:51 +0000 (Thu, 07 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -71,6 +71,7 @@ template <typename T>
 inline
 stack<T>::~stack() throw()
 {
+	M_ASSERT((begin() == 0) == (end() == 0));
 	::mstl::bits::destroy(begin(), end());
 }
 

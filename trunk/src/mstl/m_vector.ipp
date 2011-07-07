@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 44 $
-// Date   : $Date: 2011-06-19 19:56:08 +0000 (Sun, 19 Jun 2011) $
+// Version: $Revision: 71 $
+// Date   : $Date: 2011-07-07 23:16:51 +0000 (Thu, 07 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -374,6 +374,7 @@ template <typename T>
 inline
 vector<T>::~vector() throw()
 {
+	M_ASSERT((begin() == 0) == (end() == 0));
 	mstl::bits::destroy(begin(), end());
 }
 
