@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 61 $
-// Date   : $Date: 2011-06-30 15:34:21 +0000 (Thu, 30 Jun 2011) $
+// Version: $Revision: 70 $
+// Date   : $Date: 2011-07-07 17:20:48 +0000 (Thu, 07 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -831,9 +831,9 @@ GameInfo::setupTags(TagSet& tags) const
 		tags.set(tag::WhiteSex, sex::toString(m_player[White]->sex()));
 	if (m_player[Black]->sex() != sex::Unspecified)
 		tags.set(tag::BlackSex, sex::toString(m_player[Black]->sex()));
-	if (m_player[White]->fideID())
+	if (m_player[White]->haveFideId())
 		tags.set(tag::WhiteFideId, m_player[White]->fideID());
-	if (m_player[Black]->fideID())
+	if (m_player[Black]->haveFideId())
 		tags.set(tag::BlackFideId, m_player[Black]->fideID());
 
 	if (m_dateYear == Date::Zero10Bits)

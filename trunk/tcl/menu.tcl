@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 69 $
-# Date   : $Date: 2011-07-05 21:45:37 +0000 (Tue, 05 Jul 2011) $
+# Version: $Revision: 70 $
+# Date   : $Date: 2011-07-07 17:20:48 +0000 (Thu, 07 Jul 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -209,7 +209,7 @@ proc setup {} {
 	unset lst
 
 	lappend Menu \
-		Help	{	Contents			1	F1			help		{ puts "Help contents" }
+		Help	{	Contents			1	F1			help		{ ::beta::notYetImplemented .application help }
 					BugReport		1	{}			bug		{ ::menu::bugReport .application }
 					FeatureRequest	1	{}			question	{ ::menu::featureRequest .application }
 					Info				1	{}			info		{ ::info::openDialog .application }

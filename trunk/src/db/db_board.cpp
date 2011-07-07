@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 69 $
-// Date   : $Date: 2011-07-05 21:45:37 +0000 (Tue, 05 Jul 2011) $
+// Version: $Revision: 70 $
+// Date   : $Date: 2011-07-07 17:20:48 +0000 (Thu, 07 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -3761,7 +3761,11 @@ Board::prepareMove(Square from, Square to, move::Constraint flag) const
 
 		case piece::King:
 			if (!(kingAttacks(to) & src))
-				return prepareCastle(from, to, flag);
+			{
+				move = prepareCastle(from, to, flag);
+				move.setColor(m_stm);
+				return move;
+			}
 			move = Move::genKingMove(from, to, captured);
 			break;
 

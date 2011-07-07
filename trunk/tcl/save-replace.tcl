@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 64 $
-# Date   : $Date: 2011-07-01 23:42:38 +0000 (Fri, 01 Jul 2011) $
+# Version: $Revision: 70 $
+# Date   : $Date: 2011-07-07 17:20:48 +0000 (Thu, 07 Jul 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -303,6 +303,7 @@ proc open {parent base position {number 0}} {
 	set Priv(match:event-site) {}
 	set Priv(match:game-annotator) {}
 	set Priv(characteristics-only) [expr {[llength $position] == 0}]
+	set Priv(game-eco-flag) 0
 
 	if {$Priv(characteristics-only)} {
 		set Priv(tags) [::scidb::db::get tags $number $base]
