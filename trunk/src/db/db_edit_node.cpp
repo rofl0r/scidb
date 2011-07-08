@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 56 $
-// Date   : $Date: 2011-06-28 14:04:22 +0000 (Tue, 28 Jun 2011) $
+// Version: $Revision: 74 $
+// Date   : $Date: 2011-07-08 22:19:33 +0000 (Fri, 08 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -873,7 +873,7 @@ Move::Move(Work& work, db::Comment const& comment)
 	:KeyNode(work.key)
 	,m_ply(0)
 {
-	if (!comment.isEmpty())
+	if (!work.isFolded && !comment.isEmpty())
 	{
 		db::Comment comm(comment);
 		comm.strip(*work.wantedLanguages);
