@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 69 $
-# Date   : $Date: 2011-07-05 21:45:37 +0000 (Tue, 05 Jul 2011) $
+# Version: $Revision: 77 $
+# Date   : $Date: 2011-07-12 14:50:32 +0000 (Tue, 12 Jul 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -517,6 +517,7 @@
 "Noah's Ark"													"Arche Noah"
 "Opening"														"Eröffnung"
 "Penguin"														"Pinguin"
+"Phoenix"														"Phönix"
 "QGA"																"Angen. Damengambit"
 "QGD"																"Abgel. Damengambit"
 "Retort"															"Entgegnung"

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 71 $
-# Date   : $Date: 2011-07-07 23:16:51 +0000 (Thu, 07 Jul 2011) $
+# Version: $Revision: 77 $
+# Date   : $Date: 2011-07-12 14:50:32 +0000 (Tue, 12 Jul 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -27,7 +27,7 @@
 # --- Special features -------------------------------------------------
 
 namespace eval test {
-	set useAnalysis 0
+	set useAnalysis 1
 }
 
 # --- Special popups for BETA version only -----------------------------

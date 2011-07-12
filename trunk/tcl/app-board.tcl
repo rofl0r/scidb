@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 44 $
-# Date   : $Date: 2011-06-19 19:56:08 +0000 (Sun, 19 Jun 2011) $
+# Version: $Revision: 77 $
+# Date   : $Date: 2011-07-12 14:50:32 +0000 (Tue, 12 Jul 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -513,6 +513,10 @@ proc ComputeLayout {canvWidth canvHeight {bordersize -1}} {
 	variable ::board::layout
 	variable Dim
 	variable Vars
+
+	if {$bordersize > 0} {
+		::update idletasks
+	}
 
 	set distance		[expr {max(1, min($canvWidth, $canvHeight)/150)}]
 	set width			[expr {$canvWidth - $distance}]

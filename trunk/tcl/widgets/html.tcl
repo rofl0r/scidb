@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 43 $
-# Date   : $Date: 2011-06-14 21:57:41 +0000 (Tue, 14 Jun 2011) $
+# Version: $Revision: 77 $
+# Date   : $Date: 2011-07-12 14:50:32 +0000 (Tue, 12 Jul 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -88,7 +88,7 @@ proc Build {w args} {
 		}
 	}
 
-	set parent [scrolledframe $w -fill both {*}$options]
+	set parent [::scrolledframe $w -fill both {*}$options]
 	set html $parent.html
 
 	namespace eval [namespace current]::$parent {}
@@ -110,7 +110,6 @@ proc Build {w args} {
 		onmousedown3	{}
 		onmouseup3		{}
 		lastNode			{}
-		coords			{0 0}
 	}
 
 	set options {}
@@ -145,7 +144,6 @@ proc WidgetProc {w command args} {
 			array unset [namespace current]::ActiveNodes1
 			array unset [namespace current]::ActiveNodes2
 			array unset [namespace current]::ActiveNodes3
-			set Priv(coords) {0 0}
 			set Priv(lastNode) {}
 			$f.html reset
 			$f.html configure -width $MaxWidth
@@ -327,7 +325,6 @@ proc ButtonPress {w x y k} {
 	}
 	lappend eventlist onmousedown${k} {}
 
-	set Priv(coords) [list $x $y]
 	GenerateEvents $w $eventlist
 }
 

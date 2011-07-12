@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 70 $
-# Date   : $Date: 2011-07-07 17:20:48 +0000 (Thu, 07 Jul 2011) $
+# Version: $Revision: 77 $
+# Date   : $Date: 2011-07-12 14:50:32 +0000 (Tue, 12 Jul 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -165,6 +165,7 @@ proc CreateViewMenu {menu} {
 		-compound left \
 		-image $::icon::16x16::fullscreen \
 		-command [namespace code viewFullscreen] \
+		-accelerator "F11" \
 		-variable Fullscreen \
 		;
 	widget::menuTextvarHook $menu [incr pos] [namespace current]::mc::ViewFullscreen

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 71 $
-# Date   : $Date: 2011-07-07 23:16:51 +0000 (Thu, 07 Jul 2011) $
+# Version: $Revision: 77 $
+# Date   : $Date: 2011-07-12 14:50:32 +0000 (Tue, 12 Jul 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -59,6 +59,15 @@ variable Vars
 proc build {parent menu width height} {
 	variable Options
 	variable Vars
+
+	set engines [::engine::engines]
+	if {[lsearch -index 0 $engines $Options(engine:current)] == -1} {
+		if {[llength $engines] == 0} {
+			set Options(engine:current) ""
+		} else {
+			set Options(engine:current) [lindex $Options(engine:current) 0]
+		}
+	}
 
 	array set fopt [font configure $Options(font)]
 	set Vars(font:bold) [list $fopt(-family) $fopt(-size) bold]
