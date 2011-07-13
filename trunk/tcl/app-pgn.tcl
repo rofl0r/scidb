@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 64 $
-# Date   : $Date: 2011-07-01 23:42:38 +0000 (Fri, 01 Jul 2011) $
+# Version: $Revision: 78 $
+# Date   : $Date: 2011-07-13 05:44:25 +0000 (Wed, 13 Jul 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1594,7 +1594,6 @@ proc ResetGame {position tags} {
 proc PopupMenu {parent position} {
 	variable ::annotation::mc::Nag
 	variable ::annotation::LastNag
-	variable [namespace parent]::database::mc::T_Clipbase
 	variable [namespace parent]::database::clipbaseName
 	variable [namespace parent]::database::scratchbaseName
 	variable Options

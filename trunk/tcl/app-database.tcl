@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 70 $
-# Date   : $Date: 2011-07-07 17:20:48 +0000 (Thu, 07 Jul 2011) $
+# Version: $Revision: 78 $
+# Date   : $Date: 2011-07-13 05:44:25 +0000 (Wed, 13 Jul 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -519,7 +519,6 @@ proc BuildSwitcher {pane} {
 	bind $canv <Down> [namespace code { Traverse +line }]
 	bind $canv <Up> [namespace code { Traverse -line }]
 	bind $canv <space> [namespace code ActivateBase]
-	bind $canv <<Language>> [namespace code [list UpdateSwitcher $canv $clipbaseName]]
 	::scidb::db::subscribe dbInfo [namespace current]::UpdateSwitcher {} $canv
 }
 
@@ -772,8 +771,10 @@ proc RefreshSwitcher {} {
 
 proc LanguageChanged {} {
 	variable Vars
+	variable clipbaseName
 
 	set ::util::clipbaseName [set [namespace current]::mc::T_Clipbase]
+	UpdateSwitcher $Vars(canvas) $clipbaseName
 
 	set i [lsearch -integer -index 0 $Vars(bases) $Vars(selection)]
 

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 77 $
-# Date   : $Date: 2011-07-12 14:50:32 +0000 (Tue, 12 Jul 2011) $
+# Version: $Revision: 78 $
+# Date   : $Date: 2011-07-13 05:44:25 +0000 (Wed, 13 Jul 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -27,7 +27,10 @@
 # --- Special features -------------------------------------------------
 
 namespace eval test {
-	set useAnalysis 1
+	set useAnalysis 0
+	if {[pwd] eq "/home/gregor/development/c++/scidb/tcl"} {
+		set useAnalysis 1
+	}
 }
 
 # --- Special popups for BETA version only -----------------------------
