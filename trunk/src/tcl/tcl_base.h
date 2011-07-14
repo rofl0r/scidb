@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 77 $
-// Date   : $Date: 2011-07-12 14:50:32 +0000 (Tue, 12 Jul 2011) $
+// Version: $Revision: 79 $
+// Date   : $Date: 2011-07-14 13:14:44 +0000 (Thu, 14 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -87,6 +87,9 @@ Tcl_Obj* call(	char const* callee,
 					int objc, Tcl_Obj* const objv[]);
 Tcl_Obj* call(	char const* callee,
 					Tcl_Obj* cmd, Tcl_Obj* arg1, Tcl_Obj* arg2, Tcl_Obj* arg3,
+					int objc, Tcl_Obj* const objv[]);
+Tcl_Obj* call(	char const* callee,
+					Tcl_Obj* cmd, Tcl_Obj* arg1, Tcl_Obj* arg2, Tcl_Obj* arg3, Tcl_Obj* arg4,
 					int objc, Tcl_Obj* const objv[]);
 
 Tcl_Command_* createCommand(Tcl_Interp* ti, char const* cmdName, Tcl_ObjCmdProc* proc);

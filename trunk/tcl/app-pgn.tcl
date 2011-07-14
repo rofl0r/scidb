@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 78 $
-# Date   : $Date: 2011-07-13 05:44:25 +0000 (Wed, 13 Jul 2011) $
+# Version: $Revision: 79 $
+# Date   : $Date: 2011-07-14 13:14:44 +0000 (Thu, 14 Jul 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1645,7 +1645,8 @@ proc PopupMenu {parent position} {
 		$menu.strip add command \
 			-label $mc::Command(strip:moves) \
 			-state $state \
-			-command [list ::widget::busyOperation ::scidb::game::strip moves]
+			-command [list ::widget::busyOperation ::scidb::game::strip moves] \
+			;
 		set state "normal"
 		if {	[::scidb::game::position atEnd?]
 			|| (![::scidb::game::position isMainline?] && [::scidb::game::position atStart?])} {

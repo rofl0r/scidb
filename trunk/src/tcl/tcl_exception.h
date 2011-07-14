@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 79 $
+// Date   : $Date: 2011-07-14 13:14:44 +0000 (Thu, 14 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -34,6 +34,15 @@ public:
 	explicit Exception(char const* fmt, ...) __attribute__((__format__(__printf__, 2, 3)));
 	Exception(util::Exception& exc);
 	~Exception() throw();
+};
+
+class Error : public util::Exception
+{
+public:
+
+	Error();
+	Error(util::Exception& exc);
+	~Error() throw();
 };
 
 } // namespace tcl

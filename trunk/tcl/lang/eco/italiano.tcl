@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 69 $
-# Date   : $Date: 2011-07-05 21:45:37 +0000 (Tue, 05 Jul 2011) $
+# Version: $Revision: 79 $
+# Date   : $Date: 2011-07-14 13:14:44 +0000 (Thu, 14 Jul 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -426,6 +426,7 @@
 "Pawn Storm Variation"					"Variante Tempesta di Pedoni"
 "Pelikán (Lasker/Sveshnikov) Variation"		"Variante Pelikán (Lasker/Sveshnikov)"
 "Penguin Variation"					"Variante Pinguino"
+"Phoenix Attack"					"Attacco della fenice"
 "Piece-Sac Line"					"Linea con Sacrificio di Pezzo"
 "Pin Variation"						"Variante con Inchiodatura"
 "Pin Variation (Sicilian Counterattack)"		"Variante con Inchiodatura (Contrattacco Siciliano)"

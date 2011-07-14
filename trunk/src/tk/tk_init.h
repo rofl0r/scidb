@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 5 $
-// Date   : $Date: 2011-05-05 07:51:24 +0000 (Thu, 05 May 2011) $
+// Version: $Revision: 79 $
+// Date   : $Date: 2011-07-14 13:14:44 +0000 (Thu, 14 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -33,6 +33,7 @@ void gif_init(Tcl_Interp*);
 void window_manager_init(Tcl_Interp*);
 void twm_init(Tcl_Interp*);
 void xcursor_init(Tcl_Interp*);
+void busy_init(Tcl_Interp*);
 
 }
 
