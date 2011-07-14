@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 52 $
-# Date   : $Date: 2011-06-21 12:24:24 +0000 (Tue, 21 Jun 2011) $
+# Version: $Revision: 80 $
+# Date   : $Date: 2011-07-14 15:35:24 +0000 (Thu, 14 Jul 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -205,7 +205,10 @@ proc InitBase {path base} {
 	variable ${path}::Vars
 	variable Defaults
 
+	if {[info exists Vars($base:initializing)]} { return }
+
 	if {![info exists Vars($base:view)]} {
+		set Vars($base:initializing) 1
 		set Vars($base:view) [::scidb::view::new $base slave slave slave master]
 		set Vars($base:update) 1
 		set Vars($base:sort) $Defaults(sort)
@@ -291,7 +294,6 @@ proc TableUpdate {path base {view -1} {index -1}} {
 proc TableUpdate2 {path base} {
 	variable [namespace parent]::${path}::Vars
 
-	[namespace parent]::InitBase $path $base
 	set Vars($base:update) 1
 	UpdateTable $path $base
 }
@@ -324,11 +326,13 @@ proc TableFill {path args} {
 proc TableSelected {path index} {
 	variable [namespace parent]::${path}::Vars
 
+	::widget::busyCursor on
 	set base [::scidb::db::get name]
 	set view $Vars($base:view)
 	set annotator [scidb::db::get annotator $index $view]
 	set Vars($base:annotator) [lindex $annotator 0]
 	TableSearch $path $base $view
+	::widget::busyCursor off
 }
 
 

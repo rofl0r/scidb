@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 69 $
-# Date   : $Date: 2011-07-05 21:45:37 +0000 (Tue, 05 Jul 2011) $
+# Version: $Revision: 80 $
+# Date   : $Date: 2011-07-14 15:35:24 +0000 (Thu, 14 Jul 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -610,10 +610,12 @@ proc TableSelected {path index} {
 	variable ${path}::Vars
 
 	if {[llength $Vars(selectcmd)]} {
+		::widget::busyCursor on
 		set base [::scrolledtable::base $path.table]
 		set view [{*}$Vars(viewcmd) $base]
 		set Vars($base:index) [::scidb::db::get playerIndex $index $view $base]
 		{*}$Vars(selectcmd) $base $view
+		::widget::busyCursor off
 	}
 }
 

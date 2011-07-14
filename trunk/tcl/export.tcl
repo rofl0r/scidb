@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 69 $
-# Date   : $Date: 2011-07-05 21:45:37 +0000 (Tue, 05 Jul 2011) $
+# Version: $Revision: 80 $
+# Date   : $Date: 2011-07-14 15:35:24 +0000 (Thu, 14 Jul 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1832,7 +1832,7 @@ proc SaveScidb {parent dlg file} {
 	::log::open "$formatName $mc::Export"
 	::log::delay
 	::log::info [format $mc::ExportingDatabase $Info(name) $file]
-	set count [::progress::start $parent.progress $cmd $args $options]
+	set count [::progress::start $parent $cmd $args $options]
 	update idletasks ;# be sure the following will be appended
 	::log::info [format $mc::ExportedGames [::locale::formatNumber $count]]
 	::log::close

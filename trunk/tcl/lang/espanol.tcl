@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 75 $
-# Date   : $Date: 2011-07-09 09:11:14 +0000 (Sat, 09 Jul 2011) $
+# Version: $Revision: 80 $
+# Date   : $Date: 2011-07-14 15:35:24 +0000 (Thu, 14 Jul 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -119,6 +119,9 @@
 ::util::mc::IOError(EncodingFailed)			"no se puede escribir el nombre" 
 ::util::mc::IOError(MaxFileSizeExceeded)	"se alcanz— el tama–o m‡ximo de archivo" 
 ::util::mc::IOError(LoadFailed)				"carga fallida (demasiadas entradas de evento)" 
+
+### progress ###########################################################
+::progress::mc::Progress "Progreso"
 
 ### menu ###############################################################
 ::menu::mc::File						"&Archivo"

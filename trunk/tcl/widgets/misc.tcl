@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 79 $
-# Date   : $Date: 2011-07-14 13:14:44 +0000 (Thu, 14 Jul 2011) $
+# Version: $Revision: 80 $
+# Date   : $Date: 2011-07-14 15:35:24 +0000 (Thu, 14 Jul 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -265,6 +265,7 @@ proc busyCursor {w {state on}} {
 	}
 
 	::scidb::tk::busy $action .application
+	if {$action eq "hold"} { ::update idletasks }
 
 #	foreach tlv [winfo children .] {
 #		if {![string match *__* $tlv] && ![string match *#* $tlv] && ![string match *_Busy* $tlv]} {

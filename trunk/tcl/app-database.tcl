@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 78 $
-# Date   : $Date: 2011-07-13 05:44:25 +0000 (Wed, 13 Jul 2011) $
+# Version: $Revision: 80 $
+# Date   : $Date: 2011-07-14 15:35:24 +0000 (Thu, 14 Jul 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -314,7 +314,7 @@ proc openBase {parent file {encoding ""} {readonly -1}} {
 				if {[llength $encoding]} { lappend args -encoding $encoding }
 				set cmd [list ::scidb::db::load $file]
 				set options [list -message $msg]
-				if {[::util::catchIoError [list ::progress::start $parent.progress $cmd $args $options]]} {
+				if {[::util::catchIoError [list ::progress::start $parent $cmd $args $options]]} {
 					return
 				}
 			}
@@ -1233,7 +1233,7 @@ proc Recode {number parent} {
 		}
 
 		default {
-			::progress::start $parent.progress [list ::scidb::db::recode $file $encoding] {} {}
+			::progress::start $parent [list ::scidb::db::recode $file $encoding] {} {}
 		}
 	}
 

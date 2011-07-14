@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 69 $
-# Date   : $Date: 2011-07-05 21:45:37 +0000 (Tue, 05 Jul 2011) $
+# Version: $Revision: 80 $
+# Date   : $Date: 2011-07-14 15:35:24 +0000 (Thu, 14 Jul 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -118,6 +118,9 @@
 ::util::mc::IOError(EncodingFailed)			"cannot write namebase file"
 ::util::mc::IOError(MaxFileSizeExceeded)	"maximal file size reached"
 ::util::mc::IOError(LoadFailed)				"load failed (too many event entries)"
+
+### progress ###########################################################
+::progress::mc::Progress "Progress"
 
 ### menu ###############################################################
 ::menu::mc::File						"&File"

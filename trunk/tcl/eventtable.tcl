@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 63 $
-# Date   : $Date: 2011-07-01 10:41:25 +0000 (Fri, 01 Jul 2011) $
+# Version: $Revision: 80 $
+# Date   : $Date: 2011-07-14 15:35:24 +0000 (Thu, 14 Jul 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -327,10 +327,12 @@ proc TableSelected {path index} {
 	variable ${path}::Vars
 
 	if {[llength $Vars(selectcmd)]} {
+		::widget::busyCursor on
 		set base [::scrolledtable::base $path]
 		set view [{*}$Vars(viewcmd) $base]
 		set Vars($base:index) [::scidb::db::get eventIndex $index $view $base]
 		{*}$Vars(selectcmd) $base $view
+		::widget::busyCursor off
 	}
 }
 

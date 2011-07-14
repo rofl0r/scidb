@@ -1,7 +1,7 @@
 # # ======================================================================
 # Author : $Author$
-# Version: $Revision: 69 $
-# Date   : $Date: 2011-07-05 21:45:37 +0000 (Tue, 05 Jul 2011) $
+# Version: $Revision: 80 $
+# Date   : $Date: 2011-07-14 15:35:24 +0000 (Thu, 14 Jul 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -116,6 +116,9 @@
 ::util::mc::IOError(EncodingFailed)			"die Namebase konnte nicht erzeugt werden"
 ::util::mc::IOError(MaxFileSizeExceeded)	"die maximale Dateigrösse wirde erreicht"
 ::util::mc::IOError(LoadFailed)				"das Laden schlug fehl (zuviele Turnier-Einträge)"
+
+### progress ###########################################################
+::progress::mc::Progress "Fortschritt"
 
 ### menu ###############################################################
 ::menu::mc::File						"&Datei"
