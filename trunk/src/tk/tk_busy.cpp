@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 79 $
-// Date   : $Date: 2011-07-14 13:14:44 +0000 (Thu, 14 Jul 2011) $
+// Version: $Revision: 83 $
+// Date   : $Date: 2011-07-15 13:24:39 +0000 (Fri, 15 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -343,7 +343,7 @@ FreeWindowInternalRep(
 static int SetWindowFromAny(Tcl_Interp *interp, Tcl_Obj *objPtr);
 
 static const Tcl_ObjType windowObjType = {
-    "window",                   /* name */
+    const_cast<char*>("window"),/* name */
     FreeWindowInternalRep,      /* freeIntRepProc */
     DupWindowInternalRep,       /* dupIntRepProc */
     NULL,                       /* updateStringProc */
