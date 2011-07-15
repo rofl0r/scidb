@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 71 $
-# Date   : $Date: 2011-07-07 23:16:51 +0000 (Thu, 07 Jul 2011) $
+# Version: $Revision: 81 $
+# Date   : $Date: 2011-07-15 09:44:07 +0000 (Fri, 15 Jul 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1159,6 +1159,10 @@ proc installChessBaseFonts {parent {windowsFontDir /c/WINDOWS/Fonts}} {
 			file copy -force $font.ttf $fontDir
 			incr count
 		}
+	}
+
+	if {$count} {
+		catch { exec fc-cache -f $fontDir }
 	}
 
 	return $count

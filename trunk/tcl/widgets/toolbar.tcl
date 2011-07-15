@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 69 $
-# Date   : $Date: 2011-07-05 21:45:37 +0000 (Tue, 05 Jul 2011) $
+# Version: $Revision: 81 $
+# Date   : $Date: 2011-07-15 09:44:07 +0000 (Fri, 15 Jul 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1795,6 +1795,7 @@ proc Tooltip {mode w} {
 
 	set toolbar [winfo parent $w]
 
+	if {![info exists Specs(tooltip:$w:$toolbar)]} { return }
 	if {![llength $Specs(tooltip:$w:$toolbar)] && ![llength $Specs(tooltipvar:$w:$toolbar)]} { return }
 
 	if {	$mode eq "show"
