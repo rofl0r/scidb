@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 84 $
+// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -68,7 +68,7 @@ public:
 
 	int count() const { return fCount; }
 
-	void put(unsigned char c)
+	void put(unsigned char c) override
 	{
 		fDst.put(c);
 
@@ -76,13 +76,13 @@ public:
 			++fCount;
 	}
 
-	void put(mstl::string const& s)
+	void put(mstl::string const& s) override
 	{
 		fDst.write(s);
 		fCount += s.size();
 	}
 
-	void out(mstl::string const& text)
+	void out(mstl::string const& text) override
 	{
 		if (fOut && fOut != fLog)
 		{
@@ -91,7 +91,7 @@ public:
 		}
 	}
 
-	void log(mstl::string const& text, bool copyToOut)
+	void log(mstl::string const& text, bool copyToOut) override
 	{
 		if (fLog)
 			fLog->write(text);
@@ -114,7 +114,7 @@ struct MyReceptacle : public Receptacle
 	MyReceptacle(Environment& env) :Receptacle(env) {}
 	~MyReceptacle() {}
 
-	void add(mstl::string const& name, TokenP const& token)
+	void add(mstl::string const& name, TokenP const& token) override
 	{
 		M_REQUIRE(!name.empty());
 		M_REQUIRE(name[0] != Token::EscapeChar);

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 44 $
-// Date   : $Date: 2011-06-19 19:56:08 +0000 (Sun, 19 Jun 2011) $
+// Version: $Revision: 84 $
+// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -24,6 +24,7 @@
 // (at your option) any later version.
 // ======================================================================
 
+#include "m_utility.h"
 #include "m_assert.h"
 
 namespace db {
@@ -95,6 +96,28 @@ Filter::uncompress()
 	m_set.uncompress();
 	M_ASSERT(checkClassInvariance());
 }
+
+
+#if HAVE_0X_MOVE_CONSTRCUTOR_AND_ASSIGMENT_OPERATOR
+
+inline
+Filter::Filter(Filter&& filter)
+	:m_set(mstl::move(filter.m_set))
+	,m_count(filter.m_count)
+{
+}
+
+
+inline
+Filter&
+Filter::operator=(Filter&& filter)
+{
+	m_set = mstl::move(filter.m_set);
+	m_count = filter.m_count;
+	return *this;
+}
+
+#endif
 
 } // namespace db
 

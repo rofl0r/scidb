@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 36 $
-// Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
+// Version: $Revision: 84 $
+// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -69,6 +69,16 @@ public:
 
 	Comment();
 	Comment(mstl::string const& content, bool engFlag, bool othFlag);
+
+#if HAVE_OX_EXPLICITLY_DEFAULTED_AND_DELETED_SPECIAL_MEMBER_FUNCTIONS
+	Comment(Comment const&) = default;
+	Comment& operator=(Comment const&) = default;
+#endif
+
+#if HAVE_0X_MOVE_CONSTRCUTOR_AND_ASSIGMENT_OPERATOR
+	Comment(Comment&& comment);
+	Comment& operator=(Comment&& comment);
+#endif
 
 	operator mstl::string const& () const;
 

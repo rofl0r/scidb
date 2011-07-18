@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 84 $
+// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -51,22 +51,22 @@ public:
 	{
 	}
 
-	bool finished() const
+	bool finished() const override
 	{
 		return m_producer->finished();
 	}
 
-	Source source() const
+	Source source() const override
 	{
 		return Macro;
 	}
 
-	TokenP next(Environment& env)
+	TokenP next(Environment& env) override
 	{
 		return m_producer->next(env);
 	}
 
-	mstl::string currentDescription() const
+	mstl::string currentDescription() const override
 	{
 		mstl::string descr = m_producer->currentDescription();
 
@@ -76,7 +76,7 @@ public:
 		return m_macro->name() + " " + m_macro->parameterDescription() + "->" + descr;
 	}
 
-	bool reset()
+	bool reset() override
 	{
 		bool rc = m_producer->reset();
 		M_ASSERT(rc);

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 61 $
-// Date   : $Date: 2011-06-30 15:34:21 +0000 (Thu, 30 Jun 2011) $
+// Version: $Revision: 84 $
+// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -46,6 +46,11 @@ public:
 	list(size_type n, const_reference v);
 	list(list const& v);
 	~list() throw();
+
+#if HAVE_0X_MOVE_CONSTRCUTOR_AND_ASSIGMENT_OPERATOR
+	list(list&& v);
+	list& operator=(list&& v);
+#endif
 
 	list& operator=(list const& v);
 

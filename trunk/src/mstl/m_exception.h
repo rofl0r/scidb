@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 84 $
+// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -48,6 +48,10 @@ public:
 	exception(exception const& exc);
 	virtual ~exception () throw();
 
+#if HAVE_OX_EXPLICITLY_DEFAULTED_AND_DELETED_SPECIAL_MEMBER_FUNCTIONS
+	exception& operator=(exception const&) = delete;
+#endif
+
 	virtual char const* what() const throw();
 	::mstl::backtrace const& backtrace() const;
 
@@ -61,7 +65,9 @@ private:
 	friend void bits::prepare_msg(exception& exc, char const*, unsigned, char const*, char const*);
 #endif
 
+#if !HAVE_OX_EXPLICITLY_DEFAULTED_AND_DELETED_SPECIAL_MEMBER_FUNCTIONS
 	exception& operator=(exception const&);
+#endif
 
 	string* m_msg;
 	::mstl::backtrace	m_backtrace;

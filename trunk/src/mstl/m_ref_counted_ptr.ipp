@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 44 $
-// Date   : $Date: 2011-06-19 19:56:08 +0000 (Sun, 19 Jun 2011) $
+// Version: $Revision: 84 $
+// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -268,6 +268,29 @@ swap(ref_counted_ptr<T>& lhs, ref_counted_ptr<T>& rhs)
 {
 	lhs.swap(rhs);
 }
+
+
+#if HAVE_0X_MOVE_CONSTRCUTOR_AND_ASSIGMENT_OPERATOR
+
+template <class T>
+inline
+ref_counted_ptr<T>::ref_counted_ptr(ref_counted_ptr&& p)
+	:m_p(p.m_p)
+{
+	p.m_p = 0;
+}
+
+
+template <class T>
+inline
+ref_counted_ptr<T>&
+ref_counted_ptr<T>::operator=(ref_counted_ptr&& p)
+{
+	mstl::swap(m_p, p.m_p);
+	return *this;
+}
+
+#endif
 
 } // namespace mstl
 

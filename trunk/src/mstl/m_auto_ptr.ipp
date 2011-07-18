@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 84 $
+// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -129,6 +129,28 @@ auto_ptr<T>::operator by_ref()
 	const_cast<pointer&>(m_p) = 0;
 	return by_ref(p);
 }
+
+#if HAVE_0X_MOVE_CONSTRCUTOR_AND_ASSIGMENT_OPERATOR
+
+template <class T>
+inline
+auto_ptr<T>::auto_ptr(auto_ptr&& p)
+	:m_p(p.m_p)
+{
+	p.m_p = 0;
+}
+
+
+template <class T>
+inline
+auto_ptr<T>&
+auto_ptr<T>::operator=(auto_ptr&& p)
+{
+	swap(m_p, p.m_p);
+	return *this;
+}
+
+#endif
 
 } // namespace mstl
 

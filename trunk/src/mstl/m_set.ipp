@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 84 $
+// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -196,6 +196,24 @@ set<T>::assign(const_iterator first, const_iterator last)
 	clear();
 	insert(first, last);
 }
+
+
+#if HAVE_0X_MOVE_CONSTRCUTOR_AND_ASSIGMENT_OPERATOR
+
+template <typename T>
+inline set<T>::set(set&& v) : m_v(mstl::move(v.m_v)) {}
+
+
+template <typename T>
+inline
+set<T>&
+set<T>::operator=(set&& v)
+{
+	m_v = mstl::move(v.m_v);
+	return *this;
+}
+
+#endif
 
 } // namespace mstl
 

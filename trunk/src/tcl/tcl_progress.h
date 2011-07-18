@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 84 $
+// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -21,6 +21,8 @@
 
 #include "u_progress.h"
 
+#include "m_types.h" // for keyword 'override'
+
 extern "C" { struct Tcl_Obj; }
 
 namespace tcl {
@@ -32,12 +34,12 @@ public:
 	Progress(Tcl_Obj* cmd, Tcl_Obj* arg);
 	~Progress() throw();
 
-	bool interrupted();
-	unsigned ticks() const;
+	bool interrupted() override;
+	unsigned ticks() const override;
 
-	void start(unsigned total);
-	void update(unsigned progress);
-	void finish();
+	void start(unsigned total) override;
+	void update(unsigned progress) override;
+	void finish() override;
 
 private:
 

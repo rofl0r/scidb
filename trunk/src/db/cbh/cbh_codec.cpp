@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 69 $
-// Date   : $Date: 2011-07-05 21:45:37 +0000 (Tue, 05 Jul 2011) $
+// Version: $Revision: 84 $
+// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -50,7 +50,6 @@
 #include "m_vector.h"
 #include "m_stdio.h"
 #include "m_bitfield.h"
-#include "m_static_check.h"
 
 #include <string.h>
 
@@ -448,7 +447,7 @@ Codec::Codec()
 {
 	if (::m_lookup.none())
 	{
-		M_STATIC_CHECK(tag::ExtraTag <= 8*sizeof(uint64_t), BitSet_Size_Exceeded);
+		static_assert(tag::ExtraTag <= 8*sizeof(uint64_t), "BitField size exceeded");
 
 		::m_lookup.set(tag::Event);
 		::m_lookup.set(tag::Site);

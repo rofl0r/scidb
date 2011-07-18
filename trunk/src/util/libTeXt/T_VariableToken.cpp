@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 31 $
-// Date   : $Date: 2011-05-24 09:11:31 +0000 (Tue, 24 May 2011) $
+// Version: $Revision: 84 $
+// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -21,7 +21,6 @@
 #include "T_Messages.h"
 
 #include "m_assert.h"
-#include "m_static_check.h"
 #include "m_string.h"
 
 using namespace TeXt;
@@ -60,7 +59,7 @@ VariableToken::type() const
 Value
 VariableToken::value() const
 {
-	M_STATIC_CHECK((sizeof(Value) >= sizeof(m_refID)), Illegal_Return_Type);
+	static_assert((sizeof(Value) >= sizeof(m_refID)), "illegal return type");
 	return m_refID;
 }
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 33 $
-// Date   : $Date: 2011-05-29 12:27:45 +0000 (Sun, 29 May 2011) $
+// Version: $Revision: 84 $
+// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -68,6 +68,11 @@ public:
 	string(string const& s, size_type pos, size_type len);
 	explicit string(size_type n);
 	~string() throw();
+
+#if HAVE_0X_MOVE_CONSTRCUTOR_AND_ASSIGMENT_OPERATOR
+	string(string&& str);
+	string& operator=(string&& str);
+#endif
 
 	operator const_pointer () const;
 

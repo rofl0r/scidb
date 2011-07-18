@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 84 $
+// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -31,19 +31,19 @@ public:
 
 	VariableToken(mstl::string const& name, RefID id);
 
-	bool isBound() const;
-	bool isResolved() const;
+	bool isBound() const override;
+	bool isResolved() const override;
 
-	Type type() const;
-	Value value() const;
-	mstl::string name() const;
-	mstl::string meaning() const;
+	Type type() const override;
+	Value value() const override;
+	mstl::string name() const override;
+	mstl::string meaning() const override;
 
 	void setup(TokenP const& macro);
 
-	void bind(Environment& env);
-	void resolve(Environment& env);
-	void expand(Environment& env);
+	void bind(Environment& env) override;
+	void resolve(Environment& env) override;
+	void expand(Environment& env) override;
 	void fixLevel(unsigned level);
 
 private:

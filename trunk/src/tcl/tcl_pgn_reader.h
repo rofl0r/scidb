@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 36 $
-// Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
+// Version: $Revision: 84 $
+// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -61,14 +61,14 @@ public:
 						unsigned column,
 						unsigned gameNo,
 						mstl::string const& info,
-						mstl::string const& item);
+						mstl::string const& item) override;
 	void error(		Error code,
 						unsigned lineNo,
 						unsigned column,
 						int gameNo,
 						mstl::string const& message,
 						mstl::string const& info,
-						mstl::string const& item);
+						mstl::string const& item) override;
 
 private:
 

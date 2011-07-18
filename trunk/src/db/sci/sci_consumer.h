@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 61 $
-// Date   : $Date: 2011-06-30 15:34:21 +0000 (Thu, 30 Jun 2011) $
+// Version: $Revision: 84 $
+// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -57,20 +57,22 @@ private:
 
 	format::Type format() const;
 
-	void start();
-	void finish();
+	void start() override;
+	void finish() override;
 
-	bool beginGame(TagSet const& tags);
-	save::State endGame(TagSet const& tags);
+	bool beginGame(TagSet const& tags) override;
+	save::State endGame(TagSet const& tags) override;
 
-	void sendPrecedingComment(Comment const& comment, Annotation const& annotation, MarkSet const& marks);
-	void sendTrailingComment(Comment const& comment, bool variationIsEmpty);
-	bool sendMove(Move const& move);
+	void sendPrecedingComment(	Comment const& comment,
+										Annotation const& annotation,
+										MarkSet const& marks) override;
+	void sendTrailingComment(Comment const& comment, bool variationIsEmpty) override;
+	bool sendMove(Move const& move) override;
 	bool sendMove(	Move const& move,
 						Annotation const& annotation,
 						MarkSet const& marks,
 						Comment const& preComment,
-						Comment const& comment);
+						Comment const& comment) override;
 
 	void writeComment(Comment const& preComment,
 							Comment const& comment,
@@ -78,10 +80,10 @@ private:
 							MarkSet const& marks);
 	Byte writeComment(Byte position, Comment const& comment);
 
-	void beginMoveSection();
-	void endMoveSection(result::ID result);
-	void beginVariation();
-	void endVariation(bool isEmpty);
+	void beginMoveSection() override;
+	void endMoveSection(result::ID result) override;
+	void beginVariation() override;
+	void endVariation(bool isEmpty) override;
 
 	util::ByteStream	m_stream;
 	Byte					m_buffer[Block_Size];

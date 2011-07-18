@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 39 $
-// Date   : $Date: 2011-06-13 21:08:21 +0000 (Mon, 13 Jun 2011) $
+// Version: $Revision: 84 $
+// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -37,7 +37,6 @@
 #include "m_bitset.h"
 #include "m_limits.h"
 #include "m_ref_counted_ptr.h"
-#include "m_static_check.h"
 
 #include <string.h>
 
@@ -763,7 +762,7 @@ Tree::buildTreeStart(unsigned myIdn,
 
 		GameInfo const& info = base.gameInfo(m_index);
 
-		M_STATIC_CHECK(::Empty == 0, Reimplement);
+		static_assert(::Empty == 0, "reimplementation required");
 
 		if (info.idn() == myIdn)
 			add(info, Eco(), info.ply<0>(), myPosition);

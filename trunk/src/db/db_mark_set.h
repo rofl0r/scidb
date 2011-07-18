@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 36 $
-// Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
+// Version: $Revision: 84 $
+// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -40,6 +40,16 @@ class MarkSet
 public:
 
 	MarkSet();
+
+#if HAVE_OX_EXPLICITLY_DEFAULTED_AND_DELETED_SPECIAL_MEMBER_FUNCTIONS
+	MarkSet(MarkSet const&) = default;
+	MarkSet& operator=(MarkSet const&) = default;
+#endif
+
+#if HAVE_0X_MOVE_CONSTRCUTOR_AND_ASSIGMENT_OPERATOR
+	MarkSet(MarkSet&& set);
+	MarkSet& operator=(MarkSet&& set);
+#endif
 
 	bool operator==(MarkSet const& marks) const;
 	bool operator!=(MarkSet const& marks) const;

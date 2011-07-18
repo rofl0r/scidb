@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 84 $
+// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -66,6 +66,11 @@ public:
 	ios_base();
 	virtual ~ios_base() throw() = 0;
 
+#if HAVE_OX_EXPLICITLY_DEFAULTED_AND_DELETED_SPECIAL_MEMBER_FUNCTIONS
+	ios_base(ios_base const&) = delete;
+	ios_base& operator=(ios_base const&) = delete;
+#endif
+
 	// coincides with SEEK_SET, SEEK_CUR, SEEK_END
 	enum seekdir { beg, cur, end };
 
@@ -98,8 +103,10 @@ protected:
 
 private:
 
+#if !HAVE_OX_EXPLICITLY_DEFAULTED_AND_DELETED_SPECIAL_MEMBER_FUNCTIONS
 	ios_base(ios_base const&);
 	ios_base& operator=(ios_base const&);
+#endif
 
 	iostate	m_state;
 	iostate	m_except;

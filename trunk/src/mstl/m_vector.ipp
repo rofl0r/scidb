@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 71 $
-// Date   : $Date: 2011-07-07 23:16:51 +0000 (Thu, 07 Jul 2011) $
+// Version: $Revision: 84 $
+// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -807,6 +807,24 @@ vector<T>::fill(value_type const& value)
 	else
 		mstl::fill_n(this->m_start, size(), value);
 }
+
+
+#if HAVE_0X_MOVE_CONSTRCUTOR_AND_ASSIGMENT_OPERATOR
+
+template <typename T>
+inline vector<T>::vector(vector&& v) : memblock<T>(mstl::move(*this)) {}
+
+
+template <typename T>
+inline
+vector<T>&
+vector<T>::operator=(vector&& v)
+{
+	static_cast<memblock<T>&>(*this) = mstl::move(*this);
+	return *this;
+}
+
+#endif
 
 } // namespace mstl
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 84 $
+// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -29,11 +29,11 @@ public:
 
 	TextConsumer(mstl::string& result, Consumer* next = 0);
 
-	void put(unsigned char c);
-	void put(mstl::string const& s);
+	void put(unsigned char c) override;
+	void put(mstl::string const& s) override;
 
-	void out(mstl::string const& text);
-	void log(mstl::string const& text, bool copyToOut);
+	void out(mstl::string const& text) override;
+	void log(mstl::string const& text, bool copyToOut) override;
 
 private:
 

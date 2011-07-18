@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 84 $
+// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -20,12 +20,13 @@
 #define _util_http_included
 
 #include "m_string.h"
+#include "m_utility.h"
 
 namespace mstl { class ostream; }
 
 namespace util {
 
-class Http
+class Http  : public mstl::noncopyable
 {
 public:
 

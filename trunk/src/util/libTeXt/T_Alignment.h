@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 84 $
+// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -38,8 +38,8 @@ private:
 
 	typedef mstl::ref_counted_ptr<AlignmentFilter> FilterP;
 
-	void doRegister(Environment& env);
-	void doFinish(Environment& env);
+	void doRegister(Environment& env) override;
+	void doFinish(Environment& env) override;
 
 	void performCrcr(Environment& env);
 	void performSpace(Environment& env);

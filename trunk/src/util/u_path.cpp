@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 16 $
-// Date   : $Date: 2011-05-10 10:29:31 +0000 (Tue, 10 May 2011) $
+// Version: $Revision: 84 $
+// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -18,6 +18,8 @@
 
 #include "u_path.h"
 
+#include "m_utility.h"
+
 using namespace util;
 
 
@@ -25,5 +27,19 @@ path::path(mstl::string const& name)
 	:m_name(name)
 {
 }
+
+#if HAVE_0X_MOVE_CONSTRCUTOR_AND_ASSIGMENT_OPERATOR
+
+path::path(path&& p) : m_name(mstl::move(m_name)) {}
+
+
+path&
+path::operator=(path&& p)
+{
+	m_name = mstl::move(p.m_name);
+	return *this;
+}
+
+#endif
 
 // vi:set ts=3 sw=3:

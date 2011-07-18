@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 84 $
+// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -41,6 +41,8 @@ template <typename T> struct is_pod;
 
 template <typename T> struct has_trivial_destructor;
 template <typename T> struct is_movable;
+
+template <typename T> struct remove_reference;
 
 } // namespace mstl
 

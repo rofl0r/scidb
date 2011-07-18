@@ -6,7 +6,7 @@
 // ======================================================================
 
 // ======================================================================
-// Copyright: (C) 2009-2011 Gregor Cramer
+// Copyright: (C) 2011 Gregor Cramer
 // ======================================================================
 
 // ======================================================================
@@ -16,43 +16,51 @@
 // (at your option) any later version.
 // ======================================================================
 
-#ifndef _mstl_fstream_included
-#define _mstl_fstream_included
+#ifndef _mstl_initializer_list_included
+#define _mstl_initializer_list_included
 
-#include "m_ifstream.h"
-#include "m_ofstream.h"
+#if defined(__GNUC_MINOR__) && ((__GNUC__ << 16) + __GNUC_MINOR__ >= (4 << 16) + 4)
 
 namespace mstl {
 
-class fstream : public ifstream, public ofstream
+template<class E>
+class initializer_list
 {
 public:
 
-	fstream();
-	fstream(char const* filename, openmode mode = in | out);
+	typedef E			value_type;
+	typedef const E&	reference;
+	typedef const E&	const_reference;
+	typedef size_t		size_type;
+	typedef const E*	iterator;
+	typedef const E*	const_iterator;
 
-	using ifstream::is_open;
-	using ifstream::is_buffered;
-	using ifstream::is_unbuffered;
+	constexpr initializer_list();
 
-	using ifstream::size;
-	using ifstream::bufsize;
-	using ifstream::buffer;
-	using ifstream::mtime;
-	using ifstream::filename;
+	constexpr size_type size();
 
-	void open(char const* filename) override;
-	void open(char const* filename, openmode mode) override;
-	using ifstream::close;
+	constexpr const_iterator begin();
+	constexpr const_iterator end();
 
-	using ifstream::set_unbuffered;
-	using ifstream::set_binary;
-	using ifstream::set_text;
-	using ifstream::set_bufsize;
+private:
+
+	iterator		m_arr;
+	size_type	m_size;
+
+	constexpr initializer_list(const_iterator arr, size_type size);
 };
+
+template<class T> constexpr const T* begin(initializer_list<T> list);
+template<class T> constexpr const T* end(initializer_list<T> list);
 
 } // namespace mstl
 
-#endif // _mstl_fstream_included
+# include "m_initializer_list.ipp"
+
+#else
+
+# error "requires g++ version >= 4.4"
+
+#endif
 
 // vi:set ts=3 sw=3:

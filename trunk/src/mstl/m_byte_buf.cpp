@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 28 $
-// Date   : $Date: 2011-05-21 14:57:26 +0000 (Sat, 21 May 2011) $
+// Version: $Revision: 84 $
+// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -302,7 +302,7 @@ byte_buf::operator=(byte_buf const& buf)
 	{
 		if (m_size < buf.m_size)
 		{
-			delete m_data;
+			delete [] m_data;
 			m_data = new value_type[buf.m_size];
 		}
 

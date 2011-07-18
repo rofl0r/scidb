@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 84 $
+// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -34,17 +34,17 @@ public:
 	ActiveToken(unsigned char c, Func const& func);
 	ActiveToken(unsigned char c, TokenP const& macro);
 
-	bool isBound() const;
-	bool isEqualTo(Token const& token) const;
+	bool isBound() const override;
+	bool isEqualTo(Token const& token) const override;
 
-	RefID refID() const;
-	Type type() const;
-	mstl::string name() const;
+	RefID refID() const override;
+	Type type() const override;
+	mstl::string name() const override;
 
-	void bind(Environment& env);
-	void resolve(Environment& env);
-	void expand(Environment& env);
-	void execute(Environment& env);
+	void bind(Environment& env) override;
+	void resolve(Environment& env) override;
+	void expand(Environment& env) override;
+	void execute(Environment& env) override;
 
 private:
 

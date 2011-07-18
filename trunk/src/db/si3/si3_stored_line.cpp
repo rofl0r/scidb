@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 36 $
-// Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
+// Version: $Revision: 84 $
+// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -33,7 +33,6 @@
 #include "u_byte_stream.h"
 
 #include "m_utility.h"
-#include "m_static_check.h"
 
 #include <string.h>
 #include <assert.h>
@@ -310,7 +309,7 @@ StoredLine::initialize()
 	if (isInitialized())
 		return;
 
-	M_STATIC_CHECK(U_NUMBER_OF(StoredLines) == U_NUMBER_OF(m_lines), ImplementationError);
+	static_assert(U_NUMBER_OF(StoredLines) == U_NUMBER_OF(m_lines), "implementation error");
 
 	for (unsigned i = 0; i < U_NUMBER_OF(StoredLines); ++i)
 	{

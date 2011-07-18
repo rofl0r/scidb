@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 33 $
-// Date   : $Date: 2011-05-29 12:27:45 +0000 (Sun, 29 May 2011) $
+// Version: $Revision: 84 $
+// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -34,6 +34,7 @@
 
 #include "m_map.h"
 #include "m_chunk_allocator.h"
+#include "m_utility.h"
 
 namespace TeXt { class Receptacle; }
 
@@ -44,7 +45,7 @@ class NamebaseEvent;
 class NamebasePlayer;
 class Filter;
 
-class TournamentTable
+class TournamentTable : public mstl::noncopyable
 {
 public:
 

@@ -16,39 +16,35 @@
 // (at your option) any later version.
 // ======================================================================
 
-#ifndef _TeXt_TextProducer_included
-#define _TeXt_TextProducer_included
+namespace mstl {
 
-#include "T_Producer.h"
+inline constexpr initializer_list::initializer_list() :m_arr(0), m_size(0) {}
 
-#include "m_string.h"
+inline constexpr initializer_list::size_type size()									{ return m_size; }
+inline constexpr initializer_list::const_iterator initializer_list::begin()	{ return m_arr; }
+inline constexpr initializer_list::const_iterator initializer_list::end()		{ return m_arr + m_size; }
 
-namespace TeXt {
 
-class Environment;
-
-class TextProducer : public Producer
+inline
+constexpr
+initializer_list::initializer_list(const_iterator arr, size_type size)
+	:m_arr(arr)
+	,m_size(size)
 {
-public:
+}
 
-	TextProducer(mstl::string const& text);
 
-	bool finished() const override;
+/// Return an iterator pointing to the first element of the initilizer_list.
+template<class T>
+inline
+constexpr T const* begin(initializer_list<T> list) { return list.begin(); }
 
-	mstl::string currentDescription() const override;
-	Source source() const override;
 
-	TokenP next(Environment& env) override;
-	bool reset() override;
+/// Return an iterator pointing to one past the last element of the initilizer_list.
+template<class T>
+inline
+constexpr T const* end(initializer_list<T> list) { return list.end(); }
 
-private:
-
-	mstl::string m_text;
-	mstl::string::const_iterator m_pos;
-};
-
-} // namespace TeXt
-
-#endif // _TeXt_TextProducer_included
+} // namespace mstl
 
 // vi:set ts=3 sw=3:

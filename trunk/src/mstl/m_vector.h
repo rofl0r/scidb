@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 61 $
-// Date   : $Date: 2011-06-30 15:34:21 +0000 (Thu, 30 Jun 2011) $
+// Version: $Revision: 84 $
+// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -84,6 +84,11 @@ public:
 	vector(vector const& v, size_type n);
 	template <typename Iter> vector(Iter* first, Iter* last);
 	~vector() throw();
+
+#if HAVE_0X_MOVE_CONSTRCUTOR_AND_ASSIGMENT_OPERATOR
+	vector(vector&& v);
+	vector& operator=(vector&& v);
+#endif
 
 	vector& operator=(vector const& v);
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 84 $
+// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -34,13 +34,32 @@ using namespace db;
 
 
 Search::~Search() throw() {}
+SearchOpNot::~SearchOpNot() throw() {}
 
 SearchPlayer::SearchPlayer(NamebasePlayer const* entry) :m_entry(entry) {}
 SearchEvent::SearchEvent(NamebaseEvent const* entry) :m_entry(entry) {}
-SearchOpNot::SearchOpNot(Search* search) :m_search(search) { M_REQUIRE(search); }
+SearchOpNot::SearchOpNot(SearchP const& search) :m_search(search) { M_REQUIRE(search); }
 SearchAnnotator::SearchAnnotator(mstl::string const& name) :m_name(name) {}
 
-SearchOpNot::~SearchOpNot() throw() { delete m_search; }
+
+#if HAVE_0X_MOVE_CONSTRCUTOR_AND_ASSIGMENT_OPERATOR
+
+# include "m_utility.h"
+
+SearchOpNot::SearchOpNot(SearchOpNot&& search)
+	:m_search(mstl::move(search.m_search))
+{
+}
+
+
+SearchOpNot&
+SearchOpNot::operator=(SearchOpNot&& search)
+{
+	m_search = mstl::move(search.m_search);
+	return *this;
+}
+
+#endif
 
 
 bool

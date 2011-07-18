@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 84 $
+// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -32,7 +32,7 @@ public:
 	Log(Tcl_Obj* cmd, Tcl_Obj* arg);
 	~Log() throw();
 
-	bool error(::db::save::State code, unsigned gameNumber);
+	bool error(::db::save::State code, unsigned gameNumber) override;
 
 private:
 

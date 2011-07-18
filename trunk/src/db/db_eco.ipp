@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 84 $
+// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -25,7 +25,6 @@
 // ======================================================================
 
 #include "m_assert.h"
-#include "m_static_check.h"
 
 namespace db {
 
@@ -33,7 +32,7 @@ inline
 Eco::Eco()
 	:m_code(0)
 {
-	M_STATIC_CHECK(Bit_Size_Per_Subcode >= 16, Not_Enough_Room_For_16bit_Move);
+	static_assert(Bit_Size_Per_Subcode >= 16, "not enough room for 16bit move");
 }
 
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 56 $
-// Date   : $Date: 2011-06-28 14:04:22 +0000 (Tue, 28 Jun 2011) $
+// Version: $Revision: 84 $
+// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -55,6 +55,11 @@ public:
 	explicit ByteStream(unsigned size);
 	ByteStream(ByteStream& strm);
 	virtual ~ByteStream() throw();
+
+#if HAVE_0X_MOVE_CONSTRCUTOR_AND_ASSIGMENT_OPERATOR
+	ByteStream(ByteStream&& strm);
+	ByteStream& operator=(ByteStream&& strm);
+#endif
 
 	bool isEmpty() const;
 	bool isFull() const;

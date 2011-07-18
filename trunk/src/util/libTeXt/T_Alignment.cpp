@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 84 $
+// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -70,7 +70,7 @@ struct Alignment::AlignmentFilter : public OutputFilter
 		m_previous = kNull;
 	}
 
-	void put(Environment& env, unsigned char c)
+	void put(Environment& env, unsigned char c) override
 	{
 		if (c == kLinefeed)
 			c = kNewline;
@@ -147,13 +147,13 @@ struct Alignment::AlignmentFilter : public OutputFilter
 		}
 	}
 
-	void put(Environment& env, mstl::string const& s)
+	void put(Environment& env, mstl::string const& s) override
 	{
 		for (size_t i = 0; i < s.size(); ++i)
 			put(env, static_cast<unsigned char>(s[i]));
 	}
 
-	void put(Environment& env, Value number)
+	void put(Environment& env, Value number) override
 	{
 		output(env, number, '0');
 	}

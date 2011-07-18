@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 36 $
-// Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
+// Version: $Revision: 84 $
+// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -30,11 +30,13 @@
 #include "db_board.h"
 #include "db_tag_set.h"
 
+#include "m_utility.h"
+
 namespace db {
 
 class MoveNode;
 
-class GameData
+class GameData : public mstl::noncopyable
 {
 public:
 
@@ -44,11 +46,6 @@ public:
 	MoveNode*	m_startNode;	/// Keeps the starting node of the game
 	Board			m_startBoard;	/// Keeps the start position of the game
 	TagSet		m_tags;
-
-private:
-
-	GameData(GameData const&);
-	GameData& operator=(GameData const&);
 };
 
 } // namespace db

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 30 $
-// Date   : $Date: 2011-05-23 14:49:04 +0000 (Mon, 23 May 2011) $
+// Version: $Revision: 84 $
+// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -48,26 +48,26 @@ public:
 					mstl::string const& encoding, unsigned flags = Default_Flags);
 	~PdfWriter() throw();
 
-	void writeTag(mstl::string const& name, mstl::string const& value);
-	void writeComment(Comment const& comment, MarkSet const& marks);
+	void writeTag(mstl::string const& name, mstl::string const& value) override;
+	void writeComment(Comment const& comment, MarkSet const& marks) override;
 	void writeMove(Move const& move,
 						mstl::string const& moveNumber,
 						Annotation const& annotation,
 						MarkSet const& marks,
 						Comment const& preComment,
-						Comment const& comment);
+						Comment const& comment) override;
 
-	void writeBeginGame(unsigned number);
-	void writeEndGame();
-	void writeBeginMoveSection();
-	void writeEndMoveSection(result::ID result);
-	void writeBeginVariation(unsigned level);
-	void writeEndVariation(unsigned level);
-	void writeBeginComment();
-	void writeEndComment();
+	void writeBeginGame(unsigned number) override;
+	void writeEndGame() override;
+	void writeBeginMoveSection() override;
+	void writeEndMoveSection(result::ID result) override;
+	void writeBeginVariation(unsigned level) override;
+	void writeEndVariation(unsigned level) override;
+	void writeBeginComment() override;
+	void writeEndComment() override;
 
-	void start();
-	void finish();
+	void start() override;
+	void finish() override;
 
 	virtual void errorHandler(unsigned code, mstl::string const& message);
 

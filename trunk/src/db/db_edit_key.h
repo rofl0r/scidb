@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 20 $
-// Date   : $Date: 2011-05-15 12:32:40 +0000 (Sun, 15 May 2011) $
+// Version: $Revision: 84 $
+// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -47,6 +47,16 @@ public:
 	Key(mstl::string const& key, char prefix);
 	Key(Key const& key, char prefix);
 	explicit Key(char const* key);
+
+#if HAVE_OX_EXPLICITLY_DEFAULTED_AND_DELETED_SPECIAL_MEMBER_FUNCTIONS
+	Key(Key const&) = default;
+	Key& operator=(Key const&) = default;
+#endif
+
+#if HAVE_0X_MOVE_CONSTRCUTOR_AND_ASSIGMENT_OPERATOR
+	Key(Key&& key);
+	Key& operator=(Key&& key);
+#endif
 
 	bool operator==(Key const& key) const;
 	bool operator!=(Key const& key) const;

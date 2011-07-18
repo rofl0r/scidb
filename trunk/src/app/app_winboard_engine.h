@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 84 $
+// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -48,8 +48,8 @@ public:
 	Engine();
 	~Engine() throw();	// gcc complains w/o explicit destructor
 
-	bool startAnalysis(db::Board const& board);
-	bool stopAnalysis();
+	bool startAnalysis(db::Board const& board) override;
+	bool stopAnalysis() override;
 
 	void timeout();
 
@@ -59,11 +59,11 @@ protected:
 	void doMove(db::Move const& move);
 	void reset();
 
-	void protocolStart(bool isProbing);
-	void protocolEnd();
-	void processMessage(mstl::string const& message);
+	void protocolStart(bool isProbing) override;
+	void protocolEnd() override;
+	void processMessage(mstl::string const& message) override;
 
-	Result probeResult() const;
+	Result probeResult() const override;
 
 private:
 

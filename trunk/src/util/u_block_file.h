@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 33 $
-// Date   : $Date: 2011-05-29 12:27:45 +0000 (Sun, 29 May 2011) $
+// Version: $Revision: 84 $
+// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -23,6 +23,7 @@
 
 #include "m_string.h"
 #include "m_vector.h"
+#include "m_utility.h"
 
 namespace mstl { class fstream; }
 namespace mstl { class ofstream; }
@@ -64,7 +65,7 @@ private:
 };
 
 
-class BlockFile
+class BlockFile : public mstl::noncopyable
 {
 public:
 
@@ -152,9 +153,6 @@ private:
 	void putMagic(mstl::string const& magic);
 
 	void copy(ByteStream const& buf, unsigned offset, unsigned nbytes);
-
-	BlockFile(BlockFile const&);
-	BlockFile& operator=(BlockFile const&);
 
 	mstl::fstream*	m_stream;
 

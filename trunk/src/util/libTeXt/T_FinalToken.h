@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 84 $
+// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -29,10 +29,10 @@ public:
 
 	bool isFinal() const;
 
-	void bind(Environment& env);
-	void resolve(Environment& env);
-	void expand(Environment& env);
-	void execute(Environment& env);
+	void bind(Environment& env) override;
+	void resolve(Environment& env) override;
+	void expand(Environment& env) override;
+	void execute(Environment& env) override;
 
 protected:
 

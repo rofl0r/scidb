@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 69 $
-// Date   : $Date: 2011-07-05 21:45:37 +0000 (Tue, 05 Jul 2011) $
+// Version: $Revision: 84 $
+// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -230,9 +230,6 @@ private:
 	NamebaseEntry const* insertEvent(mstl::string const& name);
 	NamebaseEntry const* insertSite(mstl::string const& name);
 	NamebaseEntry const* insertAnnotator(mstl::string const& name);
-
-	Database(Database const&);
-	Database& operator=(Database const&);
 
 	DatabaseCodec*	m_codec;
 	mstl::string	m_name;

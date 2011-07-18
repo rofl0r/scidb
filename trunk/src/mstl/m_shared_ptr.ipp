@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 84 $
+// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -16,6 +16,7 @@
 // (at your option) any later version.
 // ======================================================================
 
+#include "m_utility.h"
 #include "m_assert.h"
 
 namespace mstl {
@@ -267,6 +268,27 @@ swap(shared_ptr<T>& lhs, shared_ptr<T>& rhs)
 {
 	lhs.swap(rhs);
 }
+
+#if HAVE_0X_MOVE_CONSTRCUTOR_AND_ASSIGMENT_OPERATOR
+
+template <class T>
+inline
+shared_ptr<T>::shared_ptr(shared_ptr&& p)
+	:m_base(mstl::move(p.m_base))
+{
+}
+
+
+template <class T>
+inline
+shared_ptr<T>&
+shared_ptr<T>::operator=(shared_ptr&& p)
+{
+	swap(m_base, p.m_base);
+	return *this;
+}
+
+#endif
 
 } // namespace mstl
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 84 $
+// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -16,6 +16,7 @@
 // (at your option) any later version.
 // ======================================================================
 
+#include "m_utility.h"
 #include "m_assert.h"
 
 namespace util {
@@ -61,6 +62,33 @@ BitStream::next(unsigned n)
 
 	return (m_bits >> (m_bitsLeft -= n)) & ((1 << n) - 1);
 }
+
+#if HAVE_0X_MOVE_CONSTRCUTOR_AND_ASSIGMENT_OPERATOR
+
+inline
+BitStream::BitStream(BitStream&& strm)
+	:m_buffer(strm.m_buffer)
+	,m_size(strm.m_size)
+	,m_bits(strm.m_bits)
+	,m_bitsLeft(strm.m_bitsLeft)
+{
+	strm.m_buffer = 0;
+}
+
+
+inline
+BitStream&
+BitStream::operator=(BitStream&& strm)
+{
+	mstl::swap(m_buffer, strm.m_buffer);
+	m_size = strm.m_size;
+	m_bits = strm.m_bits;
+	m_bitsLeft = strm.m_bitsLeft;
+
+	return *this;
+}
+
+#endif
 
 } // namespace util
 

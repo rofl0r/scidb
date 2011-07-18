@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 84 $
+// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -37,6 +37,16 @@ struct Line
 {
 	Line();
 	Line(uint16_t const* moves, unsigned length = 0);
+
+#if HAVE_OX_EXPLICITLY_DEFAULTED_AND_DELETED_SPECIAL_MEMBER_FUNCTIONS
+	Line(Line const&) = default;
+	Line& operator=(Line const&) = default;
+#endif
+
+#if HAVE_0X_MOVE_CONSTRCUTOR_AND_ASSIGMENT_OPERATOR
+	Line(Line&& line);
+	Line& operator=(Line&& line);
+#endif
 
 	bool operator==(Line const& line) const;
 	bool operator!=(Line const& line) const;

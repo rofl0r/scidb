@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 84 $
+// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -36,6 +36,16 @@ struct member_list< type_list<Head, Tail> >
 	template <typename T0, typename T1, typename T2>
 	member_list(T0 const& t0, T1 const& t1, T2 const& t2);
 
+#if HAVE_OX_EXPLICITLY_DEFAULTED_AND_DELETED_SPECIAL_MEMBER_FUNCTIONS
+	member_list(member_list const&) = default;
+	member_list& operator=(member_list const&) = default;
+#endif
+
+#if HAVE_0X_MOVE_CONSTRCUTOR_AND_ASSIGMENT_OPERATOR
+	member_list(member_list&& ml);
+	member_list& operator=(member_list&& ml);
+#endif
+
 	head m_head;
 	tail m_tail;
 };
@@ -49,6 +59,16 @@ struct member_list< type_list<Head, null_type> >
 
 	template <typename T0, typename T1, typename T2>
 	member_list(T0 const& t0, T1 const&, T2 const&);
+
+#if HAVE_OX_EXPLICITLY_DEFAULTED_AND_DELETED_SPECIAL_MEMBER_FUNCTIONS
+	member_list(member_list const&) = default;
+	member_list& operator=(member_list const&) = default;
+#endif
+
+#if HAVE_0X_MOVE_CONSTRCUTOR_AND_ASSIGMENT_OPERATOR
+	member_list(member_list&& ml);
+	member_list& operator=(member_list&& ml);
+#endif
 
 	head m_head;
 };

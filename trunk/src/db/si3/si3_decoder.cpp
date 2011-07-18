@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 81 $
-// Date   : $Date: 2011-07-15 09:44:07 +0000 (Fri, 15 Jul 2011) $
+// Version: $Revision: 84 $
+// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -390,7 +390,7 @@ Decoder::decodeVariation(unsigned level)
 					break;
 
 				case token::Nag:
-					M_STATIC_CHECK(Annotation::Max_Nags >= 7, ScidNeedsAtLeastSeven);
+					static_assert(Annotation::Max_Nags >= 7, "Scid needs at least seven entries");
 					m_currentNode->addAnnotation(nag::fromScid3(nag::ID(m_strm.get())));
 					break;
 

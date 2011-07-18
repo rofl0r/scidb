@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 61 $
-// Date   : $Date: 2011-06-30 15:34:21 +0000 (Thu, 30 Jun 2011) $
+// Version: $Revision: 84 $
+// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -731,7 +731,7 @@ Decoder::decodeSymbols(MoveNode* node, unsigned length)
 {
 #define NAG(code) wtm ? nag::White##code : nag::Black##code
 
-	M_STATIC_CHECK(Annotation::Max_Nags >= 4, CbNeedAtLeastFour);
+	static_assert(Annotation::Max_Nags >= 4, "ChessBase need at least four entries");
 
 	if (length == 0)
 		return;

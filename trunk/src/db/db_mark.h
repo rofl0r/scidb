@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 84 $
+// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -46,6 +46,16 @@ public:
 	Mark(mark::Type type, mark::Color color, Square square, char text = '\0');
 	Mark(mark::Type type, mark::Color color, Square square1, Square square2, char text = '\0');
 	explicit Mark(char const* s);
+
+#if HAVE_OX_EXPLICITLY_DEFAULTED_AND_DELETED_SPECIAL_MEMBER_FUNCTIONS
+	Mark(Mark const&) = default;
+	Mark& operator=(Mark const&) = default;
+#endif
+
+#if HAVE_0X_MOVE_CONSTRCUTOR_AND_ASSIGMENT_OPERATOR
+	Mark(Mark&& mark);
+	Mark& operator=(Mark&& mark);
+#endif
 
 	bool operator==(Mark const& mark) const;
 

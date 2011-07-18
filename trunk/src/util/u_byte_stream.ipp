@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 33 $
-// Date   : $Date: 2011-05-29 12:27:45 +0000 (Sun, 29 May 2011) $
+// Version: $Revision: 84 $
+// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -16,6 +16,7 @@
 // (at your option) any later version.
 // ======================================================================
 
+#include "m_utility.h"
 #include "m_assert.h"
 
 namespace util {
@@ -194,6 +195,38 @@ ByteStream::seekg(unsigned offset)
 	M_REQUIRE(offset <= capacity());
 	m_getp = m_base + offset;
 }
+
+#if HAVE_0X_MOVE_CONSTRCUTOR_AND_ASSIGMENT_OPERATOR
+
+inline
+ByteStream::ByteStream(ByteStream&& strm)
+	:m_base(strm.m_base)
+	,m_getp(strm.m_getp)
+	,m_putp(strm.m_putp)
+	,m_endp(strm.m_endp)
+	,m_owner(strm.m_owner)
+{
+	strm.m_owner = false;
+}
+
+
+inline
+ByteStream&
+ByteStream::operator=(ByteStream&& strm)
+{
+	if (this != &strm)
+	{
+		mstl::swap(m_base, strm.m_base);
+		m_getp = strm.m_getp;
+		m_putp = strm.m_putp;
+		m_endp = strm.m_endp;
+		mstl::swap(m_owner, strm.m_owner);
+	}
+
+	return *this;
+}
+
+#endif
 
 } // namespace db
 

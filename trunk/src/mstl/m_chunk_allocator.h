@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 84 $
+// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -36,6 +36,11 @@ public:
 	chunk_allocator(size_t chunk_size = 0);
 	~chunk_allocator();
 
+#if HAVE_OX_EXPLICITLY_DEFAULTED_AND_DELETED_SPECIAL_MEMBER_FUNCTIONS
+	chunk_allocator(chunk_allocator const&) = delete;
+	chunk_allocator& operator=(chunk_allocator const&) = delete;
+#endif
+
 	bool canRelease() const;
 	bool canShrink(size_t size) const;
 	bool empty() const;
@@ -64,8 +69,10 @@ private:
 
 	typedef stack<chunk> chunk_list;
 
-	chunk_allocator(chunk_allocator const& allocator);
-	chunk_allocator& operator=(chunk_allocator const& allocator);
+#if !HAVE_OX_EXPLICITLY_DEFAULTED_AND_DELETED_SPECIAL_MEMBER_FUNCTIONS
+	chunk_allocator(chunk_allocator const&);
+	chunk_allocator& operator=(chunk_allocator const&);
+#endif
 
 	chunk* new_chunk();
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 84 $
+// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -30,12 +30,12 @@ public:
 
 	InvalidToken(unsigned char c);
 
-	Type type() const;
-	mstl::string name() const;
-	mstl::string meaning() const;
-	Value value() const;
+	Type type() const override;
+	mstl::string name() const override;
+	mstl::string meaning() const override;
+	Value value() const override;
 
-	void perform(Environment& env);
+	void perform(Environment& env) override;
 
 private:
 

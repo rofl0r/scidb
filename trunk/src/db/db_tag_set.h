@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 36 $
-// Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
+// Version: $Revision: 84 $
+// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -48,6 +48,14 @@ public:
 	};
 
 	TagSet();
+	TagSet(TagSet const& set);
+
+#if HAVE_0X_MOVE_CONSTRCUTOR_AND_ASSIGMENT_OPERATOR
+	TagSet(TagSet&& set);
+	TagSet& operator=(TagSet&& set);
+#endif
+
+	TagSet& operator=(TagSet const& set);
 
 	bool contains(tag::ID tag) const;
 	bool contains(mstl::string const& tag) const;

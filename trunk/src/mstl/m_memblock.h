@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 84 $
+// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -33,6 +33,15 @@ public:
 	explicit memblock(T* finish);
 	~memblock() throw();	// NOTE: we don't want a virtual destructor
 
+#if HAVE_OX_EXPLICITLY_DEFAULTED_AND_DELETED_SPECIAL_MEMBER_FUNCTIONS
+	memblock(memblock const&) = delete;
+	memblock& operator=(memblock const&) = delete;
+#endif
+#if HAVE_0X_MOVE_CONSTRCUTOR_AND_ASSIGMENT_OPERATOR
+	memblock(memblock&& mb);
+	memblock& operator=(memblock&& mb);
+#endif
+
 	void swap(memblock& block);
 
 	static size_t compute_capacity(size_t old_capacity, size_t wanted_size, size_t min_capacity);
@@ -41,10 +50,12 @@ public:
 	T* m_finish;
 	T* m_end_of_storage;
 
+#if !HAVE_OX_EXPLICITLY_DEFAULTED_AND_DELETED_SPECIAL_MEMBER_FUNCTIONS
 private:
 
 	memblock(memblock const&);
 	memblock& operator=(memblock const&);
+#endif
 };
 
 template <typename T> struct is_movable;

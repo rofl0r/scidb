@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 28 $
-// Date   : $Date: 2011-05-21 14:57:26 +0000 (Sat, 21 May 2011) $
+// Version: $Revision: 84 $
+// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -632,6 +632,42 @@ hash<K,V>::operator[](key_type const& i)
 {
 	return find_or_insert(i, value_type());
 }
+
+
+#if HAVE_0X_MOVE_CONSTRCUTOR_AND_ASSIGMENT_OPERATOR
+
+template <typename K, typename V>
+inline
+hash<K,V>::hash(hash&& h)
+	:m_size(h.m_size)
+	,m_modulo(h.m_modulo)
+	,m_used(h.m_used)
+	,m_first(h.m_first)
+	,m_last(h.m_last)
+	,m_buckets(mstl::move(h.m_buckets))
+{
+}
+
+
+template <typename K, typename V>
+inline
+hash<K,V>&
+hash<K,V>::operator=(hash&& h)
+{
+	if (this != &h)
+	{
+		m_size = h.m_size;
+		m_modulo = h.m_modulo;
+		m_used = h.m_used;
+		m_first = h.m_first;
+		m_last = h.m_last;
+		m_buckets = mstl::move(h.m_buckets);
+	}
+
+	return *this;
+}
+
+#endif
 
 } // namespace mstl
 

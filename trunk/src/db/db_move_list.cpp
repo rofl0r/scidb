@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 84 $
+// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -28,7 +28,6 @@
 
 #include "m_utility.h"
 #include "m_stdio.h"
-#include "m_static_check.h"
 
 #include <string.h>
 
@@ -38,7 +37,7 @@ using namespace db;
 MoveList&
 MoveList::operator=(MoveList const& list)
 {
-	M_STATIC_CHECK(mstl::is_pod<Move>::value, POD_Required);
+	static_assert(mstl::is_pod<Move>::value, "POD required");
 
 	if (&list != this)
 		::memcpy(m_buffer, list.m_buffer, (m_size = list.m_size)*sizeof(m_buffer[0]));

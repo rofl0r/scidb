@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 84 $
+// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -42,6 +42,11 @@ public:
 	shared_base(shared_base<T,shared_counter,Deleter> const& sb);
 	template <class U> shared_base(shared_base<U,shared_counter,Deleter> const& sb);
 	~shared_base();
+
+#if HAVE_0X_MOVE_CONSTRCUTOR_AND_ASSIGMENT_OPERATOR
+	shared_base(shared_base&& sb);
+	shared_base& operator=(shared_base&& sb);
+#endif
 
 	// assignment
 	shared_base& operator=(shared_base<T,weak_counter,Deleter> const& sb);

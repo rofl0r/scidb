@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 44 $
-// Date   : $Date: 2011-06-19 19:56:08 +0000 (Sun, 19 Jun 2011) $
+// Version: $Revision: 84 $
+// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -43,7 +43,6 @@
 #include "m_sstream.h"
 #include "m_hash.h"
 #include "m_assert.h"
-#include "m_static_check.h"
 
 #include <tcl.h>
 #include <string.h>

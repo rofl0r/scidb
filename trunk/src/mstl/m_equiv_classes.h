@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 21 $
-// Date   : $Date: 2011-05-15 12:33:17 +0000 (Sun, 15 May 2011) $
+// Version: $Revision: 84 $
+// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -29,6 +29,11 @@ public:
 
 	equiv_classes(unsigned n);
 	~equiv_classes() throw();
+
+#if HAVE_0X_MOVE_CONSTRCUTOR_AND_ASSIGMENT_OPERATOR
+	equiv_classes(equiv_classes&& eqcl);
+	equiv_classes& operator=(equiv_classes&& eqcl);
+#endif
 
 	unsigned size() const;
 	unsigned ngroups() const;

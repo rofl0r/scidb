@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 64 $
-// Date   : $Date: 2011-07-01 23:42:38 +0000 (Fri, 01 Jul 2011) $
+// Version: $Revision: 84 $
+// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -37,7 +37,6 @@
 #include "m_utility.h"
 #include "m_assert.h"
 #include "m_stdio.h"
-#include "m_static_check.h"
 
 #include <string.h>
 #include <stdlib.h>

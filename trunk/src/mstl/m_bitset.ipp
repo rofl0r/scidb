@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 84 $
+// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -16,8 +16,8 @@
 // (at your option) any later version.
 // ======================================================================
 
+#include "m_utility.h"
 #include "m_assert.h"
-#include "m_static_check.h"
 
 #include <string.h>
 
@@ -671,6 +671,35 @@ bitset::clear()
 {
 	resize(0);
 }
+
+
+#if HAVE_0X_MOVE_CONSTRCUTOR_AND_ASSIGMENT_OPERATOR
+
+inline
+bitset::bitset(bitset&& bset)
+	:m_size(bset.m_size)
+	,m_words(bset.m_words)
+	,m_bits(bset.m_bits)
+{
+	bset.m_bits = 0;
+}
+
+
+inline
+bitset&
+bitset::operator=(bitset&& bset)
+{
+	if (this != &bset)
+	{
+		m_size = bset.m_size;
+		m_words = bset.m_words;
+		mstl::swap(m_bits, bset.m_bits);
+	}
+
+	return *this;
+}
+
+#endif
 
 } // namespace mstl
 
