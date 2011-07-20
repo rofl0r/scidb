@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 84 $
-// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
+// Version: $Revision: 87 $
+// Date   : $Date: 2011-07-20 13:26:14 +0000 (Wed, 20 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -35,8 +35,8 @@ namespace noncopyable_	// protection from unintended ADL
 
 #if HAVE_OX_EXPLICITLY_DEFAULTED_AND_DELETED_SPECIAL_MEMBER_FUNCTIONS
 
-		noncopyable(noncopyable&&) = delete;
-		noncopyable& operator=(noncopyable&&) = delete;
+		noncopyable(noncopyable&) = delete;
+		noncopyable& operator=(noncopyable&) = delete;
 
 #else
 

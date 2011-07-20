@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 69 $
-# Date   : $Date: 2011-07-05 21:45:37 +0000 (Tue, 05 Jul 2011) $
+# Version: $Revision: 87 $
+# Date   : $Date: 2011-07-20 13:26:14 +0000 (Wed, 20 Jul 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -204,7 +204,6 @@ proc BuildContributionsFrame {w} {
 	$t insert end [Enc "Fernando González, "]
 	$t insert end [Enc "Austen Green, "]
 	$t insert end [Enc "Giovanni Ornaghi, "]
-	$t insert end [Enc "Matthew Simpson, "]
 	$t insert end [Enc "Zoltan Tibensky, "]
 	$t insert end [Enc "Natalia Parés Vives"]
 

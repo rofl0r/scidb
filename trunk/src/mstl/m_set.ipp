@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 84 $
-// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
+// Version: $Revision: 87 $
+// Date   : $Date: 2011-07-20 13:26:14 +0000 (Wed, 20 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -133,6 +133,21 @@ set<T>::insert(const_reference v)
 		*i = v;
 
 	return i;
+}
+
+
+template <typename T>
+inline
+bool
+set<T>::insert_unique(const_reference v)
+{
+	iterator i = mstl::lower_bound(begin(), end(), v);
+
+	if (i != end() && !(v < *i))
+		return false;
+
+	m_v.insert(i, v);
+	return true;
 }
 
 

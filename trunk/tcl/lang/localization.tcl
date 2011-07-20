@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 64 $
-# Date   : $Date: 2011-07-01 23:42:38 +0000 (Fri, 01 Jul 2011) $
+# Version: $Revision: 87 $
+# Date   : $Date: 2011-07-20 13:26:14 +0000 (Wed, 20 Jul 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -33,6 +33,7 @@ set languages {
    { English   en    iso8859-1   english.tcl  }
    { Español  es    macRoman    espanol.tcl  }
    { Italiano  it    utf-8       italiano.tcl }
+   { Magyar    hu    utf-8       magyar.tcl }
 }
 
 } ;# namespace i18n

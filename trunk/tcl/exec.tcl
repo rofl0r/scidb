@@ -1,8 +1,8 @@
 #!/bin/sh
 #! ======================================================================
 #! $RCSfile: tk_init.h,v $
-#! $Revision: 60 $
-#! $Date: 2011-06-29 21:26:40 +0000 (Wed, 29 Jun 2011) $
+#! $Revision: 87 $
+#! $Date: 2011-07-20 13:26:14 +0000 (Wed, 20 Jul 2011) $
 #! $Author: gregor $
 #! ======================================================================
 
@@ -126,9 +126,9 @@ if {[testOption help]} {
 	puts "  --recover-old           Recover games from older sessions"
 	puts "                          (will skip games from last session)"
 	puts "  --from-the-scratch      Delete option file and recovery files at startup"
-	puts "                          ($::scidb::app will be started as it would be the first time)"
+	puts "                          (starting $::scidb::app as it would be the first time)"
 	puts "  --fast-load             Do only load the mandatory files at startup"
-	puts "  --elo-only              Do not load rating files except for ELO rating"
+	puts "  --elo-only              Do not load rating files except ELO rating"
 	puts "  --no-photos             Skip the load of the photo files"
 	puts "  --single-process        Forcing a single process of $::scidb::app"
 	puts "                          (you shouldn't use this option; only for testing)"

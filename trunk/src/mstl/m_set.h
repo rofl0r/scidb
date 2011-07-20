@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 84 $
-// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
+// Version: $Revision: 87 $
+// Date   : $Date: 2011-07-20 13:26:14 +0000 (Wed, 20 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -68,6 +68,7 @@ public:
 	void push_back(const_reference v);
 	iterator insert(const_reference v);
 	void insert(const_iterator first, const_iterator last);
+	bool insert_unique(const_reference v);
 	void erase(const_reference v);
 	iterator erase(iterator i);
 	iterator erase(iterator first, iterator last);

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 70 $
-# Date   : $Date: 2011-07-07 17:20:48 +0000 (Thu, 07 Jul 2011) $
+# Version: $Revision: 87 $
+# Date   : $Date: 2011-07-20 13:26:14 +0000 (Wed, 20 Jul 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1094,6 +1094,16 @@ proc FinishEditTag {t item column} {
 	set value [string trim [$t item element cget $item value elemText -text]]
 	$t item element configure $item name elemText -text $name
 	$t item element configure $item value elemText -text $value
+
+	foreach s [array names TagOrder] {
+		if {[string compare -nocase $s $name] == 0} {
+			if {$name ne $s} {
+				$t item element configure $item name elemText -text $s
+				set name $s
+			}
+			break
+		}
+	}
 
 	if {[string length $name]} {
 		if {	($Priv(twoRatings) && ($name eq "WhiteElo" || $name eq "BlackElo"))

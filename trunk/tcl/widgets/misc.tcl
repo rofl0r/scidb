@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 80 $
-# Date   : $Date: 2011-07-14 15:35:24 +0000 (Thu, 14 Jul 2011) $
+# Version: $Revision: 87 $
+# Date   : $Date: 2011-07-20 13:26:14 +0000 (Wed, 20 Jul 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -265,13 +265,16 @@ proc busyCursor {w {state on}} {
 	}
 
 	::scidb::tk::busy $action .application
-	if {$action eq "hold"} { ::update idletasks }
 
-#	foreach tlv [winfo children .] {
-#		if {![string match *__* $tlv] && ![string match *#* $tlv] && ![string match *_Busy* $tlv]} {
-#			::scidb::tk::busy $action $tlv
-#		}
-#	}
+	if {[tk windowingsystem] eq "x11"} {
+		foreach tlv [winfo children .application] {
+			if {$w ne $tlv && [winfo toplevel $tlv] eq $tlv} {
+				BusyCursor $action $tlv
+			}
+		}
+	}
+
+	if {$action eq "hold"} { ::update idletasks }
 }
 
 
@@ -319,6 +322,15 @@ proc menuItemHighlightSecond {menu} {
 		$menu entryconfigure $index \
 			-background [option get $menu activeBackground Menu] \
 			-foreground [option get $menu activeForeground Menu]
+	}
+}
+
+
+proc BusyCursor {action w} {
+	catch { ::scidb::tk::busy $action $w }
+
+	foreach tlv [winfo children $w] {
+		catch { BusyCursor $action $tlv }
 	}
 }
 

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 44 $
-# Date   : $Date: 2011-06-19 19:56:08 +0000 (Sun, 19 Jun 2011) $
+# Version: $Revision: 87 $
+# Date   : $Date: 2011-07-20 13:26:14 +0000 (Wed, 20 Jul 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -99,7 +99,7 @@ proc open {parent base info view index {fen {}}} {
 	$nb select $Priv(tab)
 	pack $nb
 
-	bind $dlg <Destroy> [namespace code [list Destroy $nb]]
+	bind $nb <Destroy> [namespace code [list Destroy $nb]]
 	$dlg.previous configure -command [namespace code [list NextGame $nb $base -1]]
 	$dlg.next configure -command [namespace code [list NextGame $nb $base +1]]
 
@@ -222,13 +222,13 @@ proc NextGame {nb base {step 0}} {
 	incr Vars(index) $step
 	ConfigureButtons $nb
 	set info [::scidb::db::get gameInfo $Vars(index) $Vars(view) $Vars(base)]
+	set Vars(number) [::gametable::column $info number]
 	if {$step} {
 		set key $Vars(base):$Vars(number):$Vars(view)
 		if {[incr Priv($key:count) -1] == 0} {
 			unset Priv($key)
 			unset Priv($key:count)
 		}
-		set Vars(number) [::gametable::column $info number]
 		set key $Vars(base):$Vars(number):$Vars(view)
 		set Priv($key) [winfo toplevel $nb]
 		incr Priv($key:count)
@@ -284,7 +284,7 @@ proc SetTitle {nb} {
 	variable ${nb}::Vars
 
 	set title "[tk appname] - $mc::Overview"
-	if {$Vars(index) > 0} { append title " ($Vars(name) #$Vars(number))" }
+	if {$Vars(index) >= 0} { append title " ($Vars(name) #$Vars(number))" }
 	wm title [winfo toplevel $nb] $title
 }
 

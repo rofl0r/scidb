@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 79 $
-# Date   : $Date: 2011-07-14 13:14:44 +0000 (Thu, 14 Jul 2011) $
+# Version: $Revision: 87 $
+# Date   : $Date: 2011-07-20 13:26:14 +0000 (Wed, 20 Jul 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -215,6 +215,10 @@ proc build {parent menu width height} {
 	place $hist.icon -x 0 -y 0
 	place $hist.logo -x 0 -y 0
 	bind $hist <Configure> [namespace code [list CenterIcon $hist.icon $hist.logo %w %h]]
+
+	foreach sub {{} .icon .logo} {
+		bind ${hist}${sub} <Button-3> [namespace code [list ::gamebar::popupMenu $hist]]
+	}
 
 	set Vars(hist) $hist
 	set Vars(edit) $edit
@@ -1591,7 +1595,7 @@ proc ResetGame {position tags} {
 }
 
 
-proc PopupMenu {parent position} {
+proc PopupMenu {parent position -1} {
 	variable ::annotation::mc::Nag
 	variable ::annotation::LastNag
 	variable [namespace parent]::database::clipbaseName

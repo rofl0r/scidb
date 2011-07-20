@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 84 $
-// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
+// Version: $Revision: 87 $
+// Date   : $Date: 2011-07-20 13:26:14 +0000 (Wed, 20 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -70,11 +70,6 @@ public:
 
 	SearchOpNot(SearchP const& search);
 	~SearchOpNot() throw();
-
-#if HAVE_OX_EXPLICITLY_DEFAULTED_AND_DELETED_SPECIAL_MEMBER_FUNCTIONS
-	SearchOpNot(SearchOpNot const&) = default;
-	SearchOpNot& operator=(SearchOpNot const&) = default;
-#endif
 
 #if HAVE_0X_MOVE_CONSTRCUTOR_AND_ASSIGMENT_OPERATOR
 	SearchOpNot(SearchOpNot&& search);

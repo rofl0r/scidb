@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 80 $
-# Date   : $Date: 2011-07-14 15:35:24 +0000 (Thu, 14 Jul 2011) $
+# Version: $Revision: 87 $
+# Date   : $Date: 2011-07-20 13:26:14 +0000 (Wed, 20 Jul 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1015,7 +1015,7 @@ proc PopupMenu {canv x y {index -1} {ignoreNext 0}} {
 		lappend specs separator {} {} {} {} {} {}
 
 		if {!$isClipbase && ($ext eq "sci" || $ext eq "si3" || $ext eq "si4")} {
-			variable _ReadOnly [::scidb::db::get readonly?]
+			variable _ReadOnly $readonly
 			lappend specs \
 				checkbutton \
 				$mc::ReadOnly \
