@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 66 $
-// Date   : $Date: 2011-07-02 18:14:00 +0000 (Sat, 02 Jul 2011) $
+// Version: $Revision: 89 $
+// Date   : $Date: 2011-07-28 19:12:53 +0000 (Thu, 28 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -907,6 +907,9 @@ Namebase::rename(NamebaseEntry* entry, mstl::string const& name)
 		case Round:
 		case Annotator:
 			oldPos = mstl::lower_bound(m_list.begin(), m_list.end(), entry->m_name);
+			break;
+		default:
+			oldPos = m_list.end(); // shut up the compiler
 			break;
 	}
 

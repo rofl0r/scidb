@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 87 $
-# Date   : $Date: 2011-07-20 13:26:14 +0000 (Wed, 20 Jul 2011) $
+# Version: $Revision: 89 $
+# Date   : $Date: 2011-07-28 19:12:53 +0000 (Thu, 28 Jul 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -360,6 +360,7 @@ proc replace {gamebar id tags} {
 
 	Setup $gamebar [getIndex $gamebar $id] $id $tags [MakeData $gamebar $id $tags]
 	$gamebar itemconfigure close:icon$id -image $icon::15x15::close(unlocked)
+	Update $gamebar $id
 }
 
 

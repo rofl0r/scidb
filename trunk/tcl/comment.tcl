@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 61 $
-# Date   : $Date: 2011-06-30 15:34:21 +0000 (Thu, 30 Jun 2011) $
+# Version: $Revision: 89 $
+# Date   : $Date: 2011-07-28 19:12:53 +0000 (Thu, 28 Jul 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -773,7 +773,17 @@ proc ParseContent {lang} {
 			text {
 				if {$token eq "str"} {
 					if {[incr n] == 1} {
-						if {$fst == 1} { set value [string trimleft $value] }
+						if {$n == $count} {
+							if {$lst == 1 && $fst == 1} {
+								set value [string trim $value]
+							} elseif {$fst == 1} {
+								set value [string trimleft $value]
+							} elseif {$lst == 1} {
+								set value [string trimright $value]
+							}
+						} elseif {$fst == 1} {
+							set value [string trimleft $value]
+						}
 					} elseif {$n == $count} {
 						if {$lst == 1} { set value [string trimright $value] }
 					}

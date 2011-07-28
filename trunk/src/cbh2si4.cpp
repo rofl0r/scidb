@@ -1,7 +1,7 @@
 // ======================================================================
 // $RCSfile: tk_image.cpp,v $
-// $Revision: 71 $
-// $Date: 2011-07-07 23:16:51 +0000 (Thu, 07 Jul 2011) $
+// $Revision: 89 $
+// $Date: 2011-07-28 19:12:53 +0000 (Thu, 28 Jul 2011) $
 // $Author: gregor $
 // ======================================================================
 
@@ -49,6 +49,9 @@ using namespace db;
 
 
 static unsigned rejected = 0;
+
+
+namespace tcl { namespace bits { Tcl_Interp* interp; } }
 
 
 struct TclInterpreter

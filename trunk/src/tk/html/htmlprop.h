@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 89 $
+// Date   : $Date: 2011-07-28 19:12:53 +0000 (Thu, 28 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -221,6 +221,7 @@ struct HtmlComputedValues {
     HtmlFourSides position;           /* (pixels, %, AUTO) */
 
     HtmlColor *cBackgroundColor;      /* 'background-color' */
+    char *zColor;
 
     unsigned char eTextDecoration;    /* 'text-decoration' */
 

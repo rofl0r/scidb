@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 87 $
-# Date   : $Date: 2011-07-20 13:26:14 +0000 (Wed, 20 Jul 2011) $
+# Version: $Revision: 89 $
+# Date   : $Date: 2011-07-28 19:12:53 +0000 (Thu, 28 Jul 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -488,7 +488,9 @@ proc SetTitle {position} {
 	variable ${position}::Vars
 
 	set title "[tk appname] - $mc::BrowseGame"
-	if {$Vars(index) >= 0} { append title " ($Vars(name) #$Vars(number))" }
+	if {$Vars(index) >= 0} {
+		append title " ($Vars(name) #$Vars(number))"
+	}
 	wm title [winfo toplevel $Vars(board)] $title
 }
 

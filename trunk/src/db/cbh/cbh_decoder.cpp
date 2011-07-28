@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 87 $
-// Date   : $Date: 2011-07-20 13:26:14 +0000 (Wed, 20 Jul 2011) $
+// Version: $Revision: 89 $
+// Date   : $Date: 2011-07-28 19:12:53 +0000 (Thu, 28 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -604,9 +604,11 @@ Decoder::decodeComment(MoveNode* node, unsigned length, move::Position position)
 		{
 			switch (c)
 			{
-				case '<':	str.append("&lt;", 4); break;
-				case '>':	str.append("&gt;", 4); break;
-				case '&':	str.append("&amp;", 5); break;
+				case '<':	str.append("&lt;",   4); break;
+				case '>':	str.append("&gt;",   4); break;
+				case '&':	str.append("&amp;",  5); break;
+				case '\'':	str.append("&apos;", 6); break;
+				case '"':	str.append("&quot;", 6); break;
 				default:		str += c; break;
 			}
 		}

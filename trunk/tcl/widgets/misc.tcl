@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 87 $
-# Date   : $Date: 2011-07-20 13:26:14 +0000 (Wed, 20 Jul 2011) $
+# Version: $Revision: 89 $
+# Date   : $Date: 2011-07-28 19:12:53 +0000 (Thu, 28 Jul 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -289,8 +289,12 @@ proc busyOperation {args} {
 	if {[catch {{*}$args} result options]} {
 		busyCursor off
 		array set opts $options
-		lassign $opts(-errorinfo) type file error what
-		return -code $opts(-code) -errorcode $opts(-errorcode) -rethrow 1 $result
+		return \
+			-code $opts(-code) \
+			-errorinfo $opts(-errorinfo) \
+			-errorcode $opts(-errorcode) \
+			-rethrow 1 \
+			$result
 	}
 
 	busyCursor off

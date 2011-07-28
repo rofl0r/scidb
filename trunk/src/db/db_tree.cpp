@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 84 $
-// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
+// Version: $Revision: 89 $
+// Date   : $Date: 2011-07-28 19:12:53 +0000 (Thu, 28 Jul 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -431,7 +431,7 @@ Tree::buildTree960(	unsigned myIdn,
 	M_ASSERT(myIdn != chess960::StandardIdn);
 	M_ASSERT(!myPosition.isStandardPosition());
 
-	uint8_t cline[4];
+	uint8_t cline[4] = { 0, 0, 0, 0 };
 
 	if (0 < myLine.length) cline[0] = Move::compress<0>(myLine[0]);
 	if (1 < myLine.length) cline[1] = Move::compress<1>(myLine[1]);
