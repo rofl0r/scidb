@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 74 $
-// Date   : $Date: 2011-07-08 22:19:33 +0000 (Fri, 08 Jul 2011) $
+// Version: $Revision: 91 $
+// Date   : $Date: 2011-08-02 12:59:24 +0000 (Tue, 02 Aug 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -851,8 +851,10 @@ Move::Move(Work& work, MoveNode const* move)
 					work.pushSpace();
 				else
 					work.pushSpaceOrParagraph(Spacing::Comment);
+
 				work.pop(m_list);
 				m_list.push_back(new Comment(comment, move::Post));
+
 				if (	comment.length() <= work.linebreakMinCommentLength
 					&& (work.m_displayStyle & display::CompactStyle))
 				{

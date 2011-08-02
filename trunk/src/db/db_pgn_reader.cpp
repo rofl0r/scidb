@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 69 $
-// Date   : $Date: 2011-07-05 21:45:37 +0000 (Tue, 05 Jul 2011) $
+// Version: $Revision: 91 $
+// Date   : $Date: 2011-08-02 12:59:24 +0000 (Tue, 02 Aug 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2248,8 +2248,8 @@ PgnReader::readTags()
 										case 'U': ignore = (name == "UniqID"); break;
 
 										case 'L':
-											ignore = (name == "LastMoves");
-											m_sourceIsChessOK = true;
+											if ((ignore = (name == "LastMoves")))
+												m_sourceIsChessOK = true;
 											break;
 									}
 								}

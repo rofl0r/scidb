@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 91 $
+// Date   : $Date: 2011-08-02 12:59:24 +0000 (Tue, 02 Aug 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -265,6 +265,15 @@ Engine::send(mstl::string const& message)
 {
 	log(message);
 	m_process->puts(message);
+}
+
+
+void
+Engine::send(char const* message)
+{
+	mstl::string str;
+	str.hook(const_cast<char*>(message), ::strlen(message));
+	send(str);
 }
 
 

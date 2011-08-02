@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 89 $
-// Date   : $Date: 2011-07-28 19:12:53 +0000 (Thu, 28 Jul 2011) $
+// Version: $Revision: 91 $
+// Date   : $Date: 2011-08-02 12:59:24 +0000 (Tue, 02 Aug 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2523,7 +2523,7 @@ node_attr_usage:
                 }
 
                 setNodeAttribute(pNode, "bgcolor", zColor);
-                HtmlStyleApply(pTree, pNode);
+                HtmlStyleApplyImmediately(pTree, pNode);
 
                 xcolor = pElem->pPropertyValues->cBackgroundColor->xcolor;
 					 HtmlUpdateHiliteRegion(pTree, pNode, xcolor);

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 60 $
-// Date   : $Date: 2011-06-29 21:26:40 +0000 (Wed, 29 Jun 2011) $
+// Version: $Revision: 91 $
+// Date   : $Date: 2011-08-02 12:59:24 +0000 (Tue, 02 Aug 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -215,14 +215,16 @@ winboard::Engine::doMove(Move const& move)
 
 	if (m_featureSan)
 		move.printSan(s);
+	else if (move.isNull())
+		s.append("@@@@", 4);	// alternatives: "pass", "null", "--"
 	else if (!move.isCastling())
 		move.printAlgebraic(s);
 	else if (m_mustUseChess960)
 		move.printSan(s);
 	else if (move.isShortCastling())
-		s += color::isWhite(move.color()) ? "e1g1" : "e8g8";
+		s.append(color::isWhite(move.color()) ? "e1g1" : "e8g8", 4);
 	else
-		s += color::isWhite(move.color()) ? "e1c1" : "e8c8";
+		s.append(color::isWhite(move.color()) ? "e1c1" : "e8c8", 4);
 
 	send(s);
 }

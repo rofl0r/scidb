@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 69 $
-// Date   : $Date: 2011-07-05 21:45:37 +0000 (Tue, 05 Jul 2011) $
+// Version: $Revision: 91 $
+// Date   : $Date: 2011-08-02 12:59:24 +0000 (Tue, 02 Aug 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -489,6 +489,7 @@ template <typename T> struct is_pod;
 template <> struct is_pod<db::Board> 						{ enum { value = 1 }; };
 template <> struct is_pod<db::board::Position>			{ enum { value = 1 }; };
 template <> struct is_pod<db::board::ExactPosition>	{ enum { value = 1 }; };
+template <> struct is_pod<db::board::UniquePosition>	{ enum { value = 1 }; };
 
 } // namespace mstl
 

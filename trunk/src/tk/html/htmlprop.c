@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 89 $
-// Date   : $Date: 2011-07-28 19:12:53 +0000 (Thu, 28 Jul 2011) $
+// Version: $Revision: 91 $
+// Date   : $Date: 2011-08-02 12:59:24 +0000 (Tue, 02 Aug 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2626,7 +2626,8 @@ HtmlComputedValuesRelease(pTree, pValues)
             Tcl_HashEntry *pEntry;
 
             pEntry = Tcl_FindHashEntry(&pTree->aValues, (CONST char *)pValues);
-            assert(pValues == &pTree->pPrototypeCreator->values || pEntry);
+				/* TODO: check memory usage */
+            /* assert(pValues == &pTree->pPrototypeCreator->values || pEntry); */
 
             if (pValues->zColor) {
                 HtmlFree(pValues->zColor);

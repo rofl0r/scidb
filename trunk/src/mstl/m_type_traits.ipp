@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 84 $
-// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
+// Version: $Revision: 91 $
+// Date   : $Date: 2011-08-02 12:59:24 +0000 (Tue, 02 Aug 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -131,7 +131,7 @@ template <typename T> struct is_movable					{ enum { value = is_pod<T>::value };
 
 template <typename T> struct remove_reference		{ typedef T type; };
 template <typename T> struct remove_reference<T&>	{ typedef T type; };
-#if __GNUC_PREREQ(4,3)
+#if USE_0X_STANDARD
 template <typename T> struct remove_reference<T&&>	{ typedef T type; };
 #endif
 

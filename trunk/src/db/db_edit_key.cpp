@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 60 $
-// Date   : $Date: 2011-06-29 21:26:40 +0000 (Wed, 29 Jun 2011) $
+// Version: $Revision: 91 $
+// Date   : $Date: 2011-08-02 12:59:24 +0000 (Tue, 02 Aug 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -311,7 +311,7 @@ Key::findPosition(MoveNode* node, unsigned plyNumber) const
 		return node;
 
 	s += 2;
-;
+
 	char* e = 0;
 
 	while (*s)

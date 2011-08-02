@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 91 $
+// Date   : $Date: 2011-08-02 12:59:24 +0000 (Tue, 02 Aug 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -176,6 +176,7 @@ protected:
 	void kill();
 
 	// Sends a message to the chess engine
+	void send(char const* message);
 	void send(mstl::string const& message);
 
 	void addFeature(unsigned feature);

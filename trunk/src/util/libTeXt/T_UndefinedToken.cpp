@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 84 $
-// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
+// Version: $Revision: 91 $
+// Date   : $Date: 2011-08-02 12:59:24 +0000 (Tue, 02 Aug 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -20,9 +20,8 @@
 #include "T_Environment.h"
 #include "T_Messages.h"
 
+#include "m_string.h"
 #include "m_assert.h"
-
-#include <string>
 
 
 using namespace TeXt;

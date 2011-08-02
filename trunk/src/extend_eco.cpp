@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 5 $
-// Date   : $Date: 2011-05-05 07:51:24 +0000 (Thu, 05 May 2011) $
+// Version: $Revision: 91 $
+// Date   : $Date: 2011-08-02 12:59:24 +0000 (Tue, 02 Aug 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -39,8 +39,6 @@
 #include "m_pair.h"
 #include "m_algorithm.h"
 #include "m_chunk_allocator.h"
-
-#include "guess/guess.h"
 
 #include <stdarg.h>
 #include <stdlib.h>
@@ -548,8 +546,7 @@ checkLines()
 
 	for (Map::iterator i = map.begin(); i != map.end(); ++i)
 	{
-		Eco	eco	= i->first;
-		List&	list	= i->second;
+		List& list = i->second;
 
 		for (unsigned k = 0; k < list.size(); ++k)
 		{

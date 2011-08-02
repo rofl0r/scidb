@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 71 $
-# Date   : $Date: 2011-07-07 23:16:51 +0000 (Thu, 07 Jul 2011) $
+# Version: $Revision: 91 $
+# Date   : $Date: 2011-08-02 12:59:24 +0000 (Tue, 02 Aug 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -276,13 +276,15 @@ proc shutdown {} {
 
 	if {[::dialog::messagebox::open?] eq "question"} { bell; return }
 
+	set dlg .application.shutdown
+	if {[winfo exists $dlg]} { return }
+
 	switch [::game::queryCloseApplication .application] {
 		restore	{ set backup 1 }
 		discard	{ set backup 0 }
 		cancel	{ return }
 	}
 
-	set dlg .application.shutdown
 	toplevel $dlg -class Scidb
 	wm withdraw $dlg
 	pack [tk::frame $dlg.f -border 2 -relief raised]

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 87 $
-// Date   : $Date: 2011-07-20 13:26:14 +0000 (Wed, 20 Jul 2011) $
+// Version: $Revision: 91 $
+// Date   : $Date: 2011-08-02 12:59:24 +0000 (Tue, 02 Aug 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -81,7 +81,7 @@ template <typename T> T advance(T i, size_t offset);
 template <typename T> T align(T n, size_t grain);
 template <typename T> ptrdiff_t distance(T first, T last);
 
-#if __GNUC_PREREQ(4,3)
+#if USE_0X_STANDARD
 
 template<typename T> typename mstl::remove_reference<T>::type&& move(T&& t);
 

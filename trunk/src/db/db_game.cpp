@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 69 $
-// Date   : $Date: 2011-07-05 21:45:37 +0000 (Tue, 05 Jul 2011) $
+// Version: $Revision: 91 $
+// Date   : $Date: 2011-08-02 12:59:24 +0000 (Tue, 02 Aug 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -224,7 +224,7 @@ Game::operator=(Game const& game)
 		m_linebreakThreshold				= game.m_linebreakThreshold;
 		m_linebreakMaxLineLengthMain	= game.m_linebreakMaxLineLengthMain;
 		m_linebreakMaxLineLengthVar	= game.m_linebreakMaxLineLengthVar;
-		m_linebreakMinCommentLength		= game.m_linebreakMinCommentLength;
+		m_linebreakMinCommentLength	= game.m_linebreakMinCommentLength;
 		m_displayStyle						= game.m_displayStyle;
 
 		m_line.copy(game.m_line);

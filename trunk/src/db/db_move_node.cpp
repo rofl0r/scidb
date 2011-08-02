@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 84 $
-// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
+// Version: $Revision: 91 $
+// Date   : $Date: 2011-08-02 12:59:24 +0000 (Tue, 02 Aug 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -367,8 +367,8 @@ MoveNode::swapData(MoveNode* node)
 	mstl::swap(m_flags,			node->m_flags);
 	mstl::swap(m_annotation,	node->m_annotation);
 	mstl::swap(m_marks,			node->m_marks);
-	mstl::swap(m_comment[0],		node->m_comment[0]);
-	mstl::swap(m_comment[1],		node->m_comment[1]);
+	mstl::swap(m_comment[0],	node->m_comment[0]);
+	mstl::swap(m_comment[1],	node->m_comment[1]);
 }
 
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 89 $
-// Date   : $Date: 2011-07-28 19:12:53 +0000 (Thu, 28 Jul 2011) $
+// Version: $Revision: 91 $
+// Date   : $Date: 2011-08-02 12:59:24 +0000 (Tue, 02 Aug 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -419,9 +419,7 @@ struct HtmlOptions {
     Tcl_Obj  *fonttable;
     int       forcefontmetrics;
     int       forcewidth;
-#ifdef USE_DOUBLE_BUFFERING
     int       doublebuffer;
-#endif
     Tcl_Obj  *imagecmd;
     int       imagecache;
     int       mode;                      /* One of the HTML_MODE_XXX values */
@@ -718,6 +716,7 @@ Tcl_ObjCmdProc HtmlCreateUri;
 char *HtmlPropertyToString(CssProperty *, char **);
 
 int HtmlStyleApply(HtmlTree *, HtmlNode *);
+int HtmlStyleApplyImmediately(HtmlTree *, HtmlNode *);
 
 int HtmlLayout(HtmlTree *);
 
