@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 77 $
-# Date   : $Date: 2011-07-12 14:50:32 +0000 (Tue, 12 Jul 2011) $
+# Version: $Revision: 92 $
+# Date   : $Date: 2011-08-03 09:15:49 +0000 (Wed, 03 Aug 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -224,7 +224,7 @@
 "Landstrasse Gambit Accepted"								"Angenommenes Landstrasse Gambit"
 "Lasker Simul Special"										"Laskers Simultan-Spezialität"
 "Lasker Trap"													"Lasker's Falle"
-"Last Exit Gambit"											"Letzter Ausweg-Gambit"
+"Last Exit Gambit"											"Letzte Ausfahrt-Gambit"
 "Latvian Gambit"												"Lettisches Gambit"
 "Leningrad (Matulovic) Variation"						"Leningrader Variante (Matulovic Variante)"
 "Leningrad (Russian) Variation"							"Leningrader Variante (Russische Variante)"

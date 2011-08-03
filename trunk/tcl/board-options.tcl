@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 43 $
-# Date   : $Date: 2011-06-14 21:57:41 +0000 (Tue, 14 Jun 2011) $
+# Version: $Revision: 92 $
+# Date   : $Date: 2011-08-03 09:15:49 +0000 (Wed, 03 Aug 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -600,7 +600,7 @@ proc SaveTheme {parent} {
 	if {[[namespace parent]::isWorkingSet square]} {
 		set msg [format	$mc::CannotUseSquareWorkingSet \
 								[set [namespace parent]::mc::WorkingSet]]
-		::dialog::info -parent $parent -message $msg -detail $ChooseAnotherSquareStyle
+		::dialog::info -parent $parent -message $msg -detail $mc::ChooseAnotherSquareStyle
 		return
 	}
 

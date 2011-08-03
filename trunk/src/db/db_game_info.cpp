@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 84 $
-// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
+// Version: $Revision: 92 $
+// Date   : $Date: 2011-08-03 09:15:49 +0000 (Wed, 03 Aug 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -894,10 +894,14 @@ GameInfo::setupTags(TagSet& tags) const
 		{
 			mstl::string opening, variation, subvariation;
 			EcoTable::specimen().getOpening(eco, opening, variation, subvariation);
-			tags.add(tag::Opening,			opening);
+			tags.add(tag::Opening, opening);
+
 #ifdef GAME_INFO_VAR
-			tags.add(tag::Variation,		variation);
-			tags.add(tag::SubVariation,	subvariation);
+			if (eco == Eco(m_ecoKey))
+			{
+				tags.add(tag::Variation,		variation);
+				tags.add(tag::SubVariation,	subvariation);
+			}
 #endif
 		}
 	}
