@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 92 $
-# Date   : $Date: 2011-08-03 09:15:49 +0000 (Wed, 03 Aug 2011) $
+# Version: $Revision: 93 $
+# Date   : $Date: 2011-08-03 09:16:26 +0000 (Wed, 03 Aug 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -58,7 +58,7 @@ proc Build {w args} {
 		-relief			{}
 		-imagecmd		{}
 		-nodehandler	{}
-		-doublebuffer	yes
+		-doublebuffer	no
 		-delay			0
 	}
 
