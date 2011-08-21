@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 87 $
-// Date   : $Date: 2011-07-20 13:26:14 +0000 (Wed, 20 Jul 2011) $
+// Version: $Revision: 94 $
+// Date   : $Date: 2011-08-21 16:47:29 +0000 (Sun, 21 Aug 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -475,6 +475,13 @@ Codec::~Codec() throw()
 
 	for (unsigned i = 0; i < m_teamBase.size(); ++i)
 		delete m_teamBase[i];
+}
+
+
+bool
+Codec::isWriteable() const override
+{
+	return false;
 }
 
 
@@ -2054,6 +2061,34 @@ Codec::findExactPositionAsync(GameInfo const& info, Board const& position, bool 
 
 	Decoder decoder(gStrm, aStrm, *m_codec, isChess960);
 	return decoder.findExactPosition(position, skipVariations);
+}
+
+
+int
+Codec::getNumberOfGames(mstl::string const& filename)
+{
+	mstl::fstream strm(filename, mstl::ios_base::in | mstl::ios_base::binary);
+
+	Byte record[46];
+
+	if (!strm.read(record, sizeof(record)))
+		return -1;
+
+	if (	record[0] != 0
+		|| record[1] != 0
+		|| (	record[2] != 0x2c	// CB 9/10/11
+			&& record[2] != 0x24)// CB Light
+		|| record[3] != 0
+		|| record[4] != 0x2e
+		|| record[5] != 0x01)
+	{
+		return -1;
+	}
+
+	ByteStream bstrm(record, sizeof(record));
+
+	bstrm.skip(6);
+	return bstrm.uint32() - 1;
 }
 
 // vi:set ts=3 sw=3:

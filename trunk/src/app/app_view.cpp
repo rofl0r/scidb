@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 52 $
-// Date   : $Date: 2011-06-21 12:24:24 +0000 (Tue, 21 Jun 2011) $
+// Version: $Revision: 94 $
+// Date   : $Date: 2011-08-21 16:47:29 +0000 (Sun, 21 Aug 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -512,7 +512,7 @@ View::exportGames(mstl::string const& filename,
 		destination.setDescription(description);
 		destination.setType(type);
 
-		if (m_db.format() == format::Scidb)
+		if (m_db.format() == format::Scidb && fmode != Upgrade)
 		{
 			count = exportGames(destination, gameMode, log, progress);
 		}

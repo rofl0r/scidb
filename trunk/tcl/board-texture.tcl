@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1 $
-# Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+# Version: $Revision: 94 $
+# Date   : $Date: 2011-08-21 16:47:29 +0000 (Sun, 21 Aug 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -185,7 +185,7 @@ proc makePopup {} {
 	toplevel $w -class Scidb -relief raised -borderwidth 2
 	wm withdraw $w
 	wm overrideredirect $w 1
-	canvas $w.texture
+	tk::canvas $w.texture
 	pack $w.texture
 	$w.texture create image 0 0 -anchor nw -tag img
 	$w.texture create rectangle 0 0 1 1 -tags {view dark} -state hidden -width 1 -outline black
@@ -447,7 +447,7 @@ proc buildBrowser {w recv which nrows ncols currentTexture {otherTexture {}}} {
 	set height [expr {$Browser(nrows)*$Browser(incr) + 1}]
 	set provideSwitch [expr {[llength $Browser(other)] && [info exists preferences($Browser(other))]}]
 
-	canvas $w.container \
+	tk::canvas $w.container \
 		-borderwidth 2 \
 		-relief groove \
 		-takefocus 1 \

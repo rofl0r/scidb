@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 36 $
-// Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
+// Version: $Revision: 94 $
+// Date   : $Date: 2011-08-21 16:47:29 +0000 (Sun, 21 Aug 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -32,6 +32,7 @@ namespace db {
 
 inline bool Database::isOpen() const							{ return m_codec; }
 inline bool Database::isReadOnly() const						{ return m_readOnly; }
+inline bool Database::isWriteable() const						{ return codec().isWriteable(); }
 inline bool Database::isMemoryOnly() const					{ return m_memoryOnly; }
 inline bool Database::encodingIsBroken() const				{ return !m_encodingOk; }
 inline bool Database::encodingFailed() const					{ return m_encodingFailed; }
@@ -120,6 +121,8 @@ void
 Database::setReadOnly(bool flag)
 {
 	M_REQUIRE(isOpen());
+	M_REQUIRE(flag || codec().isWriteable());
+
 	m_readOnly = flag;
 }
 

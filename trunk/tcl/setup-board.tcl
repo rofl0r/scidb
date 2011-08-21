@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 43 $
-# Date   : $Date: 2011-06-14 21:57:41 +0000 (Tue, 14 Jun 2011) $
+# Version: $Revision: 94 $
+# Date   : $Date: 2011-08-21 16:47:29 +0000 (Sun, 21 Aug 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -394,7 +394,7 @@ proc open {parent} {
 	if {[info exists Vars(BoardSize)]} { ::board::unregisterSize $Vars(BoardSize) }
 	set Vars(BoardSize) $squareSize
 	set size [expr {$squareSize*8 + 2*$BorderThickness + $edge}]
-	set canv [canvas $top.board -width $size -height $size -takefocus 0]
+	set canv [tk::canvas $top.board -width $size -height $size -takefocus 0]
 	::theme::configureCanvas $canv
 	set board [::board::stuff::new $canv.board $squareSize $BorderThickness]
 	::board::stuff::update $board $Vars(pos)

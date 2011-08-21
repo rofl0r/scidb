@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1 $
-# Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+# Version: $Revision: 94 $
+# Date   : $Date: 2011-08-21 16:47:29 +0000 (Sun, 21 Aug 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -62,13 +62,13 @@ proc MakeFrame {container} {
 	set width 225
 	set height 195
 	
-	set cchoose1	[canvas $container.hs \
+	set cchoose1	[tk::canvas $container.hs \
 							-width $width \
 							-height $height \
 							-borderwidth 2 \
 							-relief sunken \
 							-highlightthickness 1]
-	set cchoose2	[canvas $container.v \
+	set cchoose2	[tk::canvas $container.v \
 							-width $width \
 							-height 15 \
 							-borderwidth 2 \

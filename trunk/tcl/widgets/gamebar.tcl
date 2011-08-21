@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 89 $
-# Date   : $Date: 2011-07-28 19:12:53 +0000 (Thu, 28 Jul 2011) $
+# Version: $Revision: 94 $
+# Date   : $Date: 2011-08-21 16:47:29 +0000 (Sun, 21 Aug 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -73,7 +73,7 @@ proc gamebar {path} {
 
 	set font TkTextFont
 	set bold [list [font configure $font -family] [font configure $font -size] bold]
-	set gamebar [canvas $path -borderwidth 0]
+	set gamebar [tk::canvas $path -borderwidth 0]
 
 	$gamebar bind header <ButtonPress-3> [namespace code [list PopupMenu $gamebar]]
 
@@ -169,7 +169,8 @@ proc insert {gamebar at id tags} {
 		-outline {} \
 		-state hidden \
 		;
-	$gamebar create text 0 0 -anchor nw \
+	$gamebar create text 0 0 \
+		-anchor nw \
 		-justify left \
 		-font $Specs(font:$gamebar) \
 		-tags [list hyphen$id all$id] \

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 43 $
-# Date   : $Date: 2011-06-14 21:57:41 +0000 (Tue, 14 Jun 2011) $
+# Version: $Revision: 94 $
+# Date   : $Date: 2011-08-21 16:47:29 +0000 (Sun, 21 Aug 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -256,7 +256,7 @@ proc popup {parent args} {
 						-borderwidth 0 \
 						-width 22 \
 						-height 22]
-			set b [canvas $f.b -relief solid -borderwidth 1 -width 16 -height 16]
+			set b [tk::canvas $f.b -relief solid -borderwidth 1 -width 16 -height 16]
 			set tooltip [lindex $texture 1]
 			set texture [lindex $texture 0]
 			if {[llength $texture]} { $b create image 1 1 -image $texture -anchor nw }

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 80 $
-# Date   : $Date: 2011-07-14 15:35:24 +0000 (Thu, 14 Jul 2011) $
+# Version: $Revision: 94 $
+# Date   : $Date: 2011-08-21 16:47:29 +0000 (Sun, 21 Aug 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -60,7 +60,7 @@ proc build {parent} {
 	variable Tables
 	variable Find
 
-	set top [panedwindow $parent.top \
+	set top [tk::panedwindow $parent.top \
 		-orient horizontal \
 		-opaqueresize true \
 		-borderwidth 0]

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 87 $
-// Date   : $Date: 2011-07-20 13:26:14 +0000 (Wed, 20 Jul 2011) $
+// Version: $Revision: 94 $
+// Date   : $Date: 2011-08-21 16:47:29 +0000 (Sun, 21 Aug 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -82,6 +82,8 @@ public:
 
 	/// Returns whether the database is read-only or not.
 	bool isReadOnly() const;
+	/// Returns whether the database is petentially writeable or not.
+	bool isWriteable() const;
 	/// Returns whether the database is memory-only or not.
 	bool isMemoryOnly() const;
 	/// Returns whether the database is open.

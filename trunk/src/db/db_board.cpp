@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 84 $
-// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
+// Version: $Revision: 94 $
+// Date   : $Date: 2011-08-21 16:47:29 +0000 (Sun, 21 Aug 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -25,7 +25,7 @@
 // ======================================================================
 
 // ======================================================================
-// The implementation is losely based on chessx/src/database/bitboard.cpp
+// The implementation is loosely based on chessx/src/database/bitboard.cpp
 //   (C) 2003 Sune Fischer
 //   (C) 2005-2006 Marius Roets <roets.marius@gmail.com>
 //   (C) 2005-2009 Michal Rudolf <mrudolf@kdewebdev.org>

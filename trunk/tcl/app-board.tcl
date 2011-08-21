@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 77 $
-# Date   : $Date: 2011-07-12 14:50:32 +0000 (Tue, 12 Jul 2011) $
+# Version: $Revision: 94 $
+# Date   : $Date: 2011-08-21 16:47:29 +0000 (Sun, 21 Aug 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -62,10 +62,10 @@ proc build {w menu width height} {
 
 	Preload $width $height
 
-	set canv [canvas $w.c -width $width -height $height -takefocus 1]
+	set canv [tk::canvas $w.c -width $width -height $height -takefocus 1]
 	pack $canv -fill both -expand yes
 	SetBackground $canv window $width $height
-	set border [canvas $canv.border -takefocus 0]
+	set border [tk::canvas $canv.border -takefocus 0]
 	$border xview moveto 0
 	$border yview moveto 0
 	set board [::board::stuff::new $border.board $Dim(squaresize) $Dim(edgethickness)]

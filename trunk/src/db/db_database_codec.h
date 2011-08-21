@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 69 $
-// Date   : $Date: 2011-07-05 21:45:37 +0000 (Tue, 05 Jul 2011) $
+// Version: $Revision: 94 $
+// Date   : $Date: 2011-08-21 16:47:29 +0000 (Sun, 21 Aug 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -98,6 +98,7 @@ public:
 	virtual ~DatabaseCodec() throw();
 
 	bool isOpen() const;
+	virtual bool isWriteable() const = 0;
 	virtual bool encodingFailed() const = 0;
 
 	virtual Format format() const = 0;
@@ -172,8 +173,10 @@ public:
 	GameInfo* allocGameInfo();
 
 	static bool hasCodecFor(mstl::string const& suffix);
-	static DatabaseCodec* makeCodec(mstl::string const& suffix);
+	static DatabaseCodec* makeCodec(mstl::string const& name);
 	static DatabaseCodec* makeCodec();
+
+	static int getNumberOfGames(mstl::string const& filename);
 
 protected:
 

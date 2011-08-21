@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 92 $
-# Date   : $Date: 2011-08-03 09:15:49 +0000 (Wed, 03 Aug 2011) $
+# Version: $Revision: 94 $
+# Date   : $Date: 2011-08-21 16:47:29 +0000 (Sun, 21 Aug 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -191,7 +191,7 @@ proc init {path base} {
 
 proc forget {path base} {
 	::scrolledtable::forget $path $base
-	unset [namespace current]::${path}::Vars($base:index)
+	unset -nocomplain [namespace current]::${path}::Vars($base:index)
 }
 
 

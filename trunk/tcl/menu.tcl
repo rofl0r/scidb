@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 89 $
-# Date   : $Date: 2011-07-28 19:12:53 +0000 (Thu, 28 Jul 2011) $
+# Version: $Revision: 94 $
+# Date   : $Date: 2011-08-21 16:47:29 +0000 (Sun, 21 Aug 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -100,8 +100,10 @@ set BugTracker					"http://sourceforge.net/tracker/?group_id=307371&atid=1294797
 set FeatureRequestTracker	"http://sourceforge.net/tracker/?group_id=307371&atid=1294800"
 
 variable Fullscreen		0
+variable HideMenu			0
 variable Theme				default
 variable Entries
+variable MenuWidget
 
 
 # TODO: create menu after Post event
@@ -175,6 +177,7 @@ proc CreateViewMenu {menu} {
 
 proc setup {} {
 	variable Menu
+	variable MenuWidget
 	variable Entries
 
 	lappend Menu \
@@ -219,6 +222,7 @@ proc setup {} {
 
 	set m [menu .application.menu]
 	.application configure -menu $m
+	set MenuWidget $m
 
 	set count 0
 	foreach {menuName cascade} $Menu {
@@ -513,6 +517,27 @@ proc viewFullscreen {{toggle {}}} {
 
 	if {[llength $toggle]} { set Fullscreen [expr {!$Fullscreen}] }
 	wm attributes .application -fullscreen $Fullscreen
+}
+
+
+# NOTE: currently unused
+proc hideMenu {{toggle {}}} {
+	variable MenuWidget
+	variable HideMenu
+
+	if {[llength $toggle]} { set HideMenu [expr {!$HideMenu}] }
+	set geom [winfo geometry .application]
+
+	if {$HideMenu} {
+		.application configure -menu {}
+	} else {
+		.application configure -menu $MenuWidget
+	}
+
+	wm geometry .application $geom
+	update
+
+	# TODO: configure .application in a way that opening menues will still work
 }
 
 } ;# namespace menu

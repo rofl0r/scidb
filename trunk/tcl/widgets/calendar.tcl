@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 43 $
-# Date   : $Date: 2011-06-14 21:57:41 +0000 (Tue, 14 Jun 2011) $
+# Version: $Revision: 94 $
+# Date   : $Date: 2011-08-21 16:47:29 +0000 (Sun, 21 Aug 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -248,7 +248,8 @@ proc popup {parent args} {
 			-repeatinterval $options(repeat:interval) \
 			-background $Priv(background) \
 			;
-		bind $top.calendar.header.$which <ButtonRelease-1> { after idle { ::tk::ButtonEnter %W } }
+		bind $top.calendar.header.$which <ButtonRelease-1> \
+			[list after idle [namespace code { ButtonEnter %W }]]
 	}
 
 	tooltip $top.calendar.header.left.year		[namespace current]::mc::OneYearBackward
@@ -661,6 +662,12 @@ proc Exit {} {
 proc Unpost {menu x y} {
     set w [winfo containing $x $y]
 	 if {![string match $menu.* $w]} { Exit }
+}
+
+
+proc ButtonEnter {w} {
+	set ptrw [winfo containing {*}[winfo pointerxy .]]
+	if {$ptrw eq $w} { ::tk::ButtonEnter $w }
 }
 
 

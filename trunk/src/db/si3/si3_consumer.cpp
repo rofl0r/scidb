@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 61 $
-// Date   : $Date: 2011-06-30 15:34:21 +0000 (Thu, 30 Jun 2011) $
+// Version: $Revision: 94 $
+// Date   : $Date: 2011-08-21 16:47:29 +0000 (Sun, 21 Aug 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -194,13 +194,25 @@ Consumer::sendComment(Comment const& comment,
 
 	if (!marks.isEmpty())
 	{
-		pushComment(comment);
-		mstl::string& text = m_comments.back();
+		if (comment.isEmpty())
+		{
+			mstl::string text;
+			marks.toString(text);
+			m_comments.push_back(text);
+		}
+		else
+		{
+			pushComment(comment);
 
-		if (!text.empty())
-			text += ' ';
-		marks.toString(text);
+			mstl::string& text = m_comments.back();
+
+			if (!text.empty())
+				text += ' ';
+			marks.toString(text);
+		}
+
 		m_appendComment = true;
+		m_strm.put(token::Comment);
 	}
 	else if (!comment.isEmpty())
 	{

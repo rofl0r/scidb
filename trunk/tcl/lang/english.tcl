@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 87 $
-# Date   : $Date: 2011-07-20 13:26:14 +0000 (Wed, 20 Jul 2011) $
+# Version: $Revision: 94 $
+# Date   : $Date: 2011-08-21 16:47:29 +0000 (Sun, 21 Aug 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -232,6 +232,7 @@
 ::application::database::mc::None						"none"
 ::application::database::mc::Failed						"failed"
 ::application::database::mc::LoadMessage				"Opening Database %s"
+::application::database::mc::UpgradeMessage			"Upgrading Database %s"
 ::application::database::mc::CannotOpenFile			"Cannot open file '%s'."
 ::application::database::mc::EncodingFailed			"Encoding %s failed."
 ::application::database::mc::DatabaseAlreadyOpen	"Database '%s' is already open."
@@ -303,6 +304,9 @@
 
 ::application::database::mc::OpenReadonly				"Open readonly"
 ::application::database::mc::OpenWriteable			"Open writeable"
+
+::application::database::mc::UpgradeDatabase			"%s is an old format database that cannot be opened writeable.\n\nUpgrading will create a new version of the database and after that remove the original files.\n\nThis may take a while, but it only needs to be done one time.\n\nDo you want to upgrade this database now?"
+::application::database::mc::UpgradeDatabaseDetail	"\"No\" will open the database readonly, and you cannot set it writeable."
 
 ### application::database::games #######################################
 ::application::database::games::mc::Control						"Control"
@@ -1308,6 +1312,7 @@
 ::dialog::mc::Retry			"&Retry"
 ::dialog::mc::Abort			"&Abort"
 ::dialog::mc::Ignore			"&Ignore"
+::dialog::mc::Continue		"Con&tinue"
 
 ::dialog::mc::Error			"Error"
 ::dialog::mc::Warning		"Warning"

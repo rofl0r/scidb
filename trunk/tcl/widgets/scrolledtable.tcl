@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 69 $
-# Date   : $Date: 2011-07-05 21:45:37 +0000 (Tue, 05 Jul 2011) $
+# Version: $Revision: 94 $
+# Date   : $Date: 2011-08-21 16:47:29 +0000 (Sun, 21 Aug 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -87,7 +87,7 @@ proc build {path columns args} {
 	::bind $tb <Destroy> [namespace code [list TableOptions $tb]]
 	
 	if {$opts(-useScale)} {
-		tk::scale $sc                                        \
+		tk::scale $sc                                    \
 			-orient horizontal                            \
 			-from 0                                       \
 			-showvalue 0                                  \

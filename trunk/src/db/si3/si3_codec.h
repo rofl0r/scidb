@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 84 $
-// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
+// Version: $Revision: 94 $
+// Date   : $Date: 2011-08-21 16:47:29 +0000 (Sun, 21 Aug 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -68,6 +68,7 @@ public:
 	Codec(CustomFlags* customFlags = 0);
 	~Codec() throw();
 
+	bool isWriteable() const override;
 	bool encodingFailed() const override;
 	bool isFormat3() const override;
 	bool isFormat4() const override;
@@ -133,6 +134,8 @@ public:
 	Move findExactPositionAsync(	GameInfo const& info,
 											Board const& position,
 											bool skipVariations) override;
+
+	static int getNumberOfGames(mstl::string const& filename);
 
 private:
 

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 87 $
-# Date   : $Date: 2011-07-20 13:26:14 +0000 (Wed, 20 Jul 2011) $
+# Version: $Revision: 94 $
+# Date   : $Date: 2011-08-21 16:47:29 +0000 (Sun, 21 Aug 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -219,12 +219,13 @@ proc NextGame {nb base {step 0}} {
 	variable Priv
 
 	if {$Vars(index) == -1} { return }
+	set number $Vars(number)
 	incr Vars(index) $step
 	ConfigureButtons $nb
 	set info [::scidb::db::get gameInfo $Vars(index) $Vars(view) $Vars(base)]
 	set Vars(number) [::gametable::column $info number]
 	if {$step} {
-		set key $Vars(base):$Vars(number):$Vars(view)
+		set key $Vars(base):$number:$Vars(view)
 		if {[incr Priv($key:count) -1] == 0} {
 			unset Priv($key)
 			unset Priv($key:count)
