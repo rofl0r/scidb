@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 43 $
-# Date   : $Date: 2011-06-14 21:57:41 +0000 (Tue, 14 Jun 2011) $
+# Version: $Revision: 96 $
+# Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -83,10 +83,10 @@ proc build {parent} {
 	set Vars(after)		{}
 	set Vars(resizing)	0
 
-	bind $tb <<TableMinSize>>	[namespace code [list TableMinSize $tb %d]]
-	bind $tb <<TableLayout>>	[namespace code [list TableLayout $tb]]
-	bind $tb <<TableResized>>	[namespace code [list TableResized $tb %d]]
-	bind $tb <<Language>>		[namespace code [list ::scrolledtable::refresh $tb]]
+	bind $tb <<TableMinSize>>		[namespace code [list TableMinSize $tb %d]]
+	bind $tb <<TableLayout>>		[namespace code [list TableLayout $tb]]
+	bind $tb <<TableResized>>		[namespace code [list TableResized $tb %d]]
+	bind $tb <<LanguageChanged>>	[namespace code [list ::scrolledtable::refresh $tb]]
 
 	set tbGameNo [::toolbar::toolbar $parent \
 		-id gameno \

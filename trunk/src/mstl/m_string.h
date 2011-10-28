@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 84 $
-// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
+// Version: $Revision: 96 $
+// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -95,6 +95,7 @@ public:
 
 	bool empty() const;
 	bool readonly() const;
+	bool writeable() const;
 
 	size_type size() const;
 	size_type capacity() const;
@@ -171,7 +172,7 @@ public:
 	string substr(size_type pos = 0, size_type len = npos) const;
 	string substr(const_iterator first, const_iterator last) const;
 
-	int format(const_pointer fmt, ...);
+	int format(const_pointer fmt, ...) __attribute__((__format__(__printf__, 2, 3)));
 	int vformat(const_pointer fmt, va_list args);
 
 	void trim();

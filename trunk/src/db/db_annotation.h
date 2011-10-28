@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 36 $
-// Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
+// Version: $Revision: 96 $
+// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -28,6 +28,8 @@
 #define _db_annotation_included
 
 #include "db_common.h"
+
+#include "u_crc.h"
 
 namespace mstl { class string; }
 
@@ -59,6 +61,7 @@ public:
 	unsigned count() const;
 
 	uint8_t const* data() const;
+	::util::crc::checksum_t computeChecksum(util::crc::checksum_t crc) const;
 
 	bool add(nag::ID nag);
 	bool add(char const* str);

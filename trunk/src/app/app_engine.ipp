@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 96 $
+// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -23,6 +23,9 @@ namespace app {
 inline bool Engine::Concrete::isActive() const					{ return m_engine->isActive(); }
 inline bool Engine::Concrete::isAnalyzing() const				{ return m_engine->isAnalyzing(); }
 inline bool Engine::Concrete::isProbing() const					{ return m_engine->isProbing(); }
+
+inline bool Engine::startAnalysis(db::Board const& board)	{ return m_engine->startAnalysis(board); }
+inline bool Engine::stopAnalysis()									{ return m_engine->stopAnalysis(); }
 
 inline unsigned Engine::Concrete::numVariations() const		{ return m_engine->numVariations(); }
 inline unsigned Engine::Concrete::searchMate() const			{ return m_engine->searchMate(); }
@@ -46,6 +49,14 @@ inline void Engine::Concrete::resetInfo()									{ m_engine->resetInfo(); }
 
 inline void Engine::Concrete::log(mstl::string const& msg)			{ m_engine->log(msg); }
 inline void Engine::Concrete::error(mstl::string const& msg)		{ m_engine->error(msg); }
+
+
+inline
+void
+Engine::doMove(db::Game const& game, db::Move const& lastMove)
+{
+	m_engine->doMove(game, lastMove);
+}
 
 
 inline

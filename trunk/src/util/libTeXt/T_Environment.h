@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 96 $
+// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -58,11 +58,35 @@ public:
 	typedef ActiveToken::Func ActivateFunc;
 	typedef bool (*VerifyFunc)(Environment&, TokenP const&);
 
+	class Impl;
+
 	struct Input
 	{
 		virtual ~Input() = 0;
 
 		virtual mstl::string getInput() = 0;
+	};
+
+
+	class TokenProducer : public Producer
+	{
+	public:
+
+		TokenProducer(Impl& impl, Tokenizer& tokenizer);
+
+		Source source() const override;
+
+		TokenP next(Environment& env) override;
+
+		mstl::string currentDescription() const override;
+
+		unsigned lineno() const override;
+
+	private:
+
+		Impl&				m_impl;
+		Tokenizer&		m_tokenizer;
+		mstl::string	m_name;
 	};
 
 	Environment(mstl::string const& searchDirs, ErrorMode errorMode, Input* input = 0);
@@ -155,7 +179,6 @@ public:
 
 private:
 
-	class Impl;
 	typedef mstl::scoped_ptr<Impl> ImplP;
 
 	class MyProducer;

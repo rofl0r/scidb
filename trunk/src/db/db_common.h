@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 56 $
-// Date   : $Date: 2011-06-28 14:04:22 +0000 (Tue, 28 Jun 2011) $
+// Version: $Revision: 96 $
+// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1044,6 +1044,17 @@ namespace save
 	};
 }
 
+
+namespace load
+{
+	enum State
+	{
+		Ok,
+		Failed,
+		Corrupted,
+	};
+};
+
 namespace display
 {
 	enum
@@ -1052,6 +1063,7 @@ namespace display
 		ColumnStyle			= 1 << 1,
 		ParagraphSpacing	= 1 << 2,
 		ShowDiagrams		= 1 << 3,
+		ShowMoveInfo		= 1 << 4,
 	};
 };
 

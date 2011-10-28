@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 66 $
-// Date   : $Date: 2011-07-02 18:14:00 +0000 (Sat, 02 Jul 2011) $
+// Version: $Revision: 96 $
+// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -109,15 +109,15 @@ public:
 	Entry const* append(mstl::string const& name, unsigned id);
 
 	SiteEntry* insertSite(mstl::string const& name);
-	SiteEntry* insertSite(	mstl::string const& name,
-									unsigned id,
-									country::Code country,
-									unsigned limit);
 	SiteEntry* insertSite(mstl::string const& name, country::Code country, unsigned limit);
+	SiteEntry* insertSite(mstl::string const& name, unsigned id, country::Code country, unsigned limit);
 	SiteEntry* appendSite(mstl::string const& name, unsigned id);
 	SiteEntry* appendSite(mstl::string const& name, unsigned id, country::Code country);
 
 	EventEntry* insertEvent(	mstl::string const& name,
+										NamebaseSite* site);
+	EventEntry* insertEvent(	mstl::string const& name,
+										unsigned limit,
 										NamebaseSite* site);
 	EventEntry* insertEvent(	mstl::string const& name,
 										unsigned id,
@@ -161,7 +161,7 @@ public:
 											NamebaseSite* site);
 
 	PlayerEntry* insertPlayer(	mstl::string const& name);
-	PlayerEntry* insertPlayer(	mstl::string const& name, uint32_t fideID, unsigned id, unsigned limit);
+	PlayerEntry* insertPlayer(	mstl::string const& name, uint32_t fideID, unsigned limit);
 	PlayerEntry* insertPlayer(	mstl::string const& name,
 										country::Code country,
 										title::ID title,

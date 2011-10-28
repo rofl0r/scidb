@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 95 $
-// Date   : $Date: 2011-08-21 17:27:40 +0000 (Sun, 21 Aug 2011) $
+// Version: $Revision: 96 $
+// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -30,11 +30,15 @@
 #include "db_date.h"
 #include "db_clock.h"
 
+#include "u_crc.h"
+
 #include "m_string.h"
 
 namespace util { class ByteStream; }
 
 namespace db {
+
+class EngineList;
 
 class MoveInfo
 {
@@ -43,18 +47,26 @@ public:
 	enum Type
 	{
 		None,
+		Evaluation,
 		PlayersClock,
 		ElapsedGameTime,
 		ElapsedMoveTime,
 		MechanicalClockTime,
 		DigitalClockTime,
 		CorrespondenceChessSent,
-		AnalysisInformation,
 	};
+
+	enum Format
+	{
+		Pgn,
+		Text,
+	};
+
+	MoveInfo();
 
 	bool isEmpty() const;
 	bool hasTimeInfo() const;
-	bool hasAnalysisInfo() const;
+	bool hasEvaluationInfo() const;
 
 	Type content() const;
 
@@ -67,10 +79,29 @@ public:
 	unsigned centipawns() const;
 	float value() const;
 
-	uint8_t decode(util::ByteStream& strm);
-	void encode(util::ByteStream& strm, uint8_t skip) const;
+	::util::crc::checksum_t computeChecksum(EngineList const& engines, util::crc::checksum_t crc) const;
+	int compare(MoveInfo const& info) const;
+
+	void setAnalysisEngine(unsigned engine);
+	void setClockEngine(unsigned engine);
+
+	void print(EngineList const& engines, mstl::string& result, Format format = Pgn) const;
+	void clear();
+
+	void decode(util::ByteStream& strm);
+	void encode(util::ByteStream& strm) const;
+
+	char const* parseCorrespondenceChessSent(char const* s);
+	char const* parsePlayersClock(char const* s);
+	char const* parseDigitalClockTime(char const* s);
+	char const* parseMechanicalClockTime(char const* s);
+	char const* parseElapsedGameTime(char const* s);
+	char const* parseElapsedMoveTime(char const* s);
+	char const* parseEvaluation(char const* s);
 
 private:
+
+	char const* parseTime(Type type, char const* s);
 
 	struct TimeInfo
 	{
@@ -82,16 +113,18 @@ private:
 	{
 		AnalysisInfo();
 
-		uint8_t m_engine;
 		uint8_t m_depth;
+		uint8_t m_sign;
 		uint8_t m_pawns;
 		uint8_t m_centipawns;
 	};
 
-	Type m_content;
+	Type		m_content;
+	uint8_t	m_engine;
 
 #if HAVE_0X_UNRESTRICTED_UNIONS
-	union {
+	union
+	{
 #endif
 
 		TimeInfo			m_time;

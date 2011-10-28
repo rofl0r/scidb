@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 20 $
-// Date   : $Date: 2011-05-15 12:32:40 +0000 (Sun, 15 May 2011) $
+// Version: $Revision: 96 $
+// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -144,7 +144,7 @@ cmdGuess(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 	Square square = squareFromObj(objc, objv, 1);
 
 	if (square == sq::Null)
-		return error(::CmdGuess, 0, 0, "invalid square %s", Tcl_GetString(objv[1]));
+		return error(::CmdGuess, nullptr, nullptr, "invalid square %s", Tcl_GetString(objv[1]));
 
 	Board const& currentBoard = Scidb.game().currentBoard();
 
@@ -324,9 +324,9 @@ cmdSan(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 	if (sq1 == sq::Null && sq2 == sq::Null)
 		move = Scidb.game().currentBoard().makeNullMove();
 	else if (sq1 == sq::Null)
-		return error(::CmdSan, 0, 0, "invalid square %s", Tcl_GetString(objv[1]));
+		return error(::CmdSan, nullptr, nullptr, "invalid square %s", Tcl_GetString(objv[1]));
 	else if (sq2 == sq::Null)
-		return error(::CmdSan, 0, 0, "invalid square %s", Tcl_GetString(objv[2]));
+		return error(::CmdSan, nullptr, nullptr, "invalid square %s", Tcl_GetString(objv[2]));
 	else
 		move = Scidb.game().currentBoard().prepareMove(sq1, sq2);
 
@@ -350,7 +350,12 @@ cmdSan(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 		if (move.isPromotion())
 		{
 			if (objc >= 4 && !piece::canPromoteTo(piece::Type(promo)))
-				return error(::CmdSan, 0, 0, "invalid promotion piece %s", Tcl_GetString(objv[3]));
+			{
+				return error(	::CmdSan,
+									nullptr, nullptr,
+									"invalid promotion piece %s",
+									Tcl_GetString(objv[3]));
+			}
 
 			move.setPromotionPiece(piece::Type(promo));
 		}

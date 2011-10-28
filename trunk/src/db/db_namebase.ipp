@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 66 $
-// Date   : $Date: 2011-07-02 18:14:00 +0000 (Sat, 02 Jul 2011) $
+// Version: $Revision: 96 $
+// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -354,6 +354,16 @@ Namebase::insertEvent(	mstl::string const& name,
 
 
 inline
+Namebase::EventEntry*
+Namebase::insertEvent(	mstl::string const& name,
+								unsigned limit,
+								NamebaseSite* site)
+{
+	return insertEvent(name, InvalidId, limit, site);
+}
+
+
+inline
 Namebase::EventEntry const*
 Namebase::appendEvent(	mstl::string const& name,
 								unsigned id,
@@ -408,10 +418,10 @@ Namebase::insertPlayer(	mstl::string const& name,
 
 inline
 Namebase::PlayerEntry*
-Namebase::insertPlayer(mstl::string const& name, uint32_t fideID, unsigned id, unsigned limit)
+Namebase::insertPlayer(mstl::string const& name, uint32_t fideID, unsigned limit)
 {
 	return insertPlayer(	name,
-								id,
+								InvalidId,
 								country::Unknown,
 								title::None,
 								species::Unspecified,
@@ -419,6 +429,21 @@ Namebase::insertPlayer(mstl::string const& name, uint32_t fideID, unsigned id, u
 								fideID,
 								limit);
 }
+
+
+//inline
+//Namebase::PlayerEntry*
+//Namebase::insertPlayer(mstl::string const& name, uint32_t fideID, unsigned id, unsigned limit)
+//{
+//	return insertPlayer(	name,
+//								id,
+//								country::Unknown,
+//								title::None,
+//								species::Unspecified,
+//								sex::Unspecified,
+//								fideID,
+//								limit);
+//}
 
 
 inline

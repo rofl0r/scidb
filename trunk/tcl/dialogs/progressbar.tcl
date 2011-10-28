@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 94 $
-# Date   : $Date: 2011-08-21 16:47:29 +0000 (Sun, 21 Aug 2011) $
+# Version: $Revision: 96 $
+# Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -85,6 +85,7 @@ proc open {args} {
 		wm group $w [winfo toplevel $parent]
 	}
 	wm attributes $w -topmost $opts(-topmost)
+	catch { wm attributes $dlg -type dialog }
 	
 	tk::label $w.l \
 		-image $HourGlass \
@@ -131,7 +132,8 @@ proc open {args} {
 	}
 	wm geometry $w ${x}${y}
 	wm deiconify $w
-	tkwait visibility $w
+	# prevent error 'window ".progress" was deleted before its visibility changed'
+	catch { tkwait visibility $w }
 	if {[llength $opts(-command)]} { busyCursor $w on }
 	if {[llength $opts(-command)] == 0} { return }
 	after idle [namespace code [list Start $w $opts(-command) $opts(-close)]]

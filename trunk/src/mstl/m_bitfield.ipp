@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 84 $
-// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
+// Version: $Revision: 96 $
+// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -141,6 +141,14 @@ bitfield<Bits>::bitfield()
 {
 	static_assert(numeric_limits<Bits>::is_integer, "template parameter is not integer");
 	static_assert(numeric_limits<Bits>::is_unsigned, "template parameter is not unsigned integer");
+}
+
+
+template <class Bits>
+inline
+bitfield<Bits>::bitfield(bool flag)
+	:m_bits(flag ? ~0u : 0u)
+{
 }
 
 

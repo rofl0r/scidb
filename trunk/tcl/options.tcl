@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 33 $
-# Date   : $Date: 2011-05-29 12:27:45 +0000 (Sun, 29 May 2011) $
+# Version: $Revision: 96 $
+# Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -61,10 +61,10 @@ proc write {} {
 }
 
 
-proc writeItem {chan var} {
+proc writeItem {chan var {lowercaseOnly 1}} {
 	if {[array exists $var]} {
 		puts $chan "array set $var {"
-		writeArray $chan [array get $var]
+		writeArray $chan [array get $var] $lowercaseOnly
 		puts $chan "}"
 	} else {
 		switch [llength [set $var]] {
@@ -85,7 +85,7 @@ proc writeList {chan var} {
 }
 
 
-proc writeArray {chan arr} {
+proc writeArray {chan arr {lowercaseOnly 1}} {
 	set maxlength 0
 	foreach {key val} $arr {
 		set maxlength [max $maxlength [string length $key]]
@@ -94,7 +94,7 @@ proc writeArray {chan arr} {
 	foreach {key val} $arr { lappend lst [list $key $val] }
 	foreach elem [lsort -index 0 $lst] {
 		lassign $elem key val
-		if {![string is upper [string index $key 0]]} {
+		if {!$lowercaseOnly || ![string is upper [string index $key 0]]} {
 			set spaces [string repeat " " [expr {$maxlength - [string length $key] + 1}]]
 			if {[llength $val] == 0} {
 				puts $chan "  $key$spaces{}"

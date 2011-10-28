@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 60 $
-// Date   : $Date: 2011-06-29 21:26:40 +0000 (Wed, 29 Jun 2011) $
+// Version: $Revision: 96 $
+// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -183,7 +183,11 @@ Process::Process(mstl::string const& command, mstl::string const& directory)
 	if (result == 0)
 		TCL_RAISE("tcl::invoke(\"%s\") failed", pidCmd);
 	if (Tcl_GetLongFromObj(::sys::tcl::interp(), result, &m_pid) != TCL_OK)
-		TCL_RAISE("%s should return long (instead of '%s')", pidCmd, Tcl_GetStringFromObj(result, 0));
+	{
+		TCL_RAISE(	"%s should return long (instead of '%s')",
+						pidCmd,
+						Tcl_GetStringFromObj(result, nullptr));
+	}
 
 #endif
 

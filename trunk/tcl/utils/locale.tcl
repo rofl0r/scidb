@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1 $
-# Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+# Version: $Revision: 96 $
+# Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -63,10 +63,14 @@ proc formatNumber {n {kilo false}} {
 proc formatNormalDate {date} {
 	variable Pattern
 
-	lassign {?? ?? ??} y m d
+	lassign {???? ?? ??} y m d
 	lassign [split $date "."] y m d
 
-	if {$y eq "??"} {
+	if {[string length $y] != 4} { set y "????" }
+	if {[string length $m] != 2} { set m "??" }
+	if {[string length $d] != 2} { set d "??" }
+
+	if {$y eq "????"} {
 		return ""
 	}
 	set y [string trimleft $y "0"]

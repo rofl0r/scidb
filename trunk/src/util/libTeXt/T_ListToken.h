@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 84 $
-// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
+// Version: $Revision: 96 $
+// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -20,17 +20,42 @@
 #define _TeXt_ListToken_included
 
 #include "T_FinalToken.h"
+#include "T_Producer.h"
 
 #include "m_string.h"
 #include "m_vector.h"
+#include "m_ref_counted_ptr.h"
 
 namespace TeXt {
-
-class Producer;
 
 class ListToken : public FinalToken
 {
 public:
+
+	typedef mstl::vector<TokenP> TokenList;	// TODO: use deque (or list) instead?!
+
+	class TokenProducer : public Producer
+	{
+	public:
+
+		typedef mstl::ref_counted_ptr<ListToken> ListTokenP;
+
+		TokenProducer(TokenP const& token);
+
+		bool finished() const override;
+		bool reset() override;
+
+		Source source() const override;
+		TokenP next(Environment&) override;
+		mstl::string currentDescription() const override;
+
+	private:
+
+		typedef ListToken::TokenList::const_iterator Iter;
+
+		ListTokenP	fToken;
+		Iter			fIter;
+	};
 
 	ListToken();
 	ListToken(TokenP const& token);
@@ -82,10 +107,7 @@ public:
 
 private:
 
-	typedef mstl::vector<TokenP> TokenList;	// TODO: use deque (or list) instead?!
-
-	class MyProducer;
-	friend class MyProducer;
+	friend class TokenProducer;
 
 	mstl::string meaning(TokenList::const_iterator breakPoint) const;
 

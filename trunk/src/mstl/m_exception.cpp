@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 33 $
-// Date   : $Date: 2011-05-29 12:27:45 +0000 (Sun, 29 May 2011) $
+// Version: $Revision: 96 $
+// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -58,6 +58,13 @@ void
 exception::set_message(char const* fmt, va_list args)
 {
 	m_msg->vformat(fmt, args);
+}
+
+
+void
+exception::set_backtrace(::mstl::backtrace const& backtrace)
+{
+	m_backtrace = backtrace;
 }
 
 

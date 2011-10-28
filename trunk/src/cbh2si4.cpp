@@ -1,7 +1,7 @@
 // ======================================================================
 // $RCSfile: tk_image.cpp,v $
-// $Revision: 89 $
-// $Date: 2011-07-28 19:12:53 +0000 (Thu, 28 Jul 2011) $
+// $Revision: 96 $
+// $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 // $Author: gregor $
 // ======================================================================
 
@@ -305,7 +305,11 @@ main(int argc, char* argv[])
 
 		Database	src(cbhPath, convertfrom, Database::ReadOnly, progress);
 		Database	dst(si4Path, convertto, Database::OnDisk);
-		si3::Consumer consumer(format::Scid4, dynamic_cast<si3::Codec&>(dst.codec()), convertto);
+		si3::Consumer consumer(	format::Scid4,
+										dynamic_cast<si3::Codec&>(dst.codec()),
+										convertto,
+										si3::Consumer::TagBits(true),	// TODO: specifiy allowed tags
+										true);								// TODO: specifiy allowed tags
 
 		dst.setType(src.type());
 		unsigned numGames = exportGames(src, consumer, progress);

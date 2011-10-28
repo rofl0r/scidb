@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 91 $
-// Date   : $Date: 2011-08-02 12:59:24 +0000 (Tue, 02 Aug 2011) $
+// Version: $Revision: 96 $
+// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -27,6 +27,8 @@
 #include "app_engine.h"
 #include "app_uci_engine.h"
 #include "app_winboard_engine.h"
+
+#include "db_game.h"
 
 #include "sys_process.h"
 #include "sys_timer.h"
@@ -89,6 +91,13 @@ Engine::Process::exited()
 Engine::Concrete::~Concrete() throw() {}
 
 
+unsigned
+Engine::Concrete::maxVariations() const
+{
+	return 1;
+}
+
+
 Engine::Engine(Protocol protocol,
 					mstl::string const& name,
 					mstl::string const& command,
@@ -134,10 +143,6 @@ Engine::~Engine() throw()
 
 	delete m_engine;
 }
-
-
-bool Engine::startAnalysis(db::Board const& board)	{ return m_engine->startAnalysis(board); }
-bool Engine::stopAnalysis()								{ return m_engine->stopAnalysis(); }
 
 
 long
@@ -249,7 +254,7 @@ Engine::exited()
 		if (m_analyzing)
 		{
 			m_analyzing = false;
-			analysisStopped();
+			stopAnalysis();
 		}
 
 		m_active = false;
@@ -312,6 +317,24 @@ Engine::probe(unsigned timeout)
 	m_probe = false;
 
 	return result;
+}
+
+
+unsigned
+Engine::setNumberOfVariations(unsigned n)
+{
+	if (!isActive())
+		return 0;
+
+	n = mstl::max(1u, mstl::min(n, m_engine->maxVariations()));
+
+	if (n != m_numVariations)
+	{
+		m_engine->sendNumberOfVariations();
+		m_numVariations = n;
+	}
+
+	return n;
 }
 
 

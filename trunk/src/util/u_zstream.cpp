@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 96 $
+// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -155,16 +155,20 @@ zzipSize(ZStream::Strings const& suffixes, ZZIP_DIR* dir)
 {
 	ZZIP_DIRENT entry;
 	int64_t		size	= 0;
+	unsigned		count	= 0;
 
 	while (::zzip_dir_read(dir, &entry))
 	{
 		if (zzipMatch(suffixes, entry.d_name))
+		{
 			size += entry.st_size;
+			++count;
+		}
 	}
 
 	::zzip_rewinddir(dir);
 
-	return size;
+	return count ? size : int64_t(-1);
 }
 
 

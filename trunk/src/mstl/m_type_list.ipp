@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 96 $
+// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -216,6 +216,20 @@ template <typename Head, typename Tail>
 struct reverse< type_list<Head, Tail> >
 {
 	typedef typename append<typename reverse<Tail>::result, Head>::result result;
+};
+
+// size_of				/////////////////////////////////////////////////////////////////////////////////
+
+template <typename T>
+struct size_of< type_list<T, null_type> >
+{
+	enum { value = sizeof(T) };
+};
+
+template <typename Head, typename Tail>
+struct size_of< type_list<Head, Tail> >
+{
+	enum { value = sizeof(Head) < size_of<Tail>::value ? size_of<Tail>::value : sizeof(Head) };
 };
 
 #if 0

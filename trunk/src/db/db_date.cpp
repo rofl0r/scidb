@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 96 $
+// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -124,6 +124,17 @@ Date::setYMD(unsigned y, unsigned m, unsigned d)
 	}
 
 	return true;
+}
+
+
+::util::crc::checksum_t
+Date::computeChecksum(util::crc::checksum_t crc) const
+{
+	crc = ::util::crc::compute(crc, m_year);
+	crc = ::util::crc::compute(crc, m_month);
+	crc = ::util::crc::compute(crc, m_day);
+
+	return crc;
 }
 
 

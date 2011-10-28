@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1 $
-# Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+# Version: $Revision: 96 $
+# Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -100,7 +100,7 @@ proc Build {w args} {
 	Setup $w
 
 	bind $w <Destroy> [list catch [list namespace delete [namespace current]::${w}]]
-	bind $w.keys <<Language>> [namespace code [list LanguageChanged $w]]
+	bind $w.keys <<LanguageChanged>> [namespace code [list LanguageChanged $w]]
 	bind $w.__w__ <Any-Key> [list after idle [namespace code [list Select $w %A]]]
 	bind $w.__w__ <<ComboboxCurrent>> [namespace code [list ShowIcon $w]]
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 94 $
-// Date   : $Date: 2011-08-21 16:47:29 +0000 (Sun, 21 Aug 2011) $
+// Version: $Revision: 96 $
+// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -90,7 +90,9 @@ public:
 	void doClear(mstl::string const& rootname) override;
 
 	unsigned putGame(util::ByteStream const& strm) override;
-	unsigned putGame(util::ByteStream const& strm, unsigned prevOffset, unsigned prevRecordLength) override;
+	unsigned putGame(	util::ByteStream const& strm,
+							unsigned prevOffset,
+							unsigned prevRecordLength) override;
 	util::ByteStream getGame(GameInfo const& info) override;
 	void save(mstl::string const& rootname, unsigned start, util::Progress& progress) override;
 	void attach(mstl::string const& rootname, util::Progress& progress) override;

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 96 $
+// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -20,15 +20,15 @@
 #define _TeXt_Producer_included
 
 #include "T_TokenP.h"
+#include "T_Object.h"
 
-#include "m_ref_counter.h"
 #include "m_string.h"
 
 namespace TeXt {
 
 class Environment;
 
-class Producer : public mstl::ref_counter
+class Producer : public Object
 {
 public:
 

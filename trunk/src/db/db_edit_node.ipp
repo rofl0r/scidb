@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 56 $
-// Date   : $Date: 2011-06-28 14:04:22 +0000 (Tue, 28 Jun 2011) $
+// Version: $Revision: 96 $
+// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -35,7 +35,6 @@ inline KeyNode::KeyNode(Key const& key, char prefix) :m_key(key, prefix) {}
 inline Variation::Variation(Key const& key) :KeyNode(key) {}
 inline Variation::Variation(Key const& key, Key const& succ) :KeyNode(key), m_succ(succ) {}
 inline Move::Move(Key const& key) :KeyNode(key), m_ply(0) {}
-inline Marks::Marks(MarkSet const& marks) :m_marks(marks) {}
 inline Space::Space(Bracket bracket) :m_level(-1), m_bracket(bracket) {}
 inline Space::Space(unsigned level) :m_level(level), m_bracket(Blank) {}
 

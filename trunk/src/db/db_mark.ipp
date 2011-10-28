@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 84 $
-// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
+// Version: $Revision: 96 $
+// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -42,6 +42,14 @@ Mark::square(unsigned index) const
 {
 	M_REQUIRE(index <= 1);
 	return index ? m_square2 : m_square1;
+}
+
+
+inline
+void
+Mark::clear()
+{
+	*this = Mark();
 }
 
 

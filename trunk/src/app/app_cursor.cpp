@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 52 $
-// Date   : $Date: 2011-06-21 12:24:24 +0000 (Tue, 21 Jun 2011) $
+// Version: $Revision: 96 $
+// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -124,7 +124,7 @@ Cursor::closeView(unsigned view)
 	M_REQUIRE(view != BaseView);
 	M_REQUIRE(isValidView(view));
 
-	if (view != 0 && m_viewList[view])
+	if (view != 0 && m_viewList[view + 1])
 	{
 		m_freeSet.push_back(view);
 		delete m_viewList[view + 1];

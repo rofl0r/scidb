@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 94 $
-# Date   : $Date: 2011-08-21 16:47:29 +0000 (Sun, 21 Aug 2011) $
+# Version: $Revision: 96 $
+# Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -222,7 +222,7 @@ proc SetupCurrentTheme {} {
 	option add *Listbox.disabledForeground [::ttk::style lookup $currentTheme -foreground disabled]
 #	option add *Listbox.selectBackground [::ttk::style lookup $currentTheme -selectbackground]
 #	option add *Listbox.selectForeground [::ttk::style lookup $currentTheme -selectforeground]
-	option add *Panedwindow.background [GetTroughColor]
+#	option add *Panedwindow.background [GetTroughColor]
 
 	if {$strongTtk} {
 		option add *Frame.background $background
@@ -246,7 +246,7 @@ proc ConfigureListbox {list} {
 
 
 proc ConfigurePanedWindowBackground {win} {
-	$win configure -background [GetTroughColor]
+#	$win configure -background [GetTroughColor]
 }
 
 

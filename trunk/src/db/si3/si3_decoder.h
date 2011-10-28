@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 56 $
-// Date   : $Date: 2011-06-28 14:04:22 +0000 (Tue, 28 Jun 2011) $
+// Version: $Revision: 96 $
+// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -66,7 +66,7 @@ private:
 
 	void decodeVariation(unsigned level = 0);
 	Byte decodeMove(Byte value);
-	void decodeComments(MoveNode* node);
+	void decodeComments(MoveNode* node, Consumer* consumer = 0);
 	void decodeTags(TagSet& tags);
 	void skipTags();
 
@@ -80,7 +80,7 @@ private:
 	void decodeVariation(Consumer& consumer, MoveNode const* node);
 
 	Move nextMove();
-	void skipVariations();
+	void skipVariation();
 	void checkVariant(TagSet& tags);
 
 	Decoder(Decoder const&);

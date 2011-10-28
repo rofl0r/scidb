@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 64 $
-// Date   : $Date: 2011-07-01 23:42:38 +0000 (Fri, 01 Jul 2011) $
+// Version: $Revision: 96 $
+// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -53,6 +53,7 @@ public:
 	virtual unsigned countVariations() const = 0;
 	virtual unsigned countComments() const = 0;
 	virtual unsigned countAnnotations() const = 0;
+	virtual unsigned countMoveInfo() const = 0;
 	virtual unsigned countMarks() const = 0;
 	virtual unsigned plyCount() const = 0;
 	virtual uint32_t flags() const = 0;

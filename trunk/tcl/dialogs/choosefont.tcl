@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 43 $
-# Date   : $Date: 2011-06-14 21:57:41 +0000 (Tue, 14 Jun 2011) $
+# Version: $Revision: 96 $
+# Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -381,8 +381,13 @@ proc OpenDialog {parent class app font title enableEffects applyProc receiver ge
 	} else {
 		toplevel $dlg -padx 10 -pady 10
 	}
+	set cancelCmd [list $dlg.buttons.cancel invoke]
+	switch $::tcl_platform(platform) {
+		macintosh	{ bind $dlg <Command-period> $cancelCmd }
+		windows		{ bind $dlg <Escape> $cancelCmd }
+		x11			{ bind $dlg <Escape> $cancelCmd; bind $dlg <Control-c> $cancelCmd }
+	}
 	bind $dlg <Configure>	[list [namespace current]::RecordGeometry %W]
-	bind $dlg <Escape>		[list $dlg.buttons.cancel invoke]
 	bind $dlg <Alt-Key>		[list tk::AltKeyInDialog $dlg %A]
 
 	BuildFrame $dlg 1 $font $enableEffects $receiver
@@ -475,6 +480,7 @@ proc OpenDialog {parent class app font title enableEffects applyProc receiver ge
 	if {[winfo viewable [winfo parent $dlg]]} {
 		wm transient $dlg [winfo toplevel [winfo parent $dlg]]
 	}
+	catch { wm attributes $dlg -type dialog }
 	wm iconname $dlg ""
 	wm withdraw $dlg
 	update idletasks

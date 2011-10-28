@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 84 $
-// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
+// Version: $Revision: 96 $
+// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -28,6 +28,8 @@
 #define _db_mark_set_defined
 
 #include "db_mark.h"
+
+#include "u_crc.h"
 
 #include "m_vector.h"
 
@@ -60,6 +62,7 @@ public:
 	unsigned count() const;
 	int find(Mark const& mark)const;
 	int match(Mark const& mark)const;
+	::util::crc::checksum_t computeChecksum(util::crc::checksum_t crc) const;
 
 	Mark const& operator[](unsigned index) const;
 	Mark& operator[](unsigned index);
@@ -67,9 +70,11 @@ public:
 	void add(MarkSet const& set);
 	void add(Mark const& mark);
 	void add(char const* s);
+	Mark& add();
 
 	void remove(unsigned index);
 	void swap(MarkSet& marks);
+	void sort();
 	void clear();
 
 	bool extractFromComment(mstl::string& comment);

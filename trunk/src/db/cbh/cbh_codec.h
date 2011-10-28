@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 94 $
-// Date   : $Date: 2011-08-21 16:47:29 +0000 (Sun, 21 Aug 2011) $
+// Version: $Revision: 96 $
+// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -33,6 +33,7 @@
 #include "m_fstream.h"
 #include "m_map.h"
 #include "m_vector.h"
+#include "m_hash.h"
 #include "m_chunk_allocator.h"
 
 namespace sys { namespace utf8 { class Codec; }; };
@@ -98,6 +99,7 @@ public:
 											bool skipVariations) override;
 
 	static int getNumberOfGames(mstl::string const& filename);
+	static void getSuffixes(mstl::string const& filename, StringList& result);
 
 private:
 
@@ -121,7 +123,7 @@ private:
 
 	typedef mstl::map<uint32_t,NamebaseEntry*>				BaseMap;
 	typedef mstl::map<uint32_t,uint32_t>					AnnotationMap;
-	typedef mstl::map<GameInfo const*,Source*>				SourceMap;
+	typedef mstl::hash<GameInfo const*,Source*>			SourceMap;
 	typedef mstl::map<NamebaseEvent const*,Tournament>	TournamentMap;
 	typedef mstl::chunk_allocator<NamebaseEvent>			Allocator;
 	typedef mstl::vector<Team*>								TeamBase;
@@ -178,7 +180,6 @@ private:
 	Namebase				m_sourceBase;
 	NamebaseEvent*		m_illegalEvent;
 	NamebasePlayer*	m_illegalPlayer;
-	unsigned				m_siteId;
 	unsigned				m_numGames;
 	bool					m_highQuality;
 };

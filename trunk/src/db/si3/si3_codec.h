@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 94 $
-// Date   : $Date: 2011-08-21 16:47:29 +0000 (Sun, 21 Aug 2011) $
+// Version: $Revision: 96 $
+// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -119,7 +119,11 @@ public:
 	save::State doDecoding(db::Consumer& consumer, util::ByteStream& strm, TagSet& tags) override;
 	void doDecoding(GameData& data, GameInfo& info) override;
 
-	void doEncoding(util::ByteStream& strm, GameData const& data, Signature const& signature) override;
+	void doEncoding(	util::ByteStream& strm,
+							GameData const& data,
+							Signature const& signature,
+							TagBits const& allowedTags,
+							bool allowExtraTags) override;
 	db::Consumer* getConsumer(format::Type srcFormat) override;
 
 	void reset() override;
@@ -136,6 +140,8 @@ public:
 											bool skipVariations) override;
 
 	static int getNumberOfGames(mstl::string const& filename);
+	static void getSuffixes(mstl::string const& filename, StringList& result);
+	static bool isExtraTag(tag::ID tag);
 
 private:
 

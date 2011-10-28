@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 59 $
-# Date   : $Date: 2011-06-29 10:08:30 +0000 (Wed, 29 Jun 2011) $
+# Version: $Revision: 96 $
+# Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -98,7 +98,7 @@ proc Build {w args} {
 
 	bind $w <Destroy> [list catch [list namespace delete [namespace current]::${w}]]
 	bind $w.__w__ <Any-Key> [namespace code [list Completion $w %A %K $opts(-textvariable)]]
-	bind $w.__w__ <<Language>> [namespace code [list LanguageChanged $w]]
+	bind $w.__w__ <<LanguageChanged>> [namespace code [list LanguageChanged $w]]
 	bind $w.__w__ <<ComboboxPosted>> [list set [namespace current]::${w}::IgnoreKey 1]
 	bind $w.__w__ <<ComboboxUnposted>> [list set [namespace current]::${w}::IgnoreKey 0]
 	bind $w.__w__ <<ComboboxCurrent>> [namespace code [list ShowIcon $w]]

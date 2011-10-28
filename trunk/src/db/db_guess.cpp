@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 63 $
-// Date   : $Date: 2011-07-01 10:41:25 +0000 (Fri, 01 Jul 2011) $
+// Version: $Revision: 96 $
+// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -355,10 +355,21 @@ db::Guess::generateMoves(Square square, MoveList& result) const
 
 	if ((m_occupied & sqMask) && m_stm == (m_occupiedBy[White] & sqMask ? White : Black))
 	{
-		for (unsigned i = 0; i < moves.size(); ++i)
+		if (piece(square) == piece::Rook)
 		{
-			if (moves[i].from() == square)
-				result.append(moves[i]);
+			for (unsigned i = 0; i < moves.size(); ++i)
+			{
+				if ((moves[i].isCastling() ? moves[i].castlingRookFrom() : moves[i].from()) == square)
+					result.append(moves[i]);
+			}
+		}
+		else
+		{
+			for (unsigned i = 0; i < moves.size(); ++i)
+			{
+				if (moves[i].from() == square)
+					result.append(moves[i]);
+			}
 		}
 	}
 	else

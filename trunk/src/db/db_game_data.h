@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 84 $
-// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
+// Version: $Revision: 96 $
+// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -29,6 +29,7 @@
 
 #include "db_board.h"
 #include "db_tag_set.h"
+#include "db_engine_list.h"
 
 #include "m_utility.h"
 
@@ -43,9 +44,10 @@ public:
 	GameData();
 	virtual ~GameData() throw();
 
-	MoveNode*	m_startNode;	/// Keeps the starting node of the game
-	Board			m_startBoard;	/// Keeps the start position of the game
+	MoveNode*	m_startNode;	///< Keeps the starting node of the game
+	Board			m_startBoard;	///< Keeps the start position of the game
 	TagSet		m_tags;
+	EngineList	m_engines;
 };
 
 } // namespace db

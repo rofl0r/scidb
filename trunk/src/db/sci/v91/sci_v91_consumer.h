@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 94 $
-// Date   : $Date: 2011-08-21 16:47:29 +0000 (Sun, 21 Aug 2011) $
+// Version: $Revision: 96 $
+// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -27,8 +27,8 @@
 #ifndef _sci_v91_consumer_included
 #define _sci_v91_consumer_included
 
-#include "sci_encoder.h"
-#include "sci_common.h"
+#include "sci_v91_encoder.h"
+#include "sci_v91_common.h"
 
 #include "db_consumer.h"
 #include "db_move.h"
@@ -68,6 +68,7 @@ private:
 										Annotation const& annotation,
 										MarkSet const& marks) override;
 	void sendTrailingComment(Comment const& comment, bool variationIsEmpty) override;
+	void sendComment(Comment const& comment) override {} // for compilation only
 	bool sendMove(Move const& move) override;
 	bool sendMove(	Move const& move,
 						Annotation const& annotation,

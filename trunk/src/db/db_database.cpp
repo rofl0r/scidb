@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 94 $
-// Date   : $Date: 2011-08-21 16:47:29 +0000 (Sun, 21 Aug 2011) $
+// Version: $Revision: 96 $
+// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -326,7 +326,7 @@ Database::computeChecksum(unsigned index) const
 }
 
 
-bool
+load::State
 Database::loadGame(unsigned index, Game& game)
 {
 	M_REQUIRE(isOpen());
@@ -334,12 +334,27 @@ Database::loadGame(unsigned index, Game& game)
 
 	GameInfo* info = m_gameInfoList[index];
 	m_codec->reset();
-	m_codec->decodeGame(game, *info);
+
+	try
+	{
+		m_codec->decodeGame(game, *info);
+	}
+	catch (DecodingFailedException const& exc)
+	{
+		return load::Failed;
+	}
+	catch (ByteStream::UnexpectedEndOfStreamException const& exc)
+	{
+		IO_RAISE(Game, Corrupted, exc.backtrace(), "unexpected end of stream");
+//		return load::Corrupted;
+	}
+
 	setEncodingFailed(m_codec->encodingFailed());
 	game.moveToMainlineStart();
-	bool ok = game.finishLoad();
+	load::State state = game.finishLoad() ? load::Ok : load::Corrupted;
 	setupTags(index, game.m_tags);
-	return ok;
+
+	return state;
 }
 
 

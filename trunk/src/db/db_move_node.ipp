@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 62 $
-// Date   : $Date: 2011-06-30 21:38:12 +0000 (Thu, 30 Jun 2011) $
+// Version: $Revision: 96 $
+// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -39,6 +39,7 @@ inline bool MoveNode::hasAnnotation() const				{ return m_flags & HasAnnotation;
 inline bool MoveNode::hasVariation() const				{ return m_flags & HasVariation; }
 inline bool MoveNode::hasNote() const						{ return m_flags & HasNote; }
 inline bool MoveNode::hasSupplement() const				{ return m_flags & HasSupplement; }
+inline bool MoveNode::hasMoveInfo() const					{ return m_flags & HasMoveInfo; }
 inline bool MoveNode::isFolded() const						{ return m_flags & IsFolded; }
 
 inline bool MoveNode::hasComment(move::Position position) const	 { return m_flags & (1 << position); }
@@ -48,15 +49,44 @@ inline Move& MoveNode::move()									{ return m_move; }
 inline Move const& MoveNode::move() const					{ return m_move; }
 inline MoveNode* MoveNode::next() const					{ return m_next; }
 
-inline MarkSet const& MoveNode::marks() const			{ return *m_marks; }
-inline Annotation const& MoveNode::annotation() const	{ return *m_annotation; }
 inline unsigned MoveNode::variationCount() const		{ return m_variations.size(); }
 inline MoveNode* MoveNode::clone() const					{ return clone(0); }
+inline Annotation const& MoveNode::annotation() const	{ return *m_annotation; }
+inline MarkSet const& MoveNode::marks() const			{ return *m_marks; }
+inline Byte MoveNode::commentFlag() const					{ return m_commentFlag; }
 
 inline Comment const& MoveNode::comment(move::Position position) const { return m_comment[position]; }
 
 inline void MoveNode::setComment(move::Position position)		{ m_flags |= (1 << position); }
 inline void MoveNode::unsetComment(move::Position position)	{ m_flags &= ~(1 << position); }
+
+
+inline
+void
+MoveNode::setCommentFlag(Byte flag)
+{
+	m_commentFlag = flag;
+	m_flags |= IsPrepared;
+}
+
+
+inline
+MoveInfoSet const& MoveNode::moveInfo() const
+{
+	M_REQUIRE(hasMoveInfo());
+	return *m_moveInfo;
+}
+
+
+inline
+void
+MoveNode::setInfoFlag(bool flag)
+{
+	if (flag)
+		m_flags |= HasMoveInfo;
+	else
+		m_flags &= ~HasMoveInfo;
+}
 
 
 inline

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 94 $
-# Date   : $Date: 2011-08-21 16:47:29 +0000 (Sun, 21 Aug 2011) $
+# Version: $Revision: 96 $
+# Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -506,7 +506,12 @@ proc OpenDialog {parent class app title modal adjHeight geometry initialColor ol
 	pack $box.ok -side left -padx 5
 	pack $box.cancel -side left -padx 5
 
-	bind $dlg <Escape> "$box.cancel invoke"
+	set cancelCmd "$box.cancel invoke"
+	switch $::tcl_platform(platform) {
+		macintosh	{ bind $dlg <Command-period> $cancelCmd }
+		windows		{ bind $dlg <Escape> $cancelCmd }
+		x11			{ bind $dlg <Escape> $cancelCmd; bind $dlg <Control-c> $cancelCmd }
+	}
 	bind $dlg <Return> "focus $box.ok; event generate $box.ok <Key-space>"
 	bind $dlg <Alt-Key> [list tk::AltKeyInDialog $dlg %A]
 
@@ -531,6 +536,7 @@ proc Popup {dlg parent modal focus {place {}} {geometry {}}} {
 	if {[winfo viewable [winfo toplevel $parent]] } {
 		wm transient $dlg [winfo toplevel $parent]
 	}
+	catch { wm attributes $dlg -type dialog }
 	wm iconname $dlg ""
 	wm withdraw $dlg
 	update idletasks

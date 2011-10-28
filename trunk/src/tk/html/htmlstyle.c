@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 91 $
-// Date   : $Date: 2011-08-02 12:59:24 +0000 (Tue, 02 Aug 2011) $
+// Version: $Revision: 96 $
+// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -112,7 +112,7 @@ HtmlDelStackingInfo(pTree, pElem)
         }
         assert(!pTree->pStack || !pTree->pStack->pPrev);
 
-        HtmlFree(pStack);
+        HtmlFree(pStack); // XXX memory error?
         pTree->nStack--;
     }
     pElem->pStack = 0;

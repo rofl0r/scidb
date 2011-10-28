@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 79 $
-# Date   : $Date: 2011-07-14 13:14:44 +0000 (Thu, 14 Jul 2011) $
+# Version: $Revision: 96 $
+# Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -432,6 +432,7 @@ if {0} {
 			pack $w
 		} else {
 			::scidb::tk::twm release $w
+			::update idle ;# is reducing flickering
 			wm geometry $w +100+100
 			wm state $w normal
 		}

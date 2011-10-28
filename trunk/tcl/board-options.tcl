@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 94 $
-# Date   : $Date: 2011-08-21 16:47:29 +0000 (Sun, 21 Aug 2011) $
+# Version: $Revision: 96 $
+# Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -574,8 +574,9 @@ proc EnterName {parent labelText} {
 
 	wm withdraw $dlg
 	wm title $dlg "$::scidb::app"
-	::util::place $dlg center $parent
 	wm transient $dlg [winfo toplevel $parent]
+	catch { wm attributes $dlg -type dialog }
+	::util::place $dlg center $parent
 	wm deiconify $dlg
 	focus $f.e
 	::ttk::grabWindow $dlg
@@ -701,6 +702,7 @@ proc SaveSquareStyle {parent} {
 	wm title $dlg "$::scidb::app"
 	::util::place $dlg center $parent
 	wm transient $dlg [winfo toplevel $parent]
+	catch { wm attributes $dlg -type dialog }
 	wm deiconify $dlg
 	focus $entry
 	::ttk::grabWindow $dlg
@@ -1098,7 +1100,7 @@ proc EditStyles {parent which} {
 		-height [min 15 [llength $NameList]] \
 		-selectmode browse \
 		-exportselection false \
-		-yscrollcommand [list ::widget::sbset $lt.vsb] \
+		-yscrollcommand [list ::scrolledframe::sbset $lt.vsb] \
 		-listvariable [namespace current]::NameList
 	set n [$Widget($which,list) curselection]
 	if {$n < 2} { set n 0 } else { incr n -2 }

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 84 $
-// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
+// Version: $Revision: 96 $
+// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -33,6 +33,7 @@ inline string& string::operator+=(const_reference c) { append(c); return *this; 
 
 inline bool string::empty() const		{ return m_size == 0; }
 inline bool string::readonly() const	{ return m_capacity == 0; }
+inline bool string::writeable() const	{ return m_capacity > 0; }
 
 inline string::value_type string::back() const	{ M_REQUIRE(!empty()); return m_data[m_size - 1]; }
 inline string::value_type& string::back()			{ M_REQUIRE(!empty()); return m_data[m_size - 1]; }

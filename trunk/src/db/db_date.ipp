@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 36 $
-// Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
+// Version: $Revision: 96 $
+// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -105,6 +105,14 @@ bool
 operator>=(const Date& d1, const Date& d2)
 {
 	return d1.m_value >= d2.m_value;
+}
+
+
+inline
+int
+Date::compare(Date const& date) const
+{
+	return int(m_value) - int(date.m_value);
 }
 
 } // namespace db

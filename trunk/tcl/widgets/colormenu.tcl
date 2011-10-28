@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 94 $
-# Date   : $Date: 2011-08-21 16:47:29 +0000 (Sun, 21 Aug 2011) $
+# Version: $Revision: 96 $
+# Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -342,6 +342,7 @@ proc popup {parent args} {
 
 	Tooltip on $top*
 	wm transient $top [winfo toplevel [winfo parent $top]]
+	catch { wm attributes $top -type popup_menu }
 	util::place $top below $parent
 	wm deiconify $top
 	raise $top

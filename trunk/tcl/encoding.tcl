@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 28 $
-# Date   : $Date: 2011-05-21 14:57:26 +0000 (Sat, 21 May 2011) $
+# Version: $Revision: 96 $
+# Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -204,7 +204,8 @@ variable Encodings {
 
 variable defaultEncoding iso8859-1
 variable windowsEncoding cp1252
-variable systemEncoding  [encoding system]
+variable macEncoding macRoman
+variable systemEncoding [encoding system]
 
 variable BorderWidth 1
 variable List [lsort -dictionary [encoding names]]
@@ -275,7 +276,7 @@ proc build {path encoding defaultEncoding {width 600} {height 400} {encodingList
 
 	grid columnconfigure $f {0 2} -minsize $::theme::padding
 	grid columnconfigure $f 1 -weight 1
-	grid rowconfigure $f 2 -minsize $::theme::padY
+	grid rowconfigure $f 2 -minsize $::theme::pady
 	grid rowconfigure $f {0 4} -minsize $::theme::padding
 	grid rowconfigure $f 3 -weight 1
 
@@ -301,7 +302,7 @@ proc choose {parent currentEnc {defaultEnc {}}} {
 	$dlg.ok configure -command [list destroy $dlg]
 	$dlg.cancel configure -command $cancel
 	wm protocol $dlg WM_DELETE_WINDOW $cancel
-	bind $dlg <<Cancel>> $cancel
+	bind $dlg <Escape> $cancel
 	wm transient $dlg [winfo toplevel $parent]
 	wm title $dlg "$mc::ChooseEncodingTitle"
 	wm resizable $dlg true true

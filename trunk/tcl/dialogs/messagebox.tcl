@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 44 $
-# Date   : $Date: 2011-06-19 19:56:08 +0000 (Sun, 19 Jun 2011) $
+# Version: $Revision: 96 $
+# Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -57,7 +57,7 @@ namespace export alert error warning info question
 
 namespace eval messagebox {
 
-variable ButtonOrder {ok cancel abort retry ignore yes no}
+variable ButtonOrder {ok continue cancel abort retry ignore yes no}
 variable Current ""
 
 
@@ -315,9 +315,8 @@ proc alert {args} {
 	set parent $opts(-parent)
 	set path $parent
 	if {$path ne "."} { set path "$path." }
-	do {
-		set w ${path}alert[clock milliseconds]
-	} while {[winfo exists $w]}
+	set w ${path}alert[clock milliseconds]
+	while {[winfo exists $w]} { set w ${path}alert[clock milliseconds] }
 	set windowingsystem [tk windowingsystem]
 	toplevel $w -relief solid -class Dialog
 	wm title $w $opts(-title)
@@ -331,6 +330,7 @@ proc alert {args} {
 	if {$windowingsystem eq "aqua"} {
 		catch { ::tk::unsupported::MacWindowStyle style $w moveableModal {} }
 	}
+	catch { wm attributes $dlg -type dialog }
 
 	set alertBox [tk::frame $w.alert]
 
@@ -427,8 +427,16 @@ proc alert {args} {
 	if {$n == -1} { set n [lsearch -exact $entries cancel] }
 	if {$n == -1} { set n [lsearch -exact $entries no] }
 	if {$n == -1 && [llength $entries] == 1} { set n 0 }
-	if {$n >= 0} { bind $w <Escape> [list $buttonFrame.bt-[lindex $entries $n] invoke] }
 	if {$n == 1 && [llength $entries] == 0} { wm protocol $w WM_DELETE_WINDOW { set ::dialog::Reply "" } }
+
+	if {$n >= 0} {
+		bind escCmd [list $buttonFrame.bt-[lindex $entries $n] invoke]
+		switch $::tcl_platform(platform) {
+			macintosh	{ bind $w <Command-period> $escCmd }
+			windows		{ bind $w <Escape> $escCmd }
+			x11			{ bind $w <Escape> $escCmd; bind $w <Control-c> $escCmd }
+		}
+	}
 
 	grid columnconfigure $buttonFrame 0 -weight 1
 

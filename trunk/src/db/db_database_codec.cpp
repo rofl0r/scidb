@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 94 $
-// Date   : $Date: 2011-08-21 16:47:29 +0000 (Sun, 21 Aug 2011) $
+// Version: $Revision: 96 $
+// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -203,6 +203,8 @@ DatabaseCodec::allocGameInfo()
 
 DatabaseCodec::~DatabaseCodec() throw() { delete m_customFlags; }
 
+bool DatabaseCodec::upgradeIndexOnly() { return sci::Codec::upgradeIndexOnly(); }
+
 
 bool
 DatabaseCodec::hasCodecFor(mstl::string const& suffix)
@@ -233,9 +235,10 @@ DatabaseCodec::makeCodec(mstl::string const& name)
 	if (ext.empty())
 		return new sci::Codec;
 
-	M_ASSERT(ext == "sci");
+	if (ext == "sci")
+		return sci::Codec::makeCodec(name);
 
-	return sci::Codec::makeCodec(name);
+	return new sci::Codec;
 }
 
 
@@ -254,6 +257,22 @@ DatabaseCodec::getNumberOfGames(mstl::string const& filename)
 		return si3::Codec::getNumberOfGames(filename);
 
 	return PgnReader::getNumberOfGames(filename);
+}
+
+
+void
+DatabaseCodec::getSuffixes(mstl::string const& filename, StringList& result)
+{
+	mstl::string ext(file::suffix(filename));
+
+	if (ext == "sci")
+		sci::Codec::getSuffixes(filename, result);
+	else if (ext == "cbh")
+		cbh::Codec::getSuffixes(filename, result);
+	else if (ext == "si3" || ext == "si4")
+		si3::Codec::getSuffixes(filename, result);
+	else
+		result.push_back(ext);
 }
 
 
@@ -541,7 +560,7 @@ DatabaseCodec::getGameRecord(GameInfo const& info, util::BlockFileReader& reader
 
 
 void
-DatabaseCodec::doEncoding(util::ByteStream&, GameData const&, Signature const&)
+DatabaseCodec::doEncoding(util::ByteStream&, GameData const&, Signature const&, TagBits const&, bool)
 {
 	M_RAISE("should not be used");
 }
@@ -570,12 +589,16 @@ DatabaseCodec::decodeGame(GameData& data, GameInfo& info)
 
 
 void
-DatabaseCodec::encodeGame(util::ByteStream& strm, GameData const& data, Signature const& signature)
+DatabaseCodec::encodeGame(	util::ByteStream& strm,
+									GameData const& data,
+									Signature const& signature,
+									TagBits const& allowedTags,
+									bool allowExtraTags)
 {
 	M_REQUIRE(isOpen());
 	M_REQUIRE(format() != format::ChessBase);
 
-	doEncoding(strm, data, signature);
+	doEncoding(strm, data, signature, allowedTags, allowExtraTags);
 }
 
 

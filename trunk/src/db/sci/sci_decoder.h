@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 56 $
-// Date   : $Date: 2011-06-28 14:04:22 +0000 (Tue, 28 Jun 2011) $
+// Version: $Revision: 96 $
+// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -44,6 +44,7 @@ class GameData;
 class MoveNode;
 class Consumer;
 class TagSet;
+class EngineList;
 
 namespace sci {
 
@@ -63,11 +64,11 @@ private:
 
 	void decodeRun(unsigned count);
 	void decodeRun(unsigned count, Consumer& consumer);
-	void decodeVariation();
+	void decodeVariation(util::ByteStream& data);
 	void decodeVariation(Consumer& consumer, util::ByteStream& data, util::ByteStream& text);
-	void decodeComments(MoveNode* node, util::ByteStream& data);
+	void decodeEngines(util::ByteStream& strm, EngineList& engines);
 	void decodeTags(util::ByteStream& strm, TagSet& tags);
-	void decodeTextSection(GameData& data);
+	void decodeTextSection(MoveNode* node, util::ByteStream& text);
 	void decodeMark();
 
 	unsigned decodeMove(Byte value, Move& move);

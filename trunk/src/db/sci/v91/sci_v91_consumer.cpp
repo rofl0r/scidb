@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 94 $
-// Date   : $Date: 2011-08-21 16:47:29 +0000 (Sun, 21 Aug 2011) $
+// Version: $Revision: 96 $
+// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -55,7 +55,7 @@ typedef ByteStream::uint24_t uint24_t;
 
 Consumer::Consumer(format::Type srcFormat, Codec& codec)
 	:Encoder(m_stream)
-	,db::Consumer(srcFormat, sys::utf8::Codec::utf8())
+	,db::Consumer(srcFormat, sys::utf8::Codec::utf8(), TagBits(true), true)
 	,m_stream(m_buffer, sizeof(m_buffer))
 	,m_codec(codec)
 	,m_streamPos(0)

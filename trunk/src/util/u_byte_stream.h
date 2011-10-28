@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 84 $
-// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
+// Version: $Revision: 96 $
+// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -20,6 +20,7 @@
 #define _u_byte_stream_included
 
 #include "u_base.h"
+#include "u_exception.h"
 
 namespace mstl { class string; }
 
@@ -28,6 +29,11 @@ namespace util {
 class ByteStream
 {
 public:
+
+	struct UnexpectedEndOfStreamException : public Exception
+	{
+		UnexpectedEndOfStreamException();
+	};
 
 	typedef unsigned char Byte;
 
@@ -141,6 +147,22 @@ public:
 	void setup(Byte* buf, unsigned size);
 	void reserve(unsigned size);
 	void swap(ByteStream& strm);
+
+	static uint16_t uint16(Byte const* data);
+	static uint32_t uint24(Byte const* data);
+	static uint32_t uint32(Byte const* data);
+	static uint64_t uint48(Byte const* data);
+	static uint64_t uint64(Byte const* data);
+
+	static uint16_t uint16LE(Byte const* data);
+	static uint32_t uint24LE(Byte const* data);
+	static uint32_t uint32LE(Byte const* data);
+
+	static void set(Byte* data, uint16_t i);
+	static void set(Byte* data, uint24_t i);
+	static void set(Byte* data, uint32_t i);
+	static void set(Byte* data, uint48_t i);
+	static void set(Byte* data, uint64_t i);
 
 protected:
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 86 $
-// Date   : $Date: 2011-07-18 21:00:46 +0000 (Mon, 18 Jul 2011) $
+// Version: $Revision: 96 $
+// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1156,9 +1156,9 @@ namespace tag
 {
 	static mstl::string const* NameLookup[ExtraTag];
 
-	mstl::bitfield<uint64_t> IsWhiteRating(ExtraTag);
-	mstl::bitfield<uint64_t> IsBlackRating(ExtraTag);
-	mstl::bitfield<uint64_t> IsRating(ExtraTag);
+	mstl::bitfield<uint64_t> IsWhiteRating;
+	mstl::bitfield<uint64_t> IsBlackRating;
+	mstl::bitfield<uint64_t> IsRating;
 
 	struct Initializer { Initializer(); };
 	static Initializer initializer;

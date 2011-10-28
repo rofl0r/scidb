@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 96 $
+// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -43,6 +43,7 @@ template <typename TList> struct no_duplicates;
 template <typename TList, typename T, typename U> struct replace;
 template <typename TList, typename T, typename U> struct replace_all;
 template <typename TList> struct reverse;
+template <typename TList> struct size_of;
 #if 0
 template <typename TList, typename T> struct most_derived;
 template <typename TList> struct derived_to_front;

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 95 $
-// Date   : $Date: 2011-08-21 17:27:40 +0000 (Sun, 21 Aug 2011) $
+// Version: $Revision: 96 $
+// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -26,7 +26,9 @@
 
 namespace db {
 
-inline Clock::Clock() :m_hour(0), m_minute(0), m_second(0) {}
+inline Clock::Clock() :m_value(0) {}
+
+inline bool Clock::isEmpty() const		{ return m_value == 0; }
 
 inline uint8_t Clock::hour() const		{ return m_hour; }
 inline uint8_t Clock::minute() const	{ return m_minute; }
@@ -34,21 +36,29 @@ inline uint8_t Clock::second() const	{ return m_second; }
 
 
 inline
+int
+Clock::compare(Clock const& clock) const
+{
+	return int(m_value) - int(clock.m_value);
+}
+
+
+inline
 Clock::Clock(uint8_t hour, uint8_t minute, uint8_t second)
-	:m_hour(hour)
+	:m_second(second)
 	,m_minute(minute)
-	,m_second(second)
+	,m_hour(hour)
 {
 }
 
 
 inline
 void
-Clock::set(uint8_t hour, uint8_t minute, uint8_t second)
+Clock::setHMS(uint8_t hour, uint8_t minute, uint8_t second)
 {
-	m_hour = hour;
-	m_minute = minute;
 	m_second = second;
+	m_minute = minute;
+	m_hour = hour;
 }
 
 } // namespace db

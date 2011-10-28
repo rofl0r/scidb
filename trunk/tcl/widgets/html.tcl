@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 93 $
-# Date   : $Date: 2011-08-03 09:16:26 +0000 (Wed, 03 Aug 2011) $
+# Version: $Revision: 96 $
+# Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -58,7 +58,7 @@ proc Build {w args} {
 		-relief			{}
 		-imagecmd		{}
 		-nodehandler	{}
-		-doublebuffer	no
+		-doublebuffer	yes
 		-delay			0
 	}
 
@@ -128,7 +128,7 @@ proc Build {w args} {
 	if {[llength $opts(-nodehandler)]} {
 		$html handler node td $opts(-nodehandler)
 	}
-	grid $html -row 0 -column 0
+	grid $html
 	grid anchor $parent center
 
 	return $w

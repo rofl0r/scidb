@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 84 $
-// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
+// Version: $Revision: 96 $
+// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -16,8 +16,8 @@
 // (at your option) any later version.
 // ======================================================================
 
-#ifndef _TeXt_Generic_included
-#define _TeXt_Generic_included
+#ifndef _TeXt_GenericToken_included
+#define _TeXt_GenericToken_included
 
 #include "T_Token.h"
 
@@ -57,6 +57,6 @@ private:
 
 } // namespace TeXt
 
-#endif // _TeXt_Generic_included
+#endif // _TeXt_GenericToken_included
 
 // vi:set ts=3 sw=3:

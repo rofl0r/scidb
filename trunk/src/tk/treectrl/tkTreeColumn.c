@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 36 $
-// Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
+// Version: $Revision: 96 $
+// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -469,7 +469,7 @@ ColumnCO_Set(
 	int cfoFlags = (long) clientData;
 	TreeCtrl *tree = (TreeCtrl *) ((TkWindow *) tkwin)->instanceData;
 	int objEmpty;
-	TreeColumn new, *internalPtr;
+	TreeColumn new = 0, *internalPtr;
 
 	if (internalOffset >= 0)
 		internalPtr = (TreeColumn *) (recordPtr + internalOffset);
@@ -3646,6 +3646,8 @@ ColumnTagCmd(
 	TreeColumn column;
 	int result = TCL_OK;
 
+	memset(&iter, 0, sizeof(iter)); /* otherwise gcc complains */
+
 	if (objc < 4) {
 		Tcl_WrongNumArgs(interp, 3, objv, "command ?arg arg ...?");
 		return TCL_ERROR;
@@ -3921,6 +3923,8 @@ TreeColumnCmd(
 	TreeColumnList columns;
 	TreeColumn column;
 	ColumnForEach citer;
+
+	memset(&citer, 0, sizeof(citer)); /* otherwise gcc complains */
 
 	if (objc < 3) {
 		Tcl_WrongNumArgs(interp, 2, objv, "command ?arg arg ...?");

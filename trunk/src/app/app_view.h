@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 94 $
-// Date   : $Date: 2011-08-21 16:47:29 +0000 (Sun, 21 Aug 2011) $
+// Version: $Revision: 96 $
+// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -35,6 +35,7 @@
 #include "m_list.h"
 #include "m_vector.h"
 #include "m_pair.h"
+#include "m_bitfield.h"
 
 namespace util { class Progress; }
 
@@ -60,9 +61,11 @@ public:
 	enum UpdateMode	{ AddNewGames, LeaveEmpty };
 	enum GameMode		{ AllGames, ExcludeIllegal };
 
-	typedef mstl::list<mstl::string>		StringList;
-	typedef mstl::vector<unsigned>		LengthList;
-	typedef mstl::pair<bool,unsigned>	Result;
+	typedef mstl::list<mstl::string>	StringList;
+	typedef mstl::vector<unsigned>	LengthList;
+	typedef mstl::bitfield<uint64_t>	TagBits;
+
+	typedef mstl::pair<db::load::State,unsigned> Result;
 
 	static unsigned const DefaultView = 0;
 
@@ -173,6 +176,8 @@ public:
 									db::type::ID type,
 									unsigned flags,
 									GameMode gameMode,
+									TagBits const& allowedTags,
+									bool allowExtraTags,
 									db::Log& log,
 									util::Progress& progress,
 									FileMode fmode = Create);

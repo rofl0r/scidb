@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 84 $
-// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
+// Version: $Revision: 96 $
+// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -20,14 +20,36 @@
 #define _TeXt_ParameterToken_included
 
 #include "T_UnboundToken.h"
+#include "T_Producer.h"
 
 #include "m_string.h"
+#include "m_scoped_ptr.h"
 
 namespace TeXt {
 
 class ParameterToken : public UnboundToken
 {
 public:
+
+	class TokenProducer : public Producer
+	{
+	public:
+
+		TokenProducer(TokenP const& token);
+
+		bool finished() const override;
+		bool reset() override;
+
+		Source source() const override;
+		TokenP next(Environment& env) override;
+		mstl::string currentDescription() const override;
+
+	private:
+
+		typedef mstl::scoped_ptr<Producer> ProducerP;
+
+		ProducerP m_producer;
+	};
 
 	ParameterToken(mstl::string const& name, RefID id, unsigned position = 0);
 

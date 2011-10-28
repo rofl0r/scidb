@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 94 $
-# Date   : $Date: 2011-08-21 16:47:29 +0000 (Sun, 21 Aug 2011) $
+# Version: $Revision: 96 $
+# Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -80,7 +80,7 @@ proc open {parent} {
 
 	set top [ttk::frame $dlg.top -relief raised -borderwidth 2]
 	pack $dlg.top -fill both -expand yes
-	bind $dlg <<Language>> [namespace code [list LanguageChanged $dlg %W]]
+	bind $dlg <<LanguageChanged>> [namespace code [list LanguageChanged $dlg %W]]
 
 	if {[tk windowingsystem] ne "win32"} {
 		set decor [tk::label $top.decor -justify left -text $title -font TkSmallCaptionFont]
@@ -209,6 +209,7 @@ proc open {parent} {
 	SetMarkType $top.shapes $State(markType)
 
 	wm transient $dlg $parent
+	catch { wm attributes $dlg -type utility }
 	wm focusmodel $dlg $Defaults(floating:focusmodel)
 	if {[tk windowingsystem] ne "win32"} {
 		if {$Defaults(floating:overrideredirect)} {

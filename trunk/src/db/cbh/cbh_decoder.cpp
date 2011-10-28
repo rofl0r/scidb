@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 89 $
-// Date   : $Date: 2011-07-28 19:12:53 +0000 (Thu, 28 Jul 2011) $
+// Version: $Revision: 96 $
+// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -668,6 +668,11 @@ Decoder::decodeComment(MoveNode* node, unsigned length, move::Position position)
 					break;
 
 				default:
+					if (length == 1)
+					{
+						m_aStrm.skip(1);
+						return; // seems to be a special instruction
+					}
 					str += c;
 					break;
 			}
@@ -707,10 +712,10 @@ Decoder::decodeComment(MoveNode* node, unsigned length, move::Position position)
 
 		if (node->hasComment(position))
 		{
-			Comment prefix;
-			node->swapComment(prefix, position);
-			prefix.append(comment, '\n');
-			node->swapComment(prefix, position);
+			Comment c;
+			node->swapComment(c, position);
+			c.append(comment, '\n');
+			node->swapComment(c, position);
 		}
 		else
 		{

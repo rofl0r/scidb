@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 84 $
-// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
+// Version: $Revision: 96 $
+// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -27,7 +27,7 @@
 #ifndef _db_var_consumer_included
 #define _db_var_consumer_included
 
-#include "db_consumer.h"
+#include "db_info_consumer.h"
 
 #include "m_vector.h"
 
@@ -36,7 +36,7 @@ namespace db {
 class Board;
 class MoveNode;
 
-class VarConsumer : public Consumer
+class VarConsumer : public InfoConsumer
 {
 public:
 
@@ -62,6 +62,7 @@ protected:
 										Annotation const& annotation,
 										MarkSet const& marks) override;
 	void sendTrailingComment(Comment const& comment, bool variationIsEmpty) override;
+	void sendMoveInfo(MoveInfoSet const& moveInfo) override;
 	bool sendMove(Move const& move) override;
 	bool sendMove(	Move const& move,
 						Annotation const& annotation,

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 84 $
-// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
+// Version: $Revision: 96 $
+// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -66,6 +66,7 @@ public:
 	void writeTag(mstl::string const& name, mstl::string const& value) override;
 	void writePrecedingComment(Comment const& comment, MarkSet const& marks) override;
 	void writeTrailingComment(Comment const& comment) override;
+	void writeMoveInfo(MoveInfoSet const& moveInfo) override;
 	void writeMove(Move const& move,
 						mstl::string const& moveNumber,
 						Annotation const& annotation,
@@ -89,7 +90,7 @@ private:
 
 	void putComment(Comment const& comment);
 	void putMarks(MarkSet const& marks);
-	void putComment(mstl::string const& comment);
+	void putComment(mstl::string const& comment, char ldelim = '{', char rdelim = '}');
 	void putComment(Comment const& comment, MarkSet const& marks);
 
 	void putSpace();

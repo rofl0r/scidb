@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 94 $
-# Date   : $Date: 2011-08-21 16:47:29 +0000 (Sun, 21 Aug 2011) $
+# Version: $Revision: 96 $
+# Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -170,7 +170,7 @@ proc build {path getViewCmd {visibleColumns {}} {args {}}} {
 	::bind $path <<TableFill>>			[namespace code [list TableFill $path %d]]
 	::bind $path <<TableSelected>>	[namespace code [list TableSelected $path %d]]
 	::bind $path <<TableVisit>>		[namespace code [list TableVisit $path %d]]
-	::bind $path <<Language>>  		[namespace code [list BindAccelerators $path]]
+	::bind $path <<LanguageChanged>> [namespace code [list BindAccelerators $path]]
 
 	bind $path <ButtonPress-2>			[namespace code [list ShowInfo $path %x %y]]
 	bind $path <ButtonRelease-2>		[namespace code [list hideInfo $path]]

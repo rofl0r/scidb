@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 84 $
-// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
+// Version: $Revision: 96 $
+// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -28,6 +28,8 @@
 #define _db_mark_included
 
 #include "db_common.h"
+
+#include "u_crc.h"
 
 #include "m_string.h"
 
@@ -66,6 +68,11 @@ public:
 	char text() const;
 	mark::Color color() const;
 	Square square(unsigned index = 0) const;
+
+	::util::crc::checksum_t computeChecksum(util::crc::checksum_t crc) const;
+	int compare(Mark const& mark) const;
+
+	void clear();
 
 	char const* parseDiagramMarker(char const* s);
 	char const* parseScidbMark(char const* s);

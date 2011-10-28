@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 95 $
-// Date   : $Date: 2011-08-21 17:27:40 +0000 (Sun, 21 Aug 2011) $
+// Version: $Revision: 96 $
+// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -27,6 +27,8 @@
 #ifndef _db_clock_included
 #define _db_clock_included
 
+#include "u_crc.h"
+
 #include "m_types.h"
 
 namespace db {
@@ -38,17 +40,34 @@ public:
 	Clock();
 	Clock(uint8_t hour, uint8_t minute, uint8_t second);
 
+	bool isEmpty() const;
+
 	uint8_t hour() const;
 	uint8_t minute() const;
 	uint8_t second() const;
 
-	void set(uint8_t hour, uint8_t minute, uint8_t second);
+	int compare(Clock const& clock) const;
+	::util::crc::checksum_t computeChecksum(util::crc::checksum_t crc) const;
+
+	void setHMS(uint8_t hour, uint8_t minute, uint8_t second);
+
+	char const* parse(char const* s);
+
+	void dump() const;
 
 private:
 
-	uint8_t m_hour;
-	uint8_t m_minute;
-	uint8_t m_second;
+	union
+	{
+		struct
+		{
+			uint8_t m_second;
+			uint8_t m_minute;
+			uint8_t m_hour;
+		};
+
+		uint32_t m_value;
+	};
 };
 
 } // namespace db

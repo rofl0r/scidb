@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 36 $
-// Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
+// Version: $Revision: 96 $
+// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -450,6 +450,13 @@ Annotation::sort()
 		if (done)
 			return;
 	}
+}
+
+
+util::crc::checksum_t
+Annotation::computeChecksum(util::crc::checksum_t crc) const
+{
+	return ::util::crc::compute(crc, m_annotation, m_count);
 }
 
 // vi:set ts=3 sw=3:

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 91 $
-// Date   : $Date: 2011-08-02 12:59:24 +0000 (Tue, 02 Aug 2011) $
+// Version: $Revision: 96 $
+// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -152,7 +152,7 @@ Key::incrementPly()
 	while (s > t && s[-1] != '.')
 		--s;
 
-	unsigned number = ::strtoul(s, 0, 10);
+	unsigned number = ::strtoul(s, nullptr, 10);
 
 	m_id.resize(s - m_id.begin());
 	m_id.format("%u", number + 1);
@@ -263,7 +263,7 @@ Key::setPosition(Game& game) const
 		return true;
 
 	s += 2;
-;
+
 	char* e = 0;
 
 	int plyNumber = game.startBoard().plyNumber();
@@ -448,7 +448,7 @@ Key::plyNumber() const
 
 	while (s > t && s[-1] != '.')
 		--s;
-	return ::strtoul(s, 0, 10);
+	return ::strtoul(s, nullptr, 10);
 }
 
 

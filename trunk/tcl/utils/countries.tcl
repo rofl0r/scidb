@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 59 $
-# Date   : $Date: 2011-06-29 10:08:30 +0000 (Wed, 29 Jun 2011) $
+# Version: $Revision: 96 $
+# Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -665,6 +665,27 @@ proc countryFlag {code} {
 	set file [file join $::scidb::dir::share flags $code.png]
 	if {[catch {set _Flags($code) [image create photo -file $file]}]} { return {} }
 	return [set _Flags($code)]
+}
+
+
+proc makeCountryList {{languages {}}} {
+	variable Vars
+
+	if {[llength $languages] == 0} {
+		set languages [array names ::mc::langToCountry]
+	}
+
+	set result {}
+	foreach lang $languages {
+		if {$lang ne "xx"} {
+			set country $::mc::langToCountry($lang)
+			set flag $icon::flag($country)
+			set name [::encoding::languageName $lang]
+			lappend result [list $flag $name $lang]
+		}
+	}
+
+	return [lsort -index 1 -dictionary $result]
 }
 
 
