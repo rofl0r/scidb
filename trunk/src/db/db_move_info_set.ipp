@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 96 $
-// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
+// Version: $Revision: 97 $
+// Date   : $Date: 2011-10-29 00:37:26 +0000 (Sat, 29 Oct 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -25,6 +25,8 @@
 // ======================================================================
 
 namespace db {
+
+inline MoveInfoSet::MoveInfoSet() {}
 
 inline bool MoveInfoSet::isEmpty() const		{ return m_row.empty(); }
 

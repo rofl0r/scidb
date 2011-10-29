@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 96 $
-// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
+// Version: $Revision: 97 $
+// Date   : $Date: 2011-10-29 00:37:26 +0000 (Sat, 29 Oct 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1546,7 +1546,7 @@ MultiWindowWidgetObjCmd(ClientData clientData,	// Information about square widge
 						}
 
 						if (i == mw->numSlaves)
-							Tcl_SetResult(interp, "not managed by this window", TCL_STATIC);
+							Tcl_SetResult(interp, const_cast<char*>("not managed by this window"), TCL_STATIC);
 
 						if (resultObj == nullptr)
 							result = TCL_ERROR;
