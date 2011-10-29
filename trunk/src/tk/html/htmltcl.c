@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 96 $
-// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
+// Version: $Revision: 98 $
+// Date   : $Date: 2011-10-29 14:00:35 +0000 (Sat, 29 Oct 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1104,6 +1104,7 @@ deleteWidget(clientData)
         Tk_FreePixmap(Tk_Display(Tk_MainWindow(pTree->interp)), pTree->buffer);
     }
     TkDestroyRegion(pTree->bufferRegion);
+    pTree->bufferRegion = 0;
 #endif
 
     /* Delete the structure itself */
