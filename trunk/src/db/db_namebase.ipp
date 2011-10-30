@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 96 $
-// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
+// Version: $Revision: 101 $
+// Date   : $Date: 2011-10-30 16:18:59 +0000 (Sun, 30 Oct 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -45,6 +45,14 @@ inline bool Namebase::isReadonly() const				{ return m_isReadonly; }
 
 inline void Namebase::setMaxUsage(unsigned usage)	{ m_maxUsage = usage; }
 inline void Namebase::setModified(bool flag)			{ m_isModified = false; }
+
+
+inline
+void
+Namebase::setNextId(unsigned id)
+{
+	m_nextId = id;
+}
 
 
 inline void

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 96 $
-// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
+// Version: $Revision: 101 $
+// Date   : $Date: 2011-10-30 16:18:59 +0000 (Sun, 30 Oct 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1103,7 +1103,7 @@ Codec::readNamebases(mstl::fstream& stream, Progress& progress)
 
 		m_progressCount += size;
 		m_progressReportAfter = m_progressFrequency - (m_progressCount % m_progressFrequency);
-		base.setPrepared(maxFreq, maxUsage);
+		base.setPrepared(maxFreq, size, maxUsage);
 	}
 }
 

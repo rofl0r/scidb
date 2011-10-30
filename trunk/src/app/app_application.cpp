@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 96 $
-// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
+// Version: $Revision: 101 $
+// Date   : $Date: 2011-10-30 16:18:59 +0000 (Sun, 30 Oct 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -831,6 +831,8 @@ Application::recode(Cursor& cursor, mstl::string const& encoding, util::Progress
 		case format::Scid3:
 		case format::Scid4:
 		case format::ChessBase:
+			if (cursor.isReferenceBase())
+				Application::stopUpdateTree();
 			if (base.namebases().isOriginal())
 				base.recode(encoding, progress);
 			else

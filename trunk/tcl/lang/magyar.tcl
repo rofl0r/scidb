@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 96 $
-# Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
+# Version: $Revision: 101 $
+# Date   : $Date: 2011-10-30 16:18:59 +0000 (Sun, 30 Oct 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1499,8 +1499,8 @@
 ::fsbox::mc::DirectoryRemoved				"Cannot change to the directory \"%s\".\nDirectory is removed."
 ::fsbox::mc::ReallyMove(file)				"Really move file '%s' to trash?"
 ::fsbox::mc::ReallyMove(folder)			"Really move folder '%s' to trash?"
-::fsbox::mc::ReallyDelete(file)			"Really delete file '%s' to trash? You cannot undo this operation."
-::fsbox::mc::ReallyDelete(folder)		"Really delete folder '%s' to trash? You cannot undo this operation."
+::fsbox::mc::ReallyDelete(file)			"Really delete file '%s'? You cannot undo this operation."
+::fsbox::mc::ReallyDelete(folder)		"Really delete folder '%s'? You cannot undo this operation."
 ::fsbox::mc::DeleteFailed					"Deletion of '%s' failed."
 ::fsbox::mc::CommandFailed					"Command '%s' failed."
 ::fsbox::mc::ErrorRenaming(folder)		"Error renaming folder '%old' to '%new': permission denied."

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 97 $
-// Date   : $Date: 2011-10-29 00:37:26 +0000 (Sat, 29 Oct 2011) $
+// Version: $Revision: 101 $
+// Date   : $Date: 2011-10-30 16:18:59 +0000 (Sun, 30 Oct 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1724,6 +1724,8 @@ Codec::readNamebase(	ByteIStream& bstrm,
 		shadowBase.back()->entry->m_orig_freq = freq;
 #endif
 	}
+
+	base.setNextId(count);
 }
 
 
@@ -1926,7 +1928,7 @@ Codec::getNumberOfGames(mstl::string const& filename)
 
 	ByteStream bstrm(header + 14, sizeof(header) - 14);
 	return bstrm.uint24();
-} 
+}
 
 
 void

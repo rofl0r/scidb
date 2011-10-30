@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 96 $
-// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
+// Version: $Revision: 101 $
+// Date   : $Date: 2011-10-30 16:18:59 +0000 (Sun, 30 Oct 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -778,6 +778,8 @@ Codec::readTournamentData(mstl::string const& rootname, util::Progress& progress
 		}
 	}
 
+	siteBase.setNextId(nrecs);
+	eventBase.setNextId(nrecs);
 	strm.close();
 }
 
@@ -858,6 +860,7 @@ Codec::readPlayerData(mstl::string const& rootname, util::Progress& progress)
 		}
 	}
 
+	base.setNextId(nrecs);
 	strm.close();
 }
 
@@ -919,6 +922,7 @@ Codec::readAnnotatorData(mstl::string const& rootname, util::Progress& progress)
 		}
 	}
 
+	base.setNextId(nrecs);
 	strm.close();
 }
 

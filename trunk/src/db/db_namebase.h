@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 96 $
-// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
+// Version: $Revision: 101 $
+// Date   : $Date: 2011-10-30 16:18:59 +0000 (Sun, 30 Oct 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -101,6 +101,7 @@ public:
 
 	void setMaxFrequency(unsigned frequency);
 	void setMaxUsage(unsigned usage);
+	void setNextId(unsigned id);
 
 	Entry* insert();
 	Entry* insert(mstl::string const& name);
@@ -188,7 +189,7 @@ public:
 	void rename(NamebaseEntry* entry, mstl::string const& name);
 
 	void update();
-	void setPrepared(unsigned maxFrequency, unsigned maxUsage);
+	void setPrepared(unsigned maxFrequency, unsigned maxId, unsigned maxUsage);
 	void reserve(unsigned size, unsigned limit);
 	void clear();
 	void setModified(bool flag);

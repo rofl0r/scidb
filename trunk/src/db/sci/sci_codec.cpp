@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 97 $
-// Date   : $Date: 2011-10-29 00:37:26 +0000 (Sat, 29 Oct 2011) $
+// Version: $Revision: 101 $
+// Date   : $Date: 2011-10-30 16:18:59 +0000 (Sun, 30 Oct 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1409,7 +1409,9 @@ Codec::readNamebases(mstl::fstream& stream, Progress& progress)
 		unsigned size = bstrm.uint24();
 		unsigned maxFreq = bstrm.uint24();
 		unsigned maxUsage = bstrm.uint24();
-		unsigned maxId = mstl::max(bstrm.uint24(), size);	// catch integer overflow
+		unsigned maxId = bstrm.uint24();
+
+		M_ASSERT(maxId >= size);
 
 		m_lookup[i].resize(maxId);
 
@@ -1423,7 +1425,7 @@ Codec::readNamebases(mstl::fstream& stream, Progress& progress)
 
 		m_progressCount += size;
 		m_progressReportAfter = m_progressFrequency - (m_progressCount % m_progressFrequency);
-		base.setPrepared(maxFreq, maxUsage);
+		base.setPrepared(maxFreq, maxId, maxUsage);
 	}
 }
 
