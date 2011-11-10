@@ -1,7 +1,7 @@
 /* ======================================================================
  * Author : $Author$
- * Version: $Revision: 102 $
- * Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
+ * Version: $Revision: 103 $
+ * Date   : $Date: 2011-11-10 14:30:34 +0000 (Thu, 10 Nov 2011) $
  * Url    : $URL$
  * ====================================================================== */
 /* ***** BEGIN LICENSE BLOCK *****
@@ -263,7 +263,7 @@ const SMModel EUCTWSMModel = {
    7,
   {eIdxSft4bits, eSftMsk4bits, eBitSft4bits, eUnitMsk4bits, EUCTW_st },
   EUCTWCharLenTable,
-  CS_X_EUC_TW",
+  CS_X_EUC_TW,
 };
 
 #endif /* CS_X_EUC_TW*/
