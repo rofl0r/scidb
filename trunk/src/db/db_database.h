@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 96 $
-// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
+// Version: $Revision: 102 $
+// Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -243,7 +243,6 @@ private:
 	unsigned			m_size;
 	uint64_t			m_lastChange;
 	TreeCache		m_treeCache;
-	mstl::string	m_encoding;
 	bool				m_encodingFailed;
 	bool				m_encodingOk;
 	bool				m_usingAsyncReader;

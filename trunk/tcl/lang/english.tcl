@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 101 $
-# Date   : $Date: 2011-10-30 16:18:59 +0000 (Sun, 30 Oct 2011) $
+# Version: $Revision: 102 $
+# Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -777,9 +777,12 @@
 ::overview::mc::AcceleratorRotate	"R"
 
 ### encoding ###########################################################
+::encoding::mc::AutoDetect				"auto-detection"
+
 ::encoding::mc::Encoding				"Encoding"
 ::encoding::mc::Description			"Description"
 ::encoding::mc::Languages				"Languages (Fonts)"
+::encoding::mc::UseAutoDetection		"Use Auto-Detection"
 
 ::encoding::mc::ChooseEncodingTitle	"Choose Encoding"
 
@@ -849,10 +852,12 @@
 ::import::mc::ImportAborted						"Import aborted."
 ::import::mc::TextIsEmpty							"PGN text is empty."
 ::import::mc::AbortImport							"Abort PGN import?"
-::import::mc::SelectEncoding						"Select encoding"
 
 ::import::mc::DifferentEncoding					"Selected encoding %src does not match file encoding %dst."
 ::import::mc::DifferentEncodingDetails			"Recoding of the database will not be successful anymore after this action."
+::import::mc::CannotDetectFigurineSet			"Cannot auto-detect a suitable figurine set."
+::import::mc::CheckImportResult					"Please check whether the right figurine set is detected."
+::import::mc::CheckImportResultDetail			"In seldom cases the auto-detection fails due to ambiguities."
 
 ::import::mc::EnterOrPaste							"Enter or paste a PGN-format %s in the frame above.\nAny errors importing the %s will be displayed here."
 ::import::mc::EnterOrPaste-Game					"game"
@@ -1481,6 +1486,7 @@
 ::fsbox::mc::RemoveBookmark				"Remove Bookmark '%s'"
 
 ::fsbox::mc::Filename						"File &name:"
+::fsbox::mc::Filenames						"File &names:"
 ::fsbox::mc::FilesType						"Files of &type:"
 ::fsbox::mc::FileEncoding					"File &encoding:"
 
@@ -1491,7 +1497,6 @@
 ::fsbox::mc::Home								"Home"
 
 ::fsbox::mc::SelectWhichType				"Select which type of file are shown"
-::fsbox::mc::SelectEncoding				"Select encoding"
 ::fsbox::mc::TimeFormat						"%d/%m/%y %I:%M %p"
 
 ::fsbox::mc::CannotChangeDir				"Cannot change to the directory \"%s\".\nPermission denied."

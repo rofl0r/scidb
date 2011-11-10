@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 96 $
-// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
+// Version: $Revision: 102 $
+// Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -114,7 +114,7 @@ getTable(char const* cmd, unsigned dbId, unsigned view)
 static int
 cmdMake(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 {
-	Cursor const& cursor = Scidb.cursor(stringFromObj(objc, objv, 1));
+	Cursor const& cursor = Scidb->cursor(stringFromObj(objc, objv, 1));
 	unsigned view = unsignedFromObj(objc, objv, 2);
 
 	TableHash::reference ref = tableHash[Key(cursor.database(), view)];

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 96 $
-# Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
+# Version: $Revision: 102 $
+# Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -164,7 +164,7 @@ proc SetupList {w} {
 		}
 		set list [lsort -index 0 -dictionary $list]
 		foreach entry $list {
-			lassign $entry mapped code iso1 flag country options
+			lassign $entry _ code iso1 flag country options
 			$w listinsert [list $code $iso1 $flag $country] {*}$options -index [incr index]
 		}
 	}

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 97 $
-// Date   : $Date: 2011-10-29 00:37:26 +0000 (Sat, 29 Oct 2011) $
+// Version: $Revision: 102 $
+// Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -59,6 +59,11 @@ inline ByteStream& ByteStream::operator>>(uint64_t& i)	{ i = uint64(); return *t
 
 inline void ByteStream::resetp() { m_putp = m_base; }
 inline void ByteStream::resetg() { m_getp = m_base; }
+
+inline uint32_t ByteStream::getUint8()		{ return uint8();  }
+inline uint32_t ByteStream::getUint16()	{ return uint16(); }
+inline uint32_t ByteStream::getUint24()	{ return uint24(); }
+inline uint32_t ByteStream::getUint32()	{ return uint32(); }
 
 
 inline

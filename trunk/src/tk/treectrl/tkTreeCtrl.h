@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 102 $
+// Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -252,6 +252,7 @@ struct TreeCtrl
 	int width;					/* -width */
 	Tcl_Obj *heightObj;			/* -height */
 	int height;					/* -height */
+	int expensiveSpanWidth;		/* -expensivespanwidth */
 	TreeColumn columnTree;		/* column where buttons/lines are drawn */
 #define DOUBLEBUFFER_NONE 0
 #define DOUBLEBUFFER_ITEM 1
@@ -630,6 +631,7 @@ MODULE_SCOPE int TreeItem_ColumnFromObj(TreeCtrl *tree, TreeItem item, Tcl_Obj *
 MODULE_SCOPE void TreeItem_RemoveColumns(TreeCtrl *tree, TreeItem item_, int first, int last);
 MODULE_SCOPE void TreeItem_RemoveAllColumns(TreeCtrl *tree, TreeItem item_);
 MODULE_SCOPE void TreeItem_MoveColumn(TreeCtrl *tree, TreeItem item_, int columnIndex, int beforeIndex);
+MODULE_SCOPE int TreeItem_NeededWidthOfColumn(TreeCtrl *tree, TreeItem item, int columnIndex);
 
 /* tkTreeElem.c */
 MODULE_SCOPE int TreeElement_Init(Tcl_Interp *interp);

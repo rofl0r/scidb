@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 102 $
+// Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -70,3 +70,5 @@ mstl::bits::rotate_fast(void* first, void* middle, void* last)
 		reverse(f, f == m ? l : m);
 	}
 }
+
+// vi:set ts=3 sw=3:

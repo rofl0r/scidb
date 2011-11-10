@@ -1,6 +1,6 @@
 // ======================================================================
-// @version $Revision: 30 $
-// @lastmodified $LastChangedDate: 2011-05-23 14:49:04 +0000 (Mon, 23 May 2011) $
+// @version $Revision: 102 $
+// @lastmodified $LastChangedDate: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
 // @modifiedby $LastChangedBy$
 // ======================================================================
 
@@ -204,8 +204,6 @@ TreeItemColumn_NeededWidth(
 	return 0;
 }
 
-#ifdef EXPENSIVE_SPAN_WIDTH /* NOT USED */
-
 /*
  * When a style spans 2 or more columns, all of the requested width goes
  * to the first column in the span. Ideally the width needed by the style
@@ -315,8 +313,6 @@ if (0)
 
 	return width;
 }
-
-#endif /* EXPENSIVE_SPAN_WIDTH */
 
 /*
  *----------------------------------------------------------------------

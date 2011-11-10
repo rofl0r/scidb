@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 91 $
-// Date   : $Date: 2011-08-02 12:59:24 +0000 (Tue, 02 Aug 2011) $
+// Version: $Revision: 102 $
+// Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -295,6 +295,18 @@ template <> struct compile_time_checker<true> {};
 	{::mstl::bits::compile_time_checker<((expr) != 0)> COMPILE_TIME_ERROR __attribute__((unused));}
 
 #endif
+
+// Testing ////////////////////////////////////////////////////////////////////
+
+namespace mstl {
+	namespace bits {
+#ifdef TEST64
+		typedef uint64_t size_t;
+#else
+		typedef ::size_t size_t;
+#endif
+	}
+}
 
 #endif // _mstl_types_included
 

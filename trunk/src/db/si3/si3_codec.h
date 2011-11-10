@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 96 $
-// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
+// Version: $Revision: 102 $
+// Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -30,6 +30,8 @@
 #include "db_database_codec.h"
 #include "db_namebase.h"
 #include "db_common.h"
+
+#include "nsUniversalDetector.h"
 
 #include "u_crc.h"
 
@@ -61,7 +63,7 @@ class StoredLine;
 class Consumer;
 class NameList;
 
-class Codec : public DatabaseCodec
+class Codec : public DatabaseCodec, public nsUniversalDetector
 {
 public:
 
@@ -163,6 +165,7 @@ private:
 	void readIndex(mstl::fstream& fstrm, util::Progress& progress);
 
 	void readNamebases(mstl::fstream& stream, util::Progress& progress);
+	void preloadNamebase(ByteIStream& bstrm, unsigned maxFreq, unsigned count, util::Progress& progress);
 	void readNamebase(ByteIStream& stream,
 							Namebase& base,
 							NameList& shadowBase,
@@ -181,6 +184,9 @@ private:
 
 	void save(mstl::string const& rootname, unsigned start, util::Progress& progress, bool attach);
 
+	void setRecodedDescription(char const* description);
+	void Report(char const* charset);
+
 	unsigned						m_headerSize;
 	unsigned						m_indexEntrySize;
 	unsigned						m_fileVersion;
@@ -193,6 +199,7 @@ private:
 	mstl::fstream				m_gameStream2;
 	Lookup						m_roundLookup;
 	sys::utf8::Codec*			m_codec;
+	mstl::string				m_encoding;
 	CustomFlags*				m_customFlags;
 	util::BlockFile*			m_gameData;
 	util::BlockFileReader*	m_asyncReader;

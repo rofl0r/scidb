@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 84 $
-// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
+// Version: $Revision: 102 $
+// Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -50,11 +50,13 @@ public:
 					Tcl_Obj* arg,
 					Modification modification,
 					int firstGameNumber = 0,
-					unsigned lineOffset = 0);
+					unsigned lineOffset = 0,
+					bool trialMode = false);
 	~PgnReader() throw();
 
 	unsigned countErrors() const;
 	unsigned countWarnings() const;
+	Error lastErrorCode() const;
 
 	void warning(	Warning code,
 						unsigned lineNo,
@@ -79,6 +81,8 @@ private:
 	unsigned	m_lineOffset;
 	unsigned	m_countErrors;
 	unsigned	m_countWarnings;
+	bool		m_trialModeFlag;
+	Error		m_lastError;
 };
 
 } // namespace tcl

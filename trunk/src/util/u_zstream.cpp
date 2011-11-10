@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 96 $
-// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
+// Version: $Revision: 102 $
+// Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -356,6 +356,7 @@ ZStream::ZStream(char const* filename, Type type, Mode mode)
 void
 ZStream::setZipFileSuffixes(Strings const& suffixes)
 {
+	m_suffixes.clear();
 	m_suffixes.reserve(suffixes.size());
 
 	for (unsigned i = 0; i < suffixes.size(); ++i)

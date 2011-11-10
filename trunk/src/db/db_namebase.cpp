@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 101 $
-// Date   : $Date: 2011-10-30 16:18:59 +0000 (Sun, 30 Oct 2011) $
+// Version: $Revision: 102 $
+// Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -727,7 +727,7 @@ Namebase::update()
 
 	unsigned index = 0;
 
-	IdSet	usedSet(mstl::max(m_nextId, m_list.size()));
+	IdSet	usedSet(mstl::max(List::size_type(m_nextId), m_list.size()));
 	List	prepareSet;
 
 	if (m_isModified)
@@ -885,6 +885,7 @@ Namebase::rename(NamebaseEntry* entry, mstl::string const& name)
 {
 	M_REQUIRE(!isReadonly());
 	M_REQUIRE(entry);
+	M_REQUIRE(sys::utf8::Codec::validateUtf8(name));
 
 	if (name == entry->name())
 		return;

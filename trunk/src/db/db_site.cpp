@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 28 $
-// Date   : $Date: 2011-05-21 14:57:26 +0000 (Sat, 21 May 2011) $
+// Version: $Revision: 102 $
+// Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -461,7 +461,7 @@ Site::findMatches(mstl::string const& name, Matches& result, unsigned maxMatches
 {
 	typedef int (*Compare)(const void *, const void *);
 
-	size_t n = result.size();
+	mstl::string::size_type n = result.size();
 
 	if (maxMatches <= n)
 		return 0;
@@ -474,7 +474,7 @@ Site::findMatches(mstl::string const& name, Matches& result, unsigned maxMatches
 	::insert(result, i->second);
 	++i;
 
-	size_t maxSize = maxMatches + n;
+	mstl::string::size_type maxSize = maxMatches + n;
 
 	while (result.size() < maxSize && i != ::siteList.end() && ::isPrefix(name, i->first))
 	{
@@ -482,7 +482,7 @@ Site::findMatches(mstl::string const& name, Matches& result, unsigned maxMatches
 		++i;
 	}
 
-	result.resize(mstl::min(size_t(maxMatches + n), result.size()));
+	result.resize(mstl::min(maxMatches + n, result.size()));
 
 	::qsort(	result.begin(),
 				result.size(),

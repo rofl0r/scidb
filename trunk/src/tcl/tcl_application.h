@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 102 $
+// Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -27,15 +27,17 @@
 #ifndef _tcl_application_included
 #define _tcl_application_included
 
-#include "app_application.h"
-
 extern "C" { struct Tcl_Interp; }
+
+namespace app { class Application; }
 
 namespace tcl {
 namespace app {
 
-extern ::app::Application scidb;
-extern ::app::Application const& Scidb;
+extern ::app::Application *scidb;
+extern ::app::Application const* Scidb;
+
+void setup(::app::Application* app);
 
 void init(Tcl_Interp* interp);
 

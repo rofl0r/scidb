@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 96 $
-# Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
+# Version: $Revision: 102 $
+# Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -165,7 +165,7 @@ proc dialogButtonAdd {dlg type labelvar {icon {}}} {
 	if {[llength $icon]} {
 		$w configure -compound left -image $icon
 	}
-	dialogButtonsSetup $dlg $type $var
+	dialogButtonsSetup $dlg $type $labelvar
 	bind $w <Return> "event generate $w <Key-space>; break"
 	pack $w -in $dlg.__buttons -pady $::theme::pady -padx $::theme::padx -side left
 }

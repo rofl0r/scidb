@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 96 $
-// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
+// Version: $Revision: 102 $
+// Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -131,6 +131,11 @@ public:
 	uint16_t uint16LE();
 	uint32_t uint24LE();
 	uint32_t uint32LE();
+
+	uint32_t getUint8();
+	uint32_t getUint16();
+	uint32_t getUint24();
+	uint32_t getUint32();
 
 	void resetp();
 	void resetg();

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 96 $
-// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
+// Version: $Revision: 102 $
+// Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -5321,7 +5321,6 @@ TreeColumn_WidthOfItems(
 {
 	TreeCtrl *tree = column->tree;
 	TreeItem item;
-	TreeItemColumn itemColumn;
 	int width;
 
 	if (column->widthOfItems >= 0)
@@ -5332,20 +5331,20 @@ TreeColumn_WidthOfItems(
 	if (!TreeItem_ReallyVisible(tree, item))
 		item = TreeItem_NextVisible(tree, item);
 	while (item != NULL) {
-#ifdef EXPENSIVE_SPAN_WIDTH /* NOT USED */
-		width = TreeItem_NeededWidthOfColumn(tree, item, column->index);
-		if (column == tree->columnTree)
-			width += TreeItem_Indent(tree, item);
-		column->widthOfItems = MAX(column->widthOfItems, width);
-#else
-		itemColumn = TreeItem_FindColumn(tree, item, column->index);
-		if (itemColumn != NULL) {
-			width = TreeItemColumn_NeededWidth(tree, item, itemColumn);
+		if (tree->expensiveSpanWidth) {
+			width = TreeItem_NeededWidthOfColumn(tree, item, column->index);
 			if (column == tree->columnTree)
 				width += TreeItem_Indent(tree, item);
 			column->widthOfItems = MAX(column->widthOfItems, width);
+		} else {
+			TreeItemColumn itemColumn = TreeItem_FindColumn(tree, item, column->index);
+			if (itemColumn != NULL) {
+				width = TreeItemColumn_NeededWidth(tree, item, itemColumn);
+				if (column == tree->columnTree)
+					width += TreeItem_Indent(tree, item);
+				column->widthOfItems = MAX(column->widthOfItems, width);
+			}
 		}
-#endif
 		item = TreeItem_NextVisible(tree, item);
 	}
 

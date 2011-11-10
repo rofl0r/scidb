@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 96 $
-# Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
+# Version: $Revision: 102 $
+# Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -773,9 +773,12 @@
 ::overview::mc::AcceleratorRotate	"D"
 
 ### encoding ###########################################################
+::encoding::mc::AutoDetect				"autom. erkennen"
+
 ::encoding::mc::Encoding				"Enkodierung"
 ::encoding::mc::Description			"Beschreibung"
 ::encoding::mc::Languages				"Sprachen (Schrift)"
+::encoding::mc::UseAutoDetection		"Automatische Erkennung benutzen"
 
 ::encoding::mc::ChooseEncodingTitle	"Enkodierung wählen"
 
@@ -845,10 +848,12 @@
 ::import::mc::ImportAborted						"Der Import wurde abgebrochen."
 ::import::mc::TextIsEmpty							"Das PGN-Textfeld ist leer."
 ::import::mc::AbortImport							"PGN-Import abbrechen?"
-::import::mc::SelectEncoding						"Enkodierung wählen"
 
 ::import::mc::DifferentEncoding					"Die ausgewählte Enkodierung %src stimmt nicht mit der Dateienkodierung %dst überein."
 ::import::mc::DifferentEncodingDetails			"Eine Umkodierung wird danach nicht mehr erfolgreich sein."
+::import::mc::CannotDetectFigurineSet			"Es konnte kein geeigneter Figurinensatz ermittelt werden."
+::import::mc::CheckImportResult					"Bitte prüfen ob der richtige Figurinensatz ermittelt wurde."
+::import::mc::CheckImportResultDetail			"In seltenen Fällen scheitert die automatische Ermittlung aufgrund von Mehrdeutigkeiten."
 
 ::import::mc::EnterOrPaste							"Eingabe oder Kopieren einer %s im PGN-Format in das obige Textfenster.\nHier werden die Fehler beim Importieren der %s angezeigt."
 ::import::mc::EnterOrPaste-Game					"Partie"
@@ -1478,6 +1483,7 @@
 ::fsbox::mc::RemoveBookmark				"Lesezeichen '%s' löschen"
 
 ::fsbox::mc::Filename						"Datei&name:"
+::fsbox::mc::Filenames						"Datei&namen:"
 ::fsbox::mc::FilesType						"Datei&typus:"
 ::fsbox::mc::FileEncoding					"Datei&enkodierung:"
 
@@ -1488,7 +1494,6 @@
 ::fsbox::mc::Home								"Heimverzeichnis"
 
 ::fsbox::mc::SelectWhichType				"Auswahl der anzuzeigenden Dateitypen"
-::fsbox::mc::SelectEncoding				"Enkodierung wählen"
 ::fsbox::mc::TimeFormat						"%d.%m.%Y %H:%M"
 
 ::fsbox::mc::CannotChangeDir				"Kann nicht in das Verzeichnis '%s' wechseln.\nKeine ausreichenden Rechte vorhanden."

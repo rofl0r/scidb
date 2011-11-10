@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 101 $
-// Date   : $Date: 2011-10-30 16:18:59 +0000 (Sun, 30 Oct 2011) $
+// Version: $Revision: 102 $
+// Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -925,7 +925,9 @@ Codec::writeIndexHeader(mstl::fstream& fstrm)
 	strm << uint8_t(type());						// base type
 	strm << uint32_t(created());					// creation time
 
-	strm.put(description(), mstl::min(description().size(), sizeof(header) - strm.tellp() - 1));
+	strm.put(description(),
+				mstl::min(	description().size(),
+								mstl::string::size_type(sizeof(header) - strm.tellp() - 1)));
 
 	if (!fstrm.seekp(8, mstl::ios_base::beg))	// skip magic
 		IO_RAISE(Index, Corrupted, "unexpected end of index file");

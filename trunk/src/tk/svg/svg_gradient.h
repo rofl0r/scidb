@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 28 $
-// Date   : $Date: 2011-05-21 14:57:26 +0000 (Sat, 21 May 2011) $
+// Version: $Revision: 102 $
+// Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -74,7 +74,7 @@ public:
 
 	color_type operator[] (unsigned v) const
 	{
-		return m_color_list[mstl::min(size_t(v), m_color_list.size() - 1)];
+		return m_color_list[mstl::min((typename color_list::size_type)(v), m_color_list.size() - 1)];
 	}
 
 private:

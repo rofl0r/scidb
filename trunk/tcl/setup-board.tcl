@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 96 $
-# Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
+# Version: $Revision: 102 $
+# Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -430,7 +430,7 @@ proc open {parent} {
 	$canv create window $edge 0 -window $board -anchor nw -tag board
 	::board::stuff::bind $board all <ButtonPress-1> [namespace code [list SetPiece %q]]
 	::board::stuff::bind $board all <ButtonPress-3> [namespace code ChangeColor]
-	::board::stuff::bind $board all <ButtonPress-2> [namespace code NextPiece]
+	::board::stuff::bind $board all <ButtonPress-2> [namespace code [list NextPiece %s]]
 	set Vars(board) $board
 
 	set x [expr {$edge/2}]
@@ -641,20 +641,16 @@ proc AnalyseFen {fen {cmd none}} {
 }
 
 
-proc PrevPiece {} {
+proc NextPiece {state} {
+	variable NextPiece
 	variable PrevPiece
 	variable Vars
 
-	set Vars(piece) $PrevPiece($Vars(piece))
-	SetCursor $Vars(piece)
-}
-
-
-proc NextPiece {} {
-	variable NextPiece
-	variable Vars
-
-	set Vars(piece) $NextPiece($Vars(piece))
+	if {$state == 1} {
+		set Vars(piece) $PrevPiece($Vars(piece))
+	} else {
+		set Vars(piece) $NextPiece($Vars(piece))
+	}
 	SetCursor $Vars(piece)
 }
 

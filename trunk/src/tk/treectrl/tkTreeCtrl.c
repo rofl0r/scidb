@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 30 $
-// Date   : $Date: 2011-05-23 14:49:04 +0000 (Mon, 23 May 2011) $
+// Version: $Revision: 102 $
+// Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -141,6 +141,9 @@ static Tk_OptionSpec optionSpecs[] = {
 	 "doubleBuffer", "DoubleBuffer",
 	 "item", -1, Tk_Offset(TreeCtrl, doubleBuffer),
 	 0, (ClientData) doubleBufferST, TREE_CONF_REDISPLAY},
+	{TK_OPTION_BOOLEAN, "-expensivespanwidth", "expensiveSpanWidth", "ExpensiveSpanWidth",
+	 "0", -1, Tk_Offset(TreeCtrl, expensiveSpanWidth),
+	 0, (ClientData) NULL, 0},
 	{TK_OPTION_SYNONYM, "-fg", (char *) NULL, (char *) NULL,
 	 (char *) NULL, 0, -1, 0, (ClientData) "-foreground"},
 	{TK_OPTION_FONT, "-font", "font", "Font",

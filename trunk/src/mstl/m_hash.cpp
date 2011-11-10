@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 5 $
-// Date   : $Date: 2011-05-05 07:51:24 +0000 (Thu, 05 May 2011) $
+// Version: $Revision: 102 $
+// Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -22,14 +22,14 @@
 #include "m_utility.h"
 
 
-size_t
+mstl::bits::size_t
 mstl::bits::hash_expansion(size_t size)
 {
 	return size_t(1) << (bf::msb_index(size) + 1);
 }
 
 
-size_t
+mstl::bits::size_t
 mstl::bits::hash_size(size_t min_size)
 {
 	M_ASSERT(min_size > 0);
@@ -37,7 +37,7 @@ mstl::bits::hash_size(size_t min_size)
 }
 
 
-size_t
+mstl::bits::size_t
 mstl::bits::hash_str(mstl::string const& key)
 {
 	char const* s = key.begin();
@@ -56,7 +56,7 @@ mstl::bits::hash_str(mstl::string const& key)
 }
 
 
-size_t
+mstl::bits::size_t
 mstl::bits::hash_str(char const* key)
 {
 	// FNV1 hash algorithm

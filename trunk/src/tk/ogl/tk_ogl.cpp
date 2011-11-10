@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 96 $
-// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
+// Version: $Revision: 102 $
+// Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1251,34 +1251,34 @@ ogl_objWidget(ClientData clientData, Tcl_Interp* ti, int objc, Tcl_Obj *const* o
 
 			for ( ; i < objc ; i++)
 			{
-				char const* optName = Tcl_GetStringFromObj(objv[i], nullptr);
+				char const* optName = Tcl_GetString(objv[i]);
 
 				if (strncmp (optName, "-family", 7) == 0)
 				{
 					if (i < objc-1)
-						name = Tcl_GetStringFromObj(objv[++i], nullptr);
+						name = Tcl_GetString(objv[++i]);
 				}
 				else if (strncmp (optName, "-slant", 6) == 0)
 				{
 					if (i < objc-1)
-						slant = Tcl_GetStringFromObj(objv[++i], nullptr);
+						slant = Tcl_GetString(objv[++i]);
 				}
 				else if (strncmp (optName, "-weight", 7) == 0)
 				{
 					if (i < objc-1)
-						weight = Tcl_GetStringFromObj(objv[++i], nullptr);
+						weight = Tcl_GetString(objv[++i]);
 				}
 				else if (strncmp (optName, "-size", 5) == 0)
 				{
 					if (i < objc-1)
-						size = Tcl_GetStringFromObj(objv[++i], nullptr);
+						size = Tcl_GetString(objv[++i]);
 				}
 				else
 				{
 					// No option given. The supplied parameter should be a XLFD
 					// specification. We pass it over to ogl_loadBitmapFont, where
 					// it will be checked for correctness.
-					name = Tcl_GetStringFromObj(objv[i], nullptr);
+					name = Tcl_GetString(objv[i]);
 					break;
 				}
 			}

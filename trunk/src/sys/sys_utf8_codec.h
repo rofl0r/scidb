@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 64 $
-// Date   : $Date: 2011-07-01 23:42:38 +0000 (Fri, 01 Jul 2011) $
+// Version: $Revision: 102 $
+// Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -55,9 +55,12 @@ public:
 	void forceValidUtf8(mstl::string& str);
 
 	void reset();
+	void reset(mstl::string const& encoding);
 
+	static mstl::string const& automatic();
 	static mstl::string const& utf8();
 	static mstl::string const& latin1();
+	static mstl::string const& windows();
 
 	static bool is7BitAscii(mstl::string const& s);
 	static bool is7BitAscii(char const* s, unsigned nbytes);

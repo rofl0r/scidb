@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 56 $
-// Date   : $Date: 2011-06-28 14:04:22 +0000 (Tue, 28 Jun 2011) $
+// Version: $Revision: 102 $
+// Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -34,6 +34,7 @@
 
 #include "m_istream.h"
 #include "m_string.h"
+#include "m_assert.h"
 
 #include <tcl.h>
 
@@ -60,7 +61,8 @@ PgnReader::PgnReader(mstl::istream& strm,
 							Tcl_Obj* arg,
 							Modification modification,
 							int firstGameNumber,
-							unsigned lineOffset)
+							unsigned lineOffset,
+							bool trialMode)
 	:db::PgnReader(strm,
 						*encoder.codec,
 						firstGameNumber,
@@ -73,7 +75,11 @@ PgnReader::PgnReader(mstl::istream& strm,
 	,m_lineOffset(lineOffset)
 	,m_countErrors(0)
 	,m_countWarnings(0)
+	,m_trialModeFlag(trialMode)
+	,m_lastError(LastError)
 {
+	M_REQUIRE(cmd == 0 || arg != 0);
+
 	Tcl_IncrRefCount(m_warning);
 	Tcl_IncrRefCount(m_error);
 }
@@ -86,8 +92,10 @@ PgnReader::~PgnReader() throw()
 }
 
 
-unsigned PgnReader::countErrors() const	{ return m_countErrors; }
-unsigned PgnReader::countWarnings() const	{ return m_countWarnings; }
+unsigned PgnReader::countErrors() const				{ return m_countErrors; }
+unsigned PgnReader::countWarnings() const				{ return m_countWarnings; }
+
+PgnReader::Error PgnReader::lastErrorCode() const	{ return m_lastError; }
 
 
 void
@@ -101,6 +109,9 @@ PgnReader::warning(	Warning code,
 	char const* msg = 0;
 
 	++m_countWarnings;
+
+	if (m_trialModeFlag || m_cmd == 0)
+		return;
 
 	switch (code)
 	{
@@ -149,7 +160,7 @@ PgnReader::warning(	Warning code,
 	objv[6] = Tcl_NewStringObj(info, info.size());
 	objv[7] = Tcl_NewStringObj(item, item.size());
 
-	invoke(__func__, m_cmd, m_arg, 0, U_NUMBER_OF(objv), objv);
+	invoke(__func__, m_cmd, m_arg, nullptr, U_NUMBER_OF(objv), objv);
 }
 
 
@@ -165,6 +176,15 @@ PgnReader::error(	Error code,
 	char const* msg = 0;
 
 	++m_countErrors;
+
+	if (m_trialModeFlag)
+	{
+		m_lastError = code;
+		return;
+	}
+
+	if (m_cmd == 0)
+		return;
 
 	switch (code)
 	{
@@ -204,7 +224,7 @@ PgnReader::error(	Error code,
 	objv[6] = Tcl_NewStringObj(info, info.size());
 	objv[7] = Tcl_NewStringObj(item, item.size());
 
-	invoke(__func__, m_cmd, m_arg, 0, U_NUMBER_OF(objv), objv);
+	invoke(__func__, m_cmd, m_arg, nullptr, U_NUMBER_OF(objv), objv);
 }
 
 // vi:set ts=3 sw=3:

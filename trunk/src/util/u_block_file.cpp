@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 96 $
-// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
+// Version: $Revision: 102 $
+// Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -155,7 +155,9 @@ BlockFile::computeBlockCount()
 
 	if (size)
 	{
-		m_sizeInfo.insert(m_sizeInfo.end(), (size + m_blockSize - 1)/m_blockSize, m_blockSize);
+		m_sizeInfo.insert(m_sizeInfo.end(),
+								SizeInfo::size_type((size + m_blockSize - 1)/m_blockSize),
+								m_blockSize);
 		m_sizeInfo.back() = ::modulo(size, m_mask);
 	}
 }
@@ -665,7 +667,7 @@ BlockFile::put(ByteStream const& buf)
 		if (span >= 2)
 		{
 			m_sizeInfo.push_back(fileOffset(span));
-			m_sizeInfo.insert(m_sizeInfo.end(), span - 2, m_blockSize);
+			m_sizeInfo.insert(m_sizeInfo.end(), SizeInfo::size_type(span - 2), m_blockSize);
 		}
 
 		m_sizeInfo.push_back(0);

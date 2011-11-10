@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 96 $
-// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
+// Version: $Revision: 102 $
+// Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -43,9 +43,9 @@ checkResult(int rc, Tcl_Obj* cmd, Tcl_Obj* subcmd, Tcl_Obj* arg)
 //	if (rc != TCL_OK)
 //	{
 //		TCL_RAISE(	"'%s %s %s' failed",
-//						Tcl_GetStringFromObj(cmd, nullptr),
-//						Tcl_GetStringFromObj(subcmd, nullptr),
-//						Tcl_GetStringFromObj(arg, nullptr));
+//						Tcl_GetString(cmd),
+//						Tcl_GetString(subcmd),
+//						Tcl_GetString(arg));
 //	}
 }
 

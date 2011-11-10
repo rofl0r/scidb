@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 84 $
-// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
+// Version: $Revision: 102 $
+// Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -206,7 +206,7 @@ Codec::uncompress(byte_buf const& buf, byte* dst, unsigned dst_bytes)
 	if (*buf.data() == Flag_Copied)
 	{
 		M_ASSERT(dst_bytes + 1 == buf.size());
-		::memcpy(dst, buf.data() + 1, mstl::min(buf.size(), size_t(dst_bytes)));
+		::memcpy(dst, buf.data() + 1, mstl::min(buf.size(), byte_buf::size_type(dst_bytes)));
 		return;
 	}
 

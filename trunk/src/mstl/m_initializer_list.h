@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 84 $
-// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
+// Version: $Revision: 102 $
+// Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -28,12 +28,12 @@ class initializer_list
 {
 public:
 
-	typedef E			value_type;
-	typedef const E&	reference;
-	typedef const E&	const_reference;
-	typedef size_t		size_type;
-	typedef const E*	iterator;
-	typedef const E*	const_iterator;
+	typedef E				value_type;
+	typedef const E&		reference;
+	typedef const E&		const_reference;
+	typedef bits::size_t	size_type;
+	typedef const E*		iterator;
+	typedef const E*		const_iterator;
 
 	constexpr initializer_list();
 

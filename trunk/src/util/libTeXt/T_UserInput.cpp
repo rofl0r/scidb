@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 28 $
-// Date   : $Date: 2011-05-21 14:57:26 +0000 (Sat, 21 May 2011) $
+// Version: $Revision: 102 $
+// Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -46,7 +46,7 @@ UserInput::readNextLine(mstl::string& result)
 	mstl::string::size_type n = m_text.find('\n');
 
 	result.assign(m_text, 0, n);
-	m_text.erase(size_t(0), n);
+	m_text.erase(mstl::string::size_type(0), n);
 
 	return true;
 }

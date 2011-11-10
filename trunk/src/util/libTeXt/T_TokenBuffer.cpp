@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 28 $
-// Date   : $Date: 2011-05-21 14:57:26 +0000 (Sat, 21 May 2011) $
+// Version: $Revision: 102 $
+// Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -239,7 +239,8 @@ TokenBuffer::lookupToken(unsigned level, RefID refID) const
 	M_REQUIRE(refID < m_relList.size());
 	M_REQUIRE(!m_domainStack.empty());
 
-	Entry const* entry = lookup(mstl::min(size_t(level), m_domainStack.size() - 1), refID);
+	Entry const* entry = lookup(	mstl::min(DomainStack::size_type(level), m_domainStack.size() - 1),
+											refID);
 	return entry == 0 ? TokenP() : entry->get<idx::Token>();
 }
 

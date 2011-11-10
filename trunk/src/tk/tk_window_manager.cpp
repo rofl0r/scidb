@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 96 $
-// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
+// Version: $Revision: 102 $
+// Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -282,8 +282,8 @@ cmdWM(ClientData client_data __attribute__((unused)),
 	if (objc < 2)
 		return tcl_error(ti, Usage);
 
-	char const*	subcmd	= Tcl_GetStringFromObj(objv[1], nullptr);
-	char const*	path		= objc <= 2 ? 0 : Tcl_GetStringFromObj(objv[2], nullptr);
+	char const*	subcmd	= Tcl_GetString(objv[1]);
+	char const*	path		= objc <= 2 ? 0 : Tcl_GetString(objv[2]);
 	Tk_Window	tkmain	= Tk_MainWindow(ti);
 	Tk_Window	tkwin		= path ? Tk_NameToWindow(ti, path, tkmain) : tkmain;
 

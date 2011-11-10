@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 96 $
-// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
+// Version: $Revision: 102 $
+// Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2824,7 +2824,7 @@ Game::setUndoLevel(unsigned level, unsigned combinePredecessingMoves)
 	if (m_undoList.size() > m_maxUndoLevel)
 	{
 		size_t n = m_undoList.size() - m_maxUndoLevel;
-		size_t r = mstl::min(m_undoList.size() - m_undoIndex, n);
+		size_t r = mstl::min(size_t(m_undoList.size() - m_undoIndex), n);
 		size_t k = m_undoList.size() - r;
 
 		// firstly erase redo's

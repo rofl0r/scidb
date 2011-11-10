@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 101 $
-# Date   : $Date: 2011-10-30 16:18:59 +0000 (Sun, 30 Oct 2011) $
+# Version: $Revision: 102 $
+# Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -2396,9 +2396,7 @@ bind Text <Meta-greater>	{ tk::TextSetCursorExt %W end-1c }
 
 
 bind Text <<Undo>> {
-	variable ::comment::Vars
-
-	if {"%W" eq $Vars(widget:text)} {
+	if {"%W" eq $::comment::Vars(widget:text)} {
 		::comment::EditUndo %W
 	} else {
 		catch { %W edit undo }
@@ -2407,9 +2405,7 @@ bind Text <<Undo>> {
 
 
 bind Text <<Redo>> {
-	variable ::comment::Vars
-
-	if {"%W" eq $Vars(widget:text)} {
+	if {"%W" eq $::comment::Vars(widget:text)} {
 		::comment::EditRedo %W
 	} else {
 		catch { %W edit redo }

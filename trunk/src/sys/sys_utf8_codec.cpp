@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 101 $
-// Date   : $Date: 2011-10-30 16:18:59 +0000 (Sun, 30 Oct 2011) $
+// Version: $Revision: 102 $
+// Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1821,8 +1821,8 @@ nextState(State current, unsigned char c)
 static int
 compareEncodings(void const* lhs, void const* rhs)
 {
-	return ::strcmp(	Tcl_GetStringFromObj(*static_cast<Tcl_Obj*const*>(lhs), nullptr),
-							Tcl_GetStringFromObj(*static_cast<Tcl_Obj*const*>(rhs), nullptr));
+	return ::strcmp(	Tcl_GetString(*static_cast<Tcl_Obj*const*>(lhs)),
+							Tcl_GetString(*static_cast<Tcl_Obj*const*>(rhs)));
 }
 
 
@@ -1858,6 +1858,19 @@ Codec::~Codec()
 {
 	if (m_codec)
 		Tcl_FreeEncoding(m_codec);
+}
+
+
+void
+Codec::reset(mstl::string const& encoding)
+{
+	if (m_codec)
+		Tcl_FreeEncoding(m_codec);
+
+	m_codec = Tcl_GetEncoding(::sys::tcl::interp(), encoding);
+	m_encoding = encoding;
+	m_failed = false;
+	m_isUtf8 = (encoding == utf8());
 }
 
 
@@ -2089,16 +2102,32 @@ Codec::toUtf8(mstl::string const& in, mstl::string& out)
 mstl::string const&
 Codec::latin1()
 {
-	static mstl::string const utf8("iso8859-1");
-	return utf8;
+	static mstl::string const Name("iso8859-1");
+	return Name;
 }
 
 
 mstl::string const&
 Codec::utf8()
 {
-	static mstl::string const utf8("utf-8");
-	return utf8;
+	static mstl::string const Name("utf-8");
+	return Name;
+}
+
+
+mstl::string const&
+Codec::windows()
+{
+	static mstl::string const Name("cp1252");
+	return Name;
+}
+
+
+mstl::string const&
+Codec::automatic()
+{
+	static mstl::string const Name("auto");
+	return Name;
 }
 
 
@@ -2510,10 +2539,10 @@ Codec::forceValidUtf8(mstl::string& str)
 				result += '?';
 				m_failed = true;
 				state = validate::Start;
-				while (*s && ((*s & 0xc0) == 0x80 || validate::nextState(state, *s) == validate::Error))
+				while (s < e && ((*s & 0xc0) == 0x80 || validate::nextState(state, *s) == validate::Error))
 					++s;
 				p = s;
-				if (*s)
+				if (s < e)
 					--s;
 				break;
 
@@ -2733,7 +2762,7 @@ Codec::getEncodingList(EncodingList& result)
 	for (int i = 0; i < objc; ++i)
 	{
 		result.push_back();
-		result.back().assign(Tcl_GetStringFromObj(objv[i], nullptr));
+		result.back().assign(Tcl_GetString(objv[i]));
 	}
 
 	return objc;

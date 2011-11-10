@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 63 $
-// Date   : $Date: 2011-07-01 10:41:25 +0000 (Fri, 01 Jul 2011) $
+// Version: $Revision: 102 $
+// Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -273,7 +273,7 @@ NameList::makeNode(NamebaseEntry* entry, mstl::string const* str)
 {
 	unsigned id = m_nextId;
 
-	if (id == mstl::string::npos || m_usedIdSet.size() <= id)
+	if (id == mstl::bitset::npos || m_usedIdSet.size() <= id)
 	{
 		unsigned n = m_usedIdSet.size();
 
