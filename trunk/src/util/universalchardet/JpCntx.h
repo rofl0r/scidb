@@ -1,7 +1,7 @@
 /* ======================================================================
  * Author : $Author$
- * Version: $Revision: 102 $
- * Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
+ * Version: $Revision: 125 $
+ * Date   : $Date: 2011-11-11 22:46:00 +0000 (Fri, 11 Nov 2011) $
  * Url    : $URL$
  * ====================================================================== */
 /* ***** BEGIN LICENSE BLOCK *****
@@ -57,6 +57,7 @@ class JapaneseContextAnalysis
 {
 public:
   JapaneseContextAnalysis() {Reset(PR_FALSE);}
+  virtual ~JapaneseContextAnalysis() {}
 
   void HandleData(const char* aBuf, PRUint32 aLen);
 

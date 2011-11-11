@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 96 $
-# Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
+# Version: $Revision: 125 $
+# Date   : $Date: 2011-11-11 22:46:00 +0000 (Fri, 11 Nov 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -200,6 +200,7 @@ switch $::scidb::revision {
 	83 {
 		set ::export::RecentlyUsedHistory	{}
 		set ::export::RecentlyUsedTiebreaks	{}
+		set ::application::database::RecentFiles {}
 		set ::game::History {}
 	}
 }

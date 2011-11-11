@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 102 $
-# Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
+# Version: $Revision: 125 $
+# Date   : $Date: 2011-11-11 22:46:00 +0000 (Fri, 11 Nov 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -311,18 +311,20 @@ proc Open {parent base files msg encoding type useLog} {
 
 	set Priv(ok) 1
 	set Priv(gameNo) 1
-	set codec [::scidb::db::get codec $base]
 
-	if {[llength $encoding] == 0} {
-		switch $codec {
-			sci - si3 - si4	{ set encoding utf-8 }
-			default				{ set encoding $::encoding::defaultEncoding }
+	if {[llength $type] == 0} {
+		set codec [::scidb::db::get codec $base]
+		if {[llength $encoding] == 0} {
+			switch $codec {
+				sci - si3 - si4	{ set encoding utf-8 }
+				default				{ set encoding $::encoding::defaultEncoding }
+			}
 		}
+	} else {
+		::scidb::db::new $base $type $encoding
+		set codec sci
 	}
 
-	if {[llength $type]} {
-		::scidb::db::new $base $type $encoding
-	}
 	::log::open $mc::PgnImport
 
 	set ngames [::scidb::db::count games $base]

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 102 $
-# Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
+# Version: $Revision: 125 $
+# Date   : $Date: 2011-11-11 22:46:00 +0000 (Fri, 11 Nov 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -304,7 +304,7 @@ proc openBase {parent file {encoding ""} {readonly -1}} {
 	if {[file type $file] eq "link"} { set file [file normalize [file readlink $file]] }
 	set i [lsearch -exact -index 2 $Vars(bases) $file]
 	if {$i == -1} {
-		if {[llength $encoding] == 0} {
+		if {[llength $encoding] == 0 || $encoding eq $::encoding::autoEncoding} {
 			set k [FindRecentFile $file]
 			if {$k >= 0} { set encoding [lindex $RecentFiles $k 2] }
 		}
@@ -375,10 +375,9 @@ proc openBase {parent file {encoding ""} {readonly -1}} {
 		}
 		::scidb::db::set readonly $file $readonly
 		set type [::scidb::db::get type $file]
-		set encoding [::scidb::db::get encoding $file]
 		AddBase $type $file $encoding $readonly
 		AddRecentFile $type $file $encoding $ro
-		CheckEncoding $parent $file $encoding
+		CheckEncoding $parent $file [::scidb::db::get encoding $file]
 	} else {
 		SeeSymbol [lindex $Vars(bases) $i 0]
 	}

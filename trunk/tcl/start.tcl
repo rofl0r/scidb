@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 124 $
-# Date   : $Date: 2011-11-11 14:53:13 +0000 (Fri, 11 Nov 2011) $
+# Version: $Revision: 125 $
+# Date   : $Date: 2011-11-11 22:46:00 +0000 (Fri, 11 Nov 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -99,7 +99,7 @@ if {[::process::testOption delete-recovery-files]} {
 	exit 0
 }
 
-if {[::process::testOption from-the-scratch]} {
+if {[::process::testOption first-time]} {
 	foreach dir {{} piece square} {
 		set themesDir [file join $::scidb::dir::user themes $dir]
 		foreach file [glob -nocomplain -directory [file join $::scidb::dir::share themes $dir] *.dat] {
