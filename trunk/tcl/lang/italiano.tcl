@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 102 $
-# Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
+# Version: $Revision: 124 $
+# Date   : $Date: 2011-11-11 14:53:13 +0000 (Fri, 11 Nov 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -194,7 +194,6 @@
 ::load::mc::WikipediaLinks			"Link a Wikipedia"
 ::load::mc::ChessgamesComLinks	"Link a chessgames.com"
 ::load::mc::Cities					"città"
-::load::mc::PhotoIndex				"indice foto"
 ::load::mc::PieceSet					"set di pezzi"
 ::load::mc::Theme						"temi"
 ::load::mc::Icons						"icone"
@@ -774,12 +773,12 @@
 ::overview::mc::AcceleratorRotate	"R"
 
 ### encoding ###########################################################
-::encoding::mc::AutoDetect				"auto-detection" ;# NEW
+::encoding::mc::AutoDetect				"auto-rilevazione"
 
 ::encoding::mc::Encoding				"Codifica"
 ::encoding::mc::Description			"Descrizione"
 ::encoding::mc::Languages				"Lingue (Fonts)"
-::encoding::mc::UseAutoDetection		"Use Auto-Detection" ;# NEW
+::encoding::mc::UseAutoDetection		"Usa rilevazione automatica"
 
 ::encoding::mc::ChooseEncodingTitle	"Scegli codifica"
 
@@ -936,7 +935,7 @@
 ::export::mc::SelectExportedTags			"Selezione dei tag per l'esportazione"
 ::export::mc::ExcludeAllTags				"Escludi tutti i tag"
 ::export::mc::IncludeAllTags				"Includi tutti i tag"
-::export::mc::ExtraTags						"Tutti gli altri tag" ;# NEW
+::export::mc::ExtraTags						"Tutti gli altri tag"
 
 ::export::mc::PdfFiles						"File PDF"
 ::export::mc::HtmlFiles						"File HTML"
@@ -1483,7 +1482,7 @@
 ::fsbox::mc::RemoveBookmark				"Rimuovi il segnalibro '%s'"
 
 ::fsbox::mc::Filename						"Nom&e file:"
-::fsbox::mc::Filenames						"Nom&e file:" ;# NEW english "File names"
+::fsbox::mc::Filenames						"Nom&i file:"
 ::fsbox::mc::FilesType						"File del &tipo:"
 ::fsbox::mc::FileEncoding					"&Codifica File:"
 

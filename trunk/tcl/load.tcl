@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 42 $
-# Date   : $Date: 2011-06-13 23:31:52 +0000 (Mon, 13 Jun 2011) $
+# Version: $Revision: 124 $
+# Date   : $Date: 2011-11-11 14:53:13 +0000 (Fri, 11 Nov 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -41,7 +41,6 @@ set RatingList				"%s rating list"
 set WikipediaLinks		"Wikipedia links"
 set ChessgamesComLinks	"chessgames.com links"
 set Cities					"cities"
-set PhotoIndex				"photo index"
 set PieceSet				"piece set"
 set Theme					"theme"
 set Icons					"icons"
@@ -69,10 +68,6 @@ proc source {path args} {
 			::splash::print "${msg}..."
 			set LastMsg $msg
 		}
-	}
-
-	if {[string match {.sp[ai]} [file extension $path]]} {
-		set [namespace current]::photoFile [file rootname $path].spf
 	}
 
 	set currentFile $path
@@ -199,49 +194,6 @@ load::load	[format $load::mc::Loading $load::mc::Cities] \
 				site \
 				[file join $scidb::dir::data cities.txt] \
 				;
-
-# --- Load photo index files -------------------------------------------
-if {![::process::testOption no-photos]} {
-
-set msg [format $load::mc::Loading $load::mc::PhotoIndex]
-
-foreach basedir [list $::scidb::dir::share $::scidb::dir::user] {
-	if {[file isdirectory $basedir]} {
-		foreach idx [glob -directory [file join $basedir photos] -nocomplain *.spi] {
-			if {[file readable $idx]} {
-				if {[file readable [file rootname $idx].spf]} {
-					load::source $idx -message $msg
-				}
-			}
-		}
-	}
-}
-
-proc addPhotoAlias {alias name} {
-	set name [string map {. "" " " "" - ""} [string tolower $name]]
-	if {[info exists photo_Player($name)]} {
-		set alias [string map {. "" " " "" - ""} [string tolower $alias]]
-		set photo_Player($alias) $photo_Player($name)
-	} elseif {[info exists photo_Engine($name)]} {
-		set alias [string map {. "" " " "" - ""} [string tolower $alias]]
-		set photo_Engine($alias) $photo_Engine($name)
-	}
-}
-foreach spa [glob -directory [file join $::scidb::dir::share photos] -nocomplain *.spa] {
-	if {[file readable $spa]} {
-		load::source $spa -message $msg
-	}
-}
-
-foreach idx [glob -directory [file join $::scidb::dir::user photos] -nocomplain *.spi] {
-	if {[file readable $idx]} {
-		if {[file readable [file rootname $idx].spf]} {
-			load::source $idx -message $msg
-		}
-	}
-}
-
-} ;# if no-photos
 
 } ;# if fast-load
 

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 102 $
-# Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
+# Version: $Revision: 124 $
+# Date   : $Date: 2011-11-11 14:53:13 +0000 (Fri, 11 Nov 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -194,7 +194,6 @@
 ::load::mc::WikipediaLinks			"Wikipedia linkek"
 ::load::mc::ChessgamesComLinks	"chessgames.com linkek"
 ::load::mc::Cities					"Városok"
-::load::mc::PhotoIndex				"Fénykép index"
 ::load::mc::PieceSet					"Bábukészlet"
 ::load::mc::Theme						"Téma"
 ::load::mc::Icons						"Ikonok"

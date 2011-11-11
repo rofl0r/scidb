@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 94 $
-# Date   : $Date: 2011-08-21 16:47:29 +0000 (Sun, 21 Aug 2011) $
+# Version: $Revision: 124 $
+# Date   : $Date: 2011-11-11 14:53:13 +0000 (Fri, 11 Nov 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -555,42 +555,40 @@ proc NormalizeName {name} {
 }
 
 
+proc FindPhotoFile {name} {
+	set dir [string index $name 0]
+	if {![string match {[a-z]} $dir]} { return "" }
+	set path [file join $::scidb::dir::home photos $dir $name]
+	if {[file readable $path]} { return $path }
+	set path [file join $::scidb::dir::photos $dir $name]
+	if {[file readable $path]} { return $path }
+	return ""
+}
+
+
 proc FindPlayerPhoto {name info} {
-	global photo_Engine
-	global photo_Player
-
 	set key [NormalizeName $name]
-	set type [lindex $info 8]
-	set found 0
+	set file [FindPhotoFile $key]
+	set found $file
 
-	switch $type {
-		program	{ set var photo_Engine }
-		default	{ set var photo_Player }
-	}
-
-	if {[info exists ${var}($key)]} {
-		set found 1
-	} else {
+	if {[string length $found] == 0} {
 		set aliases [lindex $info 20]
 
 		foreach alias $aliases {
 			set key [NormalizeName $alias]
-			if {[info exists ${var}($key)]} {
-				set found 1
+			set file [FindPhotoFile $key]
+			if {[string length $file]} {
+				set found $file
 				break
 			}
 		}
 	}
 
-	if {!$found} { return 0 }
-
-	lassign [set ${var}($key)] file offset size
-	set rc 0
+	if {[string length $found] == 0} { return 0 }
 
 	catch {
-		set fd [open $file]
-		seek $fd $offset start
-		set data [read $fd $size]
+		set fd [open $found rb]
+		set data [read $fd]
 		image create photo PlayerPhoto_ -data $data
 		set rc 1
 	}

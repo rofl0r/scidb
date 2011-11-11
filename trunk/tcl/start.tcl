@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 96 $
-# Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
+# Version: $Revision: 124 $
+# Date   : $Date: 2011-11-11 14:53:13 +0000 (Fri, 11 Nov 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -45,6 +45,7 @@ set home		[file nativename "~"]
 set exec		[file dirname [info nameofexecutable]]
 set user		[file join $home .[string range [file tail [info nameofexecutable]] 2 end]]
 set data		[file join $share data]
+set photos	[file join $share photos]
 set backup	[file join $user backup]
 set config	[file join $user config]
 

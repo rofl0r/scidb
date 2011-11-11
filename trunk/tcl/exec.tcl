@@ -1,8 +1,8 @@
 #!/bin/sh
 #! ======================================================================
 #! $RCSfile: tk_init.h,v $
-#! $Revision: 96 $
-#! $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
+#! $Revision: 124 $
+#! $Date: 2011-11-11 14:53:13 +0000 (Fri, 11 Nov 2011) $
 #! $Author: gregor $
 #! ======================================================================
 
@@ -141,16 +141,15 @@ if {[testOption help]} {
 	puts "  --help                  Print Help (this message) and exit"
 	puts "  --version               Print version information and exit"
 	puts "  --show-board            Switch to board tab immediately after startuo"
+	puts "  --fast-load             Do only load the mandatory files at startup"
+	puts "  --first-time            Delete option file and recovery files at startup"
+	puts "                          (starting $::scidb::app as it would be the first time)"
+	puts "  --elo-only              Do not load rating files except ELO rating"
 	puts "  --print-recovery-files  Print recovery files from last session and exit"
 	puts "  --delete-recovery-files Delete recovery files and exit"
 	puts "  --dont-recover          Do not recover unsaved games from last session"
 	puts "  --recover-old           Recover games from older sessions"
 	puts "                          (will skip games from last session)"
-	puts "  --from-the-scratch      Delete option file and recovery files at startup"
-	puts "                          (starting $::scidb::app as it would be the first time)"
-	puts "  --fast-load             Do only load the mandatory files at startup"
-	puts "  --elo-only              Do not load rating files except ELO rating"
-	puts "  --no-photos             Skip the load of the photo files"
 	puts "  --single-process        Forcing a single process of $::scidb::app"
 	puts "                          (you shouldn't use this option; only for testing)"
 	puts "  --force-grab            Do not suppress grabs in debug mode"

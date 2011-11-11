@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 102 $
-# Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
+# Version: $Revision: 124 $
+# Date   : $Date: 2011-11-11 14:53:13 +0000 (Fri, 11 Nov 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -191,7 +191,6 @@
 ::load::mc::WikipediaLinks			"Verknüpfungen zu Wikipedia"
 ::load::mc::ChessgamesComLinks	"Verknüpfungen zu chessgames.com"
 ::load::mc::Cities					"Städteliste"
-::load::mc::PhotoIndex				"Photoindex"
 ::load::mc::PieceSet					"Figurensatz"
 ::load::mc::Theme						"Thema"
 ::load::mc::Icons						"Icons"
