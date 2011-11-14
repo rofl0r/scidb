@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 124 $
-# Date   : $Date: 2011-11-11 14:53:13 +0000 (Fri, 11 Nov 2011) $
+# Version: $Revision: 126 $
+# Date   : $Date: 2011-11-14 16:21:33 +0000 (Mon, 14 Nov 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -392,6 +392,7 @@
 ::application::pgn::mc::MustBeEven							"Die Eingabe muß eine gerade Zahl sein."
 ::application::pgn::mc::MustBeOdd							"Die Eingabe muß eine ungerade Zahl sein."
 ::application::pgn::mc::ReplaceMovesSucceeded			"Die Partiezüge wurden erfolgreich ersetzt."
+::application::pgn::mc::CannotOpenCursorFiles			"Die Cursor-Dateien konnten nicht geöffnet werden: %s"
 
 ::application::pgn::mc::EditAnnotation						"Anmerkungen bearbeiten"
 ::application::pgn::mc::EditMoveInformation				"Zuginformationen bearbeiten"

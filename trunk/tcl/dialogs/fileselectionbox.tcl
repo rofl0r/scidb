@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 102 $
-# Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
+# Version: $Revision: 126 $
+# Date   : $Date: 2011-11-14 16:21:33 +0000 (Mon, 14 Nov 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -302,6 +302,14 @@ proc Open {type args} {
 	wm withdraw $w
 
 	set Priv(lastFolder) [::fsbox::lastFolder $w.fsbox]
+
+	lassign $Priv(result) path encoding
+	if {[llength $path] == 0} { return {} }
+
+	if {$encoding eq $::encoding::mc::AutoDetect} {
+		return [list $path $::encoding::autoEncoding]
+	}
+
 	return $Priv(result)
 }
 

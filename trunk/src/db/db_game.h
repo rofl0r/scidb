@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 96 $
-// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
+// Version: $Revision: 126 $
+// Date   : $Date: 2011-11-14 16:21:33 +0000 (Mon, 14 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -478,7 +478,7 @@ public:
 	/// Traverse whole game.
 	void updateSubscriber(unsigned action = UpdateBoard | UpdatePgn);
 	/// Traverse whole game.
-	void refreshSubscriber();
+	void refreshSubscriber(unsigned actions);
 	/// Set undo level.
 	void setUndoLevel(unsigned level, unsigned combinePredecessingMoves);
 	/// Set game tags.

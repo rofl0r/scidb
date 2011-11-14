@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 124 $
-# Date   : $Date: 2011-11-11 14:53:13 +0000 (Fri, 11 Nov 2011) $
+# Version: $Revision: 126 $
+# Date   : $Date: 2011-11-14 16:21:33 +0000 (Mon, 14 Nov 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -394,6 +394,7 @@
 ::application::pgn::mc::MustBeEven							"Input must be an even number."
 ::application::pgn::mc::MustBeOdd							"Input must be an odd number."
 ::application::pgn::mc::ReplaceMovesSucceeded			"Game moves successfully replaced."
+::application::pgn::mc::CannotOpenCursorFiles			"Cannot open cursor files: %s"
 
 ::application::pgn::mc::EditAnnotation						"Edit annotation"
 ::application::pgn::mc::EditMoveInformation				"Edit move information"

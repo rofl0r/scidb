@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 101 $
-// Date   : $Date: 2011-10-30 16:18:59 +0000 (Sun, 30 Oct 2011) $
+// Version: $Revision: 126 $
+// Date   : $Date: 2011-11-14 16:21:33 +0000 (Mon, 14 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1090,7 +1090,7 @@ Application::switchGame(unsigned position)
 	if (game.refresh)
 	{
 		if (game.refresh == 2)
-			game.game->refreshSubscriber();
+			game.game->refreshSubscriber(Game::UpdateAll);
 		else
 			game.game->updateSubscriber(Game::UpdateBoard | Game::UpdatePgn | Game::UpdateOpening);
 
@@ -1151,7 +1151,7 @@ Application::refreshGame(unsigned position, bool radical)
 	EditGame& game = m_gameMap.find(position)->second;
 
 	if (position == m_position)
-		game.game->refreshSubscriber();
+		game.game->refreshSubscriber(Game::UpdateAll);
 	else
 		game.refresh = 2;
 }

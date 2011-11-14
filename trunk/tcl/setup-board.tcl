@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 102 $
-# Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
+# Version: $Revision: 126 $
+# Date   : $Date: 2011-11-14 16:21:33 +0000 (Mon, 14 Nov 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -999,6 +999,8 @@ proc SetupCursors {} {
 							set Cursor(w$fig) [::xcursor::loadCursor $wfile]
 							set Cursor(b$fig) [::xcursor::loadCursor $bfile]
 						}
+					} else {
+						::log::info Setup [format $::application::pgn::mc::CannotOpenCursorFiles $wfile $bfile]
 					}
 				}
 			} else {
@@ -1010,6 +1012,9 @@ proc SetupCursors {} {
 					if {[file readable $wfile] && [file readable $bfile] && [file readable $mfile]} {
 						set Cursor(w$fig) [list @$wfile $mfile black white]
 						set Cursor(b$fig) [list @$bfile $mfile white black]
+					} else {
+						set msg [format $::application::pgn::mc::CannotOpenCursorFiles $wfile $bfile $mfile]
+						::log::info Setup $msg
 					}
 				}
 			}
@@ -1022,6 +1027,8 @@ proc SetupCursors {} {
 			if {[file readable $wfile] && [file readable $bfile]} {
 				set Cursor(w$fig) [list @$wfile]
 				set Cursor(b$fig) [list @$bfile]
+			} else {
+				::log::info Setup [format $::application::pgn::mc::CannotOpenCursorFiles $wfile $bfile]
 			}
 		}
 

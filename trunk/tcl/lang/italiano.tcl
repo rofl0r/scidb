@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 124 $
-# Date   : $Date: 2011-11-11 14:53:13 +0000 (Fri, 11 Nov 2011) $
+# Version: $Revision: 126 $
+# Date   : $Date: 2011-11-14 16:21:33 +0000 (Mon, 14 Nov 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -393,6 +393,7 @@
 ::application::pgn::mc::MustBeEven							"Input deve essere un numero pari."
 ::application::pgn::mc::MustBeOdd							"Input deve essere un numero dispari."
 ::application::pgn::mc::ReplaceMovesSucceeded			"Mosse nella partita sostituite con successo."
+::application::pgn::mc::CannotOpenCursorFiles			"Cannot open cursor files: %s" ;# NEW
 
 ::application::pgn::mc::EditAnnotation						"Modifica annotazioni"
 ::application::pgn::mc::EditMoveInformation				"Modifica informazioni mossa"

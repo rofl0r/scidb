@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 102 $
-// Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
+// Version: $Revision: 126 $
+// Date   : $Date: 2011-11-14 16:21:33 +0000 (Mon, 14 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -129,9 +129,9 @@ Encoder::doEncoding(	Signature const& signature,
 	if (signature.hasUnderPromotion())
 		flags |= flags::Under_Promotion;
 
-	setup(data.m_startBoard);
 	encodeTags(data.m_tags, allowedTags, allowExtraTags);
 	m_strm.put(flags);
+	setup(data.m_startBoard);
 	encodeVariation(data.m_startNode);
 	encodeComments(data.m_startNode, m_codec.isUtf8() ? encoding::Utf8 : encoding::Latin1);
 	m_strm.provide();

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 102 $
-// Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
+// Version: $Revision: 126 $
+// Date   : $Date: 2011-11-14 16:21:33 +0000 (Mon, 14 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2933,7 +2933,7 @@ Game::setFolded(edit::Key const& key, bool flag)
 		goToFirst();
 
 	node->setFolded(flag);
-	updateSubscriber(UpdatePgn);
+	updateSubscriber(UpdatePgn | UpdateBoard);
 }
 
 
@@ -2950,7 +2950,7 @@ Game::toggleFolded(edit::Key const& key)
 		goToFirst();
 
 	node->setFolded(flag);
-	updateSubscriber(UpdatePgn);
+	updateSubscriber(UpdatePgn | UpdateBoard);
 }
 
 
@@ -2961,7 +2961,7 @@ Game::setFolded(bool flag)
 		goToFirst();
 
 	m_startNode->fold(flag);
-	updateSubscriber(UpdatePgn);
+	updateSubscriber(UpdatePgn | UpdateBoard);
 }
 
 
@@ -3009,11 +3009,11 @@ Game::commentOthFlag() const
 
 
 void
-Game::refreshSubscriber()
+Game::refreshSubscriber(unsigned actions)
 {
 	delete m_editNode;
 	m_editNode = 0;
-	updateSubscriber(Game::UpdateAll);
+	updateSubscriber(actions);
 }
 
 

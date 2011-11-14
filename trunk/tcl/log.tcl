@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 56 $
-# Date   : $Date: 2011-06-28 14:04:22 +0000 (Tue, 28 Jun 2011) $
+# Version: $Revision: 126 $
+# Date   : $Date: 2011-11-14 16:21:33 +0000 (Mon, 14 Nov 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -96,6 +96,7 @@ proc close {} {
 
 	update idletasks
 	$Log.top.text yview moveto 1.0
+	set Priv(callee) ""
 }
 
 
