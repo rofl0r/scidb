@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 102 $
-// Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
+// Version: $Revision: 127 $
+// Date   : $Date: 2011-11-14 19:02:32 +0000 (Mon, 14 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -429,7 +429,7 @@ cmdExport(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 	char const*		filename			= stringFromObj(objc, objv, 3);
 	unsigned			flags				= unsignedFromObj(objc, objv, 4);
 	View::FileMode	mode				= boolFromObj(objc, objv, 5) ? View::Append : View::Create;
-	char const*		encoding			= stringFromObj(objc, objv, 6);
+	mstl::string	encoding			= stringFromObj(objc, objv, 6);
 	bool				excludeIllegal	= boolFromObj(objc, objv, 7);
 	Tcl_Obj*			allowedTags		= objv[8];
 	bool				extraTags		= false;

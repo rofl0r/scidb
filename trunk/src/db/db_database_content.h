@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 102 $
-// Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
+// Version: $Revision: 127 $
+// Date   : $Date: 2011-11-14 19:02:32 +0000 (Mon, 14 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -57,16 +57,16 @@ public:
 	Namebase& namebase(Namebase::Type type);
 	Namebase const& namebase(Namebase::Type type) const;
 
-	GameInfoList		m_gameInfoList;
-	Namebases			m_namebases;
-	Type					m_type;
-	uint32_t				m_created;
-	bool					m_readOnly;
-	bool					m_memoryOnly;
-	mstl::string		m_description;
-	mstl::string		m_encoding;
-	Allocator 			m_allocator;
-	Statistic			m_statistic;
+	GameInfoList	m_gameInfoList;
+	Namebases		m_namebases;
+	Type				m_type;
+	uint32_t			m_created;
+	bool				m_readOnly;
+	bool				m_memoryOnly;
+	mstl::string	m_description;
+	mstl::string	m_encoding;
+	Allocator 		m_allocator;
+	Statistic		m_statistic;
 };
 
 } // namespace db

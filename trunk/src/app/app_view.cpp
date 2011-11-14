@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 96 $
-// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
+// Version: $Revision: 127 $
+// Date   : $Date: 2011-11-14 19:02:32 +0000 (Mon, 14 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -540,7 +540,7 @@ View::exportGames(mstl::string const& filename,
 	}
 	else if (ext == "si3" || ext == "si4")
 	{
-		Database destination(filename, encoding, Database::OnDisk);
+		Database destination(filename, sys::utf8::Codec::utf8(), Database::OnDisk);
 		destination.setDescription(description);
 		destination.setType(type);
 

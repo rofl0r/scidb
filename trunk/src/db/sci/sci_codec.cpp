@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 102 $
-// Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
+// Version: $Revision: 127 $
+// Date   : $Date: 2011-11-14 19:02:32 +0000 (Mon, 14 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -798,8 +798,6 @@ Codec::doOpen(mstl::string const& encoding)
 		m_gameData = new BlockFile(&m_gameStream, Block_Size, BlockFile::ReadWriteLength, m_magicGameFile);
 	else
 		m_gameData = new BlockFile(Block_Size, BlockFile::ReadWriteLength, m_magicGameFile);
-
-	useEncoding(::sys::utf8::Codec::utf8());
 }
 
 
@@ -883,7 +881,6 @@ Codec::doOpen(mstl::string const& rootname, mstl::string const& encoding, Progre
 
 	namebaseStream.close();
 	indexStream.close();
-	useEncoding(::sys::utf8::Codec::utf8());
 }
 
 
