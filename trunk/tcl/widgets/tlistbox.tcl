@@ -1,7 +1,7 @@
 # =====================================================================
 # Author : $Author$
-# Version: $Revision: 102 $
-# Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
+# Version: $Revision: 128 $
+# Date   : $Date: 2011-11-15 14:04:34 +0000 (Tue, 15 Nov 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -288,6 +288,7 @@ proc WidgetProc {w command args} {
 			} else {
 				set charwidth $Priv(charwidth)
 			}
+			set Priv(charwidth:$id) $charwidth
 			set width 0
 			if {[info exists opts(-width)]} {
 				if {$type eq "image"} {
@@ -308,6 +309,34 @@ proc WidgetProc {w command args} {
 				image		{ set Priv(type:$id) elemImg }
 				text		{ set Priv(type:$id) elemTxt }
 				combined	{ set Priv(type:$id) elemCom }
+			}
+		}
+
+		configcol {
+			if {[llength $args] <= 1} {
+				error "wrong # args: should be \"[namespace current] $command id ?options?\""
+			}
+			set id [lindex $args 0]
+			if {![info exists Priv(type:$id)]} {
+				error "unknown column id \"$id\""
+			}
+			array set opts [lrange $args 1 end]
+			foreach key [array names opts] {
+				switch -- $key {
+					-width {
+						set type $Priv(type:$id)
+						if {$type eq "image"} {
+							set width $opts(-width)
+						} else {
+							set width [expr {$opts(-width)*$Priv(charwidth:$id)}]
+						}
+						set width [expr {$width + 2*$Priv(padx) + $Priv(padding)}]
+						$t column configure $id -width $width
+					}
+					default {
+						error "cannot set column attribute \"$key\""
+					}
+				}
 			}
 		}
 
