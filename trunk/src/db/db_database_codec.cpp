@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 102 $
-// Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
+// Version: $Revision: 129 $
+// Date   : $Date: 2011-11-16 18:19:54 +0000 (Wed, 16 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -165,6 +165,13 @@ DatabaseCodec::InfoData::InfoData(TagSet const& tags)
 
 
 DatabaseCodec::CustomFlags::CustomFlags() { ::memset(m_text, 0, sizeof(m_text)); }
+
+
+bool
+DatabaseCodec::isExpired() const
+{
+	return false;
+}
 
 
 void
@@ -392,10 +399,13 @@ DatabaseCodec::checkPermissions(mstl::string const& filename)
 {
 	M_ASSERT(isOpen());
 
-	if (!m_db->m_readOnly && !sys::file::access(filename, sys::file::Writeable))
+	if (!isWriteable() || !sys::file::access(filename, sys::file::Writeable))
+	{
 		m_db->m_readOnly = true;
+		m_db->m_writeable = false;
+	}
 
-	if (m_db->m_readOnly && !sys::file::access(filename, sys::file::Readable))
+	if (!sys::file::access(filename, sys::file::Readable))
 		IO_RAISE(Unspecified, Open_Failed, "cannot open file: %s", filename.c_str());
 }
 

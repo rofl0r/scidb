@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 102 $
-// Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
+// Version: $Revision: 129 $
+// Date   : $Date: 2011-11-16 18:19:54 +0000 (Wed, 16 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -393,6 +393,13 @@ bool
 Codec::isWriteable() const
 {
 	return false;
+}
+
+
+bool
+Codec::isExpired() const
+{
+	return true;
 }
 
 

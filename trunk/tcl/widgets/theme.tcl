@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 96 $
-# Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
+# Version: $Revision: 129 $
+# Date   : $Date: 2011-11-16 18:19:54 +0000 (Wed, 16 Nov 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -466,6 +466,7 @@ option add *Menu.activeBackground #678db2
 option add *Menu.activeForeground white
 option add *Menu.activeBorderWidth 0
 option add *Text.background white
+option add *Button.highlightThickness 0
 
 option add *TCombobox.exportSelection 0
 option add *TSpinbox.wrap 0

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 102 $
-// Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
+// Version: $Revision: 129 $
+// Date   : $Date: 2011-11-16 18:19:54 +0000 (Wed, 16 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -80,7 +80,7 @@ public:
 	/// Cast
 	DatabaseContent const& content() const;
 
-	/// Returns whether the database is read-only or not.
+	/// Returns whether the database is set read-only or not.
 	bool isReadOnly() const;
 	/// Returns whether the database is petentially writeable or not.
 	bool isWriteable() const;
@@ -94,6 +94,8 @@ public:
 	bool encodingIsBroken() const;
 	/// Returns whether asynchronous reader is in use.
 	bool usingAsyncReader() const;
+	/// Returns whether the database format should be upgraded.
+	bool shouldUpgrade() const;
 
 	/// Returns an unique database id.
 	unsigned id() const;

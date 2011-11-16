@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 96 $
-// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
+// Version: $Revision: 129 $
+// Date   : $Date: 2011-11-16 18:19:54 +0000 (Wed, 16 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -61,6 +61,7 @@ public:
 	~Codec() throw();
 
 	bool isWriteable() const override;
+	bool isExpired() const override;
 	bool encodingFailed() const override;
 
 	Format format() const override;

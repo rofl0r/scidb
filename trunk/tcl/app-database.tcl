@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 125 $
-# Date   : $Date: 2011-11-11 22:46:00 +0000 (Fri, 11 Nov 2011) $
+# Version: $Revision: 129 $
+# Date   : $Date: 2011-11-16 18:19:54 +0000 (Wed, 16 Nov 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -350,28 +350,28 @@ proc openBase {parent file {encoding ""} {readonly -1}} {
 			}
 		}
 		set ro $readonly
-		if {![::scidb::db::get writeable? $file]} {
+		if {[::scidb::db::get upgrade? $file]} {
 			set readonly 1
-			if {$ext eq ".sci"} {
-				set rc [::dialog::question \
-							-parent $parent \
-							-message [format $mc::UpgradeDatabase $name] \
-							-detail $mc::UpgradeDatabaseDetail \
-						 ]
-				if {$rc eq "yes"} {
-		 			set cmd [list ::scidb::db::upgrade $file]
-					set options [list -message [format $mc::UpgradeMessage $name]]
-					if {![::util::catchIoError [list ::progress::start $parent $cmd {} $options]]} {
-						::scidb::db::close $file
-						set cmd [list ::scidb::db::load $file]
-						set options [list -message $msg]
-						if {[::util::catchIoError [list ::progress::start $parent $cmd {} $options]]} {
-							return 0
-						}
-						set readonly $ro
+			set rc [::dialog::question \
+						-parent $parent \
+						-message [format $mc::UpgradeDatabase $name] \
+						-detail $mc::UpgradeDatabaseDetail \
+					 ]
+			if {$rc eq "yes"} {
+				set cmd [list ::scidb::db::upgrade $file]
+				set options [list -message [format $mc::UpgradeMessage $name]]
+				if {![::util::catchIoError [list ::progress::start $parent $cmd {} $options]]} {
+					::scidb::db::close $file
+					set cmd [list ::scidb::db::load $file]
+					set options [list -message $msg]
+					if {[::util::catchIoError [list ::progress::start $parent $cmd {} $options]]} {
+						return 0
 					}
+					set readonly $ro
 				}
 			}
+		} elseif {![::scidb::db::get writeable? $file]} {
+			set readonly 1
 		}
 		::scidb::db::set readonly $file $readonly
 		set type [::scidb::db::get type $file]

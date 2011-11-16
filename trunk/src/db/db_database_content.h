@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 127 $
-// Date   : $Date: 2011-11-14 19:02:32 +0000 (Mon, 14 Nov 2011) $
+// Version: $Revision: 129 $
+// Date   : $Date: 2011-11-16 18:19:54 +0000 (Wed, 16 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -62,6 +62,7 @@ public:
 	Type				m_type;
 	uint32_t			m_created;
 	bool				m_readOnly;
+	bool				m_writeable;
 	bool				m_memoryOnly;
 	mstl::string	m_description;
 	mstl::string	m_encoding;

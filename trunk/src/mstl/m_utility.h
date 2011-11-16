@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 91 $
-// Date   : $Date: 2011-08-02 12:59:24 +0000 (Tue, 02 Aug 2011) $
+// Version: $Revision: 129 $
+// Date   : $Date: 2011-11-16 18:19:54 +0000 (Wed, 16 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -35,15 +35,15 @@ namespace noncopyable_	// protection from unintended ADL
 
 #if HAVE_OX_EXPLICITLY_DEFAULTED_AND_DELETED_SPECIAL_MEMBER_FUNCTIONS
 
-		noncopyable(noncopyable&) = delete;
-		noncopyable& operator=(noncopyable&) = delete;
+		noncopyable(noncopyable const&) = delete;
+		noncopyable& operator=(noncopyable const&) = delete;
 
 #else
 
 	private:
 
 		noncopyable(noncopyable const&);
-		const noncopyable& operator=(noncopyable const&);
+		noncopyable& operator=(noncopyable const&);
 #endif
 	};
 }
