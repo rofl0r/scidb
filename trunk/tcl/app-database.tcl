@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 129 $
-# Date   : $Date: 2011-11-16 18:19:54 +0000 (Wed, 16 Nov 2011) $
+# Version: $Revision: 130 $
+# Date   : $Date: 2011-11-16 20:34:25 +0000 (Wed, 16 Nov 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -293,7 +293,6 @@ proc openBase {parent file {encoding ""} {readonly -1}} {
 		set i [FindRecentFile $file]
 		if {$i >= 0} {
 			set RecentFiles [lreplace $RecentFiles $i $i]
-			lappend RecentFiles {}
 		}
 		::dialog::error -parent $parent -message [format $mc::CannotOpenFile $file]
 		return 0
@@ -370,9 +369,8 @@ proc openBase {parent file {encoding ""} {readonly -1}} {
 					set readonly $ro
 				}
 			}
-		} elseif {![::scidb::db::get writeable? $file]} {
-			set readonly 1
 		}
+		if {![::scidb::db::get writeable? $file]} { set readonly 1 }
 		::scidb::db::set readonly $file $readonly
 		set type [::scidb::db::get type $file]
 		AddBase $type $file $encoding $readonly

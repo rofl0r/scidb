@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 125 $
-# Date   : $Date: 2011-11-11 22:46:00 +0000 (Fri, 11 Nov 2011) $
+# Version: $Revision: 130 $
+# Date   : $Date: 2011-11-16 20:34:25 +0000 (Wed, 16 Nov 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -191,6 +191,9 @@ proc WriteOptions {chan} {
 ::options::hookWriter [namespace current]::WriteOptions
 
 # --- Read options -----------------------------------------------------
+
+# prevent errors while parsing old config files (as long as we have a beta version)
+proc ::dialog::fsbox::setBookmarks {args} {}
 
 if {[file readable $::scidb::file::options]} {
 	::load::source $::scidb::file::options -message $::load::mc::ReadingOptionsFile -encoding utf-8

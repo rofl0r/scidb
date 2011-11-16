@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 102 $
-// Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
+// Version: $Revision: 130 $
+// Date   : $Date: 2011-11-16 20:34:25 +0000 (Wed, 16 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -714,7 +714,7 @@ Codec::save(mstl::string const& rootname, unsigned start, Progress& progress, bo
 	try
 	{
 		writeNamebases(namebaseStream);
-		sys::file::rename(namebaseTempFilename, namebaseFilename);
+		sys::file::rename(namebaseTempFilename, namebaseFilename, true);
 	}
 	catch (...)
 	{
@@ -780,7 +780,7 @@ Codec::update(mstl::string const& rootname)
 	try
 	{
 		writeNamebases(namebaseStream);
-		sys::file::rename(namebaseTempFilename, namebaseFilename);
+		sys::file::rename(namebaseTempFilename, namebaseFilename, true);
 	}
 	catch (...)
 	{
@@ -823,7 +823,7 @@ Codec::update(mstl::string const& rootname, unsigned index, bool /*updateNamebas
 		checkPermissions(namebaseFilename);
 		openFile(namebaseStream, namebaseTempFilename, MagicNamebase, Truncate);
 		writeNamebases(namebaseStream);
-		sys::file::rename(namebaseTempFilename, namebaseFilename);
+		sys::file::rename(namebaseTempFilename, namebaseFilename, true);
 	}
 	catch (...)
 	{

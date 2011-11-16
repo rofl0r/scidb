@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 36 $
-// Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
+// Version: $Revision: 130 $
+// Date   : $Date: 2011-11-16 20:34:25 +0000 (Wed, 16 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -38,7 +38,7 @@ bool access(char const* filename, Mode mode);
 long size(char const* filename);
 bool changed(char const* filename, uint32_t& time);
 
-void rename(char const* oldFilename, char const* newFilename);
+void rename(char const* oldFilename, char const* newFilename, bool preserveOldAttrs);
 void deleteIt(char const* filename);
 
 void* createMapping(char const* filename, Mode mode);

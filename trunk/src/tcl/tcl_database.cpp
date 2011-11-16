@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 129 $
-// Date   : $Date: 2011-11-16 18:19:54 +0000 (Wed, 16 Nov 2011) $
+// Version: $Revision: 130 $
+// Date   : $Date: 2011-11-16 20:34:25 +0000 (Wed, 16 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2073,7 +2073,7 @@ cmdGet(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 		"<index> ?<view>? ?<database>?",
 		"<index> ?<view>? ?<database>?",
 		"?<database>?",
-		"",
+		"<database>",
 		0
 	};
 	enum
@@ -2330,7 +2330,7 @@ cmdGet(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 			return getWriteable(stringFromObj(objc, objv, 2));
 
 		case Cmd_Upgrade:
-			::tcl::setResult(Scidb->cursor().database().shouldUpgrade());
+			::tcl::setResult(Scidb->cursor(stringFromObj(objc, objv, 2)).database().shouldUpgrade());
 			return TCL_OK;
 
 		case Cmd_Open:
