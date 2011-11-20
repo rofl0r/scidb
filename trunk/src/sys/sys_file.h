@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 130 $
-// Date   : $Date: 2011-11-16 20:34:25 +0000 (Wed, 16 Nov 2011) $
+// Version: $Revision: 132 $
+// Date   : $Date: 2011-11-20 14:59:26 +0000 (Sun, 20 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -35,10 +35,12 @@ enum Mode
 };
 
 bool access(char const* filename, Mode mode);
+
 long size(char const* filename);
 bool changed(char const* filename, uint32_t& time);
+bool isHardLinked(char const* filename1, char const* filename2);
 
-void rename(char const* oldFilename, char const* newFilename, bool preserveOldAttrs);
+void rename(char const* oldFilename, char const* newFilename, bool preserveOldAttrs = false);
 void deleteIt(char const* filename);
 
 void* createMapping(char const* filename, Mode mode);

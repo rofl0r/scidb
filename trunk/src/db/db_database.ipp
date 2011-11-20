@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 129 $
-// Date   : $Date: 2011-11-16 18:19:54 +0000 (Wed, 16 Nov 2011) $
+// Version: $Revision: 132 $
+// Date   : $Date: 2011-11-20 14:59:26 +0000 (Sun, 20 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -52,6 +52,7 @@ inline TreeCache const& Database::treeCache() const		{ return m_treeCache; }
 inline TreeCache& Database::treeCache()						{ return m_treeCache; }
 inline Namebases& Database::namebases()						{ return m_namebases; }
 inline Time Database::created() const							{ return m_created; }
+inline uint32_t Database::creationTimestamp() const		{ return m_created; }
 
 
 inline

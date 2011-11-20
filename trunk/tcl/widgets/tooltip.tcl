@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 96 $
-# Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
+# Version: $Revision: 132 $
+# Date   : $Date: 2011-11-20 14:59:26 +0000 (Sun, 20 Nov 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -491,7 +491,7 @@ proc popup {w b {at {}}} {
 
 	# avoid the blink issue with 1 to <1 alpha on Windows, watch half-fading
 	catch { wm attributes $b -alpha 0.99 }
-	catch { wm attributes -type tooltip }
+	catch { wm attributes $b -type tooltip }
 	wm geometry $b +$x+$y
 	wm deiconify $b
 	raise $b

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 128 $
-# Date   : $Date: 2011-11-15 14:04:34 +0000 (Tue, 15 Nov 2011) $
+# Version: $Revision: 132 $
+# Date   : $Date: 2011-11-20 14:59:26 +0000 (Sun, 20 Nov 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -2413,7 +2413,6 @@ proc Save {top fields} {
 				[list %white $Tags(White) %black $Tags(Black) %event $Tags(Event) %base $base] \
 				$mc::SavingGameLogInfo]
 			set replace [expr {$number >= 0}]
-if {$replace} { puts "replace $number" } else { puts "save $number" }
 			set cmd [list ::scidb::game::save \
 				$base \
 				[array get Tags] \
@@ -2422,7 +2421,7 @@ if {$replace} { puts "replace $number" } else { puts "save $number" }
 				[namespace current]::Log {} \
 				-replace $replace \
 			]
-			if {[::util::catchIoError $cmd rc]} {
+			if {[::util::catchIoError $base $cmd rc]} {
 				::widget::busyCursor off
 				return
 			}

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 96 $
-// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
+// Version: $Revision: 132 $
+// Date   : $Date: 2011-11-20 14:59:26 +0000 (Sun, 20 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -133,7 +133,7 @@ inline uint32_t Move::action() const			{ return (m >> Shift_Action) & Mask_Actio
 inline uint32_t Move::capturedType() const	{ return  (m >> Shift_Capture) & Mask_PieceType; }
 inline uint32_t Move::removal() const			{ return (m >> Shift_Removal) & Mask_Removal; }
 inline uint32_t Move::data() const				{ return m; }
-inline unsigned Move::index() const				{ return m & 0x7fff; }
+inline unsigned Move::index() const				{ return m & 0x3fff; }
 
 inline bool Move::givesCheck() const			{ return m & Bit_Check; }
 inline bool Move::givesMate() const				{ return m & Bit_Mate; }
@@ -233,7 +233,7 @@ bool
 Move::isCaptureOrPromotion() const
 {
 	static_assert(piece::None == 0, "reimplementation required");
-	return (((m >> Shift_Capture) | (m >> Shift_Promotion)) & Mask_PieceType) != piece::None;
+	return (m >> Shift_Capture) | (m & Bit_Promote) != 0;
 }
 
 
@@ -298,6 +298,7 @@ void
 Move::setPromotionPiece(piece::Type type)
 {
 	M_REQUIRE(type != piece::None && type != piece::King && type != piece::Pawn);
+	M_REQUIRE(isPromotion());
 
 	m &= ~(Mask_Promoted << Shift_Promotion);
 	m |= (uint32_t(type - 2) & Mask_Promoted) << Shift_Promotion;

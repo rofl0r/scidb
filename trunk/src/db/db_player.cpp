@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 102 $
-// Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
+// Version: $Revision: 132 $
+// Date   : $Date: 2011-11-20 14:59:26 +0000 (Sun, 20 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -132,7 +132,7 @@ static Lookup chessgamesDict(8192);
 static CAllocator charAllocator(1024);
 static PAllocator playerAllocator(32768);
 static PlayerList playerList;
-static mstl::string exclude;
+static mstl::string exclude(mstl::string::empty_string);
 static LangMap langMap;
 static PndDict pndMap(250);
 static ViafDict viafMap(250);
@@ -1691,6 +1691,8 @@ Player::parseSpellcheckFile(mstl::istream& stream)
 	mstl::string	elo;
 	Date				birthDate;
 	Date				deathDate;
+
+	::exclude.clear();
 
 	while (stream.getline(line))
 	{

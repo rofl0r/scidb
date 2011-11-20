@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 126 $
-# Date   : $Date: 2011-11-14 16:21:33 +0000 (Mon, 14 Nov 2011) $
+# Version: $Revision: 132 $
+# Date   : $Date: 2011-11-20 14:59:26 +0000 (Sun, 20 Nov 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -527,7 +527,7 @@ proc redo {} { Undo redo }
 
 
 proc replaceMoves {parent} {
-	if {![::util::catchIoError [list ::scidb::game::update moves]]} {
+	if {![::util::catchIoError [::scidb::db::get name] [list ::scidb::game::update moves]]} {
 		::dialog::info -parent $parent -message $mc::ReplaceMovesSucceeded
 	}
 }

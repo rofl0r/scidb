@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 102 $
-// Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
+// Version: $Revision: 132 $
+// Date   : $Date: 2011-11-20 14:59:26 +0000 (Sun, 20 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -150,6 +150,8 @@ public:
 
 	void setup(Byte* buf, Byte* end);
 	void setup(Byte* buf, unsigned size);
+	void setup(char* buf, char* end);
+	void setup(char* buf, unsigned size);
 	void reserve(unsigned size);
 	void swap(ByteStream& strm);
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 36 $
-// Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
+// Version: $Revision: 132 $
+// Date   : $Date: 2011-11-20 14:59:26 +0000 (Sun, 20 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -36,6 +36,7 @@ struct Time
 	uint8_t  second;
 };
 
+
 /// Returns the time since the Epoch (00:00:00 UTC, January 1, 1970), measured in seconds.
 uint32_t time();
 
@@ -47,6 +48,13 @@ void localtime(uint32_t time, Time& tm);
 
 } // namespace time
 } // namespace sys
+
+namespace mstl {
+
+template <typename T> struct is_pod;
+template <> struct is_pod<sys::time::Time> { enum { value = 1 }; };
+
+} // namespace mstl
 
 #endif // _sys_time_included
 

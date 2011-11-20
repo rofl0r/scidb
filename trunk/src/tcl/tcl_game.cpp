@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 102 $
-// Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
+// Version: $Revision: 132 $
+// Date   : $Date: 2011-11-20 14:59:26 +0000 (Sun, 20 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2059,6 +2059,14 @@ cmdQuery(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 			{
 				case 'm': setResult(Scidb->game(pos).isEmpty()); break;									// empty?
 				case 'c': setResult(Scidb->game(pos).computeEcoCode().asShortString()); break;	// eco
+
+				case 'l':	// elo
+					{
+						char const* side = stringFromObj(objc, objv, nextArg);
+						color::ID color = *side == 'w' ? color::White : color::Black;
+						setResult(Scidb->gameInfoAt(pos).findElo(color));
+					}
+					break;
 
 				default: return error(CmdQuery, nullptr, nullptr, "invalid command %s", cmd);
 			}

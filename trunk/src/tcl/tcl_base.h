@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 79 $
-// Date   : $Date: 2011-07-14 13:14:44 +0000 (Thu, 14 Jul 2011) $
+// Version: $Revision: 132 $
+// Date   : $Date: 2011-11-20 14:59:26 +0000 (Sun, 20 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -56,6 +56,8 @@ void setResult(unsigned result);
 void setResult(bool result);
 void setResult(long result);
 void setResult(unsigned long result);
+
+int ioError(mstl::string const& file, mstl::string const& error, mstl::string const& message);
 
 int
 __attribute__((__format__(__printf__, 4, 5)))

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 96 $
-# Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
+# Version: $Revision: 132 $
+# Date   : $Date: 2011-11-20 14:59:26 +0000 (Sun, 20 Nov 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -200,7 +200,7 @@ proc BuildContributionsFrame {w} {
 	$t insert end [Enc "[set [namespace current]::mc::Testing]:\n"] caption
 	$t insert end [Enc "Steven Atkinson, "]
 	$t insert end [Enc "Paolo Casaschi, "]
-#	$t insert end [Enc "Lars Ekman, "]
+	$t insert end [Enc "Lars Ekman, "]
 #	$t insert end [Enc "Fernando González, "]
 #	$t insert end [Enc "Austen Green, "]
 	$t insert end [Enc "Giovanni Ornaghi, "]

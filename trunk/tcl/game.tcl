@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 96 $
-# Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
+# Version: $Revision: 132 $
+# Date   : $Date: 2011-11-20 14:59:26 +0000 (Sun, 20 Nov 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -81,7 +81,7 @@ array set Options {
 }
 
 
-proc new {parent {base {}} {index -1}} {
+proc new {parent {base {}} {index -1} {fen {}}} {
 	variable ::scidb::scratchbaseName
 	variable MaxPosition
 	variable List
@@ -192,6 +192,10 @@ proc new {parent {base {}} {index -1}} {
 
 	if {$init} {
 		::scidb::db::subscribe gameInfo [namespace current]::Update
+	}
+
+	if {[llength $fen]} {
+		::scidb::game::go $pos position $fen
 	}
 
 	UpdateHistory $pos $base $tags
@@ -662,7 +666,7 @@ proc openGame {parent index} {
 	set rc 1
 	set parent [winfo toplevel $parent]
 
-	if {[::application::database::openBase $parent $base $encoding]} {
+	if {[::application::database::openBase $parent $base no $encoding]} {
 		set pos [new $parent $base $number]
 		if {$pos >= 0} {
 			set crcLoad [lindex $List $pos 4]

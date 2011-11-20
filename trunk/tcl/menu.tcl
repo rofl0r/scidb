@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 126 $
-# Date   : $Date: 2011-11-14 16:21:33 +0000 (Mon, 14 Nov 2011) $
+# Version: $Revision: 132 $
+# Date   : $Date: 2011-11-20 14:59:26 +0000 (Sun, 20 Nov 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -138,7 +138,10 @@ proc CreateViewMenu {menu} {
 	$menu add cascade -menu $m -label $mc::Theme
 	widget::menuTextvarHook $menu [incr pos] [namespace current]::mc::Theme
 	set Theme [::theme::currentTheme]
-	foreach style [ttk::style theme names] {
+	set styles [lsort -dictionary [ttk::style theme names]]
+	set i [lsearch $styles default]
+	if {$i >= 0} { set styles [linsert [lreplace $styles $i $i] 0 default] }
+	foreach style $styles {
 		if {$style ne "classic"} {
 			$m add radiobutton \
 				-label $style \
@@ -372,7 +375,8 @@ proc dbOpen {parent} {
 	]
 
 	if {[llength $result]} {
-		::application::database::openBase $parent {*}$result
+		lassign $result file encoding
+		::application::database::openBase $parent $file yes $encoding
 	}
 }
 

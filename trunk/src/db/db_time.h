@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 36 $
-// Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
+// Version: $Revision: 132 $
+// Date   : $Date: 2011-11-20 14:59:26 +0000 (Sun, 20 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -73,7 +73,7 @@ bool operator!=(const Time& d1, const Time& d2);
 namespace mstl {
 
 template <typename T> struct is_pod;
-template <> struct is_pod<db::Time> { enum { value = 1 }; };
+template <> struct is_pod<db::Time> { enum { value = is_pod<sys::time::Time>::value }; };
 
 } // namespace mstl
 

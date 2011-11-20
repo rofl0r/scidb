@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 126 $
-// Date   : $Date: 2011-11-14 16:21:33 +0000 (Mon, 14 Nov 2011) $
+// Version: $Revision: 132 $
+// Date   : $Date: 2011-11-20 14:59:26 +0000 (Sun, 20 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -29,6 +29,7 @@
 #include "app_view.h"
 
 #include "db_database.h"
+#include "db_database_codec.h"
 #include "db_game.h"
 #include "db_game_info.h"
 #include "db_eco_table.h"
@@ -392,6 +393,15 @@ Application::open(mstl::string const& filename,
 						bool readOnly,
 						Progress& progress)
 {
+	// IMPORTANT NOTE:
+	// -------------------------------------------------------------------------------------------
+	// This function assumes:
+	// -------------------------------------------------------------------------------------------
+	// 1. the file name is resolved (no symbolic link)
+	// 2. the file name is normalized
+	// 3. it has a different inode than any other database (no link to an already opened database)
+	// If these conditions do not fit the application may crash.
+
 	if (m_cursorMap.find(filename) != m_cursorMap.end())
 		return 0;
 

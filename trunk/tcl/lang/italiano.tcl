@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 129 $
-# Date   : $Date: 2011-11-16 18:19:54 +0000 (Wed, 16 Nov 2011) $
+# Version: $Revision: 132 $
+# Date   : $Date: 2011-11-20 14:59:26 +0000 (Sun, 20 Nov 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -245,8 +245,10 @@
 ::application::database::mc::DescriptionTooLarge	"La descrizione è troppo lunga."
 ::application::database::mc::DescrTooLargeDetail	"Il campo contiene %d caratteri, ma solo %d sono permessi."
 ::application::database::mc::ClipbaseDescription	"Database temporaneo, non è salvato sul disco"
+::application::database::mc::HardLinkDetected		"Cannot load file '%file1' because it is already loaded as file '%file2'. This can only happen if hard links are involved." ;# NEW
+::application::database::mc::HardLinkDetectedDetail "If we load this database twice the application may crash due to the usage of threads." ;# NEW
 
-::application::database::mc::RecodingDatabase		"Registro %s da %s a %s"
+::application::database::mc::RecodingDatabase		"Registro %base da %from a %to"
 ::application::database::mc::RecodedGames				"%s partite registrate"
 
 ::application::database::mc::GameCount					"Partite"

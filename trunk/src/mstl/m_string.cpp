@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 84 $
-// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
+// Version: $Revision: 132 $
+// Date   : $Date: 2011-11-20 14:59:26 +0000 (Sun, 20 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -48,8 +48,7 @@
 using namespace mstl;
 
 
-string const string::empty_string;
-string::initializer string::m_initializer;
+string const string::empty_string(static_cast<__EMPTY__ const&>(string::__EMPTY__()));
 
 
 template <typename T>
@@ -109,9 +108,11 @@ inline static void move(char* dst, char const* src, size_t n)	{ memmove(dst, src
 inline static void fill(char* dst, size_t n, char value)			{ memset(dst, value, n); }
 
 
-string::initializer::initializer()
+string::string(__EMPTY__)
+	:m_size(0)
+	,m_capacity(0)
+	,m_data(const_cast<char *>(""))
 {
-	const_cast<string&>(empty_string).m_data = const_cast<char *>("");
 }
 
 

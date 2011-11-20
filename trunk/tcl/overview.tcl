@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 96 $
-# Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
+# Version: $Revision: 132 $
+# Date   : $Date: 2011-11-20 14:59:26 +0000 (Sun, 20 Nov 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -453,19 +453,13 @@ proc TabChanged {nb} {
 
 proc LoadGame {nb} {
 	variable ${nb}::Vars
-
-	set index [::scidb::db::get gameIndex [expr {$Vars(number) - 1}] $Vars(view) $Vars(base)]
-	set tags  [::scidb::db::get tags $index $Vars(view) $Vars(base)]
-
-	::widget::busyOperation ::game::new $nb $Vars(base) $tags $index
+	::widget::busyOperation ::game::new $nb $Vars(base) [expr {$Vars(number) - 1}] $Vars(fen)
 }	
 
 
 proc MergeGame {nb} {
 	variable ${nb}::Vars
-
-	set index [::scidb::db::get gameIndex [expr {$Vars(number) - 1}] $Vars(view) $Vars(base)]
-puts "MergeGame $index"	;# TODO
+puts "MergeGame [expr {$Vars(number) - 1}]"	;# TODO
 }
 
 } ;# namespace overview

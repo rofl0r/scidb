@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 102 $
-// Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
+// Version: $Revision: 132 $
+// Date   : $Date: 2011-11-20 14:59:26 +0000 (Sun, 20 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -216,6 +216,9 @@ public:
 	static string cast(uint32_t value);
 	static string cast(uint64_t value);
 
+	struct __EMPTY__ {};
+	string(__EMPTY__); // don't use!
+
 private:
 
 	friend class reference;
@@ -223,10 +226,6 @@ private:
 	void clone();
 	void copy();
 	void init(const_pointer s, size_type len);
-
-	struct initializer { initializer(); };
-	static initializer m_initializer;
-	friend class initializer;
 
 	size_type	m_size;
 	size_type	m_capacity;

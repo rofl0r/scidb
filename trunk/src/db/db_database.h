@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 129 $
-// Date   : $Date: 2011-11-16 18:19:54 +0000 (Wed, 16 Nov 2011) $
+// Version: $Revision: 132 $
+// Date   : $Date: 2011-11-20 14:59:26 +0000 (Sun, 20 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -123,8 +123,10 @@ public:
 	mstl::string const& encoding() const;
 	/// Returns date of last modification.
 	Time modified() const;
-	/// Returns date of creation.
+	/// Returns time of creation.
 	Time created() const;
+	/// Return timestamp of creation.
+	uint32_t creationTimestamp() const;
 	/// Returns statistic of database
 	Statistic const& statistic() const;
 	/// Returh maximal length of description.

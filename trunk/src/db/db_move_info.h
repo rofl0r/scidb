@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 96 $
-// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
+// Version: $Revision: 132 $
+// Date   : $Date: 2011-11-20 14:59:26 +0000 (Sun, 20 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -136,6 +136,18 @@ private:
 };
 
 } // namespace db
+
+namespace mstl {
+
+template <typename T> struct is_pod;
+
+template <>
+struct is_pod<db::MoveInfo>
+{
+	enum { value = is_pod<db::Clock>::value && is_pod<db::Date>::value };
+};
+
+} // namespace mstl
 
 #include "db_move_info.ipp"
 

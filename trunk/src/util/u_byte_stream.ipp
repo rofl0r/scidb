@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 102 $
-// Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
+// Version: $Revision: 132 $
+// Date   : $Date: 2011-11-20 14:59:26 +0000 (Sun, 20 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -370,6 +370,22 @@ ByteStream::set(Byte* data, uint64_t i)
 	data[5] = i >> 16;
 	data[6] = i >> 8;
 	data[7] = i;
+}
+
+
+inline
+void
+ByteStream::setup(char* buf, char* end)
+{
+	return setup(reinterpret_cast<Byte*>(buf), reinterpret_cast<Byte*>(end));
+}
+
+
+inline
+void
+ByteStream::setup(char* buf, unsigned size)
+{
+	return setup(reinterpret_cast<Byte*>(buf), size);
 }
 
 } // namespace db

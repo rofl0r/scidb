@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 129 $
-# Date   : $Date: 2011-11-16 18:19:54 +0000 (Wed, 16 Nov 2011) $
+# Version: $Revision: 132 $
+# Date   : $Date: 2011-11-20 14:59:26 +0000 (Sun, 20 Nov 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -242,8 +242,10 @@
 ::application::database::mc::DescriptionTooLarge	"Die Eingabe ist zu lang."
 ::application::database::mc::DescrTooLargeDetail	"Die Eingabe beinhaltet %d Zeichen, aber nur %d Zeichen sind erlaubt."
 ::application::database::mc::ClipbaseDescription	"Temporäre Datenbank, wird nicht auf der Festplatte gehalten."
+::application::database::mc::HardLinkDetected		"Die Datei '%file1' kann nicht geladen werden weil sie bereits als Datei '%file2' geladen wurde. Dies kann nur geschehen wenn harte Links involviert sind."
+::application::database::mc::HardLinkDetectedDetail "Wenn diese Datei zweifach geladen wird kann die Applikation abstürzen aufgrund der Verwndung von Subprozessen (Threads)."
 
-::application::database::mc::RecodingDatabase		"Umkodierung %s von %s nach %s"
+::application::database::mc::RecodingDatabase		"Umkodierung %base von %from nach %to"
 ::application::database::mc::RecodedGames				"%s Partie(n) umkodiert"
 
 ::application::database::mc::GameCount					"Partien"

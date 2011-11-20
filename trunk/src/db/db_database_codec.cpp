@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 129 $
-// Date   : $Date: 2011-11-16 18:19:54 +0000 (Wed, 16 Nov 2011) $
+// Version: $Revision: 132 $
+// Date   : $Date: 2011-11-20 14:59:26 +0000 (Sun, 20 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -25,6 +25,7 @@
 // ======================================================================
 
 #include "db_database_codec.h"
+#include "db_database.h"
 #include "db_consumer.h"
 #include "db_producer.h"
 #include "db_game_info.h"

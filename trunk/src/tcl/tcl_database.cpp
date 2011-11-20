@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 130 $
-// Date   : $Date: 2011-11-16 20:34:25 +0000 (Wed, 16 Nov 2011) $
+// Version: $Revision: 132 $
+// Date   : $Date: 2011-11-20 14:59:26 +0000 (Sun, 20 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -37,6 +37,7 @@
 #include "app_application.h"
 #include "app_cursor.h"
 #include "app_view.h"
+#include "db_exception.h"
 
 #include "db_database.h"
 #include "db_database_codec.h"
@@ -46,6 +47,7 @@
 #include "db_statistic.h"
 #include "db_pgn_reader.h"
 #include "db_eco_table.h"
+#include "db_exception.h"
 
 #include "si3_decoder.h"
 #include "si3_encoder.h"
@@ -530,7 +532,7 @@ struct Subscriber : public Application::Subscriber
 
 	void updateTree(mstl::string const& filename) override
 	{
-		static mstl::string prevFilename;
+		static mstl::string prevFilename(mstl::string::empty_string);
 
 		if (filename != prevFilename)
 		{
@@ -796,10 +798,22 @@ cmdLoad(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 		encoding = sys::utf8::Codec::utf8();
 
 	Progress	progress(objv[2], objv[3]);
-	Cursor*	cursor = scidb->open(path, encoding, false, progress);
+	Cursor* cursor = scidb->open(path, encoding, false, progress);
 
 	if (cursor == 0)
 		return TCL_ERROR;
+
+	if (cursor->database().name() != path)
+	{
+		mstl::string msg;
+
+		msg += "file ";
+		msg += path;
+		msg += " conflicts with open file ";
+		msg += cursor->database().name();
+
+		return ioError(cursor->database().name(), "HardLinkDetected", msg);
+	}
 
 	setResult(lookupType(cursor->type()));
 	return TCL_OK;

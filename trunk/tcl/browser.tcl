@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 96 $
-# Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
+# Version: $Revision: 132 $
+# Date   : $Date: 2011-11-20 14:59:26 +0000 (Sun, 20 Nov 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -204,8 +204,8 @@ proc open {parent base info view index {fen {}}} {
 		::widget::dialogButtonsSetup $buttons $cmd ::widget::mc::$var close
 		grid $w -row 0 -column $column -sticky ns
 	}
-#	bind $buttons.loadGame <ButtonRelease-1>   [list focus $buttons.close]
-#	bind $buttons.mergeGame <ButtonRelease-1>  [list focus $buttons.close]
+#	bind $buttons.LoadGame <ButtonRelease-1>   [list focus $buttons.close]
+#	bind $buttons.MergeGame <ButtonRelease-1>  [list focus $buttons.close]
 	grid columnconfigure $buttons {1 3} -minsize $::theme::padding
 	$buttons.close configure -command [list destroy $dlg]
 	$buttons.backward configure -command [namespace code [list NextGame $dlg $position -1]]
@@ -789,13 +789,13 @@ proc ToggleAutoPlay {position {hide 0}} {
 
 	set w $Vars(autoplay:control)
 
-	if {[$w cget -image] eq $::icon::22x22::hiliteStart} {
-		$w configure -image $::icon::22x22::hiliteStop
+	if {[$w cget -image] eq $::icon::22x22::playerStart} {
+		$w configure -image $::icon::22x22::playerStop
 		set Vars(autoplay) 1
 		Goto $position +1
 		set tooltipVar StopAutoplay
 	} else {
-		$w configure -image $::icon::22x22::hiliteStart
+		$w configure -image $::icon::22x22::playerStart
 		set Vars(autoplay) 0
 		after cancel $Vars(afterid)
 		set Vars(afterid) {}
@@ -919,19 +919,13 @@ proc PopupMenu {parent board position} {
 
 proc LoadGame {parent position} {
 	variable ${position}::Vars
-
-	set base  $Vars(base)
-	set index [::scidb::db::get gameIndex [expr {$Vars(number) - 1}] $Vars(view) $base]
-
-	::widget::busyOperation ::game::new $parent $base $index
+	::widget::busyOperation ::game::new $parent $Vars(base) [expr {$Vars(number) - 1}] $Vars(fen)
 }	
 
 
 proc MergeGame {parent position} {
 	variable ${position}::Vars
-
-	set index [::scidb::db::get gameIndex [expr {$Vars(number) - 1}] $Vars(view) $Vars(base)]
-puts "MergeGame $index"	;# TODO
+puts "MergeGame [expr {$Vars(number) - 1}]"	;# TODO
 }
 
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 96 $
-// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
+// Version: $Revision: 132 $
+// Date   : $Date: 2011-11-20 14:59:26 +0000 (Sun, 20 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -49,6 +49,7 @@ class GameInfo;
 class Namebase;
 class Consumer;
 class TagSet;
+class Time;
 
 namespace sci {
 
@@ -89,7 +90,9 @@ public:
 	void doClear(mstl::string const& rootname) override;
 
 	unsigned putGame(util::ByteStream const& strm) override;
-	unsigned putGame(util::ByteStream const& strm, unsigned prevOffset, unsigned prevRecordLength) override;
+	unsigned putGame(	util::ByteStream const& strm,
+							unsigned prevOffset,
+							unsigned prevRecordLength) override;
 	util::ByteStream getGame(GameInfo const& info) override;
 	void save(mstl::string const& rootname, unsigned start, util::Progress& progress) override;
 	void attach(mstl::string const& rootname, util::Progress& progress) override;

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 96 $
-# Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
+# Version: $Revision: 132 $
+# Date   : $Date: 2011-11-20 14:59:26 +0000 (Sun, 20 Nov 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -724,13 +724,12 @@ proc TableSelected {path index} {
 	set base [::scrolledtable::base $path]
 	set view [{*}$Vars(viewcmd) $base]
 	set info [::scidb::db::get gameInfo $index $view $base]
+	set fen  {}
+
+	if {[llength $Vars(positioncmd)]} { set fen [{*}$Vars(positioncmd)] }
 
 	set pos [::widget::busyOperation \
-					::game::new $path $base [expr {[column $info number] - 1}]]
-
-	if {$pos >= 0 && [llength $Vars(positioncmd)]} {
-		::scidb::game::go $pos position [{*}$Vars(positioncmd)]
-	}
+					::game::new $path $base [expr {[column $info number] - 1}] $fen]
 }
 
 
