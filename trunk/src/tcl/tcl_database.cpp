@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 132 $
-// Date   : $Date: 2011-11-20 14:59:26 +0000 (Sun, 20 Nov 2011) $
+// Version: $Revision: 133 $
+// Date   : $Date: 2011-11-20 17:38:41 +0000 (Sun, 20 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -532,7 +532,7 @@ struct Subscriber : public Application::Subscriber
 
 	void updateTree(mstl::string const& filename) override
 	{
-		static mstl::string prevFilename(mstl::string::empty_string);
+		static mstl::string prevFilename;
 
 		if (filename != prevFilename)
 		{

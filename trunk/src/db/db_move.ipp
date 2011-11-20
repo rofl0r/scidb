@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 132 $
-// Date   : $Date: 2011-11-20 14:59:26 +0000 (Sun, 20 Nov 2011) $
+// Version: $Revision: 133 $
+// Date   : $Date: 2011-11-20 17:38:41 +0000 (Sun, 20 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -233,7 +233,7 @@ bool
 Move::isCaptureOrPromotion() const
 {
 	static_assert(piece::None == 0, "reimplementation required");
-	return (m >> Shift_Capture) | (m & Bit_Promote) != 0;
+	return ((m >> Shift_Capture) | (m & Bit_Promote)) != 0;
 }
 
 

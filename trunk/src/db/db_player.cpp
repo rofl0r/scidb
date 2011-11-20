@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 132 $
-// Date   : $Date: 2011-11-20 14:59:26 +0000 (Sun, 20 Nov 2011) $
+// Version: $Revision: 133 $
+// Date   : $Date: 2011-11-20 17:38:41 +0000 (Sun, 20 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -132,7 +132,7 @@ static Lookup chessgamesDict(8192);
 static CAllocator charAllocator(1024);
 static PAllocator playerAllocator(32768);
 static PlayerList playerList;
-static mstl::string exclude(mstl::string::empty_string);
+static mstl::string exclude;
 static LangMap langMap;
 static PndDict pndMap(250);
 static ViafDict viafMap(250);
