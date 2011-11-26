@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 132 $
-// Date   : $Date: 2011-11-20 14:59:26 +0000 (Sun, 20 Nov 2011) $
+// Version: $Revision: 139 $
+// Date   : $Date: 2011-11-26 19:44:55 +0000 (Sat, 26 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -278,7 +278,7 @@ sys::file::rename(char const* oldFilename, char const* newFilename, bool preserv
 #if defined(WIN32)
 		st.st_mode &= _S_IREAD | _S_IWRITE;
 #else
-		st.st_mode &= 0x07777;
+		st.st_mode &= 0x0fff;
 #endif
 
 		chmod(newFilename, st.st_mode);

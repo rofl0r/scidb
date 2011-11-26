@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 125 $
-# Date   : $Date: 2011-11-11 22:46:00 +0000 (Fri, 11 Nov 2011) $
+# Version: $Revision: 139 $
+# Date   : $Date: 2011-11-26 19:44:55 +0000 (Sat, 26 Nov 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -332,7 +332,7 @@ proc Open {parent base files msg encoding type useLog} {
 	switch $codec {
 		si3 - si4 {
 			set fileEncoding [::scidb::db::get encoding]
-			if {$encoding ne $fileEncoding} {
+			if {$encoding ne $::encoding::autoEncoding && $encoding ne $fileEncoding} {
 				set msg [string map [list %src $encoding %dst $fileEncoding] $mc::DifferentEncoding]
 				set reply [::dialog::warning \
 					-parent $parent \
