@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 132 $
-# Date   : $Date: 2011-11-20 14:59:26 +0000 (Sun, 20 Nov 2011) $
+# Version: $Revision: 136 $
+# Date   : $Date: 2011-11-26 17:37:46 +0000 (Sat, 26 Nov 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -354,7 +354,7 @@ proc openBase {parent file byUser {encoding ""} {readonly -1}} {
 					return 0
 				}
 			}
-			.pgn - .gz - .zip {
+			pgn - gz - zip {
 				set type [lsearch -exact $Types(sci) Temporary]
 				set cmd [list ::import::open $parent $file [list $file] $msg $encoding $type]
 				if {[::util::catchIoError $file $cmd rc]} { return 0 }

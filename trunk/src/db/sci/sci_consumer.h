@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 96 $
-// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
+// Version: $Revision: 136 $
+// Date   : $Date: 2011-11-26 17:37:46 +0000 (Sat, 26 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -95,7 +95,7 @@ private:
 	unsigned				m_runLength;
 	bool					m_endOfRun;
 	bool					m_danglingPop;
-	bool					m_danglindEndMarker;
+	unsigned				m_danglingEndMarker;
 };
 
 } // namespace sci

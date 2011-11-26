@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 136 $
+// Date   : $Date: 2011-11-26 17:37:46 +0000 (Sat, 26 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -36,6 +36,9 @@ static char Separator = '/';
 
 
 using namespace util;
+
+
+char util::misc::file::pathSeparator() { return Separator; }
 
 
 bool

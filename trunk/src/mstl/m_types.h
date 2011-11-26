@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 102 $
-// Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
+// Version: $Revision: 136 $
+// Date   : $Date: 2011-11-26 17:37:46 +0000 (Sat, 26 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -59,6 +59,8 @@
 ///////////////////////////////////////////////////////////////////////////////
 // C++Ox standard (reference: http://gcc.gnu.org/projects/cxx0x.html)
 ///////////////////////////////////////////////////////////////////////////////
+
+#ifdef __GXX_EXPERIMENTAL_CXX0X__
 
 #ifndef USE_0X_STANDARD
 // IMPORTANT NOTE: not really working with compiler versions < 4.6
@@ -147,6 +149,7 @@
 #define HAVE_0X_EXPLICIT_VIRTUAL_OVERRRIDES 1
 #endif ///////////////////////////////////////////////////////////////////////
 
+#endif // __GXX_EXPERIMENTAL_CXX0X__
 
 #ifndef HAVE_0X_MOVE_CONSTRCUTOR_AND_ASSIGMENT_OPERATOR
 # define HAVE_0X_MOVE_CONSTRCUTOR_AND_ASSIGMENT_OPERATOR 0

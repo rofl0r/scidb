@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 96 $
-// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
+// Version: $Revision: 136 $
+// Date   : $Date: 2011-11-26 17:37:46 +0000 (Sat, 26 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -277,8 +277,15 @@ Decoder::decodeVariation(ByteStream& data)
 					MoveNode* node = new MoveNode;
 					m_currentNode->setNext(node);
 
-					if (m_strm.get() == token::Comment)
-						node->setCommentFlag(data.get());
+					switch (m_strm.get())
+					{
+						case token::Comment:
+							node->setCommentFlag(data.get());
+							break;
+
+						case token::End_Marker: break;
+						default: IO_RAISE(Game, Corrupted, "unexpected token");
+					}
 				}
 				return;
 
@@ -416,14 +423,21 @@ Decoder::decodeVariation(Consumer& consumer, util::ByteStream& data, ByteStream&
 						consumer.putPrecedingComment(comment, annotation, marks);
 						hasNote = false;
 					}
-					if (m_strm.get() == token::Comment)
+					switch (m_strm.get())
 					{
-						uint8_t flag = data.get();
+						case token::Comment:
+							{
+								uint8_t flag = data.get();
 
-						buf.clear();
-						text.get(buf);
-						comment.swap(buf, bool(flag & comm::Ante_Eng), bool(flag & comm::Ante_Oth));
-						consumer.putTrailingComment(comment);
+								buf.clear();
+								text.get(buf);
+								comment.swap(buf, bool(flag & comm::Ante_Eng), bool(flag & comm::Ante_Oth));
+								consumer.putTrailingComment(comment);
+								break;
+							}
+
+						case token::End_Marker: break;
+						default: IO_RAISE(Game, Corrupted, "unexpected token");
 					}
 					return;
 

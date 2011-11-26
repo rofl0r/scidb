@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 132 $
-# Date   : $Date: 2011-11-20 14:59:26 +0000 (Sun, 20 Nov 2011) $
+# Version: $Revision: 136 $
+# Date   : $Date: 2011-11-26 17:37:46 +0000 (Sat, 26 Nov 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -727,6 +727,7 @@
 ::playertable::mc::OpenViafCatalog			"VIAF-Katalog"
 ::playertable::mc::OpenPndCatalog			"Katalog der Deutschen Nationalbibliothek"
 ::playertable::mc::OpenChessgames			"chessgames.com Partiensammlung"
+::playertable::mc::SeachIn365ChessCom		"Suche in 365Chess.com"
 
 ### eventtable #########################################################
 ::eventtable::mc::Attendance	"Teilnehmerzahl"
@@ -932,8 +933,10 @@
 ::export::mc::Correspondence				"Korrespondenz"
 ::export::mc::Telegraphic					"Telegraphie"
 ::export::mc::FontHandling					"Zeichensatzhandhabung"
+::export::mc::DiagramStyle					"Diagrammstil"
+::export::mc::UseImagesForDiagram		"Benutze Vorlagen zur Diagrammerstellung"
 ::export::mc::EmebedTruetypeFonts		"TrueType-Zeichensätze einbetten"
-::export::mc::UseBuiltinFonts				"Built-in Zeichensätze benutzen"	;# ???
+::export::mc::UseBuiltinFonts				"Integrierte Zeichensätze benutzen"
 ::export::mc::SelectExportedTags			"Auswahl der zu exportierenden Tags"
 ::export::mc::ExcludeAllTags				"Alle Tags ausschliessen"
 ::export::mc::IncludeAllTags				"Alle Tags einschliessen"

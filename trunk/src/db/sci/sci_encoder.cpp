@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 96 $
-// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
+// Version: $Revision: 136 $
+// Date   : $Date: 2011-11-26 17:37:46 +0000 (Sat, 26 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -550,9 +550,9 @@ Encoder::encodeTags(TagSet const& tags, db::Consumer::TagBits allowedTags, bool 
 			mstl::string const& name  = tags.extra(i).name;
 			mstl::string const& value = tags.extra(i).value;
 
-			m_strm.put(tag::ExtraTag);
-			m_strm.put(name, name.size() + 1);
-			m_strm.put(value, value.size() + 1);
+			m_data.put(tag::ExtraTag);
+			m_data.put(name, name.size() + 1);
+			m_data.put(value, value.size() + 1);
 		}
 	}
 

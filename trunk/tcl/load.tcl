@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 124 $
-# Date   : $Date: 2011-11-11 14:53:13 +0000 (Fri, 11 Nov 2011) $
+# Version: $Revision: 136 $
+# Date   : $Date: 2011-11-26 17:37:46 +0000 (Sat, 26 Nov 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -95,7 +95,14 @@ proc load {msg type path} {
 
 	if {[catch {::scidb::app::load $type $path} err]} {
 		set msg [format $mc::FileIsCorrupt $path]
-		lappend Log error $msg error $err
+		if {$type eq "eco"} {
+			set msg "Severe error during load of ECO file:\n$msg\n\n"
+			append msg "Program is aborting."
+			dialog::error -message $msg
+			exit 1
+		} else {
+			lappend Log error $msg error $err
+		}
 		puts "$msg -- $err"
 	} else {
 		lappend Log info "$msg: $path"

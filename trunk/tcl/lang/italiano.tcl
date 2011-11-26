@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 132 $
-# Date   : $Date: 2011-11-20 14:59:26 +0000 (Sun, 20 Nov 2011) $
+# Version: $Revision: 136 $
+# Date   : $Date: 2011-11-26 17:37:46 +0000 (Sat, 26 Nov 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -728,6 +728,7 @@
 ::playertable::mc::OpenViafCatalog			"Apri catalogo VIAF"
 ::playertable::mc::OpenPndCatalog			"Apri catalogo della Deutsche Nationalbibliothek"
 ::playertable::mc::OpenChessgames			"Collezione partite chessgames.com"
+::playertable::mc::SeachIn365ChessCom		"Search in 365Chess.com" ;# NEW
 
 ### eventtable #########################################################
 ::eventtable::mc::Attendance	"Frequenza di partecipazione"  ;#Attendance
@@ -933,6 +934,8 @@
 ::export::mc::Correspondence				"Corrispondenza"
 ::export::mc::Telegraphic					"Telegrafico"
 ::export::mc::FontHandling					"Gestione caratteri"
+::export::mc::DiagramStyle					"Diagram Style" ;# NEW
+::export::mc::UseImagesForDiagram		"Use images for diagram generation" ;# NEW
 ::export::mc::EmebedTruetypeFonts		"Inserisci fond TrueType"
 ::export::mc::UseBuiltinFonts				"Usa caratteri nativi"
 ::export::mc::SelectExportedTags			"Selezione dei tag per l'esportazione"
