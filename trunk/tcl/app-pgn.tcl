@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 132 $
-# Date   : $Date: 2011-11-20 14:59:26 +0000 (Sun, 20 Nov 2011) $
+# Version: $Revision: 140 $
+# Date   : $Date: 2011-11-29 19:17:16 +0000 (Tue, 29 Nov 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -274,13 +274,13 @@ proc build {parent menu width height} {
 	]
 	set Vars(button:new) [::toolbar::add $tbGame button \
 		-image $::icon::toolbarDocument \
-		-tooltip [::menu::stripAmpersand $::menu::mc::GameNew] \
+		-tooltip [::mc::stripAmpersand $::menu::mc::GameNew] \
 		-compound left \
 		-command [list ::menu::gameNew $top] \
 	]
 	set Vars(button:shuffle) [::toolbar::add $tbGame button \
 		-image $::icon::toolbarDice \
-		-tooltip "[::menu::stripAmpersand $::menu::mc::GameNew:] $::setup::board::mc::Shuffle" \
+		-tooltip "[::mc::stripAmpersand $::menu::mc::GameNew:] $::setup::board::mc::Shuffle" \
 		-compound left \
 		-command [namespace code NewGame] \
 	]
@@ -2629,9 +2629,9 @@ proc LanguageChanged {} {
 		}
 	}
 
-	::toolbar::childconfigure $Vars(button:new) -tooltip [::menu::stripAmpersand $::menu::mc::GameNew]
+	::toolbar::childconfigure $Vars(button:new) -tooltip [::mc::stripAmpersand $::menu::mc::GameNew]
 	::toolbar::childconfigure $Vars(button:shuffle) \
-		-tooltip "[::menu::stripAmpersand $::menu::mc::GameNew:] $::setup::board::mc::Shuffle"
+		-tooltip "[::mc::stripAmpersand $::menu::mc::GameNew:] $::setup::board::mc::Shuffle"
 }
 
 

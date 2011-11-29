@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 96 $
-# Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
+# Version: $Revision: 140 $
+# Date   : $Date: 2011-11-29 19:17:16 +0000 (Tue, 29 Nov 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1267,10 +1267,6 @@
 ::comment::mc::SwitchLanguage			"Cambiar idioma"
 ::comment::mc::FormatText				"Dar formato al texto"
 
-::comment::mc::Bold						"Negrita"
-::comment::mc::Italic					"It‡lica"
-::comment::mc::Underline				"Subrayado"
-
 ::comment::mc::InsertSymbol			"&Insertar s’mbolo..."
 ::comment::mc::MiscellaneousSymbols	"Simbolos miscel‡neos"
 ::comment::mc::Figurine					"Figurines"
@@ -1419,7 +1415,12 @@
 ::dialog::choosefont::mc::Strikeout			"Tach&ado"
 ::dialog::choosefont::mc::Style				"Es&tilo"
 ::dialog::choosefont::mc::Underline			"S&ubrayado"
-::dialog::choosefont::mc::Color				"Color"
+::dialog::choosefont::mc::Color				"Co&lor"
+
+::dialog::choosefont::mc::Regular			"Regular" ;# NEW
+::dialog::choosefont::mc::Bold				"Negrita"
+::dialog::choosefont::mc::Italic				"It‡lica"
+{::dialog::choosefont::mc::Bold Italic}	"Bold Italic" ;# NEW
 
 ::dialog::choosefont::mc::Effects			"Efectos"
 ::dialog::choosefont::mc::Filter				"Filtro"

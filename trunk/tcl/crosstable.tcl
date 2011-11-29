@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 96 $
-# Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
+# Version: $Revision: 140 $
+# Date   : $Date: 2011-11-29 19:17:16 +0000 (Tue, 29 Nov 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -719,7 +719,7 @@ proc Update {{setup 0}} {
 			if {$playerCount > $Defaults(crosstableLimit)} {
 				set detail ""
 				if {[string length $Vars(prevMode)] == 0} {
-					set cancel [::menu::stripAmpersand $::dialog::mc::Cancel]
+					set cancel [::mc::stripAmpersand $::dialog::mc::Cancel]
 					set detail [format $mc::CrosstableLimitDetail $cancel]
 				}
 				set rc [::dialog::warning \

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 96 $
-# Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
+# Version: $Revision: 140 $
+# Date   : $Date: 2011-11-29 19:17:16 +0000 (Tue, 29 Nov 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -272,6 +272,20 @@ proc var {var str} {
 }
 
 
+proc stripped {var} {
+	if {![info exists ${var}_()]} {
+		set ${var}_() [stripAmpersand [set $var]]
+		trace add variable $var write [namespace current]::SetStripped
+	}
+	return ${var}_()
+}
+
+
+proc stripAmpersand {str} {
+	return [string map {& {}} $str]
+}
+
+
 proc translate {str} {
 	return [set $str]
 }
@@ -535,6 +549,11 @@ proc TranslateWord {str} {
 
 proc SetVar {str var {unused {}} {unused {}}} {
 	set ${var}_($str) "[set $var]$str"
+}
+
+
+proc SetStripped {var {unused {}} {unused {}}} {
+	set ${var}_() [stripAmpersand [set $var]]
 }
 
 

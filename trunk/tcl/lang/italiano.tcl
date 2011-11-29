@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 136 $
-# Date   : $Date: 2011-11-26 17:37:46 +0000 (Sat, 26 Nov 2011) $
+# Version: $Revision: 140 $
+# Date   : $Date: 2011-11-29 19:17:16 +0000 (Tue, 29 Nov 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1296,10 +1296,6 @@
 ::comment::mc::FormatText				"Formatta testo"
 ::comment::mc::CopyText					"Copia testo in" ;#Copy text to
 
-::comment::mc::Bold						"Grassetto"
-::comment::mc::Italic					"Corsivo"
-::comment::mc::Underline				"Sottolinea"
-
 ::comment::mc::InsertSymbol			"&Inserisci Simbolo..."
 ::comment::mc::MiscellaneousSymbols	"Simboli vari"
 ::comment::mc::Figurine					"Figurine"
@@ -1448,7 +1444,12 @@
 ::dialog::choosefont::mc::Strikeout			"Can&cellato"
 ::dialog::choosefont::mc::Style				"&Stile"
 ::dialog::choosefont::mc::Underline			"S&ottolinea"
-::dialog::choosefont::mc::Color				"Colore"
+::dialog::choosefont::mc::Color				"Co&lore"
+
+::dialog::choosefont::mc::Regular			"Regular" ;# NEW
+::dialog::choosefont::mc::Bold				"Grassetto"
+::dialog::choosefont::mc::Italic				"Corsivo"
+{::dialog::choosefont::mc::Bold Italic}	"Bold Italic" ;# NEW
 
 ::dialog::choosefont::mc::Effects			"Effetti"
 ::dialog::choosefont::mc::Filter				"Filtro"

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 102 $
-// Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
+// Version: $Revision: 140 $
+// Date   : $Date: 2011-11-29 19:17:16 +0000 (Tue, 29 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -4300,7 +4300,7 @@ doneDELETE:
 				COLUMN_FOR_EACH(column, &columns, NULL, &citer) {
 					count++;
 				}
-			}
+		}
 			Tcl_SetObjResult(interp, Tcl_NewIntObj(count));
 			break;
 		}

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 136 $
-# Date   : $Date: 2011-11-26 17:37:46 +0000 (Sat, 26 Nov 2011) $
+# Version: $Revision: 140 $
+# Date   : $Date: 2011-11-29 19:17:16 +0000 (Tue, 29 Nov 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1296,10 +1296,6 @@
 ::comment::mc::FormatText				"Text formatieren"
 ::comment::mc::CopyText					"Text kopieren nach"
 
-::comment::mc::Bold						"Fett"
-::comment::mc::Italic					"Kursiv"
-::comment::mc::Underline				"Unterstrich"
-
 ::comment::mc::InsertSymbol			"Symbol &einfügen..."
 ::comment::mc::MiscellaneousSymbols	"Verschiedene Symbole"
 ::comment::mc::Figurine					"Figurine"
@@ -1448,7 +1444,12 @@
 ::dialog::choosefont::mc::Strikeout			"&Durchstrich"
 ::dialog::choosefont::mc::Style				"S&til"
 ::dialog::choosefont::mc::Underline			"&Unterstrich"
-::dialog::choosefont::mc::Color				"Farbe"
+::dialog::choosefont::mc::Color				"Far&be"
+
+::dialog::choosefont::mc::Regular			"Normal"
+::dialog::choosefont::mc::Bold				"Fett"
+::dialog::choosefont::mc::Italic				"Kursiv"
+{::dialog::choosefont::mc::Bold Italic}	"Fett-Kursiv"
 
 ::dialog::choosefont::mc::Effects			"Schrift-Effekt"
 ::dialog::choosefont::mc::Filter				"Filter"

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 132 $
-# Date   : $Date: 2011-11-20 14:59:26 +0000 (Sun, 20 Nov 2011) $
+# Version: $Revision: 140 $
+# Date   : $Date: 2011-11-29 19:17:16 +0000 (Tue, 29 Nov 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -454,11 +454,6 @@ proc bugReport {parent} {
 
 proc featureRequest {parent} {
 	::web::open $parent [set [namespace current]::FeatureRequestTracker]
-}
-
-
-proc stripAmpersand {text} {
-	return [string map {& {}} $text]
 }
 
 
