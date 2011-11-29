@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 102 $
-// Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
+// Version: $Revision: 143 $
+// Date   : $Date: 2011-11-29 20:11:08 +0000 (Tue, 29 Nov 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -25,7 +25,9 @@
 
 #include "tk_ogl.h"
 
+#define namespace namespace_	// bug in tcl8.6/tkInt.h
 #include <tkInt.h>
+#undef namespace
 
 #if defined(WIN32)
 
