@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 137 $
-# Date   : $Date: 2011-11-26 18:40:30 +0000 (Sat, 26 Nov 2011) $
+# Version: $Revision: 141 $
+# Date   : $Date: 2011-11-29 19:21:41 +0000 (Tue, 29 Nov 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1211,28 +1211,28 @@ proc AddGameMenuEntries {m addGameHistory clearHistory remove} {
 	}
 
 	$m add command \
-		-label " [::menu::stripAmpersand $::menu::mc::GameNew]" \
+		-label " [::mc::stripAmpersand $::menu::mc::GameNew]" \
 		-accelerator "Ctrl+X" \
 		-image $::icon::16x16::document \
 		-compound left \
 		-command [list ::menu::gameNew [winfo parent $m]] \
 		;
 	$m add command \
-		-label " [::menu::stripAmpersand $::menu::mc::GameNewChess960]" \
+		-label " [::mc::stripAmpersand $::menu::mc::GameNewChess960]" \
 		-accelerator "Ctrl+Shift+X" \
 		-image $::icon::16x16::dice \
 		-compound left \
 		-command [list ::menu::gameNew [winfo parent $m] frc] \
 		;
 	$m add command \
-		-label " [::menu::stripAmpersand $::menu::mc::GameNewChess960Sym]" \
+		-label " [::mc::stripAmpersand $::menu::mc::GameNewChess960Sym]" \
 		-accelerator "Ctrl+Shift+Y" \
 		-image $::icon::16x16::dice \
 		-compound left \
 		-command [list ::menu::gameNew [winfo parent $m] sfrc] \
 		;
 	$m add command \
-		-label " [::menu::stripAmpersand $::menu::mc::GameNewShuffle]" \
+		-label " [::mc::stripAmpersand $::menu::mc::GameNewShuffle]" \
 		-accelerator "Ctrl+Shift+Z" \
 		-image $::icon::16x16::dice \
 		-compound left \
