@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 96 $
-# Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
+# Version: $Revision: 147 $
+# Date   : $Date: 2011-12-01 08:54:02 +0000 (Thu, 01 Dec 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -533,8 +533,8 @@ proc ComputeLayout {canvWidth canvHeight {bordersize -1}} {
 	}
 
 	set distance		[expr {max(1, min($canvWidth, $canvHeight)/150)}]
-	set width			[expr {$canvWidth - $distance}]
-	set height			[expr {$canvHeight - $distance}]
+	set width			[expr {$canvWidth - 2*$distance}]
+	set height			[expr {$canvHeight - 2*$distance}]
 
 	if {$layout(side-to-move) || $layout(material-values)} {
 		if {$layout(side-to-move)} { set minsize 64 } else { set minsize 34 }
