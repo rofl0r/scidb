@@ -1,7 +1,7 @@
 # =====================================================================
 # Author : $Author$
-# Version: $Revision: 140 $
-# Date   : $Date: 2011-11-29 19:17:16 +0000 (Tue, 29 Nov 2011) $
+# Version: $Revision: 145 $
+# Date   : $Date: 2011-12-01 07:54:52 +0000 (Thu, 01 Dec 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -924,7 +924,7 @@ proc MakeStyles {w} {
 				set padx [list $padx $padx]
 			}
 		}
-		set ipady [list $Priv(ipady) $Priv(ipady)]
+		set ipady [list 0 $Priv(ipady)]
 	
 		switch -- $Priv(type:$id) {
 			elemCom {
