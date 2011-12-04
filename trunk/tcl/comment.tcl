@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 146 $
-# Date   : $Date: 2011-12-01 08:45:50 +0000 (Thu, 01 Dec 2011) $
+# Version: $Revision: 148 $
+# Date   : $Date: 2011-12-04 22:01:27 +0000 (Sun, 04 Dec 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -94,7 +94,7 @@ variable DingbatSet {
 }
 variable Colors {darkgreen darkred darkblue darkgreen darkred darkblue}
 
-set Symbols $font::figurines(graphic)
+set Symbols [join $font::figurines(graphic)]
 foreach section {prefix suffix} {
 	foreach nag $NagSet($section) {
 		set c $::font::SymbolUtfEncoding($nag)
@@ -1503,7 +1503,6 @@ proc PopdownLaguages {dlg} {
 		-height 10 \
 		-usescroll yes \
 		-relief flat \
-		-highlightthickness 0 \
 		-selectmode browse \
 		-borderwidth 1 \
 		-showfocus 0 \

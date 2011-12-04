@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 36 $
-# Date   : $Date: 2011-06-13 20:30:54 +0000 (Mon, 13 Jun 2011) $
+# Version: $Revision: 148 $
+# Date   : $Date: 2011-12-04 22:01:27 +0000 (Sun, 04 Dec 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -114,7 +114,6 @@ proc open {parent} {
 	canvas $rank \
 		-width [expr {8*$squareSize + 2*$borderSize}] \
 		-height [expr {$squareSize + $edge + 2*$borderSize}] \
-		-highlightthickness 0 \
 		-borderwidth 0 \
 		;
 	::theme::configureCanvas $rank

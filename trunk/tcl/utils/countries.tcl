@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 96 $
-# Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
+# Version: $Revision: 148 $
+# Date   : $Date: 2011-12-04 22:01:27 +0000 (Sun, 04 Dec 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -638,6 +638,7 @@ foreach rgn $regions {
 		set info($code) [list $iso1 $iso2 $lang $active $country]
 	}
 }
+unset rgn
 
 
 proc name {code} {
@@ -672,7 +673,7 @@ proc makeCountryList {{languages {}}} {
 	variable Vars
 
 	if {[llength $languages] == 0} {
-		set languages [array names ::mc::langToCountry]
+		set languages $::mc::countries
 	}
 
 	set result {}

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 132 $
-# Date   : $Date: 2011-11-20 14:59:26 +0000 (Sun, 20 Nov 2011) $
+# Version: $Revision: 148 $
+# Date   : $Date: 2011-12-04 22:01:27 +0000 (Sun, 04 Dec 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -885,7 +885,6 @@ proc Build {dlg base position number} {
 		-showrootlines no \
 		-xscrollincrement 1 \
 		-takefocus 1 \
-		-highlightthickness 0 \
 		-borderwidth 1 \
 		-relief sunken \
 		-background $Colors(taglistBackground) \

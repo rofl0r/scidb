@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 141 $
-# Date   : $Date: 2011-11-29 19:21:41 +0000 (Tue, 29 Nov 2011) $
+# Version: $Revision: 148 $
+# Date   : $Date: 2011-12-04 22:01:27 +0000 (Sun, 04 Dec 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1794,10 +1794,10 @@ proc Layout {gamebar} {
 			$gamebar coords black$id $x $height
 			incr height $height0
 		}
-		$gamebar coords whitebg$id {*}[$gamebar bbox white$id]
-		$gamebar coords blackbg$id {*}[$gamebar bbox black$id]
-		$gamebar coords whiteInput$id {*}[$gamebar bbox white$id]
-		$gamebar coords blackInput$id {*}[$gamebar bbox black$id]
+		foreach side {white black} {
+			$gamebar coords ${side}bg${id} {*}[$gamebar bbox ${side}${id}]
+			$gamebar coords ${side}Input${id} {*}[$gamebar bbox ${side}${id}]
+		}
 		$gamebar coords line2$id [expr {max(2, ($lineWidth - $width2)/2)}] $height
 		incr height $height2
 	}

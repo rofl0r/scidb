@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 96 $
-// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
+// Version: $Revision: 148 $
+// Date   : $Date: 2011-12-04 22:01:27 +0000 (Sun, 04 Dec 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -74,6 +74,12 @@ public:
 	static unsigned const Flag_Use_ChessBase_Format						= 1 << 26;
 	static unsigned const Flag_Use_Scidb_Import_Format					= 1 << 27;
 	static unsigned const Flag_LAST											= Flag_Use_Scidb_Import_Format;
+
+	static unsigned const Option_Show_Diagram_From_White				= 1 << 0;
+	static unsigned const Option_Show_Diagram_From_Black				= 1 << 1;
+	static unsigned const Option_Hide_Diagram								= 1 << 2;
+	static unsigned const Option_Show_Mover								= 1 << 3;
+	static unsigned const Option_Column_Style								= 1 << 4;
 
 	Writer(format::Type srcFormat, unsigned flags, mstl::string const& encoding);
 

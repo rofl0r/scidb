@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 77 $
-# Date   : $Date: 2011-07-12 14:50:32 +0000 (Tue, 12 Jul 2011) $
+# Version: $Revision: 148 $
+# Date   : $Date: 2011-12-04 22:01:27 +0000 (Sun, 04 Dec 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -151,7 +151,6 @@ proc build {parent menu width height} {
 	set tree $w.tree
 	treectrl $tree \
 		-takefocus 0 \
-		-highlightthickness 0 \
 		-borderwidth 1 \
 		-relief sunken \
 		-showheader no \
