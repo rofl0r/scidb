@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 94 $
-# Date   : $Date: 2011-08-21 16:47:29 +0000 (Sun, 21 Aug 2011) $
+# Version: $Revision: 149 $
+# Date   : $Date: 2011-12-09 21:13:24 +0000 (Fri, 09 Dec 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -680,6 +680,7 @@ proc ::TreeCtrl::ButtonPress1 {w x y} {
     }
 
     set Priv(buttonMode) normal
+    $w activate [lindex $id 1]
 #   BeginSelect $w $item
     return $item
 }

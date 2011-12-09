@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 130 $
-# Date   : $Date: 2011-11-16 20:34:25 +0000 (Wed, 16 Nov 2011) $
+# Version: $Revision: 149 $
+# Date   : $Date: 2011-12-09 21:13:24 +0000 (Fri, 09 Dec 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -205,6 +205,13 @@ switch $::scidb::revision {
 		set ::export::RecentlyUsedTiebreaks	{}
 		set ::application::database::RecentFiles {}
 		set ::game::History {}
+		array unset ::export::Values
+		array set ::export::Values [array get ::export::Defaults]
+		set ::export::Values(Type) scidb
+		set ::export::Values(pgn,encoding) iso8859-1
+		set ::export::Values(scid,encoding) utf-8
+		set ::export::Values(scidb,encoding) utf-8
+		set ::export::Values(pdf,encoding) iso8859-1
 	}
 }
 
