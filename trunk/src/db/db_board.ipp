@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 94 $
-// Date   : $Date: 2011-08-21 16:47:29 +0000 (Sun, 21 Aug 2011) $
+// Version: $Revision: 152 $
+// Date   : $Date: 2011-12-11 19:50:04 +0000 (Sun, 11 Dec 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -33,6 +33,8 @@
 #include <string.h>
 
 namespace db {
+
+inline Board::Board() {}
 
 inline bool Board::isAttackedBy(unsigned color, Square square) const { return attacks(color, square);}
 

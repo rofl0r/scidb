@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 96 $
-// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
+// Version: $Revision: 152 $
+// Date   : $Date: 2011-12-11 19:50:04 +0000 (Sun, 11 Dec 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -241,6 +241,8 @@ Controller::processInput(mstl::istream& inp, mstl::ostream& dst, mstl::ostream* 
 			{
 				if ((token = m_env->getFinalToken(Environment::AllowNull)))
 					m_env->execute(token);
+
+				finishProcessing();
 			}
 			catch (Token::BreakExecutionException)
 			{
@@ -481,6 +483,13 @@ Controller::processInput(	mstl::string const& inputPath,
 	}
 
 	return count;
+}
+
+
+void
+Controller::finishProcessing()
+{
+	// no action
 }
 
 

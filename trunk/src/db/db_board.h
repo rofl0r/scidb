@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 136 $
-// Date   : $Date: 2011-11-26 17:37:46 +0000 (Sat, 26 Nov 2011) $
+// Version: $Revision: 152 $
+// Date   : $Date: 2011-12-11 19:50:04 +0000 (Sun, 11 Dec 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -115,6 +115,11 @@ public:
 	};
 
 	enum Format { XFen, Shredder };
+
+	// initialization
+	struct Initialize {};
+	Board(Initialize); // only required for initialization
+	Board(); // only required because we have a non-default constructor
 
 	// Play moves on board
 
@@ -344,8 +349,6 @@ public:
 									castling::Handicap handicap = castling::AllowHandicap,
 									move::Constraint flag = move::AllowIllegalMove);
 
-	class Initializer;
-
 private:
 
 	friend class Guess;
@@ -455,9 +458,6 @@ private:
 	void hashCastlingQueenside(color::ID color);
 	void hashCastling(castling::Index right);
 	void hashCastling(color::ID color);
-
-	// setup
-	static void initialize();
 
 	// Additional board data
 	uint64_t	m_occupied;					// square is empty or holds a piece

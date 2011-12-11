@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 103 $
-# Date   : $Date: 2011-11-10 14:30:34 +0000 (Thu, 10 Nov 2011) $
+# Version: $Revision: 152 $
+# Date   : $Date: 2011-12-11 19:50:04 +0000 (Sun, 11 Dec 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -122,7 +122,12 @@ proc WidgetProc {w command args} {
 ttk::copyBindings TEntry TEntryButtonBox
 
 bind TEntryButtonBox <KeyPress-Down>	{ {*}[set ttk::entrybuttonbox::%W::Vars(-command)] }
-bind TEntryButtonBox <ButtonPress-1>	{ {*}[set ttk::entrybuttonbox::%W::Vars(-command)] }
 bind TEntryButtonBox <<TraverseIn>>		{ ttk::combobox::TraverseIn %W  }
+
+bind TEntryButtonBox <ButtonPress-1> {
+	if {[%W cget -state] ne "disabled"} {
+		{*}[set ttk::entrybuttonbox::%W::Vars(-command)]
+	}
+}
 
 # vi:set ts=3 sw=3:

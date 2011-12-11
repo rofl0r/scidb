@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 96 $
-// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
+// Version: $Revision: 152 $
+// Date   : $Date: 2011-12-11 19:50:04 +0000 (Sun, 11 Dec 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -265,18 +265,18 @@ Alignment::doRegister(Environment& env)
 {
 	env.pushFilter(m_filter);
 
-	env.bindMacro(new GenericFinalToken("\\crcr",			Func(&Alignment::performCrcr, this)));
-	env.bindMacro(new GenericFinalToken("\\space",			Func(&Alignment::performSpace, this)));
-	env.bindMacro(new GenericFinalToken("\\tab",				Func(&Alignment::performTab, this)));
-	env.bindMacro(new GenericFinalToken("\\eps",				Func(&Alignment::performEps, this)));
+	env.bindMacro(new GenericFinalToken("\\crcr",		Func(&Alignment::performCrcr, this)));
+	env.bindMacro(new GenericFinalToken("\\space",		Func(&Alignment::performSpace, this)));
+	env.bindMacro(new GenericFinalToken("\\tab",			Func(&Alignment::performTab, this)));
+	env.bindMacro(new GenericFinalToken("\\eps",			Func(&Alignment::performEps, this)));
 	m_filter->m_everycr =
-	env.bindMacro(new GenericFinalToken("\\everycr",		Func(&Alignment::performEverycr, this)));
+	bindMacro(env, new GenericFinalToken("\\everycr",	Func(&Alignment::performEverycr, this)));
 
 	env.bindMacro("\\lineno", m_filter->m_lineno);
 	m_filter->m_everycrContents = env.bindMacro("everycr", new ListToken);
 	m_filter->m_indent = env.bindMacro("\\indent", env.numberToken(0));
-	m_filter->m_indentchar = env.bindMacro(new GenericValueToken("\\indentchar"));
-	m_filter->m_indentstep = env.bindMacro(new GenericValueToken("\\indentstep"));
+	m_filter->m_indentchar = bindMacro(env, new GenericValueToken("\\indentchar"));
+	m_filter->m_indentstep = bindMacro(env, new GenericValueToken("\\indentstep"));
 }
 
 // vi:set ts=3 sw=3:

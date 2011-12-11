@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1 $
-# Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+# Version: $Revision: 152 $
+# Date   : $Date: 2011-12-11 19:50:04 +0000 (Sun, 11 Dec 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -76,6 +76,7 @@ proc Build {w args} {
 	}
 
 	ttk::frame $w -borderwidth 0 -takefocus 0
+	bind $w <FocusIn> { focus [tk_focusNext %W] }
 	ttk::tcombobox $w.__w__ \
 		-width $maxlen \
 		-exportselection no \

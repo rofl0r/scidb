@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 148 $
-# Date   : $Date: 2011-12-04 22:01:27 +0000 (Sun, 04 Dec 2011) $
+# Version: $Revision: 152 $
+# Date   : $Date: 2011-12-11 19:50:04 +0000 (Sun, 11 Dec 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1405,6 +1405,7 @@ proc ChangeIcon {number parent} {
 	wm resizable $dlg false true
 	::util::place $dlg center $parent
 	wm deiconify $dlg
+	focus $dlg.list
 	::ttk::grabWindow $dlg
 	tkwait window $dlg
 	::ttk::releaseGrab $dlg

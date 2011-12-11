@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 96 $
-// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
+// Version: $Revision: 152 $
+// Date   : $Date: 2011-12-11 19:50:04 +0000 (Sun, 11 Dec 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -494,7 +494,7 @@ Macros::doRegister(Environment& env)
 	env.bindMacro(new GenericAssignmentToken("\\xdef",			::performXdef));
 
 	env.bindMacro(new GenericExpandableToken(::Csname, Func(&Macros::performCsname, this)));
-	m_endcsname = env.bindMacro(new GenericFinalToken(::Endcsname, ::performEndcsname));
+	m_endcsname = Package::bindMacro(env, new GenericFinalToken(::Endcsname, ::performEndcsname));
 }
 
 // vi:set ts=3 sw=3:

@@ -1,7 +1,7 @@
 # =====================================================================
 # Author : $Author$
-# Version: $Revision: 149 $
-# Date   : $Date: 2011-12-09 21:13:24 +0000 (Fri, 09 Dec 2011) $
+# Version: $Revision: 152 $
+# Date   : $Date: 2011-12-11 19:50:04 +0000 (Sun, 11 Dec 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -121,6 +121,7 @@ proc Build {w args} {
 	}
 
 	::ttk::frame $w -class TListBoxFrame -takefocus 0 {*}$style
+	bind $w <FocusIn> { focus [tk_focusNext %W] }
 	if {[llength $style]} {
 		# "::ttk::frame $w -stlye <style>" does not work for any reason!
 		catch { $w configure -borderwidth [::ttk::style lookup $style -borderwidth] }

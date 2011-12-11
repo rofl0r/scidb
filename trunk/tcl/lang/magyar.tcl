@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 149 $
-# Date   : $Date: 2011-12-09 21:13:24 +0000 (Fri, 09 Dec 2011) $
+# Version: $Revision: 152 $
+# Date   : $Date: 2011-12-11 19:50:04 +0000 (Sun, 11 Dec 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -132,6 +132,7 @@
 ::menu::mc::Help						"&Súgó"
 
 ::menu::mc::FileOpen					"&Fájl megnyitása"
+::menu::mc::FileOpenURL				"Open &URL" ;# NEW
 ::menu::mc::FileOpenRecent			"Open &Recent"
 ::menu::mc::FileNew					"&Új"
 ::menu::mc::FileExport				"E&xport..."
@@ -973,6 +974,7 @@
 ::export::mc::AllAnnotation				"All annotations" ;# NEW
 ::export::mc::UseColumnStyle				"Use column style" ;# NEW
 ::export::mc::MainlineStyle				"Main Line Style" ;# NEW
+::export::mc::HideVariations				"Hide variations" ;# NEW
 
 ::export::mc::PdfFiles						"PDF Files"
 ::export::mc::HtmlFiles						"HTML Files"

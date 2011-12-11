@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 96 $
-// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
+// Version: $Revision: 152 $
+// Date   : $Date: 2011-12-11 19:50:04 +0000 (Sun, 11 Dec 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -123,8 +123,9 @@ public:
 	TokenP newVariableToken(mstl::string const& name);
 	TokenP newVariableToken(mstl::string const& name, TokenP const& macro);
 
-	TokenType bindMacro(Token* token, Value defaultValue = 0);
-	TokenType bindMacro(TokenP const& token, Value defaultValue = 0);
+	void bindMacro(Token* token, Value defaultValue = 0);
+	void bindMacro(TokenP const& token, Value defaultValue = 0);
+	void bindMacro(TokenP const& token, mstl::string const& value);
 	TokenType bindMacro(mstl::string const& name, Token* token, Value defaultValue = 0);
 	TokenType bindMacro(mstl::string const& name, TokenP const& token, Value defaultValue = 0);
 

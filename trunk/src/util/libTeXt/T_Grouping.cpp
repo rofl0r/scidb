@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 152 $
+// Date   : $Date: 2011-12-11 19:50:04 +0000 (Sun, 11 Dec 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -134,7 +134,7 @@ void
 Grouping::doRegister(Environment& env)
 {
 	m_begingroup =
-	env.bindMacro(new GenericFinalToken("\\begingroup",	Func(&Grouping::performBegingroup, this)));
+	bindMacro(env, new GenericFinalToken("\\begingroup",	Func(&Grouping::performBegingroup, this)));
 	env.bindMacro(new GenericFinalToken("\\endgroup",		Func(&Grouping::performEndgroup, this)));
 	env.bindMacro(new GenericFinalToken("\\uptoken", 		::performUpToken));
 	env.bindMacro(new GenericFinalToken("\\uplevel", 		::performUplevel));

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 152 $
+// Date   : $Date: 2011-12-11 19:50:04 +0000 (Sun, 11 Dec 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -17,6 +17,9 @@
 // ======================================================================
 
 #include "T_Package.h"
+#include "T_Environment.h"
+
+#include "m_assert.h"
 
 
 using namespace TeXt;
@@ -74,6 +77,16 @@ Package::finish(Environment& env)
 {
 	if (m_isRegistered)
 		doFinish(env);
+}
+
+
+Token::Type
+Package::bindMacro(Environment& env, Token* token)
+{
+	M_REQUIRE(token);
+
+	env.bindMacro(token);
+	return token->type();
 }
 
 // vi:set ts=3 sw=3:

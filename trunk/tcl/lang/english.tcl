@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 149 $
-# Date   : $Date: 2011-12-09 21:13:24 +0000 (Fri, 09 Dec 2011) $
+# Version: $Revision: 152 $
+# Date   : $Date: 2011-12-11 19:50:04 +0000 (Sun, 11 Dec 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -131,6 +131,7 @@
 ::menu::mc::Help						"&Help"
 
 ::menu::mc::FileOpen					"&Open"
+::menu::mc::FileOpenURL				"Open &URL"
 ::menu::mc::FileOpenRecent			"Open &Recent"
 ::menu::mc::FileNew					"&New"
 ::menu::mc::FileExport				"E&xport..."
@@ -972,6 +973,7 @@
 ::export::mc::AllAnnotation				"All annotations"
 ::export::mc::UseColumnStyle				"Use column style"
 ::export::mc::MainlineStyle				"Main Line Style"
+::export::mc::HideVariations				"Hide variations"
 
 ::export::mc::PdfFiles						"PDF Files"
 ::export::mc::HtmlFiles						"HTML Files"

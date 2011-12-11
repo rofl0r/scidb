@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 43 $
-# Date   : $Date: 2011-06-14 21:57:41 +0000 (Tue, 14 Jun 2011) $
+# Version: $Revision: 152 $
+# Date   : $Date: 2011-12-11 19:50:04 +0000 (Sun, 11 Dec 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -52,6 +52,7 @@ proc Build {w args} {
 	}
 
 	ttk::frame $w -borderwidth 0 -takefocus 0
+	bind $w <FocusIn> { focus [tk_focusNext %W] }
 	::ttk::spinbox $w.__w__ \
 		-from 0 \
 		-to 4000 \

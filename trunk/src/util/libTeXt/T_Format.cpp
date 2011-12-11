@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 152 $
+// Date   : $Date: 2011-12-11 19:50:04 +0000 (Sun, 11 Dec 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -235,19 +235,19 @@ Format::doRegister(Environment& env)
 	env.pushFilter(m_formatFilter);
 
 	m_numberFilter->m_base =
-		env.bindMacro(new GenericFinalToken("\\dec",				Func(&Format::performDec, this)));
-		env.bindMacro(new GenericFinalToken("\\hex",				Func(&Format::performHex, this)));
-		env.bindMacro(new GenericFinalToken("\\oct",				Func(&Format::performOct, this)));
+	bindMacro(env, new GenericFinalToken("\\dec",			Func(&Format::performDec, this)));
+	env.bindMacro(new GenericFinalToken("\\hex",				Func(&Format::performHex, this)));
+	env.bindMacro(new GenericFinalToken("\\oct",				Func(&Format::performOct, this)));
 	m_formatFilter->m_case =
-		env.bindMacro(new GenericFinalToken("\\ignorecase",	Func(&Format::performIgnorecase, this)));
-		env.bindMacro(new GenericFinalToken("\\lowercase",		Func(&Format::performLowercase, this)));
-		env.bindMacro(new GenericFinalToken("\\uppercase",		Func(&Format::performUppercase, this)));
+	bindMacro(env, new GenericFinalToken("\\ignorecase",	Func(&Format::performIgnorecase, this)));
+	env.bindMacro(new GenericFinalToken("\\lowercase",		Func(&Format::performLowercase, this)));
+	env.bindMacro(new GenericFinalToken("\\uppercase",		Func(&Format::performUppercase, this)));
 	m_numberFilter->m_showpos =
-		env.bindMacro(new GenericFinalToken("\\showpos",		Func(&Format::performShowpos, this)));
-		env.bindMacro(new GenericFinalToken("\\noshowpos",		Func(&Format::performNoshowpos, this)));
+	bindMacro(env, new GenericFinalToken("\\showpos",		Func(&Format::performShowpos, this)));
+	env.bindMacro(new GenericFinalToken("\\noshowpos",		Func(&Format::performNoshowpos, this)));
 
-	m_numberFilter->m_fillchar	=	env.bindMacro(new GenericValueToken("\\fillchar"));
-	m_numberFilter->m_adjustnum	=	env.bindMacro(new GenericValueToken("\\adjustnum"));
+	m_numberFilter->m_fillchar	=	bindMacro(env, new GenericValueToken("\\fillchar"));
+	m_numberFilter->m_adjustnum	=	bindMacro(env, new GenericValueToken("\\adjustnum"));
 
 	// initialise
 	performDec(env);

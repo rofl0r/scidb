@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 152 $
+// Date   : $Date: 2011-12-11 19:50:04 +0000 (Sun, 11 Dec 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -54,6 +54,8 @@ protected:
 
 	virtual void doRegister(Environment& env) = 0;
 	virtual void doFinish(Environment& env);
+
+	Token::Type bindMacro(Environment& env, Token* token);
 
 private:
 
