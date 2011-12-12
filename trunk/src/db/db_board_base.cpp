@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 155 $
+// Date   : $Date: 2011-12-12 16:33:36 +0000 (Mon, 12 Dec 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -100,10 +100,14 @@ kingPawnSquare(sq::ID pawn, sq::ID king, sq::ID queen, bool toMove)
 
 namespace {
 
-struct Initializer { Initializer(); };
+struct Initializer { Initializer() { board::base::initialize(); } };
 static Initializer initializer;
 
-Initializer::Initializer()
+} // namespace
+
+
+void
+board::base::initialize()
 {
 	static Byte const RotateL90[64] =
 	{
@@ -660,7 +664,5 @@ Initializer::Initializer()
 		NextRank[Black][i] = PrevRank[White][i] = (i - 8) & 63;
 	}
 }
-
-} // namespace
 
 // vi:set ts=3 sw=3:

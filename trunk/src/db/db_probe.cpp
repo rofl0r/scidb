@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 155 $
+// Date   : $Date: 2011-12-12 16:33:36 +0000 (Mon, 12 Dec 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -300,8 +300,7 @@ errorInEGTB(int n)
 
 namespace
 {
-	struct Initializer { Initializer(); };
-	Initializer::Initializer() { egtb_error = &errorInEGTB; }
+	struct Initializer { Initializer() { Probe::initialize(); } };
 	static Initializer Initializer;
 }
 
@@ -636,5 +635,8 @@ Probe::findBest(Board const& board, Move& result) const
 	result = moves[bestIndex];
 	return bestScore;
 }
+
+
+void Probe::initialize() { egtb_error = &errorInEGTB; }
 
 // vi:set ts=3 sw=3:

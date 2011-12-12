@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 102 $
-// Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
+// Version: $Revision: 155 $
+// Date   : $Date: 2011-12-12 16:33:36 +0000 (Mon, 12 Dec 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -40,6 +40,14 @@
 #include <stdio.h>
 
 
+#ifdef USE_WHEEEZY_INIT_HACK
+# include "db_board.h"
+# include "db_board_base.h"
+# include "db_home_pawns.h"
+# include "tcl_progress.h"
+#endif
+
+
 static int
 init(Tcl_Interp* ti)
 {
@@ -54,6 +62,22 @@ init(Tcl_Interp* ti)
 		tk::init(ti);
 
 		Tcl_PkgProvide(ti, "tkscidb", "1.0");
+
+#ifdef USE_WHEEEZY_INIT_HACK
+
+		// HACK!
+		// This hack is required for corrupted systems like
+		// Debian Wheezy, and Ubuntu 11.10. The static object
+		// initialization is not working on these systems.
+		db::tag::initialize();
+		db::castling::initialize();
+		db::board::base::initialize();
+		db::Board::initialize();
+		db::HomePawns::initialize();
+		tcl::Progress::initialize();
+
+#endif
+
 		tcl::app::setup(new app::Application);
 	}
 	catch (mstl::exception const& exc)

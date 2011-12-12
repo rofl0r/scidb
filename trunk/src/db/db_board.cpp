@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 152 $
-// Date   : $Date: 2011-12-11 19:50:04 +0000 (Sun, 11 Dec 2011) $
+// Version: $Revision: 155 $
+// Date   : $Date: 2011-12-12 16:33:36 +0000 (Mon, 12 Dec 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -53,9 +53,12 @@ using namespace db::board;
 
 namespace bf = mstl::bf;
 
-Board Board::m_standardBoard((Board::Initialize()));
+Board Board::m_standardBoard;
 Board Board::m_shuffleChessBoard;
 Board Board::m_emptyBoard;
+
+struct Initializer { Initializer() { Board::initialize(); } };
+static Initializer m_initializer;
 
 inline static int mul8(int x)				{ return x << 3; }
 inline static int mul16(int x)			{ return x << 4; }
@@ -4330,7 +4333,8 @@ Board::dump() const
 }
 
 
-Board::Board(Initialize)
+void
+Board::initialize()
 {
 	Signature::initialize();
 

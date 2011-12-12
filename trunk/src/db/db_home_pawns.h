@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 155 $
+// Date   : $Date: 2011-12-12 16:33:36 +0000 (Mon, 12 Dec 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -54,6 +54,7 @@ public:
 	void debug() const;
 
 	static bool isReachable(uint16_t currentSig, hp::Pawns targetData, unsigned count);
+	static void initialize();
 
 private:
 

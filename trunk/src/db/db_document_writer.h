@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 152 $
-// Date   : $Date: 2011-12-11 19:50:04 +0000 (Sun, 11 Dec 2011) $
+// Version: $Revision: 155 $
+// Date   : $Date: 2011-12-12 16:33:36 +0000 (Mon, 12 Dec 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -29,8 +29,6 @@
 
 #include "db_writer.h"
 
-namespace mstl { class ostream; }
-
 namespace db {
 
 class DocumentWriter : public Writer
@@ -43,7 +41,7 @@ public:
 		virtual mstl::string const& commentForNag(nag::ID nag, mstl::string const& langID) = 0;
 	};
 
-	typedef Byte NagMap[nag::Scidb_Last][nag::Scidb_Last];
+	typedef Byte NagMap[nag::Scidb_Last];
 	typedef mstl::string Languages[4];
 
 	static unsigned const Option_Diagram_From_Whites_Perspective	= 1 << 0;
@@ -64,7 +62,6 @@ public:
 	static unsigned const Option_Comment_All								= 1 << 12;
 
 	DocumentWriter(format::Type srcFormat,
-						mstl::ostream& stream,
 						unsigned flags,
 						unsigned options,
 						NagMap const& nagMap,
@@ -72,6 +69,9 @@ public:
 						unsigned significantLanguages);
 
 protected:
+
+	void start() override;
+	void finish() override;
 
 	void writePrecedingComment(Comment const& comment, MarkSet const& marks) override;
 	void writeTrailingComment(Comment const& comment) override;
@@ -86,8 +86,6 @@ protected:
 	void writeEndMoveSection(result::ID result) override;
 	void writeBeginVariation(unsigned level) override;
 	void writeEndVariation(unsigned level) override;
-
-	mstl::ostream&	m_stream;
 
 private:
 

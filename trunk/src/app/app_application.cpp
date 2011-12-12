@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 132 $
-// Date   : $Date: 2011-11-20 14:59:26 +0000 (Sun, 20 Nov 2011) $
+// Version: $Revision: 155 $
+// Date   : $Date: 2011-12-12 16:33:36 +0000 (Mon, 12 Dec 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -850,6 +850,7 @@ Application::recode(Cursor& cursor, mstl::string const& encoding, util::Progress
 			break;
 
 		case format::Pgn:
+		case format::LaTeX:
 			// cannot happen
 			break;
 	}

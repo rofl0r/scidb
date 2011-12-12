@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 154 $
-// Date   : $Date: 2011-12-11 20:08:43 +0000 (Sun, 11 Dec 2011) $
+// Version: $Revision: 155 $
+// Date   : $Date: 2011-12-12 16:33:36 +0000 (Mon, 12 Dec 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -40,7 +40,6 @@ class LaTeXWriter : public DocumentWriter
 public:
 
 	LaTeXWriter(format::Type srcFormat,
-					mstl::ostream& stream,
 					unsigned flags,
 					unsigned options,
 					NagMap const& nagMap,
@@ -48,6 +47,8 @@ public:
 					unsigned significantLanguages,
 					TeXt::Environment& env);
 	~LaTeXWriter() throw();
+
+	format::Type format() const override;
 
 private:
 

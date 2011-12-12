@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 152 $
-# Date   : $Date: 2011-12-11 19:50:04 +0000 (Sun, 11 Dec 2011) $
+# Version: $Revision: 155 $
+# Date   : $Date: 2011-12-12 16:33:36 +0000 (Mon, 12 Dec 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -3130,9 +3130,10 @@ proc DoExport {parent dlg file} {
 			set options [expr {$options | [Pow2 $Options(moves_notation_$Values(tex,moves,notation))]}]
 
 			switch [lindex $Values(tex,comments,languages) 0 0] {
-				all - none	{ set comments {} }
-				default		{ set comments [lrange $Values(tex,comments,languages) 1 end] }
+				all - none	{ set languages {} }
+				default		{ set languages [lrange $Values(tex,comments,languages) 1 end] }
 			}
+			set significant [lindex $Values(tex,comments,languages) 0 1]
 
 			foreach pair $Values(tex,nag,mapping) {
 				lassign $pair from to
@@ -3152,9 +3153,14 @@ proc DoExport {parent dlg file} {
 				$Info(base) \
 				$Info(view) \
 				$file \
+				$searchPath \
+				$script \
+				$preamble \
+				$flags \
 				$options \
 				$nags \
-				[list	[lindex $Values(tex,comments,languages) 0 1] $comments] \
+				$languages \
+				$significant \
 			]
 			return
 		}

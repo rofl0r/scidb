@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 96 $
-// Date   : $Date: 2011-10-28 23:35:25 +0000 (Fri, 28 Oct 2011) $
+// Version: $Revision: 155 $
+// Date   : $Date: 2011-12-12 16:33:36 +0000 (Mon, 12 Dec 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -36,8 +36,10 @@
 #include "m_vector.h"
 #include "m_pair.h"
 #include "m_bitfield.h"
+#include "m_string.h"
 
 namespace util { class Progress; }
+namespace TeXt { class Environment; }
 
 namespace db {
 
@@ -64,6 +66,8 @@ public:
 	typedef mstl::list<mstl::string>	StringList;
 	typedef mstl::vector<unsigned>	LengthList;
 	typedef mstl::bitfield<uint64_t>	TagBits;
+	typedef db::Byte NagMap[db::nag::Scidb_Last];
+	typedef mstl::string Languages[4];
 
 	typedef mstl::pair<db::load::State,unsigned> Result;
 
@@ -181,6 +185,17 @@ public:
 									db::Log& log,
 									util::Progress& progress,
 									FileMode fmode = Create);
+
+	/// Print games in view.
+	unsigned printGames(	TeXt::Environment& environment,
+								db::format::Type format,
+								unsigned flags,
+								unsigned options,
+								NagMap const& nagMap,
+								Languages const& languages,
+								unsigned significantLanguages,
+								db::Log& log,
+								util::Progress& progress);
 
 private:
 

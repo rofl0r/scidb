@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 102 $
-// Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
+// Version: $Revision: 155 $
+// Date   : $Date: 2011-12-12 16:33:36 +0000 (Mon, 12 Dec 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -161,7 +161,9 @@ cmdList(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 				Tcl_ListObjAppendElement(0, list, Tcl_NewStringObj(cursors[i]->database().name(), -1));
 				break;
 
-			case format::ChessBase:	break;
+			case format::ChessBase:
+			case format::LaTeX:
+				break;
 		}
 	}
 

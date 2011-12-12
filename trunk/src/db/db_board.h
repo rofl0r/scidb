@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 152 $
-// Date   : $Date: 2011-12-11 19:50:04 +0000 (Sun, 11 Dec 2011) $
+// Version: $Revision: 155 $
+// Date   : $Date: 2011-12-12 16:33:36 +0000 (Mon, 12 Dec 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -115,11 +115,6 @@ public:
 	};
 
 	enum Format { XFen, Shredder };
-
-	// initialization
-	struct Initialize {};
-	Board(Initialize); // only required for initialization
-	Board(); // only required because we have a non-default constructor
 
 	// Play moves on board
 
@@ -348,6 +343,8 @@ public:
 									variant::Type variant,
 									castling::Handicap handicap = castling::AllowHandicap,
 									move::Constraint flag = move::AllowIllegalMove);
+
+	static void initialize();
 
 private:
 

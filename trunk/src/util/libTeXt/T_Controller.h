@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 152 $
-// Date   : $Date: 2011-12-11 19:50:04 +0000 (Sun, 11 Dec 2011) $
+// Version: $Revision: 155 $
+// Date   : $Date: 2011-12-12 16:33:36 +0000 (Mon, 12 Dec 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -94,6 +94,7 @@ public:
 	virtual ~Controller();
 
 	Receptacle& receptacle();
+	Environment& environment();
 
 	void addPackage(PackageP package);
 

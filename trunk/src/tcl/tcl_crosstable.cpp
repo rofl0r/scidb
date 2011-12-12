@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 102 $
-// Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
+// Version: $Revision: 155 $
+// Date   : $Date: 2011-12-12 16:33:36 +0000 (Mon, 12 Dec 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -39,7 +39,6 @@
 #include "T_NumberToken.h"
 #include "T_TextToken.h"
 
-#include "m_ifstream.h"
 #include "m_sstream.h"
 #include "m_hash.h"
 #include "m_assert.h"
@@ -78,12 +77,6 @@ struct Key
 };
 
 typedef mstl::hash<Key,TournamentTable*> TableHash;
-
-
-struct MyLog : public TeXt::Controller::Log
-{
-	void error(mstl::string const& msg) { fprintf(stderr, "%s\n", msg.c_str()); }
-};
 
 } // namespace
 

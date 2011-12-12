@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 152 $
-// Date   : $Date: 2011-12-11 19:50:04 +0000 (Sun, 11 Dec 2011) $
+// Version: $Revision: 155 $
+// Date   : $Date: 2011-12-12 16:33:36 +0000 (Mon, 12 Dec 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -37,14 +37,12 @@ using namespace db;
 
 
 DocumentWriter::DocumentWriter(	format::Type srcFormat,
-											mstl::ostream& stream,
 											unsigned flags,
 											unsigned options,
 											NagMap const& nagMap,
 											Languages const& languages,
 											unsigned significantLanguages)
 	:Writer(srcFormat, flags, sys::utf8::Codec::utf8())
-	,m_stream(stream)
 	,m_options(options)
 	,m_significant(significantLanguages)
 {
@@ -63,6 +61,10 @@ DocumentWriter::DocumentWriter(	format::Type srcFormat,
 	m_languages[2] = languages[2];
 	m_languages[3] = languages[4];
 }
+
+
+void DocumentWriter::start()  {}
+void DocumentWriter::finish() {}
 
 
 void
