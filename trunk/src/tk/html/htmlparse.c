@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 27 $
-// Date   : $Date: 2011-05-20 14:02:53 +0000 (Fri, 20 May 2011) $
+// Version: $Revision: 157 $
+// Date   : $Date: 2011-12-12 18:58:50 +0000 (Mon, 12 Dec 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -42,6 +42,7 @@
 
 #include <string.h>
 #include <stdlib.h>
+#include <stdint.h>
 #include <stdio.h>
 #include <ctype.h>
 #include <assert.h>
@@ -647,7 +648,7 @@ getScriptHandler(pTree, tag)
     int tag;
 {
     Tcl_HashEntry *pEntry;
-    pEntry = Tcl_FindHashEntry(&pTree->aScriptHandler, (char *)tag);
+    pEntry = Tcl_FindHashEntry(&pTree->aScriptHandler, (char *)((intptr_t)tag));
     if (pEntry) {
         return (Tcl_Obj *)Tcl_GetHashValue(pEntry);
     }

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 91 $
-// Date   : $Date: 2011-08-02 12:59:24 +0000 (Tue, 02 Aug 2011) $
+// Version: $Revision: 157 $
+// Date   : $Date: 2011-12-12 18:58:50 +0000 (Mon, 12 Dec 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -49,6 +49,7 @@
 #include "swproc.h"
 #include <assert.h>
 #include <string.h>
+#include <stdint.h>
 
 
 struct HtmlFragmentContext {
@@ -507,7 +508,7 @@ nodeHandlerCallbacks(pTree, pNode)
     }
 
     /* Execute the node-handler script for node pNode, if one exists. */
-    pEntry = Tcl_FindHashEntry(&pTree->aNodeHandler, (char *)eTag);
+    pEntry = Tcl_FindHashEntry(&pTree->aNodeHandler, (char *)((intptr_t)eTag));
     if (pEntry) {
         Tcl_Obj *pEval;
         Tcl_Obj *pScript;
@@ -875,7 +876,7 @@ doAttributeHandler(pTree, pNode, zAttr, zValue)
     int eType = pNode->eTag;
     Tcl_HashEntry *pEntry;
 
-    pEntry = Tcl_FindHashEntry(&pTree->aAttributeHandler, (char*)eType);
+    pEntry = Tcl_FindHashEntry(&pTree->aAttributeHandler, (char*)((intptr_t)eType));
     if (pEntry) {
         Tcl_Obj *pScript;
         pScript = (Tcl_Obj *)Tcl_GetHashValue(pEntry);
@@ -907,7 +908,7 @@ doParseHandler(pTree, eType, pNode, iOffset)
         eType = Html_Text;
     }
 
-    pEntry = Tcl_FindHashEntry(&pTree->aParseHandler, (char *)eType);
+    pEntry = Tcl_FindHashEntry(&pTree->aParseHandler, (char *)((intptr_t)eType));
     if (pEntry) {
         Tcl_Obj *pScript;
         pScript = (Tcl_Obj *)Tcl_GetHashValue(pEntry);

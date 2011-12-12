@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 102 $
-// Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
+// Version: $Revision: 157 $
+// Date   : $Date: 2011-12-12 18:58:50 +0000 (Mon, 12 Dec 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -794,7 +794,7 @@ Namebase::update()
 				::fprintf(	stderr,
 								"WARNING(%u): invalid frequency value %u in %s namebase "
 								"(item '%s') (%u is expected)\n",
-								i - m_list.begin(),
+								unsigned(i - m_list.begin()),
 								(*i)->m_orig_freq,
 								type,
 								(*i)->name().c_str(),

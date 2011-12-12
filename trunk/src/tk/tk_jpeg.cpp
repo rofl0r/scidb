@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 102 $
-// Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
+// Version: $Revision: 157 $
+// Date   : $Date: 2011-12-12 18:58:50 +0000 (Mon, 12 Dec 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -126,7 +126,7 @@ ChannelReader::skip(size_t nbytes)
 	if (::Tcl_Eof(m_chan))
 		return false;
 
-	return ::Tcl_Seek(m_chan, nbytes, SEEK_CUR) == nbytes;
+	return ::Tcl_Seek(m_chan, nbytes, SEEK_CUR) == Tcl_WideInt(nbytes);
 }
 
 } // namespace
