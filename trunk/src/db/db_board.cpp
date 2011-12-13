@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 155 $
-// Date   : $Date: 2011-12-12 16:33:36 +0000 (Mon, 12 Dec 2011) $
+// Version: $Revision: 158 $
+// Date   : $Date: 2011-12-13 15:08:49 +0000 (Tue, 13 Dec 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -57,9 +57,6 @@ Board Board::m_standardBoard;
 Board Board::m_shuffleChessBoard;
 Board Board::m_emptyBoard;
 
-struct Initializer { Initializer() { Board::initialize(); } };
-static Initializer m_initializer;
-
 inline static int mul8(int x)				{ return x << 3; }
 inline static int mul16(int x)			{ return x << 4; }
 
@@ -77,6 +74,9 @@ inline static unsigned flipRank(unsigned s)		{ return flipRank(sq::ID(s)); }
 
 inline static Byte kingSideIndex(Byte color)		{ return castling::kingSideIndex(color::ID(color)); }
 inline static Byte queenSideIndex(Byte color)	{ return castling::queenSideIndex(color::ID(color)); }
+
+
+static void __attribute__((constructor)) initialize() { Board::initialize(); }
 
 
 template <typename T>
@@ -4336,8 +4336,6 @@ Board::dump() const
 void
 Board::initialize()
 {
-	Signature::initialize();
-
 	// Empty board
 	::memset(&m_emptyBoard, 0, sizeof(m_emptyBoard));
 	::memset(m_emptyBoard.m_destroyCastle, 0xff, sizeof(m_emptyBoard.m_destroyCastle));

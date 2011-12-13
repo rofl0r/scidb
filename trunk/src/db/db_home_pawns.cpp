@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 155 $
-// Date   : $Date: 2011-12-12 16:33:36 +0000 (Mon, 12 Dec 2011) $
+// Version: $Revision: 158 $
+// Date   : $Date: 2011-12-13 15:08:49 +0000 (Tue, 13 Dec 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -40,15 +40,13 @@
 using namespace db;
 
 
-HomePawns::Initializer HomePawns::m_initializer;
-
 uint16_t HomePawnMask[2][64];
 
 
 inline static uint8_t flipRank(db::Square s) { return sq::flipRank(sq::ID(s)); }
 
 
-HomePawns::Initializer::Initializer() { HomePawns::initialize(); }
+static void __attribute__((constructor)) initialize() { HomePawns::initialize(); }
 
 
 HomePawns::HomePawns()

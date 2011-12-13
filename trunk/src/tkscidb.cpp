@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 155 $
-// Date   : $Date: 2011-12-12 16:33:36 +0000 (Mon, 12 Dec 2011) $
+// Version: $Revision: 158 $
+// Date   : $Date: 2011-12-13 15:08:49 +0000 (Tue, 13 Dec 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -66,9 +66,9 @@ init(Tcl_Interp* ti)
 #ifdef USE_WHEEEZY_INIT_HACK
 
 		// HACK!
-		// This hack is required for corrupted systems like
-		// Debian Wheezy, and Ubuntu 11.10. The static object
-		// initialization is not working on these systems.
+		// This hack is required for insane systems like Debian Wheezy,
+		// and Ubuntu Oneiric. The static object initialization is not
+		// properly working on these systems (among other problems).
 		db::tag::initialize();
 		db::castling::initialize();
 		db::board::base::initialize();

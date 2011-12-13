@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 155 $
-// Date   : $Date: 2011-12-12 16:33:36 +0000 (Mon, 12 Dec 2011) $
+// Version: $Revision: 158 $
+// Date   : $Date: 2011-12-13 15:08:49 +0000 (Tue, 13 Dec 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -59,7 +59,7 @@ DocumentWriter::DocumentWriter(	format::Type srcFormat,
 	m_languages[0] = languages[0];
 	m_languages[1] = languages[1];
 	m_languages[2] = languages[2];
-	m_languages[3] = languages[4];
+	m_languages[3] = languages[3];
 }
 
 

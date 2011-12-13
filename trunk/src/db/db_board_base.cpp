@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 155 $
-// Date   : $Date: 2011-12-12 16:33:36 +0000 (Mon, 12 Dec 2011) $
+// Version: $Revision: 158 $
+// Date   : $Date: 2011-12-13 15:08:49 +0000 (Tue, 13 Dec 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -81,6 +81,9 @@ uint64_t board::Obstructed[64][64];
 uint8_t board::IsOutside[256];
 
 
+static void __attribute__((constructor)) initialize() { board::base::initialize(); }
+
+
 template <typename T> inline static T div8(T x) { return x >> 3; }
 template <typename T> inline static T mod8(T x) { return x & 7; }
 
@@ -96,14 +99,6 @@ kingPawnSquare(sq::ID pawn, sq::ID king, sq::ID queen, bool toMove)
 
 	return (toMove ? pdist : pdist + 1) >= kdist;
 }
-
-
-namespace {
-
-struct Initializer { Initializer() { board::base::initialize(); } };
-static Initializer initializer;
-
-} // namespace
 
 
 void

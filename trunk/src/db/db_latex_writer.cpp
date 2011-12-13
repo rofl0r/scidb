@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 155 $
-// Date   : $Date: 2011-12-12 16:33:36 +0000 (Mon, 12 Dec 2011) $
+// Version: $Revision: 158 $
+// Date   : $Date: 2011-12-13 15:08:49 +0000 (Tue, 13 Dec 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -27,7 +27,6 @@
 #include "db_latex_writer.h"
 #include "db_tag_set.h"
 
-#include "T_Receptacle.h"
 #include "T_ListToken.h"
 #include "T_Environment.h"
 

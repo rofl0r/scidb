@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 155 $
-// Date   : $Date: 2011-12-12 16:33:36 +0000 (Mon, 12 Dec 2011) $
+// Version: $Revision: 158 $
+// Date   : $Date: 2011-12-13 15:08:49 +0000 (Tue, 13 Dec 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1201,20 +1201,13 @@ namespace tag
 } // namespace db
 
 
-namespace {
-
-struct Initializer
+static void
+__attribute__((constructor))
+initialize()
 {
-	Initializer()
-	{
-		castling::initialize();
-		tag::initialize();
-	}
+	castling::initialize();
+	tag::initialize();
 }
-;
-static Initializer initializer;
-
-} // namespace
 
 
 unsigned

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 155 $
-// Date   : $Date: 2011-12-12 16:33:36 +0000 (Mon, 12 Dec 2011) $
+// Version: $Revision: 158 $
+// Date   : $Date: 2011-12-13 15:08:49 +0000 (Tue, 13 Dec 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -25,10 +25,6 @@
 using namespace tcl;
 
 
-Progress::Initializer Progress::m_initializer;
-Progress::Initializer::Initializer() { Progress::initialize(); }
-
-
 Tcl_Obj* Progress::m_open			= 0;
 Tcl_Obj* Progress::m_close			= 0;
 Tcl_Obj* Progress::m_start			= 0;
@@ -36,6 +32,9 @@ Tcl_Obj* Progress::m_update		= 0;
 Tcl_Obj* Progress::m_finish		= 0;
 Tcl_Obj* Progress::m_interrupted	= 0;
 Tcl_Obj* Progress::m_ticks			= 0;
+
+
+static void __attribute__((constructor)) initialize() { Progress::initialize(); }
 
 
 inline
