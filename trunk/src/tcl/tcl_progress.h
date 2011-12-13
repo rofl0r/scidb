@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 155 $
-// Date   : $Date: 2011-12-12 16:33:36 +0000 (Mon, 12 Dec 2011) $
+// Version: $Revision: 159 $
+// Date   : $Date: 2011-12-13 16:02:01 +0000 (Tue, 13 Dec 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -45,8 +45,6 @@ public:
 
 private:
 
-	struct Initializer { Initializer(); };
-
 	int sendFinish() throw();
 
 	Tcl_Obj*		m_cmd;
@@ -56,14 +54,13 @@ private:
 	bool			m_sendFinish;
 	bool			m_firstStart;
 
-	static Initializer	m_initializer;
-	static Tcl_Obj*		m_open;
-	static Tcl_Obj*		m_close;
-	static Tcl_Obj*		m_start;
-	static Tcl_Obj*		m_update;
-	static Tcl_Obj*		m_finish;
-	static Tcl_Obj*		m_interrupted;
-	static Tcl_Obj*		m_ticks;
+	static Tcl_Obj* m_open;
+	static Tcl_Obj* m_close;
+	static Tcl_Obj* m_start;
+	static Tcl_Obj* m_update;
+	static Tcl_Obj* m_finish;
+	static Tcl_Obj* m_interrupted;
+	static Tcl_Obj* m_ticks;
 };
 
 } // namespace tcl

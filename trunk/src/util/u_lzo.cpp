@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 159 $
+// Date   : $Date: 2011-12-13 16:02:01 +0000 (Tue, 13 Dec 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -30,18 +30,13 @@
 using namespace util;
 
 
-namespace {
-
-struct Initializer { Initializer(); };
-static Initializer initializer;
-
-Initializer::Initializer()
+static void
+__attribute__((constructor))
+initialize()
 {
 	__attribute__((unused)) int rc = lzo_init();
 	assert(rc == LZO_E_OK && "lzo_init() failed");
 }
-
-} // namespace
 
 
 static lzo_align_t workingMem[(LZO1X_1_MEM_COMPRESS + sizeof(lzo_align_t) - 1)/sizeof(lzo_align_t)];

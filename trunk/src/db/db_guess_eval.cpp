@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 84 $
-// Date   : $Date: 2011-07-18 18:02:11 +0000 (Mon, 18 Jul 2011) $
+// Version: $Revision: 159 $
+// Date   : $Date: 2011-12-13 16:02:01 +0000 (Tue, 13 Dec 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2322,12 +2322,10 @@ db::Guess::evaluatePassedPawnRaces()
 
 
 #if 0
-namespace {
 
-struct Initializer { Initializer(); };
-static Initializer initializer;
-
-Initializer::Initializer()
+static void
+__attribute__((constructor))
+initialize()
 {
 	// init king safety
 	for (int safety = 0; safety < 16; ++safety)
@@ -2340,7 +2338,6 @@ Initializer::Initializer()
 	}
 }
 
-} // namespace
 #endif
 
 // vi:set ts=3 sw=3:
