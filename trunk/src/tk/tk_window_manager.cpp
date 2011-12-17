@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 102 $
-// Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
+// Version: $Revision: 162 $
+// Date   : $Date: 2011-12-17 13:31:19 +0000 (Sat, 17 Dec 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -277,7 +277,8 @@ cmdWM(ClientData client_data __attribute__((unused)),
 		int objc,
 		Tcl_Obj* const objv[])
 {
-	char const* Usage = "Usage: ::scidb::tk::wm (noDecor | grid | setLeader | raise | sync) <window> ...";
+	char const* Usage =	"Usage: ::scidb::tk::wm (noDecor | grid "
+								"| setLeader | map | raise | sync) <window> ...";
 
 	if (objc < 2)
 		return tcl_error(ti, Usage);
@@ -348,6 +349,10 @@ cmdWM(ClientData client_data __attribute__((unused)),
 	else if (strcmp(subcmd, "raise") == 0)
 	{
 		raiseWindow(tkwin, Tk_WindowId(tkwin));
+	}
+	else if (strcmp(subcmd, "map") == 0)
+	{
+		Tk_MapWindow(tkwin);
 	}
 	else if (strcmp(subcmd, "sync") == 0)
 	{

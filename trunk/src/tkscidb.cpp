@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 158 $
-// Date   : $Date: 2011-12-13 15:08:49 +0000 (Tue, 13 Dec 2011) $
+// Version: $Revision: 162 $
+// Date   : $Date: 2011-12-17 13:31:19 +0000 (Sat, 17 Dec 2011) $
 // Url    : $URL$
 // ======================================================================
 
@@ -40,7 +40,7 @@
 #include <stdio.h>
 
 
-#ifdef USE_WHEEEZY_INIT_HACK
+#ifdef BROKEN_LINKER_HACK
 # include "db_board.h"
 # include "db_board_base.h"
 # include "db_home_pawns.h"
@@ -63,7 +63,7 @@ init(Tcl_Interp* ti)
 
 		Tcl_PkgProvide(ti, "tkscidb", "1.0");
 
-#ifdef USE_WHEEEZY_INIT_HACK
+#ifdef BROKEN_LINKER_HACK
 
 		// HACK!
 		// This hack is required for insane systems like Debian Wheezy,
