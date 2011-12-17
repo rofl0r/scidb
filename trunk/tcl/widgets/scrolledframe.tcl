@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 149 $
-# Date   : $Date: 2011-12-09 21:13:24 +0000 (Fri, 09 Dec 2011) $
+# Version: $Revision: 161 $
+# Date   : $Date: 2011-12-17 11:31:23 +0000 (Sat, 17 Dec 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -52,11 +52,13 @@ proc scrolledframe {path args} {
 		set v $path.__vs__
 		scrolledframe::Scrollbar $v -command [list $f yview] -orient vertical
 		lappend scrollopts -yscrollcommand [list ::scrolledframe::sbset $v]
+		grid $v -row 0 -column 1 -sticky ns
 	}
 	if {$opts(-expand) ne "x"} {
 		set h $path.__hs__
 		scrolledframe::Scrollbar $h -command [list $f xview] -orient horizontal
 		lappend scrollopts -xscrollcommand [list ::scrolledframe::sbset $h]
+		grid $h -row 1 -column 0 -sticky ew
 	}
 	::scrolledframe::scrolledframe $f {*}$scrollopts {*}[array get opts]
 	grid $f -row 0 -column 0 -sticky nsew
@@ -163,14 +165,9 @@ proc scrolledframe {w args} {
 
 
 proc Map {w} {
-	# Due to a bug in the Tk library sometimes the
-	# mapping is forgotten if we grid too early.
-	if {[winfo exists $w.__vs__]} {
-		grid $w.__vs__ -row 0 -column 1 -sticky ns
-	}
-	if {[winfo exists $w.__hs__]} {
-		grid $w.__hs__ -row 1 -column 0 -sticky ew
-	}
+	# Due to a bug in the Tk library we have to force window mapping
+	[winfo parent $w] configure -width 0
+
 	Resize $w.__scrolledframe__ force
 	bind $w <Map> {#}
 }

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 149 $
-# Date   : $Date: 2011-12-09 21:13:24 +0000 (Fri, 09 Dec 2011) $
+# Version: $Revision: 161 $
+# Date   : $Date: 2011-12-17 11:31:23 +0000 (Sat, 17 Dec 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -2048,11 +2048,11 @@ proc PopupMenu {parent position} {
 		$menu add separator
 
 		$menu add command \
-			-label $::import::mc::ImportPgnGame \
+			-label "$::import::mc::ImportPgnGame..." \
 			-command [namespace code PasteClipboardGame] \
 			;
 		$menu add command \
-			-label $::import::mc::ImportPgnVariation \
+			-label "$::import::mc::ImportPgnVariation..." \
 			-command [namespace code PasteClipboardVariation] \
 			;
 

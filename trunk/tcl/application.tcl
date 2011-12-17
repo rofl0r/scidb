@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 125 $
-# Date   : $Date: 2011-11-11 22:46:00 +0000 (Fri, 11 Nov 2011) $
+# Version: $Revision: 161 $
+# Date   : $Date: 2011-12-17 11:31:23 +0000 (Sat, 17 Dec 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -474,7 +474,7 @@ proc Undock {w name} {
 	wm manage $w ;# -iconic
 	::util::place $w at $x [expr {$y - 22}]
 	wm protocol $w WM_DELETE_WINDOW [namespace code [list Dock $w $name]]
-	wm iconphoto $w -default $::icon::64x64::logo $::icon::16x16::logo
+#	wm iconphoto $w -default $::icon::64x64::logo $::icon::16x16::logo
 	ComputeMinSize $main
 }
 

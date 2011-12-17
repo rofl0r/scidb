@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 152 $
-# Date   : $Date: 2011-12-11 19:50:04 +0000 (Sun, 11 Dec 2011) $
+# Version: $Revision: 161 $
+# Date   : $Date: 2011-12-17 11:31:23 +0000 (Sat, 17 Dec 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -2533,6 +2533,7 @@ proc DeleteFile {w} {
 				if {[llength $Vars(exec:delete)] == 0} {
 					set Vars(exec:delete) [auto_execok kfmclient]
 				}
+				if {[llength $Vars(exec:delete)] == 0} { set $Vars(iskde) 0 }
 			}
 		}
 		set iskde $Vars(iskde)

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 152 $
-# Date   : $Date: 2011-12-11 19:50:04 +0000 (Sun, 11 Dec 2011) $
+# Version: $Revision: 161 $
+# Date   : $Date: 2011-12-17 11:31:23 +0000 (Sat, 17 Dec 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -974,7 +974,7 @@
 
 ::export::mc::PdfFiles						"File PDF"
 ::export::mc::HtmlFiles						"File HTML"
-::export::mc::TeXFiles						"File TeX"
+::export::mc::TeXFiles						"File LaTeX"
 
 ::export::mc::ExportDatabase				"Esporta Database"
 ::export::mc::ExportDatabaseTitle		"Esporta Database '%s'"

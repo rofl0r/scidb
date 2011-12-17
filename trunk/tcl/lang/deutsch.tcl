@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 152 $
-# Date   : $Date: 2011-12-11 19:50:04 +0000 (Sun, 11 Dec 2011) $
+# Version: $Revision: 161 $
+# Date   : $Date: 2011-12-17 11:31:23 +0000 (Sat, 17 Dec 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -973,7 +973,7 @@
 
 ::export::mc::PdfFiles						"PDF-Dateien"
 ::export::mc::HtmlFiles						"HTML-Dateien"
-::export::mc::TeXFiles						"TeX-Dateien"
+::export::mc::TeXFiles						"LaTeX-Dateien"
 
 ::export::mc::ExportDatabase				"Datenbank exportieren"
 ::export::mc::ExportDatabaseTitle		"Datenbank '%s' exportieren"
