@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1 $
-# Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+# Version: $Revision: 163 $
+# Date   : $Date: 2011-12-20 19:43:40 +0000 (Tue, 20 Dec 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -39,16 +39,16 @@ proc spinboxInt {w {clamp 1}} {
 
 
 proc entryFloat {w} {
-	$w configure -validatecommand [namespace code [list validateFloat %P]] -invalidcommand { bell }
-	bind $w <FocusOut> +[namespace code [list formatFloat %W]]
+	$w configure -validatecommand [namespace code { validateFloat %P }] -invalidcommand { bell }
+	bind $w <FocusOut> +[namespace code { formatFloat %W }]
 	bind $w <FocusOut> {+ %W selection clear }
 	bind $w <FocusIn>  {+ %W configure -validate key }
 }
 
 
 proc entryUnsigned {w} {
-	$w configure -validatecommand [namespace code [list validateUnsigned %P]] -invalidcommand { bell }
-	bind $w <FocusOut> +[namespace code [list formatUnsigned %W]]
+	$w configure -validatecommand [namespace code { validateUnsigned %P }] -invalidcommand { bell }
+	bind $w <FocusOut> +[namespace code { formatUnsigned %W }]
 	bind $w <FocusOut> {+ %W selection clear }
 	bind $w <FocusIn>  {+ %W configure -validate key }
 }
