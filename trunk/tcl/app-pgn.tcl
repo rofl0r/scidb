@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 161 $
-# Date   : $Date: 2011-12-17 11:31:23 +0000 (Sat, 17 Dec 2011) $
+# Version: $Revision: 164 $
+# Date   : $Date: 2011-12-26 20:37:26 +0000 (Mon, 26 Dec 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -164,8 +164,8 @@ proc build {parent menu width height} {
 	set top   [::tk::frame $parent.top -borderwidth 0 -background white]
 	set main  [::tk::multiwindow $top.main -borderwidth 0 -background white]
 	set games [::tk::multiwindow $main.games -borderwidth 0 -background white]
-	set logo  [::tk::frame $main.logo -borderwidth 0 -background white]
-	set hist  [::game::history $main.hist]
+	set logo  [::tk::frame $main.logo -borderwidth 0 -background white -cursor left_ptr]
+	set hist  [::game::history $main.hist -cursor left_ptr]
 
 	pack $top -fill both -expand yes
 	pack $main -fill both -expand yes

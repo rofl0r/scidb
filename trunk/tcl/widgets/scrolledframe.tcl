@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 161 $
-# Date   : $Date: 2011-12-17 11:31:23 +0000 (Sat, 17 Dec 2011) $
+# Version: $Revision: 164 $
+# Date   : $Date: 2011-12-26 20:37:26 +0000 (Mon, 26 Dec 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -35,7 +35,7 @@ proc scrolledframe {path args} {
 		switch -- $key {
 			-background - -padding {
 			}
-			-width - -height {
+			-width - -height - -cursor {
 				lappend frameOpts $key $opts($key)
 			}
 			-class - -style - -borderwidth - -relief {
@@ -137,7 +137,9 @@ proc scrolledframe {w args} {
 	# redirect to dispatch
 	interp alias {} $w {} [namespace current]::Dispatch $w
 	# create scrollable internal frame
-	tk::frame $w.scrolled
+	set frameOpts {}
+	if {[info exists opts(-cursor)]} { lappend frameOpts -cursor $opts(-cursor) }
+	tk::frame $w.scrolled {*}$frameOpts
 	# place it
 	place $w.scrolled -in $w -x 0 -y 0
 	if {$(debug,place)} { puts "place $w.scrolled -in $w -x 0 -y 0" }
