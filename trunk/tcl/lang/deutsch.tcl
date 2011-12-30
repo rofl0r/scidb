@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 161 $
-# Date   : $Date: 2011-12-17 11:31:23 +0000 (Sat, 17 Dec 2011) $
+# Version: $Revision: 166 $
+# Date   : $Date: 2011-12-30 23:47:08 +0000 (Fri, 30 Dec 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -691,8 +691,9 @@
 ::gametable::mc::GameFlags(=)				"Verteidigung"
 ::gametable::mc::GameFlags(M)				"Material"
 ::gametable::mc::GameFlags(P)				"Figurenspiel"
-::gametable::mc::GameFlags(t)				"Taktische Schnitzer"
-::gametable::mc::GameFlags(s)				"Strategische Schnitzer"
+::gametable::mc::GameFlags(t)				"Taktische Schnitzer" ;# unused
+::gametable::mc::GameFlags(s)				"Strategische Schnitzer" ;# unused
+::gametable::mc::GameFlags(C)				"Regelwidrige Rochade"
 ::gametable::mc::GameFlags(I)				"Regelwidriger Zug"
 
 ### playertable ########################################################

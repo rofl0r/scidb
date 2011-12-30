@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 161 $
-# Date   : $Date: 2011-12-17 11:31:23 +0000 (Sat, 17 Dec 2011) $
+# Version: $Revision: 166 $
+# Date   : $Date: 2011-12-30 23:47:08 +0000 (Fri, 30 Dec 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -696,8 +696,9 @@
 ::gametable::mc::GameFlags(=)				"Defensa"
 ::gametable::mc::GameFlags(M)				"Material"
 ::gametable::mc::GameFlags(P)				"Juego de piezas"
-::gametable::mc::GameFlags(t)				"Horror táctico"
-::gametable::mc::GameFlags(s)				"Horror estratégico"
+::gametable::mc::GameFlags(t)				"Horror táctico" ; # unused
+::gametable::mc::GameFlags(s)				"Horror estratégico" ; # unused
+::gametable::mc::GameFlags(C)				"Illegal Castling" ;# NEW
 ::gametable::mc::GameFlags(I)				"Jugada ilegal"
 
 ### playertable ########################################################

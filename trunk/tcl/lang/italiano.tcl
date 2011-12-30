@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 161 $
-# Date   : $Date: 2011-12-17 11:31:23 +0000 (Sat, 17 Dec 2011) $
+# Version: $Revision: 166 $
+# Date   : $Date: 2011-12-30 23:47:08 +0000 (Fri, 30 Dec 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -692,8 +692,9 @@
 ::gametable::mc::GameFlags(=)				"Difesa"
 ::gametable::mc::GameFlags(M)				"Materiale"
 ::gametable::mc::GameFlags(P)				"Gioco di pezzi"
-::gametable::mc::GameFlags(t)				"Svista tattica"
-::gametable::mc::GameFlags(s)				"Svista strategica"
+::gametable::mc::GameFlags(t)				"Svista tattica" ;# unused
+::gametable::mc::GameFlags(s)				"Svista strategica" ;# unused
+::gametable::mc::GameFlags(C)				"Illegal Castling" ;# NEW
 ::gametable::mc::GameFlags(I)				"Mossa illegale"
 
 ### playertable ########################################################

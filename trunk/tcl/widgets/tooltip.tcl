@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 132 $
-# Date   : $Date: 2011-11-20 14:59:26 +0000 (Sun, 20 Nov 2011) $
+# Version: $Revision: 166 $
+# Date   : $Date: 2011-12-30 23:47:08 +0000 (Fri, 30 Dec 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -111,6 +111,10 @@
 #	tooltip .menu -index "Load" "Loads a file"
 #
 #------------------------------------------------------------------------
+
+# Some Tcl/Tk distributions do provide "tooltip 1.4.4".
+# We don't need this.
+catch { package forget tooltip }
 
 package require Tk 8.4
 package provide tooltip 1.5.0

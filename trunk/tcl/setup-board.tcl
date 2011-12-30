@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 126 $
-# Date   : $Date: 2011-11-14 16:21:33 +0000 (Mon, 14 Nov 2011) $
+# Version: $Revision: 166 $
+# Date   : $Date: 2011-12-30 23:47:08 +0000 (Fri, 30 Dec 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -115,7 +115,7 @@ set Error(InvalidStartPosition)		"Castling rights not allowed in start positions
 
 } ;# namespace mc
 
-array set NextPiece { wk wq wq wr wr wb wb wn wn wp wp bk bk bq bq br br bb bb bn bn bp bp wk }
+array set NextPiece { wk wq wq wr wr wb wb wn wn wp wp wk bk bq bq br br bb bb bn bn bp bp bk }
 foreach key [array names NextPiece] { set PrevPiece($NextPiece($key)) $key }
 unset key
 
@@ -556,13 +556,13 @@ proc UpdateChess960CastlingFlag {positionId} {
 	foreach type {w:short w:long b:short b:long} {
 		if {$Vars($type)} { incr count }
 	}
-	set Vars(freeze) 0
+	set Vars(freeze) 1
 	if {$count == 0 && $positionId > 2880} {
 		set Vars(castling) 0
 	} elseif {$count == 4 && $positionId <= 960} {
 		set Vars(castling) 1
 	}
-	set Vars(freeze) 1
+	set Vars(freeze) 0
 }
 
 

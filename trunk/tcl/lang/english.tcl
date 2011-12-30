@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 161 $
-# Date   : $Date: 2011-12-17 11:31:23 +0000 (Sat, 17 Dec 2011) $
+# Version: $Revision: 166 $
+# Date   : $Date: 2011-12-30 23:47:08 +0000 (Fri, 30 Dec 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -695,8 +695,9 @@
 ::gametable::mc::GameFlags(=)				"Defense"
 ::gametable::mc::GameFlags(M)				"Material"
 ::gametable::mc::GameFlags(P)				"Piece Play"
-::gametable::mc::GameFlags(t)				"Tactical Blunder"
-::gametable::mc::GameFlags(s)				"Strategical Blunder"
+::gametable::mc::GameFlags(t)				"Tactical Blunder" ;# unused
+::gametable::mc::GameFlags(s)				"Strategical Blunder" ;# unused
+::gametable::mc::GameFlags(C)				"Illegal Castling"
 ::gametable::mc::GameFlags(I)				"Illegal Move"
 
 ### playertable ########################################################
