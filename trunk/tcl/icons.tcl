@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 166 $
-# Date   : $Date: 2011-12-30 23:47:08 +0000 (Fri, 30 Dec 2011) $
+# Version: $Revision: 167 $
+# Date   : $Date: 2011-12-31 15:13:13 +0000 (Sat, 31 Dec 2011) $
 # Url    : $URL$
 # ======================================================================
 
@@ -439,7 +439,7 @@ namespace eval 12x12 {
 		DYh5AXVu2vtfNL8bAAAAAElFTkSuQmCC
 	}]
 
-	set gameflag(I) $gameflag(I)
+	set gameflag(I) $gameflag(C)
 
 	set gameflag(1) [image create photo -data {
 		iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAQAAAD8fJRsAAAAAmJLR0QA/4ePzL8AAABRSURB
