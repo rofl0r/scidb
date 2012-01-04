@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 168 $
-# Date   : $Date: 2012-01-04 02:01:05 +0000 (Wed, 04 Jan 2012) $
+# Version: $Revision: 169 $
+# Date   : $Date: 2012-01-04 03:39:00 +0000 (Wed, 04 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -175,7 +175,7 @@ proc BuildHtmlFrame {w} {
 		-center no \
 		-width 600 \
 		-height 800 \
-		-cursor top_left_arrow \
+		-cursor left_ptr \
 		-borderwidth 1 \
 		-relief sunken \
 		;
