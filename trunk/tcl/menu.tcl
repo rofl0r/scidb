@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 152 $
-# Date   : $Date: 2011-12-11 19:50:04 +0000 (Sun, 11 Dec 2011) $
+# Version: $Revision: 168 $
+# Date   : $Date: 2012-01-04 02:01:05 +0000 (Wed, 04 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -218,7 +218,7 @@ proc setup {} {
 	unset lst
 
 	lappend Menu \
-		Help	{	Contents			1	F1			help		{ ::beta::notYetImplemented .application help }
+		Help	{	Contents			1	F1			help		{ ::menu::openHelp .application }
 					BugReport		1	{}			bug		{ ::menu::bugReport .application }
 					FeatureRequest	1	{}			question	{ ::menu::featureRequest .application }
 					Info				1	{}			info		{ ::info::openDialog .application }
@@ -463,6 +463,11 @@ proc viewFullscreen {{toggle {}}} {
 
 	if {[llength $toggle]} { set Fullscreen [expr {!$Fullscreen}] }
 	wm attributes .application -fullscreen $Fullscreen
+}
+
+
+proc openHelp {parent} {
+	::help::build $parent
 }
 
 

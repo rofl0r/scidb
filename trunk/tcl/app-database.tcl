@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 152 $
-# Date   : $Date: 2011-12-11 19:50:04 +0000 (Sun, 11 Dec 2011) $
+# Version: $Revision: 168 $
+# Date   : $Date: 2012-01-04 02:01:05 +0000 (Wed, 04 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -687,7 +687,7 @@ proc AddBase {type file encoding readonly} {
 	set count [::scidb::db::count games $file]
 	if {$count == 0} { set count $mc::Empty } else { set count [::locale::formatNumber $count] }
 	set count [::locale::formatNumber $count]
-	set name [::util::databaseName $file]
+	set name [::util::databaseName $file no]
 
 	switch $ext {
 		sci { set icon $::icon::16x16::filetypeScidbBase }
@@ -793,7 +793,6 @@ proc Switch {filename} {
 	::scidb::db::switch $filename
 	set canv $Vars(canvas)
 	set readonly [::scidb::db::get readonly? $filename]
-	set name [::util::databaseName $filename]
 
 	if {$filename eq $clipbaseName} { set state disabled } else { set state normal }
 	if {$filename eq $clipbaseName || ![::scidb::db::get writeable? $filename]} {
@@ -824,6 +823,7 @@ proc Switch {filename} {
 			set Vars(selection) $i
 			set background $Defaults(selected)
 			if {$readonly} { set str $mc::SetWriteable } else { set str $mc::SetReadonly }
+			set name [::util::databaseName $filename]
 			set [namespace current]::_CloseDatabase [format $mc::CloseDatabase $name]
 			set [namespace current]::_Readonly [format $str $name]
 		} else {

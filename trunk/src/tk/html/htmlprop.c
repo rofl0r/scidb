@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 91 $
-// Date   : $Date: 2011-08-02 12:59:24 +0000 (Tue, 02 Aug 2011) $
+// Version: $Revision: 168 $
+// Date   : $Date: 2012-01-04 02:01:05 +0000 (Wed, 04 Jan 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -3040,6 +3040,7 @@ HtmlNodeGetProperty(interp, pProp, pValues)
 
     assert(eProp <= CSS_PROPERTY_MAX_PROPERTY);
     if (eProp < 0) {
+        Tcl_ResetResult(interp);
         Tcl_AppendResult(interp, "no such property: ", zProp, 0);
         return TCL_ERROR;
     }

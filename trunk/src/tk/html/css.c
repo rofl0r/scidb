@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 168 $
+// Date   : $Date: 2012-01-04 02:01:05 +0000 (Wed, 04 Jan 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2605,6 +2605,7 @@ HtmlStyleParse(pTree, interp, pStyleText, pId, pImportCmd, pUrlCmd)
         pStyleId = Tcl_NewStringObj(&zId[6], -1);
     }
     if (!pStyleId) {
+        Tcl_ResetResult(interp);
         Tcl_AppendResult(interp, "Bad style-sheet-id: ", zId, 0);
         return TCL_ERROR;
     }
@@ -4588,6 +4589,7 @@ HtmlCssInlineQuery(interp, pPropertySet, pArg)
             zArg = Tcl_GetStringFromObj(pArg, &nArg);
             eProp = HtmlCssPropertyLookup(nArg, zArg);
             if (eProp < 0) {
+                Tcl_ResetResult(interp);
                 Tcl_AppendResult(interp, "No such property: ", zArg, 0);
                 return TCL_ERROR;
             }

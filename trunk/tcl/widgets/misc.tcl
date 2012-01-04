@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 102 $
-# Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
+# Version: $Revision: 168 $
+# Date   : $Date: 2012-01-04 02:01:05 +0000 (Wed, 04 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -30,8 +30,8 @@ set Revert		"&Revert"
 set Update		"&Update"
 set Previous	"&Previous"
 set Next			"&Next"
-set Last			"&Last"
-set First		"Firs&t"
+set Last			"Las&t"
+set First		"&First"
 
 } ;# namespace mc
 

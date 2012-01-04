@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 149 $
-# Date   : $Date: 2011-12-09 21:13:24 +0000 (Fri, 09 Dec 2011) $
+# Version: $Revision: 168 $
+# Date   : $Date: 2012-01-04 02:01:05 +0000 (Wed, 04 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -649,16 +649,16 @@ proc ::TreeCtrl::ButtonPress1 {w x y} {
 	return
     }
 
-#    if {[lindex $id 0] eq "item"} {
-#	lassign $id where item arg1 arg2
-#	if {$arg1 eq "button"} {
-#	    $w item toggle $item
-#	    return
-#	} elseif {$arg1 eq "line"} {
-#	    $w item toggle $arg2
-#	    return
-#	}
-#    }
+    if {[lindex $id 0] eq "item"} {
+	lassign $id where item arg1 arg2
+	if {$arg1 eq "button"} {
+	    $w item toggle $item
+	    return
+	} elseif {$arg1 eq "line"} {
+	    $w item toggle $arg2
+	    return
+	}
+    }
     set Priv(buttonMode) ""
     if {[lindex $id 0] eq "header"} {
 	set Priv(buttonMode) header

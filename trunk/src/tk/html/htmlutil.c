@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 168 $
+// Date   : $Date: 2012-01-04 02:01:05 +0000 (Wed, 04 Jan 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -208,6 +208,7 @@ instCommand(clientData, interp, objc, objv)
 
     token = Tcl_GetCommandFromObj(interp, objv[2]);
     if (!token) {
+        Tcl_ResetResult(interp);
         Tcl_AppendResult(interp, "no such command: ", Tcl_GetString(objv[2]),0);
         return TCL_ERROR;
     }

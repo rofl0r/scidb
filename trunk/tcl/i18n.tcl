@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 162 $
-# Date   : $Date: 2011-12-17 13:31:19 +0000 (Sat, 17 Dec 2011) $
+# Version: $Revision: 168 $
+# Date   : $Date: 2012-01-04 02:01:05 +0000 (Wed, 04 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -30,6 +30,7 @@ set Alignment		"Alignment"
 set Apply			"Apply"
 set Background		"Background"
 set Black			"Black"
+set Bottom			"Bottom"
 set Cancel			"Cancel"
 set Clear			"Clear"
 set Close			"Close"
@@ -45,6 +46,7 @@ set Escape			"Esc"
 set From				"From"
 set Game				"Game"
 set Layout			"Layout"
+set Left				"Left"
 set Lite				"Light"
 set Modify			"Modify"
 set No				"No"
@@ -56,10 +58,12 @@ set PieceSet		"Piece Set"
 set Preview			"Preview"
 set Redo				"Redo"
 set Reset			"Reset"
+set Right			"Right"
 set SelectAll		"Select all"
 set Texture			"Texture"
 set Theme			"Theme"
 set To				"To"
+set Top				"Top"
 set Undo				"Undo"
 set Variation		"Variation"
 set White			"White"

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 148 $
-# Date   : $Date: 2011-12-04 22:01:27 +0000 (Sun, 04 Dec 2011) $
+# Version: $Revision: 168 $
+# Date   : $Date: 2012-01-04 02:01:05 +0000 (Wed, 04 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -246,7 +246,7 @@ proc ConfigureListbox {list} {
 
 
 proc ConfigurePanedWindowBackground {win} {
-#	$win configure -background [GetTroughColor]
+	$win configure -background [GetTroughColor]
 }
 
 
