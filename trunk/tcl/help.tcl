@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 171 $
-# Date   : $Date: 2012-01-05 00:15:08 +0000 (Thu, 05 Jan 2012) $
+# Version: $Revision: 172 $
+# Date   : $Date: 2012-01-05 00:45:29 +0000 (Thu, 05 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -345,6 +345,7 @@ proc FillContents {t depth root contents} {
 					set file [file normalize [file join $::scidb::dir::help $lang [lindex $topic 1]]]
 					if {![file readable $file]} {
 						lappend fill -fill #999999
+						$t item enabled $item no
 					} elseif {[llength $topic] > 2} {
 						set Priv(uri:$item) [::tkhtml::uri $file#[lindex $topic 2]]
 					} else {
@@ -361,8 +362,8 @@ proc FillContents {t depth root contents} {
 				}
 				$t item style set $item item styText
 				$t item element configure $item item elemTxt -text $title {*}$fill
-				$t item lastchild $lastchild $item
 				$t item element configure $item item elemImg -image $icon
+				$t item lastchild $lastchild $item
 				if {[llength $topic] != 2} { set lastchild $item }
 			} else {
 				FillContents $t [expr {$depth + 1}] $root $entry
