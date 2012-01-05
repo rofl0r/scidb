@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 168 $
-# Date   : $Date: 2012-01-04 02:01:05 +0000 (Wed, 04 Jan 2012) $
+# Version: $Revision: 171 $
+# Date   : $Date: 2012-01-05 00:15:08 +0000 (Thu, 05 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1237,11 +1237,14 @@
 
 ### help ###############################################################
 ::help::mc::Help					"Hilfe"
-::help::mc::Contents				"Inhalt"
+::help::mc::Contents				"&Inhalt"
+::help::mc::Index					"Inde&x"
 ::help::mc::GoBack				"Eine Seite zurück (Alt-Links)"
 ::help::mc::GoForward			"Eine Seite vorwärts (Alt-Rechts)"
 ::help::mc::ExpandAllItems		"Alle Elemente expandieren"
 ::help::mc::CollapseAllItems	"Alle Elemente zusammenfalten"
+::help::mc::NoHelpAvailable	"Es sind keine Hilfedateien verfügbar für die\ndeutsche Sprache. Bitte wählen Sie zwischen einer\nanderen Sprache für den Hilfe-Dialog."
+::help::mc::KeepLanguage		"Die Sprache %s zukünftig beibehalten?"
 
 ### crosstable #########################################################
 ::crosstable::mc::TournamentTable		"Turniertabelle"

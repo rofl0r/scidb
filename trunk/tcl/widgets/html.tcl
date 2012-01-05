@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 170 $
-# Date   : $Date: 2012-01-04 04:24:14 +0000 (Wed, 04 Jan 2012) $
+# Version: $Revision: 171 $
+# Date   : $Date: 2012-01-05 00:15:08 +0000 (Thu, 05 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -170,6 +170,8 @@ proc WidgetProc {w parent command args} {
 			}
 			$parent.html parse -final [lindex $args 0]
 			set Priv(bbox) [ComputeBoundingBox $parent.html [$parent.html node] $Priv(center)]
+			lset Priv(bbox) 2 [expr {min([lindex $Priv(bbox) 2],4000)}]
+#			lset Priv(bbox) 3 [expr {min([lindex $Priv(bbox) 3],8000)}]
 			if {[llength $Priv(bbox)]} {
 				if {$Priv(center)} {
 					lset Priv(bbox) 2 [expr {[lindex $Priv(bbox) 2] + $Margin}]
@@ -263,12 +265,7 @@ proc ConfigureFrame {parent sb visible} {
 
 	if {[$sb cget -orient] eq "vertical"} {
 		set width [$parent.html cget -width]
-		set sbw [winfo width $sb]
-		if {$visible} {
-			set Priv(sbwidth) [winfo width $sb]
-		} else {
-			set Priv(sbwidth) 0
-		}
+		set Priv(sbwidth) [expr {[winfo reqwidth $sb]*$visible}]
 		incr width $Priv(sbwidth)
 		after idle [$parent.html configure -width $width]
 	}

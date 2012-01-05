@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 168 $
-# Date   : $Date: 2012-01-04 02:01:05 +0000 (Wed, 04 Jan 2012) $
+# Version: $Revision: 171 $
+# Date   : $Date: 2012-01-05 00:15:08 +0000 (Thu, 05 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -774,19 +774,19 @@ ttk::style theme settings clam {
 } ;# namespace theme::clam
 
 
-namespace eval notebook {
-
+#namespace eval notebook {
+#
 # make keyboard traversal in notebooks comfortable
 # (otherwise "-takefocus 0" have to be set in all children of each tab)
-proc ActivateTab {w tab} {
-	if {[$w index $tab] eq [$w index current]} {
-		focus $w
-	} else {
-		$w select $tab
-	}
-}
-
-} ;# namespace notebook
+#proc ActivateTab {w tab} {
+#	if {[$w index $tab] eq [$w index current]} {
+#		focus $w
+#	} else {
+#		$w select $tab
+#	}
+#}
+#
+#} ;# namespace notebook
 } ;# namespace ttk
 
 # vi:set ts=3 sw=3:
