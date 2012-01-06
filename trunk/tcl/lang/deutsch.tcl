@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 173 $
-# Date   : $Date: 2012-01-06 17:53:20 +0000 (Fri, 06 Jan 2012) $
+# Version: $Revision: 174 $
+# Date   : $Date: 2012-01-06 19:13:55 +0000 (Fri, 06 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1248,7 +1248,7 @@
 ::help::mc::Help					"Hilfe"
 ::help::mc::MatchEntireWord	"Ganzes Wort vergleichen"
 ::help::mc::MatchCase			"Groß-/Kleinschreibung beachten"
-::help::mc::TitleOnly			"Nur Titel"
+::help::mc::TitleOnly			"Nur in Titel suchen"
 ::help::mc::GoBack				"Eine Seite zurück (Alt-Links)"
 ::help::mc::GoForward			"Eine Seite vorwärts (Alt-Rechts)"
 ::help::mc::ExpandAllItems		"Alle Elemente expandieren"

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 173 $
-# Date   : $Date: 2012-01-06 17:53:20 +0000 (Fri, 06 Jan 2012) $
+# Version: $Revision: 174 $
+# Date   : $Date: 2012-01-06 19:13:55 +0000 (Fri, 06 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -34,7 +34,7 @@ set Search				"&Search"
 set Help					"Help"
 set MatchEntireWord	"Match entire word"
 set MatchCase			"Match case"
-set TitleOnly			"Title only"
+set TitleOnly			"Search in titles only"
 set GoBack				"Go back one page (Alt-Left)"
 set GoForward			"Go forward one page (Alt-Right)"
 set ExpandAllItems	"Expand all items"
