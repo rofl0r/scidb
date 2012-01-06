@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 173 $
-# Date   : $Date: 2012-01-06 17:53:20 +0000 (Fri, 06 Jan 2012) $
+# Version: $Revision: 175 $
+# Date   : $Date: 2012-01-06 19:55:33 +0000 (Fri, 06 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -492,6 +492,19 @@ bind Html <ButtonPress-3>		[list [namespace current]::ButtonPress %W %x %y 3 ]
 bind Html <ButtonRelease-3>	[list [namespace current]::ButtonRelease %W %x %y 3 ]
 bind Html <Unmap>					[list [namespace current]::Leave %W ]
 bind Html <Map>					[list [namespace current]::Mapped %W ]
+
+switch [tk windowingsystem] {
+	win32 {
+		bind Html <MouseWheel> { [winfo parent %W] yview scroll [expr %D/-120] units }
+	}
+	aqua {
+		bind Html <MouseWheel> { [winfo parent %W] yview scroll [expr %D*-1] units }
+	}
+	x11 {
+		bind Html <ButtonPress-4> { [winfo parent %W] yview scroll -1 units }
+		bind Html <ButtonPress-5> { [winfo parent %W] yview scroll +1 units }
+	}
+}
 
 } ;# namespace html
 
