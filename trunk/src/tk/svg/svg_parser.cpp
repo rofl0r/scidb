@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 173 $
+// Date   : $Date: 2012-01-06 17:53:20 +0000 (Fri, 06 Jan 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -349,9 +349,9 @@ parser::parse(char const* svg_data, unsigned len)
 
 	if (!::XML_Parse(p, svg_data, len, true))
 	{
-		exception exc(	"%s at line %d\n",
+		exception exc(	"%s at line %u\n",
 									::XML_ErrorString(::XML_GetErrorCode(p)),
-									::XML_GetCurrentLineNumber(p));
+									unsigned(::XML_GetCurrentLineNumber(p)));
 		::XML_ParserFree(p);
 		M_THROW(exc);
 	}

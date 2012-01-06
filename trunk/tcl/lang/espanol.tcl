@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 171 $
-# Date   : $Date: 2012-01-05 00:15:08 +0000 (Thu, 05 Jan 2012) $
+# Version: $Revision: 173 $
+# Date   : $Date: 2012-01-06 17:53:20 +0000 (Fri, 06 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -75,6 +75,11 @@
 ::mc::Variation		"Variante"
 ::mc::White				"Blancas"
 ::mc::Yes				"S’"
+
+::mc::LogicalReset	"Reset" ;# NEW
+::mc::LogicalAnd		"And" ;# NEW
+::mc::LogicalOr		"Or" ;# NEW
+::mc::LogicalNot		"Not" ;# NEW
 
 ::mc::King				"Rey"
 ::mc::Queen				"Dama"
@@ -1239,15 +1244,25 @@
 ::timemodebox::mc::Mode(corr)		"Correspondencia"
 
 ### help ###############################################################
-::help::mc::Help					"Help" ;# NEW
 ::help::mc::Contents				"&Contents" ;# NEW
 ::help::mc::Index					"&Index" ;# NEW
+::help::mc::Search				"&Search" ;# NEW
+
+::help::mc::Help					"Help" ;# NEW
+::help::mc::MatchEntireWord	"Match entire word" ;# NEW
+::help::mc::MatchCase			"Match case" ;# NEW
+::help::mc::TitleOnly			"Title only" ;# NEW
 ::help::mc::GoBack				"Go back one page (Alt-Left)" ;# NEW
 ::help::mc::GoForward			"Go forward one page (Alt-Right)" ;# NEW
 ::help::mc::ExpandAllItems		"Expand all items" ;# NEW
 ::help::mc::CollapseAllItems	"Collapse all items" ;# NEW
+::help::mc::SelectLanguage		"Select Language" ;# NEW
 ::help::mc::NoHelpAvailable	"No help files available for language English.\nPlease choose an alternative languagelanguage\nfor the help dialog." ;# NEW
 ::help::mc::KeepLanguage		"Keep language %s for subsequent sessions?" ;# NEW
+::help::mc::ParserError			"Error while parsing file %s." ;# NEW
+::help::mc::NoMatch				"No match is found" ;# NEW
+::help::mc::MaxmimumExceeded	"Maximal number of matches exceeded in some pages." ;# NEW
+::help::mc::OnlyFirstMatches	"Only first %s matches per page will be shown." ;# NEW
 
 ### crosstable #########################################################
 ::crosstable::mc::TournamentTable		"Grilla de torneo"

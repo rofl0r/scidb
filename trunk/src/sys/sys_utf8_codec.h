@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 102 $
-// Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
+// Version: $Revision: 173 $
+// Date   : $Date: 2012-01-06 17:53:20 +0000 (Fri, 06 Jan 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -89,6 +89,14 @@ public:
 	static void makeShortName(mstl::string const& name, mstl::string& result);
 	static unsigned firstCharToUpper(mstl::string& name);
 	static unsigned firstCharToUpper(mstl::string const& name, mstl::string& result);
+	static int findFirst(char const* haystack,
+								unsigned haystackLen,
+								char const* needle,
+								unsigned needleLen);
+	static int findFirstNoCase(char const* haystack,
+										unsigned haystackLen,
+										char const* needle,
+										unsigned needleLen);
 	static mstl::string const& convertToNonDiacritics(	unsigned region,
 																		mstl::string const& s,
 																		mstl::string& buffer);

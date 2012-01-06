@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 171 $
-# Date   : $Date: 2012-01-05 00:15:08 +0000 (Thu, 05 Jan 2012) $
+# Version: $Revision: 173 $
+# Date   : $Date: 2012-01-06 17:53:20 +0000 (Fri, 06 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -68,6 +68,11 @@ set Undo				"Undo"
 set Variation		"Variation"
 set White			"White"
 set Yes				"Yes"
+
+set LogicalReset	"Reset"
+set LogicalAnd		"And"
+set LogicalOr		"Or"
+set LogicalNot		"Not"
 
 set King				"King"
 set Queen			"Queen"

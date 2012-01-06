@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 171 $
-# Date   : $Date: 2012-01-05 00:15:08 +0000 (Thu, 05 Jan 2012) $
+# Version: $Revision: 173 $
+# Date   : $Date: 2012-01-06 17:53:20 +0000 (Fri, 06 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -349,7 +349,7 @@ proc ChooseLanguage {parent} {
 				-command [namespace code [list SetupLang $code]] \
 				;
 			pack $top.$code -side top -padx $::theme::padx -pady $::theme::pady
-			bind $top.$code <Return> "event generate %W <Key-space>; break"
+			bind $top.$code <Return> { event generate %W <Key-space>; break }
 		}
 	}
 	wm resizable $dlg no no
