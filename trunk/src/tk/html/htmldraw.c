@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 98 $
-// Date   : $Date: 2011-10-29 14:00:35 +0000 (Sat, 29 Oct 2011) $
+// Version: $Revision: 176 $
+// Date   : $Date: 2012-01-07 23:06:38 +0000 (Sat, 07 Jan 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2523,7 +2523,10 @@ updateDoubleBuffer(pTree, pixmap, gc, x, y, w, h, resize)
         Display   *display = Tk_Display(win);
         XRectangle rect;
 
-        if (resize) {
+        if (pTree->bufferRegion == None) {
+            pTree->bufferRegion = TkCreateRegion();
+            memset(&pTree->bufferRect, 0, sizeof(pTree->bufferRect));
+        } else if (resize) {
             int screenW = WidthOfScreen (Tk_Screen(win));
             int screenH = HeightOfScreen(Tk_Screen(win));
 

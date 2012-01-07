@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 175 $
-# Date   : $Date: 2012-01-06 19:55:33 +0000 (Fri, 06 Jan 2012) $
+# Version: $Revision: 176 $
+# Date   : $Date: 2012-01-07 23:06:38 +0000 (Sat, 07 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -85,6 +85,10 @@ proc Build {w args} {
 				if {[llength $value]} { lappend htmlOptions $name $value }
 			}
 
+			-center - -doublebuffer {
+				array unset opts $name
+			}
+
 			default {
 				set value $opts($name)
 				if {[llength $value]} { lappend options $name $value }
@@ -93,7 +97,9 @@ proc Build {w args} {
 	}
 
 	set parent [::scrolledframe $w -fill both {*}$options]
-	bind $parent <<ScrollbarChanged>> [namespace code { ConfigureFrame %W {*}%d }]
+	if {!$center} {
+		bind $parent <<ScrollbarChanged>> [namespace code { ConfigureFrame %W {*}%d }]
+	}
 	set html $parent.html
 
 	namespace eval [namespace current]::$parent {}
@@ -268,10 +274,12 @@ proc ConfigureFrame {parent sb visible} {
 	variable ${parent}::Priv
 
 	if {[$sb cget -orient] eq "vertical"} {
+		after cancel $Priv(afterId)
+		set Priv(afterId) {}
 		set width [$parent.html cget -width]
 		set Priv(sbwidth) [expr {[winfo reqwidth $sb]*$visible}]
 		incr width $Priv(sbwidth)
-		after idle [$parent.html configure -width $width]
+		Configure $parent $width
 	}
 }
 

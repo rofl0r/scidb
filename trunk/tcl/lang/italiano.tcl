@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 174 $
-# Date   : $Date: 2012-01-06 19:13:55 +0000 (Fri, 06 Jan 2012) $
+# Version: $Revision: 176 $
+# Date   : $Date: 2012-01-07 23:06:38 +0000 (Sat, 07 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1542,6 +1542,8 @@
 ::fsbox::mc::Backward						"Indietro a '%s'"
 ::fsbox::mc::Delete							"Elimina"
 ::fsbox::mc::Rename							"Rinomina"
+::fsbox::mc::Duplicate						"Duplicate" ;# NEW
+::fsbox::mc::CopyOf							"Copy of %s" ;# NEW
 ::fsbox::mc::NewFolder						"Nuova Cartella"
 ::fsbox::mc::Layout							"Layout"
 ::fsbox::mc::ListLayout						"Layout della Lista"
@@ -1584,6 +1586,10 @@
 ::fsbox::mc::ReallyDelete(folder,r)		"Really delete write-protected folder '%s'? You cannot undo this operation." ;# NEW
 ::fsbox::mc::DeleteFailed					"Rimozione di '%s' fallita."
 ::fsbox::mc::CommandFailed					"Comando '%s' fallito." 
+::fsbox::mc::CopyFailed						"Copying of file '%s' failed: permission denied." ;# NEW
+::fsbox::mc::CannotCopy						"Cannot create a copy because file '%s' is already exisiting." ;# NEW
+::fsbox::mc::ReallyDuplicateFile			"Really duplicate this file?" ;# NEW
+::fsbox::mc::ReallyDuplicateDetail		"This file has about %s. Duplicating this file may take some time." ;# NEW
 ::fsbox::mc::ErrorRenaming(folder)		"Errore nel rinominare la cartella '%old' a '%new': permesso negato."
 ::fsbox::mc::ErrorRenaming(file)			"Errore nel rinominare il file '%old' a '%new': permesso negato."
 ::fsbox::mc::InvalidFileExt				"Impossibile rinominare in '%s' perché ha un'estensione non valida."
@@ -1599,6 +1605,7 @@
 ::fsbox::mc::FileDoesNotExist				"Il file '%s' non esiste."
 ::fsbox::mc::DirectoryDoesNotExist		"La cartella '%s' non esiste."
 ::fsbox::mc::CannotOpenOrCreate			"Non posso aprire/creare '%s'. Per favore scegli una cartella."
+::fsbox::mc::WaitWhileDuplicating		"Please wait while duplicating file..." ;# NEW
 
 ### toolbar ############################################################
 ::toolbar::mc::Toolbar		"Barra strumenti"

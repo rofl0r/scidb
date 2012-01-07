@@ -3,8 +3,8 @@
 exec tclsh "$0" "$@"
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 171 $
-# Date   : $Date: 2012-01-05 00:15:08 +0000 (Thu, 05 Jan 2012) $
+# Version: $Revision: 176 $
+# Date   : $Date: 2012-01-07 23:06:38 +0000 (Sat, 07 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -57,6 +57,15 @@ set HtmlH1 {\
 <div class="title">
   <h1 class="title">%TITLE%</h1>
 </div>
+}
+
+set HtmlMapping {
+	<menuitem>		{<span class="menuitem">}
+	</menuitem>		</span>
+	<box>				{<div class="box">}
+	</box>			</div>
+	<annotation>	{<div class="annotation"><img src="../images/annotation.png" style="float:left; margin:0 1em 0 0"/>}
+	</annotation>	</div>
 }
 
 
@@ -190,6 +199,7 @@ set contents {}
 
 while {[gets $src line] >= 0} {
 	if {[string match END* $line]} { break }
+	set line [string map $HtmlMapping $line]
 
 	if {[regexp -indices {ENUM[(][0-9]+[.][.][0-9]+[)]} $line location]} {
 		lassign $location i k

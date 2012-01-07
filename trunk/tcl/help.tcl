@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 175 $
-# Date   : $Date: 2012-01-06 19:55:33 +0000 (Fri, 06 Jan 2012) $
+# Version: $Revision: 176 $
+# Date   : $Date: 2012-01-07 23:06:38 +0000 (Sat, 07 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -775,6 +775,7 @@ proc Search {t} {
 		for {set i 0} {$i < [llength $results]} {incr i} {
 			set path [lindex $results $i 1]
 			if {$Priv(currentfile) eq $path} {
+				set Priv(currentfile) ""
 				$t selection add [expr {$i + 1}]
 				break
 			}
@@ -961,7 +962,7 @@ proc LinkHandler {node} {
 			:user		{ color: red3; text-decoration: none; }
 			:visited { color: purple; text-decoration: none; }
 			:hover   { text-decoration: none; background: #ffff00; }
-			.match	{ background: yellow; }
+			.match	{ background: yellow; color: black; }
 		"
 		$Priv(html) style -id user $css
 	}

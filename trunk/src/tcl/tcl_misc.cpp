@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 173 $
-// Date   : $Date: 2012-01-06 17:53:20 +0000 (Fri, 06 Jan 2012) $
+// Version: $Revision: 176 $
+// Date   : $Date: 2012-01-07 23:06:38 +0000 (Sat, 07 Jan 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -803,6 +803,8 @@ HtmlSearch::parse(char const* document, unsigned length, char const* search, uns
 
 	int rc = XML_Parse(m_parser, buf, length, true);
 	delete [] buf;
+	m_title.trim();
+
 	return rc;
 }
 
