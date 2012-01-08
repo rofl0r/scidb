@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 149 $
-# Date   : $Date: 2011-12-09 21:13:24 +0000 (Fri, 09 Dec 2011) $
+# Version: $Revision: 177 $
+# Date   : $Date: 2012-01-08 15:06:29 +0000 (Sun, 08 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -145,6 +145,7 @@ if {[tk windowingsystem] eq "x11"} {
 
 	proc ::dialog::choosecolor::x11NoWindowDecor {w} { NoWindowDecor $w }
 	proc ::toolbar::x11NoWindowDecor {w} { NoWindowDecor $w }
+	proc ::fsbox::x11NoWindowDecor {w} { NoWindowDecor $w }
 }
 
 set dialog::iconOk			$icon::iconOk

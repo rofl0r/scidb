@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 176 $
-# Date   : $Date: 2012-01-07 23:06:38 +0000 (Sat, 07 Jan 2012) $
+# Version: $Revision: 177 $
+# Date   : $Date: 2012-01-08 15:06:29 +0000 (Sun, 08 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1248,7 +1248,7 @@
 ::help::mc::Help					"Hilfe"
 ::help::mc::MatchEntireWord	"Ganzes Wort vergleichen"
 ::help::mc::MatchCase			"Groß-/Kleinschreibung beachten"
-::help::mc::TitleOnly			"Nur in Titel suchen"
+::help::mc::TitleOnly			"Nur in Titeln suchen"
 ::help::mc::GoBack				"Eine Seite zurück (Alt-Links)"
 ::help::mc::GoForward			"Eine Seite vorwärts (Alt-Rechts)"
 ::help::mc::ExpandAllItems		"Alle Elemente expandieren"
@@ -1599,6 +1599,8 @@
 ::fsbox::mc::ErrorCreate					"Fehler beim Anlegen des Ordners: keine ausreichenden Rechte vorhanden."
 ::fsbox::mc::FilenameNotAllowed			"'%s' ist nicht als Dateiname erlaubt."
 ::fsbox::mc::ContainsTwoDots				"Er enthält zwei aufeinanderfolgende Punkte."
+::fsbox::mc::ContainsReservedChars		"Er enthält ein reserviertes Zeichen: %s."
+::fsbox::mc::IsReservedName				"Unter einigen Betriebssystemen ist dies ein reservierter Name."
 ::fsbox::mc::InvalidFileExtension		"Ungültige Dateiendung in '%s'."
 ::fsbox::mc::MissingFileExtension		"'%s' hat keine Dateiendung."
 ::fsbox::mc::FileAlreadyExists			"Die Datei '%s' ist bereits vorhanden.\nWollen sie diese überschreiben?"

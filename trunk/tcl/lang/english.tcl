@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 176 $
-# Date   : $Date: 2012-01-07 23:06:38 +0000 (Sat, 07 Jan 2012) $
+# Version: $Revision: 177 $
+# Date   : $Date: 2012-01-08 15:06:29 +0000 (Sun, 08 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1601,6 +1601,8 @@
 ::fsbox::mc::ErrorCreate					"Error creating folder: permission denied."
 ::fsbox::mc::FilenameNotAllowed			"Filename '%s' is not allowed."
 ::fsbox::mc::ContainsTwoDots				"Contains two consecutive dots."
+::fsbox::mc::ContainsReservedChars		"Contains reserved characters: %s."
+::fsbox::mc::IsReservedName				"On some operating systems this is an reserved name."
 ::fsbox::mc::InvalidFileExtension		"Invalid file extension in '%s'."
 ::fsbox::mc::MissingFileExtension		"Missing file extension in '%s'."
 ::fsbox::mc::FileAlreadyExists			"File \"%s\" already exists.\n\nDo you want to overwrite it?"

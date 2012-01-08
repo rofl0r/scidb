@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 168 $
-# Date   : $Date: 2012-01-04 02:01:05 +0000 (Wed, 04 Jan 2012) $
+# Version: $Revision: 177 $
+# Date   : $Date: 2012-01-08 15:06:29 +0000 (Sun, 08 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -342,7 +342,7 @@ proc dbNew {parent} {
 	set result [::dialog::saveFile \
 		-parent $parent \
 		-filetypes $filetypes \
-		-geometry lastsize \
+		-geometry last \
 		-defaultextension .sci \
 		-defaultencoding utf-8 \
 		-needencoding 1 \
@@ -371,7 +371,7 @@ proc dbOpen {parent} {
 		-filetypes $filetypes \
 		-defaultextension .sci \
 		-needencoding 1 \
-		-geometry lastsize \
+		-geometry last \
 		-title [set [namespace current]::mc::OpenFile] \
 	]
 
@@ -399,7 +399,7 @@ proc dbImport {parent} {
 		-filetypes $filetypes \
 		-defaultextension .pgn \
 		-needencoding 1 \
-		-geometry lastsize \
+		-geometry last \
 		-title $title \
 		-multiple yes \
 	]
