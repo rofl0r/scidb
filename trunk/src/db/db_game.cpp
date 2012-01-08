@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 126 $
-// Date   : $Date: 2011-11-14 16:21:33 +0000 (Mon, 14 Nov 2011) $
+// Version: $Revision: 179 $
+// Date   : $Date: 2012-01-08 22:42:46 +0000 (Sun, 08 Jan 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -325,7 +325,7 @@ Game::insertUndo(UndoAction action, Command command)
 
 			if (	pprev
 				&& (pprev->command == AddMove || pprev->command == AddMoves)
-				&& prev->key.level() == m_currentKey.level()
+				&& pprev->key.level() == m_currentKey.level()
 				&& unsigned(m_currentKey.computeDistance(pprev->key)) <= m_combinePredecessingMoves)
 			{
 				prev->key = m_currentKey;

@@ -3,8 +3,8 @@
 exec tclsh "$0" "$@"
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 176 $
-# Date   : $Date: 2012-01-07 23:06:38 +0000 (Sat, 07 Jan 2012) $
+# Version: $Revision: 179 $
+# Date   : $Date: 2012-01-08 22:42:46 +0000 (Sun, 08 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -61,11 +61,12 @@ set HtmlH1 {\
 
 set HtmlMapping {
 	<menuitem>		{<span class="menuitem">}
-	</menuitem>		</span>
+	</menuitem>		{</span>}
+	<note/>			{<br/><img src="../images/note.png"/>}
 	<box>				{<div class="box">}
-	</box>			</div>
+	</box>			{</div>}
 	<annotation>	{<div class="annotation"><img src="../images/annotation.png" style="float:left; margin:0 1em 0 0"/>}
-	</annotation>	</div>
+	</annotation>	{</div>}
 }
 
 
