@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 171 $
-// Date   : $Date: 2012-01-05 00:15:08 +0000 (Thu, 05 Jan 2012) $
+// Version: $Revision: 181 $
+// Date   : $Date: 2012-01-10 19:04:42 +0000 (Tue, 10 Jan 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -88,7 +88,9 @@ typedef unsigned int u32;
 #define CSS_PSEUDOCLASS_LASTCHILD        13
 #define CSS_PSEUDOCLASS_LINK             14
 #define CSS_PSEUDOCLASS_VISITED          15
-#define CSS_PSEUDOCLASS_USERFLAG         36
+#define CSS_PSEUDOCLASS_USERFLAG_1       36
+#define CSS_PSEUDOCLASS_USERFLAG_2       37
+#define CSS_PSEUDOCLASS_USERFLAG_3       38
 #define CSS_PSEUDOCLASS_ACTIVE           16
 #define CSS_PSEUDOCLASS_HOVER            17
 #define CSS_PSEUDOCLASS_FOCUS            18

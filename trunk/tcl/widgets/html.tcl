@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 179 $
-# Date   : $Date: 2012-01-08 22:42:46 +0000 (Sun, 08 Jan 2012) $
+# Version: $Revision: 181 $
+# Date   : $Date: 2012-01-10 19:04:42 +0000 (Tue, 10 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -248,7 +248,6 @@ proc WidgetProc {w parent command args} {
 			set height [winfo height $parent.html]
 			set y [expr {max(0, [lindex $args 0] - $Margin)}]
 			set fraction [expr {double($y)/double($height)}]
-#			update idletasks
 			return [$parent yview moveto $fraction]
 		}
 

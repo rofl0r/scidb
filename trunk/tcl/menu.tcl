@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 177 $
-# Date   : $Date: 2012-01-08 15:06:29 +0000 (Sun, 08 Jan 2012) $
+# Version: $Revision: 181 $
+# Date   : $Date: 2012-01-10 19:04:42 +0000 (Tue, 10 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -50,8 +50,11 @@ set GameSave				"&Save Game"
 set GameReplace			"&Replace Game"
 set GameReplaceMoves		"Replace &Moves Only"
 
-set HelpInfo				"&Info..."
+set HelpInfo				"&Info about Scidb"
 set HelpContents			"&Contents"
+set HelpWhatsNew			"&What's New"
+set HelpRoadmap			"&Roadmap"
+set HelpContactInfo		"C&ontact Information"
 set HelpBugReport			"&Bug Report (open in web browser)"
 set HelpFeatureRequest	"&Feature Request (open in web browser)"
 
@@ -219,6 +222,9 @@ proc setup {} {
 
 	lappend Menu \
 		Help	{	Contents			1	F1			help		{ ::menu::openHelp .application }
+					WhatsNew			1	{}			news		{ ::menu::whatsNew .application }
+					Roadmap			1	{}			plan		{ ::menu::roadmap .application }
+					ContactInfo		1	{}			contact	{ ::menu::contactInfo .application }
 					BugReport		1	{}			bug		{ ::menu::bugReport .application }
 					FeatureRequest	1	{}			question	{ ::menu::featureRequest .application }
 					Info				1	{}			info		{ ::info::openDialog .application }
@@ -467,7 +473,22 @@ proc viewFullscreen {{toggle {}}} {
 
 
 proc openHelp {parent} {
-	::help::build $parent
+	::help::open $parent
+}
+
+
+proc whatsNew {parent} {
+	::help::open $parent Whats-New
+}
+
+
+proc roadmap {parent} {
+	::help::open $parent Development-Roadmap
+}
+
+
+proc contactInfo {parent} {
+	::help::open $parent Contact-Information
 }
 
 

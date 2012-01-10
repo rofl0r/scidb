@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 176 $
-# Date   : $Date: 2012-01-07 23:06:38 +0000 (Sat, 07 Jan 2012) $
+# Version: $Revision: 181 $
+# Date   : $Date: 2012-01-10 19:04:42 +0000 (Tue, 10 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -259,7 +259,6 @@ if {[::process::testOption use-analysis]} {
 	::load::writeLog
 	update idletasks
 	::beta::welcomeToScidb $app
-
 	set ::remote::blocked 0
 
 	foreach file [::process::arguments] {

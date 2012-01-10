@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 171 $
-// Date   : $Date: 2012-01-05 00:15:08 +0000 (Thu, 05 Jan 2012) $
+// Version: $Revision: 181 $
+// Date   : $Date: 2012-01-10 19:04:42 +0000 (Tue, 10 Jan 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1365,6 +1365,7 @@ markerBoxLayout(pLayout, pBox, pNode, pVerticalOffset)
                  break;
             case CSS_CONST_DISC:
                  strcpy(zBuf ,"\xe2\x80\xa2");      /* Unicode 0x25CF */
+//					  strcpy(zBuf ,"\xe2\xac\xa4");      /* Unicode 0x2b24 */
                  break;
 
             case CSS_CONST_LOWER_ALPHA:

@@ -3,8 +3,8 @@
 exec tclsh "$0" "$@"
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 171 $
-# Date   : $Date: 2012-01-05 00:15:08 +0000 (Thu, 05 Jan 2012) $
+# Version: $Revision: 181 $
+# Date   : $Date: 2012-01-10 19:04:42 +0000 (Tue, 10 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -48,6 +48,7 @@ foreach entry $i18n::languages {
 }
 
 if {$codeName ne $lang} {
+	puts stderr "Error([info script]):"
 	puts stderr "Language \"$lang\" not defined in file \"$file\"."
 	puts stderr "You have to edit \"$file\"."
 	exit 1

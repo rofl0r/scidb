@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 171 $
-// Date   : $Date: 2012-01-05 00:15:08 +0000 (Thu, 05 Jan 2012) $
+// Version: $Revision: 181 $
+// Date   : $Date: 2012-01-10 19:04:42 +0000 (Tue, 10 Jan 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2807,7 +2807,10 @@ node_attr_usage:
                 {"focus",   HTML_DYNAMIC_FOCUS},
                 {"hover",   HTML_DYNAMIC_HOVER},
                 {"link",    HTML_DYNAMIC_LINK},
-					 {"user",    HTML_DYNAMIC_USERFLAG},
+					 {"user",    HTML_DYNAMIC_USERFLAG_1},
+					 {"user1",   HTML_DYNAMIC_USERFLAG_1},
+					 {"user2",   HTML_DYNAMIC_USERFLAG_2},
+					 {"user3",   HTML_DYNAMIC_USERFLAG_3},
                 {"visited", HTML_DYNAMIC_VISITED},
                 {0, 0}
             };
@@ -2869,7 +2872,9 @@ node_attr_usage:
             if (zArg2) {
                 if (
                     mask == HTML_DYNAMIC_LINK ||
-                    mask == HTML_DYNAMIC_USERFLAG ||
+                    mask == HTML_DYNAMIC_USERFLAG_1 ||
+						  mask == HTML_DYNAMIC_USERFLAG_2 ||
+						  mask == HTML_DYNAMIC_USERFLAG_3 ||
                     mask == HTML_DYNAMIC_VISITED
                 ) {
                     HtmlCallbackRestyle(pTree, pNode);

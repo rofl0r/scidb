@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 168 $
-# Date   : $Date: 2012-01-04 02:01:05 +0000 (Wed, 04 Jan 2012) $
+# Version: $Revision: 181 $
+# Date   : $Date: 2012-01-10 19:04:42 +0000 (Tue, 10 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -84,9 +84,10 @@ proc menuTextvarHook {m index var {args {}}} {
 }
 
 
-proc dialogButtons {dlg buttons dflt {useIcons yes}} {
+proc dialogButtons {dlg buttons {dflt {}} {useIcons yes}} {
 	variable ButtonOrder
 
+	if {[llength $dflt] == 0} { set dflt [lindex $buttons 0] }
 	bind $dlg <Alt-Key> [list tk::AltKeyInDialog $dlg %A]
 	::ttk::separator $dlg.__sep -class Dialog
 	tk::frame $dlg.__buttons -class Dialog

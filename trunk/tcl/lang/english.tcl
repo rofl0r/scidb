@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 177 $
-# Date   : $Date: 2012-01-08 15:06:29 +0000 (Sun, 08 Jan 2012) $
+# Version: $Revision: 181 $
+# Date   : $Date: 2012-01-10 19:04:42 +0000 (Tue, 10 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -160,6 +160,9 @@
 ::menu::mc::HelpContents			"&Contents"
 ::menu::mc::HelpBugReport			"&Bug Report (open in web browser)"
 ::menu::mc::HelpFeatureRequest	"&Feature Request (open in web browser)"
+::menu::mc::HelpWhatsNew			"&What's new"
+::menu::mc::HelpRoadmap				"&Roadmap"
+::menu::mc::HelpContactInfo		"C&ontact Information"
 
 ::menu::mc::ViewShowLog				"Show &Log..."
 ::menu::mc::ViewFullscreen			"Full-Screen"
@@ -1243,25 +1246,33 @@
 ::timemodebox::mc::Mode(corr)		"Correspondence"
 
 ### help ###############################################################
-::help::mc::Contents				"&Contents"
-::help::mc::Index					"&Index"
-::help::mc::Search				"&Search"
+::help::mc::Contents					"&Contents"
+::help::mc::Index						"&Index"
+::help::mc::Search					"&Search"
 
-::help::mc::Help					"Help"
-::help::mc::MatchEntireWord	"Match entire word"
-::help::mc::MatchCase			"Match case"
-::help::mc::TitleOnly			"Search in titles only"
-::help::mc::GoBack				"Go back one page (Alt-Left)"
-::help::mc::GoForward			"Go forward one page (Alt-Right)"
-::help::mc::ExpandAllItems		"Expand all items"
-::help::mc::CollapseAllItems	"Collapse all items"
-::help::mc::SelectLanguage		"Select Language"
-::help::mc::NoHelpAvailable	"No help files available for language English.\nPlease choose an alternative languagelanguage\nfor the help dialog."
-::help::mc::KeepLanguage		"Keep language %s for subsequent sessions?"
-::help::mc::ParserError			"Error while parsing file %s."
-::help::mc::NoMatch				"No match is found"
-::help::mc::MaxmimumExceeded	"Maximal number of matches exceeded in some pages."
-::help::mc::OnlyFirstMatches	"Only first %s matches per page will be shown."
+::help::mc::Help						"Help"
+::help::mc::MatchEntireWord		"Match entire word"
+::help::mc::MatchCase				"Match case"
+::help::mc::TitleOnly				"Search in titles only"
+::help::mc::GoBack					"Go back one page (Alt-Left)"
+::help::mc::GoForward				"Go forward one page (Alt-Right)"
+::help::mc::GotoPage					"Go to page '%s'"
+::help::mc::ExpandAllItems			"Expand all items"
+::help::mc::CollapseAllItems		"Collapse all items"
+::help::mc::SelectLanguage			"Select Language"
+::help::mc::NoHelpAvailable		"No help files available for language English.\nPlease choose an alternative languagelanguage\nfor the help dialog."
+::help::mc::KeepLanguage			"Keep language %s for subsequent sessions?"
+::help::mc::ParserError				"Error while parsing file %s."
+::help::mc::NoMatch					"No match is found"
+::help::mc::MaxmimumExceeded		"Maximal number of matches exceeded in some pages."
+::help::mc::OnlyFirstMatches		"Only first %s matches per page will be shown."
+::help::mc::HideIndex				"Hide index"
+::help::mc::ShowIndex				"Show index"
+
+::help::mc::FileNotFound			"File not found."
+::help::mc::CantFindFile			"Can't find the file at %s."
+::help::mc::IncompleteHelpFiles	"It seems that the help files are still incomplete. Sorry about that."
+::help::mc::ProbablyTheHelp		"Probably the help page in a different language may be an alternative for you"
 
 ### crosstable #########################################################
 ::crosstable::mc::TournamentTable		"Tournament Table"

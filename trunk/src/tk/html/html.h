@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 168 $
-// Date   : $Date: 2012-01-04 02:01:05 +0000 (Wed, 04 Jan 2012) $
+// Version: $Revision: 181 $
+// Date   : $Date: 2012-01-10 19:04:42 +0000 (Tue, 10 Jan 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -382,12 +382,14 @@ struct HtmlElementNode {
 /* Values for HtmlNode.flags. These may be set and cleared via the Tcl
  * interface on the node command: [$node dynamic set|clear ...]
  */
-#define HTML_DYNAMIC_HOVER    0x01
-#define HTML_DYNAMIC_FOCUS    0x02
-#define HTML_DYNAMIC_ACTIVE   0x04
-#define HTML_DYNAMIC_LINK     0x08
-#define HTML_DYNAMIC_VISITED  0x10
-#define HTML_DYNAMIC_USERFLAG 0x20
+#define HTML_DYNAMIC_HOVER      0x01
+#define HTML_DYNAMIC_FOCUS      0x02
+#define HTML_DYNAMIC_ACTIVE     0x04
+#define HTML_DYNAMIC_LINK       0x08
+#define HTML_DYNAMIC_VISITED    0x10
+#define HTML_DYNAMIC_USERFLAG_1 0x20
+#define HTML_DYNAMIC_USERFLAG_2 0x40
+#define HTML_DYNAMIC_USERFLAG_3 0x80
 
 struct HtmlCanvas {
     int left;

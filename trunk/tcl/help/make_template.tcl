@@ -29,68 +29,55 @@ exec tclsh "$0" "$@"
 
 package require Tcl 8.5
 
-# utf-8 encoded (you may use gedit for editing)
-array set Title {
-	de "Übersicht"
-	en "Overview"
-	it "Visione d'insieme"
-	es "Resumen"
-}
-
 if {$argc != 1} {
-	puts stderr "Usage: [info script] <contents-file>"
+	puts stderr "Usage: [info script] <new-txt-file>"
 	exit 1
 }
 
-set contentsFile [lindex $argv 0]
-if {![file readable $contentsFile]} {
-	puts stderr "Error([info script]): '$contentsFile' is not readable"
+set file [lindex $argv 0]
+set ext [file extension $file]
+
+if {[string length $ext] == 0} {
+	append file .txt
+} elseif {$ext ne ".txt"} {
+	puts stderr "File '$file' should have extension '.txt'."
 	exit 1
 }
 
-set lang [file tail [pwd]] 
-
-if {![info exists Title($lang)]} {
-	puts stderr "Error([info script]): missing entry in Title for language '$lang'"
+if {[file exists $file]} {
+	puts stderr "File '$file' is already existing."
 	exit 1
 }
 
-set file [file join .. .. lang localization.tcl]
-source $file
+set out [open $file w]
 
-foreach entry $i18n::languages {
-	lassign $entry _ codeName charset _
-	if {$codeName eq $lang} { break }
-}
+puts $out \
+"<!-- **********************************************************************
+* Author : \$Author\$
+* Version: \$Revision\$
+* Date   : \$Date\$
+* Url    : \$URL\$
+*********************************************************************** -->
 
-if {$codeName ne $lang} {
-	puts stderr "Error([info script]):"
-	puts stderr "Language \"$lang\" not defined in file \"$file\"."
-	puts stderr "You have to edit \"$file\"."
-	exit 1
-}
+<!-- **********************************************************************
+* Copyright: (C) 2011 Gregor Cramer
+*********************************************************************** -->
 
-set file "[file rootname $contentsFile].html"
-set src [open $contentsFile r]
-chan configure $src -encoding $charset
-set close 0
+<!-- **********************************************************************
+* This program is free software; you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation; either version 2 of the License, or
+* (at your option) any later version.
+*********************************************************************** -->
 
-puts "set Contents \{"
-puts "  \{"
-puts "     {{{$Title($lang)} {$file}}}"
+INDEX Any Index Entry
+TITLE Any Title
 
-while {[gets $src line] >= 0} {
-	if {[regexp {<h[1-6] name=\"(.*)\">(.*)</h[1-6]>} $line _ href section]} {
-		puts "  \}"
-		puts "  \{"
-		puts "    {{{$section} {$file} {$href}}}"
-	} elseif {[regexp {<a href=\"(.*)\">(.*)</a>} $line _ href title]} {
-		puts "    {{{$title} {$href}}}"
-	}
-}
 
-puts "  \}"
-puts "\}"
-close $src
+END
+
+# vi:set ts=2 sw=2 et filetype=html:"
+
+close $out
 
 # vi:set ts=3 sw=3:
