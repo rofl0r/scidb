@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 152 $
-# Date   : $Date: 2011-12-11 19:50:04 +0000 (Sun, 11 Dec 2011) $
+# Version: $Revision: 183 $
+# Date   : $Date: 2012-01-10 20:02:41 +0000 (Tue, 10 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -943,7 +943,7 @@ proc RecordGeometry {dlg} {
 	if {[winfo toplevel $dlg] ne $dlg} { return }
 
 	variable ${dlg}::S
-	scan [wm geometry $dlg] "%dx%d+%d+%d" w h x y
+	scan [wm geometry $dlg] "%dx%d%d%d" w h x y
 
 	if {$w > 1} {
 		scan [wm grid $dlg] "%d %d %d %d" bw bh wi hi

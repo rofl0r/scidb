@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 149 $
-# Date   : $Date: 2011-12-09 21:13:24 +0000 (Fri, 09 Dec 2011) $
+# Version: $Revision: 183 $
+# Date   : $Date: 2012-01-10 20:02:41 +0000 (Tue, 10 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -262,7 +262,7 @@ proc open {parent pos lang} {
 	wm resizable $dlg true true
 	wm protocol $dlg WM_DELETE_WINDOW [namespace code [list Close $dlg]]
 	if {[llength $Geometry] == 4} {
-		scan [wm geometry [winfo toplevel $parent]] "%dx%d+%d+%d" tw th tx ty
+		scan [wm geometry [winfo toplevel $parent]] "%dx%d%d%d" tw th tx ty
 		set rx [expr {$tx + [lindex $Geometry 0]}]
 		set ry [expr {$ty + [lindex $Geometry 1]}]
 		set rw [winfo reqwidth $dlg]

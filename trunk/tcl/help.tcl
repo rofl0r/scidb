@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 181 $
-# Date   : $Date: 2012-01-10 19:04:42 +0000 (Tue, 10 Jan 2012) $
+# Version: $Revision: 183 $
+# Date   : $Date: 2012-01-10 20:02:41 +0000 (Tue, 10 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -900,7 +900,7 @@ proc RecordGeometry {pw} {
 	variable Priv
 
 	set dlg [winfo toplevel $pw]
-	scan [wm geometry $dlg] "%dx%d+%d+%d" w h x y
+	scan [wm geometry $dlg] "%dx%d%d%d" w h x y
 	if {[llength [$pw panes]] == 1} {
 		set w [expr {min($w + $Priv(minsize), [winfo screenwidth $pw] - 30)}]
 	} else {
