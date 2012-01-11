@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 184 $
-// Date   : $Date: 2012-01-11 18:04:51 +0000 (Wed, 11 Jan 2012) $
+// Version: $Revision: 185 $
+// Date   : $Date: 2012-01-11 20:55:56 +0000 (Wed, 11 Jan 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -45,11 +45,19 @@ sys::file::internalName(char const* externalName)
 	static char buf[4096];
 
 	Tcl_Obj* pathObj = Tcl_NewStringObj(externalName, -1);
-	Tcl_IncrRefCount(pathObj);
-	::strncpy(buf, Tcl_FSGetNativePath(pathObj), sizeof(buf));
-	buf[sizeof(buf) - 1] = '\0';
-	Tcl_DecrRefCount(pathObj);
 
+	if (pathObj)
+	{
+		Tcl_IncrRefCount(pathObj);
+		::strncpy(buf, Tcl_FSGetNativePath(pathObj), sizeof(buf));
+		Tcl_DecrRefCount(pathObj);
+	}
+	else
+	{
+		::strncpy(buf, externalName, sizeof(buf));
+	}
+
+	buf[sizeof(buf) - 1] = '\0';
 	return buf;
 }
 
