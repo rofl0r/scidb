@@ -3,8 +3,8 @@
 exec tclsh "$0" "$@"
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 181 $
-# Date   : $Date: 2012-01-10 19:04:42 +0000 (Tue, 10 Jan 2012) $
+# Version: $Revision: 184 $
+# Date   : $Date: 2012-01-11 18:04:51 +0000 (Wed, 11 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -31,8 +31,8 @@ package require Tcl 8.5
 
 
 set HtmlDocType {\
-<!DOCTYPE html PUBLIC "-//W3C//DTD DTD HTML 4.01 Transitional//EN"
-  "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 }
 
 set HtmlHead {\

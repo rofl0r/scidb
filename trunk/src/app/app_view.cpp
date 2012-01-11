@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 155 $
-// Date   : $Date: 2011-12-12 16:33:36 +0000 (Mon, 12 Dec 2011) $
+// Version: $Revision: 184 $
+// Date   : $Date: 2012-01-11 18:04:51 +0000 (Wed, 11 Jan 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -588,7 +588,7 @@ View::exportGames(mstl::string const& filename,
 			mode |= mstl::ios_base::app;
 		}
 
-		util::ZStream strm(filename, type, mode);
+		util::ZStream strm(sys::file::internalName(filename), type, mode);
 		PgnWriter writer(format::Pgn, strm, encoding, flags);
 		count = exportGames(writer, gameMode, log, progress);
 	}

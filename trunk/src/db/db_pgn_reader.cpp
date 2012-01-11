@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 136 $
-// Date   : $Date: 2011-11-26 17:37:46 +0000 (Sat, 26 Nov 2011) $
+// Version: $Revision: 184 $
+// Date   : $Date: 2012-01-11 18:04:51 +0000 (Wed, 11 Jan 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -42,6 +42,7 @@
 #include "m_stdio.h"
 
 #include "sys_utf8_codec.h"
+#include "sys_file.h"
 
 #include <ctype.h>
 #include <stdlib.h>
@@ -4880,7 +4881,7 @@ PgnReader::getNumberOfGames(mstl::string const& filename)
 {
 	int64_t fileSize;
 
-	if (!ZStream::size(filename, fileSize, 0))
+	if (!ZStream::size(sys::file::internalName(filename), fileSize, 0))
 		return -1;
 
 	if (fileSize < 0)

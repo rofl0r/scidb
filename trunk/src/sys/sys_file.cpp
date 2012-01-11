@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 139 $
-// Date   : $Date: 2011-11-26 19:44:55 +0000 (Sat, 26 Nov 2011) $
+// Version: $Revision: 184 $
+// Date   : $Date: 2012-01-11 18:04:51 +0000 (Wed, 11 Jan 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -35,6 +35,23 @@
 #if !TCL_PREREQ(8,5)
 # error  "unsupported TCL version"
 #endif
+
+
+char const*
+sys::file::internalName(char const* externalName)
+{
+	M_REQUIRE(externalName);
+
+	static char buf[4096];
+
+	Tcl_Obj* pathObj = Tcl_NewStringObj(externalName, -1);
+	Tcl_IncrRefCount(pathObj);
+	::strncpy(buf, Tcl_FSGetNativePath(pathObj), sizeof(buf));
+	buf[sizeof(buf) - 1] = '\0';
+	Tcl_DecrRefCount(pathObj);
+
+	return buf;
+}
 
 
 bool
@@ -298,9 +315,9 @@ sys::file::isHardLinked(char const* filename1, char const* filename2)
 
 	struct stat st1, st2;
 
-	if (stat(filename1, &st1) == -1)
+	if (stat(internalName(filename1), &st1) == -1)
 		return false;
-	if (stat(filename2, &st2) == -1)
+	if (stat(internalName(filename2), &st2) == -1)
 		return false;
 
 	return st1.st_ino == st2.st_ino;

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 66 $
-// Date   : $Date: 2011-07-02 18:14:00 +0000 (Sat, 02 Jul 2011) $
+// Version: $Revision: 184 $
+// Date   : $Date: 2012-01-11 18:04:51 +0000 (Wed, 11 Jan 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -49,7 +49,7 @@ public:
 	void update();
 	void clear();
 	void setReadonly(bool flag = true);
-	void resetModified();
+	void setModified(bool flag);
 
 private:
 

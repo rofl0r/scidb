@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 132 $
-// Date   : $Date: 2011-11-20 14:59:26 +0000 (Sun, 20 Nov 2011) $
+// Version: $Revision: 184 $
+// Date   : $Date: 2012-01-11 18:04:51 +0000 (Wed, 11 Jan 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -33,6 +33,8 @@ enum Mode
 	Writeable	= 2,
 	Readable		= 4,
 };
+
+char const* internalName(char const* externalName);
 
 bool access(char const* filename, Mode mode);
 

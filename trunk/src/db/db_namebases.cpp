@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 66 $
-// Date   : $Date: 2011-07-02 18:14:00 +0000 (Sat, 02 Jul 2011) $
+// Version: $Revision: 184 $
+// Date   : $Date: 2012-01-11 18:04:51 +0000 (Wed, 11 Jan 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -91,13 +91,13 @@ Namebases::setReadonly(bool flag)
 
 
 void
-Namebases::resetModified()
+Namebases::setModified(bool flag)
 {
-	m_player.setModified(false);
-	m_site.setModified(false);
-	m_event.setModified(false);
-	m_annotator.setModified(false);
-	m_round.setModified(false);
+	m_player.setModified(flag);
+	m_site.setModified(flag);
+	m_event.setModified(flag);
+	m_annotator.setModified(flag);
+	m_round.setModified(flag);
 }
 
 

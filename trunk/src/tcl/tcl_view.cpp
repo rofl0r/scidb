@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 155 $
-// Date   : $Date: 2011-12-12 16:33:36 +0000 (Mon, 12 Dec 2011) $
+// Version: $Revision: 184 $
+// Date   : $Date: 2012-01-11 18:04:51 +0000 (Wed, 11 Jan 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -41,6 +41,7 @@
 #include "T_Controller.h"
 
 #include "sys_utf8_codec.h"
+#include "sys_file.h"
 
 #include "m_ofstream.h"
 #include "m_sstream.h"
@@ -472,7 +473,7 @@ cmdExport(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 		}
 	}
 
-	setResult(v.exportGames(filename,
+	setResult(v.exportGames(sys::file::internalName(filename),
 									encoding,
 									db.description(),
 									type,
@@ -560,7 +561,7 @@ cmdPrint(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 	TeXt::Controller::LogP myLog(new Log);
 	TeXt::Controller controller(searchPath, TeXt::Controller::AbortMode, myLog);
 	mstl::istringstream src(preamble);
-	mstl::ofstream dst(filename);
+	mstl::ofstream dst(sys::file::internalName(filename));
 	mstl::ostringstream out;
 
 	if (controller.processInput(src, dst, &out, &out) >= 0)

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 132 $
-// Date   : $Date: 2011-11-20 14:59:26 +0000 (Sun, 20 Nov 2011) $
+// Version: $Revision: 184 $
+// Date   : $Date: 2012-01-11 18:04:51 +0000 (Wed, 11 Jan 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -426,7 +426,7 @@ DatabaseCodec::openFile(mstl::fstream& stream, mstl::string const& filename, uns
 			mode |= mstl::ios_base::trunc;
 	}
 
-	stream.open(filename, mode);
+	stream.open(sys::file::internalName(filename), mode);
 	stream.exceptions(mstl::ios_base::badbit | mstl::ios_base::eofbit | mstl::ios_base::failbit);
 }
 
@@ -447,19 +447,19 @@ DatabaseCodec::openFile(mstl::fstream& stream,
 
 	if (openMode & Truncate)
 	{
-		stream.open(filename, mode | mstl::ios_base::trunc);
-		stream.exceptions(mstl::ios_base::badbit | mstl::ios_base::eofbit | mstl::ios_base::failbit);
+		stream.open(sys::file::internalName(filename), mode | mstl::ios_base::trunc);
 
 		if (!stream)
 			IO_RAISE(Unspecified, Open_Failed, "cannot open file: %s", filename.c_str());
 
 		if (!stream.write(magic.c_str(), magic.size()))
 			IO_RAISE(Unspecified, Write_Failed, "unexpected write error: %s", filename.c_str());
+
+		stream.exceptions(mstl::ios_base::badbit | mstl::ios_base::eofbit | mstl::ios_base::failbit);
 	}
 	else
 	{
-		stream.open(filename, mode);
-		stream.exceptions(mstl::ios_base::badbit | mstl::ios_base::eofbit | mstl::ios_base::failbit);
+		stream.open(sys::file::internalName(filename), mode);
 
 		if (!stream)
 			IO_RAISE(Unspecified, Open_Failed, "cannot open file: %s", filename.c_str());
@@ -471,6 +471,8 @@ DatabaseCodec::openFile(mstl::fstream& stream,
 
 		if (::memcmp(buf, magic.c_str(), magic.size()) != 0)
 			IO_RAISE(Unspecified, Open_Failed, "bad magic: %s", filename.c_str());
+
+		stream.exceptions(mstl::ios_base::badbit | mstl::ios_base::eofbit | mstl::ios_base::failbit);
 	}
 }
 

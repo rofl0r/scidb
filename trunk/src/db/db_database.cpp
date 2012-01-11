@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 129 $
-// Date   : $Date: 2011-11-16 18:19:54 +0000 (Wed, 16 Nov 2011) $
+// Version: $Revision: 184 $
+// Date   : $Date: 2012-01-11 18:04:51 +0000 (Wed, 11 Jan 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -105,6 +105,7 @@ Database::Database(mstl::string const& name, mstl::string const& encoding, Stora
 		m_codec->open(this, m_rootname, encoding);
 
 	m_size = m_gameInfoList.size();
+	m_namebases.setModified(true);
 }
 
 
