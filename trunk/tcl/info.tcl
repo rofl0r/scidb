@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 132 $
-# Date   : $Date: 2011-11-20 14:59:26 +0000 (Sun, 20 Nov 2011) $
+# Version: $Revision: 187 $
+# Date   : $Date: 2012-01-12 20:04:33 +0000 (Thu, 12 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -106,7 +106,7 @@ proc BuildDialog {dlg} {
 	pack $nb -padx $::theme::padx -pady $::theme::pady
 	set count 1
 
-	foreach tab {About Contributions References System License} {
+	foreach tab {About Contributions System License} {
 		set f [ttk::frame $nb.tab$tab]
 		Build${tab}Frame $f
 		$nb add $f -sticky nsew -padding $::theme::padding -text [set [namespace current]::mc::${tab}]
