@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 168 $
-# Date   : $Date: 2012-01-04 02:01:05 +0000 (Wed, 04 Jan 2012) $
+# Version: $Revision: 186 $
+# Date   : $Date: 2012-01-12 16:54:13 +0000 (Thu, 12 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -335,7 +335,7 @@ proc databasePath {file} {
 }
 
 
-proc catchIoError {base cmd {resultVar {}}} {
+proc catchIoError {cmd {resultVar {}}} {
 	if {[catch {{*}$cmd} result options]} {
 		array set opts $options
 		if {[string first %IO-Error% $opts(-errorinfo)] >= 0} {

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 181 $
-# Date   : $Date: 2012-01-10 19:04:42 +0000 (Tue, 10 Jan 2012) $
+# Version: $Revision: 186 $
+# Date   : $Date: 2012-01-12 16:54:13 +0000 (Thu, 12 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -935,6 +935,7 @@
 ::import::mc::TooManyAnnotatorNames				"Demasiados nombres de comentaristas en la base (abortado)"
 ::import::mc::TooManySourceNames					"Demasiados nombres de or’genes en la base (abortado)"
 ::import::mc::SeemsNotToBePgnText				"No parece ser un texto PGN"
+::import::mc::AbortedDueToInternalError		"Aborted due to an internal error" ;# NEW
 
 ### export #############################################################
 ::export::mc::FileSelection				"&Selecci—n de archivo"

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 181 $
-# Date   : $Date: 2012-01-10 19:04:42 +0000 (Tue, 10 Jan 2012) $
+# Version: $Revision: 186 $
+# Date   : $Date: 2012-01-12 16:54:13 +0000 (Thu, 12 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -935,6 +935,7 @@
 ::import::mc::TooManyAnnotatorNames				"Too many annotator names in database (aborted)"
 ::import::mc::TooManySourceNames					"Too many source names in database (aborted)"
 ::import::mc::SeemsNotToBePgnText				"Seems not to be PGN text"
+::import::mc::AbortedDueToInternalError		"Aborted due to an internal error" ;# NEW
 
 ### export #############################################################
 ::export::mc::FileSelection				"&File Selection"

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 184 $
-// Date   : $Date: 2012-01-11 18:04:51 +0000 (Wed, 11 Jan 2012) $
+// Version: $Revision: 186 $
+// Date   : $Date: 2012-01-12 16:54:13 +0000 (Thu, 12 Jan 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -21,7 +21,7 @@
 
 #include "sys_time.h"
 
-#include "m_types.h"
+#include "m_string.h"
 
 namespace sys {
 namespace file {
@@ -34,7 +34,7 @@ enum Mode
 	Readable		= 4,
 };
 
-char const* internalName(char const* externalName);
+mstl::string internalName(char const* externalName);
 
 bool access(char const* filename, Mode mode);
 

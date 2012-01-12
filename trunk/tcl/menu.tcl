@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 181 $
-# Date   : $Date: 2012-01-10 19:04:42 +0000 (Tue, 10 Jan 2012) $
+# Version: $Revision: 186 $
+# Date   : $Date: 2012-01-12 16:54:13 +0000 (Thu, 12 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -117,6 +117,8 @@ proc CreateViewMenu {menu} {
 	variable ::application::Options
 	variable Fullscreen
 	variable Theme
+
+	if {[::process::testOption full-screen]} { viewFullscreen toggle }
 
 	set m [menu $menu.mIconSize]
 	set pos -1

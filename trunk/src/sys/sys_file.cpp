@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 185 $
-// Date   : $Date: 2012-01-11 20:55:56 +0000 (Wed, 11 Jan 2012) $
+// Version: $Revision: 186 $
+// Date   : $Date: 2012-01-12 16:54:13 +0000 (Thu, 12 Jan 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -37,28 +37,27 @@
 #endif
 
 
-char const*
+mstl::string
 sys::file::internalName(char const* externalName)
 {
 	M_REQUIRE(externalName);
 
-	static char buf[4096];
+	mstl::string result;
 
 	Tcl_Obj* pathObj = Tcl_NewStringObj(externalName, -1);
 
 	if (pathObj)
 	{
 		Tcl_IncrRefCount(pathObj);
-		::strncpy(buf, Tcl_FSGetNativePath(pathObj), sizeof(buf));
+		result.assign(Tcl_FSGetNativePath(pathObj));
 		Tcl_DecrRefCount(pathObj);
 	}
 	else
 	{
-		::strncpy(buf, externalName, sizeof(buf));
+		result.assign(externalName);
 	}
 
-	buf[sizeof(buf) - 1] = '\0';
-	return buf;
+	return result;
 }
 
 
