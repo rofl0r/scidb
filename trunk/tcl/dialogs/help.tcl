@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 186 $
-# Date   : $Date: 2012-01-12 16:54:13 +0000 (Thu, 12 Jan 2012) $
+# Version: $Revision: 188 $
+# Date   : $Date: 2012-01-13 19:02:41 +0000 (Fri, 13 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1067,8 +1067,8 @@ proc BuildHtmlFrame {dlg w} {
 	$w handler node a    [namespace current]::A_NodeHandler
 
 	$w onmouseover [namespace current]::MouseEnter
-	$w onmouseout	[namespace current]::MouseLeave
-	$w onmouseup1	[namespace current]::Mouse1Up
+	$w onmouseout  [namespace current]::MouseLeave
+	$w onmouseup1  [namespace current]::Mouse1Up
 }
 
 

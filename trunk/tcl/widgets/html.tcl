@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 187 $
-# Date   : $Date: 2012-01-12 20:04:33 +0000 (Thu, 12 Jan 2012) $
+# Version: $Revision: 188 $
+# Date   : $Date: 2012-01-13 19:02:41 +0000 (Fri, 13 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -234,6 +234,13 @@ proc WidgetProc {w parent command args} {
 				error "wrong # args: should be \"[namespace current] $command ?<node>?\""
 			}
 			return [$parent.html bbox [lindex $args 0]]
+		}
+
+		size {
+			lassign $Priv(bbox) x y w h
+			set w [expr {$w + 2*$x}]
+			set h [expr {$h + 2*$y}]
+			return [list $w $h]
 		}
 
 		xview - yview {
