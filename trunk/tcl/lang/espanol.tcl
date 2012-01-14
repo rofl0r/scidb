@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 186 $
-# Date   : $Date: 2012-01-12 16:54:13 +0000 (Thu, 12 Jan 2012) $
+# Version: $Revision: 190 $
+# Date   : $Date: 2012-01-14 16:00:00 +0000 (Sat, 14 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1275,6 +1275,7 @@
 ::help::mc::CantFindFile			"Can't find the file at %s." ;# NEW
 ::help::mc::IncompleteHelpFiles	"It seems that the help files are still incomplete. Sorry about that." ;# NEW
 ::help::mc::ProbablyTheHelp		"Probably the help page in a different language may be an alternative for you" ;# NEW
+::help::mc::PageNotAvailable		"This page is not available" ;# NEW
 
 ### crosstable #########################################################
 ::crosstable::mc::TournamentTable		"Grilla de torneo"
