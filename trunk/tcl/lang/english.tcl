@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 186 $
-# Date   : $Date: 2012-01-12 16:54:13 +0000 (Thu, 12 Jan 2012) $
+# Version: $Revision: 189 $
+# Date   : $Date: 2012-01-14 14:31:37 +0000 (Sat, 14 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -156,7 +156,7 @@
 ::menu::mc::GameReplace				"&Replace Game"
 ::menu::mc::GameReplaceMoves		"Replace &Moves Only"
 
-::menu::mc::HelpInfo					"&Info"
+::menu::mc::HelpInfo					"&Info about Scidb"
 ::menu::mc::HelpContents			"&Contents"
 ::menu::mc::HelpBugReport			"&Bug Report (open in web browser)"
 ::menu::mc::HelpFeatureRequest	"&Feature Request (open in web browser)"
