@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 140 $
-// Date   : $Date: 2011-11-29 19:17:16 +0000 (Tue, 29 Nov 2011) $
+// Version: $Revision: 193 $
+// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -10,7 +10,7 @@
  *
  *		This module implements treectrl widgets for the Tk toolkit.
  *
- * Copyright (c) 2009-2011 Gregor Cramer
+ * Copyright (c) 2009-2012 Gregor Cramer
  * Copyright (c) 2002-2008 Tim Baker
  * Copyright (c) 2002-2003 Christian Krone
  * Copyright (c) 2003-2005 ActiveState, a division of Sophos
