@@ -1,8 +1,8 @@
 #!/bin/sh
 #! ======================================================================
 #! $RCSfile: tk_init.h,v $
-#! $Revision: 186 $
-#! $Date: 2012-01-12 16:54:13 +0000 (Thu, 12 Jan 2012) $
+#! $Revision: 192 $
+#! $Date: 2012-01-16 09:16:51 +0000 (Mon, 16 Jan 2012) $
 #! $Author: gregor $
 #! ======================================================================
 
@@ -142,6 +142,7 @@ if {[testOption help]} {
 	puts "  --version               Print version information and exit"
 	puts "  --full-screen           Start program with full-screen modus"
 	puts "  --show-board            Switch to board tab immediately after startuo"
+	puts "  --pre-open              Pre-open databases from last session"
 	puts "  --fast-load             Do only load the mandatory files at startup"
 	puts "  --first-time            Delete option file and recovery files at startup"
 	puts "                          (starting $::scidb::app as it would be the first time)"

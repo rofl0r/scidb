@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 181 $
-// Date   : $Date: 2012-01-10 19:04:42 +0000 (Tue, 10 Jan 2012) $
+// Version: $Revision: 192 $
+// Date   : $Date: 2012-01-16 09:16:51 +0000 (Mon, 16 Jan 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -424,6 +424,7 @@ struct HtmlOptions {
     int       forcefontmetrics;
     int       forcewidth;
     int       doublebuffer;
+    int       exportselection;
     Tcl_Obj  *imagecmd;
     int       imagecache;
     int       mode;                      /* One of the HTML_MODE_XXX values */

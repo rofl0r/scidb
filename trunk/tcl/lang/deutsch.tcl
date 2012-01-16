@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 190 $
-# Date   : $Date: 2012-01-14 16:00:00 +0000 (Sat, 14 Jan 2012) $
+# Version: $Revision: 192 $
+# Date   : $Date: 2012-01-16 09:16:51 +0000 (Mon, 16 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -155,7 +155,7 @@
 ::menu::mc::GameReplace				"Partie &ersetzen"
 ::menu::mc::GameReplaceMoves		"Partie&züge ersetzen"
 
-::menu::mc::HelpInfo					"&Informationen über Scidb"
+::menu::mc::HelpAbout				"&Über Scidb"
 ::menu::mc::HelpContents			"In&halt"
 ::menu::mc::HelpWhatsNew			"&Was ist neu?"
 ::menu::mc::HelpRoadmap				"&Roadmap"

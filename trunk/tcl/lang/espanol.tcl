@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 190 $
-# Date   : $Date: 2012-01-14 16:00:00 +0000 (Sat, 14 Jan 2012) $
+# Version: $Revision: 192 $
+# Date   : $Date: 2012-01-16 09:16:51 +0000 (Mon, 16 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -157,7 +157,7 @@
 ::menu::mc::GameReplace				"Ree&mplazar partida"
 ::menu::mc::GameReplaceMoves		"Reemp&lazar s—lo jugadas"
 
-::menu::mc::HelpInfo					"&Informaci—n about Scidb" ;# NEW (changed)
+::menu::mc::HelpAbout				"&About Scidb" ;# NEW (changed)
 ::menu::mc::HelpContents			"Con&tenidos"
 ::menu::mc::HelpBugReport			"Rep&orte de errores (abrir en navegador web)"
 ::menu::mc::HelpFeatureRequest	"&Solicitud de caracter’stica (abrir en navegador web)"

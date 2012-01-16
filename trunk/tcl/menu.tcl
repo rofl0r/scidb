@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 186 $
-# Date   : $Date: 2012-01-12 16:54:13 +0000 (Thu, 12 Jan 2012) $
+# Version: $Revision: 192 $
+# Date   : $Date: 2012-01-16 09:16:51 +0000 (Mon, 16 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -50,7 +50,7 @@ set GameSave				"&Save Game"
 set GameReplace			"&Replace Game"
 set GameReplaceMoves		"Replace &Moves Only"
 
-set HelpInfo				"&Info about Scidb"
+set HelpAbout				"&About Scidb"
 set HelpContents			"&Contents"
 set HelpWhatsNew			"&What's New"
 set HelpRoadmap			"&Roadmap"
@@ -229,7 +229,7 @@ proc setup {} {
 					ContactInfo		1	{}			contact	{ ::menu::contactInfo .application }
 					BugReport		1	{}			bug		{ ::menu::bugReport .application }
 					FeatureRequest	1	{}			question	{ ::menu::featureRequest .application }
-					Info				1	{}			info		{ ::info::openDialog .application }
+					About				1	{}			info		{ ::info::openDialog .application }
 				}
 
 
