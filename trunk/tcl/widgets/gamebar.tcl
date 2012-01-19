@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 193 $
-# Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+# Version: $Revision: 198 $
+# Date   : $Date: 2012-01-19 10:31:50 +0000 (Thu, 19 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -796,17 +796,8 @@ proc ShowTags {gamebar id} {
 	if {[llength $Specs(tags:$id:$gamebar)] == 0} { return }
 
 	set dlg $gamebar.tags
-	toplevel $dlg -background white -class Tooltip
-	wm withdraw $dlg
-	if {[tk windowingsystem] eq "aqua"} {
-		::tk::unsupported::MacWindowStyle style $dlg help none
-	} else {
-		wm overrideredirect $dlg true
-	}
-	wm attributes $dlg -topmost true
-	set bg [::tooltip::background]
-	set f [tk::frame $dlg.f -takefocus 0 -relief solid -borderwidth 0 -background $bg]
-	pack $f -fill x -padx 2 -pady 2
+	set f [::util::makeDropDown $dlg]
+	set bg [$f cget -background]
 
 	lassign [::scidb::game::link? $id] base number
 	if {$base ne $scratchbaseName} {

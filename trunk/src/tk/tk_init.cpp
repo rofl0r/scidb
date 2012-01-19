@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 198 $
+// Date   : $Date: 2012-01-19 10:31:50 +0000 (Thu, 19 Jan 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -32,6 +32,7 @@ tk::init(Tcl_Interp* ti)
 	Tcl_Eval(ti, "namespace eval ::scidb {}");
 	Tcl_Eval(ti, "namespace eval ::scidb::tk {}");
 
+	x11_init(ti);
 	window_manager_init(ti);
 	twm_init(ti);
 	png_init(ti);

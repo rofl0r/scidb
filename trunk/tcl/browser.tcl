@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 195 $
-# Date   : $Date: 2012-01-16 16:42:18 +0000 (Mon, 16 Jan 2012) $
+# Version: $Revision: 198 $
+# Date   : $Date: 2012-01-19 10:31:50 +0000 (Thu, 19 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -192,8 +192,10 @@ proc open {parent base info view index {fen {}}} {
 		-font $Options(font) \
 		-cursor {} \
 		;
+	::widget::textPreventSelection $rt.header
+	::widget::textPreventSelection $rt.pgn
 	::ttk::scrollbar $rt.sb -command [list $rt.pgn yview] -takefocus 0
-
+	
 	grid $rt.header	-row 1 -column 1 -columnspan 2 -sticky nsew
 	grid $rt.pgn		-row 3 -column 1 -sticky nsew -ipady 1
 	grid $rt.sb			-row 3 -column 2 -sticky ns

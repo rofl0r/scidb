@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 193 $
-# Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+# Version: $Revision: 198 $
+# Date   : $Date: 2012-01-19 10:31:50 +0000 (Thu, 19 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -679,14 +679,9 @@ proc hideGame {path} { hideMoves $path }
 proc showMoves {path moves {result ""} {empty 0}} {
 	set w $path.showmoves
 	if {![winfo exists $w]} {
-		toplevel $w -class Tooltip
-		wm withdraw $w
-		if {[tk windowingsystem] eq "aqua"} {
-			::tk::unsupported::MacWindowStyle style $w help none
-		} else {
-			wm overrideredirect $w true
-		}
-		wm attributes $w -topmost true
+		set f [::util::makeDropDown $w]
+		set bg [$f cget -background]
+		destroy $f
 		tk::text $w.text \
 			-wrap word \
 			-width 50 \

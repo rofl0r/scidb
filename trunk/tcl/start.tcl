@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 193 $
-# Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+# Version: $Revision: 198 $
+# Date   : $Date: 2012-01-19 10:31:50 +0000 (Thu, 19 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -369,6 +369,21 @@ proc catchIoError {cmd {resultVar {}}} {
 		uplevel 1 [list set $resultVar $result]
 	}
 	return 0
+}
+
+
+proc makeDropDown {w} {
+	toplevel $w -background white -class Tooltip
+	wm withdraw $w
+	if {[tk windowingsystem] eq "aqua"} {
+		::tk::unsupported::MacWindowStyle style $w help none
+	} else {
+		wm overrideredirect $w true
+	}
+	wm attributes $w -topmost true
+	tk::frame $w.f -takefocus 0 -relief solid -borderwidth 0 -background [::tooltip::background]
+	pack $w.f -fill x -expand yes -padx 1 -pady 1
+	return $w.f
 }
 
 } ;# namespace util

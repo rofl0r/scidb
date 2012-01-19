@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 198 $
+// Date   : $Date: 2012-01-19 10:31:50 +0000 (Thu, 19 Jan 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -208,6 +208,10 @@ public:
 	bool isValidKey(edit::Key const& key) const;
 	/// Return whether variation is folded at given position
 	bool isFolded(edit::Key const& key) const;
+	/// Return whether the game contains variations.
+	bool hasVariations() const;
+	/// Return whether the game contains move information.
+	bool hasMoveInfo() const;
 
 	// Accessing game information
 

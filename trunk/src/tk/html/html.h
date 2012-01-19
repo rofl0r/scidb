@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 192 $
-// Date   : $Date: 2012-01-16 09:16:51 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 198 $
+// Date   : $Date: 2012-01-19 10:31:50 +0000 (Thu, 19 Jan 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -431,6 +431,10 @@ struct HtmlOptions {
     int       shrink;                    /* Boolean */
     int       xhtml;                     /* Boolean. True -> parse as XHTML */
     double    zoom;                      /* Universal scaling factor. */
+    XColor    inactiveselectbackground;
+    XColor    inactiveselectforeground;
+    XColor    selectbackground;
+    XColor    selectforeground;
 
     /* Debugging options. Not part of the official interface. */
     int       layoutcache;

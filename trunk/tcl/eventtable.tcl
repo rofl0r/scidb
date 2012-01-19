@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 193 $
-# Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+# Version: $Revision: 198 $
+# Date   : $Date: 2012-01-19 10:31:50 +0000 (Thu, 19 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -311,18 +311,8 @@ proc see {path position} {
 proc showInfo {path info} {
 	set w $path.showinfo
 	catch { destroy $w }
-	toplevel $w -background white -class Tooltip
-	wm withdraw $w
-	if {[tk windowingsystem] eq "aqua"} {
-		::tk::unsupported::MacWindowStyle style $w help none
-	} else {
-		wm overrideredirect $w true
-	}
-	wm attributes $w -topmost true
-
-	set bg [::tooltip::background]
-	set top [tk::frame $w.f -relief solid -borderwidth 0 -background $bg]
-	pack $top -padx 2 -pady 2
+	set top [::util::makeDropDown $w]
+	set bg [$top cget -background]
 
 	set f [tk::frame $top.f -borderwidth 0 -background $bg]
 	grid $f -column 3 -row 1

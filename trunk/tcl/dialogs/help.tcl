@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 193 $
-# Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+# Version: $Revision: 198 $
+# Date   : $Date: 2012-01-19 10:31:50 +0000 (Thu, 19 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1074,16 +1074,28 @@ proc ToggleIndex {tab} {
 
 
 proc BuildHtmlFrame {dlg w} {
+	set css "
+		:link    { color: blue2; text-decoration: none; }
+		:visited { color: purple; text-decoration: none; }
+		/*:user	{ color: red3; text-decoration: none; }*/
+		:user		{ color: blue2; text-decoration: underline; }	/* http link */
+		:user2	{ color: purple; text-decoration: underline; }	/* http visited */
+		:user3	{ color: black; text-decoration: underline; }	/* invalid link */
+		:hover   { text-decoration: underline; background: yellow; }
+		.match	{ background: yellow; color: black; }
+	"
+	set height [expr {min([winfo screenheight $dlg] - 60, 800)}]
 	::html $w \
 		-imagecmd [namespace code GetImage] \
 		-center no \
 		-width 600 \
-		-height [expr {min([winfo screenheight $dlg] - 60, 800)}] \
+		-height $height \
 		-cursor left_ptr \
 		-borderwidth 1 \
 		-relief sunken \
 		-doublebuffer no \
 		-exportselection yes \
+		-css $css \
 		;
 
 	bind $w <<LanguageChanged>> [namespace code ReloadCurrentPage]
@@ -1186,23 +1198,8 @@ proc A_NodeHandler {node} {
 
 proc LinkHandler {node} {
 	if {[$node attribute rel] eq "stylesheet"} {
-		variable Priv
-
 		set uri [$node attribute -default {} href]
 		if {[string length $uri]} { ImportHandler author $uri }
-
-		# overwrite CSS values
-		set css "
-			:link    { color: blue2; text-decoration: none; }
-			:visited { color: purple; text-decoration: none; }
-			/*:user	{ color: red3; text-decoration: none; }*/
-			:user		{ color: blue2; text-decoration: underline; }	/* http link */
-			:user2	{ color: purple; text-decoration: underline; }	/* http visited */
-			:user3	{ color: black; text-decoration: underline; }	/* invalid link */
-			:hover   { text-decoration: underline; background: yellow; }
-			.match	{ background: yellow; color: black; }
-		"
-		$Priv(html) style -id user $css
 	}
 }
 

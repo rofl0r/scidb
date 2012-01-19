@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 193 $
-# Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+# Version: $Revision: 198 $
+# Date   : $Date: 2012-01-19 10:31:50 +0000 (Thu, 19 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -448,6 +448,8 @@ proc ComboboxSelected {w} {
 }
 
 option add *background #efefef
+option add *inactiveSelectBackground darkgrey
+option add *inactiveSelectForeground white
 
 option add *Spinbox.background white
 option add *Spinbox.selectForeground white
