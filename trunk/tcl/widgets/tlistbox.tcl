@@ -1,7 +1,7 @@
 # =====================================================================
 # Author : $Author$
-# Version: $Revision: 193 $
-# Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+# Version: $Revision: 199 $
+# Date   : $Date: 2012-01-21 17:29:44 +0000 (Sat, 21 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -535,6 +535,10 @@ proc WidgetProc {w command args} {
 				set result [$t item text $index $column]
 			}
 			return $result
+		}
+
+		child {
+			return $t
 		}
 
 		size {

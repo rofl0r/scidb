@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 194 $
-# Date   : $Date: 2012-01-16 11:59:18 +0000 (Mon, 16 Jan 2012) $
+# Version: $Revision: 199 $
+# Date   : $Date: 2012-01-21 17:29:44 +0000 (Sat, 21 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -184,7 +184,6 @@ proc scrolledframe {w args} {
 proc Map {w} {
 	# Due to a bug in the Tk library we have to force window mapping
 	[winfo parent $w] configure -width 0
-
 	Resize $w.__scrolledframe__ 0 force
 	bind $w <Map> {#}
 }

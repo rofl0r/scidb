@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 198 $
-# Date   : $Date: 2012-01-19 10:31:50 +0000 (Thu, 19 Jan 2012) $
+# Version: $Revision: 199 $
+# Date   : $Date: 2012-01-21 17:29:44 +0000 (Sat, 21 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -887,7 +887,6 @@ proc LanguageChanged {} {
 	variable ::scidb::clipbaseName
 
 	set ::util::clipbaseName [set [namespace current]::mc::T_Clipbase]
-puts "LanguageChanged: $::util::clipbaseName"
 	UpdateSwitcher $Vars(canvas) $clipbaseName
 
 	set i [lsearch -integer -index 0 $Vars(bases) $Vars(selection)]
@@ -1507,7 +1506,7 @@ proc Properties {index popup} {
 
 	if {$popup} {
 		if {[winfo exists $dlg]} { destroy $dlg }
-		set f [::util::makeDropDown $dlg]
+		set f [::util::makePopup $dlg]
 		set label ::tk::label
 		set options [list -background [$f cget -background]]
 	} else {

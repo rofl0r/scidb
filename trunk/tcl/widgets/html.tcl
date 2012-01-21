@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 198 $
-# Date   : $Date: 2012-01-19 10:31:50 +0000 (Thu, 19 Jan 2012) $
+# Version: $Revision: 199 $
+# Date   : $Date: 2012-01-21 17:29:44 +0000 (Sat, 21 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -114,7 +114,6 @@ proc Build {w args} {
 		request			{}
 		bbox				{}
 		pointer			{0 0}
-		sbwidth			0
 		focus				0
 		sel:state		0
 	}
@@ -125,6 +124,7 @@ proc Build {w args} {
 	set Priv(css)    $opts(-css)
 
 	if {[llength $Priv(bw)] == 0} { set Priv(bw) 0 }
+	if {![info exists Priv(sbwidth)]} { set Priv(sbwidth) 0 }
 
 	rename ::$w $w.__html__
 	proc ::$w {command args} "[namespace current]::WidgetProc $w $parent \$command {*}\$args"

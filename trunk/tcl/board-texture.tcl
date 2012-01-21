@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 193 $
-# Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+# Version: $Revision: 199 $
+# Date   : $Date: 2012-01-21 17:29:44 +0000 (Sat, 21 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -157,6 +157,7 @@ proc Move {canv ydir xdir} {
 
 
 proc popdown {} {
+	update idletasks
 	::tooltip::tooltip on
 	catch { wm withdraw .board_texture_popup }
 }
@@ -174,6 +175,7 @@ proc popup {w xc yc} {
 	}
 	wm geometry $w "+$xc+$yc"
 	wm attributes $w -topmost
+	update idletasks ;# help shadow package
 	wm deiconify $w
 }
 
@@ -182,7 +184,7 @@ proc makePopup {} {
 	set w .board_texture_popup
 	if {[winfo exists $w]} { return $w }
 
-	toplevel $w -class Scidb -relief raised -borderwidth 2
+	toplevel $w -class TooltipPopup -relief raised -borderwidth 1
 	wm withdraw $w
 	wm overrideredirect $w 1
 	tk::canvas $w.texture

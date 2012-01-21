@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 193 $
-# Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+# Version: $Revision: 199 $
+# Date   : $Date: 2012-01-21 17:29:44 +0000 (Sat, 21 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -92,6 +92,7 @@ array set Defaults {
 	-selectionforeground		black
 	-disabledforeground		#999999
 	-labelforeground			black
+	-labelbackground			#d9d9d9
 	-borderwidth				1
 	-labelfont					TkTextFont
 	-labelrelief				raised
@@ -392,7 +393,7 @@ proc addcol {table id args} {
 		-text $labelText                         \
 		-font $Options(-labelfont)               \
 		-textcolor $Options(-labelforeground)    \
-		-background $Options(-background)        \
+		-background $Options(-labelbackground)   \
 		-textpadx $Options(-padx)                \
 		-textpady $Options(-pady)                \
 		-imagepadx $Options(-imagepadx)          \

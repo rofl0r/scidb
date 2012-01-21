@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 193 $
-# Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+# Version: $Revision: 199 $
+# Date   : $Date: 2012-01-21 17:29:44 +0000 (Sat, 21 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -87,6 +87,9 @@
 ::mc::Bishop			"Alfiere"
 ::mc::Knight			"Cavallo"
 ::mc::Pawn				"Pedone"
+
+### scidb ##############################################################
+::scidb::mc::CannotOverwriteTheme	"Cannot overwrite theme %s." ;# NEW
 
 ### locale #############################################################
 ::locale::Pattern(decimalPoint)	"."
@@ -1272,6 +1275,8 @@
 ::help::mc::IncompleteHelpFiles	"I file di aiuto sono ancora incompleti. Ci scusiamo."
 ::help::mc::ProbablyTheHelp		"Probabilmente la pagina di aiuto in una lingua differente può essere una valida alternativa."
 ::help::mc::PageNotAvailable		"This page is not available" ;# NEW
+
+::help::mc::Overview					"Visione d'insieme"
 
 ### crosstable #########################################################
 ::crosstable::mc::TournamentTable		"Tabella Torneo"

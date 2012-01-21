@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 193 $
-# Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+# Version: $Revision: 199 $
+# Date   : $Date: 2012-01-21 17:29:44 +0000 (Sat, 21 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -247,6 +247,7 @@ proc popup {parent args} {
 			-repeatdelay $options(repeat:delay) \
 			-repeatinterval $options(repeat:interval) \
 			-background $Priv(background) \
+			-activebackground $colors(active:background) \
 			;
 		bind $top.calendar.header.$which <ButtonRelease-1> \
 			[list after idle [namespace code { ButtonEnter %W }]]
@@ -349,8 +350,9 @@ proc popup {parent args} {
 	raise $top
 	focus $top
 	if {[tk windowingsystem] == "x11"} {
-		tkwait visibility $top
-		update
+		catch { tkwait visibility $top }
+		update idletasks
+		if {![winfo exists $top]} { return }
 	}
 	if {$useGrab} { ttk::globalGrab $top.calendar }
 	focus -force $top.calendar.$Priv(widget:$Priv(day))
@@ -585,7 +587,7 @@ proc Update {top} {
 			} else {
 				$lbl configure -text "" -background $Priv(background)
 				foreach key {ButtonRelease-1 Leave Enter space Return} {
-					bind $lbl <$key> {}
+					bind $lbl <$key> {#}
 				}
 			}
 
@@ -666,8 +668,10 @@ proc Unpost {menu x y} {
 
 
 proc ButtonEnter {w} {
-	set ptrw [winfo containing {*}[winfo pointerxy .]]
-	if {$ptrw eq $w} { ::tk::ButtonEnter $w }
+	if {[winfo containing {*}[winfo pointerxy .]] eq $w} {
+		::tk::ButtonLeave $w
+		::tk::ButtonEnter $w
+	}
 }
 
 

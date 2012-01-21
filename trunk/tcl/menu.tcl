@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 193 $
-# Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+# Version: $Revision: 199 $
+# Date   : $Date: 2012-01-21 17:29:44 +0000 (Sat, 21 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -192,11 +192,11 @@ proc setup {} {
 	lappend Menu \
 		File	{	New				1	Ctrl+N			docNew			{ ::menu::dbNew .application }
 					Open				1	Ctrl+O			docOpen			{ ::menu::dbOpen .application }
+					Close				0	Ctrl+W			close				{ ::menu::dbClose .application }
 					OpenURL			1	{}					internet			{ ::menu::dbOpenUrl .application }
 					Export			1	Ctrl+X			fileExport		{ ::menu::dbExport .application }
 					Import			1	Ctrl+P			filetypePGN		{ ::menu::dbImport .application }
 					ImportOne		1	Ctrl+I			filetypePGN-1	{ ::menu::dbImportOne .application }
-					Close				0	Ctrl+W			close				{ ::menu::dbClose .application }
 					--------------	-	-------------	--------------	---------------------------------
 					Quit				0	Ctrl+Q			exit				{ ::application::shutdown }
 				} \

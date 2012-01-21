@@ -3,8 +3,8 @@
 exec tclsh "$0" "$@"
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 193 $
-# Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+# Version: $Revision: 199 $
+# Date   : $Date: 2012-01-21 17:29:44 +0000 (Sat, 21 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -63,9 +63,14 @@ set HtmlH1 {<div class="title">
 set HtmlMapping {
 	<menuitem>		{<span class="menuitem">}
 	</menuitem>		{</span>}
+
 	<note/>			{<br/><img src="../images/note.png"/> }
+	<note>			{<p><img src="../images/note.png"/> }
+	</note>			{</p>}
+
 	<box>				{<div class="box">}
 	</box>			{</div>}
+
 	<annotation>	{<div class="annotation"><img src="../images/annotation.png" style="float:left; margin:0 1em 0 0"/>}
 	</annotation>	{</div>}
 }
@@ -160,6 +165,7 @@ if {$argc != 1} {
 }
 
 
+encoding system utf-8
 set lang [file tail [pwd]] 
 set file [file join .. .. lang localization.tcl]
 source $file

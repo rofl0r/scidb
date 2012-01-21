@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 193 $
-# Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+# Version: $Revision: 199 $
+# Date   : $Date: 2012-01-21 17:29:44 +0000 (Sat, 21 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -72,17 +72,18 @@ proc build {path columns args} {
 	namespace eval [namespace current]::$tb {}
 	variable [namespace current]::${tb}::Vars
 
-	table::table $tb                             \
-		-moveable 1                               \
-		-setgrid 0                                \
-		-takefocus $opts(-takefocus)              \
-		-fillcolumn end                           \
-		-stripes $opts(-stripes)                  \
-		-highlightcolor $Defaults(highlight)      \
-		-background $Defaults(background)         \
-		-separatorcolor $Defaults(separatorcolor) \
-		-listmode $opts(-listmode)                \
-		-fixedrows $opts(-fixedrows)              \
+	table::table $tb                                  \
+		-moveable 1                                    \
+		-setgrid 0                                     \
+		-takefocus $opts(-takefocus)                   \
+		-fillcolumn end                                \
+		-stripes $opts(-stripes)                       \
+		-highlightcolor $Defaults(highlight)           \
+		-background $Defaults(background)              \
+		-separatorcolor $Defaults(separatorcolor)      \
+		-listmode $opts(-listmode)                     \
+		-fixedrows $opts(-fixedrows)                   \
+		-labelbackground [::theme::getBackgroundColor] \
 		;
 	::bind $tb <Destroy> [namespace code [list TableOptions $tb]]
 	

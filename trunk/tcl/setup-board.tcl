@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 198 $
-# Date   : $Date: 2012-01-19 10:31:50 +0000 (Thu, 19 Jan 2012) $
+# Version: $Revision: 199 $
+# Date   : $Date: 2012-01-21 17:29:44 +0000 (Sat, 21 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -451,11 +451,6 @@ proc open {parent} {
 	set panel [ttk::frame $top.panel]
 	set selectbg $::board::square::style(hilite,selected)
 	set activebg [::theme::getActiveBackgroundColor]
-	if {[string length $activebg] == 0} {
-		tk::button $top.temp
-		set activebg [$top.temp cget -activebackground]
-		destroy $top.temp
-	}
 	set row 1
 	foreach piece {k q r b n p} {
 		set col 1

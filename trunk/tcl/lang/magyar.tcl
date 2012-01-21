@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 193 $
-# Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+# Version: $Revision: 199 $
+# Date   : $Date: 2012-01-21 17:29:44 +0000 (Sat, 21 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -87,6 +87,9 @@
 ::mc::Bishop			"Futó"
 ::mc::Knight			"Huszár"
 ::mc::Pawn				"Gyalog"
+
+### scidb ##############################################################
+::scidb::mc::CannotOverwriteTheme	"Cannot overwrite theme %s." ;# NEW
 
 ### locale #############################################################
 ::locale::Pattern(decimalPoint)	"."
@@ -1276,6 +1279,8 @@
 ::help::mc::IncompleteHelpFiles	"It seems that the help files are still incomplete. Sorry about that." ;# NEW
 ::help::mc::ProbablyTheHelp		"Probably the help page in a different language may be an alternative for you" ;# NEW
 ::help::mc::PageNotAvailable		"This page is not available" ;# NEW
+
+::help::mc::Overview					"Overview" ;# NEW
 
 ### crosstable #########################################################
 ::crosstable::mc::TournamentTable		"Tournament Table"

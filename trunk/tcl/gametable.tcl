@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 198 $
-# Date   : $Date: 2012-01-19 10:31:50 +0000 (Thu, 19 Jan 2012) $
+# Version: $Revision: 199 $
+# Date   : $Date: 2012-01-21 17:29:44 +0000 (Sat, 21 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -679,7 +679,7 @@ proc hideGame {path} { hideMoves $path }
 proc showMoves {path moves {result ""} {empty 0}} {
 	set w $path.showmoves
 	if {![winfo exists $w]} {
-		set f [::util::makeDropDown $w]
+		set f [::util::makePopup $w]
 		set bg [$f cget -background]
 		destroy $f
 		tk::text $w.text \
@@ -1686,7 +1686,7 @@ proc BindAccelerators {path} {
 
 
 proc LoadGame {path index} {
-	::scrolledtable::select $path $index
+	::scrolledtable::select $path [::scrolledtable::indexToRow $path $index]
 	TableSelected $path $index
 }
 

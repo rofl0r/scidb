@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 198 $
-# Date   : $Date: 2012-01-19 10:31:50 +0000 (Thu, 19 Jan 2012) $
+# Version: $Revision: 199 $
+# Date   : $Date: 2012-01-21 17:29:44 +0000 (Sat, 21 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -796,7 +796,7 @@ proc ShowTags {gamebar id} {
 	if {[llength $Specs(tags:$id:$gamebar)] == 0} { return }
 
 	set dlg $gamebar.tags
-	set f [::util::makeDropDown $dlg]
+	set f [::util::makePopup $dlg]
 	set bg [$f cget -background]
 
 	lassign [::scidb::game::link? $id] base number

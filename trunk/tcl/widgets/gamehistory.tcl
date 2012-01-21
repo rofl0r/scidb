@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 198 $
-# Date   : $Date: 2012-01-19 10:31:50 +0000 (Thu, 19 Jan 2012) $
+# Version: $Revision: 199 $
+# Date   : $Date: 2012-01-21 17:29:44 +0000 (Sat, 21 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -260,7 +260,7 @@ proc ShowTooltip {t x y} {
 	if {[winfo exists $dlg]} {
 		set f [lindex [winfo children $dlg] 0]
 	} else {
-		set f [::util::makeDropDown $dlg]
+		set f [::util::makePopup $dlg]
 		set background [$f cget -background]
 		grid [::tk::label $f.evline -background $background] -row 1 -column 1 -sticky w
 		grid [::tk::label $f.coline -background $background] -row 2 -column 1 -sticky w

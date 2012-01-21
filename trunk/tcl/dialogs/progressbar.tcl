@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 193 $
-# Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+# Version: $Revision: 199 $
+# Date   : $Date: 2012-01-21 17:29:44 +0000 (Sat, 21 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -132,8 +132,11 @@ proc open {args} {
 	}
 	wm geometry $w ${x}${y}
 	wm deiconify $w
-	# prevent error 'window ".progress" was deleted before its visibility changed'
-	catch { tkwait visibility $w }
+	if {[tk windowingsystem] == "x11"} {
+		# prevent error 'window ".progress" was deleted before its visibility changed'
+		catch { tkwait visibility $w }
+		if {![winfo exists $w]} { return }
+	}
 	if {[llength $opts(-command)]} { busyCursor $w on }
 	if {[llength $opts(-command)] == 0} { return }
 	after idle [namespace code [list Start $w $opts(-command) $opts(-close)]]

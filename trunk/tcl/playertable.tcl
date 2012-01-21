@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 198 $
-# Date   : $Date: 2012-01-19 10:31:50 +0000 (Thu, 19 Jan 2012) $
+# Version: $Revision: 199 $
+# Date   : $Date: 2012-01-21 17:29:44 +0000 (Sat, 21 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -442,7 +442,7 @@ proc showInfo {path info} {
 
 	set w $path.showinfo
 	catch { destroy $w }
-	set top [::util::makeDropDown $w]
+	set top [::util::makePopup $w]
 	set bg [$top cget -background]
 
 	set f [tk::frame $top.f -borderwidth 0 -background $bg]

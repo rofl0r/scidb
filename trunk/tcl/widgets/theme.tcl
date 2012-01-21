@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 198 $
-# Date   : $Date: 2012-01-19 10:31:50 +0000 (Thu, 19 Jan 2012) $
+# Version: $Revision: 199 $
+# Date   : $Date: 2012-01-21 17:29:44 +0000 (Sat, 21 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -30,6 +30,7 @@ variable repeatInterval 0
 
 variable Settings
 variable Setup 1
+variable ActiveBackground {}
 
 
 # this should be already done in tk8.x.x/library/tk.tcl,
@@ -87,7 +88,21 @@ proc getBackgroundColor {} {
 
 
 proc getActiveBackgroundColor {} {
-	return [ttk::style lookup [::theme::currentTheme] -activebackground]
+	set activebg [ttk::style lookup [::theme::currentTheme] -activebackground]
+
+	if {[string length $activebg] == 0} {
+		variable ActiveBackground
+
+		if {[llength $ActiveBackground] == 0} {
+			set btn [tk::button .__btn_activebackground__]
+			set ActiveBackground [$btn cget -activebackground]
+			destroy $btn
+		}
+
+		set activebg $ActiveBackground
+	}
+
+	return $activebg
 }
 
 

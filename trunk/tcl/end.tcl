@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 198 $
-# Date   : $Date: 2012-01-19 10:31:50 +0000 (Thu, 19 Jan 2012) $
+# Version: $Revision: 199 $
+# Date   : $Date: 2012-01-21 17:29:44 +0000 (Sat, 21 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -163,7 +163,10 @@ switch $::scidb::revision {
 	}
 }
 
-if {$::scidb::revision < [::scidb::misc::revision]} { set ::beta::WhatsNew 1 }
+if {$::scidb::revision < [::scidb::misc::revision]} {
+	::scidb::updateThemes
+	set ::beta::WhatsNew 1
+}
 set ::scidb::revision [::scidb::misc::revision]
 
 # --- Initalization ----------------------------------------------------

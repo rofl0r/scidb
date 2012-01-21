@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 193 $
-# Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+# Version: $Revision: 199 $
+# Date   : $Date: 2012-01-21 17:29:44 +0000 (Sat, 21 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -86,6 +86,9 @@
 ::mc::Bishop			"Bishop"
 ::mc::Knight			"Knight"
 ::mc::Pawn				"Pawn"
+
+### scidb ##############################################################
+::scidb::mc::CannotOverwriteTheme	"Cannot overwrite theme %s."
 
 ### locale #############################################################
 ::locale::Pattern(decimalPoint)	"."
@@ -1275,6 +1278,8 @@
 ::help::mc::IncompleteHelpFiles	"It seems that the help files are still incomplete. Sorry about that."
 ::help::mc::ProbablyTheHelp		"Probably the help page in a different language may be an alternative for you"
 ::help::mc::PageNotAvailable		"This page is not available"
+
+::help::mc::Overview					"Overview"
 
 ### crosstable #########################################################
 ::crosstable::mc::TournamentTable		"Tournament Table"

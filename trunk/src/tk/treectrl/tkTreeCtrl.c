@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 199 $
+// Date   : $Date: 2012-01-21 17:29:44 +0000 (Sat, 21 Jan 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -271,7 +271,7 @@ static Tk_OptionSpec optionSpecs[] = {
 	 TK_OPTION_NULL_OK, (ClientData) &TreeCtrlCO_column_NOT_TAIL,
 	 TREE_CONF_RELAYOUT},
 	{TK_OPTION_BOOLEAN, "-usetheme", "useTheme",
-	 "UseTheme", "0", -1, Tk_Offset(TreeCtrl, useTheme),
+	 "UseTheme", "1", -1, Tk_Offset(TreeCtrl, useTheme),
 	 0, (ClientData) NULL, TREE_CONF_THEME | TREE_CONF_RELAYOUT},
 	{TK_OPTION_PIXELS, "-width", "width", "Width",
 	 "200", Tk_Offset(TreeCtrl, widthObj), Tk_Offset(TreeCtrl, width),

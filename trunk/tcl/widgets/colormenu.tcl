@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 193 $
-# Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+# Version: $Revision: 199 $
+# Date   : $Date: 2012-01-21 17:29:44 +0000 (Sat, 21 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -348,14 +348,15 @@ proc popup {parent args} {
 	raise $top
 	focus $top
 	if {[tk windowingsystem] == "x11"} {
-		tkwait visibility $top
+		catch { tkwait visibility $top }
 		update idletasks
+		if {![winfo exists $top]} { return }
 	}
 	if {$useGrab} { ttk::globalGrab $top.f }
 	catch { focus -force $top.f.close }
 	vwait [namespace current]::selection
 	if {$useGrab} { ttk::releaseGrab $top.f }
-	destroy [winfo toplevel $top]
+	destroy $top
 	Tooltip on
 	update idletasks
 
@@ -392,9 +393,8 @@ proc ClearSelection {menu {x {}} {y {}}} {
 proc ClearTooltips {menu w} {
 	if {$menu eq $w} {
 		::dialog::choosecolor::tooltip clear $w.*
+		::dialog::choosecolor::tooltip hide
 	}
-
-	::dialog::choosecolor::tooltip hide
 }
 
 
