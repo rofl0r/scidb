@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 193 $
-# Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+# Version: $Revision: 200 $
+# Date   : $Date: 2012-01-21 19:16:42 +0000 (Sat, 21 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -44,7 +44,10 @@ switch [tk windowingsystem] {
 
 namespace eval fsbox {
 
-array set Priv { lastFolder "" }
+array set Priv {
+	lastFolder ""
+	dialog {}
+}
 array set FileSizeCache {}
 
 set FileIcons [list                        \
@@ -142,12 +145,12 @@ proc Open {type args} {
 	upvar [namespace current]::$dataName data
 
 	array set data {
-		-parent				.
-		-place				{}
-		-geometry			""
-		-embed				0
-		-needencoding		0
-		-rows					10
+		-parent			.
+		-place			{}
+		-geometry		""
+		-embed			0
+		-needencoding	0
+		-rows				10
 	}
 	set opts(-initialdir) $Priv(lastFolder)
 	set opts(-defaultencoding) {}
@@ -192,6 +195,9 @@ proc Open {type args} {
 			wm transient $w $data(-parent)
 		}
 		catch { wm attributes $w -type dialog }
+		lappend Priv(dialogs) $w
+		bind $w <Destroy> [namespace code [list Destroyed $w]]
+		bind $w <<LanguageChanged>> [namespace code [list LanguageChanged $w]]
 	}
 
 	set Priv(type) $type
@@ -321,6 +327,18 @@ proc Open {type args} {
 	}
 
 	return $Priv(result)
+}
+
+
+proc Destroyed {w} {
+	variable Priv
+	set i [lsearch $Priv(dialogs) $w]
+	if {$i >= 0} { set Priv(dialogs) [lreplace $Priv(dialogs) $i $i] }
+}
+
+
+proc LanguageChanged {w} {
+	if {[winfo exists $w]} { destroy $w }
 }
 
 

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 193 $
-# Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+# Version: $Revision: 200 $
+# Date   : $Date: 2012-01-21 19:16:42 +0000 (Sat, 21 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -626,7 +626,10 @@ proc SetStripped {var {unused {}} {unused {}}} {
 proc InvokeLang {w lang} {
 	if {![winfo exists $w]} { return }
 	event generate $w <<LanguageChanged>> -data $lang
-	foreach child [winfo children $w] { InvokeLang $child $lang }
+	if {![winfo exists $w]} { return }
+	foreach child [winfo children $w] {
+		InvokeLang $child $lang
+	}
 }
 
 

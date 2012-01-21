@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 199 $
-# Date   : $Date: 2012-01-21 17:29:44 +0000 (Sat, 21 Jan 2012) $
+# Version: $Revision: 200 $
+# Date   : $Date: 2012-01-21 19:16:42 +0000 (Sat, 21 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1588,6 +1588,7 @@
 ::fsbox::mc::Desktop							"Arbeitsfläche"
 ::fsbox::mc::Home								"Heimverzeichnis"
 
+::fsbox::mc::SelectEncoding				"Auswahl der Enkodierung für die Datenbank (öffnet einen Dialog)"
 ::fsbox::mc::SelectWhichType				"Auswahl der anzuzeigenden Dateitypen"
 ::fsbox::mc::TimeFormat						"%d.%m.%Y %H:%M"
 

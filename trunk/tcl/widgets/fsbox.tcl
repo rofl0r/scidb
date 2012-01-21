@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 199 $
-# Date   : $Date: 2012-01-21 17:29:44 +0000 (Sat, 21 Jan 2012) $
+# Version: $Revision: 200 $
+# Date   : $Date: 2012-01-21 19:16:42 +0000 (Sat, 21 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -67,6 +67,7 @@ set FileSystem						"File System"
 set Desktop							"Desktop"
 set Home								"Home"
 
+set SelectEncoding				"Select the encoding of the database (opens a dialog)"
 set SelectWhichType				"Select which type of file are shown"
 set TimeFormat						"%d/%m/%y %I:%M %p"
 
@@ -243,6 +244,7 @@ proc fsbox {w type args} {
 			-textvar [namespace current]::${w}::Vars(encodingVar) \
 			-command [namespace code [list SelectEncoding $w]] \
 		]
+		tooltip $top.ent_encoding [Tr SelectEncoding]
 	}
 
 	if {[llength $Vars(filetypes)]} {
@@ -1193,7 +1195,7 @@ proc SearchFavorite {w dir} {
 proc SearchLastVisited {w dir} {
 	variable bookmarks::Bookmarks
 
-	foreach d $Bookmarks(lastvisited) {
+	foreach entry $Bookmarks(lastvisited) {
 		set d [lindex $entry 0]
 		if {[file tail $d] eq $dir} {
 			return $d
