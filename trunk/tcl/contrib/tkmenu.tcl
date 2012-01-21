@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 193 $
-# Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+# Version: $Revision: 201 $
+# Date   : $Date: 2012-01-21 23:50:31 +0000 (Sat, 21 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -448,6 +448,12 @@ proc ::tk::MenuUnpost menu {
         unset -nocomplain Priv($menu:postIndex)
     }
 
+    ### FIX begin ################################################################
+    # It's important to invoke all pending mapping events, otherwise it may happen
+    # that an unmap event occurs before the corresponding map event occurs.
+    update idletasks
+    ### FIX end ##################################################################
+
     catch {
 	if {$mb ne ""} {
 	    set menu [$mb cget -menu]
@@ -487,6 +493,7 @@ proc ::tk::MenuUnpost menu {
 		set menu $parent
 	    }
 	    if {[$menu cget -type] ne "menubar"} {
+	    $Priv(popup) unpost
 		$menu unpost
 	    }
 	}

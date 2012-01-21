@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 199 $
-# Date   : $Date: 2012-01-21 17:29:44 +0000 (Sat, 21 Jan 2012) $
+# Version: $Revision: 201 $
+# Date   : $Date: 2012-01-21 23:50:31 +0000 (Sat, 21 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -171,7 +171,7 @@ bind Menu <Destroy> {+
 
 bind ComboboxPopdown <Configure>		{+ shadow::prepare %W %x %y %w %h }
 bind ComboboxPopdown <Map>				{+ after idle { shadow::map %W } }
-bind ComboboxPopdown <Unmap>			{+ shadow::unmap %W }
+bind ComboboxPopdown <Unmap>			{+ after idle { shadow::unmap %W } }
 bind ComboboxPopdown <Destroy>		{+ array unset ::shadow::Geometry %W }
 
 ###  A D D L A N G U A G E P O P D O W N ########################################################
