@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 199 $
-# Date   : $Date: 2012-01-21 17:29:44 +0000 (Sat, 21 Jan 2012) $
+# Version: $Revision: 203 $
+# Date   : $Date: 2012-01-22 22:56:40 +0000 (Sun, 22 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -38,6 +38,10 @@ set FormatText					"Format text"
 set CopyText					"Copy text to"
 set OverwriteContent			"Overwrite existing content?"
 set AppendContent				"If \"no\" the text will be appended."
+
+set Bold							"Bold"
+set Italic						"Italic"
+set Underline					"Underline"
 
 set InsertSymbol				"&Insert Symbol..."
 set MiscellaneousSymbols	"Miscellaneous Symbols"
@@ -234,7 +238,7 @@ proc open {parent pos lang} {
 		set Vars(format:$fmt) 0
 		::toolbar::add $tb checkbutton \
 			-image [set icon::toolbar$format] \
-			-tooltipvar [::mc::stripped ::dialog::choosefont::mc::$format] \
+			-tooltipvar $mc::$format \
 			-variable [namespace current]::Vars(format:$fmt) \
 			-command [namespace code [list ChangeFormat $fmt]] \
 			;
@@ -1225,7 +1229,7 @@ proc PopupMenu {parent} {
 		$m.format add command \
 			-compound left \
 			-image [set ::icon::12x12::text-$fmt] \
-			-label [::mc::stripAmpersand [set ::dialog::choosefont::mc::$format]] \
+			-label $mc::$format \
 			-command [namespace code [list ChangeFormat $fmt]] \
 			;
 	}
