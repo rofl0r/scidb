@@ -1,8 +1,8 @@
 #!/bin/sh
 #! ======================================================================
 #! $RCSfile: tk_init.h,v $
-#! $Revision: 193 $
-#! $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+#! $Revision: 204 $
+#! $Date: 2012-01-23 17:56:51 +0000 (Mon, 23 Jan 2012) $
 #! $Author: gregor $
 #! ======================================================================
 
@@ -61,7 +61,7 @@ if {[llength [info nameofexecutable]] == 0} {
 
 if {[::scidb::misc::version] ne $scidb::version} {
 	wm withdraw .
-	if {$tcl_platform(platform) == "windows"} {
+	if {$tcl_platform(platform) eq "windows"} {
 		append msg "This is $scidb::app version [::scidb::misc::version], but the scidb.gui "
 		append msg "data file has the version number $scidb::version."
 	} else {

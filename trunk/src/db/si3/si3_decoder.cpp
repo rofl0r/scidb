@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 204 $
+// Date   : $Date: 2012-01-23 17:56:51 +0000 (Mon, 23 Jan 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -474,7 +474,7 @@ Decoder::decodeTags(TagSet& tags)
 							m_codec.convertToUtf8(in, out);
 							if (!sys::utf8::Codec::validateUtf8(out))
 								m_codec.forceValidUtf8(out);
-							tags.setExtra(tag, out);
+							tags.setExtra(tag, b, out, c);
 						}
 						break;
 
