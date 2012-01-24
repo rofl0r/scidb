@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 204 $
-# Date   : $Date: 2012-01-23 17:56:51 +0000 (Mon, 23 Jan 2012) $
+# Version: $Revision: 205 $
+# Date   : $Date: 2012-01-24 21:40:03 +0000 (Tue, 24 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -568,7 +568,7 @@
 ### gametable ##########################################################
 ::gametable::mc::DeleteGame				"Mark game as deleted"
 ::gametable::mc::UndeleteGame				"Undelete this game"
-::gametable::mc::EditGameFlags			"Edit game flags"
+::gametable::mc::EditGameFlags			"Edit game markers"
 ::gametable::mc::Custom						"Custom"
 
 ::gametable::mc::Monochrome				"Monochrome"

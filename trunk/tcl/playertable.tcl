@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 199 $
-# Date   : $Date: 2012-01-21 17:29:44 +0000 (Sat, 21 Jan 2012) $
+# Version: $Revision: 205 $
+# Date   : $Date: 2012-01-24 21:40:03 +0000 (Tue, 24 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -774,9 +774,13 @@ proc TableFill {path args} {
 
 			switch $id {
 				lastName {
-					set parts [split $item ,]
-					lappend text [lindex $parts 0]
-					lappend text [lindex [lrange $parts 1 end] 0]
+					if {[string length $item] == 0} {
+						lappend text "-"
+					} else {
+						set parts [split $item ,]
+						lappend text [lindex $parts 0]
+						lappend text [lindex [lrange $parts 1 end] 0]
+					}
 				}
 
 				firstName {

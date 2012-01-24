@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 193 $
-# Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+# Version: $Revision: 205 $
+# Date   : $Date: 2012-01-24 21:40:03 +0000 (Tue, 24 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -174,7 +174,7 @@
 143 "Worse is"
 144 "Equivalent is"
 145 "Editor's remark"
-146 "novelty"
+146 "Novelty"
 147 "Weak Point"
 148 "Endgame"
 149 "Line"

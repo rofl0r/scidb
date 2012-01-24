@@ -3,8 +3,8 @@
 exec tclsh "$0" "$@"
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 199 $
-# Date   : $Date: 2012-01-21 17:29:44 +0000 (Sat, 21 Jan 2012) $
+# Version: $Revision: 205 $
+# Date   : $Date: 2012-01-24 21:40:03 +0000 (Tue, 24 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -104,7 +104,7 @@ while {[gets $src line] >= 0} {
 
 puts "  \}"
 puts "\}"
-puts "\nset UnixOnly \{\n  HowToSetDefaultBrowser.html\n\}"
+puts "\nset UnixOnly \{\n  How-To-Set-Default-Browser.html\n\}"
 close $src
 
 # vi:set ts=3 sw=3:

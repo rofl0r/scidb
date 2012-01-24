@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 193 $
-# Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+# Version: $Revision: 205 $
+# Date   : $Date: 2012-01-24 21:40:03 +0000 (Tue, 24 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -334,12 +334,13 @@ proc build {parent menu width height} {
 		::table::bind $tb <$seq> {+ break }
 	}
 
-	bind $tb <<TableScrollbar>>	[namespace code [list Scrollbar $tb %d]]
-	bind $tb <<TableVisit>>			[namespace code [list VisitItem $tb %d]]
-	bind $tb <<TableFill>>			[namespace code [list FillTable $tb]]
-	bind $tb <<TableMenu>>			[namespace code [list PopupMenu $tb %X %Y]]
-	bind $tb <<LanguageChanged>>	[namespace code [list FillTable $tb]]
-	bind $tb <Destroy>				[namespace code [list Destroy $tb]]
+	bind $tb <<TableScrollbar>>	 [namespace code [list Scrollbar $tb %d]]
+	bind $tb <<TableVisit>>			 [namespace code [list VisitItem $tb %d]]
+	bind $tb <<TableFill>>			 [namespace code [list FillTable $tb]]
+	bind $tb <<TableMenu>>			 [namespace code [list PopupMenu $tb %X %Y]]
+	bind $tb <<LanguageChanged>>	 [namespace code [list FillTable $tb]]
+	bind $tb <<LanguageChanged>>	+[namespace code [list RefreshHeader $tb]]
+	bind $tb <Destroy>				 [namespace code [list Destroy $tb]]
 
 	TreeCtrl::finishBindings $tb
 
@@ -718,9 +719,11 @@ proc VisitItem {table data} {
 			}
 
 			bestPlayer {
-				set value [lindex $value 1]
-				if {$value > 0} {
-					set item "$Options(rating:type): $value"
+				if {"bestRating" ni [::table::visibleColumns $table]} {
+					set value [lindex $value 1]
+					if {$value > 0} {
+						set item "$Options(rating:type): $value"
+					}
 				}
 			}
 
@@ -1005,7 +1008,7 @@ proc ComputeValue {id value total} {
 
 	switch $id {
 		ratio {
-			set value [expr {int((1000.0*$value)/$total + 0.5)}]
+			set value [expr {int((1000.0*$value)/double($total) + 0.5)}]
 		}
 		score {
 			switch $Options(score:side) {
@@ -1301,6 +1304,7 @@ proc PopupMenu {table x y} {
 			;
 	}
 
+	::bind $m <<MenuUnpost>> [list after idle [list table::doSelection $table]]
 	tk_popup $m $x $y
 }
 

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 203 $
-# Date   : $Date: 2012-01-22 22:56:40 +0000 (Sun, 22 Jan 2012) $
+# Version: $Revision: 205 $
+# Date   : $Date: 2012-01-24 21:40:03 +0000 (Tue, 24 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -262,7 +262,7 @@ proc build {tab menu width height} {
 proc preOpen {parent} {
 	variable PreOpen
 
-	if {![::process::testOption pre-open]} { return }
+	if {![::process::testOption re-open]} { return }
 
 	foreach entry $PreOpen {
 		lassign $entry type file encoding readonly active

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 199 $
-# Date   : $Date: 2012-01-21 17:29:44 +0000 (Sat, 21 Jan 2012) $
+# Version: $Revision: 205 $
+# Date   : $Date: 2012-01-24 21:40:03 +0000 (Tue, 24 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -263,6 +263,11 @@ proc tablePath {path} {
 }
 
 
+proc visibleColumns {path} {
+	return [::table::visibleColumns $path.top.table]
+}
+
+
 proc forget {path base} {
 	set table $path.top.table
 	variable ${table}::Vars
@@ -483,14 +488,7 @@ proc updateColumn {path selection {see 0}} {
 
 
 proc doSelection {path} {
-	set table $path.top.table
-	variable ${table}::Vars
-
-	lassign [winfo pointerxy $table] x y
-	set x [expr {$x - [winfo rootx $table]}]
-	set y [expr {$y - [winfo rooty $table]}]
-	lassign [::table::identify $table $x $y] row
-	::table::activate $table $row true
+	return [::table::doSelection $path.top.table]
 }
 
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 205 $
+// Date   : $Date: 2012-01-24 21:40:03 +0000 (Tue, 24 Jan 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -246,7 +246,7 @@ Codec::Codec(CustomFlags* customFlags)
 	,m_extNamebase(customFlags ? ".sn4" : ".sn3")
 	,m_blockSize(customFlags ? 131072 : 32768)
 	,m_codec(0)
-	,m_encoding(sys::utf8::Codec::utf8())
+	,m_encoding(sys::utf8::Codec::latin1())
 	,m_customFlags(customFlags)
 	,m_gameData(0)
 	,m_asyncReader(0)

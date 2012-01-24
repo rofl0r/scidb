@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 203 $
-// Date   : $Date: 2012-01-22 22:56:40 +0000 (Sun, 22 Jan 2012) $
+// Version: $Revision: 205 $
+// Date   : $Date: 2012-01-24 21:40:03 +0000 (Tue, 24 Jan 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -115,7 +115,7 @@ Tablebase::getOnlineQuery(Board const& board, Move& result)
 	// IMPORTANT NOTE: Both do not allow online access from other chess applications.
 
 	// other sites:
-	// http://www.lokasoft.nl/tbweb.aspx
+	// http://www.lokasoft.nl/tbweb.aspx		!! allows access from other chess applications
 	// http://chessok.com/?page_id=361
 
 	// Probably this is the most interesting one:
