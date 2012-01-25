@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 193 $
-# Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+# Version: $Revision: 208 $
+# Date   : $Date: 2012-01-25 13:28:14 +0000 (Wed, 25 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -439,7 +439,12 @@ proc Close {dlg base {view {}}} {
 
 
 proc RecordGeometry {dlg} {
-	set [namespace current]::Geometry [lindex [split [wm geometry $dlg] +] 0]
+	variable Geometry
+
+	set g [wm geometry $dlg]
+	set n [string first "+" $g]
+	if {$n == -1} { set n [string first "-" $g] }
+	if {$n >= 0} { set Geometry [string range $g 0 [expr {$n - 1}]] }
 }
 
 
