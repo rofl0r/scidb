@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 193 $
-# Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+# Version: $Revision: 211 $
+# Date   : $Date: 2012-01-25 22:06:21 +0000 (Wed, 25 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -258,7 +258,6 @@ if {[::process::testOption use-analysis]} {
 	TabChanged $nb $app
 	::load::writeLog
 	update idletasks
-	::beta::welcomeToScidb $app
 	set ::remote::blocked 0
 
 	database::preOpen $app
@@ -273,6 +272,8 @@ if {[::process::testOption use-analysis]} {
 	if {[::process::testOption show-board]} {
 		after idle [namespace code [list switchTab board]]
 	}
+
+	after idle [list ::beta::welcomeToScidb $app]
 }
 
 
