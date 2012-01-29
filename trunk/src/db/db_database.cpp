@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 216 $
-// Date   : $Date: 2012-01-29 19:02:12 +0000 (Sun, 29 Jan 2012) $
+// Version: $Revision: 218 $
+// Date   : $Date: 2012-01-29 21:31:44 +0000 (Sun, 29 Jan 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -347,7 +347,7 @@ Database::computeChecksum(unsigned index) const
 
 	if (format::isScidFormat(format()))
 	{
-		mstl::string const& round = static_cast<si3::Codec const*>(m_codec)->getRoundEntry(index);
+		mstl::string const& round = static_cast<si3::Codec*>(m_codec)->getRoundEntry(index);
 		crc = ::util::crc::compute(crc, round, round.size());
 	}
 
@@ -730,7 +730,7 @@ Database::setupTags(unsigned index, TagSet& tags) const
 	gameInfo(index).setupTags(tags);
 
 	if (format::isScidFormat(format()))
-		tags.set(tag::Round, static_cast<si3::Codec const*>(m_codec)->getRoundEntry(index));
+		tags.set(tag::Round, static_cast<si3::Codec*>(m_codec)->getRoundEntry(index));
 }
 
 
