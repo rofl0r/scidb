@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 216 $
+// Date   : $Date: 2012-01-29 19:02:12 +0000 (Sun, 29 Jan 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -702,7 +702,8 @@ PgnReader::error(Error code, Pos pos, mstl::string const& item)
 	if (code == InvalidMove || !m_move.isLegal())
 		m_move.clear();
 
-	throw Interruption(code, msg);
+	if (code != TooManyRoundNames)
+		throw Interruption(code, msg);
 }
 
 
@@ -1224,8 +1225,17 @@ PgnReader::finishGame()
 		case save::TooManyPlayerNames:		fatalError(TooManyPlayerNames);
 		case save::TooManyEventNames:			fatalError(TooManyEventNames);
 		case save::TooManySiteNames:			fatalError(TooManySiteNames);
-		case save::TooManyRoundNames:			fatalError(TooManyRoundNames);
 		case save::TooManyAnnotatorNames:	fatalError(TooManyAnnotatorNames);
+
+		case save::TooManyRoundNames:
+			error(TooManyRoundNames,
+					m_currPos.line,
+					m_currPos.column,
+					m_gameCount + m_firstGameNumber,
+					mstl::string::empty_string,
+					mstl::string::empty_string,
+					mstl::string::empty_string);
+			break;
 
 		case save::GameTooLong:
 			error(GameTooLong,
@@ -1729,6 +1739,7 @@ PgnReader::checkTag(ID tag, mstl::string& value)
 			break;
 
 		case Round:
+			if (consumer().format() == format::Scidb)
 			{
 				unsigned round;
 				unsigned subround;
@@ -2849,6 +2860,10 @@ PgnReader::parseComment(Token prevToken, int c)
 				}
 			}
 		}
+
+		// TODO:
+		// "(Rd6) +1.85/17 88s"
+		// "(Kc3) Draw accepted +0.00/18 510s"
 
 		consumer().preparseComment(content);
 	}

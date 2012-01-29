@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 216 $
+// Date   : $Date: 2012-01-29 19:02:12 +0000 (Sun, 29 Jan 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -70,6 +70,8 @@ public:
 
 	bool isOpen() const;
 	bool isClosed() const;
+	bool isReadOnly() const;
+	bool isWriteable() const;
 	bool isViewOpen(unsigned view) const;
 	bool isValidView(unsigned view) const;
 	bool isReferenceBase() const;
@@ -148,6 +150,9 @@ public:
 	void clearBase();
 	/// Update the characteristics of a game.
 	void updateCharacteristics(unsigned index, db::TagSet const& tags);
+
+	// Compress the database.
+	bool compress(::util::Progress& progress);
 
 	SubscriberP subscriber() const;
 	void setSubscriber(SubscriberP subscriber);

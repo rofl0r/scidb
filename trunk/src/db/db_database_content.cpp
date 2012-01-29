@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 216 $
+// Date   : $Date: 2012-01-29 19:02:12 +0000 (Sun, 29 Jan 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -40,6 +40,19 @@ DatabaseContent::DatabaseContent(mstl::string const& encoding, Type type)
 	,m_writeable(true)
 	,m_memoryOnly(false)
 	,m_encoding(encoding)
+	,m_allocator(32768)
+{
+}
+
+
+DatabaseContent::DatabaseContent(DatabaseContent const& content)
+	:m_type(content.m_type)
+	,m_created(content.m_created)
+	,m_readOnly(content.m_readOnly)
+	,m_writeable(content.m_writeable)
+	,m_memoryOnly(false)
+	,m_description(content.m_description)
+	,m_encoding(content.m_encoding)
 	,m_allocator(32768)
 {
 }

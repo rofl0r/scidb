@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 216 $
+// Date   : $Date: 2012-01-29 19:02:12 +0000 (Sun, 29 Jan 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -206,7 +206,7 @@ string::assign(const_iterator i1, const_iterator i2)
 
 inline
 string::iterator
-string::erase(iterator first, const_iterator last)
+string::erase(const_iterator first, const_iterator last)
 {
 	M_REQUIRE(first <= last);
 	return erase(first, last - first);

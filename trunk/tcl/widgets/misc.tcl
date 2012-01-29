@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 198 $
-# Date   : $Date: 2012-01-19 10:31:50 +0000 (Thu, 19 Jan 2012) $
+# Version: $Revision: 216 $
+# Date   : $Date: 2012-01-29 19:02:12 +0000 (Sun, 29 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -35,7 +35,7 @@ set First		"&First"
 
 } ;# namespace mc
 
-set Priv(busy:state)		0
+set Priv(busy:state) 0
 
 
 set ButtonOrder { previous next update clear close ok apply cancel reset revert }

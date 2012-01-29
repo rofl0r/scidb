@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 216 $
+// Date   : $Date: 2012-01-29 19:02:12 +0000 (Sun, 29 Jan 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -215,10 +215,8 @@ private:
 
 	typedef mstl::vector<Comment> Comments;
 
-	void error(Error code, Pos pos, mstl::string const& item = mstl::string::empty_string)
-		__attribute__((noreturn));
-	void error(Error code, mstl::string const& item = mstl::string::empty_string)
-		__attribute__((noreturn));
+	void error(Error code, Pos pos, mstl::string const& item = mstl::string::empty_string);
+	void error(Error code, mstl::string const& item = mstl::string::empty_string);
 
 	void fatalError(Error code, Pos const& pos, mstl::string const& item = mstl::string::empty_string)
 		__attribute__((noreturn));

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 216 $
+// Date   : $Date: 2012-01-29 19:02:12 +0000 (Sun, 29 Jan 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -385,6 +385,18 @@ isGermanSpeakingCountry(Code code)
 }
 
 } // namespace country
+
+namespace save {
+
+inline bool isOk(State state) { return state == Ok || state == TooManyRoundNames; }
+
+} // namespace save
+
+namespace format {
+
+inline bool isScidFormat(Type type) { return type & (Scid3 | Scid4); }
+
+} // namespace format
 } // namespace db
 
 // vi:set ts=3 sw=3:

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 193 $
-# Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+# Version: $Revision: 216 $
+# Date   : $Date: 2012-01-29 19:02:12 +0000 (Sun, 29 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -104,7 +104,7 @@ set FileSizeExceeded						"Maximal file size (2GB) will be exceeded (abort)"
 set TooManyPlayerNames					"Too many player names in database (aborted)"
 set TooManyEventNames					"Too many event names in database (aborted)"
 set TooManySiteNames						"Too many site names in database (aborted)"
-set TooManyRoundNames					"Too many round names in database (aborted)"
+set TooManyRoundNames					"Too many round names in database"
 set TooManyAnnotatorNames				"Too many annotator names in database (aborted)"
 set TooManySourceNames					"Too many source names in database (aborted)"
 set SeemsNotToBePgnText					"Seems not to be PGN text"

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 215 $
-# Date   : $Date: 2012-01-29 00:12:47 +0000 (Sun, 29 Jan 2012) $
+# Version: $Revision: 216 $
+# Date   : $Date: 2012-01-29 19:02:12 +0000 (Sun, 29 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -238,6 +238,7 @@ proc update {path base size} {
 		set Vars(active:$base) -1
 		set Vars(selection:$base) -1
 	}
+	set oldSize $Vars(size)
 	set Vars(size) $size
 	::table::clear $table $Vars(size) $Vars(height)
 
@@ -800,7 +801,10 @@ proc Scroll {table action args} {
 	set last  [expr {$Vars(size) <= 1 ? 1.0 : double($start + $Vars(height))/double($Vars(size))}]
 	$Vars(scrollbar) set $first $last
 
-	if {$force || $start != $Vars(start)} {
+	if {$force} {
+		set Vars(start) $start
+		TableFill $table
+	} elseif {$start != $Vars(start)} {
 		if {abs($Vars(start) - $start) == 1} {
 			::table::activate $table none
 			if {$start < $Vars(start)} {

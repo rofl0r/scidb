@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 216 $
+// Date   : $Date: 2012-01-29 19:02:12 +0000 (Sun, 29 Jan 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -133,6 +133,12 @@ NameList::update(Namebase& base, sys::utf8::Codec& codec)
 
 	if (base.nextId() > m_lookup.size())
 		reserve(base.nextId());
+
+	for (unsigned i = 0; i < base.size(); ++i)
+	{
+		if (base.entryAt(i)->frequency() == 0)
+			m_usedIdSet.reset(base.entryAt(i)->id());
+	}
 
 	m_nextId = m_usedIdSet.find_first_not();
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // $RCSfile: tk_image.cpp,v $
-// $Revision: 193 $
-// $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// $Revision: 216 $
+// $Date: 2012-01-29 19:02:12 +0000 (Sun, 29 Jan 2012) $
 // $Author: gregor $
 // ======================================================================
 
@@ -104,6 +104,8 @@ struct Log : public db::Log
 
 		return code == save::GameTooLong;
 	}
+
+	void warning(Warning code, unsigned gameNumber) {}
 };
 
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 216 $
+// Date   : $Date: 2012-01-29 19:02:12 +0000 (Sun, 29 Jan 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -147,6 +147,7 @@ private:
 	void updateIndex(mstl::fstream& fstrm);
 	void writeIndex(mstl::fstream& fstrm, unsigned start, util::Progress& progress);
 	void writeIndexHeader(mstl::fstream& fstrm);
+	void writeNamebases(mstl::string const& filename);
 	void writeNamebases(mstl::fstream& stream);
 	void writeNamebase(util::ByteStream& bstrm, Namebase& base);
 	void writeSitebase(util::ByteStream& bstrm, Namebase& base);

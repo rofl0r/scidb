@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 216 $
+// Date   : $Date: 2012-01-29 19:02:12 +0000 (Sun, 29 Jan 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -33,9 +33,12 @@ namespace db {
 
 struct Log
 {
+	enum Warning { InvalidRoundTag, MaximalWarningCountExceeded };
+
 	virtual ~Log() throw() = 0;
 
 	virtual bool error(save::State code, unsigned gameNumber) = 0;
+	virtual void warning(Warning code, unsigned gameNumber) = 0;
 };
 
 } // namespace db

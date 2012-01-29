@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 211 $
-# Date   : $Date: 2012-01-25 22:06:21 +0000 (Wed, 25 Jan 2012) $
+# Version: $Revision: 216 $
+# Date   : $Date: 2012-01-29 19:02:12 +0000 (Sun, 29 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -282,6 +282,7 @@ proc shutdown {} {
 	variable Vars
 
 	if {[::dialog::messagebox::open?] eq "question"} { bell; return }
+	if {[llength [grab current]]} { bell; return }
 
 	set dlg .application.shutdown
 	if {[winfo exists $dlg]} { return }

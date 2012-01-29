@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 205 $
-# Date   : $Date: 2012-01-24 21:40:03 +0000 (Tue, 24 Jan 2012) $
+# Version: $Revision: 216 $
+# Date   : $Date: 2012-01-29 19:02:12 +0000 (Sun, 29 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -931,7 +931,7 @@
 ::import::mc::TooManyPlayerNames					"Too many player names in database (aborted)"
 ::import::mc::TooManyEventNames					"Too many event names in database (aborted)"
 ::import::mc::TooManySiteNames					"Too many site names in database (aborted)"
-::import::mc::TooManyRoundNames					"Too many round names in database (aborted)"
+::import::mc::TooManyRoundNames					"Too many round names in database"
 ::import::mc::TooManyAnnotatorNames				"Too many annotator names in database (aborted)"
 ::import::mc::TooManySourceNames					"Too many source names in database (aborted)"
 ::import::mc::SeemsNotToBePgnText				"Seems not to be PGN text"

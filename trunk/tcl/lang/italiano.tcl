@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 204 $
-# Date   : $Date: 2012-01-23 17:56:51 +0000 (Mon, 23 Jan 2012) $
+# Version: $Revision: 216 $
+# Date   : $Date: 2012-01-29 19:02:12 +0000 (Sun, 29 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -932,7 +932,7 @@
 ::import::mc::TooManyPlayerNames					"Troppi nomi di giocatori nel database (interrotto)"
 ::import::mc::TooManyEventNames					"Troppi nomi di eventi nel database (interrotto)"
 ::import::mc::TooManySiteNames					"Troppi nomi di siti nel database (interrotto)"
-::import::mc::TooManyRoundNames					"Troppi turni nel database (interrotto)"
+::import::mc::TooManyRoundNames					"Troppi turni nel database"
 ::import::mc::TooManyAnnotatorNames				"Troppi nomi di commentatori nel database (interrotto)"
 ::import::mc::TooManySourceNames					"Troppi nomi fonte nel database (interrotto)"
 ::import::mc::SeemsNotToBePgnText				"Potrebbe non essere un testo PGN"

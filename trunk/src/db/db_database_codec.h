@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 216 $
+// Date   : $Date: 2012-01-29 19:02:12 +0000 (Sun, 29 Jan 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -150,6 +150,7 @@ public:
 					Producer& producer,
 					util::Progress& progress);
 	void clear(mstl::string const& rootname = mstl::string::empty_string);
+	void rename(mstl::string const& oldName, mstl::string const& newName);
 	virtual void save(mstl::string const& rootname, unsigned start, util::Progress& progress);
 	virtual void update(mstl::string const& rootname, unsigned index, bool updateNamebase);
 	virtual void attach(mstl::string const& rootname, util::Progress& progress);

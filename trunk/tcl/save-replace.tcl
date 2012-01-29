@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 193 $
-# Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+# Version: $Revision: 216 $
+# Date   : $Date: 2012-01-29 19:02:12 +0000 (Sun, 29 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -375,8 +375,8 @@ proc Build {dlg base position number} {
 
 	switch $Priv(codec) {
 		si3 -
-		si4 { set excludelost 1; set twoRatings 0; set playertype 0 }
-		sci { set excludelost 0; set twoRatings 1; set playertype 1 }
+		si4 { set excludelost 1; set twoRatings 0; set playertype 0; set useStringForRound 1 }
+		sci { set excludelost 0; set twoRatings 1; set playertype 1; set useStringForRound 0 }
 	}
 
 	set Priv(twoRatings) $twoRatings
@@ -576,7 +576,7 @@ proc Build {dlg base position number} {
 
 	::widget::datebox $top.game-date -minYear $minYear -maxYear $maxYear
 	resultbox $top.game-result -excludelost $excludelost -textvar ::${dlg}::Priv(game-result)
-	roundbox $top.game-round -width 10 -textvar ::${dlg}::Priv(event-round)
+	roundbox $top.game-round -width 10 -textvar ::${dlg}::Priv(event-round) -useString $useStringForRound
 	terminationbox $top.game-termination \
 		-textvar ::${dlg}::Priv(game-termination) \
 		-state $state \

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 216 $
+// Date   : $Date: 2012-01-29 19:02:12 +0000 (Sun, 29 Jan 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -53,9 +53,9 @@ public:
 
 	Consumer(format::Type srcFormat, Codec& codec, TagBits const& allowedTags, bool allowExtraTags);
 
-private:
+	format::Type format() const override;
 
-	format::Type format() const;
+private:
 
 	void start() override;
 	void finish() override;

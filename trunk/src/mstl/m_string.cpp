@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 216 $
+// Date   : $Date: 2012-01-29 19:02:12 +0000 (Sun, 29 Jan 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -670,25 +670,27 @@ string::copy()
 
 
 string::iterator
-string::erase(iterator start, size_type n)
+string::erase(const_iterator start, size_type n)
 {
 	M_REQUIRE(n != npos);
 	M_REQUIRE(start + n <= end());
 
+	string::iterator s = const_cast<iterator>(start);
+
 	if (n > 0 && !empty())
 	{
-		size_type i = start - m_data;
+		size_type i = s - m_data;
 
 		if (readonly())
 			copy();
 
 		m_size -= n;
-		start = m_data + i;
+		s = m_data + i;
 
-		::move(start, start + n, m_size - i + 1);
+		::move(s, s + n, m_size - i + 1);
 	}
 
-	return start;
+	return s;
 }
 
 

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 204 $
-# Date   : $Date: 2012-01-23 17:56:51 +0000 (Mon, 23 Jan 2012) $
+# Version: $Revision: 216 $
+# Date   : $Date: 2012-01-29 19:02:12 +0000 (Sun, 29 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -931,7 +931,7 @@
 ::import::mc::TooManyPlayerNames					"Zuviele Spielernamen in der Datenbank (Abbruch)"
 ::import::mc::TooManyEventNames					"Zuviele Turniernamen in der Datenbank (Abbruch)"
 ::import::mc::TooManySiteNames					"Zuviele Ortsnamen in der Datenbank (Abbruch)"
-::import::mc::TooManyRoundNames					"Zuviele Rundenbezeichnungen in der Datenbank (Abbruch)"
+::import::mc::TooManyRoundNames					"Zuviele Rundenbezeichnungen in der Datenbank"
 ::import::mc::TooManyAnnotatorNames				"Zuviele Kommentatoren in der Datenbank (Abbruch)"
 ::import::mc::TooManySourceNames					"Zuviele Quellenangaben in der Datenbank (Abbruch)"
 ::import::mc::SeemsNotToBePgnText				"Dies scheint kein PGN-Text zu sein"

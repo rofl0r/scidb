@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 204 $
-# Date   : $Date: 2012-01-23 17:56:51 +0000 (Mon, 23 Jan 2012) $
+# Version: $Revision: 216 $
+# Date   : $Date: 2012-01-29 19:02:12 +0000 (Sun, 29 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -933,7 +933,7 @@
 ::import::mc::TooManyPlayerNames					"Demasiados nombres de jugadores en la base (abortado)"
 ::import::mc::TooManyEventNames					"Demasiados nombres de evento en la base (abortado)"
 ::import::mc::TooManySiteNames					"Demasiados nombres de lugares en la base (abortado)"
-::import::mc::TooManyRoundNames					"Demasiados nombres de ronda en la base (abortado)"
+::import::mc::TooManyRoundNames					"Demasiados nombres de ronda en la base"
 ::import::mc::TooManyAnnotatorNames				"Demasiados nombres de comentaristas en la base (abortado)"
 ::import::mc::TooManySourceNames					"Demasiados nombres de or’genes en la base (abortado)"
 ::import::mc::SeemsNotToBePgnText				"No parece ser un texto PGN"

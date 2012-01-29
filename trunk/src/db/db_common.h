@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 216 $
+// Date   : $Date: 2012-01-29 19:02:12 +0000 (Sun, 29 Jan 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -766,7 +766,17 @@ namespace tree
 
 namespace format
 {
-	enum Type { Scidb, Scid3, Scid4, ChessBase, Pgn, LaTeX };
+	enum Type
+	{
+		Scidb			= 1 << 0,
+		Scid3			= 1 << 1,
+		Scid4			= 1 << 2,
+		ChessBase	= 1 << 3,
+		Pgn			= 1 << 4,
+		LaTeX			= 1 << 5,
+	};
+
+	bool isScidFormat(Type type);
 }
 
 namespace encoding
@@ -1046,6 +1056,8 @@ namespace save
 		TooManyRoundNames,
 		TooManyAnnotatorNames,
 	};
+
+	bool isOk(State state);
 }
 
 
