@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 216 $
-# Date   : $Date: 2012-01-29 19:02:12 +0000 (Sun, 29 Jan 2012) $
+# Version: $Revision: 221 $
+# Date   : $Date: 2012-01-30 18:01:42 +0000 (Mon, 30 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -41,27 +41,6 @@ proc prepare {w x y width height} {
 proc map {w} {
 	variable Geometry
 	variable Mapped
-
-	# kill dangling shadows (should not happen)
-	set cls [winfo class $w]
-	foreach v [array names Mapped] {
-		if {	$cls ne "Menu"
-			|| [winfo class $v] ne "Menu"
-			|| ![winfo ismapped $v]
-			|| ![string match $v* $w]} {
-
-			set id $Mapped($v)
-			array unset Mapped $v
-
-			set b .__shadow__b__$id
-			set r .__shadow__r__$id
-
-			if {[winfo exists $b]} {
-				wm withdraw $b
-				wm withdraw $r
-			}
-		}
-	}
 
 	if {![info exists Geometry($w)]} { return }
 	set id [Create]
@@ -120,6 +99,26 @@ proc unmap {w} {
 }
 
 
+proc kill {} {
+	variable Mapped
+	variable Used
+
+	foreach w [array names Mapped] {
+		set id $Mapped($w)
+		array unset Mapped $w
+		set Used($id) 0
+
+		set b .__shadow__b__$id
+		set r .__shadow__r__$id
+
+		if {[winfo exists $b]} {
+			wm withdraw $b
+			wm withdraw $r
+		}
+	}
+}
+
+
 proc Create {} {
 	variable Used
 
@@ -160,6 +159,17 @@ proc Create {} {
 
 } ;# namespace shadow
 
+rename grab __grab__shadow
+
+proc grab {args} {
+	# sometimes Tk is "hanging" and the order of
+	# map/unmap events is confused. in this case
+	# we will kill all dangling shadows.
+	if {[lindex $args 0] eq "release"} { shadow::kill }
+
+	return [__grab__shadow {*}$args]
+}
+
 ### M E N U #####################################################################################
 
 bind Menu <Configure> {+
@@ -179,7 +189,6 @@ bind Menu <Unmap> {+
 
 	if {![string match *#menu %W]} {
 		shadow::unmap %W
-		array unset Geometry %W
 	}
 }
 

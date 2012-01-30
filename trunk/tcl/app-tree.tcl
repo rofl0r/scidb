@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 205 $
-# Date   : $Date: 2012-01-24 21:40:03 +0000 (Tue, 24 Jan 2012) $
+# Version: $Revision: 221 $
+# Date   : $Date: 2012-01-30 18:01:42 +0000 (Mon, 30 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -535,7 +535,7 @@ proc Update {table base} {
 	variable Vars
 	variable Options
 
-	if {[llength $base]} {
+	if {[string length $base]} {
 		if {$base ne $Vars(current)} { SetSwitcher $base }
 
 		if {$Options(search:automatic)} {

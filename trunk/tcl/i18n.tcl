@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 200 $
-# Date   : $Date: 2012-01-21 19:16:42 +0000 (Sat, 21 Jan 2012) $
+# Version: $Revision: 221 $
+# Date   : $Date: 2012-01-30 18:01:42 +0000 (Mon, 30 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -80,6 +80,9 @@ set Rook				"Rook"
 set Bishop			"Bishop"
 set Knight			"Knight"
 set Pawn				"Pawn"
+
+#set NotAvailableSign "\u2298"
+set NotAvailableSign "\u2370"
 
 array set EcoTrans		{}
 set EcoMatch				{}

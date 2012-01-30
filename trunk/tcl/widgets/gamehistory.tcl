@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 199 $
-# Date   : $Date: 2012-01-21 17:29:44 +0000 (Sat, 21 Jan 2012) $
+# Version: $Revision: 221 $
+# Date   : $Date: 2012-01-30 18:01:42 +0000 (Mon, 30 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -269,8 +269,8 @@ proc ShowTooltip {t x y} {
 		grid columnconfigure $f {0 2} -minsize 2
 	}
 
-	if {[llength $white] == 0} { set white "?" }
-	if {[llength $black] == 0} { set black "?" }
+	if {[string length $white] == 0} { set white "?" }
+	if {[string length $black] == 0} { set black "?" }
 	if {$event eq "-" || $event eq "?"} { set event "" }
 	if {$site eq "-" || $site eq "?"} { set site "" }
 	set date [::locale::formatNormalDate $date]
@@ -278,7 +278,7 @@ proc ShowTooltip {t x y} {
 	append evline $event
 
 	append siline $site
-	if {[llength $siline] && [llength $date]} { append siline ", " }
+	if {[string length $siline] && [string length $date]} { append siline ", " }
 	append siline $date
 
 	append coline $white
