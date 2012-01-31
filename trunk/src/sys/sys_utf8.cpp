@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 223 $
-// Date   : $Date: 2012-01-31 18:16:26 +0000 (Tue, 31 Jan 2012) $
+// Version: $Revision: 224 $
+// Date   : $Date: 2012-01-31 21:02:29 +0000 (Tue, 31 Jan 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -109,6 +109,12 @@ sys::utf8::validate(char const* str, unsigned nbytes)
 
 	return state == validate::Start;
 }
+
+
+struct IsAlpha 	{ inline bool operator()(sys::utf8::uchar uc) { return  Tcl_UniCharIsAlpha(uc); } };
+struct IsSpace		{ inline bool operator()(sys::utf8::uchar uc) { return  Tcl_UniCharIsSpace(uc); } };
+struct IsNonAlpha	{ inline bool operator()(sys::utf8::uchar uc) { return !Tcl_UniCharIsAlpha(uc); } };
+struct IsNonSpace	{ inline bool operator()(sys::utf8::uchar uc) { return !Tcl_UniCharIsSpace(uc); } };
 
 
 template <typename Func>
