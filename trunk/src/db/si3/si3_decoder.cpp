@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 204 $
-// Date   : $Date: 2012-01-23 17:56:51 +0000 (Mon, 23 Jan 2012) $
+// Version: $Revision: 222 $
+// Date   : $Date: 2012-01-31 18:15:44 +0000 (Tue, 31 Jan 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -47,6 +47,7 @@
 # include "m_stdio.h"
 #endif
 
+#include "sys_utf8.h"
 #include "sys_utf8_codec.h"
 
 using namespace db;
@@ -472,7 +473,7 @@ Decoder::decodeTags(TagSet& tags)
 							mstl::string in;
 							in.hook(reinterpret_cast<char*>(m_strm.data()), c);
 							m_codec.convertToUtf8(in, out);
-							if (!sys::utf8::Codec::validateUtf8(out))
+							if (!sys::utf8::validate(out))
 								m_codec.forceValidUtf8(out);
 							tags.setExtra(tag, b, out, c);
 						}
@@ -493,7 +494,7 @@ Decoder::decodeTags(TagSet& tags)
 							mstl::string in;
 							in.hook(reinterpret_cast<char*>(m_strm.data()), c);
 							m_codec.convertToUtf8(in, out);
-							if (!sys::utf8::Codec::validateUtf8(out))
+							if (!sys::utf8::validate(out))
 								m_codec.forceValidUtf8(out);
 
 							tags.set(id, out);
@@ -564,7 +565,7 @@ Decoder::decodeTags(TagSet& tags)
 									c = '\0';
 									in.hook(const_cast<char*>(reinterpret_cast<char const*>(m_strm.data())), b);
 									m_codec.convertToUtf8(in, out);
-									if (!sys::utf8::Codec::validateUtf8(out))
+									if (!sys::utf8::validate(out))
 										m_codec.forceValidUtf8(out);
 									tags.set(tag, out);
 									c = d;
@@ -607,7 +608,7 @@ Decoder::decodeComments(MoveNode* node, Consumer* consumer)
 
 		if (!content.empty())
 		{
-			if (!sys::utf8::Codec::validateUtf8(buffer))
+			if (!sys::utf8::validate(buffer))
 				m_codec.forceValidUtf8(buffer);
 
 			if (Comment::convertCommentToXml(buffer, comment, encoding::Utf8))
@@ -639,7 +640,7 @@ Decoder::decodeComments(MoveNode* node, Consumer* consumer)
 					buffer.clear();
 					m_codec.toUtf8(content, buffer);
 
-					if (!sys::utf8::Codec::validateUtf8(buffer))
+					if (!sys::utf8::validate(buffer))
 						m_codec.forceValidUtf8(buffer);
 
 					if (Comment::convertCommentToXml(buffer, comment, encoding::Utf8))
@@ -697,7 +698,7 @@ Decoder::decodeComments(MoveNode* node, Consumer* consumer)
 				{
 					m_codec.toUtf8(content, buffer);
 
-					if (!sys::utf8::Codec::validateUtf8(buffer))
+					if (!sys::utf8::validate(buffer))
 						m_codec.forceValidUtf8(buffer);
 
 					if (Comment::convertCommentToXml(buffer, comment, encoding::Utf8))

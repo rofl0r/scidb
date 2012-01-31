@@ -1,7 +1,7 @@
 // ======================================================================
 // $RCSfile: tk_image.cpp,v $
-// $Revision: 216 $
-// $Date: 2012-01-29 19:02:12 +0000 (Sun, 29 Jan 2012) $
+// $Revision: 222 $
+// $Date: 2012-01-31 18:15:44 +0000 (Tue, 31 Jan 2012) $
 // $Author: gregor $
 // ======================================================================
 
@@ -93,7 +93,7 @@ struct Log : public db::Log
 			case save::TooManyEventNames:			msg = "Too many event names"; break;
 			case save::TooManySiteNames:			msg = "Too many site names"; break;
 			case save::TooManyRoundNames:			msg = "Too many round names"; break;
-			case save::TooManyAnnotatorNames:	msg = "Too many annotator names"; break;
+			case save::TooManyAnnotatorNames:	return true; // cannot happen
 		}
 
 		::fprintf(	stderr,

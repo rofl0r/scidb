@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 222 $
+// Date   : $Date: 2012-01-31 18:15:44 +0000 (Tue, 31 Jan 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -31,14 +31,6 @@ bool
 Codec::is7BitAscii(mstl::string const& s)
 {
 	return is7BitAscii(s.c_str(), s.size());
-}
-
-
-inline
-bool
-Codec::validateUtf8(mstl::string const& utf8)
-{
-	return validateUtf8(utf8, utf8.size());
 }
 
 

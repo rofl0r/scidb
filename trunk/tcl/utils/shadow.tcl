@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 221 $
-# Date   : $Date: 2012-01-30 18:01:42 +0000 (Mon, 30 Jan 2012) $
+# Version: $Revision: 222 $
+# Date   : $Date: 2012-01-31 18:15:44 +0000 (Tue, 31 Jan 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -41,6 +41,11 @@ proc prepare {w x y width height} {
 proc map {w} {
 	variable Geometry
 	variable Mapped
+
+	# sometimes Tk is "hanging" and the order of
+	# map/unmap events is confused.
+	if {[string length [grab current]] == 0} { return }
+	if {![string match [grab current]* $w]}  { return }
 
 	if {![info exists Geometry($w)]} { return }
 	set id [Create]

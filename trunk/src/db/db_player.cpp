@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 222 $
+// Date   : $Date: 2012-01-31 18:15:44 +0000 (Tue, 31 Jan 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -26,6 +26,7 @@
 
 #include "db_player.h"
 
+#include "sys_utf8.h"
 #include "sys_utf8_codec.h"
 
 #include "m_hash.h"
@@ -840,7 +841,7 @@ Player::newPlayer(mstl::string const& name,
 						sex::ID sex)
 {
 	M_ASSERT(!name.empty());
-	M_ASSERT(sys::utf8::Codec::validateUtf8(name));
+	M_ASSERT(sys::utf8::validate(name));
 	M_ASSERT(sys::utf8::Codec::is7BitAscii(ascii));
 
 	mstl::string key, key2;
@@ -1012,7 +1013,7 @@ Player::newAlias(mstl::string const& name, mstl::string const& ascii, Player* pl
 {
 	M_ASSERT(player);
 	M_ASSERT(!name.empty());
-	M_ASSERT(sys::utf8::Codec::validateUtf8(name));
+	M_ASSERT(sys::utf8::validate(name));
 	M_ASSERT(sys::utf8::Codec::is7BitAscii(ascii));
 
 	mstl::string key, key2;
@@ -1163,7 +1164,7 @@ Player::replaceName(mstl::string const& name, mstl::string const& ascii, Player*
 {
 	M_ASSERT(player);
 	M_ASSERT(!name.empty());
-	M_ASSERT(sys::utf8::Codec::validateUtf8(name));
+	M_ASSERT(sys::utf8::validate(name));
 	M_ASSERT(sys::utf8::Codec::is7BitAscii(ascii));
 
 	bool found = false;

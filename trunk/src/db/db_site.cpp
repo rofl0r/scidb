@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 222 $
+// Date   : $Date: 2012-01-31 18:15:44 +0000 (Tue, 31 Jan 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -26,6 +26,7 @@
 
 #include "db_site.h"
 
+#include "sys_utf8.h"
 #include "sys_utf8_codec.h"
 
 #include "m_hash.h"
@@ -258,7 +259,7 @@ Site*
 Site::newSite(mstl::string const& name, unsigned region, country::Code country, bool isCountryName)
 {
 	M_ASSERT(!name.empty());
-	M_ASSERT(sys::utf8::Codec::validateUtf8(name));
+	M_ASSERT(sys::utf8::validate(name));
 	M_ASSERT(region <= 6);
 
 	mstl::string buf;
@@ -359,7 +360,7 @@ Site::newAlias(mstl::string const& name,
 {
 	M_ASSERT(name);
 	M_ASSERT(site);
-	M_ASSERT(sys::utf8::Codec::validateUtf8(name));
+	M_ASSERT(sys::utf8::validate(name));
 	M_ASSERT(region <= 6);
 
 	mstl::string buf;

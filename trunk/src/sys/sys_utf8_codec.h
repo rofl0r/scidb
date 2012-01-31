@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 222 $
+// Date   : $Date: 2012-01-31 18:15:44 +0000 (Tue, 31 Jan 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -64,8 +64,6 @@ public:
 
 	static bool is7BitAscii(mstl::string const& s);
 	static bool is7BitAscii(char const* s, unsigned nbytes);
-	static bool validateUtf8(mstl::string const& utf8);
-	static bool validateUtf8(char const* utf8, unsigned nbytes);
 	static bool caseMatch(	mstl::string const& lhs,
 									mstl::string const& rhs,
 									unsigned size);
@@ -75,10 +73,6 @@ public:
 	static bool fitsRegion(mstl::string const& s, unsigned region);
 	static int compare(mstl::string const& lhs, mstl::string const& rhs);
 	static int casecmp(mstl::string const& lhs, mstl::string const& rhs);
-	static unsigned countUtfChars(mstl::string const& s);
-	static unsigned utfCharLength(char const* s);
-	static char const* utfNextChar(char const* s);
-	static char const* utfNextChar(char const* s, uint16_t& code);
 	static unsigned levenstein(mstl::string const& lhs,
 										mstl::string const& rhs,
 										unsigned ins = 2,

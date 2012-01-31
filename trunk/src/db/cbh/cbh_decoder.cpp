@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 222 $
+// Date   : $Date: 2012-01-31 18:15:44 +0000 (Tue, 31 Jan 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -42,6 +42,7 @@
 #include "u_byte_stream.h"
 #include "u_bit_stream.h"
 
+#include "sys_utf8.h"
 #include "sys_utf8_codec.h"
 
 #include "m_vector.h"
@@ -692,7 +693,7 @@ Decoder::decodeComment(MoveNode* node, unsigned length, move::Position position)
 		// TODO: use character encoding according to language code ?!
 		m_codec.toUtf8(str);
 
-		if (!sys::utf8::Codec::validateUtf8(str))
+		if (!sys::utf8::validate(str))
 			m_codec.forceValidUtf8(str);
 
 		if (useXml)
