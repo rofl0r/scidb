@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 168 $
-// Date   : $Date: 2012-01-04 02:01:05 +0000 (Wed, 04 Jan 2012) $
+// Version: $Revision: 226 $
+// Date   : $Date: 2012-02-05 22:00:47 +0000 (Sun, 05 Feb 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2141,6 +2141,7 @@ allocateNewFont(clientData)
     Tk_GetFontMetrics(tkfont, &pFont->metrics);
     pFont->ex_pixels = Tk_TextWidth(tkfont, "x", 1);
     pFont->space_pixels = Tk_TextWidth(tkfont, " ", 1);
+    pFont->hyphen_pixels = Tk_TextWidth(tkfont, "-", 1);
 
     /* Set the number of pixels to be used for 1 "em" unit for this font.
      * Setting the em-pixels to the ascent + the descent worked Ok for

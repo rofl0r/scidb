@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 222 $
-// Date   : $Date: 2012-01-31 18:15:44 +0000 (Tue, 31 Jan 2012) $
+// Version: $Revision: 226 $
+// Date   : $Date: 2012-02-05 22:00:47 +0000 (Sun, 05 Feb 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -47,14 +47,6 @@ mstl::string const&
 Codec::encoding() const
 {
 	return m_encoding;
-}
-
-
-inline
-bool
-Codec::isSimilar(mstl::string const& lhs, mstl::string const& rhs, unsigned threshold)
-{
-	return levenstein(lhs, rhs) < threshold;
 }
 
 } // namespace utf8

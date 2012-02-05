@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 226 $
+// Date   : $Date: 2012-02-05 22:00:47 +0000 (Sun, 05 Feb 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -281,6 +281,10 @@
 
 #if !HAVE_0X_EXPLICIT_VIRTUAL_OVERRRIDES
 # define override
+#endif
+
+#if !HAVE_0X_ALLOWING_MOVE_CONSTRUCTORS_TO_THROW
+# define noexcept
 #endif
 
 #if !HAVE_0X_STATIC_ASSERTIONS

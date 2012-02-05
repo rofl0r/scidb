@@ -6,7 +6,7 @@
 // ======================================================================
 
 // ======================================================================
-// Copyright: (C) 2009-2012 Gregor Cramer
+// Copyright: (C) 2012 Gregor Cramer
 // ======================================================================
 
 // ======================================================================
@@ -16,19 +16,28 @@
 // (at your option) any later version.
 // ======================================================================
 
-#include "m_string.h"
+#include "m_exception.h"
 
-inline bool sys::utf8::isFirst(char c)	{ return (c & 0xc0) != 0x80; }
-inline bool sys::utf8::isTail(char c)	{ return (c & 0xc0) == 0x80; }
+namespace util {
+namespace html {
 
-inline bool sys::utf8::validate(mstl::string const& str) { return validate(str, str.size()); }
+inline mstl::string const& Hyphenate::result() const	{ return m_result; }
+
+
+inline bool Search::tooManyMatches() const				{ return m_tooManyMatches; }
+inline unsigned Search::countMatches() const				{ return m_posList.size(); }
+inline mstl::string const& Search::title() const		{ return m_title; }
 
 
 inline
-bool
-sys::utf8::isSimilar(mstl::string const& lhs, mstl::string const& rhs, unsigned threshold)
+unsigned
+Search::matchPosition(unsigned i) const
 {
-	return levenstein(lhs, rhs) < threshold;
+	M_REQUIRE(i < countMatches());
+	return m_posList[i];
 }
+
+} // namespace html
+} // namespace util
 
 // vi:set ts=3 sw=3:

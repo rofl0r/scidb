@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 211 $
-# Date   : $Date: 2012-01-25 22:06:21 +0000 (Wed, 25 Jan 2012) $
+# Version: $Revision: 226 $
+# Date   : $Date: 2012-02-05 22:00:47 +0000 (Sun, 05 Feb 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -60,6 +60,7 @@ proc Build {w args} {
 		-center				no
 		-imagecmd			{}
 		-doublebuffer		yes
+		-showhyphens		0
 		-delay				0
 		-css					{}
 	}
@@ -73,7 +74,7 @@ proc Build {w args} {
 			-delay - -css - -center {}
 
 			-imagecmd - -doublebuffer - -exportselection -
-			-selectbackground - -selectforeground -
+			-selectbackground - -selectforeground - -showhyphens -
 			-inactiveselectbackground - -inactiveselectforeground {
 				set value $opts($name)
 				if {[llength $value]} { lappend htmlOptions $name $value }

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 204 $
-# Date   : $Date: 2012-01-23 17:56:51 +0000 (Mon, 23 Jan 2012) $
+# Version: $Revision: 226 $
+# Date   : $Date: 2012-02-05 22:00:47 +0000 (Sun, 05 Feb 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -580,6 +580,7 @@ proc validatePath {path} {
 	}
 	if {[string match {*[\"\\\/:\*<>\?%\|]*} $path]} {
 		# possibly we should avoid "[]+=,;", too
+		# especially ';' should be avoided!?
 		return 0
 	}
 	return 1

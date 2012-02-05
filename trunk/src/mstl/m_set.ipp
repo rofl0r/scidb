@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 226 $
+// Date   : $Date: 2012-02-05 22:00:47 +0000 (Sun, 05 Feb 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -37,6 +37,15 @@ template <typename T> inline typename set<T>::iterator set<T>::end()					{ retur
 template <typename T> inline typename set<T>::const_iterator set<T>::end() const	{ return m_v.end(); }
 
 template <typename T> inline bool set<T>::contains(const_reference v) const { return find(v) != end(); }
+
+
+template <typename T>
+inline
+typename set<T>::container_type const&
+set<T>::container() const
+{
+	return m_v;
+}
 
 
 template <typename V>

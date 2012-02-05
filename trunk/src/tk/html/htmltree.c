@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 181 $
-// Date   : $Date: 2012-01-10 19:04:42 +0000 (Tue, 10 Jan 2012) $
+// Version: $Revision: 226 $
+// Date   : $Date: 2012-02-05 22:00:47 +0000 (Sun, 05 Feb 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2240,7 +2240,7 @@ nodeTextCommand(interp, pNode, objc, objv)
         HtmlCallbackLayout(pTree, pNode);
 
         zNew = Tcl_GetStringFromObj(objv[3], &nNew);
-        pNew = HtmlTextNew(nNew, zNew, 0, 0);
+        pNew = HtmlTextNew(pTree, nNew, zNew, 0, 0);
 
         /* Copy the base class attributes to the new HtmlTextNode */
         memcpy(pNew, pNode, sizeof(HtmlNode));

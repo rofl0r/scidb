@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 222 $
-// Date   : $Date: 2012-01-31 18:15:44 +0000 (Tue, 31 Jan 2012) $
+// Version: $Revision: 226 $
+// Date   : $Date: 2012-02-05 22:00:47 +0000 (Sun, 05 Feb 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -128,14 +128,14 @@ operator<(SiteList::value_type const& lhs, mstl::string const& rhs)
 static int
 cmpAssoc(SiteList::value_type const* lhs, SiteList::value_type const* rhs)
 {
-	return sys::utf8::Codec::compare(lhs->first, rhs->first);
+	return sys::utf8::compare(lhs->first, rhs->first);
 }
 
 
 static int
 cmpMatch(Site::Matches::value_type const* lhs, Site::Matches::value_type const* rhs)
 {
-	return sys::utf8::Codec::compare(lhs->second->name(), rhs->second->name());
+	return sys::utf8::compare(lhs->second->name(), rhs->second->name());
 }
 
 

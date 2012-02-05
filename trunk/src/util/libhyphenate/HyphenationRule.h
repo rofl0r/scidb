@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 224 $
-// Date   : $Date: 2012-01-31 21:02:29 +0000 (Tue, 31 Jan 2012) $
+// Version: $Revision: 226 $
+// Date   : $Date: 2012-02-05 22:00:47 +0000 (Sun, 05 Feb 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -37,7 +37,7 @@
 #include "m_string.h"
 #include "m_vector.h"
 
-namespace Hyphenate
+namespace hyphenate
 {
 	/// The HyphenationRule class represents a single Hyphenation Rule, that
 	/// is, a pattern that has a number assigned to each letter and will,

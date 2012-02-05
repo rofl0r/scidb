@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 216 $
-// Date   : $Date: 2012-01-29 19:02:12 +0000 (Sun, 29 Jan 2012) $
+// Version: $Revision: 226 $
+// Date   : $Date: 2012-02-05 22:00:47 +0000 (Sun, 05 Feb 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -313,8 +313,22 @@ string::find_last_not_of(string const& s, size_type pos) const
 }
 
 
-inline bool operator==(string const& lhs, string const& rhs) { return ::strcmp(lhs, rhs) == 0; }
-inline bool operator!=(string const& lhs, string const& rhs) { return ::strcmp(lhs, rhs) != 0; }
+inline
+bool
+operator==(string const& lhs, string const& rhs)
+{
+	return lhs.size() == rhs.size() && ::strcmp(lhs, rhs) == 0;
+}
+
+
+inline
+bool
+operator!=(string const& lhs, string const& rhs)
+{
+	return lhs.size() != rhs.size() || ::strcmp(lhs, rhs) != 0;
+}
+
+
 inline bool operator<=(string const& lhs, string const& rhs) { return ::strcmp(lhs, rhs) <= 0; }
 inline bool operator< (string const& lhs, string const& rhs) { return ::strcmp(lhs, rhs) <  0; }
 inline bool operator>=(string const& lhs, string const& rhs) { return ::strcmp(lhs, rhs) >= 0; }

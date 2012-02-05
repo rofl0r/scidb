@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 224 $
-// Date   : $Date: 2012-01-31 21:02:29 +0000 (Tue, 31 Jan 2012) $
+// Version: $Revision: 226 $
+// Date   : $Date: 2012-02-05 22:00:47 +0000 (Sun, 05 Feb 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -41,16 +41,16 @@
 
 namespace mstl { class istream; }
 
-namespace Hyphenate
+namespace hyphenate
 {
-	class HyphenationNode;
-
 	/// \class HyphenationTree
 	/// \brief The root for a tree of HyphenationNodes.
 
 	class HyphenationTree
 	{
 	private:
+
+		class HyphenationNode;
 
 		HyphenationNode* root;
 		unsigned start_safe, end_safe;

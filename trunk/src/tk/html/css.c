@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 181 $
-// Date   : $Date: 2012-01-10 19:04:42 +0000 (Tue, 10 Jan 2012) $
+// Version: $Revision: 226 $
+// Date   : $Date: 2012-02-05 22:00:47 +0000 (Sun, 05 Feb 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -4021,7 +4021,7 @@ generateContentText(pTree, zContent)
     HtmlTree *pTree;
     const char *zContent;
 {
-    HtmlTextNode *pTextNode = HtmlTextNew(strlen(zContent), zContent, 0, 0);
+    HtmlTextNode *pTextNode = HtmlTextNew(pTree, strlen(zContent), zContent, 0, 0);
     return pTextNode;
 }
 

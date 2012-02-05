@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 226 $
+// Date   : $Date: 2012-02-05 22:00:47 +0000 (Sun, 05 Feb 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -69,10 +69,24 @@ struct signed_arithmetic<0>
 template<typename T>
 inline
 typename mstl::remove_reference<T>::type&&
-move(T&& t)
+move(T&& t) noexcept
 {
 	return static_cast<typename mstl::remove_reference<T>::type&&>(t);
 }
+
+
+template<typename T>
+inline
+T&&
+forward(typename mstl::remove_reference<T>::type& t) noexcept
+{
+	return static_cast<T&&>(t);
+}
+
+#else
+
+template<typename T> typename mstl::remove_reference<T>::type& move(T& t)		{ return t; }
+template<typename T> T& forward(typename mstl::remove_reference<T>::type& t)	{ return t; }
 
 #endif
 

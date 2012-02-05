@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 226 $
+// Date   : $Date: 2012-02-05 22:00:47 +0000 (Sun, 05 Feb 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -83,13 +83,19 @@ template <typename T> ptrdiff_t distance(T first, T last);
 
 #if USE_0X_STANDARD
 
-template<typename T> typename mstl::remove_reference<T>::type&& move(T&& t);
+template<typename T> typename mstl::remove_reference<T>::type&& move(T&& t) noexcept;
+template<typename T> T&& forward(typename mstl::remove_reference<T>::type& t) noexcept;
 
-# define M_CXX_MOVE(x) ::mstl::move(x)
+# define M_CXX_MOVE(x) 		::mstl::move(x)
+# define M_CXX_FORWARD(c)	::mstl::forward(x)
 
 #else
 
-# define M_CXX_MOVE(x) (x)
+template<typename T> typename mstl::remove_reference<T>::type& move(T& t);
+template<typename T> T& forward(typename mstl::remove_reference<T>::type& t);
+
+# define M_CXX_MOVE(x)		(x)
+# define M_CXX_FORWARD(x)	(x)
 
 #endif
 
