@@ -1,7 +1,7 @@
 ## ======================================================================
 # Author : $Author$
-# Version: $Revision: 228 $
-# Date   : $Date: 2012-02-06 21:27:25 +0000 (Mon, 06 Feb 2012) $
+# Version: $Revision: 229 $
+# Date   : $Date: 2012-02-06 21:45:10 +0000 (Mon, 06 Feb 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1138,7 +1138,7 @@ proc BuildHtmlFrame {dlg w} {
 		-exportselection yes \
 		-css $css \
 		-showhyphens 1 \
-		-latinligatures 0 \
+		-latinligatures 1 \
 		;
 
 	bind $w <<LanguageChanged>> [namespace code ReloadCurrentPage]

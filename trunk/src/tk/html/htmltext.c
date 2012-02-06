@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 228 $
-// Date   : $Date: 2012-02-06 21:27:25 +0000 (Mon, 06 Feb 2012) $
+// Version: $Revision: 229 $
+// Date   : $Date: 2012-02-06 21:45:10 +0000 (Mon, 06 Feb 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2365,10 +2365,6 @@ buildLigatures(tree, font, zText, numBytes, buffer)
     const unsigned char* zEnd;
     const unsigned char* zNext;
 
-    if (!tree->options.latinligatures) {
-        return zText;
-    }
-
     if (!font->has_ligatures) {
         return zText;
     }
@@ -2419,16 +2415,26 @@ buildLigatures(tree, font, zText, numBytes, buffer)
                 }
             }
 
-            if (font->ligature[ii]) {
-                int nchars = zNext - zLast;
-                memcpy(zInsert, zLast, nchars);
-                zInsert += nchars;
+            int nchars = zNext - zLast;
+            memcpy(zInsert, zLast, nchars);
+            zInsert += nchars;
+
+            if (tree->options.latinligatures && font->ligature[ii]) {
                 zInsert[0] = 0xEF;
                 zInsert[1] = 0xAC;
                 zInsert[2] = 0x80 + ii;
                 zInsert += 3;
-                zLast = ++zPos;
+            } else {
+                zInsert[0] = zNext[0];
+                zInsert[1] = zNext[4];
+                zInsert += 2;
+
+                if (ii == 3 || ii == 4) {
+                    *zInsert++ = zNext[8];
+                }
             }
+
+            zLast = ++zPos;
         }
 
         zNext = findZeroWidthSpace(zPos, zEnd);
