@@ -1,7 +1,7 @@
 ## ======================================================================
 # Author : $Author$
-# Version: $Revision: 226 $
-# Date   : $Date: 2012-02-05 22:00:47 +0000 (Sun, 05 Feb 2012) $
+# Version: $Revision: 228 $
+# Date   : $Date: 2012-02-06 21:27:25 +0000 (Mon, 06 Feb 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1121,7 +1121,7 @@ proc BuildHtmlFrame {dlg w} {
 		:hover   { text-decoration: underline; background: yellow; }
 		.match	{ background: yellow; color: black; }
 		html		{ font-family: [join $textFamilies ","]; }
-		pre, tt	{ font-family: [join $monoFamilies ","]; }
+		pre, tt, code { font-family: [join $monoFamilies ","]; }
 	"
 
 	# build HTML widget
@@ -1138,6 +1138,7 @@ proc BuildHtmlFrame {dlg w} {
 		-exportselection yes \
 		-css $css \
 		-showhyphens 1 \
+		-latinligatures 0 \
 		;
 
 	bind $w <<LanguageChanged>> [namespace code ReloadCurrentPage]

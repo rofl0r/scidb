@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 226 $
-// Date   : $Date: 2012-02-05 22:00:47 +0000 (Sun, 05 Feb 2012) $
+// Version: $Revision: 228 $
+// Date   : $Date: 2012-02-06 21:27:25 +0000 (Mon, 06 Feb 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -20,6 +20,7 @@
 
 inline bool sys::utf8::isFirst(char c)	{ return (c & 0xc0) != 0x80; }
 inline bool sys::utf8::isTail(char c)	{ return (c & 0xc0) == 0x80; }
+inline bool sys::utf8::isAscii(char c)	{ return (c & 0x80) == 0x00; }
 
 inline bool sys::utf8::validate(mstl::string const& str) { return validate(str, str.size()); }
 

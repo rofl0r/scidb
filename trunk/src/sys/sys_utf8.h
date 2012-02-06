@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 226 $
-// Date   : $Date: 2012-02-05 22:00:47 +0000 (Sun, 05 Feb 2012) $
+// Version: $Revision: 228 $
+// Date   : $Date: 2012-02-06 21:27:25 +0000 (Mon, 06 Feb 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -36,6 +36,8 @@ bool validate(char const* str, unsigned nbytes);
 
 bool isAlpha(uchar uc);
 bool isSpace(uchar uc);
+
+bool isAscii(char c);
 
 uchar toLower(uchar uc);
 uchar toUpper(uchar uc);

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 226 $
-// Date   : $Date: 2012-02-05 22:00:47 +0000 (Sun, 05 Feb 2012) $
+// Version: $Revision: 228 $
+// Date   : $Date: 2012-02-06 21:27:25 +0000 (Mon, 06 Feb 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -78,6 +78,9 @@ struct HtmlFont {
     int space_pixels;      /* Pixels per space (' ') in this font */
     int hyphen_pixels;     /* Pixels per hyphen ('-') in this font */
     Tk_FontMetrics metrics;
+
+    char has_ligatures;
+    unsigned char ligature[7]; /* Ligature table 0xFB00-0xFB06 */
 
     HtmlFont *pNext;       /* Next entry in the Html.FontCache LRU list */
 };

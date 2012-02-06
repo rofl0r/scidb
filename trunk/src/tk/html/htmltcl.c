@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 226 $
-// Date   : $Date: 2012-02-05 22:00:47 +0000 (Sun, 05 Feb 2012) $
+// Version: $Revision: 228 $
+// Date   : $Date: 2012-02-06 21:27:25 +0000 (Mon, 06 Feb 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1415,6 +1415,7 @@ configureCmd(clientData, interp, objc, objv)
         BOOLEAN(forcefontmetrics, "forceFontMetrics", "ForceFontMetrics", "1", F_MASK),
         BOOLEAN(forcewidth, "forceWidth", "ForceWidth", "0", L_MASK),
         BOOLEAN(doublebuffer, "doubleBuffer", "DoubleBuffer", "0", 0),
+        BOOLEAN(latinligatures, "latinLigatures", "LatinLigatures", "0", F_MASK),
         BOOLEAN(exportselection, "exportSelection", "ExportSelection", "0", 0),
         BOOLEAN(xhtml, "xhtml", "xhtml", "0", 0),
 

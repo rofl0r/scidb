@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 226 $
-// Date   : $Date: 2012-02-05 22:00:47 +0000 (Sun, 05 Feb 2012) $
+// Version: $Revision: 228 $
+// Date   : $Date: 2012-02-06 21:27:25 +0000 (Mon, 06 Feb 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -424,6 +424,7 @@ struct HtmlOptions {
     int       forcefontmetrics;
     int       forcewidth;
     int       doublebuffer;
+    int       latinligatures;
     int       exportselection;
     Tcl_Obj  *imagecmd;
     int       imagecache;
@@ -933,6 +934,13 @@ void HtmlInitTree(HtmlTree *);
  */
 HtmlTextNode * HtmlTextNew(HtmlTree*, int, const char *, int, int);
 void           HtmlTextFree(HtmlTextNode *);
+
+/*
+ * Replacment functions for Tk_TextWidth() and Tk_DrawChars.
+ */
+int HtmlTextWidth(HtmlTree*, HtmlFont*, const unsigned char*, int);
+int HtmlMeasureChars(HtmlTree*, HtmlFont*, const unsigned char*, int, int);
+void HtmlDrawChars(HtmlTree*, Drawable, GC, HtmlFont*, const unsigned char*, int, int, int, int);
 
 /* The details of this structure should be considered private to
  * htmltext.c. They are here because other code needs to know the
