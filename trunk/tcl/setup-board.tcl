@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 199 $
-# Date   : $Date: 2012-01-21 17:29:44 +0000 (Sat, 21 Jan 2012) $
+# Version: $Revision: 230 $
+# Date   : $Date: 2012-02-07 00:07:14 +0000 (Tue, 07 Feb 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -334,10 +334,11 @@ proc open {parent} {
 			set [namespace current]::_FlipSide "$::mc::White \u2194 $::mc::Black"
 		}
 
-		trace add variable ::mc::White write [namespace code SetupVars]
-		trace add variable ::mc::Black write [namespace code SetupVars]
-		trace add variable ::mc::King write [namespace code SetupVars]
-		trace add variable ::mc::Queen write [namespace code SetupVars]
+		set cmd [namespace code SetupVars]
+		foreach piece {White Black King Queen} {
+			trace remove variable ::mc::$piece write $cmd
+			trace add variable ::mc::$piece write $cmd
+		}
 
 		SetupVars
 	}

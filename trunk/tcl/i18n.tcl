@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 221 $
-# Date   : $Date: 2012-01-30 18:01:42 +0000 (Mon, 30 Jan 2012) $
+# Version: $Revision: 230 $
+# Date   : $Date: 2012-02-07 00:07:14 +0000 (Tue, 07 Feb 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -308,7 +308,9 @@ proc setLang {id} {
 proc var {var str} {
 	if {![info exists ${var}_($str)]} {
 		set ${var}_($str) "[set $var]$str"
-		trace add variable $var write "[namespace current]::SetVar $str"
+		set cmd "[namespace current]::SetVar $str"
+		trace remove variable $var write $cmd
+		trace add variable $var write $cmd
 	}
 	return ${var}_($str)
 }
@@ -317,7 +319,9 @@ proc var {var str} {
 proc stripped {var} {
 	if {![info exists ${var}_()]} {
 		set ${var}_() [stripAmpersand [set $var]]
-		trace add variable $var write [namespace current]::SetStripped
+		set cmd [namespace current]::SetStripped
+		trace remove variable $var write $cmd
+		trace add variable $var write $cmd
 	}
 	return ${var}_()
 }

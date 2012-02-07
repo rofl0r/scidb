@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 193 $
-# Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+# Version: $Revision: 230 $
+# Date   : $Date: 2012-02-07 00:07:14 +0000 (Tue, 07 Feb 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -222,6 +222,7 @@ proc activate {w menu flag} {
 		if {$Index >= 0} {
 			::menu::entryconfigure $menu $Index
 			set cmd "[namespace current]::ToolbarChanged $menu $Index"
+			trace remove variable ::toolbar::mc::Toolbar write $cmd
 			trace add variable ::toolbar::mc::Toolbar write $cmd
 		}
 		focus $Vars(widget:frame)

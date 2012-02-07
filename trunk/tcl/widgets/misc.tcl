@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 216 $
-# Date   : $Date: 2012-01-29 19:02:12 +0000 (Sun, 29 Jan 2012) $
+# Version: $Revision: 230 $
+# Date   : $Date: 2012-02-07 00:07:14 +0000 (Tue, 07 Feb 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -75,6 +75,7 @@ proc textPreventSelection {w} {
 proc notebookTextvarHook {nb id var {args {}}} {
 	SetNotebookLabel $nb $id $var $args
 	set cmd [list [namespace current]::SetNotebookLabel $nb $id $var $args]
+	trace remove variable $var write $cmd
 	trace add variable $var write $cmd
 	bind $nb <Destroy> "+
 		if {{$nb} eq {%W}} { trace remove variable $var write {$cmd} }
@@ -85,6 +86,7 @@ proc notebookTextvarHook {nb id var {args {}}} {
 proc menuTextvarHook {m index var {args {}}} {
 	SetMenuLabel $m $index $var $args
 	set cmd [list [namespace current]::SetMenuLabel $m $index $var $args]
+	trace remove variable $var write $cmd
 	trace add variable $var write $cmd
 #	For some reasons this callback will be called although the menu is not destroyed
 #	(possibly some kind of copy operation).
@@ -228,6 +230,7 @@ proc buttonSetText {w var args} {
 	}
 
 	set cmd "[namespace current]::buttonSetText $w $var"
+	trace remove variable $var write $cmd
 	trace add variable $var write $cmd
 	bind $w <Destroy> "+
 		if {\"$w\" eq \"%W\"} {
