@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 234 $
+// Date   : $Date: 2012-02-07 23:03:07 +0000 (Tue, 07 Feb 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -19,8 +19,7 @@
 #ifndef u_zstream_included
 #define u_zstream_included
 
-#include "m_istream.h"
-#include "m_ostream.h"
+#include "m_iostream.h"
 #include "m_vector.h"
 #include "m_string.h"
 
@@ -32,7 +31,7 @@ extern "C"
 
 namespace util {
 
-class ZStream : public mstl::istream, public mstl::ostream
+class ZStream : public mstl::iostream
 {
 public:
 
@@ -59,7 +58,7 @@ public:
 	static void setZipFileSuffixes(Strings const& suffixes);
 	static Strings const& zipFileSuffixes();
 
-	// is public because of technical reasons
+	// is public due to technical reasons
 	struct Handle
 	{
 		union
@@ -69,10 +68,12 @@ public:
 				struct zzip_dir*	dir;
 				struct zzip_file*	file;
 			};
+
 			void* handle;
 		};
-		Mode					mode;
-		Strings const*		suffixes;
+
+		Mode				mode;
+		Strings const*	suffixes;
 
 		Handle();
 	};

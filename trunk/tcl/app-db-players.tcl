@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 193 $
-# Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+# Version: $Revision: 234 $
+# Date   : $Date: 2012-02-07 23:03:07 +0000 (Tue, 07 Feb 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -55,11 +55,7 @@ proc build {parent} {
 	lappend Tables $top
 
 	set lt ${top}.players
-
-	set rt [tk::panedwindow $top.info \
-		-orient vertical \
-		-opaqueresize true \
-		-borderwidth 0]
+	set rt ${top}.info
 
 	set gl ${rt}.games
 	set ev ${rt}.events
@@ -77,6 +73,8 @@ proc build {parent} {
 		-selectcmd [list [namespace current]::players::Search $top] \
 		-usefind 1 \
 		;
+
+	tk::panedwindow $rt -orient vertical -opaqueresize true -borderwidth 0
 	set columns {white whiteElo black blackElo event result date length}
 	::gametable::build $gl [namespace code [list View $top]] $columns
 	set columns {event eventType eventDate eventMode timeMode eventCountry site}

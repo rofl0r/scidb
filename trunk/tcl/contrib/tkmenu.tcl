@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 201 $
-# Date   : $Date: 2012-01-21 23:50:31 +0000 (Sat, 21 Jan 2012) $
+# Version: $Revision: 234 $
+# Date   : $Date: 2012-02-07 23:03:07 +0000 (Tue, 07 Feb 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -447,6 +447,11 @@ proc ::tk::MenuUnpost menu {
         unset -nocomplain Priv(postCascade)
         unset -nocomplain Priv($menu:postIndex)
     }
+
+    ### FEATURE begin ############################################################
+    # Firstly unmap the drop-shadow to avoid glitches.
+    catch { ::shadow::unmap $menu }
+    ### FEATURE end ##############################################################
 
     ### FIX begin ################################################################
     # It's important to invoke all pending mapping events, otherwise it may happen
