@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 226 $
-// Date   : $Date: 2012-02-05 22:00:47 +0000 (Sun, 05 Feb 2012) $
+// Version: $Revision: 235 $
+// Date   : $Date: 2012-02-08 22:30:21 +0000 (Wed, 08 Feb 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -21,8 +21,8 @@
 namespace util {
 namespace html {
 
-inline mstl::string const& Hyphenate::result() const	{ return m_result; }
-
+inline mstl::string const& Hyphenate::result() const			{ return m_result; }
+inline mstl::string const& BuildLigatures::result() const	{ return m_result; }
 
 inline bool Search::tooManyMatches() const				{ return m_tooManyMatches; }
 inline unsigned Search::countMatches() const				{ return m_posList.size(); }

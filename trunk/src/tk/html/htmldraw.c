@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 228 $
-// Date   : $Date: 2012-02-06 21:27:25 +0000 (Mon, 06 Feb 2012) $
+// Version: $Revision: 235 $
+// Date   : $Date: 2012-02-08 22:30:21 +0000 (Wed, 08 Feb 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2702,7 +2702,6 @@ updateRegions(pTree, pElem, drawable, dx, dy)
 #ifdef MEASURE_TIME
 restart_time();
 #endif
-                    /* XXX: take additional hyphen into account */
                     HtmlDrawChars(pTree, drawable, gc, font, buf, len, x, y, 0);
 #ifdef MEASURE_TIME
 buf[len] = '\0';

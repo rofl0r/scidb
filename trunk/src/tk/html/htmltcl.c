@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 228 $
-// Date   : $Date: 2012-02-06 21:27:25 +0000 (Mon, 06 Feb 2012) $
+// Version: $Revision: 235 $
+// Date   : $Date: 2012-02-08 22:30:21 +0000 (Wed, 08 Feb 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -55,6 +55,10 @@
 
 #ifdef USE_DOUBLE_BUFFERING
 # include "tkInt.h"
+#endif
+
+#ifdef HAVE_XFT
+# include <fontconfig/fontconfig.h>
 #endif
 
 #include "htmldefaultstyle.c"
@@ -1110,6 +1114,14 @@ deleteWidget(clientData)
         TkDestroyRegion(pTree->bufferRegion);
         pTree->bufferRegion = None;
 	 }
+#endif
+
+#ifdef HAVE_XFT
+    if (pTree->fc_config)
+    {
+        FcConfigDestroy(pTree->fc_config);
+        pTree->fc_config = NULL;
+    }
 #endif
 
     /* Delete the structure itself */
@@ -2825,6 +2837,10 @@ newWidget(clientData, interp, objc, objv)
     pTree->buffer = None;
     pTree->bufferRegion = None;
     memset(&pTree->bufferRect, 0, sizeof(pTree->bufferRect));
+#endif
+
+#ifdef HAVE_XFT
+    pTree->fc_config = NULL;
 #endif
 
 #ifdef TKHTML_ENABLE_PROFILE

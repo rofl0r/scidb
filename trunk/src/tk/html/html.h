@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 228 $
-// Date   : $Date: 2012-02-06 21:27:25 +0000 (Mon, 06 Feb 2012) $
+// Version: $Revision: 235 $
+// Date   : $Date: 2012-02-08 22:30:21 +0000 (Wed, 08 Feb 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -78,6 +78,10 @@
 
 #ifdef USE_DOUBLE_BUFFERING
 struct TkRegion_;
+#endif
+
+#ifdef HAVE_XFT
+struct _FcConfig;
 #endif
 
 /*
@@ -681,6 +685,10 @@ struct HtmlTree {
     Pixmap buffer;
     XRectangle bufferRect;
     struct TkRegion_ *bufferRegion;
+#endif
+
+#ifdef HAVE_XFT
+    struct _FcConfig *fc_config;
 #endif
 
 #ifdef TKHTML_ENABLE_PROFILE

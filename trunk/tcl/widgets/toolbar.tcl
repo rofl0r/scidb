@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 230 $
-# Date   : $Date: 2012-02-07 00:07:14 +0000 (Tue, 07 Feb 2012) $
+# Version: $Revision: 235 $
+# Date   : $Date: 2012-02-08 22:30:21 +0000 (Wed, 08 Feb 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -612,7 +612,6 @@ proc addToolbarMenu {menu parent {index -1} {var {}}} {
 
 	if {$index >= 0} {
 		set cmd "[namespace current]::SetMenuLabel $menu $index"
-		trace remove variable $var write $cmd
 		trace add variable $var write $cmd
 		bind $menu <Destroy> +[list trace remove variable $var write $cmd]
 		SetMenuLabel $menu $index $var
@@ -630,7 +629,6 @@ proc addToolbarMenu {menu parent {index -1} {var {}}} {
 			set var $Specs(titlevar:$tb)
 			SetMenuLabel $m $i $var
 			set cmd "[namespace current]::SetMenuLabel $m $i"
-			trace remove variable $var write $cmd
 			trace add variable $var write $cmd
 			bind $m <Destroy> +[list trace remove variable $var write "$cmd"]
 		} else {
@@ -792,7 +790,6 @@ proc Add {toolbar widgetCommand args} {
 	if {[llength $variable]} {
 		if {$widgetType eq "checkbutton"} {
 			set traceCmd "[namespace current]::Tracer4 $toolbar $w $variable"
-			trace remove variable $variable write $traceCmd
 			trace add variable $variable write $traceCmd
 			bind $w <Destroy> "+trace remove variable $variable write {$traceCmd}"
 			ConfigureCheckButton $toolbar $w $w $variable
@@ -812,7 +809,6 @@ proc Add {toolbar widgetCommand args} {
 				set bg [$w cget -background]
 				set activebg [$w cget -activebackground]
 				set traceCmd "[namespace current]::Tracer1 $toolbar $variable $bg $activebg"
-				trace remove variable $variable write $traceCmd
 				trace add variable $variable write $traceCmd
 				bind $w <Destroy> "+trace remove variable $variable write {$traceCmd}"
 			}
@@ -827,13 +823,11 @@ proc Add {toolbar widgetCommand args} {
 
 	set variable [namespace current]::Specs(state:$w:$toolbar)
 	set traceCmd "[namespace current]::Tracer2 $toolbar $w $variable"
-	trace remove variable $variable write $traceCmd
 	trace add variable $variable write $traceCmd
 	bind $w <Destroy> "+trace remove variable $variable write {$traceCmd}"
 
 	set variable [namespace current]::Specs(state:$toolbar)
 	set traceCmd "[namespace current]::Tracer3 $toolbar $variable"
-	trace remove variable $variable write $traceCmd
 	trace add variable $variable write $traceCmd
 	bind $w <Destroy> "+trace remove variable $variable write {$traceCmd}"
 

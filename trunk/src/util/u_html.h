@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 226 $
-// Date   : $Date: 2012-02-05 22:00:47 +0000 (Sun, 05 Feb 2012) $
+// Version: $Revision: 235 $
+// Date   : $Date: 2012-02-08 22:30:21 +0000 (Wed, 08 Feb 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -81,7 +81,7 @@ class Hyphenate
 {
 public:
 
-	enum CacheState { KeepInCache, DontKeepInCache, };
+	enum CacheState { KeepInCache, DontKeepInCache };
 
 	Hyphenate(	mstl::string const& patternFilename,
 					mstl::string const& dictFilenames,
@@ -101,6 +101,19 @@ private:
 	mstl::string	m_filename;
 	CacheState		m_keepInCache;
 	mstl::string	m_result;
+};
+
+
+class BuildLigatures
+{
+public:
+
+	bool parse(char const* document, unsigned length);
+	mstl::string const& result() const;
+
+private:
+
+	mstl::string m_result;
 };
 
 } // namespace html

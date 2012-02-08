@@ -1,7 +1,7 @@
 ## ======================================================================
 # Author : $Author$
-# Version: $Revision: 230 $
-# Date   : $Date: 2012-02-07 00:07:14 +0000 (Tue, 07 Feb 2012) $
+# Version: $Revision: 235 $
+# Date   : $Date: 2012-02-08 22:30:21 +0000 (Wed, 08 Feb 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1530,6 +1530,7 @@ proc Parse {file wantedFile moveto {match {}}} {
 			append dictFilenames $filename
 		}
 		set content [::scidb::misc::html hyphenate $patternFilename $dictFilenames $content]
+		set content [::scidb::misc::html ligatures $content]
 	}
 
 	[$Priv(html) drawable] configure -cursor {}
