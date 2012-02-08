@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 235 $
-// Date   : $Date: 2012-02-08 22:30:21 +0000 (Wed, 08 Feb 2012) $
+// Version: $Revision: 236 $
+// Date   : $Date: 2012-02-08 23:19:41 +0000 (Wed, 08 Feb 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -946,9 +946,9 @@ void           HtmlTextFree(HtmlTextNode *);
 /*
  * Replacment functions for Tk_TextWidth() and Tk_DrawChars.
  */
-int HtmlTextWidth(HtmlTree*, HtmlFont*, const unsigned char*, int);
-int HtmlMeasureChars(HtmlTree*, HtmlFont*, const unsigned char*, int, int);
-void HtmlDrawChars(HtmlTree*, Drawable, GC, HtmlFont*, const unsigned char*, int, int, int, int);
+int HtmlTextWidth(HtmlTree*, HtmlFont*, const char*, int);
+int HtmlMeasureChars(HtmlTree*, HtmlFont*, const char*, int, int);
+void HtmlDrawChars(HtmlTree*, Drawable, GC, HtmlFont*, const char*, int, int, int, int);
 
 /* The details of this structure should be considered private to
  * htmltext.c. They are here because other code needs to know the

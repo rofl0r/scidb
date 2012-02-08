@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 226 $
-// Date   : $Date: 2012-02-05 22:00:47 +0000 (Sun, 05 Feb 2012) $
+// Version: $Revision: 236 $
+// Date   : $Date: 2012-02-08 23:19:41 +0000 (Wed, 08 Feb 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -558,7 +558,7 @@ sys::utf8::levenstein(	mstl::string const& lhs,
 	char const* rs = rhs.c_str();
 
 	for (unsigned i = 0; i < lhsSize; ++i)
-		ls = nextChar(rs, c[i]);
+		ls = nextChar(ls, c[i]);
 
 	for (unsigned j = 0; j < rhsSize; ++j)
 	{

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 235 $
-// Date   : $Date: 2012-02-08 22:30:21 +0000 (Wed, 08 Feb 2012) $
+// Version: $Revision: 236 $
+// Date   : $Date: 2012-02-08 23:19:41 +0000 (Wed, 08 Feb 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -294,6 +294,7 @@ static int nolayoutlist[] = {
     CSS_PROPERTY_BACKGROUND_POSITION_Y
 };
 
+__attribute__((unused))
 static unsigned char ligTable[7][3] = {
     { 0xEF, 0xAC, 0x80 }, /* ff  */
     { 0xEF, 0xAC, 0x81 }, /* fi  */
@@ -2181,7 +2182,7 @@ MeasureLatinLigatures(pTree, pFont, zFamily, isBold, isItalic)
 
                 for (ii = 0; ii < 7; ++ii) {
                     if (FcCharSetHasChar(charset, 0xFB00 + ii)) {
-                        pFont->ligature[ii] = Tk_TextWidth(pFont->tkfont, ligTable[ii], 3);
+                        pFont->ligature[ii] = Tk_TextWidth(pFont->tkfont, (const char*)ligTable[ii], 3);
                     }
                 }
             }

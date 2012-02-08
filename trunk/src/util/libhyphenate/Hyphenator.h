@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 228 $
-// Date   : $Date: 2012-02-06 21:27:25 +0000 (Mon, 06 Feb 2012) $
+// Version: $Revision: 236 $
+// Date   : $Date: 2012-02-08 23:19:41 +0000 (Wed, 08 Feb 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -66,14 +66,8 @@ namespace hyphenate
 		};
 
 		typedef mstl::set<String> Lookup;
-
-#if USE_0X_STANDARD
-		typedef mstl::string&& result;
-		typedef mstl::pair<mstl::string, mstl::string>&& result_pair;
-#else
 		typedef mstl::string result;
 		typedef mstl::pair<mstl::string, mstl::string> result_pair;
-#endif
 
 	private:
 
