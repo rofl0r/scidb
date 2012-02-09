@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 238 $
+// Date   : $Date: 2012-02-09 20:58:05 +0000 (Thu, 09 Feb 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -76,6 +76,7 @@ public:
 
 	virtual void errorHandler(unsigned code, mstl::string const& message);
 
+	static bool isUsable();
 	static mstl::string errorMessage(unsigned detailNo);
 
 private:

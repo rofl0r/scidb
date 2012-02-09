@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 236 $
-// Date   : $Date: 2012-02-08 23:19:41 +0000 (Wed, 08 Feb 2012) $
+// Version: $Revision: 238 $
+// Date   : $Date: 2012-02-09 20:58:05 +0000 (Thu, 09 Feb 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2154,7 +2154,7 @@ MeasureLatinLigatures(pTree, pFont, zFamily, isBold, isItalic)
     int isBold;
     int isItalic;
 {
-# ifdef HAVE_XFT
+#ifdef HAVE_XFT
 
     FcPattern* pattern;
 
@@ -2293,11 +2293,14 @@ allocateNewFont(clientData)
     /* NOTE: Tk cannot provide information about the existence of specific glyphs. */
     pFont->has_ligatures = 0;
     memset(pFont->ligature, 0, sizeof(pFont->ligature));
-    MeasureLatinLigatures(pTree, pFont, zFamily, isBold, isItalic);
 
-    for (ii = 0; ii < 7; ++ii) {
-        if (pFont->ligature[ii] > 0) {
-            pFont->has_ligatures = 1;
+    if (pTree->options.latinligatures) {
+        MeasureLatinLigatures(pTree, pFont, zFamily, isBold, isItalic);
+
+        for (ii = 0; ii < 7; ++ii) {
+            if (pFont->ligature[ii] > 0) {
+                pFont->has_ligatures = 1;
+            }
         }
     }
 

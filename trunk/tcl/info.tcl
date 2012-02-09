@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 235 $
-# Date   : $Date: 2012-02-08 22:30:21 +0000 (Wed, 08 Feb 2012) $
+# Version: $Revision: 238 $
+# Date   : $Date: 2012-02-09 20:58:05 +0000 (Thu, 09 Feb 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -265,7 +265,7 @@ proc DisplayContributions {t} {
 	$t insert end [Enc "[set [namespace current]::mc::Localization]:\n"] caption
 	$t insert end [Enc "Giovanni Ornaghi ([::encoding::languageName it]), "]
 	$t insert end [Enc "Carlos Fernando González ([::encoding::languageName es]), "]
-	$t insert end [Enc "Zoltán Tibenský ([::encoding::languageName hu]), "]
+	$t insert end [Enc "Zoltán Tibensky ([::encoding::languageName hu]), "]
 	$t insert end [Enc "Gregor Cramer ([::encoding::languageName en], [::encoding::languageName de])"]
 
 	$t insert end [Enc "\n\n"]
@@ -276,7 +276,7 @@ proc DisplayContributions {t} {
 #	$t insert end [Enc "Fernando González, "]
 #	$t insert end [Enc "Austen Green, "]
 	$t insert end [Enc "Giovanni Ornaghi, "]
-	$t insert end [Enc "Zoltán Tibenský, "]
+	$t insert end [Enc "Zoltán Tibensky, "]
 #	$t insert end [Enc "Natalia Parés Vives"]
 
 	$t insert end [Enc "\n\n"]
