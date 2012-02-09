@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 234 $
-# Date   : $Date: 2012-02-07 23:03:07 +0000 (Tue, 07 Feb 2012) $
+# Version: $Revision: 237 $
+# Date   : $Date: 2012-02-09 01:08:39 +0000 (Thu, 09 Feb 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -449,8 +449,7 @@ proc ::tk::MenuUnpost menu {
     }
 
     ### FEATURE begin ############################################################
-    # Firstly unmap the drop-shadow to avoid glitches.
-    catch { ::shadow::unmap $menu }
+    event generate $menu <<MenuWillUnpost>>
     ### FEATURE end ##############################################################
 
     ### FIX begin ################################################################

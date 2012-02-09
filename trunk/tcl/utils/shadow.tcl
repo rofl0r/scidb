@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 234 $
-# Date   : $Date: 2012-02-07 23:03:07 +0000 (Tue, 07 Feb 2012) $
+# Version: $Revision: 237 $
+# Date   : $Date: 2012-02-09 01:08:39 +0000 (Thu, 09 Feb 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -196,9 +196,9 @@ bind Menu <Map> {+
 bind Menu <Unmap> {+
 	if {![string match *#menu %W]} {
 		# IMPORTANT NOTE:
-		# The unmapping should be called before the menu is unmapping
-		# to avoid glitches. This will be done in tk::MenuUnpost.
-		# This call is for safety only.
+		# The unmapping should be called before the menu is unposting
+		# to avoid glitches. This will be done via the virtual event
+		# <<MenuWillUnpost>>. This call is for safety only.
 		shadow::unmap %W
 	}
 }
@@ -207,6 +207,13 @@ bind Menu <Destroy> {+
 	if {![string match *#menu %W]} {
 		shadow::unmap %W
 		array unset ::shadow::Geometry %W
+	}
+}
+
+bind Menu <<MenuWillUnpost>> {+
+	# Unmap the drop-shadow before unposting the menu to avoid glitches.
+	if {![string match *#menu %W]} {
+		shadow::unmap %W
 	}
 }
 
