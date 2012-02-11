@@ -1,0 +1,109 @@
+#!/bin/sh
+#
+# Usage: make_html pattern.html filename.txt > filename.html
+# \
+exec tclsh "$0" "$@"
+
+# read .txt file ###########################
+
+set filename [lindex $argv 1]
+set fd [open $filename]
+set section ""
+chan configure $fd -encoding iso8859-1
+
+array set content {
+	CONTENT		""
+	FOOTER		""
+	CHANGELANG	""
+	SIDEBAR		""
+	TITLE			""
+	LINKS			""
+}
+
+while {[gets $fd line] >= 0} {
+	if {[string index $line 0] ne "#"} {
+		switch -- $line {
+			CHANGELANG - CONTENT - FOOTER - SIDEBAR - TITLE - LINKS {
+				set section $line
+			}
+
+			default {
+				switch -- $section {
+					CONTENT {
+						append content($section) $line "\n"
+					}
+
+					default {
+						append content($section) [string trim $line]
+					}
+				}
+			}
+		}
+	}
+}
+
+close $fd
+
+# setup guide ##############################
+
+if {[string match de_* $filename]} {
+	set content(GUIDE) {
+	  <p><a href="index.html" class="nav">Scidb</a> &nbsp;<br>
+
+	  <p><a href="download.html" class="nav">Download</a> &nbsp;<br>
+
+	  <p><a href="screenshots.html" class="nav">Screenshots</a> &nbsp;<br>
+
+	  <p><a href="moreinfo.html" class="nav">Weitere Informationen</a> &nbsp;<br>
+	  <a href="links.html" class="nav2">Scidb-Links</a>&nbsp;&bull;<br>
+	  <a href="wanted.html" class="nav2">Gesucht</a>&nbsp;&bull;</p>
+
+	  <p><a href="project.html" class="nav">Das Scidb-Projekt</a> &nbsp;<br>
+	  <a href="releasehistory.html" class="nav2">Freigabehistorie</a>&nbsp;&bull;<br>
+	  <a href="roadmap.html" class="nav2">Roadmap</a>&nbsp;&bull;<br>
+	}
+	set content(LANG) de
+} else {
+	set content(GUIDE) {
+	  <p><a href="index.html" class="nav">Scidb</a> &nbsp;<br>
+
+	  <p><a href="download.html" class="nav">Download</a> &nbsp;<br>
+
+	  <p><a href="screenshots.html" class="nav">Screenshots</a> &nbsp;<br>
+
+	  <p><a href="moreinfo.html" class="nav">More Info</a> &nbsp;<br>
+	  <a href="links.html" class="nav2">Scidb Links</a>&nbsp;&bull;<br>
+	  <a href="wanted.html" class="nav2">Wanted</a>&nbsp;&bull;</p>
+
+	  <p><a href="project.html" class="nav">The Scidb Project</a> &nbsp;<br>
+	  <a href="releasehistory.html" class="nav2">Release History</a>&nbsp;&bull;<br>
+	  <a href="roadmap.html" class="nav2">Roadmap</a>&nbsp;&bull;<br>
+	}
+	set content(LANG) en
+}
+
+# read .html file ##########################
+
+set fd [open "[lindex $argv 0]"]
+
+while {[gets $fd line] >= 0} {
+	set indicies [regexp -indices -inline -- {%[A-Z]+%} $line]
+
+	if {[llength $indicies]} {
+		set i [lindex [lindex $indicies 0] 0]
+		set k [lindex [lindex $indicies 0] 1]
+		set section [string range $line [expr {$i + 1}] [expr {$k - 1}]]
+
+		switch $section {
+			CHANGELANG - CONTENT - FOOTER - GUIDE - LANG - SIDEBAR - TITLE - LINKS {
+				set line [string replace $line $i $k $content($section)]
+			}
+		}
+	}
+
+	puts $line
+}
+
+close $fd
+
+# vi:set ts=3 sw=3:

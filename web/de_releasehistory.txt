@@ -1,0 +1,61 @@
+TITLE
+	Scidb - Freigabehistorie
+
+HEADER
+  <h1>Freigabehistorie</h1>
+ 
+CONTENT
+  <h3>Zweite öffentliche Vorschau-Version (Februar 2012)</h3>
+
+  <p>Die zweite öffentliche Vorschau-Version basiert auf der
+  <acronym>SVN</acronym>-Revisionsnummer 238.</p>
+
+  <div class="box">
+    <b><font color="#8B0000">Spezifische Probbleme auf den defekten Plattformen
+    <nobr><acronym>Debian</acronym> 7.0</nobr> (<acronym>Wheezy</acronym>) and
+    <nobr><acronym>Ubuntu 11.10</nobr> (<acronym>Oneiric</acronym>)</font></b>
+
+    <ul>
+      <li>
+        Die Initialisierung der statischen Objekte funktioniert nicht.
+      </li>
+      <p/>
+      <li>
+        Sub-Prozesse arbeiten im allgemeinen nicht (für weitere Details siehe
+        <a href="http://sourceforge.net/mailarchive/forum.php?thread_name=20111118143650.38280%40gmx.net&amp;forum_name=scidb-users">
+        Scidb's Users List</a>).
+      </li>
+      <p/>
+      <li>
+        Die <acronym>Tk</acronym>-Bibliothek 8.5.10 ist instabil (was weithin
+        bekannt ist). Es wird dringend empfohlen, eine stabile <acronym>Tk</acronym>-Bibliothek
+        zu installieren (Version 8.5.6 oder 8.5.11).
+      </li>
+      <p/>
+      <li>
+        <code>libXcursor.so</code> is nicht vorhanden, aobwohl diese Bibliothek installiert ist.
+      </li>
+      <p/>
+      <li>
+        Die <acronym>X</acronym>-Bibliothek ist nicht an der richtigen Stelle, stattdessen
+        liegt sie in einem obskuren und zudem plattformabhängigen Verzeichnis. Dies ist
+        nicht <acronym>UNIX</acronym>-konform.
+      </li>
+    </ul>
+
+    Beide Systeme, <acronym>Debian</acronym> <acronym>Wheezy</acronym>, und
+    <acronym>Ubuntu</acronym> <acronym>Oneiric</acronym>, sind definitiv ungesund,
+    und der Entwickler, der einige Wochen mit der Suche nach Notlösungen verbrachte,
+    wird möglicherweise zukünftige Versionen dieser Systeme nicht meht unterstützen.
+  </div>
+
+  <h3>Erste öffentliche Vorschau-Version (Juli 2011)</h3>
+
+  <p>Die erste öffentliche Vorschau-Version basiert auf der
+  <acronym>SVN</acronym>-Revisionsnummer 83.</p>
+ 
+FOOTER
+  <li><a href="de_project.html">Das Scidb-Projekt</a>&nbsp;|&nbsp;</li>
+  <li><a href="de_releasehistory.html">Freigabehistorie</a>&nbsp;|&nbsp;</li>
+
+# vi:set ts=2 sw=2 et filetype=html:

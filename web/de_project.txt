@@ -1,0 +1,24 @@
+TITLE
+	Scidb - Projekt
+
+HEADER
+  <h1>Das Projekt</h1>
+ 
+CONTENT
+  <p>Im Februar 2010 wurde das Projeckt Scidb auf Sourceforge angelegt, Klicke
+  auf das SourceForge-Symbol auf der rechten Seite um mehr über Sourceforge zu
+  erfahren.</p>
+
+  <p>Im Februar 2012 erschien die zweite öffentliche Vorschau-Version.</p>
+
+  <p>Wenn ein Interesse besteht, an der Entwicklung von Scidb teilzuhaben, dann
+  besuche bitte die SourceForge-Seite und sende eine Nachricht an den Projektadministrator.
+  Danke!</p>
+
+  <p>Wenn Sie uns kontaktieren möchten, bitte eine Nachricht an die
+  <em>Scidb Users Mailing List</em> senden.</p>
+ 
+FOOTER
+  <li><a href="de_projekt.html">Das Scidb-Projekt</a>&nbsp;|&nbsp;</li>
+
+# vi:set ts=2 sw=2 et filetype=html:

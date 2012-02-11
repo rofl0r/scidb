@@ -1,0 +1,120 @@
+TITLE
+	Scidb - Gesucht
+
+HEADER
+  <h1>Gesucht</h1>
+
+CONTENT
+  <h2>Gesucht</h2>
+
+  <p>Testers are welcome for the preliminary version. Volunteers should
+  sign up, so that the testing can be coordinated. Please send a
+  message to the author.</p>
+
+  <div class="box">
+    <p>How a message can be sent:</p>
+
+    <ol>
+      <li>A membership in Sourceforge is required (open
+        <a href="https://sourceforge.net/account/registration/">Account Registration</a>).
+        The membership is free of charge and duties.
+      </li>
+      <li><p/>
+        Open <a href="https://sourceforge.net/sendmessage.php?touser=2321037">Send an Email</a>,
+        log in with your member name, and send the message.
+      </li>
+    </ol>
+  </div>
+
+  <p>For additional wanted functionalities feature requests can be entered.
+  These requests will partly be a basis of decision-making for further
+  development.</p>
+
+  <div class="box">
+   <p>How to enter feature requests:</p>
+
+    <ol>
+       <li>Open <a href="http://sourceforge.net/tracker/?group_id=307371&amp;atid=1294800">Tracker: Feature Requests.</a></li>
+       <li><p/>Click "Add new".</li>
+    </ol>
+  </div>
+
+  <p>These request should consider that Scidb is a pure database application.
+  That means the following functionalities are not destined for Scidb:</p>
+
+  <ul type="disc">
+    <li>FICS connection</li>
+    <li>Correspondence/Email chess support</li>
+    <li>Automatic game analysis</li>
+    <li>Chess training</li>
+    <li>Playing against external chess programs</li>
+    <li>Other chess program specific tasks</li>
+  </ul>
+
+  <p>For such functionalities another project is in planning stage:
+  <a href="http://jessy.sourceforge.net/">Jessy</a>. In this way an overloading
+  of the database application Scidb will be prevented. Jessy will
+  have a connection to the Scidb bases.</p>
+
+  <p>Furthermore project help is welcome. The following tasks are open:</p>
+
+  <h4>Tcl/Tk</h4>
+
+  <ul>
+    <li><p>The sub-windows inside the main window should be dockable/undockable.
+    Furthermore the sub-windows should be movable (with drag&amp;drop),
+    currently the positions of the sub-windows are fixed.</p></li>
+
+	 <li><p>Some of the icons do need rework.</p></li>
+
+    <li><p>Programming a 'Tip of the Day' dialog with appendant tips.</p></li>
+
+    <li><p>Writing the HTML online help pages.</p></li>
+
+    <li><p>Printing PDF documents and images (board dumps).</p></li>
+
+    <li><p>Programming an ECO browser.</p></li>
+  </ul>
+
+  <h4>C++</h4>
+  <ul>
+    <li><p>Windows porting. Although the development is platform independent,
+    Windows does not provide the functions fopencookie() and
+    open_memstream(). Unfortunately the effort will be high. The basis
+    for this task is the library 'newlib' (only the stdio part).
+    More programming effort for the porting shouldn't be neccessary.</p></li>
+
+    <li><p>Embedding a drag&amp;drop library.</p></li>
+     
+    <li><p>HTML generation (see LaTeX generation).</p></li>
+
+    <li><p>The SVG library Anti-Grain (AGG) delivers dissatisfying results for
+    line drawing. The lines are not anti-aliased, but they should be.
+    This part of the library has to be modified/overworked. Apparently
+    the author Maxim Shemanarev abondend the development of this library.
+    A real alternative for this library is not exisiting. The use of
+    Cairo would imply too many dependencies (besides Cairo is deemed to
+    be relatively slow). Furthermore the drawing of gradients,
+    implemented by the author, needs improvements (userSpaceOnUse/
+    objectBoundingBox is not realized).</p></li>
+
+    <li><p>For the drawing of pie charts the function arc() is required.
+    This function currently delivers anything but circular arcs, rework of
+    the function is neccessary (requires much know-how!).</p></li>
+
+    <li><p>Reading of ChessBase databases is tested only for ChessBase version 9.
+    ChessBase version 10 supports chess 960 games. For that ChessBase
+    must have extended the format (X-Fen/Shredder-Fen, castling).
+    This has to be tested and to adapted. Currently the decoding
+    of chess 960 games is not working.</p></li>
+
+    <li><p>Testing (and appropriate adaptions) of the internal chess program.
+    Some of the move computations, especially in the opening phase,
+    are still dissatisfying.</p></li>
+  </ul>
+
+FOOTER
+  <li><a href="de_moreinfo.html">Weitere Informationen</a>&nbsp;|&nbsp;</li>
+  <li><a href="de_links.html">Verweise</a>&nbsp;|&nbsp;</li>
+
+# vi:set ts=2 sw=2 et filetype=html:

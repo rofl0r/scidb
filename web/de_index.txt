@@ -1,0 +1,132 @@
+TITLE
+
+	Scidb
+
+CHANGELANG
+
+  <div id="language" class="block">
+    <ul class="header">
+      <li class="header">English</li>
+    </ul>
+    <ul>
+      <li class="notes">
+          <ul>
+            <li><img src="images/british_flag.png" alt="British Flag"/></li>
+            <li><a href="index.html">To English-language side<a/></li>
+          </ul>
+      </li>
+    </ul>
+  </div>
+
+SIDEBAR
+
+<div id="visitors" class="block">
+  <ul class="header">
+    <li class="header">Besucher</li>
+  </ul>
+  <ul>
+    <li class="notes">
+      <a href="http://www2.clustrmaps.com/counter/maps.php?url=http://scidb.sourceforge.net/"
+           id="clustrMapsLink">
+        <img src="http://www2.clustrmaps.com/counter/index2.php?url=http://scidb.sourceforge.net/"
+           style="border:0px;"
+             alt="Locations of visitors to this page"
+           title="Locations of visitors to this page"
+              id="clustrMapsImg" />
+      </a>
+      <script type="text/javascript">
+        function cantload() {
+          img = document.getElementById("clustrMapsImg");
+          img.onerror = null;
+          img.src = "http://clustrmaps.com/images/clustrmaps-back-soon.jpg";
+          document.getElementById("clustrMapsLink").href = "http://clustrmaps.com";
+        }
+        img = document.getElementById("clustrMapsImg");
+        img.onerror = cantload;
+      </script>
+    </li>
+  </ul>
+</div><!-- visitors -->
+
+CONTENT
+
+<div class="block">
+
+  <div class="header">
+    Willkommen zu Scidb <hr/>
+  </div>
+
+  <p>
+  Scidb ("Scidb is a Chess Information Data Base")
+  ist eine Schachdatenbank-Applikation für Linux/Unix und Windows. Scidb wurde durch
+  Scid ("Shane's Chess Information Database") inspiriert, ist aber eine komplette
+  Neuentwicklung.
+  </p>
+
+</div>
+
+<div class="block">
+
+  <div class="header">
+    Neuigkeiten <hr/>
+  </div>
+
+  <p>
+  Die zweite öffentliche Vorschau-Version wurde veröffentlicht
+  (siehe <a href="de_download.html">Download</a>).
+  </p>
+
+  <p>
+    Wegen der spezifischen Probleme auf den defekten Plattformen
+    <nobr><acronym>Debian</acronym> 7.0</nobr> (<acronym>Wheezy</acronym>) und
+    <nobr><acronym>Ubuntu</acronym> 11.10</nobr> (</acronym>Oneiric</acronym>) siehe
+    <a href="de_releasehistory.html">Freigabehistorie</a>.
+  </p>
+
+</div>
+
+<div class="block">
+
+  <div class="header">
+    Was ist neu? <hr/>
+  </div>
+
+  <dir>
+    <li><p>Partienhistorie</p></li>
+    <li><p>Hilfedialog (mit ein paar Hilfeseiten)</p></li>
+    <li><p>Neuer Dateiauswahldialog mit Zusatzfunktionen:</p></li>
+      <ul type="circle">
+        <li>Datenbank löschen</li>
+        <li>Datenbank umbenennen</li>
+        <li>Datenbank duplizieren</li>
+        <li>Neuen Ordner anlegen</li>
+        <li>Auswahl der Datenbankenkodierung</li>
+      </ul>
+    <li><p>Automatische Erkennung der Datenbankenkodierung.</p></li>
+    <li><p>Modifiziertes Scidb-Datenbankformat; es exisitiert nun eine neue Kommentarvariante: Zuginformationen. Dies erlaubt eine kompakte Speicherung sowie eine erleichterte Eingabe (letzteres erst in einer späteren Version).</p></li>
+    <li><p>Automatische Aktualisierung auf das neue Datenbankformat</p></li>
+    <li><p>Überarbeiteter Export-Dialog</p></li>
+    <li><p>Rückgängig/Wiederherstellen (Undo/Redo) im Kommentareditor</p></li>
+    <li><p>Verbessertes Verhalten des HTML-Fensters</p></li>
+      <ul type="circle">
+        <li>Doppelpufferung für flickerfreie Darstellung</li>
+        <li>Automatische Silbentrennung</li>
+      </ul>
+    <li><p>Beschleunigter Aufbau des Partiespeicherungsdialogs</p></li>
+    <li><p>Verbesserte Turniertabelle:</p></li>
+      <ul type="circle">
+        <li>Neues Wertungssystem "Bilbao" (drei Gewinnpunkte für Sieg) hinzugefügt</li>
+        <li>Zusätzliche Feinwertungen</li>
+      </ul>
+    <li><p>Der Export nach .si3/.si4 erlaubt nun eine Auswahl der <acronym>PGN</acronym>-Tags (eine Einschränkung der Tags beschleunigt den Zugbaum)</p></li>
+    <li><p>Auswahldialog für Datenbanksymbole überarbeitet</p></li>
+    <li><p>Neue Funktion im Partien-Editor: Kopieren/Verschieben von Kommentaren zwischen verschiedenen Sprachen</p></li>
+    <li><p>Drop-Down-Schatten (experimentell)</p></li>
+    <li><p>Teilweise Übersetzung in die ungarische Sprache, die Übersetzung ist noch in Bearbeitung</p></li>
+    <li><p>Die spanische Übersetzung wurde aufgrund von Unvollständigkeit vorübergehend herausgenommen. Interessenten für die Übersetzung: bitte bei <a href="de_wanted.html">Gesucht</a> schauen</p></li>
+    <li><p><acronym>UNIX</acronym>-Hilfeseiten</p></li>
+  </dir>
+
+</div>
+
+# vi:set ts=2 sw=2 et filetype=html:

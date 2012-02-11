@@ -1,0 +1,29 @@
+TITLE
+
+	Scidb - Project
+
+CONTENT
+
+<div class="block">
+
+  <div class="header">
+    The Scidb Project <hr/>
+  </div>
+
+  <p>In February of 2010 the Scidb project on SourceForge was created. Click on the
+  SourceForge icon on the right to learn more about SourceForge.</p>
+
+  <p>In February 2012 the second public preview version is released.</p>
+
+  <p>If you wish to contribute your talents to the Scidb project, please visit the
+  SourceForge page and send a note to the project admin. Thanks!</p>
+
+  <p>If you'd like to contact us, please post to the Scidb Users Mailing List.</p>
+
+</div>
+ 
+FOOTER
+
+  <li><a href="project.html">The Scidb Project</a>&nbsp;|&nbsp;</li>
+
+# vi:set ts=2 sw=2 et filetype=html:

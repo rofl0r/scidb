@@ -1,0 +1,63 @@
+TITLE
+
+	Scidb - Roadmap
+
+CONTENT
+
+<div class="block">
+
+  <div class="header">
+    Features for next releases <hr/>
+  </div>
+
+  <dir>
+    <li>Analysis window: launch external chess engines</li>
+    <li>Search functions: search by header, position search, etc.</li>
+    <li>Filter functions: game filter, player filter</li>
+    <li>Drag &amp; Drop of games into different databases</li>
+    <li>Flexible window layout</li>
+    <li>Document generation:: LaTeX export</li>
+    <li>Windows support</li>
+    <li>Database compression (elimination of deleted games)</li>
+    <li>Board photo</li>
+  </dir>
+
+</div>
+
+<div class="block">
+
+  <div class="header">
+    Features for the far future <hr/>
+  </div>
+
+<dir>
+  <li>Duplicate detection</li>
+  <li>Document generation: PDF export and HTML export</li>
+  <li>Dialog for spell checking player names</li>
+  <li>Tip of the Day window</li>
+  <li>Usage of end-game tables</li>
+  <li>3D chessboard</li>
+</dir>
+
+</div>
+
+<div class="block">
+
+  <div class="header">
+    Volunteers wanted for... <hr/>
+  </div>
+
+  <dir>
+    <li>More languages</li>
+    <li>More chess board themes</li>
+    <li>More help pages</li>
+  </dir>
+ 
+</div>
+
+FOOTER
+
+  <li><a href="project.html">The Scidb Project</a>&nbsp;|&nbsp;</li>
+  <li><a href="releasehistory.html">Release History</a>&nbsp;|&nbsp;</li>
+
+# vi:set ts=2 sw=2 et filetype=html:

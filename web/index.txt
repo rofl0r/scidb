@@ -1,0 +1,133 @@
+TITLE
+
+	Scidb
+
+CHANGELANG
+
+  <div id="language" class="block">
+    <ul class="header">
+      <li class="header">Deutsch</li>
+    </ul>
+    <ul>
+      <li class="notes">
+          <ul>
+            <li><img src="images/german_flag.png" alt="German Flag"/></li>
+            <li><a href="de_index.html">Zur deutschsprachigen Seite<a/></li>
+          </ul>
+      </li>
+    </ul>
+  </div>
+
+SIDEBAR
+
+  <div id="visitors" class="block">
+    <ul class="header">
+      <li class="header">Visitors</li>
+    </ul>
+    <ul>
+      <li class="notes">
+        <a href="http://www2.clustrmaps.com/counter/maps.php?url=http://scidb.sourceforge.net/"
+             id="clustrMapsLink">
+          <img src="http://www2.clustrmaps.com/counter/index2.php?url=http://scidb.sourceforge.net/"
+             style="border:0px;"
+               alt="Locations of visitors to this page"
+             title="Locations of visitors to this page"
+                id="clustrMapsImg" />
+        </a>
+        <script type="text/javascript">
+          function cantload() {
+            img = document.getElementById("clustrMapsImg");
+            img.onerror = null;
+            img.src = "http://clustrmaps.com/images/clustrmaps-back-soon.jpg";
+            document.getElementById("clustrMapsLink").href = "http://clustrmaps.com";
+          }
+          img = document.getElementById("clustrMapsImg");
+          img.onerror = cantload;
+        </script>
+      </li>
+    </ul>
+  </div><!-- visitors -->
+
+CONTENT
+
+<div class="block">
+
+  <div class="header">
+    Welcome to Scidb <hr/>
+  </div>
+
+  <p>
+  <!-- google_ad_section_start -->
+  Scidb ("Scidb is a Chess Information Data Base")
+  <!-- google_ad_section_end -->
+  is a chess database application for Linux/Unix and Windows. Scidb is inspired by Scid
+  ("Shane's Chess Information Database"), but it is a completely new development.</p>
+
+</div><!-- block -->
+
+<div class="block">
+
+  <div class="header">
+    News <hr/>
+  </div>
+
+  <p>
+  <!-- google_ad_section_start -->
+  The second public preview version is released
+  <!-- google_ad_section_end -->
+  (see <a href="download.html">Download</a>).
+  </p>
+
+  <p>
+    Due to the specific problems on broken platforms
+    <nobr><acronym>Debian</acronym> 7.0 (<acronym>Wheezy</acronym>) and
+    <nobr><acronym>Ubuntu</acronym> 11.10</nobr> (<acronym>Oneiric</acronym>)
+	 see <a href="releasehistory.html">Release History</a>.
+  </p>
+
+</div><!-- block -->
+
+<div class="block">
+
+  <div class="header">
+    What's new? <hr/>
+  </div>
+
+  <dir>
+    <li><p>Game history</p></li>
+    <li><p>Help dialog (with a few help pages)</p></li>
+    <li><p>New file selection box with extraneous functions:</p></li>
+      <ul type="circle">
+        <li>Delete database</li>
+        <li>Rename database</li>
+        <li>Duplicate database</li>
+        <li>Create new folder</li>
+        <li>Selection of database encoding</li>
+      </ul>
+    <li><p>Automatic detection of database encoding</p></li>
+    <li><p>Enhanced Scidb database format; now it exists a new comment type: move information. This provides a compact storage and a facilitated input (the latter will be done in a future version).</p></li>
+    <li><p>Automatic upgrade to the new database format</p></li>
+    <li><p>Revised export dialog</p></li>
+    <li><p>Undo/redo in comment editor</p></li>
+    <li><p>Improved behavior of the HTML window:</p></li>
+    <ul type="circle">
+      <li>Double buffering for flicker-free display</li>
+      <li>Automatic hyphenation</li>
+    </ul>
+    <li><p>Accelerated popup of the game save dialog</p></li>
+    <li><p>Improved tournament table:</p></li>
+      <ul type="circle">
+        <li>Additional scoring system "Bilbao" (three points for a win)</li>
+        <li>Additional tie-breaks</li>
+      </ul>
+    <li><p>The export to .si3/.si4 now offers a selection of the <acronym>PGN</acronym>-Tags (a restriction of the tags is accelerating the position tree)</p></li>
+    <li><p>Selection dialog of database symbols is revised</p></li>
+    <li><p>New feature in game editor: copy/move comments between different languages</p></li>
+    <li><p>Drop-down shadows (experimental)</p></li>
+    <li><p>Partial translation into Hungarian; the translation is still in progress</p></li>
+    <li><p>Ths Spanish translation is taken out temporary due to incompleteness. Volunteers for the translation: please look at <a href="wanted.html">Wanted</a></p></li>
+    <li><p><acronym>UNIX</acronym> man pages</p></li>
+  </dir>
+</div><!-- block -->
+
+# vi:set ts=2 sw=2 et filetype=html:

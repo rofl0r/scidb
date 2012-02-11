@@ -1,0 +1,72 @@
+TITLE
+
+	Scidb - Release History
+
+CONTENT
+
+<div class="block">
+
+  <div class="header">
+    Second public preview version (February 2012) <hr/>
+  </div>
+
+  <p>The second public preview version is based on <acronym>SVN</acronym> revision 238.</p>
+
+  <div class="box">
+    <b><font color="#8B0000">Specific problems on broken platforms
+    <nobr><acronym>Debian</acronym> 7.0</nobr> (<acronym>Wheezy</acronym>) and
+    <nobr><acronym>Ubuntu</acronym> 11.10</nobr> (<acronym>Oneiric</acronym>)</font></b>
+
+    <ul>
+      <li>
+        The static object initialization is broken.
+      </li>
+      <p/>
+      <li>
+        Sub-processes are in general not working (for further details see
+        <a href="http://sourceforge.net/mailarchive/forum.php?thread_name=20111118143650.38280%40gmx.net&amp;forum_name=scidb-users">
+        Scidb's Users List</a>).
+      </li>
+      <p/>
+      <li>
+        Instable <acronym>Tk</acronym> library 8.5.10 (which is well known as instable).
+        It is highly recommended to install a stable <acronym>Tk</acronym> library
+        (version 8.5.6 or 8.5.11).
+      </li>
+      <p/>
+      <li>
+        <code>libXcursor.so</code> is missing, although this library is installed.
+      </li>
+      <p/>
+      <li>
+        The <acronym>X</acronym> library is not at the right place, instead it is installed
+        in obscure directories, depending on the OS version. This is not
+        <acronym>UNIX</acronym> conform.
+      </li>
+    </ul>
+
+    Both systems, <acronym>Debian</acronym> <acronym>Wheezy</acronym>, and
+    <acronym>Ubuntu</acronym> <acronym>Oneiric</acronym>, are definitely insane, and the developer
+    has spent some weeks for work-arounds. It is possible that succeeding versions of
+    <acronym>Debain</acronym>/<acronym>Ubuntu</acronym>
+    will not be supported.
+  </div>
+
+</div>
+
+<div class="block">
+
+  <div class="header">
+    First public preview version (July 2011) <hr/>
+  </div>
+
+  <p>The first public preview version is based on <acronym>SVN</acronym> revision 83.</p>
+
+</div>
+ 
+FOOTER
+
+  <li><a href="project.html">The Scidb Project</a>&nbsp;|&nbsp;</li>
+  <li><a href="releasehistory.html">Release History</a>&nbsp;|&nbsp;</li>
+
+# vi:set ts=2 sw=2 et filetype=html:
