@@ -27,6 +27,8 @@ CONTENT
       Jessy Project on SourceForge Home Page</a></li>
   </ul>
 
+  <hr/>
+
   <ul>
     <li><a href="http://blogchess.blogosfere.it/2010/11/scidb-un-nuovo-programma-per-gestire-database.html">
 	   Scidb: un nuovo programma per gestire database</a></li>
@@ -47,6 +49,8 @@ CONTENT
 	   Scidb alla sua beta release numero 100!</a></li>
   </ul>
 
+  <hr/>
+
   <ul>
 	 <li><a href="http://ghandybh.blogspot.com/2011/10/aonde-guardar-suas-partidas-de-xadrez.html">
 	   Xadrez e filosófia enxadrística: Aonde guardar suas partidas de xadrez?</a></li>
@@ -55,6 +59,8 @@ CONTENT
 </div>
  
 FOOTER
+
+  <li><a href="index.html">Scidb</a>&nbsp;|&nbsp;</li>
   <li><a href="moreinfo.html">More Info</a>&nbsp;|&nbsp;</li>
   <li><a href="links.html">Links</a>&nbsp;|&nbsp;</li>
 

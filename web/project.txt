@@ -18,12 +18,14 @@ CONTENT
   <p>If you wish to contribute your talents to the Scidb project, please visit the
   SourceForge page and send a note to the project admin. Thanks!</p>
 
-  <p>If you'd like to contact us, please post to the Scidb Users Mailing List.</p>
+  <p>If you'd like to contact us, please post to the
+  <a href="https://lists.sourceforge.net/lists/listinfo/scidb-users">Scidb Users Mailing List</a>.</p>
 
 </div>
  
 FOOTER
 
+  <li><a href="index.html">Scidb</a>&nbsp;|&nbsp;</li>
   <li><a href="project.html">The Scidb Project</a>&nbsp;|&nbsp;</li>
 
 # vi:set ts=2 sw=2 et filetype=html:

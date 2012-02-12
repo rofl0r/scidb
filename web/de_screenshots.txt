@@ -1,85 +1,166 @@
 TITLE
+
 	Scidb - Screenshots
-HEADER
-  <h1>Screenshots</h1>
+
+SCRIPTS
+
+<script type="text/javascript" src="js/popup.js"></script>
+<script type="text/javascript" src="js/screenshots.js"></script>
+
+ONLOAD
+
+  onload="init()"
+
 CONTENT
-  <table width="100%" cellspacing="20">
+
+  <div class="header">
+    Screenshots <hr/>
+  </div>
+
+  <table width="100%" cellspacing="15" id="screenshots">
     <tbody>
       <tr align="center">
-        <td> <a href="screenshots/board-1.png">
-          <img src="screenshots/thumbs/board-1.png"
-               alt="Default Theme" border="0"/></a>
+        <td>
+          <a href="screenshots/board-1.png">
+            <img src="screenshots/thumbs/board-1.png"
+                 alt="Standard-Thema"
+              iwidth="1105"
+             iheight="909"/>
+           </a>
         </td>
-        <td> <a href="screenshots/board-2.png">
-          <img src="screenshots/thumbs/board-2.png"
-               alt="Antique Theme" border="0"/></a>
+        <td>
+					<a href="screenshots/board-2.png">
+            <img src="screenshots/thumbs/board-2.png"
+               alt="Thema Antique"
+              iwidth="1015"
+             iheight="791"/>
+           </a>
         </td>
-        <td> <a href="screenshots/board-3.png">
-          <img src="screenshots/thumbs/board-3.png"
-               alt="Burnett Theme" border="0"/></a>
+        <td>
+					<a href="screenshots/board-3.png">
+            <img src="screenshots/thumbs/board-3.png"
+               alt="Thema Burnett"
+              iwidth="1189"
+             iheight="874"/>
+           </a>
         </td>
-        <td> <a href="screenshots/board-4.png">
-          <img src="screenshots/thumbs/board-4.png"
-               alt="Fantasy Theme" border="0"/></a>
-        </td>
-      </tr>
-      <tr align="center">
-        <td> <a href="screenshots/board-5.png">
-          <img src="screenshots/thumbs/board-5.png"
-               alt="Gray Theme" border="0"/></a>
-        </td>
-        <td> <a href="screenshots/board-6.png">
-          <img src="screenshots/thumbs/board-6.png"
-               alt="Sand Theme" border="0"/></a>
-        </td>
-        <td> <a href="screenshots/help-1.png">
-          <img src="screenshots/thumbs/help-1.png"
-               alt="Scidb Theme" border="0"/></a>
-        </td>
-        <td> <a href="screenshots/board-8.png">
-          <img src="screenshots/thumbs/board-8.png"
-               alt="Goldenrod Theme" border="0"/></a>
+        <td>
+					<a href="screenshots/board-4.png">
+            <img src="screenshots/thumbs/board-4.png"
+               alt="Thema Fantasy"
+              iwidth="987"
+             iheight="832"/>
+           </a>
         </td>
       </tr>
       <tr align="center">
-        <td> <a href="screenshots/board-9.png">
-          <img src="screenshots/thumbs/board-9.png"
-               alt="mayan Theme" border="0"/></a>
+        <td>
+					<a href="screenshots/board-5.png">
+            <img src="screenshots/thumbs/board-5.png"
+               alt="Thema Gray"
+              iwidth="1105"
+             iheight="909"/>
+           </a>
         </td>
-        <td> <a href="screenshots/gamelist-1.png">
-          <img src="screenshots/thumbs/gamelist-1.png"
-               alt="Game List" border="0"/></a>
+        <td>
+					<a href="screenshots/board-6.png">
+            <img src="screenshots/thumbs/board-6.png"
+               alt="Thema Sand"
+              iwidth="909"
+             iheight="680"/>
+           </a>
         </td>
-        <td> <a href="screenshots/playerlist-1.png">
-          <img src="screenshots/thumbs/playerlist-1.png"
-               alt="Player List" border="0"/></a>
+        <td>
+					<a href="screenshots/help-1.png">
+            <img src="screenshots/thumbs/help-1.png"
+               alt="Hilfe-Dialog"
+              iwidth="936"
+             iheight="629"/>
+           </a>
         </td>
-        <td> <a href="screenshots/gamelist-3.png">
-          <img src="screenshots/thumbs/gamelist-3.png"
-               alt="Browser" border="0"/></a>
+        <td>
+					<a href="screenshots/board-8.png">
+            <img src="screenshots/thumbs/board-8.png"
+               alt="Thema Goldenrod"
+              iwidth="986"
+             iheight="762"/>
+           </a>
         </td>
       </tr>
       <tr align="center">
-        <td> <a href="screenshots/save-dialog-1.png">
-          <img src="screenshots/thumbs/save-dialog-1.png"
-               alt="Export Dialog" border="0"/></a>
+        <td>
+					<a href="screenshots/board-9.png">
+            <img src="screenshots/thumbs/board-9.png"
+               alt="Thema Mayan"
+              iwidth="752"
+             iheight="575"/>
+           </a>
         </td>
-        <td> <a href="screenshots/gamelist-5.png">
-          <img src="screenshots/thumbs/gamelist-5.png"
-               alt="Open Dialog" border="0"/></a>
+        <td>
+					<a href="screenshots/gamelist-1.png">
+            <img src="screenshots/thumbs/gamelist-1.png"
+               alt="Partienliste"
+              iwidth="1055"
+             iheight="924"/>
+           </a>
         </td>
-        <td> <a href="screenshots/setup-1.png">
-          <img src="screenshots/thumbs/setup-1.png"
-               alt="Board Setup" border="0"/></a>
+        <td>
+					<a href="screenshots/playerlist-1.png">
+            <img src="screenshots/thumbs/playerlist-1.png"
+               alt="Spielerliste"
+              iwidth="987"
+             iheight="681"/>
+           </a>
         </td>
-        <td> <a href="screenshots/crosstable-1.png">
-          <img src="screenshots/thumbs/crosstable-1.png"
-               alt="About" border="0"/></a>
+        <td>
+					<a href="screenshots/gamelist-3.png">
+            <img src="screenshots/thumbs/gamelist-3.png"
+               alt="Partien-Browser"
+              iwidth="908"
+             iheight="681"/>
+           </a>
+        </td>
+      </tr>
+      <tr align="center">
+        <td>
+					<a href="screenshots/save-dialog-1.png">
+            <img src="screenshots/thumbs/save-dialog-1.png"
+               alt="Export-Dialog"
+              iwidth="989"
+             iheight="583"/>
+           </a>
+        </td>
+        <td>
+					<a href="screenshots/gamelist-5.png">
+            <img src="screenshots/thumbs/gamelist-5.png"
+               alt="Dateiauswahldialog"
+              iwidth="987"
+             iheight="713"/>
+           </a>
+        </td>
+        <td>
+					<a href="screenshots/setup-1.png">
+            <img src="screenshots/thumbs/setup-1.png"
+               alt="Brettkonfiguration"
+              iwidth="1202"
+             iheight="923"/>
+           </a>
+        </td>
+        <td>
+					<a href="screenshots/crosstable-1.png">
+            <img src="screenshots/thumbs/crosstable-1.png"
+               alt="Über Scidb"
+              iwidth="996"
+             iheight="731"/>
+           </a>
         </td>
       </tr>
     </tbody>
   </table>
+
 FOOTER
+
+  <li><a href="de_index.html">Scidb</a>&nbsp;|&nbsp;</li>
   <li><a href="screenshots.html">Screenshots</a>&nbsp;|&nbsp;</li>
 
 # vi:set ts=2 sw=2 et filetype=html:

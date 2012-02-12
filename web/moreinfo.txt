@@ -13,6 +13,7 @@ CONTENT
 
 FOOTER
 
+  <li><a href="index.html">Scidb</a>&nbsp;|&nbsp;</li>
   <li><a href="moreinfo.html">More Info</a>&nbsp;|&nbsp;</li>
 
 # vi:set ts=2 sw=2 et filetype=html:

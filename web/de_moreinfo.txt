@@ -1,14 +1,19 @@
 TITLE
+
 	Scidb - Weitere Informationen
 
-HEADER
-  <h1></h1>
-
 CONTENT
+
+ <div class="block">
+
   <p>Wähle eine der Menüpunkte unter <i>Weitere Informationen</i> für Informationen
   auf anderen Scidb-Web-Seiten.</p>
 
+</div>
+
 FOOTER
+
+  <li><a href="de_index.html">Scidb</a>&nbsp;|&nbsp;</li>
   <li><a href="de_moreinfo.html">Weitere Informationen</a>&nbsp;|&nbsp;</li>
 
 # vi:set ts=2 sw=2 et filetype=html:

@@ -12,7 +12,7 @@ CHANGELANG
       <li class="notes">
           <ul>
             <li><img src="images/british_flag.png" alt="British Flag"/></li>
-            <li><a href="index.html">To English-language side<a/></li>
+            <li><a href="index.html">To English-language side</a></li>
           </ul>
       </li>
     </ul>
@@ -78,8 +78,8 @@ CONTENT
 
   <p>
     Wegen der spezifischen Probleme auf den defekten Plattformen
-    <nobr><acronym>Debian</acronym> 7.0</nobr> (<acronym>Wheezy</acronym>) und
-    <nobr><acronym>Ubuntu</acronym> 11.10</nobr> (</acronym>Oneiric</acronym>) siehe
+    <acronym>Debian</acronym>&nbsp;7.0 (<acronym>Wheezy</acronym>) und
+    <acronym>Ubuntu</acronym>&nbsp;11.10 (<acronym>Oneiric</acronym>) siehe
     <a href="de_releasehistory.html">Freigabehistorie</a>.
   </p>
 
@@ -94,7 +94,7 @@ CONTENT
   <dir>
     <li><p>Partienhistorie</p></li>
     <li><p>Hilfedialog (mit ein paar Hilfeseiten)</p></li>
-    <li><p>Neuer Dateiauswahldialog mit Zusatzfunktionen:</p></li>
+    <li><p>Neuer Dateiauswahldialog mit Zusatzfunktionen:</p>
       <ul type="circle">
         <li>Datenbank löschen</li>
         <li>Datenbank umbenennen</li>
@@ -102,22 +102,25 @@ CONTENT
         <li>Neuen Ordner anlegen</li>
         <li>Auswahl der Datenbankenkodierung</li>
       </ul>
+    </li>
     <li><p>Automatische Erkennung der Datenbankenkodierung.</p></li>
     <li><p>Modifiziertes Scidb-Datenbankformat; es exisitiert nun eine neue Kommentarvariante: Zuginformationen. Dies erlaubt eine kompakte Speicherung sowie eine erleichterte Eingabe (letzteres erst in einer späteren Version).</p></li>
     <li><p>Automatische Aktualisierung auf das neue Datenbankformat</p></li>
     <li><p>Überarbeiteter Export-Dialog</p></li>
     <li><p>Rückgängig/Wiederherstellen (Undo/Redo) im Kommentareditor</p></li>
-    <li><p>Verbessertes Verhalten des HTML-Fensters</p></li>
+    <li><p>Verbessertes Verhalten des HTML-Fensters</p>
       <ul type="circle">
         <li>Doppelpufferung für flickerfreie Darstellung</li>
         <li>Automatische Silbentrennung</li>
       </ul>
+    </li>
     <li><p>Beschleunigter Aufbau des Partiespeicherungsdialogs</p></li>
-    <li><p>Verbesserte Turniertabelle:</p></li>
+    <li><p>Verbesserte Turniertabelle:</p>
       <ul type="circle">
         <li>Neues Wertungssystem "Bilbao" (drei Gewinnpunkte für Sieg) hinzugefügt</li>
         <li>Zusätzliche Feinwertungen</li>
       </ul>
+    </li>
     <li><p>Der Export nach .si3/.si4 erlaubt nun eine Auswahl der <acronym>PGN</acronym>-Tags (eine Einschränkung der Tags beschleunigt den Zugbaum)</p></li>
     <li><p>Auswahldialog für Datenbanksymbole überarbeitet</p></li>
     <li><p>Neue Funktion im Partien-Editor: Kopieren/Verschieben von Kommentaren zwischen verschiedenen Sprachen</p></li>
@@ -128,5 +131,9 @@ CONTENT
   </dir>
 
 </div>
+
+FOOTER
+
+  <li><a href="de_index.html">Scidb</a>&nbsp;|&nbsp;</li>
 
 # vi:set ts=2 sw=2 et filetype=html:

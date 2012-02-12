@@ -1,10 +1,15 @@
 TITLE
+
 	Scidb - Projekt
 
-HEADER
-  <h1>Das Projekt</h1>
- 
 CONTENT
+
+<div class="block">
+
+  <div class="header">
+    Das Scidb-Projekt <hr/>
+  </div>
+
   <p>Im Februar 2010 wurde das Projeckt Scidb auf Sourceforge angelegt, Klicke
   auf das SourceForge-Symbol auf der rechten Seite um mehr über Sourceforge zu
   erfahren.</p>
@@ -16,9 +21,14 @@ CONTENT
   Danke!</p>
 
   <p>Wenn Sie uns kontaktieren möchten, bitte eine Nachricht an die
-  <em>Scidb Users Mailing List</em> senden.</p>
+  <a href="https://lists.sourceforge.net/lists/listinfo/scidb-users">Scidb Users Mailing List</a>
+  senden.</p>
+
+</div>
  
 FOOTER
+
+  <li><a href="de_index.html">Scidb</a>&nbsp;|&nbsp;</li>
   <li><a href="de_projekt.html">Das Scidb-Projekt</a>&nbsp;|&nbsp;</li>
 
 # vi:set ts=2 sw=2 et filetype=html:

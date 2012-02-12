@@ -1,11 +1,14 @@
 TITLE
+
 	Scidb - Gesucht
 
-HEADER
-  <h1>Gesucht</h1>
-
 CONTENT
-  <h2>Gesucht</h2>
+
+<div class="block">
+
+  <div class="header">
+    Gesucht <hr/>
+  </div>
 
   <p>Testers are welcome for the preliminary version. Volunteers should
   sign up, so that the testing can be coordinated. Please send a
@@ -25,6 +28,10 @@ CONTENT
       </li>
     </ol>
   </div>
+
+</div>
+
+<div class="block">
 
   <p>For additional wanted functionalities feature requests can be entered.
   These requests will partly be a basis of decision-making for further
@@ -55,6 +62,10 @@ CONTENT
   <a href="http://jessy.sourceforge.net/">Jessy</a>. In this way an overloading
   of the database application Scidb will be prevented. Jessy will
   have a connection to the Scidb bases.</p>
+
+</div>
+
+<div class="block">
 
   <p>Furthermore project help is welcome. The following tasks are open:</p>
 
@@ -113,8 +124,12 @@ CONTENT
     are still dissatisfying.</p></li>
   </ul>
 
+</div>
+
 FOOTER
+
+  <li><a href="de_index.html">Scidb</a>&nbsp;|&nbsp;</li>
   <li><a href="de_moreinfo.html">Weitere Informationen</a>&nbsp;|&nbsp;</li>
-  <li><a href="de_links.html">Verweise</a>&nbsp;|&nbsp;</li>
+  <li><a href="de_links.html">Links</a>&nbsp;|&nbsp;</li>
 
 # vi:set ts=2 sw=2 et filetype=html:

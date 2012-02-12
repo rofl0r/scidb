@@ -1,13 +1,26 @@
 TITLE
+
 	Scidb - Download
 
-HEADER
-	<h1>Download</h1>
-
 CONTENT
-	<p>The first preview version is ready for download: <a href="http://sourceforge.net/projects/scidb/files/scidb-beta--2011-07-15--rev83.tar.gz/download">scidb-beta--2011-07-15--rev83.tar.gz</a>. This version is for Linux/Unix systems only. Thw windows version will be released later, presumably at end of year 2011.</p>
 
-	<p>Possibly you have to install the Tcl/Tk packages before Scidb can be compiled. On Ubuntu/Debian systems use:</p>
+<div class="block">
+
+  <div class="header">
+    Download <hr/> 
+  </div>
+
+  <p>
+  Die erste öffentliche Vorschauversion is bereit für den Download:
+  <a href="http://sourceforge.net/projects/scidb/files/scidb-beta--2011-07-15--rev83.tar.gz/download">scidb-beta--2011-07-15--rev83.tar.gz</a>.
+  Diese Version ist nur für Linux/Unix Betriebssysteme. Die Windows-Version wird später
+  veröffentlicht, eventuell am Ende des Jahres 2012.
+  </p>
+
+  <p>
+  Möglicherweise sollten zuerst die Tcl/Tk Pakete ionstalliert werden, bevor Scidb gebaut
+  werden kann. Unter Ubuntu/Debian-Distributionen wird Tcl/Tk folgendermassen installiert:
+  </p>
 
 	<p>
 	&nbsp;&nbsp;&gt; sudo apt-get install tcl8.5<br>
@@ -16,7 +29,7 @@ CONTENT
 	&nbsp;&nbsp;&gt; sudo apt-get install tk8.5-dev
 	</p>
 
-	<p>Install Scidb as usual:</p>
+  <p>Scidb wird wie gewöhnlich gebaut:</p>
 	
 	<p>
 	&nbsp;&nbsp;&gt; tar -xzf scidb-beta--2011-07-15--rev83.tar.gz<br>
@@ -26,9 +39,13 @@ CONTENT
 	&nbsp;&nbsp;&gt; sudo make install
 	</p>
 
-	<p>After the installation succeeded 'scidb-beta' is executable.</p>
+	<p>
+  Nach einer erfolgreichen Installation steht 'scidb-beta' zur Ausführung bereit.
+  </p>
 
 FOOTER
+
+  <li><a href="de_index.html">Scidb</a>&nbsp;|&nbsp;</li>
   <li><a href="de_download.html">Download</a>&nbsp;|&nbsp;</li>
 
 # vi:set ts=2 sw=2 et filetype=html:
