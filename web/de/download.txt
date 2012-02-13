@@ -11,7 +11,7 @@ CONTENT
   </div>
 
   <p>
-  Die erste öffentliche Vorschauversion is bereit für den Download:
+  Die erste öffentliche Vorschauversion ist bereit für den Download:
   <a href="http://sourceforge.net/projects/scidb/files/scidb-beta--2011-07-15--rev83.tar.gz/download">scidb-beta--2011-07-15--rev83.tar.gz</a>.
   Diese Version ist nur für Linux/Unix Betriebssysteme. Die Windows-Version wird später
   veröffentlicht, eventuell am Ende des Jahres 2012.
@@ -45,7 +45,7 @@ CONTENT
 
 FOOTER
 
-  <li><a href="de_index.html">Scidb</a>&nbsp;|&nbsp;</li>
-  <li><a href="de_download.html">Download</a>&nbsp;|&nbsp;</li>
+  <li><a href="index.html">Scidb</a>&nbsp;|&nbsp;</li>
+  <li><a href="download.html">Download</a>&nbsp;|&nbsp;</li>
 
 # vi:set ts=2 sw=2 et filetype=html:

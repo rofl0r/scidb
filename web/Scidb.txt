@@ -8,6 +8,7 @@
        lang="%LANG%">
 
 <head>
+
   <meta http-equiv="content-type"
            content="text/html; charset=iso-8859-1" />
   <meta    name="robots"
@@ -15,7 +16,7 @@
   <meta    name="description"
         content="A free chess database application" />
   <meta    name="keywords"
-        content="Scidb, Scid, chess, chess games, chess database, schach, schachpartien, schachdatenbank, free, GPL" />
+        content="Scidb, Scid, chess, chess games, chess database, schach, schachdatenbank, GPL" />
   <link  rel="icon"
         href="http://scidb.sourceforge.net/images/scidb.ico"
         type="image/x-icon" />
@@ -29,27 +30,29 @@
          href="css/styles.css" />
         <!--[if IE]><style type="text/css" media="screen">body {behavior: url(css/csshover.htc);}</style><![endif]-->
         
+  %SCRIPTS%
+
   <script type="text/javascript"
            src="js/external_links.js">
   </script>
 
-  %SCRIPTS%
+  <!--
+  <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+           xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+           xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <rdf:Description
+      rdf:about="http://scidb.sourceforge.net/index.html"
+      trackback:ping="http://scidb.sourceforge.net/index.html"
+      dc:title="Scidb: a chess database application"
+      dc:identifier="http://scidb.sourceforge.net/index.html"
+      dc:subject="chess database"
+      dc:description="Scidb is a chess database application for Linux/Unix and Windows. Scidb is inspired by Scid, but it is a completely new development..."
+      dc:creator="Gregor Cramer" />
+  </rdf:RDF>
+  -->
 
-<!--
-<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
-         xmlns:dc="http://purl.org/dc/elements/1.1/">
-<rdf:Description
-    rdf:about="http://scidb.sourceforge.net/index.html"
-    trackback:ping="http://scidb.sourceforge.net/index.html"
-    dc:title="Scidb: a chess database application"
-    dc:identifier="http://scidb.sourceforge.net/index.html"
-    dc:subject="chess database"
-    dc:description="Scidb is a chess database application for Linux/Unix and Windows. Scidb is inspired by Scid, but it is a completely new development..."
-    dc:creator="Gregor Cramer" />
-</rdf:RDF>
--->
 </head>
+
 <body %ONLOAD%>
 
 <div id="wrapper">
@@ -65,60 +68,52 @@
     <div id="menu">
 
       <div class="primary" id="guide">
-        %GUIDE%
+        <p/><a href="index.html" class="nav">Scidb</a> &nbsp;<br/>
+
+        <p/><a href="download.html" class="nav">%GUIDE_DOWNLOAD%</a> &nbsp;<br/>
+
+        <p/><a href="screenshots.html" class="nav">%GUIDE_SCREENSHOTS%</a> &nbsp;<br/>
+
+        <p/><a href="moreinfo.html" class="nav">%GUIDE_MOREINFO%</a> &nbsp;<br/>
+        <a href="links.html" class="nav2">%GUIDE_LINKS%</a>&nbsp;&bull;<br/>
+        <a href="wanted.html" class="nav2">%GUIDE_WANTED%</a>&nbsp;&bull;
+
+        <p/><a href="project.html" class="nav">%GUIDE_PROJECT%</a> &nbsp;<br/>
+        <a href="releasehistory.html" class="nav2">%GUIDE_RELEASEHISTORY%</a>&nbsp;&bull;<br/>
+        <a href="roadmap.html" class="nav2">%GUIDE_ROADMAP%</a>&nbsp;&bull;<br/>
       </div>
 
     </div>
 
-    <div align="center">
-        <a href="http://sourceforge.net/apps/aguestbook/scidb/sign.php"
-             id="SignGuestBookLink">
-          <img src="images/sign-up.png"
-               alt="Sign Guestbook"
-             title="Sign Guestbook"
-            hspace="10px" />
-        </a>
-        <a href="http://sourceforge.net/projects/scidb/reviews"
-             id="ReviewLink">
-          <img src="images/thumbs_up.png"
-               alt="Review"
-             title="Review"
-            hspace="10px" />
-        </a>
-        <a href="http://sourceforge.net/tracker/?atid=1294800&amp;group_id=307371&amp;func=browse"
-             id="FeatureRequest">
-          <img src="images/question_block.png"
-               alt="Feature Request"
-             title="Feature Request"
-            hspace="10px" />
-        </a>
-    </div>
+      <table border="0" align="center" cellspacing="5"><tr>
+        <td align="center" valign="bottom" width="60">
+          <a href="http://sourceforge.net/projects/scidb/reviews"
+               id="ReviewLink">
+            <img src="images/thumbs_up.png"
+                 alt="Review"
+               title="Review" />
+          </a>
+        </td>
+        <td align="center" valign="bottom" width="60">
+          <a href="http://sourceforge.net/apps/aguestbook/scidb/sign.php"
+               id="SignGuestBookLink">
+            <img src="images/sign-up.png"
+                 alt="Sign Guestbook"
+               title="Sign Guestbook" />
+          </a>
+        </td>
+        <td align="center" valign="bottom" width="60">
+          <a href="http://sourceforge.net/tracker/?atid=1294800&amp;group_id=307371&amp;func=browse"
+               id="FeatureRequestLink">
+            <img src="images/question_block.png"
+                 alt="Feature Request"
+               title="Feature Request" />
+          </a>
+        </td>
+      </tr></table>
 
     %CHANGELANG%
-
-    <div id="translator" class="block">
-    <ul class="header">
-      <li class="header">Translator</li>
-    </ul>
-    <ul>
-      <li class="tiny-notes">
-       (Javascript required)
-      </li>
-      <li class="notes">
-       <div id="google_translate_element"></div>
-       <script type="text/javascript">
-        function googleTranslateElementInit() {
-          new google.translate.TranslateElement({
-           pageLanguage: 'en'
-          }, 'google_translate_element');
-        }
-       </script>
-       <script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" type="text/javascript">
-       </script>
-      </li>
-    </ul>
-    </div><!-- translator -->
-
+    %TRANSLATOR%
     %SIDEBAR%
 
     <div align="center" style="margin-top: 15pt;">
@@ -163,17 +158,18 @@
 <script type="text/javascript">
   try {
     var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 1);
+    piwikTracker.setDocumentTitle(document.title);
     piwikTracker.trackPageView();
     piwikTracker.enableLinkTracking();
   } catch( err ) {}
-  </script>
-  <noscript>
-    <p>
-      <img src="http://sourceforge.net/apps/piwik/scidb/piwik.php?idsite=1"
-         style="border:0"
-           alt=""/>
-    </p>
-  </noscript>
+</script>
+<noscript>
+  <p>
+    <img src="http://sourceforge.net/apps/piwik/scidb/piwik.php?idsite=1"
+       style="border:0"
+         alt=""/>
+  </p>
+</noscript>
 <!-- End Piwik Tag -->
 
 </body>

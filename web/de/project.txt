@@ -28,7 +28,7 @@ CONTENT
  
 FOOTER
 
-  <li><a href="de_index.html">Scidb</a>&nbsp;|&nbsp;</li>
-  <li><a href="de_projekt.html">Das Scidb-Projekt</a>&nbsp;|&nbsp;</li>
+  <li><a href="index.html">Scidb</a>&nbsp;|&nbsp;</li>
+  <li><a href="projekt.html">Das Scidb-Projekt</a>&nbsp;|&nbsp;</li>
 
 # vi:set ts=2 sw=2 et filetype=html:

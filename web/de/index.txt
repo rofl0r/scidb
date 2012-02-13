@@ -2,51 +2,35 @@ TITLE
 
 	Scidb
 
-CHANGELANG
+SIDEBAR
 
-  <div id="language" class="block">
+  <div id="visitors" class="block">
     <ul class="header">
-      <li class="header">English</li>
+      <li class="header">Besucher</li>
     </ul>
     <ul>
       <li class="notes">
-          <ul>
-            <li><img src="images/british_flag.png" alt="British Flag"/></li>
-            <li><a href="index.html">To English-language side</a></li>
-          </ul>
+        <a href="http://www2.clustrmaps.com/counter/maps.php?url=http://scidb.sourceforge.net/"
+             id="clustrMapsLink">
+          <img src="http://www2.clustrmaps.com/counter/index2.php?url=http://scidb.sourceforge.net/"
+             style="border:0px;"
+               alt="Locations of visitors to this page"
+             title="Locations of visitors to this page"
+                id="clustrMapsImg" />
+        </a>
+        <script type="text/javascript">
+          function cantload() {
+            img = document.getElementById("clustrMapsImg");
+            img.onerror = null;
+            img.src = "http://clustrmaps.com/images/clustrmaps-back-soon.jpg";
+            document.getElementById("clustrMapsLink").href = "http://clustrmaps.com";
+          }
+          img = document.getElementById("clustrMapsImg");
+          img.onerror = cantload;
+        </script>
       </li>
     </ul>
-  </div>
-
-SIDEBAR
-
-<div id="visitors" class="block">
-  <ul class="header">
-    <li class="header">Besucher</li>
-  </ul>
-  <ul>
-    <li class="notes">
-      <a href="http://www2.clustrmaps.com/counter/maps.php?url=http://scidb.sourceforge.net/"
-           id="clustrMapsLink">
-        <img src="http://www2.clustrmaps.com/counter/index2.php?url=http://scidb.sourceforge.net/"
-           style="border:0px;"
-             alt="Locations of visitors to this page"
-           title="Locations of visitors to this page"
-              id="clustrMapsImg" />
-      </a>
-      <script type="text/javascript">
-        function cantload() {
-          img = document.getElementById("clustrMapsImg");
-          img.onerror = null;
-          img.src = "http://clustrmaps.com/images/clustrmaps-back-soon.jpg";
-          document.getElementById("clustrMapsLink").href = "http://clustrmaps.com";
-        }
-        img = document.getElementById("clustrMapsImg");
-        img.onerror = cantload;
-      </script>
-    </li>
-  </ul>
-</div><!-- visitors -->
+  </div><!-- visitors -->
 
 CONTENT
 
@@ -73,14 +57,14 @@ CONTENT
 
   <p>
   Die zweite öffentliche Vorschau-Version wurde veröffentlicht
-  (siehe <a href="de_download.html">Download</a>).
+  (siehe <a href="ownload.html">Download</a>).
   </p>
 
   <p>
     Wegen der spezifischen Probleme auf den defekten Plattformen
     <acronym>Debian</acronym>&nbsp;7.0 (<acronym>Wheezy</acronym>) und
     <acronym>Ubuntu</acronym>&nbsp;11.10 (<acronym>Oneiric</acronym>) siehe
-    <a href="de_releasehistory.html">Freigabehistorie</a>.
+    <a href="eleasehistory.html">Freigabehistorie</a>.
   </p>
 
 </div>
@@ -126,7 +110,7 @@ CONTENT
     <li><p>Neue Funktion im Partien-Editor: Kopieren/Verschieben von Kommentaren zwischen verschiedenen Sprachen</p></li>
     <li><p>Drop-Down-Schatten (experimentell)</p></li>
     <li><p>Teilweise Übersetzung in die ungarische Sprache, die Übersetzung ist noch in Bearbeitung</p></li>
-    <li><p>Die spanische Übersetzung wurde aufgrund von Unvollständigkeit vorübergehend herausgenommen. Interessenten für die Übersetzung: bitte bei <a href="de_wanted.html">Gesucht</a> schauen</p></li>
+    <li><p>Die spanische Übersetzung wurde aufgrund von Unvollständigkeit vorübergehend herausgenommen. Interessenten für die Übersetzung: bitte bei <a href="anted.html">Gesucht</a> schauen</p></li>
     <li><p><acronym>UNIX</acronym>-Hilfeseiten</p></li>
   </dir>
 
@@ -134,6 +118,6 @@ CONTENT
 
 FOOTER
 
-  <li><a href="de_index.html">Scidb</a>&nbsp;|&nbsp;</li>
+  <li><a href="ndex.html">Scidb</a>&nbsp;|&nbsp;</li>
 
 # vi:set ts=2 sw=2 et filetype=html:

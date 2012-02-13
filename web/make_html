@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# Usage: make_html pattern.html filename.txt > filename.html
+# Usage: make_html pattern.txt filename.txt > filename.html
 # \
 exec tclsh "$0" "$@"
 
@@ -12,96 +12,196 @@ set section ""
 chan configure $fd -encoding iso8859-1
 
 array set content {
-	CHANGELANG	""
-	CONTENT		""
-	FOOTER		""
-	LINKS			""
-	ONLOAD		""
-	SCRIPTS		""
-	SIDEBAR		""
-	TITLE			""
+  CONTENT     ""
+  FOOTER      ""
+  LINKS       ""
+  ONLOAD      ""
+  SIDEBAR     ""
+  TRANSLATOR  ""
+  TITLE       ""
+
+  SCRIPTS     {<script type="text/javascript" src="js/cookies.js"></script>
+  }
+  AUTODISPLAY false
 }
 
+set content(FILENAME) [lindex [split $filename "."] 0]
+
 while {[gets $fd line] >= 0} {
-	if {[string index $line 0] ne "#"} {
-		switch -- $line {
-			CHANGELANG - CONTENT - FOOTER - ONLOAD - SCRIPTS - SIDEBAR - TITLE - LINKS { set section $line }
-			default { append content($section) $line "\n" }
-		}
-	}
+  if {[string index $line 0] ne "#"} {
+    switch -- $line {
+      CONTENT - FOOTER - ONLOAD - SCRIPTS - SIDEBAR - TITLE - LINKS { set section $line }
+
+      default {
+        if {[string length [string trim $line]] > 0} {
+          append content($section) $line "\n"
+        }
+      }
+    }
+  }
 }
 
 close $fd
+set subdir 1
 
-# setup guide ##############################
-
-if {[string match de_* $filename]} {
-	set content(GUIDE) {
-	  <p/><a href="de_index.html" class="nav">Scidb</a> &nbsp;<br/>
-
-	  <p/><a href="de_download.html" class="nav">Download</a> &nbsp;<br/>
-
-	  <p/><a href="de_screenshots.html" class="nav">Screenshots</a> &nbsp;<br/>
-
-	  <p/><a href="de_moreinfo.html" class="nav">Weitere Informationen</a> &nbsp;<br/>
-	  <a href="de_links.html" class="nav2">Scidb-Links</a>&nbsp;&bull;<br/>
-	  <a href="de_wanted.html" class="nav2">Gesucht</a>&nbsp;&bull;
-
-	  <p/><a href="de_project.html" class="nav">Das Scidb-Projekt</a> &nbsp;<br/>
-	  <a href="de_releasehistory.html" class="nav2">Freigabehistorie</a>&nbsp;&bull;<br/>
-	  <a href="de_roadmap.html" class="nav2">Roadmap</a>&nbsp;&bull;<br/>
-	}
-	set content(LANG) de
-} else {
-	set content(GUIDE) {
-	  <p/><a href="index.html" class="nav">Scidb</a> &nbsp;<br/>
-
-	  <p/><a href="download.html" class="nav">Download</a> &nbsp;<br/>
-
-	  <p/><a href="screenshots.html" class="nav">Screenshots</a> &nbsp;<br/>
-
-	  <p/><a href="moreinfo.html" class="nav">More Info</a> &nbsp;<br/>
-	  <a href="links.html" class="nav2">Scidb Links</a>&nbsp;&bull;<br/>
-	  <a href="wanted.html" class="nav2">Wanted</a>&nbsp;&bull;
-
-	  <p/><a href="project.html" class="nav">The Scidb Project</a> &nbsp;<br/>
-	  <a href="releasehistory.html" class="nav2">Release History</a>&nbsp;&bull;<br/>
-	  <a href="roadmap.html" class="nav2">Roadmap</a>&nbsp;&bull;<br/>
-	}
-	set content(LANG) en
+if {$filename ne "screenshots.txt"} {
+  set content(TRANSLATOR) {
+    <div id="translator" class="block">
+      <ul class="header">
+        <li class="header">Translator</li>
+      </ul>
+      <ul>
+        <noscript>
+          <li class="tiny-notes">(Javascript required)</li>
+        </noscript>
+        <li class="notes">
+          <div id="google_translate_element"></div>
+            <script type="text/javascript">
+              function googleTranslateElementInit()
+              {
+                new google.translate.TranslateElement(
+                  {
+                    pageLanguage: '%LANG%',
+                    autoDisplay: %AUTODISPLAY%,
+                    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+                  },
+                  'google_translate_element');
+              }
+            </script>
+            <script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" type="text/javascript">
+          </script>
+        </li>
+      </ul>
+    </div>
+  }
 }
 
-# read .html file ##########################
+if {[string match */de [pwd]]} {
+# G E R M A N ##############################
+
+  set content(LANG)                 "de"
+  set content(GUIDE_DOWNLOAD)       "Download"
+  set content(GUIDE_SCREENSHOTS)    "Screenshots"
+  set content(GUIDE_MOREINFO)       "Weitere Informationen"
+  set content(GUIDE_LINKS)          "Scidb-Links"
+  set content(GUIDE_WANTED)         "Gesucht"
+  set content(GUIDE_PROJECT)        "Das Scidb-Projekt"
+  set content(GUIDE_RELEASEHISTORY) "Freigabehistorie"
+  set content(GUIDE_ROADMAP)        "Roadmap"
+
+############################################
+} else {
+# E N G L I S H ############################
+
+  set content(LANG)                 "en"
+  set content(GUIDE_DOWNLOAD)       "Download"
+  set content(GUIDE_SCREENSHOTS)    "Screenshots"
+  set content(GUIDE_MOREINFO)       "More Info"
+  set content(GUIDE_LINKS)          "Scidb Links"
+  set content(GUIDE_WANTED)         "Wanted"
+  set content(GUIDE_PROJECT)        "The Scidb Project"
+  set content(GUIDE_RELEASEHISTORY) "Release History"
+  set content(GUIDE_ROADMAP)        "Roadmap"
+
+  set content(AUTODISPLAY)          "true"
+
+  set content(CHANGELANG) {
+    <div id="language" class="block">
+      <ul class="header">
+        <li class="header">Deutsch</li>
+      </ul>
+      <ul>
+        <li class="notes">
+            <ul>
+              <li>
+                <img src="images/german_flag.png" alt="German Flag"/>
+              </li>
+              <li>
+                <a href="de/%FILENAME%.html" onclick="setCookie('lang', 'de', 720)">
+                  Zur deutschsprachigen Seite
+                </a>
+              </li>
+            </ul>
+        </li>
+      </ul>
+    </div>
+  }
+
+  set subdir 0
+
+############################################
+}
+
+set content(ONLOAD) [string trim $content(ONLOAD)]
+set content(ONLOAD) "onload=\"setCookie('lang', '$content(LANG)', 720);$content(ONLOAD)\""
+
+if {![info exists content(CHANGELANG)]} {
+  set content(CHANGELANG) {
+    <div id="language" class="block">
+      <ul class="header">
+        <li class="header">English</li>
+      </ul>
+      <ul>
+        <li class="notes">
+            <ul>
+              <li>
+                <img src="../images/british_flag.png" alt="British Flag"/>
+              </li>
+              <li>
+                <a href="../%FILENAME%.html" onclick="setCookie('lang', 'en', 720)">
+                  To English-language side
+                </a>
+              </li>
+            </ul>
+        </li>
+      </ul>
+    </div>
+  }
+}
+
+# write .html file #########################
 
 set fd [open "[lindex $argv 0]"]
 
 while {[gets $fd line] >= 0} {
-	set indicies [regexp -indices -inline -- {%[A-Z]+%} $line]
+  set indicies [regexp -indices -inline -- {%[A-Z_]+%} $line]
 
-	if {[llength $indicies]} {
-		set i [lindex [lindex $indicies 0] 0]
-		set k [lindex [lindex $indicies 0] 1]
-		set section [string range $line [expr {$i + 1}] [expr {$k - 1}]]
+  while {[llength $indicies]} {
+    set i [lindex [lindex $indicies 0] 0]
+    set k [lindex [lindex $indicies 0] 1]
+    set section [string range $line [expr {$i + 1}] [expr {$k - 1}]]
+    set line [string replace $line $i $k $content($section)]
+    set indicies [regexp -indices -inline -- {%[A-Z]+%} $line]
+  }
 
-		switch $section {
-			CHANGELANG -
-			CONTENT -
-			FOOTER -
-			GUIDE -
-			LANG -
-			LINKS -
-			ONLOAD -
-			SCRIPTS -
-			SIDEBAR -
-			TITLE {
-				set line [string replace $line $i $k $content($section)]
-			}
-		}
-	}
+  if {$subdir} {
+    set indicies [regexp -indices -inline -- {src=\"[a-z]+/} $line]
 
-	puts $line
+    while {[llength $indicies]} {
+      set i [expr {[lindex [lindex $indicies 0] 0] + 5}]
+      set str [string range $line 0 [expr {$i - 1}]]
+      append str "../"
+      append str  [string range $line $i end]
+      set line $str
+      set indicies [regexp -indices -inline -- {src=\"[a-z]+/} $line]
+    }
+
+    set indicies [regexp -indices -inline -- {href=\"[a-z]+/} $line]
+
+    while {[llength $indicies]} {
+      set i [expr {[lindex [lindex $indicies 0] 0] + 6}]
+      set k [lindex [lindex $indicies 0] 1]
+      set str [string range $line 0 [expr {$i - 1}]]
+      append str "../"
+      append str  [string range $line $i end]
+      set line $str
+      set indicies [regexp -indices -inline -- {href=\"[a-z]+/} $line]
+    }
+  }
+
+  puts $line
 }
 
 close $fd
 
-# vi:set ts=3 sw=3:
+# vi:set ts=2 sw=2 et:

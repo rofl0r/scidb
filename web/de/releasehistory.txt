@@ -46,7 +46,7 @@ CONTENT
       </li>
     </ul>
 
-    Beide Systeme, <acronym>Debian</acronym> <acronym>Wheezy</acronym>, und
+    Beide Systeme, <acronym>Debian</acronym> <acronym>Wheezy</acronym> und
     <acronym>Ubuntu</acronym> <acronym>Oneiric</acronym>, sind definitiv ungesund,
     und der Entwickler, der einige Wochen mit der Suche nach Notlösungen verbrachte,
     wird möglicherweise zukünftige Versionen dieser Systeme nicht meht unterstützen.
@@ -67,8 +67,8 @@ CONTENT
  
 FOOTER
 
-  <li><a href="de_index.html">Scidb</a>&nbsp;|&nbsp;</li>
-  <li><a href="de_project.html">Das Scidb-Projekt</a>&nbsp;|&nbsp;</li>
-  <li><a href="de_releasehistory.html">Freigabehistorie</a>&nbsp;|&nbsp;</li>
+  <li><a href="index.html">Scidb</a>&nbsp;|&nbsp;</li>
+  <li><a href="project.html">Das Scidb-Projekt</a>&nbsp;|&nbsp;</li>
+  <li><a href="releasehistory.html">Freigabehistorie</a>&nbsp;|&nbsp;</li>
 
 # vi:set ts=2 sw=2 et filetype=html:

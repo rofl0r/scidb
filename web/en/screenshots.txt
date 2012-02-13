@@ -4,12 +4,12 @@ TITLE
 
 SCRIPTS
 
-<script type="text/javascript" src="js/popup.js"></script>
+<script type="text/javascript" src="js/popup.js"> </script>
 <script type="text/javascript" src="js/screenshots.js"></script>
 
 ONLOAD
 
-  onload="init()"
+  prepareThumbnails()
 
 CONTENT
 
@@ -17,13 +17,13 @@ CONTENT
     Screenshots <hr/>
   </div>
 
-  <table width="100%" cellspacing="15" id="screenshots">
+  <table width="100%" cellspacing="15" id="thumbnails">
     <tbody>
       <tr align="center">
         <td>
           <a href="screenshots/board-1.png">
             <img src="screenshots/thumbs/board-1.png"
-                 alt="Standard-Thema"
+                 alt="Default Theme"
               iwidth="1105"
              iheight="909"/>
            </a>
@@ -31,7 +31,7 @@ CONTENT
         <td>
 					<a href="screenshots/board-2.png">
             <img src="screenshots/thumbs/board-2.png"
-               alt="Thema Antique"
+               alt="Antique Theme"
               iwidth="1015"
              iheight="791"/>
            </a>
@@ -39,7 +39,7 @@ CONTENT
         <td>
 					<a href="screenshots/board-3.png">
             <img src="screenshots/thumbs/board-3.png"
-               alt="Thema Burnett"
+               alt="Burnett Theme"
               iwidth="1189"
              iheight="874"/>
            </a>
@@ -47,7 +47,7 @@ CONTENT
         <td>
 					<a href="screenshots/board-4.png">
             <img src="screenshots/thumbs/board-4.png"
-               alt="Thema Fantasy"
+               alt="Fantasy Theme"
               iwidth="987"
              iheight="832"/>
            </a>
@@ -57,15 +57,15 @@ CONTENT
         <td>
 					<a href="screenshots/board-5.png">
             <img src="screenshots/thumbs/board-5.png"
-               alt="Thema Gray"
-              iwidth="1105"
-             iheight="909"/>
+               alt="Gray Theme"
+              iwidth="909"
+             iheight="680"/>
            </a>
         </td>
         <td>
 					<a href="screenshots/board-6.png">
             <img src="screenshots/thumbs/board-6.png"
-               alt="Thema Sand"
+               alt="Sand Theme"
               iwidth="909"
              iheight="680"/>
            </a>
@@ -73,7 +73,7 @@ CONTENT
         <td>
 					<a href="screenshots/help-1.png">
             <img src="screenshots/thumbs/help-1.png"
-               alt="Hilfe-Dialog"
+               alt="Help Dialog"
               iwidth="936"
              iheight="629"/>
            </a>
@@ -81,7 +81,7 @@ CONTENT
         <td>
 					<a href="screenshots/board-8.png">
             <img src="screenshots/thumbs/board-8.png"
-               alt="Thema Goldenrod"
+               alt="Goldenrod Theme"
               iwidth="986"
              iheight="762"/>
            </a>
@@ -91,7 +91,7 @@ CONTENT
         <td>
 					<a href="screenshots/board-9.png">
             <img src="screenshots/thumbs/board-9.png"
-               alt="Thema Mayan"
+               alt="Mayan Theme"
               iwidth="752"
              iheight="575"/>
            </a>
@@ -99,7 +99,7 @@ CONTENT
         <td>
 					<a href="screenshots/gamelist-1.png">
             <img src="screenshots/thumbs/gamelist-1.png"
-               alt="Partienliste"
+               alt="Game List"
               iwidth="1055"
              iheight="924"/>
            </a>
@@ -107,7 +107,7 @@ CONTENT
         <td>
 					<a href="screenshots/playerlist-1.png">
             <img src="screenshots/thumbs/playerlist-1.png"
-               alt="Spielerliste"
+               alt="Player List"
               iwidth="987"
              iheight="681"/>
            </a>
@@ -115,7 +115,7 @@ CONTENT
         <td>
 					<a href="screenshots/gamelist-3.png">
             <img src="screenshots/thumbs/gamelist-3.png"
-               alt="Partien-Browser"
+               alt="Game Browser"
               iwidth="908"
              iheight="681"/>
            </a>
@@ -125,7 +125,7 @@ CONTENT
         <td>
 					<a href="screenshots/save-dialog-1.png">
             <img src="screenshots/thumbs/save-dialog-1.png"
-               alt="Export-Dialog"
+               alt="Export Dialog"
               iwidth="989"
              iheight="583"/>
            </a>
@@ -133,7 +133,7 @@ CONTENT
         <td>
 					<a href="screenshots/gamelist-5.png">
             <img src="screenshots/thumbs/gamelist-5.png"
-               alt="Dateiauswahldialog"
+               alt="File Selection Dialog"
               iwidth="987"
              iheight="713"/>
            </a>
@@ -141,7 +141,7 @@ CONTENT
         <td>
 					<a href="screenshots/setup-1.png">
             <img src="screenshots/thumbs/setup-1.png"
-               alt="Brettkonfiguration"
+               alt="Board Setup"
               iwidth="1202"
              iheight="923"/>
            </a>
@@ -149,7 +149,7 @@ CONTENT
         <td>
 					<a href="screenshots/crosstable-1.png">
             <img src="screenshots/thumbs/crosstable-1.png"
-               alt="Über Scidb"
+               alt="About Scidb"
               iwidth="996"
              iheight="731"/>
            </a>
@@ -160,7 +160,7 @@ CONTENT
 
 FOOTER
 
-  <li><a href="de_index.html">Scidb</a>&nbsp;|&nbsp;</li>
+  <li><a href="index.html">Scidb</a>&nbsp;|&nbsp;</li>
   <li><a href="screenshots.html">Screenshots</a>&nbsp;|&nbsp;</li>
 
 # vi:set ts=2 sw=2 et filetype=html:

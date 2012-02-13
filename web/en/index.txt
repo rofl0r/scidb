@@ -2,21 +2,9 @@ TITLE
 
 	Scidb
 
-CHANGELANG
+SCRIPTS
 
-  <div id="language" class="block">
-    <ul class="header">
-      <li class="header">Deutsch</li>
-    </ul>
-    <ul>
-      <li class="notes">
-          <ul>
-            <li><img src="images/german_flag.png" alt="German Flag"/></li>
-            <li><a href="de_index.html">Zur deutschsprachigen Seite</a></li>
-          </ul>
-      </li>
-    </ul>
-  </div>
+  <script type="text/javascript" src="js/forwarding.js"></script>
 
 SIDEBAR
 
