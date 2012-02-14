@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 232 $
-# Date   : $Date: 2012-02-07 10:49:02 +0000 (Tue, 07 Feb 2012) $
+# Version: $Revision: 248 $
+# Date   : $Date: 2012-02-14 18:33:12 +0000 (Tue, 14 Feb 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1595,7 +1595,7 @@
 
 ::fsbox::mc::SelectEncoding				"Selezionare la codifica del database (apre un'interfaccia)"
 ::fsbox::mc::SelectWhichType				"Selezione che tipo di file visualizzare"
-::fsbox::mc::TimeFormat						"%d/%m/%y %I:%M %p"
+::fsbox::mc::TimeFormat						"%d/%m/%Y %H:%M"
 
 ::fsbox::mc::CannotChangeDir				"Non posso cambiare la cartella a '%s'.\nPermesso negato."
 ::fsbox::mc::DirectoryRemoved				"Non posso passare alla cartella '%s'.\nLa cartella è rimossa."

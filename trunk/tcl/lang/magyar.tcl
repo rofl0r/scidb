@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 243 $
-# Date   : $Date: 2012-02-12 14:09:03 +0000 (Sun, 12 Feb 2012) $
+# Version: $Revision: 248 $
+# Date   : $Date: 2012-02-14 18:33:12 +0000 (Tue, 14 Feb 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1594,7 +1594,7 @@
 
 ::fsbox::mc::SelectEncoding				"Adatbázis kódolásának kiválasztása"
 ::fsbox::mc::SelectWhichType				"Megjelenítendő fájltípusok kiválasztása"
-::fsbox::mc::TimeFormat						"%y/%m/%d %I:%M %p"
+::fsbox::mc::TimeFormat						"%Y.%m.%d %H:%M"
 
 ::fsbox::mc::CannotChangeDir				"Cannot change to the directory \"%s\".\nHozzáférés megtagadva."
 ::fsbox::mc::DirectoryRemoved				"Cannot change to the directory \"%s\".\nKönyvtár nem létezik."

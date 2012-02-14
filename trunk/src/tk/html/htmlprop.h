@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 228 $
-// Date   : $Date: 2012-02-06 21:27:25 +0000 (Mon, 06 Feb 2012) $
+// Version: $Revision: 248 $
+// Date   : $Date: 2012-02-14 18:33:12 +0000 (Tue, 14 Feb 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -79,8 +79,10 @@ struct HtmlFont {
     int hyphen_pixels;     /* Pixels per hyphen ('-') in this font */
     Tk_FontMetrics metrics;
 
+#if defined(USE_LATIN_LIGATURES)
     char has_ligatures;
     unsigned char ligature[7]; /* Ligature table 0xFB00-0xFB06 */
+#endif
 
     HtmlFont *pNext;       /* Next entry in the Html.FontCache LRU list */
 };

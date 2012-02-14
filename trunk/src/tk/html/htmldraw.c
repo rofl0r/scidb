@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 235 $
-// Date   : $Date: 2012-02-08 22:30:21 +0000 (Wed, 08 Feb 2012) $
+// Version: $Revision: 248 $
+// Date   : $Date: 2012-02-14 18:33:12 +0000 (Tue, 14 Feb 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2671,6 +2671,9 @@ updateRegions(pTree, pElem, drawable, dx, dy)
                             case HTML_TEXT_TOKEN_SPACE:
                                 buf[len++] = ' ';
                                 break;
+
+                            /*case HTML_TEXT_TOKEN_ZERO_SPACE:
+                                break;*/
                         }
                     }
                 }

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 235 $
-// Date   : $Date: 2012-02-08 22:30:21 +0000 (Wed, 08 Feb 2012) $
+// Version: $Revision: 248 $
+// Date   : $Date: 2012-02-14 18:33:12 +0000 (Tue, 14 Feb 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -57,7 +57,7 @@
 # include "tkInt.h"
 #endif
 
-#ifdef HAVE_XFT
+#if defined(USE_LATIN_LIGATURES) && defined(HAVE_XFT)
 # include <fontconfig/fontconfig.h>
 #endif
 
@@ -1116,7 +1116,7 @@ deleteWidget(clientData)
 	 }
 #endif
 
-#ifdef HAVE_XFT
+#if defined(USE_LATIN_LIGATURES) && defined(HAVE_XFT)
     if (pTree->fc_config)
     {
         FcConfigDestroy(pTree->fc_config);
@@ -2839,7 +2839,7 @@ newWidget(clientData, interp, objc, objv)
     memset(&pTree->bufferRect, 0, sizeof(pTree->bufferRect));
 #endif
 
-#ifdef HAVE_XFT
+#if defined(USE_LATIN_LIGATURES) && defined(HAVE_XFT)
     pTree->fc_config = NULL;
 #endif
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 226 $
-// Date   : $Date: 2012-02-05 22:00:47 +0000 (Sun, 05 Feb 2012) $
+// Version: $Revision: 248 $
+// Date   : $Date: 2012-02-14 18:33:12 +0000 (Tue, 14 Feb 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -367,6 +367,9 @@ nodeGetPreText(pTextNode)
             case HTML_TEXT_TOKEN_TEXT:
                 Tcl_AppendToObj(pRet, zData, nData);
                 break;
+
+            /*case HTML_TEXT_TOKEN_ZERO_SPACE:
+                break;*/
 
             case HTML_TEXT_TOKEN_NEWLINE:
                 zWhite = "\n";
@@ -2311,6 +2314,10 @@ nodeTextCommand(interp, pNode, objc, objv)
                         zType = "space";
                         pObj = Tcl_NewIntObj(nData);
                         break;
+                    case HTML_TEXT_TOKEN_ZERO_SPACE:
+                        zType = "zerospace";
+                        pObj = Tcl_NewIntObj(nData);
+                        break;
                     case HTML_TEXT_TOKEN_NEWLINE:
                         zType = "newline";
                         pObj = Tcl_NewIntObj(nData);
@@ -3394,3 +3401,4 @@ HtmlSequenceNodes(pTree)
     }
 }
 
+/* vi:set ts=4 sw=4 et: */

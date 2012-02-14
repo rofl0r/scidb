@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 216 $
-# Date   : $Date: 2012-01-29 19:02:12 +0000 (Sun, 29 Jan 2012) $
+# Version: $Revision: 248 $
+# Date   : $Date: 2012-02-14 18:33:12 +0000 (Tue, 14 Feb 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1594,7 +1594,7 @@
 
 ::fsbox::mc::SelectEncoding				"Select the encoding of the database (opens a dialog)"
 ::fsbox::mc::SelectWhichType				"Select which type of file are shown"
-::fsbox::mc::TimeFormat						"%d/%m/%y %I:%M %p"
+::fsbox::mc::TimeFormat						"%d/%m/%Y %I:%M %p"
 
 ::fsbox::mc::CannotChangeDir				"Cannot change to the directory \"%s\".\nPermission denied."
 ::fsbox::mc::DirectoryRemoved				"Cannot change to the directory \"%s\".\nDirectory is removed."

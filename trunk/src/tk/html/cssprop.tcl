@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1 $
-# Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+# Version: $Revision: 248 $
+# Date   : $Date: 2012-02-14 18:33:12 +0000 (Tue, 14 Feb 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -97,7 +97,7 @@ E outline-style         double groove ridge outset inset
 E position              static relative absolute fixed
 E table-layout          auto fixed
 E text-align            left right center justify 
-E text-align            -tkhtml-center -tkhtml-right -tkhtml-left
+E text-align            -tkhtml-center -tkhtml-right -tkhtml-left -tkhtml-justify
 E text-decoration       none underline overline line-through
 E text-transform        none capitalize uppercase lowercase
 E unicode-bidi          normal embed bidi-override

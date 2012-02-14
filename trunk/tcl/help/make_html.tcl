@@ -3,8 +3,8 @@
 exec tclsh "$0" "$@"
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 242 $
-# Date   : $Date: 2012-02-12 13:43:14 +0000 (Sun, 12 Feb 2012) $
+# Version: $Revision: 248 $
+# Date   : $Date: 2012-02-14 18:33:12 +0000 (Tue, 14 Feb 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -67,6 +67,9 @@ set HtmlMapping {
 	<note/>			{<br/><img src="../images/note.png"/> }
 	<note>			{<p><img src="../images/note.png"/> }
 	</note>			{</p>}
+
+	<nobr>			{<span style="white-space:nowrap;">}
+	</nobr>			{</span>}
 
 	<box>				{<div class="box">}
 	</box>			{</div>}
