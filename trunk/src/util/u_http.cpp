@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 249 $
+// Date   : $Date: 2012-02-19 17:58:01 +0000 (Sun, 19 Feb 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -67,10 +67,10 @@ get_errno()
 	return rc;
 }
 
-#ifdef h_errno
-# undef errno
-# undef h_errno
-#endif
+# ifdef h_errno
+#  undef errno
+#  undef h_errno
+# endif
 
 # define errno		get_errno()
 # define h_errno	get_errno()
@@ -88,9 +88,9 @@ static bool wsaDataInizialized = false;
 # include <sys/select.h>
 # include <netinet/in.h>
 
-#ifndef NO_DATA
-# define NO_DATA NO_ADDRESS
-#endif
+# ifndef NO_DATA
+#  define NO_DATA NO_ADDRESS
+# endif
 
 enum { SOCKET_ERROR = -1 };
 
@@ -258,7 +258,7 @@ Http::Socket::waitForInput(unsigned timeout)
 
 		struct timeval tv;
 		tv.tv_sec = timeout/1000;
-		tv.tv_usec = timeout % 1000;	// XXX ok?
+		tv.tv_usec = timeout % 1000;
 
 		rc = ::select(m_fd + 1, &rfds, 0, 0, &tv);
 	}
@@ -618,7 +618,7 @@ void
 Http::makeRequest(char const* command, mstl::string const& url, mstl::string& result)
 {
 	static mstl::string const HttpVersion("HTTP/1.0");
-	static mstl::string const DefaultUserAgent("HTTP/Scidb ($Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $)");
+	static mstl::string const DefaultUserAgent("HTTP/Scidb ($Date: 2012-02-19 17:58:01 +0000 (Sun, 19 Feb 2012) $)");
 
 	result += command;
 	result += " ";
