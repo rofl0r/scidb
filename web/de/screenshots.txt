@@ -2,16 +2,22 @@ TITLE
 
 	Scidb - Screenshots
 
+STYLES
+
+<link rel="stylesheet" type="text/css" media="screen" href="css/popup.css" />
+
 SCRIPTS
 
 <script type="text/javascript" src="js/popup.js"></script>
-<script type="text/javascript" src="js/screenshots.js"></script>
 
 ONLOAD
 
   prepareThumbnails()
 
 CONTENT
+
+  <div id="imageBlanket"></div>
+  <div id="imagePopup"><img width="0" height="0" alt="" src="" /></div>
 
   <div class="header">
     Screenshots <hr/>
@@ -24,6 +30,10 @@ CONTENT
           <a href="screenshots/board-1.png">
             <img src="screenshots/thumbs/board-1.png"
                  alt="Standard-Thema"
+               title="Standard-Thema"
+               class="bordersOff"
+               width="120"
+              height="99"
               iwidth="1105"
              iheight="909"/>
            </a>
@@ -31,25 +41,37 @@ CONTENT
         <td>
 					<a href="screenshots/board-2.png">
             <img src="screenshots/thumbs/board-2.png"
-               alt="Thema Antique"
-              iwidth="1015"
-             iheight="791"/>
+               alt="Thema Burnett"
+             title="Thema Burnett"
+             class="bordersOff"
+             width="120"
+            height="94"
+            iwidth="1015"
+           iheight="791"/>
            </a>
         </td>
         <td>
 					<a href="screenshots/board-3.png">
             <img src="screenshots/thumbs/board-3.png"
-               alt="Thema Burnett"
-              iwidth="1189"
-             iheight="874"/>
+               alt="Thema Alpha"
+             title="Thema Alpha"
+             class="bordersOff"
+             width="120"
+            height="88"
+            iwidth="1189"
+           iheight="874"/>
            </a>
         </td>
         <td>
 					<a href="screenshots/board-4.png">
             <img src="screenshots/thumbs/board-4.png"
-               alt="Thema Fantasy"
-              iwidth="987"
-             iheight="832"/>
+               alt="Partienhistorie"
+             title="Partienhistorie"
+             class="bordersOff"
+             width="120"
+            height="101"
+            iwidth="987"
+           iheight="832"/>
            </a>
         </td>
       </tr>
@@ -58,32 +80,48 @@ CONTENT
 					<a href="screenshots/board-5.png">
             <img src="screenshots/thumbs/board-5.png"
                alt="Thema Gray"
-              iwidth="909"
-             iheight="680"/>
+             title="Thema Gray"
+             class="bordersOff"
+             width="120"
+            height="90"
+            iwidth="909"
+           iheight="680"/>
            </a>
         </td>
         <td>
 					<a href="screenshots/board-6.png">
             <img src="screenshots/thumbs/board-6.png"
                alt="Thema Sand"
-              iwidth="909"
-             iheight="680"/>
+             title="Thema Sand"
+             class="bordersOff"
+             width="120"
+            height="90"
+            iwidth="909"
+           iheight="680"/>
            </a>
         </td>
         <td>
 					<a href="screenshots/help-1.png">
             <img src="screenshots/thumbs/help-1.png"
                alt="Hilfe-Dialog"
-              iwidth="936"
-             iheight="629"/>
+             title="Hilfe-Dialog"
+             class="bordersOff"
+             width="120"
+            height="81"
+            iwidth="936"
+           iheight="629"/>
            </a>
         </td>
         <td>
 					<a href="screenshots/board-8.png">
             <img src="screenshots/thumbs/board-8.png"
-               alt="Thema Goldenrod"
-              iwidth="986"
-             iheight="762"/>
+               alt="Thema Woodgrain"
+             title="Thema Woodgrain"
+             class="bordersOff"
+             width="116"
+            height="90"
+            iwidth="986"
+           iheight="762"/>
            </a>
         </td>
       </tr>
@@ -91,33 +129,49 @@ CONTENT
         <td>
 					<a href="screenshots/board-9.png">
             <img src="screenshots/thumbs/board-9.png"
-               alt="Thema Mayan"
-              iwidth="752"
-             iheight="575"/>
+             alt="Stellungseingabe"
+           title="Stellungseingabe"
+             class="bordersOff"
+             width="117"
+            height="89"
+            iwidth="752"
+           iheight="575"/>
            </a>
         </td>
         <td>
 					<a href="screenshots/gamelist-1.png">
             <img src="screenshots/thumbs/gamelist-1.png"
                alt="Partienliste"
-              iwidth="1055"
-             iheight="924"/>
+             title="Partienliste"
+             class="bordersOff"
+             width="120"
+            height="105"
+            iwidth="1055"
+           iheight="924"/>
            </a>
         </td>
         <td>
 					<a href="screenshots/playerlist-1.png">
             <img src="screenshots/thumbs/playerlist-1.png"
                alt="Spielerliste"
-              iwidth="987"
-             iheight="681"/>
+             title="Spielerliste"
+             class="bordersOff"
+             width="120"
+            height="83"
+            iwidth="987"
+           iheight="681"/>
            </a>
         </td>
         <td>
 					<a href="screenshots/gamelist-3.png">
             <img src="screenshots/thumbs/gamelist-3.png"
                alt="Partien-Browser"
-              iwidth="908"
-             iheight="681"/>
+             title="Partien-Browser"
+             class="bordersOff"
+             width="120"
+            height="90"
+            iwidth="908"
+           iheight="681"/>
            </a>
         </td>
       </tr>
@@ -125,33 +179,49 @@ CONTENT
         <td>
 					<a href="screenshots/save-dialog-1.png">
             <img src="screenshots/thumbs/save-dialog-1.png"
-               alt="Export-Dialog"
-              iwidth="989"
-             iheight="583"/>
+               alt="Partie speichern"
+             title="Partie speichern"
+             class="bordersOff"
+             width="128"
+            height="77"
+            iwidth="989"
+           iheight="583"/>
            </a>
         </td>
         <td>
 					<a href="screenshots/gamelist-5.png">
             <img src="screenshots/thumbs/gamelist-5.png"
                alt="Dateiauswahldialog"
-              iwidth="987"
-             iheight="713"/>
+             title="Dateiauswahldialog"
+             class="bordersOff"
+             width="120"
+            height="87"
+            iwidth="987"
+           iheight="713"/>
            </a>
         </td>
         <td>
 					<a href="screenshots/setup-1.png">
             <img src="screenshots/thumbs/setup-1.png"
                alt="Brettkonfiguration"
-              iwidth="1202"
-             iheight="923"/>
+             title="Brettkonfiguration"
+             class="bordersOff"
+             width="117"
+            height="90"
+            iwidth="1202"
+           iheight="923"/>
            </a>
         </td>
         <td>
 					<a href="screenshots/crosstable-1.png">
             <img src="screenshots/thumbs/crosstable-1.png"
-               alt="Über Scidb"
-              iwidth="996"
-             iheight="731"/>
+               alt="Turniertabelle"
+             title="Turniertabelle"
+             class="bordersOff"
+             width="120"
+            height="88"
+            iwidth="996"
+           iheight="731"/>
            </a>
         </td>
       </tr>

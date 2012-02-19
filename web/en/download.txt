@@ -12,7 +12,7 @@ CONTENT
 
 	<p>
   The first preview version is ready for download:
-  <a href="http://sourceforge.net/projects/scidb/files/scidb-beta--2011-07-15--rev83.tar.gz/download">scidb-beta--2011-07-15--rev83.tar.gz</a>.
+  <a href="http://sourceforge.net/projects/scidb/files/scidb-beta--2012-02-19--rev250.tar.gz/download">scidb-beta--2012-02-19--rev250.tar.gz</a>.
   This version is for Linux/Unix systems only. Thw windows version will be released later,
   presumably at end of year 2012.
   </p>
@@ -23,24 +23,31 @@ CONTENT
   </p>
 
 	<p>
-	&nbsp;&nbsp;&gt; sudo apt-get install tcl8.5<br>
-	&nbsp;&nbsp;&gt; sudo apt-get install tcl8.5-dev<br>
-	&nbsp;&nbsp;&gt; sudo apt-get install tk8.5<br>
+	&nbsp;&nbsp;&gt; sudo apt-get install tcl8.5<br/>
+	&nbsp;&nbsp;&gt; sudo apt-get install tcl8.5-dev<br/>
+	&nbsp;&nbsp;&gt; sudo apt-get install tk8.5<br/>
 	&nbsp;&nbsp;&gt; sudo apt-get install tk8.5-dev
 	</p>
 
 	<p>Install Scidb as usual:</p>
 	
 	<p>
-	&nbsp;&nbsp;&gt; tar -xzf scidb-beta--2011-07-15--rev83.tar.gz<br>
-	&nbsp;&nbsp;&gt; cd scidb<br>
-	&nbsp;&nbsp;&gt; ./configure<br>
-	&nbsp;&nbsp;&gt; make<br>
+	&nbsp;&nbsp;&gt; tar -xzf scidb-beta--2012-02-19--rev250.tar.gz<br/>
+	&nbsp;&nbsp;&gt; cd scidb<br/>
+	&nbsp;&nbsp;&gt; ./configure<br/>
+	&nbsp;&nbsp;&gt; make<br/>
 	&nbsp;&nbsp;&gt; sudo make install
 	</p>
 
 	<p>
   After the installation succeeded 'scidb-beta' is executable.
+  </p>
+
+  <p>
+  Please consider the specific problems on the broken platforms
+  <acronym>Debian</acronym>&nbsp;7.0 (<acronym>Wheezy</acronym>) and
+  <acronym>Ubuntu</acronym>&nbsp;11.10 (<acronym>Oneiric</acronym>)
+  (see <a href="releasehistory.html">Release history</a>).
   </p>
 
 </div>

@@ -1,12 +1,12 @@
 /*********** GLOBAL CSS STYLES **********/
 
 html {
-  background-color: #f5fbff;
+  background-color: #d2dce2;
 }
 
 body {
-  margin:      0px;
-  padding:     0px;
+  margin:      0;
+  padding:     0;
   font-family: Verdana, Arial, "Lucida Grande", "Lucida Sans", "Lucida Sans Unicode", sans-serif;
   font-size:   14px;
 }
@@ -38,14 +38,14 @@ h5 {
 
 /* applies to all images in content area of any page */
 .imagestyle {
-  border: 0px;
+  border: 0;
 }
 
 img {
 }
 
 a img {
-  border: 0px;
+  border: 0;
 }
 
 b, strong {
@@ -53,11 +53,11 @@ b, strong {
 }
 
 a:link, a:visited {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 a:hover, a:active {
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 p {
@@ -69,7 +69,7 @@ p {
 .clearfix:after {
   content:    ".";
   display:    block;
-  height:     0px;
+  height:     0;
   clear:      both;
   visibility: hidden;
 }
@@ -87,25 +87,25 @@ p {
 
 #logo {
   position:   absolute;
-  background: transparent url('../images/header-3.png');
-  top:        0px;
-  left:       0px;
-  width:      869px;
-  height:     198px;
+  background: transparent url('../images/header-radius-8.png');
+  top:        0;
+  left:       0;
+  width:      871px;
+  height:     200px;
   z-index:    1;
 }
 
 #logo img {
   position: absolute;
-  top:      0px;
-  left:     0px;
-  width:    851px;
-  height:   180px;
+  top:      0;
+  left:     0;
+  width:    871px;
+  height:   200px;
 }
 
 #header {
   position: relative;
-  margin:   0px;
+  margin:   0;
   height:   180px;
   z-index:  2000;
 }
@@ -115,71 +115,62 @@ p {
 #sidebar {
   float:          right;
   width:          231px;
-  margin-top:     0px;
+  margin-top:     0;
   margin-bottom:  15px;
   padding-top:    15px;
   padding-bottom: 15px;
 }
 
-#sidebar ul {
-  margin-top:     1em;
-  margin-bottom:  1em;
-  margin-left:    5px;
-  margin-right:   5px;
-  padding:        0px 0px 0px 0px;
-  list-style:     none;
-  text-align:     center;
+#sidebar ul.body {
+  margin:           0;
+  padding:          10px 10px 10px 10px;
+  list-style-type:  none;
+  text-align:       center;
+  background-color: #e4eaee;
 }
 
 #sidebar ul.header {
-  margin:         0px;
-  padding:        0px 0px 0px 0px;
-  list-style:     none;
-  font-size:      120%;
-  text-align:     center;
-  color:          #ffffff;
-}
-
-#sidebar li.header {
-  padding:          4px 10px;
-  background-color: #437597;
-  color:            #ffffff;
-}
-
-#sidebar li.notes {
-  line-height:     1.2em;
+  margin:     0;
+  padding:    1px 5px 5px 5px;
+  list-style: none;
+  font-size:  120%;
+  text-align: center;
+  color:      #ffffff;
 }
 
 #sidebar li.tiny-notes {
-  padding:          0px 0px 0px 0px;
-  background-color: #f5fbff;
-/*background-color: #f4f4f4;*/
-  font-size:        80%;
+  font-size: 80%;
 }
 
 #sidebar #google_translate_element {
-  padding-top: 5px;
+  padding-left:  15px;
+  padding-right: 15px;
 }
 
 #sidebar a.validate {
   display: block;
-  margin:  5px 0px;
+  margin:  5px 0;
 }
 
 #sidebar a.validate img {
-  border: 0px;
+  border: 0;
 }
 
 #sidebar div.block {
-  background-color:   #f5fbff;
-/*background-color:   #f4f4f4;*/
-  border-top:         1px solid #437597;
-  border-bottom:      1px solid #437597;
-  border-left:        1px solid #437597;
-  border-right:       1px solid #437597;
-  border-radius:      9px; -moz-border-radius: 9px; -webkit-border-radius: 9px;
-  margin-top:         15px;
-  margin-bottom:      15px;
+  background-color: #437597;
+  margin-top:       15px;
+  margin-bottom:    15px;
+  overflow:         hidden;
+
+  -moz-border-radius:     9px; /* Firefox 3.6 */
+  -webkit-border-radius:  9px; /* Safari 4 */
+  -khtml-border-radius:   9px; /* Konquerer */
+  border-radius:          9px; /* Opera 10.5, IE 9, Safari 5, Chrome 4, Firefox 4 */
+
+  -moz-box-shadow:    6px 6px 6px #383838; /* Firefox 3.5 */
+  -webkit-box-shadow: 6px 6px 6px #383838; /* Safari 4, Chrome 4 */
+  -khtml-box-shadow:  6px 6px 6px #383838; /* Konquerer */
+  box-shadow:         6px 6px 6px #383838; /* Opera 10.5, IE 9, Firefox 4, Chrome 6 */
 }
 
 /* CONTENT */
@@ -188,9 +179,9 @@ p {
   float:         left;
   width:         598px;
   margin-top:    10px;
-  margin-bottom: 0px;
-  padding:       0px 20px 5px 0px;
-  line-height:   1.8;
+  margin-bottom: 0;
+  padding:       0 20px 5px 0;
+  line-height:   1.5;
 /*text-align:    justify; */ /* Blocksatz */
 }
 
@@ -201,22 +192,39 @@ p {
 }
 
 #contentarea hr {
-  border:         0px; /* For Firefox and Opera */
+  border:         0; /* For Firefox and Opera */
   border-top:     solid 1px #437597;
   border-bottom:  transparent; /* For IE */
 }
 
 #contentarea div.block {
-  background-color: #ffffff;
+  background-color: #f5fbff;
   border-top:       1px solid #437597;
   border-bottom:    1px solid #437597;
   border-left:      1px solid #437597;
   border-right:     1px solid #437597;
-  border-radius:    9px; -moz-border-radius: 9px; -webkit-border-radius: 9px;
   margin-top:       15px;
   margin-bottom:    15px;
   padding-left:     15px;
   padding-right:    15px;
+  overflow:         hidden;    /* should help in case of overflow problems */
+
+  -moz-border-radius:     9px; /* Firefox 3.6 */
+  -webkit-border-radius:  9px; /* Safari 4 */
+  -khtml-border-radius:   9px; /* Konquerer */
+  border-radius:          9px; /* Opera 10.5, IE 9, Safari 5, Chrome 4, Firefox 4 */
+}
+
+#contentarea div.footer {
+  padding: 10px;
+}
+
+#contentarea dir li {
+  margin-top: 0.5em;
+}
+
+#contentarea ul li {
+  margin-top: 0;
 }
 
 /* MENU */
@@ -227,65 +235,97 @@ p {
   margin-top: 15px;
 }
 
-#menu .primary, #menu .secondary {
+#menu .menu {
   margin-bottom:  10px;
   line-height:    1.3;
   padding-bottom: 5px;
-  border-radius:  9px; -moz-border-radius: 9px; -webkit-border-radius: 9px;
-  box-shadow:     8px 8px 8px #222222; -moz-box-shadow: 8px 8px 8px #222222; -webkit-box-shadow: 8px 8px 8px #222222;
+
+  -moz-box-shadow:    6px 6px 6px #383838; /* Firefox 3.5 */
+  -webkit-box-shadow: 6px 6px 6px #383838; /* Safari 4, Chrome 4 */
+  -khtml-box-shadow:  6px 6px 6px #383838; /* Konquerer */
+  box-shadow:         6px 6px 6px #383838; /* Opera 10.5, IE 9, Firefox 4, Chrome 6 */
+
+  -moz-border-radius:     9px; /* Firefox 3.6 */
+  -webkit-border-radius:  9px; /* Safari 4 */
+  -khtml-border-radius:   9px; /* Konquerer */
+  border-radius:          9px; /* Opera 10.5, IE 9, Safari 5, Chrome 4, Firefox 4 */
 }
 
 #menu #guide {
   margin:       7px 0 10px;
-  padding:      0.6em 0.5em 1em;
+  padding:      0.5em 1.8em 0.5em 0;
   background:   #437597;
   font-weight:  bold;
-  font-size:    100%;
+  font-size:    110%;
   font-family:  "Lucida Grande", Arial, Verdana, Helvetica, sans-serif;
 }
 
-a.nav:link, a.nav:visited {
+#menu .primary a:link, .primary a:visited {
   color:            #ffffff;
   text-decoration:  none;
 }
 
-a.nav:active {
+#menu .primary a:active {
   color: #000000;
 }
 
-a.nav:hover {
+#menu .primary a:hover {
   color: #ffff00;
 }
 
-a.nav2:link, a.nav2:visited {
+#menu .secondary a:link, .secondary a:visited {
   color:            #d9d9d9;
   text-decoration:  none;
 }
 
-a.nav2:active {
+#menu .secondary a:active {
   color: #000000;
 }
 
-a.nav2:hover {
+#menu .secondary a:hover {
   color: #ffff00;
 }
 
-.primary p {
+.menu p {
   margin: 1.2em 5px 1.2em 0;
 }
 
-#menu .secondary {
-  margin:     10px 0 50px;
-  background: #003399;
-  padding:    2px 5px 0 5px;
+#guide ul {
+  list-style-type:  none;
+  text-align:       right;
+  padding-right:    0;
+}
+
+#guide li {
+  text-align:  right;
+  text-indent: -0.25em;
+  line-height: 1.4em;
+  direction:   rtl;
+}
+
+#guide li.primary {
+  margin-top:       0.6em;
+  list-style-type:  none;
+}
+
+#guide li.secondary {
+  list-style-type: disc;
+}
+
+#guide li a:hover {
+  -moz-transform:     scale(1.05);      /* Firefox 9 */
+  -webkit-transform:  scale(1.05);      /* Safari, Chrome */
+  -o-transform:       scale(1.05,1.05); /* Opera */
+  -ms-transform:      scale(1.05);      /* IE 9 */
+  transform:          scale(1.05);      /* Future browsers */
 }
 
 /* FOOTER */
 
 #footer {
-  margin: 0px;
-  padding: 10px 25px 5px 25px;
-  clear: both;
+  margin:     0;
+  padding:    10px 25px 5px 25px;
+  clear:      both;
   border-top: 1px solid #437597;
   text-align: center;
 }
@@ -295,8 +335,8 @@ a.nav2:hover {
 }
 
 #footer ul {
-  margin:     0px;
-  padding:    0px;
+  margin:     0;
+  padding:    0;
   list-style: none;
   width:      100%;
   text-align: center;
@@ -309,18 +349,24 @@ a.nav2:hover {
 /* BOX */
 
 div.box {
-  color:              #000000;
-  background:         #f4f4f4;
-  border:             1px solid black;
-  border-radius:      9px; -moz-border-radius: 9px; -webkit-border-radius: 9px;
-  margin-top:         1em;
-  margin-bottom:      1em;
-  margin-left:        1em;
-  margin-right:       1em;
-  padding-top:        1em;
-  padding-bottom:     1em;
-  padding-left:       1em;
-  padding-right:      1em;
+  color:      #000000;
+  background: #f4f4f4;
+  border:     1px solid black;
+  margin:     1em 1em 1em 1em;
+  padding:    0em 1em 0em 1em;
+
+  -moz-border-radius:     9px; /* Firefox 3.6 */
+  -webkit-border-radius:  9px; /* Safari 4 */
+  -khtml-border-radius:   9px; /* Konquerer */
+  border-radius:          9px; /* Opera 10.5, IE 9, Safari 5, Chrome 4, Firefox 4 */
+}
+
+/* PRELOADING IMAGES */
+
+.preload {
+  width:      0px;
+  height:     0px;
+  visibility: hidden;
 }
 
 /* vi:set ts=2 sw=2 et: */

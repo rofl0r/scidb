@@ -41,7 +41,7 @@ CONTENT
    <p>How to enter feature requests:</p>
 
     <ol>
-       <li>Open <a href="http://sourceforge.net/tracker/?group_id=307371&amp;atid=1294800">Tracker: Feature Requests.</a></li>
+       <li>Open <a href="http://sourceforge.net/tracker/?group_id=307371&amp;atid=1294800">Tracker: Feature Requests</a></li>
        <li><p/>Click "Add new".</li>
     </ol>
   </div>
@@ -71,7 +71,7 @@ CONTENT
 
   <h4>Tcl/Tk</h4>
 
-  <ul>
+  <dir>
     <li><p>The sub-windows inside the main window should be dockable/undockable.
     Furthermore the sub-windows should be movable (with drag&amp;drop),
     currently the positions of the sub-windows are fixed.</p></li>
@@ -85,10 +85,11 @@ CONTENT
     <li><p>Printing PDF documents and images (board dumps).</p></li>
 
     <li><p>Programming an ECO browser.</p></li>
-  </ul>
+  </dir>
 
   <h4>C++</h4>
-  <ul>
+
+  <dir>
     <li><p>Windows porting. Although the development is platform independent,
     Windows does not provide the functions fopencookie() and
     open_memstream(). Unfortunately the effort will be high. The basis
@@ -106,23 +107,24 @@ CONTENT
     A real alternative for this library is not exisiting. The use of
     Cairo would imply too many dependencies (besides Cairo is deemed to
     be relatively slow). Furthermore the drawing of gradients,
-    implemented by the author, needs improvements (userSpaceOnUse/
-    objectBoundingBox is not realized).</p></li>
+    implemented by the author, needs improvements
+    (userSpaceOnUse/objectBoundingBox is not realized).</p></li>
 
-    <li><p>For the drawing of pie charts the function arc() is required.
-    This function currently delivers anything but circular arcs, rework of
-    the function is neccessary (requires much know-how!).</p></li>
+    <li><p>For the drawing of pie charts the function arc() (of the SVG
+    library) is required.  This function currently delivers anything but
+    circular arcs, rework of the function is neccessary (requires much
+    know-how!).</p></li>
 
     <li><p>Reading of ChessBase databases is tested only for ChessBase version 9.
-    ChessBase version 10 supports chess 960 games. For that ChessBase
-    must have extended the format (X-Fen/Shredder-Fen, castling).
+    ChessBase version 10 supports chess 960 games (in a rudimentary way).
+    For that ChessBase must have extended the format (X-Fen/Shredder-Fen, castling).
     This has to be tested and to adapted. Currently the decoding
     of chess 960 games is not working.</p></li>
 
     <li><p>Testing (and appropriate adaptions) of the internal chess program.
     Some of the move computations, especially in the opening phase,
     are still dissatisfying.</p></li>
-  </ul>
+  </dir>
 
 </div>
 

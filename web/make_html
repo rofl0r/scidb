@@ -14,9 +14,9 @@ chan configure $fd -encoding iso8859-1
 array set content {
   CONTENT     ""
   FOOTER      ""
-  LINKS       ""
   ONLOAD      ""
   SIDEBAR     ""
+  STYLES      ""
   TRANSLATOR  ""
   TITLE       ""
 
@@ -27,10 +27,13 @@ array set content {
 
 set content(FILENAME) [lindex [split $filename "."] 0]
 
+set content(ENGLISH)  "%%../$content(FILENAME).html"
+set content(GERMAN)   "%%$content(FILENAME).html"
+
 while {[gets $fd line] >= 0} {
   if {[string index $line 0] ne "#"} {
     switch -- $line {
-      CONTENT - FOOTER - ONLOAD - SCRIPTS - SIDEBAR - TITLE - LINKS { set section $line }
+      CONTENT - FOOTER - ONLOAD - SCRIPTS - SIDEBAR - STYLES - TITLE { set section $line }
 
       default {
         if {[string length [string trim $line]] > 0} {
@@ -41,20 +44,15 @@ while {[gets $fd line] >= 0} {
   }
 }
 
-close $fd
-set subdir 1
-
 if {$filename ne "screenshots.txt"} {
   set content(TRANSLATOR) {
     <div id="translator" class="block">
       <ul class="header">
-        <li class="header">Translator</li>
+        <li class="header">Translate</li>
       </ul>
-      <ul>
-        <noscript>
-          <li class="tiny-notes">(Javascript required)</li>
-        </noscript>
-        <li class="notes">
+      <ul class="body">
+        <li class="tiny-notes">
+          <noscript>(Javascript required)</noscript>
           <div id="google_translate_element"></div>
             <script type="text/javascript">
               function googleTranslateElementInit()
@@ -76,10 +74,21 @@ if {$filename ne "screenshots.txt"} {
   }
 }
 
+close $fd
+set subdir 1
+
 if {[string match */de [pwd]]} {
 # G E R M A N ##############################
 
   set content(LANG)                 "de"
+
+  set content(REVIEW)               "Ein Review abgeben"
+  set content(GUESTBOOK)            "Ins Gästebuch eintragen"
+  set content(FEATUREREQUEST)       "Einen Funktionswunsch eintragen"
+  set content(SUBSCRIBE)            "Diese Seite subskribieren"
+
+  set content(SOURCEFORGE)          "Scidb auf SourceForge.net"
+
   set content(GUIDE_DOWNLOAD)       "Download"
   set content(GUIDE_SCREENSHOTS)    "Screenshots"
   set content(GUIDE_MOREINFO)       "Weitere Informationen"
@@ -94,6 +103,14 @@ if {[string match */de [pwd]]} {
 # E N G L I S H ############################
 
   set content(LANG)                 "en"
+
+  set content(REVIEW)               "Review"
+  set content(GUESTBOOK)            "Sign Guestbook"
+  set content(FEATUREREQUEST)       "Feature Request"
+  set content(SUBSCRIBE)            "Subscribe to this page"
+
+  set content(SOURCEFORGE)          "Scidb at SourceForge.net"
+
   set content(GUIDE_DOWNLOAD)       "Download"
   set content(GUIDE_SCREENSHOTS)    "Screenshots"
   set content(GUIDE_MOREINFO)       "More Info"
@@ -105,59 +122,16 @@ if {[string match */de [pwd]]} {
 
   set content(AUTODISPLAY)          "true"
 
-  set content(CHANGELANG) {
-    <div id="language" class="block">
-      <ul class="header">
-        <li class="header">Deutsch</li>
-      </ul>
-      <ul>
-        <li class="notes">
-            <ul>
-              <li>
-                <img src="images/german_flag.png" alt="German Flag"/>
-              </li>
-              <li>
-                <a href="de/%FILENAME%.html" onclick="setCookie('lang', 'de', 720)">
-                  Zur deutschsprachigen Seite
-                </a>
-              </li>
-            </ul>
-        </li>
-      </ul>
-    </div>
-  }
-
   set subdir 0
+
+  set content(ENGLISH)              "%%$content(FILENAME).html"
+  set content(GERMAN)               "%%de/$content(FILENAME).html"
 
 ############################################
 }
 
 set content(ONLOAD) [string trim $content(ONLOAD)]
 set content(ONLOAD) "onload=\"setCookie('lang', '$content(LANG)', 720);$content(ONLOAD)\""
-
-if {![info exists content(CHANGELANG)]} {
-  set content(CHANGELANG) {
-    <div id="language" class="block">
-      <ul class="header">
-        <li class="header">English</li>
-      </ul>
-      <ul>
-        <li class="notes">
-            <ul>
-              <li>
-                <img src="../images/british_flag.png" alt="British Flag"/>
-              </li>
-              <li>
-                <a href="../%FILENAME%.html" onclick="setCookie('lang', 'en', 720)">
-                  To English-language side
-                </a>
-              </li>
-            </ul>
-        </li>
-      </ul>
-    </div>
-  }
-}
 
 # write .html file #########################
 
@@ -175,31 +149,21 @@ while {[gets $fd line] >= 0} {
   }
 
   if {$subdir} {
-    set indicies [regexp -indices -inline -- {src=\"[a-z]+/} $line]
+    foreach {rexp len} {{src=\"[a-z]+/} 5 {href=\"[a-z]+/} 6 {import \"[a-z]+/} 8} {
+      set indicies [regexp -indices -inline -- $rexp $line]
 
-    while {[llength $indicies]} {
-      set i [expr {[lindex [lindex $indicies 0] 0] + 5}]
-      set str [string range $line 0 [expr {$i - 1}]]
-      append str "../"
-      append str  [string range $line $i end]
-      set line $str
-      set indicies [regexp -indices -inline -- {src=\"[a-z]+/} $line]
-    }
-
-    set indicies [regexp -indices -inline -- {href=\"[a-z]+/} $line]
-
-    while {[llength $indicies]} {
-      set i [expr {[lindex [lindex $indicies 0] 0] + 6}]
-      set k [lindex [lindex $indicies 0] 1]
-      set str [string range $line 0 [expr {$i - 1}]]
-      append str "../"
-      append str  [string range $line $i end]
-      set line $str
-      set indicies [regexp -indices -inline -- {href=\"[a-z]+/} $line]
+      while {[llength $indicies]} {
+        set i [expr {[lindex [lindex $indicies 0] 0] + $len}]
+        set str [string range $line 0 [expr {$i - 1}]]
+        append str "../"
+        append str  [string range $line $i end]
+        set line $str
+        set indicies [regexp -indices -inline -- $rexp $line]
+      }
     }
   }
 
-  puts $line
+  puts [string map {%% {}} $line]
 }
 
 close $fd

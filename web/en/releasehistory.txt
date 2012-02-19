@@ -13,43 +13,44 @@ CONTENT
   <p>The second public preview version is based on <acronym>SVN</acronym> revision 238.</p>
 
   <div class="box">
+    <p>
     <b><font color="#8B0000">Specific problems on broken platforms
-    <nobr><acronym>Debian</acronym> 7.0</nobr> (<acronym>Wheezy</acronym>) and
-    <nobr><acronym>Ubuntu</acronym> 11.10</nobr> (<acronym>Oneiric</acronym>)</font></b>
+    <acronym>Debian</acronym>&nbsp;7.0 (<acronym>Wheezy</acronym>) and
+    <acronym>Ubuntu</acronym>&nbsp;11.10 (<acronym>Oneiric</acronym>)</font></b>
+    </p>
 
-    <ul>
-      <li>
-        The static object initialization is broken.
+    <dir>
+      <li style="margin-top: 0.5em;">
+        The static object initialization is broken. On Ubuntu even the explicit
+        constructor calls before main() are not working.
       </li>
-      <p/>
-      <li>
+      <li style="margin-top: 0.5em;">
         Sub-processes are in general not working (for further details see
         <a href="http://sourceforge.net/mailarchive/forum.php?thread_name=20111118143650.38280%40gmx.net&amp;forum_name=scidb-users">
         Scidb's Users List</a>).
       </li>
-      <p/>
-      <li>
+      <li style="margin-top: 0.5em;">
         Instable <acronym>Tk</acronym> library 8.5.10 (which is well known as instable).
         It is highly recommended to install a stable <acronym>Tk</acronym> library
         (version 8.5.6 or 8.5.11).
       </li>
-      <p/>
-      <li>
+      <li style="margin-top: 0.5em;">
         <code>libXcursor.so</code> is missing, although this library is installed.
       </li>
-      <p/>
-      <li>
+      <li style="margin-top: 0.5em;">
         The <acronym>X</acronym> library is not at the right place, instead it is installed
         in obscure directories, depending on the OS version. This is not
         <acronym>UNIX</acronym> conform.
       </li>
-    </ul>
+    </dir>
 
+    <p>
     Both systems, <acronym>Debian</acronym> <acronym>Wheezy</acronym>, and
-    <acronym>Ubuntu</acronym> <acronym>Oneiric</acronym>, are definitely insane, and the developer
+    <acronym>Ubuntu</acronym> <acronym>Oneiric</acronym>, are definitely broken, and the developer
     has spent some weeks for work-arounds. It is possible that succeeding versions of
     <acronym>Debain</acronym>/<acronym>Ubuntu</acronym>
     will not be supported.
+    </p>
   </div>
 
 </div>

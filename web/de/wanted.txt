@@ -10,21 +10,24 @@ CONTENT
     Gesucht <hr/>
   </div>
 
-  <p>Testers are welcome for the preliminary version. Volunteers should
-  sign up, so that the testing can be coordinated. Please send a
-  message to the author.</p>
+  <p>
+  Gesucht werden Interessierte für das Testen von Scidb.
+  Interessenten melden sich bitte mit Hilfe einer Nachricht, damit
+  dies koordiniert werden kann.
+  </p>
 
   <div class="box">
-    <p>How a message can be sent:</p>
+    <p>So kann eine Nachricht gesendet werden:</p>
 
     <ol>
-      <li>A membership in Sourceforge is required (open
-        <a href="https://sourceforge.net/account/registration/">Account Registration</a>).
-        The membership is free of charge and duties.
+      <li>
+        Eine Mitgliedschaft bei Sourceforge ist erforderlich
+        (<a href="https://sourceforge.net/account/registration">Account Registration</a>).
+        Die Mitgliedschaft ist Gebuehren- und Verpflichtungsfrei.
       </li>
-      <li><p/>
-        Open <a href="https://sourceforge.net/sendmessage.php?touser=2321037">Send an Email</a>,
-        log in with your member name, and send the message.
+      <li>
+        <a href="https://sourceforge.net/sendmessage.php?touser=2321037">Send an Email</a>
+        öffnen, mit dem Mitgliedsnamen einloggen und die Nachricht senden.
       </li>
     </ol>
   </div>
@@ -33,96 +36,117 @@ CONTENT
 
 <div class="block">
 
-  <p>For additional wanted functionalities feature requests can be entered.
-  These requests will partly be a basis of decision-making for further
-  development.</p>
+  <p>
+  Für zusätzlich gewünschte Funktionalitäten können Wünsche ingetragen werden.
+  Diese Wünsche tragen zu einem gewissen Anteil an dem Entscheidungsprozess
+  über die zukünftige Entwicklung bei.
+  </p>
 
   <div class="box">
-   <p>How to enter feature requests:</p>
+   <p>Wie ein Funktionswunsch eingetragen werden kann:</p>
 
     <ol>
-       <li>Open <a href="http://sourceforge.net/tracker/?group_id=307371&amp;atid=1294800">Tracker: Feature Requests.</a></li>
-       <li><p/>Click "Add new".</li>
+       <li><a href="http://sourceforge.net/tracker/?group_id=307371&amp;atid=1294800">Tracker: Feature Requests</a> öffnen.</li>
+       <li>"Add new" anklicken.</li>
     </ol>
   </div>
 
-  <p>These request should consider that Scidb is a pure database application.
-  That means the following functionalities are not destined for Scidb:</p>
+  <p>
+  Diese Funktionswünsche sollten berücksichtigen, daß Scidb eine reine
+  Datenbankapplikation ist. Dies bedeutet, daß folgende Funktionalitäten
+  nicht dazugehören:
+  </p>
 
   <ul type="disc">
-    <li>FICS connection</li>
-    <li>Correspondence/Email chess support</li>
-    <li>Automatic game analysis</li>
-    <li>Chess training</li>
-    <li>Playing against external chess programs</li>
-    <li>Other chess program specific tasks</li>
+    <li>FICS-Verbindung</li>
+    <li>Korrespondenz-/Email-Schach</li>
+    <li>Automatische Partienanalyse</li>
+    <li>Schachtraining</li>
+    <li>Das Spielen gegen ein externes Schachprogramm</li>
+    <li>Andere schachprogrammspezifische Aufgaben</li>
   </ul>
 
-  <p>For such functionalities another project is in planning stage:
-  <a href="http://jessy.sourceforge.net/">Jessy</a>. In this way an overloading
-  of the database application Scidb will be prevented. Jessy will
-  have a connection to the Scidb bases.</p>
+  <p>
+  Für diese Funktionalitäten ist ein weiteres Projekt vorgesehen:
+  <a href="http://jessy.sourceforge.net/">Jessy</a>. Auf diese Weise
+  wird eine Überladung der Applikation Scidb verhindert. Jessy wird
+  die Scidb-Datenbanken unterstützen.
+  </p>
 
 </div>
 
 <div class="block">
 
-  <p>Furthermore project help is welcome. The following tasks are open:</p>
+  <p>Weiterhin ist Projekthilfe für die folgenden Aufgaben willkommen:</p>
 
   <h4>Tcl/Tk</h4>
 
-  <ul>
-    <li><p>The sub-windows inside the main window should be dockable/undockable.
-    Furthermore the sub-windows should be movable (with drag&amp;drop),
-    currently the positions of the sub-windows are fixed.</p></li>
+  <dir>
+    <li>
+    Die einzelnen Fenster innerhalb des Hauptfensters sollten
+    lösbar/verankerbar sein. Weiterhin sollten sie frei verschiebbar
+    sein (mit Drag&amp;Drop). Zur Zeit sind alle Fensterpositionen fix.
+    </li>
 
-	 <li><p>Some of the icons do need rework.</p></li>
+    <li>Einige Icons bedürfen der Überarbeitung.</li>
 
-    <li><p>Programming a 'Tip of the Day' dialog with appendant tips.</p></li>
+    <li>Ein 'Tip des Tages'-Dialog mit zugehörigen Tips.</li>
 
-    <li><p>Writing the HTML online help pages.</p></li>
+    <li>Mehr Hilfeseiten für den Hilfedialog.</li>
 
-    <li><p>Printing PDF documents and images (board dumps).</p></li>
+    <li>PDF-Dokumentendruck und Schachbbrettausdrucke.</li>
 
-    <li><p>Programming an ECO browser.</p></li>
-  </ul>
+    <li>Das Programmieren eines ECO-Browsers.</li>
+  </dir>
 
   <h4>C++</h4>
-  <ul>
-    <li><p>Windows porting. Although the development is platform independent,
-    Windows does not provide the functions fopencookie() and
-    open_memstream(). Unfortunately the effort will be high. The basis
-    for this task is the library 'newlib' (only the stdio part).
-    More programming effort for the porting shouldn't be neccessary.</p></li>
 
-    <li><p>Embedding a drag&amp;drop library.</p></li>
-     
-    <li><p>HTML generation (see LaTeX generation).</p></li>
+  <dir>
+    <li>
+      Windows-Portierung: obwohl die Entwicklung plattformunabhängig
+      durchgeführt wurde, bedarf es einiger Anpassungen und Erweiterungen.
+      Windows bietet nicht die C-Funktionen fopencookie() und open_memstream().
+      Der Aufwand zur Nachbildung dieser Funktionen ist relativ hoch.
+      Als Basis dient die Bibliothek 'newlib' (nur der stdio-Teil).
+      Weiterer Aufwand ausser dem Testen sollte nicht vonnöten sein.
+    </li>
 
-    <li><p>The SVG library Anti-Grain (AGG) delivers dissatisfying results for
-    line drawing. The lines are not anti-aliased, but they should be.
-    This part of the library has to be modified/overworked. Apparently
-    the author Maxim Shemanarev abondend the development of this library.
-    A real alternative for this library is not exisiting. The use of
-    Cairo would imply too many dependencies (besides Cairo is deemed to
-    be relatively slow). Furthermore the drawing of gradients,
-    implemented by the author, needs improvements (userSpaceOnUse/
-    objectBoundingBox is not realized).</p></li>
+    <li>Einbindung einer Drag&amp;Drop-Bibliothek.</li>
 
-    <li><p>For the drawing of pie charts the function arc() is required.
-    This function currently delivers anything but circular arcs, rework of
-    the function is neccessary (requires much know-how!).</p></li>
+    <li>HTML-Generierung (siehe LaTeX-Generierung).</li>
 
-    <li><p>Reading of ChessBase databases is tested only for ChessBase version 9.
-    ChessBase version 10 supports chess 960 games. For that ChessBase
-    must have extended the format (X-Fen/Shredder-Fen, castling).
-    This has to be tested and to adapted. Currently the decoding
-    of chess 960 games is not working.</p></li>
+    <li>
+    Die SVG-Bibliothek Anti-Grain (AGG) liefert unbefriedigende Resultate
+    für Linienzeichnung, sie sind nicht kantengeglättet, obwohl sie es
+    sein sollten. Dieser Teil der Bibliothek benötigt eine Überarbeitung.
+    Leider hat der Autor Maxim Shemanarev die Weiterentwicklung für
+    dieses Projekt eingestellt. Eine wirkliche Alternative für diese
+    Bibliothek gibt es nicht. Die Verwendung von Cairo würde zuviele
+    Abhängigkeiten nach sich ziehen, zudem gilt Cairo als relativ langsam.
+    Weiterhin benötigt die Gradientenerzeugung, die vom Scidb-Autor implementiert
+    wurde, eine Verbesserung (userSpaceOnUse/objectBoundingBox ist nicht realisiert).
+    </li>
 
-    <li><p>Testing (and appropriate adaptions) of the internal chess program.
-    Some of the move computations, especially in the opening phase,
-    are still dissatisfying.</p></li>
-  </ul>
+    <li>
+    Für das Zeichnen von Tortendiagrammen wird die Funktion arc() benötigt.
+    Diese Funktion liefert alles, nur keine Kreisebögen, eine Überarbeitung
+    ist angesagt (erfordert viel Know-How!).
+    </li>
+
+    <li>
+    Das Lesen der ChessBase-Datenbanken ist nur für das ChessBase-9-Format
+    gestestet. Das ChessBase-10-Format unterstützt Schach-960-Partien (in
+    rudimentärer Form). ChessBase muß sein Format dafür erweitert haben
+    (bzgl. X-Fen/Shredder-Fen, Rochade). Dies muß gestestet und angepaßt
+    werden. Die derzeitige Dekodierung versagt bei Schach-960-Partien.
+    </li>
+
+    <li>
+    Das Testen (und adäquate Anpassungen) des internen Schachprogramms.
+    Einige der Zugberechnungen, speziell in der Eröffnungsphase, sind
+    noch unbefriedigend.
+    </li>
+  </dir>
 
 </div>
 

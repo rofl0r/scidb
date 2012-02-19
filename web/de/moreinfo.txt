@@ -4,9 +4,9 @@ TITLE
 
 CONTENT
 
- <div class="block">
+<div class="block">
 
-  <p>Wähle eine der Menüpunkte unter <i>Weitere Informationen</i> für Informationen
+  <p>Wähle eines der Menüpunkte unter <i>Weitere Informationen</i> für Informationen
   auf anderen Scidb-Web-Seiten.</p>
 
 </div>

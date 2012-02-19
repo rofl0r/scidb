@@ -1,0 +1,166 @@
+/* LINKS */
+
+.reviewLink a {
+  display:  block;
+  width:    42px;
+  height:   42px;
+}
+
+.reviewLink a img {
+  width:        32px;
+  height:       32px;
+  padding-left: 5px;
+  padding-top:  5px;
+}
+
+.reviewLink a:hover {
+  background: transparent url(../images/thumbs_up-42x42.png) no-repeat;
+} 
+
+.reviewLink a:hover img {
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+
+/* -------------------------------------------------------------------------- */
+
+.featureRequestLink a {
+  display:  block;
+  width:    42px;
+  height:   42px;
+}
+
+.featureRequestLink a img {
+  width:        32px;
+  height:       32px;
+  padding-left: 5px;
+  padding-top:  5px;
+}
+
+.featureRequestLink a:hover {
+  background: transparent url(../images/question_block-42x42.png) no-repeat;
+} 
+
+.featureRequestLink a:hover img {
+  width: 0;
+  height: 0;
+} 
+
+/* -------------------------------------------------------------------------- */
+
+.rssLink a {
+  display:  block;
+  width:    42px;
+  height:   42px;
+}
+
+.rssLink a img {
+  width:        32px;
+  height:       32px;
+  padding-left: 5px;
+  padding-top:  5px;
+}
+
+.rssLink a:hover {
+  background: transparent url(../images/feed-icon-orange-42x42.png) no-repeat;
+} 
+
+.rssLink a:hover img {
+  width: 0;
+  height: 0;
+} 
+
+/* -------------------------------------------------------------------------- */
+
+.signGuestBookLink a {
+  display:  block;
+  width:    64px;
+  height:   50px;
+}
+
+.signGuestBookLink a img {
+  width:        48px;
+  height:       38px;
+  padding-left: 6px;
+  padding-top:  6px;
+}
+
+.signGuestBookLink a:hover {
+  background: transparent url(../images/sign-up-64x50.png) no-repeat;
+} 
+
+.signGuestBookLink a:hover img {
+  width:  0;
+  height: 0;
+} 
+
+/* -------------------------------------------------------------------------- */
+
+.sourceforgeLink a {
+  display:  block;
+  width:    135px;
+  height:   40px;
+}
+
+.sourceforgeLink a img {
+  width:        125px;
+  height:       37px;
+  padding-left: 5px;
+  padding-top:  2px;
+}
+
+.sourceforgeLink a:hover {
+  background: transparent url(../images/sflogo-blue-135x40.png) no-repeat;
+} 
+
+.sourceforgeLink a:hover img {
+  width:  0;
+  height: 0;
+} 
+
+/* -------------------------------------------------------------------------- */
+
+.britishFlagLink a {
+  display:  block;
+  width:    20px;
+  height:   16px;
+}
+
+.britishFlagLink a img {
+  width:  16px;
+  height: 16px;
+}
+
+.britishFlagLink a:hover {
+  background: transparent url(../images/United-Kingdom-Flag-20x16.png) no-repeat;
+} 
+
+.britishFlagLink a:hover img {
+  width:  0;
+  height: 0;
+} 
+
+/* -------------------------------------------------------------------------- */
+
+.germanFlagLink a {
+  display:  block;
+  width:    20px;
+  height:   16px;
+}
+
+.germanFlagLink a img {
+  width:  16px;
+  height: 16px;
+}
+
+.germanFlagLink a:hover {
+  background: transparent url(../images/Germany-Flag-20x16.png) no-repeat;
+} 
+
+.germanFlagLink a:hover img {
+  width:  0;
+  height: 0;
+} 
+
+/* vi:set ts=2 sw=2 et: */

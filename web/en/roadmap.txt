@@ -30,14 +30,15 @@ CONTENT
     Features for the far future <hr/>
   </div>
 
-<dir>
-  <li>Duplicate detection</li>
-  <li>Document generation: PDF export and HTML export</li>
-  <li>Dialog for spell checking player names</li>
-  <li>Tip of the Day window</li>
-  <li>Usage of end-game tables</li>
-  <li>3D chessboard</li>
-</dir>
+  <dir>
+    <li>Duplicate detection</li>
+    <li>Loading databases from the Internet</li>
+    <li>Document generation: PDF export and HTML export</li>
+    <li>Dialog for spell checking player names</li>
+    <li>Tip of the Day window</li>
+    <li>Usage of end-game tables</li>
+    <li>3D chessboard</li>
+  </dir>
 
 </div>
 

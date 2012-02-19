@@ -1,0 +1,46 @@
+/*********** IE SPECIFIC CSS STYLES **********/
+
+#sidebar div.block {
+  filter: progid:DXImageTransform.Microsoft.DropShadow(color=#4a4c4e, offx=1, offy=1)
+          progid:DXImageTransform.Microsoft.DropShadow(color=#505254, offx=1, offy=1)
+          progid:DXImageTransform.Microsoft.DropShadow(color=#717679, offx=1, offy=1)
+          progid:DXImageTransform.Microsoft.DropShadow(color=#93999d, offx=1, offy=1)
+          progid:DXImageTransform.Microsoft.DropShadow(color=#b2babf, offx=1, offy=1)
+          progid:DXImageTransform.Microsoft.DropShadow(color=#bdc6cb, offx=1, offy=1);
+}
+
+#sidebar div.menu {
+  filter: progid:DXImageTransform.Microsoft.DropShadow(color=#4a4c4e, offx=1, offy=1)
+          progid:DXImageTransform.Microsoft.DropShadow(color=#505254, offx=1, offy=1)
+          progid:DXImageTransform.Microsoft.DropShadow(color=#717679, offx=1, offy=1)
+          progid:DXImageTransform.Microsoft.DropShadow(color=#93999d, offx=1, offy=1)
+          progid:DXImageTransform.Microsoft.DropShadow(color=#b2babf, offx=1, offy=1)
+          progid:DXImageTransform.Microsoft.DropShadow(color=#bdc6cb, offx=1, offy=1);
+}
+
+#imageBlanket {
+  filter:     alpha(opacity=65); /* for IE 5.5-7 */
+  ms-filter:  alpha(opacity=65); /* for IE 8 */
+}
+
+/* Not working due to a bug in IE */
+
+.britishFlagLink a:hover {
+  background-image: none;
+} 
+
+.britishFlagLink a:hover img {
+  width:  16px;
+  height: 16px;
+} 
+
+.germanFlagLink a:hover {
+  background-image: none;
+} 
+
+.germanFlagLink a:hover img {
+  width:  16px;
+  height: 16px;
+} 
+
+/* vi:set ts=2 sw=2 et: */

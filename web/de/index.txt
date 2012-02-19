@@ -8,15 +8,18 @@ SIDEBAR
     <ul class="header">
       <li class="header">Besucher</li>
     </ul>
-    <ul>
-      <li class="notes">
+    <ul class="body">
+      <li>
         <a href="http://www2.clustrmaps.com/counter/maps.php?url=http://scidb.sourceforge.net/"
+         target="_blank"
              id="clustrMapsLink">
           <img src="http://www2.clustrmaps.com/counter/index2.php?url=http://scidb.sourceforge.net/"
              style="border:0px;"
                alt="Locations of visitors to this page"
-             title="Locations of visitors to this page"
-                id="clustrMapsImg" />
+             title="Standorte der Besucher dieser Seite"
+                id="clustrMapsImg"
+             width="160"
+            height="106" />
         </a>
         <script type="text/javascript">
           function cantload() {
@@ -56,15 +59,14 @@ CONTENT
   </div>
 
   <p>
-  Die zweite öffentliche Vorschau-Version wurde veröffentlicht
-  (siehe <a href="ownload.html">Download</a>).
+  Die zweite öffentliche Vorschau-Version wurde freigegeben
+  (siehe <a href="download.html">Download</a>).
   </p>
 
   <p>
-    Wegen der spezifischen Probleme auf den defekten Plattformen
-    <acronym>Debian</acronym>&nbsp;7.0 (<acronym>Wheezy</acronym>) und
-    <acronym>Ubuntu</acronym>&nbsp;11.10 (<acronym>Oneiric</acronym>) siehe
-    <a href="eleasehistory.html">Freigabehistorie</a>.
+  Scidb hat eine neu gestaltete Homepage. Sie ist mit allen modernen Browsern getestet:
+  Firefox 4+, Safari 4+, Chrome 6+, Opera 11+, Konqueror 4+ und Internet-Explorer 9+.
+  Mit älteren Browsern entfalten diese Seiten nicht das vorgesehene Aussehen.
   </p>
 
 </div>
@@ -72,13 +74,13 @@ CONTENT
 <div class="block">
 
   <div class="header">
-    Was ist neu? <hr/>
+    Was ist neu in der zweiten Version? <hr/>
   </div>
 
   <dir>
-    <li><p>Partienhistorie</p></li>
-    <li><p>Hilfedialog (mit ein paar Hilfeseiten)</p></li>
-    <li><p>Neuer Dateiauswahldialog mit Zusatzfunktionen:</p>
+    <li>Partienhistorie</li>
+    <li>Hilfedialog (mit ein paar Hilfeseiten)</li>
+    <li>Neuer Dateiauswahldialog mit Zusatzfunktionen:
       <ul type="circle">
         <li>Datenbank löschen</li>
         <li>Datenbank umbenennen</li>
@@ -87,37 +89,39 @@ CONTENT
         <li>Auswahl der Datenbankenkodierung</li>
       </ul>
     </li>
-    <li><p>Automatische Erkennung der Datenbankenkodierung.</p></li>
-    <li><p>Modifiziertes Scidb-Datenbankformat; es exisitiert nun eine neue Kommentarvariante: Zuginformationen. Dies erlaubt eine kompakte Speicherung sowie eine erleichterte Eingabe (letzteres erst in einer späteren Version).</p></li>
-    <li><p>Automatische Aktualisierung auf das neue Datenbankformat</p></li>
-    <li><p>Überarbeiteter Export-Dialog</p></li>
-    <li><p>Rückgängig/Wiederherstellen (Undo/Redo) im Kommentareditor</p></li>
-    <li><p>Verbessertes Verhalten des HTML-Fensters</p>
+    <li>Automatische Erkennung der Datenbankenkodierung.</li>
+    <li>Modifiziertes Scidb-Datenbankformat; es exisitiert nun eine neue Kommentarvariante:
+    Zuginformationen. Dies erlaubt eine kompakte Speicherung sowie, in einer späteren Version,
+    eine erleichterte Eingabe.</li>
+    <li>Automatische Aktualisierung auf das neue Datenbankformat</li>
+    <li>Überarbeiteter Export-Dialog</li>
+    <li>Rückgängig/Wiederherstellen (Undo/Redo) im Kommentareditor</li>
+    <li>Verbessertes Verhalten des HTML-Fensters
       <ul type="circle">
         <li>Doppelpufferung für flickerfreie Darstellung</li>
         <li>Automatische Silbentrennung</li>
       </ul>
     </li>
-    <li><p>Beschleunigter Aufbau des Partiespeicherungsdialogs</p></li>
-    <li><p>Verbesserte Turniertabelle:</p>
+    <li>Beschleunigter Aufbau des Partiespeicherungsdialogs</li>
+    <li>Verbesserte Turniertabelle:
       <ul type="circle">
         <li>Neues Wertungssystem "Bilbao" (drei Gewinnpunkte für Sieg) hinzugefügt</li>
         <li>Zusätzliche Feinwertungen</li>
       </ul>
     </li>
-    <li><p>Der Export nach .si3/.si4 erlaubt nun eine Auswahl der <acronym>PGN</acronym>-Tags (eine Einschränkung der Tags beschleunigt den Zugbaum)</p></li>
-    <li><p>Auswahldialog für Datenbanksymbole überarbeitet</p></li>
-    <li><p>Neue Funktion im Partien-Editor: Kopieren/Verschieben von Kommentaren zwischen verschiedenen Sprachen</p></li>
-    <li><p>Drop-Down-Schatten (experimentell)</p></li>
-    <li><p>Teilweise Übersetzung in die ungarische Sprache, die Übersetzung ist noch in Bearbeitung</p></li>
-    <li><p>Die spanische Übersetzung wurde aufgrund von Unvollständigkeit vorübergehend herausgenommen. Interessenten für die Übersetzung: bitte bei <a href="anted.html">Gesucht</a> schauen</p></li>
-    <li><p><acronym>UNIX</acronym>-Hilfeseiten</p></li>
+    <li>Der Export nach .si3/.si4 erlaubt nun eine Auswahl der <acronym>PGN</acronym>-Tags (eine Einschränkung der Tags beschleunigt den Zugbaum)</li>
+    <li>Auswahldialog für Datenbanksymbole überarbeitet</li>
+    <li>Neue Funktion im Partien-Editor: Kopieren/Verschieben von Kommentaren zwischen verschiedenen Sprachen</li>
+    <li>Drop-Down-Schatten (experimentell)</li>
+    <li>Teilweise Übersetzung in die ungarische Sprache, die Übersetzung ist noch in Bearbeitung</li>
+    <li>Die spanische Übersetzung wurde aufgrund von Unvollständigkeit vorübergehend herausgenommen. Interessenten für die Übersetzung: bitte bei <a href="wanted.html">Gesucht</a> schauen</li>
+    <li><acronym>UNIX</acronym>-Hilfeseiten</li>
   </dir>
 
 </div>
 
 FOOTER
 
-  <li><a href="ndex.html">Scidb</a>&nbsp;|&nbsp;</li>
+  <li><a href="index.html">Scidb</a>&nbsp;|&nbsp;</li>
 
 # vi:set ts=2 sw=2 et filetype=html:

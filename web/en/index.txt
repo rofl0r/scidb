@@ -12,15 +12,18 @@ SIDEBAR
     <ul class="header">
       <li class="header">Visitors</li>
     </ul>
-    <ul>
-      <li class="notes">
+    <ul class="body">
+      <li>
         <a href="http://www2.clustrmaps.com/counter/maps.php?url=http://scidb.sourceforge.net/"
+         target="_blank"
              id="clustrMapsLink">
           <img src="http://www2.clustrmaps.com/counter/index2.php?url=http://scidb.sourceforge.net/"
              style="border:0px;"
                alt="Locations of visitors to this page"
              title="Locations of visitors to this page"
-                id="clustrMapsImg" />
+                id="clustrMapsImg"
+             width="160"
+            height="106" />
         </a>
         <script type="text/javascript">
           function cantload() {
@@ -67,10 +70,9 @@ CONTENT
   </p>
 
   <p>
-    Due to the specific problems on broken platforms
-    <acronym>Debian</acronym>&nbsp;7.0 (<acronym>Wheezy</acronym>) and
-    <acronym>Ubuntu</acronym>&nbsp;11.10 (<acronym>Oneiric</acronym>)
-	 see <a href="releasehistory.html">Release History</a>.
+  Scidb has a newly designed homepage. It is tested with all modern browser:
+  Firefox 4+, Safari 4+, Chrome 6+, Opera 11+, Konqueror 4+, and Internet-Explorer 9+.
+  With older browser versions these pages do not have the intended look.
   </p>
 
 </div><!-- block -->
@@ -78,7 +80,7 @@ CONTENT
 <div class="block">
 
   <div class="header">
-    What's new? <hr/>
+    What's new in second version? <hr/>
   </div>
 
   <dir>
@@ -94,7 +96,8 @@ CONTENT
       </ul>
     </li>
     <li><p>Automatic detection of database encoding</p></li>
-    <li><p>Enhanced Scidb database format; now it exists a new comment type: move information. This provides a compact storage and a facilitated input (the latter will be done in a future version).</p></li>
+    <li><p>Enhanced Scidb database format; now it exists a new comment type: move information.
+    This provides a compact storage and, in a future version, a facilitated input.</p></li>
     <li><p>Automatic upgrade to the new database format</p></li>
     <li><p>Revised export dialog</p></li>
     <li><p>Undo/redo in comment editor</p></li>

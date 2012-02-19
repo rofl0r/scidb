@@ -10,7 +10,7 @@ CONTENT
     Das Scidb-Projekt <hr/>
   </div>
 
-  <p>Im Februar 2010 wurde das Projeckt Scidb auf Sourceforge angelegt, Klicke
+  <p>Im Februar 2010 wurde das Projeckt Scidb auf Sourceforge angelegt. Klicke
   auf das SourceForge-Symbol auf der rechten Seite um mehr über Sourceforge zu
   erfahren.</p>
 

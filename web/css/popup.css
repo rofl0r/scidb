@@ -1,0 +1,30 @@
+/* GALLERY */
+
+#imageBlanket {
+  background-color: #cccccc;
+  position:         fixed;
+  display:          none;
+  width:            100%;
+  height:           100%;
+  top:              0px;
+  left:             0px;
+  z-index:          90001;
+  opacity:          0.65;
+}
+
+#imagePopup {
+  background-color: #eeeeee;
+  position:         fixed;
+  display:          none;
+  overflow:         auto;
+  width:            600px;
+  height:           600px;
+  top:              0px;
+  left:             0px;
+  z-index:          90002;
+}
+
+img.bordersOff { border: 1px outset #ffffff; }
+img.bordersOn  { border: 1px solid  #000000; }
+
+/* vi:set ts=2 sw=2 et: */

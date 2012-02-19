@@ -1,68 +1,161 @@
-// popup image window
+// Popup window with appropriate size for selected image
 
-function popupImageWindow(url, wd, ht, title)
+var itemWidths		= new Array();
+var itemHeights	= new Array();
+var itemTitles		= new Array();
+var itemUrls		= new Array();
+var overflow		= "auto";
+
+function prepareThumbnails()
 {
-	wd = parseInt(wd);
-	ht = parseInt(ht);
+	var tableItems = document.getElementById("thumbnails");
 
-	if (navigator.userAgent.search("Firefox") >= 0 || navigator.userAgent.search("Iceweasel") >= 0)
+	if (tableItems)
 	{
-		wd += 2;
-		ht += 2;
+		for (var r = 0; r < tableItems.rows.length; r++)
+		{
+			var columnItems = tableItems.rows[r];
+
+			for (var c = 0; c < columnItems.cells.length; c++)
+			{
+				var columnItem = columnItems.cells[c];
+
+				if (columnItem.nodeName == "TD")
+				{
+					var itemLink = getFirstChildWithTagName(columnItem, "A");
+
+					if (itemLink)
+					{
+						var itemImage = getFirstChildWithTagName(itemLink, "IMG");
+
+						if (itemImage)
+						{
+							var id = itemImage.getAttribute("src");
+
+							itemWidths[id]		= parseInt(itemImage.getAttribute("iwidth"));
+							itemHeights[id]	= parseInt(itemImage.getAttribute("iheight"));
+							itemTitles[id]		= itemImage.getAttribute("title");
+							itemUrls[id]		= itemLink.getAttribute("href");
+
+							itemImage.onmouseover = imageEnter;
+							itemImage.onmouseout = imageLeave;
+							itemImage.onclick = showImage;
+							itemImage.className = "bordersOff";
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+function getFirstChildWithTagName(element, tagName)
+{
+	for (var i = 0; i < element.childNodes.length; i++) {
+		if (element.childNodes[i].nodeName == tagName)
+			return element.childNodes[i];
+	}
+}
+
+function getFirstImageWithNodeName(element, nodeName)
+{
+	for (var i = 0; i < element.childNodes.length; i++) {
+		if (element.childNodes[i].nodeName == nodeName)
+			return element.childNodes[i];
+	}
+}
+
+function imageEnter(obj) {
+	this.className = "bordersOn";
+	return true;
+}
+
+function imageLeave(obj) {
+	this.className = "bordersOff";
+	return true;
+}
+
+function showImage(obj)
+{
+	var id		= this.getAttribute("src");
+	var blanket = document.getElementById("imageBlanket");
+	var popup	= document.getElementById("imagePopup");
+	var image	= getFirstImageWithNodeName(popup, "IMG");
+
+	var popupWidth		= itemWidths[id];
+	var popupHeight	= itemHeights[id];
+	var viewportWidth;
+	var viewportHeight;
+	var blanketHeight;
+	var popupX;
+	var popupY;
+
+	if (typeof window.innerHeight != 'undefined')
+	{
+		viewportWidth = window.innerWidth;
+		viewportHeight = window.innerHeight;
+	}
+	else
+	{
+		viewportWidth = document.documentElement.clientWidth;
+		viewportHeight = document.documentElement.clientHeight;
 	}
 
-	if (screen.availWidth - 15 < wd)
-		ht += 20;
+	// disabled scrollbars
+	overflow = document.body.style.overflow;
+	document.body.style.overflow = "hidden";
 
-	// all modern browsers are showing the location bar
-	if (screen.availHeight - 80 < ht)
-		wd += 20;
+	// Positioning blanket
+	blanketHeight = viewportHeight + "px";
+	blanketWidth = viewportWidth + "px";
+	blanket.style.height = blanketHeight + "px";
+	blanket.style.display = "block";
 
-	var x = Math.max(0, (screen.availWidth - wd)/2);
-	var y = Math.max(0, (screen.availHeight - ht)/2);
+	// Positioning image
+	if (popupHeight > viewportHeight)
+		popupWidth += 20;
+	if (popupWidth > viewportWidth)
+		popupHeight += 20;
+	popupWidth = Math.min(viewportWidth, popupWidth);
+	popupHeight = Math.min(viewportHeight, popupHeight);
+	popupX = Math.round((viewportWidth - popupWidth)/2);
+	popupY = Math.round((viewportHeight - popupHeight)/2);
 
-	var attrs	= "left=" + x
-					+ ",top=" + y
-					+ ",width=" + wd
-					+ ",height=" + ht
-					+ ",menubar=no"
-					+ ",addressbar=no"
-					+ ",navigationbar=no"
-					+ ",toolbar=no"
-					+ ",location=no"
-					+ ",directories=no"
-					+ ",titlebar=no"
-					+ ",status=no"
-					+ ",resizable=yes"
-					+ ",scrollbars=yes";
+	popup.style.width = popupWidth + "px";
+	popup.style.height = popupHeight + "px";
+	popup.style.left = popupX + "px";
+	popup.style.top = popupY + "px";
+	popup.style.display = "block";
 
-	var popup = window.open("", "", attrs);
+	// Make image
+	image.width = itemWidths[id];
+	image.height = itemHeights[id];
+	image.src = itemUrls[id];
+	popup.onclick = closeImage;
+	blanket.onclick = closeImage;
 
-	popup.focus();
-	popup.document.open();
+	return false;
+}
 
-	with (popup) {
-		document.write('<html><head>');
+function closeImage(obj)
+{
+	var blanket	= document.getElementById("imageBlanket");
+	var popup	= document.getElementById("imagePopup");
+	var image	= getFirstImageWithNodeName(popup, "IMG");
 
-		// close on click
-/*		document.write('<scr' + 'ipt type="text/javascr' + 'ipt" language="JavaScr' + 'ipt">');
-		document.write("function click() { window.close(); } ");
-		document.write("document.onmousedown=click ");
-		document.write('</scr' + 'ipt>');*/
+	popup.style.display = "none";
+	blanket.style.display = "none";
+	popup.style.width = "0";
+	popup.style.height = "0";
+	image.width = 0;
+	image.height = 0;
+	image.src = "";
 
-		document.write('<title>' + title + '</title>');
-		document.write('</head>');
+	// enable scrollbars
+	document.body.style.overflow = overflow;
 
-		document.write('<body ');
-//		document.write('onblur="window.close();" '); // close if focus lost
-		document.write('marginwidth="0" marginheight="0" leftmargin="0" topmargin="0">');
-		document.write('<img src="' + url + '"border="0" hspace="0" vspace="0">');
-		document.write('</body>');
 
-		document.write('</html>');
-
-		popup.document.close();
-	}
+	return false;
 }
 
 // vi:set ts=3 sw=3:

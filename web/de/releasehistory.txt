@@ -11,45 +11,46 @@ CONTENT
   </div>
 
   <p>Die zweite öffentliche Vorschau-Version basiert auf der
-  <acronym>SVN</acronym>-Revisionsnummer 238.</p>
+  <acronym>SVN</acronym>-Revisionsnummer 250.</p>
 
   <div class="box">
+    <p>
     <b><font color="#8B0000">Spezifische Probbleme auf den defekten Plattformen
-    <nobr><acronym>Debian</acronym> 7.0</nobr> (<acronym>Wheezy</acronym>) and
-    <nobr><acronym>Ubuntu 11.10</nobr> (<acronym>Oneiric</acronym>)</font></b>
+    <acronym>Debian</acronym>&nbsp;7.0 (<acronym>Wheezy</acronym>) und
+    <acronym>Ubuntu</acronym>&nbsp;11.10 (<acronym>Oneiric</acronym>)</font></b>
+    </p>
 
-    <ul>
+    <dir>
       <li>
-        Die Initialisierung der statischen Objekte funktioniert nicht.
+        Die Initialisierung der statischen Objekte funktioniert nicht. Unter Ubuntu
+        funktionieren nicht einmal die expliziten Konstruktorenaufrufe vor main().
       </li>
-      <p/>
       <li>
         Sub-Prozesse arbeiten im allgemeinen nicht (für weitere Details siehe
         <a href="http://sourceforge.net/mailarchive/forum.php?thread_name=20111118143650.38280%40gmx.net&amp;forum_name=scidb-users">
         Scidb's Users List</a>).
       </li>
-      <p/>
       <li>
         Die <acronym>Tk</acronym>-Bibliothek 8.5.10 ist instabil (was weithin
         bekannt ist). Es wird dringend empfohlen, eine stabile <acronym>Tk</acronym>-Bibliothek
         zu installieren (Version 8.5.6 oder 8.5.11).
       </li>
-      <p/>
       <li>
-        <code>libXcursor.so</code> is nicht vorhanden, aobwohl diese Bibliothek installiert ist.
+        <code>libXcursor.so</code> ist nicht vorhanden, obwohl diese Bibliothek installiert ist.
       </li>
-      <p/>
       <li>
         Die <acronym>X</acronym>-Bibliothek ist nicht an der richtigen Stelle, stattdessen
         liegt sie in einem obskuren und zudem plattformabhängigen Verzeichnis. Dies ist
         nicht <acronym>UNIX</acronym>-konform.
       </li>
-    </ul>
+    </dir>
 
+    <p>
     Beide Systeme, <acronym>Debian</acronym> <acronym>Wheezy</acronym> und
-    <acronym>Ubuntu</acronym> <acronym>Oneiric</acronym>, sind definitiv ungesund,
+    <acronym>Ubuntu</acronym> <acronym>Oneiric</acronym>, sind definitiv defekt,
     und der Entwickler, der einige Wochen mit der Suche nach Notlösungen verbrachte,
-    wird möglicherweise zukünftige Versionen dieser Systeme nicht meht unterstützen.
+    wird möglicherweise zukünftige Versionen dieser Systeme nicht mehr unterstützen.
+    </p>
   </div>
 
 </div>
