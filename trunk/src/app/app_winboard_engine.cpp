@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 251 $
+// Date   : $Date: 2012-02-20 22:07:42 +0000 (Mon, 20 Feb 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -436,7 +436,7 @@ winboard::Engine::protocolStart(bool isProbing)
 		send("go");				// NOTE: don't send "go" if the user is to move
 		send("?");
 //		send("force");
-//		send("ponder off");
+//		send("easy");
 //		send("hard");
 //		send("easy");
 

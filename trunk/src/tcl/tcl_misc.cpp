@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 235 $
-// Date   : $Date: 2012-02-08 22:30:21 +0000 (Wed, 08 Feb 2012) $
+// Version: $Revision: 251 $
+// Date   : $Date: 2012-02-20 22:07:42 +0000 (Mon, 20 Feb 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -652,7 +652,7 @@ cmdLookup(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 
 	if (objc > 2)
 	{
-		if (!strcmp(stringFromObj(objc, objv, 2), "-unicode"))
+		if (strcmp(stringFromObj(objc, objv, 2), "-unicode") != 0)
 			return error(CmdLookup, 0, 0, "unknown option '%s'", stringFromObj(objc, objv, 2));
 
 		unicodeFlag = boolFromObj(objc, objv, 3);

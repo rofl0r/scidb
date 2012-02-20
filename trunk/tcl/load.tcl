@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 193 $
-# Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+# Version: $Revision: 251 $
+# Date   : $Date: 2012-02-20 22:07:42 +0000 (Mon, 20 Feb 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -148,13 +148,13 @@ load::load	[format $load::mc::Loading $load::mc::ECOFile] \
 				[file join $scidb::dir::data eco.bin] \
 				;
 
+if {![::process::testOption fast-load]} {
+
 # --- Load engines -----------------------------------------------------
 load::load	[format $load::mc::Loading $load::mc::EngineFile] \
 				comp \
 				[file join $scidb::dir::data engines.txt] \
 				;
-
-if {![::process::testOption fast-load]} {
 
 # --- Load spellcheck files --------------------------------------------
 foreach file {ratings_utf8.ssp.zip ratings-additional.ssp} {
