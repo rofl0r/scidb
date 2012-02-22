@@ -3,8 +3,8 @@
 exec tclsh "$0" "$@"
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 248 $
-# Date   : $Date: 2012-02-14 18:33:12 +0000 (Tue, 14 Feb 2012) $
+# Version: $Revision: 252 $
+# Date   : $Date: 2012-02-22 17:43:33 +0000 (Wed, 22 Feb 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -73,6 +73,9 @@ set HtmlMapping {
 
 	<box>				{<div class="box">}
 	</box>			{</div>}
+
+	<verbatim>		{<div class="box"><pre><code>}
+	</verbatim>		{</code></pre></div>}
 
 	<annotation>	{<div class="annotation"><img src="../images/annotation.png" style="float:left; margin:0 1em 0 0"/>}
 	</annotation>	{</div>}

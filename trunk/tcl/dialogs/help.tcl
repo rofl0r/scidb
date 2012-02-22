@@ -1,7 +1,7 @@
 ## ======================================================================
 # Author : $Author$
-# Version: $Revision: 242 $
-# Date   : $Date: 2012-02-12 13:43:14 +0000 (Sun, 12 Feb 2012) $
+# Version: $Revision: 252 $
+# Date   : $Date: 2012-02-22 17:43:33 +0000 (Wed, 22 Feb 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1139,7 +1139,7 @@ proc BuildHtmlFrame {dlg w} {
 		:hover   { text-decoration: underline; background: yellow; }
 		.match	{ background: yellow; color: black; }
 		html		{ font-family: [join $textFamilies ","]; }
-		pre, tt, code { font-family: [join $monoFamilies ","]; }
+		pre, tt, code, kbd { font-family: [join $monoFamilies ","]; }
 	"
 
 	# build HTML widget
