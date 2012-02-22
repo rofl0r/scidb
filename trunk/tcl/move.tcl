@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 193 $
-# Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+# Version: $Revision: 255 $
+# Date   : $Date: 2012-02-22 20:38:57 +0000 (Wed, 22 Feb 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -167,10 +167,8 @@ proc leaveSquare {{square {}}} {
 	} elseif {$Leave <= 0} {
 		set Leave [expr {-($square + 1)}]
 	} else {
-		if {$Square(selected) != -1} {
-			if {$square != $Square(selected)} {
-				::board::stuff::hilite $board $square off
-			}
+		if {$Square(selected) != -1 && $square != $Square(selected)} {
+			::board::stuff::hilite $board $square off
 		}
 
 		if {$hilite(show-suggested)} {
