@@ -92,22 +92,23 @@
     <tr>
       <td width="20" valign="top" align="center">
         <div class="britishFlagLink">
-          <img src="images/United-Kingdom-Flag-20x16.png" alt="" class="preload">
+          <img src="images/United-Kingdom-Flag-20x16.png" alt="" class="preload"/>
           <a href="%ENGLISH%"
-          title="To English-language side"
-          onmouseup="setLang(event, 'en');">
+            title="To English-language side"
+             lang="en"
+        onmouseup="setLang(event, 'en');">
             <img src="images/United-Kingdom-Flag-16x16.png" alt="en" width="16" height="16"/>
           </a>
         </div>
       </td>
       <td width="20" valign="top" align="center">
         <div class="germanFlagLink">
-          <img src="images/Germany-Flag-24x20.png" alt="" class="preload">
-          <div class="germanFlagLink">
-            <a href="%GERMAN%"
-              title="Zur deutschsprachigen Seite"
-          onmouseup="setLang(event, 'de');">
-              <img src="images/Germany-Flag-16x16.png" alt="de" width="16" height="16"/>
+          <img src="images/Germany-Flag-20x16.png" alt="" class="preload"/>
+          <a href="%GERMAN%"
+            title="Zur deutschsprachigen Seite"
+             lang="de"
+        onmouseup="setLang(event, 'de');">
+            <img src="images/Germany-Flag-16x16.png" alt="de" width="16" height="16"/>
           </a>
         </div>
       </td>
@@ -154,76 +155,76 @@
 
     </div>
 
-      <table border="0" cellspacing="5"><tr>
-        <td align="center" valign="bottom" width="55">
-          <img src="images/thumbs_up-42x42.png" alt="" class="preload" />
-          <div class="reviewLink">
-            <a href="http://sourceforge.net/projects/scidb/reviews"
-             target="_blank"
-              title="%REVIEW%"
-                 id="ReviewLink">
-              <img src="images/thumbs_up-32x32.png"
-                   alt="Review"
-                 width="32"
-                height="32" />
-            </a>
-          </div>
-        </td>
-        <td align="center" valign="bottom" width="55">
-          <img src="images/sign-up-64x50.png" alt="" class="preload" />
-          <div class="signGuestBookLink">
-            <a href="http://sourceforge.net/apps/aguestbook/scidb/sign.php"
-             target="_blank"
-              title="%GUESTBOOK%"
-                 id="SignGuestBookLink">
-              <img src="images/sign-up-48x38.png"
-                   alt="Sign Guestbook"
-                 width="48"
-                height="38" />
-            </a>
-          </div>
-        </td>
-        <td align="center" valign="bottom" width="55">
-          <img src="images/question_block-42x42.png" alt="" class="preload" />
-          <div class="featureRequestLink">
-            <a href="http://sourceforge.net/tracker/?atid=1294800&amp;group_id=307371&amp;func=browse"
-             target="_blank"
-              title="%FEATUREREQUEST%"
-                 id="FeatureRequestLink">
-              <img src="images/question_block-32x32.png"
-                   alt="Feature Request"
-                 width="32"
-                height="32" />
-            </a>
-          </div>
-        </td>
-        <td align="center" valign="bottom" width="55">
-          <img src="images/feed-icon-orange-42x42.png" alt="" class="preload" />
-          <div class="rssLink">
-            <a href="http://scidb.sourceforge.net/rss/news.xml"
-             target="_blank"
-              title="%SUBSCRIBE%"
-                 id="RSSLink">
-              <img src="images/feed-icon-orange-32x32.png"
-                   alt="RSS-Feed"
-                 width="32"
-                height="32" />
-            </a>
-          </div>
-        </td>
-      </tr></table>
+    <table border="0" cellspacing="5"><tr>
+      <td align="center" valign="bottom" width="55">
+        <img src="images/thumbs_up-42x42.png" alt="" class="preload" />
+        <div class="reviewLink">
+          <a href="http://sourceforge.net/projects/scidb/reviews"
+           target="_blank"
+            title="%REVIEW%"
+               id="ReviewLink">
+            <img src="images/thumbs_up-32x32.png"
+                 alt="Review"
+               width="32"
+              height="32" />
+          </a>
+        </div>
+      </td>
+      <td align="center" valign="bottom" width="55">
+        <img src="images/sign-up-64x50.png" alt="" class="preload" />
+        <div class="signGuestBookLink">
+          <a href="http://sourceforge.net/apps/aguestbook/scidb/sign.php"
+           target="_blank"
+            title="%GUESTBOOK%"
+               id="SignGuestBookLink">
+            <img src="images/sign-up-48x38.png"
+                 alt="Sign Guestbook"
+               width="48"
+              height="38" />
+          </a>
+        </div>
+      </td>
+      <td align="center" valign="bottom" width="55">
+        <img src="images/question_block-42x42.png" alt="" class="preload" />
+        <div class="featureRequestLink">
+          <a href="http://sourceforge.net/tracker/?atid=1294800&amp;group_id=307371&amp;func=browse"
+           target="_blank"
+            title="%FEATUREREQUEST%"
+               id="FeatureRequestLink">
+            <img src="images/question_block-32x32.png"
+                 alt="Feature Request"
+               width="32"
+              height="32" />
+          </a>
+        </div>
+      </td>
+      <td align="center" valign="bottom" width="55">
+        <img src="images/feed-icon-orange-42x42.png" alt="" class="preload" />
+        <div class="rssLink">
+          <a href="http://scidb.sourceforge.net/rss/news.xml"
+           target="_blank"
+            title="%SUBSCRIBE%"
+               id="RSSLink">
+            <img src="images/feed-icon-orange-32x32.png"
+                 alt="RSS-Feed"
+               width="32"
+              height="32" />
+          </a>
+        </div>
+      </td>
+    </tr></table>
 
     %TRANSLATOR%
 
     <div align="center" style="margin-top: 15pt;" class="sourceforgeLink">
-      <img src="images/sflogo-blue-135x40.png" alt="" class="preload" />
+      <img src="images/sflogo-blue-159x64.png" alt="" class="preload" />
       <a href="http://sourceforge.net/projects/scidb/"
-        title="Scidb at SourceForge.net"
+        title="%SOURCEFORGE%"
        target="_blank">
-        <img src="images/sflogo-blue-125x37.png"
+        <img src="images/sflogo-blue-149x61.png"
              alt="Scidb at SourceForge.net"
-           width="125"
-          height="37" />
+           width="149"
+          height="61" />
       </a>
     </div>
 

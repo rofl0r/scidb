@@ -1,7 +1,7 @@
 /* GALLERY */
 
 #imageBlanket {
-  background-color: #cccccc;
+  background-color: #d2dce2;
   position:         fixed;
   display:          none;
   width:            100%;
@@ -9,7 +9,7 @@
   top:              0px;
   left:             0px;
   z-index:          90001;
-  opacity:          0.65;
+  opacity:          0.70;
 }
 
 #imagePopup {

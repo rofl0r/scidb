@@ -19,28 +19,8 @@
 }
 
 #imageBlanket {
-  filter:     alpha(opacity=65); /* for IE 5.5-7 */
-  ms-filter:  alpha(opacity=65); /* for IE 8 */
+  filter:     alpha(opacity=70); /* for IE 5.5-7 */
+  ms-filter:  alpha(opacity=70); /* for IE 8 */
 }
-
-/* Not working due to a bug in IE */
-
-.britishFlagLink a:hover {
-  background-image: none;
-} 
-
-.britishFlagLink a:hover img {
-  width:  16px;
-  height: 16px;
-} 
-
-.germanFlagLink a:hover {
-  background-image: none;
-} 
-
-.germanFlagLink a:hover img {
-  width:  16px;
-  height: 16px;
-} 
 
 /* vi:set ts=2 sw=2 et: */

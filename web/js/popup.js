@@ -75,6 +75,30 @@ function imageLeave(obj) {
 	return true;
 }
 
+function getViewport()
+{
+	var width	= 600;
+	var height	= 400;
+
+	if (window.innerHeight)
+	{
+		width = window.innerWidth;
+		height = window.innerHeight;
+	}
+	else if (document.documentElement && document.documentElement.clientWidth != 0)
+	{
+		width = document.documentElement.clientWidth;
+		height = document.documentElement.clientHeight;
+	}
+	else if (document.body)
+	{
+		width = document.body.clientWidth;
+		height = document.body.clientHeight;
+	}
+
+	return new Array(width, height);
+}
+
 function showImage(obj)
 {
 	var id		= this.getAttribute("src");
@@ -82,36 +106,47 @@ function showImage(obj)
 	var popup	= document.getElementById("imagePopup");
 	var image	= getFirstImageWithNodeName(popup, "IMG");
 
-	var popupWidth		= itemWidths[id];
-	var popupHeight	= itemHeights[id];
-	var viewportWidth;
-	var viewportHeight;
-	var blanketHeight;
-	var popupX;
-	var popupY;
-
-	if (typeof window.innerHeight != 'undefined')
-	{
-		viewportWidth = window.innerWidth;
-		viewportHeight = window.innerHeight;
-	}
-	else
-	{
-		viewportWidth = document.documentElement.clientWidth;
-		viewportHeight = document.documentElement.clientHeight;
-	}
-
 	// disabled scrollbars
 	overflow = document.body.style.overflow;
 	document.body.style.overflow = "hidden";
 
-	// Positioning blanket
+	// positioning
+	popup.style.display = "block";
+	resizeImageWindow(id);
+
+	// make image
+	image.width = itemWidths[id];
+	image.height = itemHeights[id];
+	image.src = itemUrls[id];
+	popup.onclick = closeImage;
+	blanket.onclick = closeImage;
+
+	// add resize event handler
+	addEvent(window, "resize", resizeImageWindow, id);
+
+	return false;
+}
+
+function resizeImageWindow(id)
+{
+	var popup				= document.getElementById("imagePopup");
+	var blanket 			= document.getElementById("imageBlanket");
+	var viewport			= getViewport();
+	var viewportWidth		= viewport[0];
+	var viewportHeight	= viewport[1];
+	var popupWidth			= itemWidths[id];
+	var popupHeight		= itemHeights[id];
+	var blanketHeight;
+	var popupX;
+	var popupY;
+
+	// positioning blanket
 	blanketHeight = viewportHeight + "px";
 	blanketWidth = viewportWidth + "px";
 	blanket.style.height = blanketHeight + "px";
 	blanket.style.display = "block";
 
-	// Positioning image
+	// positioning image
 	if (popupHeight > viewportHeight)
 		popupWidth += 20;
 	if (popupWidth > viewportWidth)
@@ -125,16 +160,8 @@ function showImage(obj)
 	popup.style.height = popupHeight + "px";
 	popup.style.left = popupX + "px";
 	popup.style.top = popupY + "px";
-	popup.style.display = "block";
 
-	// Make image
-	image.width = itemWidths[id];
-	image.height = itemHeights[id];
-	image.src = itemUrls[id];
-	popup.onclick = closeImage;
-	blanket.onclick = closeImage;
-
-	return false;
+	return true;
 }
 
 function closeImage(obj)
@@ -151,11 +178,35 @@ function closeImage(obj)
 	image.height = 0;
 	image.src = "";
 
+	// remove resize event handler
+	removeEvent(window, "resize", resizeImageWindow);
+
 	// enable scrollbars
 	document.body.style.overflow = overflow;
 
-
 	return false;
+}
+
+function addEvent(obj, type, fn, arg)
+{
+	obj["e" + type + fn] = fn;
+	obj[type + fn] = function() { obj["e" + type + fn](arg); }
+
+	if (obj.attachEvent)
+		obj.attachEvent("on" + type, obj[type + fn]);
+	else
+		obj.addEventListener(type, obj[type + fn], false);
+}
+
+function removeEvent(obj, type, fn)
+{
+	if (obj.detachEvent)
+		obj.detachEvent("on" + type, obj[type + fn]);
+	else
+		obj.removeEventListener(type, obj[type + fn], false);
+
+	obj["e" + type + fn] = null;
+	obj[type + fn] = null;
 }
 
 // vi:set ts=3 sw=3:

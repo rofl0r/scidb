@@ -70,8 +70,8 @@ CONTENT
              class="bordersOff"
              width="120"
             height="101"
-            iwidth="987"
-           iheight="832"/>
+            iwidth="960"
+           iheight="806"/>
            </a>
         </td>
       </tr>

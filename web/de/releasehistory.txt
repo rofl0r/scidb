@@ -27,7 +27,7 @@ CONTENT
       </li>
       <li>
         Sub-Prozesse arbeiten im allgemeinen nicht (für weitere Details siehe
-        <a href="http://sourceforge.net/mailarchive/forum.php?thread_name=20111118143650.38280%40gmx.net&amp;forum_name=scidb-users">
+        <a href="http://sourceforge.net/mailarchive/forum.php?thread_name=20111118143650.38280%40gmx.net&amp;forum_name=scidb-users" target="_blank">
         Scidb's Users List</a>).
       </li>
       <li>
