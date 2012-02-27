@@ -3,8 +3,8 @@
 exec tclsh "$0" "$@"
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 252 $
-# Date   : $Date: 2012-02-22 17:43:33 +0000 (Wed, 22 Feb 2012) $
+# Version: $Revision: 257 $
+# Date   : $Date: 2012-02-27 17:32:06 +0000 (Mon, 27 Feb 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -39,17 +39,25 @@ set HtmlDocType {<?xml version="1.0" encoding="utf-8"?>
 set HtmlHead {<head>
   <meta http-equiv="content-type"
            content="text/html; charset=utf-8" />
+  <meta http-equiv="content-language"
+           content="%LANG%" />
   <meta http-equiv="content-style-type"
            content="text/css" />
-  <link  rel="icon"
-        href="http://scidb.sourceforge.net/images/scidb.ico"
-        type="image/x-icon" />
-  <link  rel="shortcut icon"
-        href="http://scidb.sourceforge.net/images/scidb.ico" />
-  <link   rel="stylesheet"
-         type="text/css"
-        media="screen"
-         href="../styles/help.css" />
+
+  <meta name="generator"
+     content="scidb.sourceforge.net" />
+  <meta name="description"
+     content="Scidb Help Page" />
+
+  <link rel="icon"
+       href="http://scidb.sourceforge.net/images/scidb.ico"
+       type="image/x-icon" />
+  <link rel="shortcut icon"
+       href="http://scidb.sourceforge.net/images/scidb.ico" />
+  <link rel="stylesheet"
+       type="text/css"
+      media="screen"
+       href="../styles/help.css" />
 
   <title>%HELP%: %TITLE%</title>
 </head>

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 235 $
-# Date   : $Date: 2012-02-08 22:30:21 +0000 (Wed, 08 Feb 2012) $
+# Version: $Revision: 257 $
+# Date   : $Date: 2012-02-27 17:32:06 +0000 (Mon, 27 Feb 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -38,6 +38,9 @@ set FormatText					"Format text"
 set CopyText					"Copy text to"
 set OverwriteContent			"Overwrite existing content?"
 set AppendContent				"If \"no\" the text will be appended."
+
+set LanguageSelection		"Language selection"
+set Formatting					"Formatting"
 
 set Bold							"Bold"
 set Italic						"Italic"
@@ -230,8 +233,20 @@ proc open {parent pos lang} {
 	$dlg.ok		configure -command [namespace code [list Ok $dlg]]
 	$dlg.cancel	configure -command [namespace code [list Close $dlg]]
 
-	set tb [::toolbar::toolbar $dlg -id languages -float 0 -side left -allow {left top bottom}]
-	set Vars(tb) [::toolbar::toolbar $dlg -id format -float 0 -side top -allow {left top bottom}]
+	set tb [::toolbar::toolbar $dlg \
+		-id languages \
+		-float 0 \
+		-side left \
+		-allow {left top bottom} \
+		-tooltipvar [namespace current]::mc::LanguageSelection \
+	]
+	set Vars(tb) [::toolbar::toolbar $dlg \
+		-id format \
+		-float 0 \
+		-side top \
+		-allow {left top bottom} \
+		-tooltipvar [namespace current]::mc::Formatting \
+	]
 
 	foreach format {Bold Italic Underline} {
 		set fmt [string tolower $format]

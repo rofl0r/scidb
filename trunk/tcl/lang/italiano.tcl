@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 248 $
-# Date   : $Date: 2012-02-14 18:33:12 +0000 (Tue, 14 Feb 2012) $
+# Version: $Revision: 257 $
+# Date   : $Date: 2012-02-27 17:32:06 +0000 (Mon, 27 Feb 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -140,6 +140,7 @@
 ::menu::mc::File						"&File"
 ::menu::mc::Game						"&Partita"
 ::menu::mc::View						"&Visualizza"
+::menu::mc::Settings					"Configura&zione"
 ::menu::mc::Help						"&Aiuto"
 
 ::menu::mc::FileOpen					"A&pri Database..."
@@ -191,8 +192,6 @@
 ::menu::mc::FileNotAllowed			"Nome file '%s' non permesso."
 ::menu::mc::TwoOrMoreDots			"Contiene due o più punti consecutivi."
 ::menu::mc::ForbiddenChars			"Contiene caratteri probiti."
-
-::menu::mc::Settings					"Configura&zione"
 
 ### load ###############################################################
 ::load::mc::FileIsCorrupt	"Il file %s è corrotto:"
@@ -1383,6 +1382,9 @@
 ::comment::mc::CopyText					"Copia testo in" ;#Copy text to
 ::comment::mc::OverwriteContent		"Sovrascrivere contenuto esistente?"
 ::comment::mc::AppendContent			"Se \"no\" il testo sarà aggiunto."
+
+::comment::mc::LanguageSelection		"Language selection" ;# NEW
+::comment::mc::Formatting				"Formatting" ;# NEW
 
 ::comment::mc::Bold						"Grassetto"
 ::comment::mc::Italic					"Corsivo"

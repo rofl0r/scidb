@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 193 $
-# Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+# Version: $Revision: 257 $
+# Date   : $Date: 2012-02-27 17:32:06 +0000 (Mon, 27 Feb 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -22,7 +22,7 @@ namespace eval mc {
 	set CannotFindBrowserDetail	"Set the BROWSER environment variable to your desired browser."
 }
 
-variable Browsers {google-chrome iceweasel firefox iexplorer opera konqueror epiphany galeon mosaic amaya browsex}
+variable Browsers {google-chrome iceweasel firefox opera iexplorer konqueror epiphany galeon mosaic amaya browsex}
 variable Excluded {}
 
 

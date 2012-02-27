@@ -1,7 +1,7 @@
 // ======================================================================
 // $RCSfile: tk_image.cpp,v $
-// $Revision: 222 $
-// $Date: 2012-01-31 18:15:44 +0000 (Tue, 31 Jan 2012) $
+// $Revision: 257 $
+// $Date: 2012-02-27 17:32:06 +0000 (Mon, 27 Feb 2012) $
 // $Author: gregor $
 // ======================================================================
 
@@ -46,6 +46,12 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <tcl.h>
+
+#ifdef BROKEN_LINKER_HACK
+# include "db_board.h"
+# include "db_board_base.h"
+# include "db_home_pawns.h"
+#endif
 
 using namespace db;
 
@@ -392,6 +398,20 @@ exportGames(Database& src, Consumer& dst, Progress& progress)
 int
 main(int argc, char* argv[])
 {
+#ifdef BROKEN_LINKER_HACK
+
+		// HACK!
+		// This hack is required for insane systems like Debian Wheezy,
+		// and Ubuntu Oneiric. The static object initialization is not
+		// properly working on these systems (among other problems).
+		db::tag::initialize();
+		db::castling::initialize();
+		db::board::base::initialize();
+		db::Board::initialize();
+		db::HomePawns::initialize();
+
+#endif
+
 	TclInterpreter	tclInterpreter;
 	mstl::string	convertto(::ConvertTo);
 	mstl::string	convertfrom(::ConvertFrom);

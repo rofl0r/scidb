@@ -1,7 +1,7 @@
 ## ======================================================================
 # Author : $Author$
-# Version: $Revision: 252 $
-# Date   : $Date: 2012-02-22 17:43:33 +0000 (Wed, 22 Feb 2012) $
+# Version: $Revision: 257 $
+# Date   : $Date: 2012-02-27 17:32:06 +0000 (Mon, 27 Feb 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1397,7 +1397,7 @@ proc Goto {position} {
 		set position 0
 	} elseif {![string is integer -strict $position]} {
 		if {[string index $position 0] eq "#"} { set position [string range $position 1 end] }
-		set selector [format {[name="%s"]} $position]
+		set selector [format {[id="%s"]} $position]
 		set node [lindex [$Priv(html) search $selector] 0]
 		if {[llength $node] == 0} { return }
 		set position [lindex [$Priv(html) bbox $node] 1]

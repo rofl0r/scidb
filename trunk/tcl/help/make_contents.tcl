@@ -3,8 +3,8 @@
 exec tclsh "$0" "$@"
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 205 $
-# Date   : $Date: 2012-01-24 21:40:03 +0000 (Tue, 24 Jan 2012) $
+# Version: $Revision: 257 $
+# Date   : $Date: 2012-02-27 17:32:06 +0000 (Mon, 27 Feb 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -93,7 +93,7 @@ puts "  \{"
 puts "     {{{$title} {$file}}}"
 
 while {[gets $src line] >= 0} {
-	if {[regexp {<h[1-6] name=\"(.*)\">(.*)</h[1-6]>} $line _ href section]} {
+	if {[regexp {<h[1-6] id=\"(.*)\">(.*)</h[1-6]>} $line _ href section]} {
 		puts "  \}"
 		puts "  \{"
 		puts "    {{{$section} {$file} {$href}}}"

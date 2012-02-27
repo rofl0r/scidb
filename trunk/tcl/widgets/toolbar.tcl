@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 235 $
-# Date   : $Date: 2012-02-08 22:30:21 +0000 (Wed, 08 Feb 2012) $
+# Version: $Revision: 257 $
+# Date   : $Date: 2012-02-27 17:32:06 +0000 (Mon, 27 Feb 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1506,6 +1506,7 @@ proc CreateHandle {toolbar handle {size 0}} {
 	variable HaveTooltips
 
 	tk::frame $handle -class ToolbarHandle -borderwidth 0
+	if {$size == 0} { $handle configure -cursor hand2 }
 
 	if {$Specs(orientation:[winfo parent $handle]) eq "horz"} {
 		set decor [tk::canvas $handle.c -width $Defaults(handle:size) -height $size -borderwidth 0]

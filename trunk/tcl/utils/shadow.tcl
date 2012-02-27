@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 237 $
-# Date   : $Date: 2012-02-09 01:08:39 +0000 (Thu, 09 Feb 2012) $
+# Version: $Revision: 257 $
+# Date   : $Date: 2012-02-27 17:32:06 +0000 (Mon, 27 Feb 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -26,6 +26,8 @@
 
 namespace eval shadow {
 
+set offset 5
+
 array set Used {}
 
 
@@ -41,6 +43,7 @@ proc prepare {w x y width height} {
 proc map {w {checkIfGrabbed 0}} {
 	variable Geometry
 	variable Mapped
+	variable offset
 
 	if {$checkIfGrabbed} {
 		# sometimes the order of map/unmap events is confused,
@@ -52,6 +55,7 @@ proc map {w {checkIfGrabbed 0}} {
 	}
 
 	if {![info exists Geometry($w)]} { return }
+	if {[info exists Mapped($w)]} { return }
 	set id [Create]
 	lassign $Geometry($w) x y width height
 	set Mapped($w) $id
@@ -60,10 +64,10 @@ proc map {w {checkIfGrabbed 0}} {
 	set r .__shadow__r__$id
 	if {![winfo exists $b]} { return }
 
-	set bx [expr {$x + 5}]
+	set bx [expr {$x + $offset}]
 	set by [expr {$y + $height}]
 	set rx [expr {$x + $width}]
-	set ry [expr {$y + 5}]
+	set ry [expr {$y + $offset}]
 
 	set img [$b.c itemcget image -image]
 	$img configure -width $width
@@ -129,6 +133,7 @@ proc kill {} {
 
 proc Create {} {
 	variable Used
+	variable offset
 
 	set id -1
 
@@ -158,8 +163,8 @@ proc Create {} {
 			$w.c yview moveto 0
 		}
 
-		$b.c create image 0 0 -anchor nw -image [image create photo -width 0 -height 5] -tag image
-		$r.c create image 0 0 -anchor nw -image [image create photo -width 5 -height 0] -tag image
+		$b.c create image 0 0 -anchor nw -image [image create photo -width 0 -height $offset] -tag image
+		$r.c create image 0 0 -anchor nw -image [image create photo -width $offset -height 0] -tag image
 	}
 
 	return $id

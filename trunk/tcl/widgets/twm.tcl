@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 193 $
-# Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+# Version: $Revision: 257 $
+# Date   : $Date: 2012-02-27 17:32:06 +0000 (Mon, 27 Feb 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -401,7 +401,7 @@ set undock [image create photo -data {
 } ;# namespace twm
 
 if {0} {
-	set header "Header"
+	set header "Engine"
 
 	ttk::frame .f
 	pack .f -fill both -expand yes

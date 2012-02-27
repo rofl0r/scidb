@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 216 $
-# Date   : $Date: 2012-01-29 19:02:12 +0000 (Sun, 29 Jan 2012) $
+# Version: $Revision: 257 $
+# Date   : $Date: 2012-02-27 17:32:06 +0000 (Mon, 27 Feb 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -137,6 +137,21 @@ proc open {} {
 
 	wm protocol $app WM_DELETE_WINDOW [namespace code shutdown]
 	set nb [::ttk::notebook $app.nb -takefocus 1]
+if {0} {
+	tk::label $nb.l \
+		-text "Einstellungen" \
+		-borderwidth 1 \
+		-relief raised \
+		-padx 2 \
+		-pady 2 \
+		-background #437597 \
+		-foreground white \
+		-image $icon::18x16::downArrow \
+		-compound right \
+		;
+	bind $nb <Configure> [namespace code [list PlaceSettingsMenu $nb.l]]
+	bind $nb.l <Configure> [namespace code [list PlaceSettingsMenu $nb.l]]
+}
 	::ttk::notebook::enableTraversal $nb
 	set db [::ttk::frame $nb.database]
 	set main [tk::panedwindow $nb.main -orient vertical -opaqueresize true]
@@ -330,6 +345,11 @@ proc switchTab {which} {
 }
 
 
+proc PlaceSettingsMenu {m} {
+	place $m -x [expr {[winfo width [winfo parent $m]] - [winfo width $m]}] -y 0
+}
+
+
 proc ChooseLanguage {parent} {
 	variable ::country::icon::flag
 
@@ -507,6 +527,16 @@ wm iconphoto .application -default $::icon::64x64::logo $::icon::16x16::logo
 
 
 namespace eval icon {
+namespace eval 18x16 {
+
+set downArrow [image create photo -data {
+	iVBORw0KGgoAAAANSUhEUgAAABIAAAAQAQMAAAAhyL0fAAAABlBMVEUAAwD////ieeUNAAAA
+	AXRSTlMAQObYZgAAACNJREFUCNdjYMAC+P8zMLD/Y2Bg/sPAwPgDKPABiBOwqWQAALMQBVzB
+	x7woAAAAAElFTkSuQmCC
+}]
+
+} ;# namespace 19x16
+
 namespace eval 32x32 {
 
 set shutdown [image create photo -data {

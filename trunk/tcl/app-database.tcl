@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 234 $
-# Date   : $Date: 2012-02-07 23:03:07 +0000 (Tue, 07 Feb 2012) $
+# Version: $Revision: 257 $
+# Date   : $Date: 2012-02-27 17:32:06 +0000 (Mon, 27 Feb 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -501,9 +501,12 @@ proc addRecentlyUsedToMenu {parent m} {
 	if {[llength $recentFiles]} {
 		foreach entry $recentFiles {
 			lassign $entry type file encoding readonly
+			if {[string match $::scidb::dir::home* $file]} {
+				set filename [string replace $file 0 [expr {[string length $::scidb::dir::home] - 1}] "~"]
+			}
 			set name [::util::databaseName $file]
 			$m add command \
-				-label " $name  \u25b8  $file" \
+				-label " $name  \u25b8  $filename" \
 				-image [set [namespace current]::icons::${type}(16x16)] \
 				-compound left \
 				-command [namespace code [list openBase $parent $file yes $encoding $readonly]] \

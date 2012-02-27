@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 252 $
-// Date   : $Date: 2012-02-22 17:43:33 +0000 (Wed, 22 Feb 2012) $
+// Version: $Revision: 257 $
+// Date   : $Date: 2012-02-27 17:32:06 +0000 (Mon, 27 Feb 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -217,6 +217,10 @@ parse(char const* document, unsigned length, mstl::string& result, Action& actio
 	char const* markup	= 0;
 
 	result.clear();
+
+	// XXX: Currently parser is not recognizing "<![CDATA[ ... ]]>" elements.
+	//      Inside these elements the characters "<>&" do not have a special meaning.
+	//      (This means, do not parse inside this element)
 
 	while (first < last)
 	{

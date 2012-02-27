@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 198 $
-// Date   : $Date: 2012-01-19 10:31:50 +0000 (Thu, 19 Jan 2012) $
+// Version: $Revision: 257 $
+// Date   : $Date: 2012-02-27 17:32:06 +0000 (Mon, 27 Feb 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -20,7 +20,8 @@
 
 #include <tcl.h>
 
-extern "C" {
+extern "C"
+{
 	extern int Tkhtml_Init(Tcl_Interp*);
 	extern int Tkhtml_SafeInit(Tcl_Interp*);
 }
