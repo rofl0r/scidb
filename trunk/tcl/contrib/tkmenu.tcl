@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 258 $
-# Date   : $Date: 2012-02-29 16:12:00 +0000 (Wed, 29 Feb 2012) $
+# Version: $Revision: 259 $
+# Date   : $Date: 2012-02-29 17:03:30 +0000 (Wed, 29 Feb 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -257,7 +257,7 @@ if {[tk windowingsystem] eq "x11"} {
                     }
                 }
             }
-        } elseif {$countHashes == 0} {
+        } elseif {0 && $countHashes == 0} { ;# this is not working well
             set x [expr {max(0, min(%x, [winfo screenwidth %W] - %w - $::tk::ShadowOffset))}]
             if {$x != %x} {
                 wm state %W withdrawn
