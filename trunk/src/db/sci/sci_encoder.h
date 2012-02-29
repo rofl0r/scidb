@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 258 $
+// Date   : $Date: 2012-02-29 16:12:00 +0000 (Wed, 29 Feb 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -34,6 +34,7 @@
 #include "u_byte_stream.h"
 
 namespace util { class ByteStream; }
+namespace mstl { template <typename T> class bitfield; }
 
 namespace db {
 
@@ -60,6 +61,8 @@ public:
 							bool allowExtraTags);
 
 	static bool skipTag(tag::ID tag);
+	static bool isExtraTag(tag::ID tag);
+	static mstl::bitfield<uint64_t> const& extraTags();
 
 protected:
 

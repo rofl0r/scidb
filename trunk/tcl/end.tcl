@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 199 $
-# Date   : $Date: 2012-01-21 17:29:44 +0000 (Sat, 21 Jan 2012) $
+# Version: $Revision: 258 $
+# Date   : $Date: 2012-02-29 16:12:00 +0000 (Wed, 29 Feb 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -104,6 +104,8 @@ set dialog::choosefont::iconOk		$icon::iconOk
 set dialog::choosefont::iconCancel	$icon::iconCancel
 set dialog::choosefont::iconApply	$icon::iconApply
 set dialog::choosefont::iconReset	$icon::iconReset
+
+set ::tk::ShadowOffset $::shadow::offset
 
 proc ::dialog::choosefont::messageBox {parent msg buttons defaultButton} {
 	return [::dialog::warning -parent $parent -message $msg -buttons $buttons -default $defaultButton]

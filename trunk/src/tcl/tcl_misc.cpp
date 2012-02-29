@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 251 $
-// Date   : $Date: 2012-02-20 22:07:42 +0000 (Mon, 20 Feb 2012) $
+// Version: $Revision: 258 $
+// Date   : $Date: 2012-02-29 16:12:00 +0000 (Wed, 29 Feb 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -32,6 +32,7 @@
 #include "db_database_codec.h"
 
 #include "si3_codec.h"
+#include "sci_codec.h"
 
 #include "nsUniversalDetector.h"
 
@@ -696,12 +697,19 @@ cmdSuffixes(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 static int
 cmdExtraTags(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 {
+	bool (*isExtraTagFunc)(::db::tag::ID);
+
+	if (strcmp(stringFromObj(objc, objv, 1), "si3") == 0)
+		isExtraTagFunc = ::db::si3::Codec::isExtraTag;
+	else
+		isExtraTagFunc = ::db::sci::Codec::isExtraTag;
+
 	Tcl_Obj* objs[db::tag::ExtraTag];
 	unsigned count = 0;
 
 	for (unsigned i = 0; i < db::tag::ExtraTag; ++i)
 	{
-		if (::db::si3::Codec::isExtraTag(db::tag::ID(i)))
+		if (isExtraTagFunc(db::tag::ID(i)))
 			objs[count++] = Tcl_NewStringObj(db::tag::toName(db::tag::ID(i)), -1);
 	}
 

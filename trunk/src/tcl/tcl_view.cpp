@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 258 $
+// Date   : $Date: 2012-02-29 16:12:00 +0000 (Wed, 29 Feb 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -464,12 +464,15 @@ cmdExport(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 	{
 		for (int i = 0; i < objc; ++i)
 		{
-			tag::ID tag = tag::fromName(Tcl_GetString(tags[i]));
+			if (*Tcl_GetString(tags[i]))
+			{
+				tag::ID tag = tag::fromName(Tcl_GetString(tags[i]));
 
-			if (tag == tag::ExtraTag)
-				extraTags = true;
-			else
-				tagBits.set(tag);
+				if (tag == tag::ExtraTag)
+					extraTags = true;
+				else
+					tagBits.set(tag);
+			}
 		}
 	}
 

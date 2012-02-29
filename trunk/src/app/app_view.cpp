@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 216 $
-// Date   : $Date: 2012-01-29 19:02:12 +0000 (Sun, 29 Jan 2012) $
+// Version: $Revision: 258 $
+// Date   : $Date: 2012-02-29 16:12:00 +0000 (Wed, 29 Feb 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -37,6 +37,7 @@
 
 #include "sci_codec.h"
 #include "sci_consumer.h"
+#include "sci_encoder.h"
 
 #include "si3_codec.h"
 #include "si3_consumer.h"
@@ -548,7 +549,10 @@ View::exportGames(mstl::string const& filename,
 		destination.setDescription(description);
 		destination.setType(type);
 
-		if (m_db.format() == format::Scidb && fmode != Upgrade)
+		if (	m_db.format() == format::Scidb
+			&& fmode != Upgrade
+			&& allowExtraTags
+			&& (allowedTags | sci::Encoder::extraTags()).any())
 		{
 			count = exportGames(destination, gameMode, log, progress);
 		}

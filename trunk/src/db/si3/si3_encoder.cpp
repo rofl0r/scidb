@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 258 $
+// Date   : $Date: 2012-02-29 16:12:00 +0000 (Wed, 29 Feb 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -171,9 +171,9 @@ Encoder::isExtraTag(tag::ID tag)
 		case tag::BlackCountry:
 		case tag::Annotator:
 		case tag::PlyCount:
-		case tag::Opening:
-		case tag::Variation:
-		case tag::Source:
+//		case tag::Opening:
+//		case tag::Variation:
+//		case tag::Source:
 		case tag::SetUp:
 		case tag::EventDate:
 			return false;

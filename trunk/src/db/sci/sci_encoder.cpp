@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 258 $
+// Date   : $Date: 2012-02-29 16:12:00 +0000 (Wed, 29 Feb 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -474,10 +474,42 @@ Encoder::encodeComment(MoveNode const* node)
 }
 
 
+mstl::bitfield<uint64_t> const&
+Encoder::extraTags()
+{
+	return ::tagLookup.m_lookup;
+}
+
+
 bool
 Encoder::skipTag(tag::ID tag)
 {
 	return ::tagLookup.skipTag(tag);
+}
+
+
+bool
+Encoder::isExtraTag(tag::ID tag)
+{
+	switch (int(tag))
+	{
+		case tag::Fen:
+		case tag::Idn:
+		case tag::PlyCount:
+		case tag::SetUp:
+		case tag::EventDate:
+		case tag::WhiteElo:
+		case tag::BlackElo:
+			return false;
+
+		case tag::ExtraTag:
+			return true;
+	}
+
+	if (isRatingTag(tag))
+		return true;
+
+	return !skipTag(tag);
 }
 
 

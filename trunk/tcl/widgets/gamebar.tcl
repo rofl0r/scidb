@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 199 $
-# Date   : $Date: 2012-01-21 17:29:44 +0000 (Sat, 21 Jan 2012) $
+# Version: $Revision: 258 $
+# Date   : $Date: 2012-02-29 16:12:00 +0000 (Wed, 29 Feb 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -42,6 +42,12 @@ set Unlock					"Unlock"
 
 set LockGame				"Lock Game"
 set CloseGame				"Close Game"
+
+set GameNew					"New Game"
+set GameNewChess960		"New Game: Chess 960"
+set GameNewChess960Sym	"New Game: Chess 960 (symmetrical only)"
+set GameNewShuffle		"New Game: Shuffle"
+
 
 } ;# namespace mc
 
@@ -1202,28 +1208,28 @@ proc AddGameMenuEntries {m addGameHistory clearHistory remove} {
 	}
 
 	$m add command \
-		-label " [::mc::stripAmpersand $::menu::mc::GameNew]" \
+		-label " $mc::GameNew" \
 		-accelerator "Ctrl+X" \
 		-image $::icon::16x16::document \
 		-compound left \
 		-command [list ::menu::gameNew [winfo parent $m]] \
 		;
 	$m add command \
-		-label " [::mc::stripAmpersand $::menu::mc::GameNewChess960]" \
+		-label " $mc::GameNewChess960" \
 		-accelerator "Ctrl+Shift+X" \
 		-image $::icon::16x16::dice \
 		-compound left \
 		-command [list ::menu::gameNew [winfo parent $m] frc] \
 		;
 	$m add command \
-		-label " [::mc::stripAmpersand $::menu::mc::GameNewChess960Sym]" \
+		-label " $mc::GameNewChess960Sym" \
 		-accelerator "Ctrl+Shift+Y" \
 		-image $::icon::16x16::dice \
 		-compound left \
 		-command [list ::menu::gameNew [winfo parent $m] sfrc] \
 		;
 	$m add command \
-		-label " [::mc::stripAmpersand $::menu::mc::GameNewShuffle]" \
+		-label " $mc::GameNewShuffle" \
 		-accelerator "Ctrl+Shift+Z" \
 		-image $::icon::16x16::dice \
 		-compound left \

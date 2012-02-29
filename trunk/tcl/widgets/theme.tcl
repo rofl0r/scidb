@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 219 $
-# Date   : $Date: 2012-01-29 21:40:46 +0000 (Sun, 29 Jan 2012) $
+# Version: $Revision: 258 $
+# Date   : $Date: 2012-02-29 16:12:00 +0000 (Wed, 29 Feb 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -474,6 +474,7 @@ option add *Panedwindow.sashRelief raised
 
 option add *Menu.TearOff 0
 option add *Menu.activeBackground #678db2
+#option add *Menu.activeBackground #437597
 option add *Menu.activeForeground white
 option add *Menu.activeBorderWidth 0
 
