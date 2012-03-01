@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 261 $
-# Date   : $Date: 2012-03-01 09:12:43 +0000 (Thu, 01 Mar 2012) $
+# Version: $Revision: 264 $
+# Date   : $Date: 2012-03-01 13:25:36 +0000 (Thu, 01 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -538,6 +538,9 @@ proc ::tk::MenuUnpost menu {
                 }
                 event generate $m <<MenuUnpost>>
                 ### FEATURE end ######################################################
+                ### FIX begin ########################################################
+                set Priv(fix:active) ""
+                ### FIX end ##########################################################
 	    }
 	}
 	RestoreOldGrab
@@ -853,8 +856,9 @@ proc ::tk::MenuInvoke {w buttonRelease} {
 	set menu [$w entrycget active -menu]
 	MenuFirstEntry $menu
     ### FIX begin ####################################################################
-    } elseif {     [info exists Priv(fix:active)]
-                && [string length $Priv(fix:active)]
+    } elseif {     [string length $Priv(fix:active)]
+                && [info exists Priv(fix:active)]
+                && [winfo exists $Priv(fix:active)]
                 && [$Priv(fix:active) type active] eq "cascade"} {
 	$Priv(fix:active) postcascade active
         if {$::tk::MODERNIZE} {
