@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 258 $
-# Date   : $Date: 2012-02-29 16:12:00 +0000 (Wed, 29 Feb 2012) $
+# Version: $Revision: 261 $
+# Date   : $Date: 2012-03-01 09:12:43 +0000 (Thu, 01 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -411,7 +411,7 @@ proc PlaceSettingsMenu {m} {
 
 proc SetSettingsText {w} {
 	lassign [::tk::UnderlineAmpersand $mc::MainMenu] text ul
-	$w configure -text $text -underline $ul
+	$w configure -text " $text" -underline [incr ul]
 }
 
 
