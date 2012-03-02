@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 266 $
+// Date   : $Date: 2012-03-02 14:22:55 +0000 (Fri, 02 Mar 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -17,29 +17,42 @@
 // ======================================================================
 
 #ifdef __unix__
-
 # include <stdio.h>
-
-# if defined(IO_NOT_MTSAFE)
-
-#  define ferror	ferror_unlocked
-#  define fflush	fflush_unlocked
-#  define fgetc		fgetc_unlocked
-#  define fgets		fgets_unlocked
-#  define fileno	fileno_unlocked
-#  define fflush	fflush_unlocked
-#  define fputc		fputc_unlocked
-#  define fputs		fputs_unlocked
-#  define fread		fread_unlocked
-#  define fwrite	fwrite_unlocked
-#  define feof		feof_unlocked
-
-# endif
-
 #else
-
 # include "m_stdio_internal.h"
-
 #endif // __unix__
 
-// vi:set ts=8 sw=8:
+
+#if defined(IO_NOT_MTSAFE)
+
+# ifdef getc
+#  undef getc
+# endif
+# ifdef getchar
+#  undef getchar
+# endif
+# ifdef putc
+#  undef putc
+# endif
+# ifdef putchar
+#  undef putchar
+# endif
+
+# define feof		feof_unlocked
+# define ferror	ferror_unlocked
+# define fflush	fflush_unlocked
+# define fgetc		fgetc_unlocked
+# define fgets		fgets_unlocked
+# define fileno	fileno_unlocked
+# define fputc		fputc_unlocked
+# define fputs		fputs_unlocked
+# define fread		fread_unlocked
+# define fwrite	fwrite_unlocked
+# define getc		getc_unlocked
+# define getchar	getchar_unlocked
+# define putc		putc_unlocked
+# define putchar	putchar_unlocked
+
+#endif
+
+// vi:set ts=3 sw=3:

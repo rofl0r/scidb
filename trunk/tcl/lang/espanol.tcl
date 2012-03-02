@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 258 $
-# Date   : $Date: 2012-02-29 16:12:00 +0000 (Wed, 29 Feb 2012) $
+# Version: $Revision: 266 $
+# Date   : $Date: 2012-03-02 14:22:55 +0000 (Fri, 02 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -152,7 +152,7 @@
 
 ::menu::mc::Language						"&Idioma"
 ::menu::mc::Toolbars						"&Barras de herramientas"
-::menu::mc::ShowLog						"Mostrar &bit‡co&ra..."
+::menu::mc::ShowLog						"Mostrar &bit‡co&ra"
 ::menu::mc::AboutScidb					"A&bout Scidb" ;# NEW
 ::menu::mc::Fullscreen					"&Pantalla completa"
 ::menu::mc::LeaveFullscreen			"Leave &pantalla completa" ;# NEW "Leave Full-Screen"

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 258 $
-# Date   : $Date: 2012-02-29 16:12:00 +0000 (Wed, 29 Feb 2012) $
+# Version: $Revision: 266 $
+# Date   : $Date: 2012-03-02 14:22:55 +0000 (Fri, 02 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -151,7 +151,7 @@
 
 ::menu::mc::Language						"&Language"
 ::menu::mc::Toolbars						"&Toolbars"
-::menu::mc::ShowLog						"Show &Log..."
+::menu::mc::ShowLog						"Show &Log"
 ::menu::mc::AboutScidb					"&About Scidb"
 ::menu::mc::Fullscreen					"&Full-Screen"
 ::menu::mc::LeaveFullscreen			"Leave &Full-Screen"
