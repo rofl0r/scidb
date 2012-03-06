@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 267 $
+// Date   : $Date: 2012-03-06 08:52:13 +0000 (Tue, 06 Mar 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -105,6 +105,7 @@ private:
 	bool				m_featureSigint;
 	bool				m_featureAnalyze;
 	bool				m_featurePause;
+	bool				m_featurePlayOther;
 	bool				m_featureSan;
 	bool				m_variantChess960;
 	bool				m_variantNoCastle;

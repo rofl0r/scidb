@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 266 $
-# Date   : $Date: 2012-03-02 14:22:55 +0000 (Fri, 02 Mar 2012) $
+# Version: $Revision: 267 $
+# Date   : $Date: 2012-03-06 08:52:13 +0000 (Tue, 06 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -222,7 +222,7 @@ proc build {menu} {
 		-menu $m \
 		-label " $text" \
 		-underline [incr ul] \
-		-image $::icon::16x16::none \
+		-image $::icon::16x16::contact \
 		-compound left \
 		;
 

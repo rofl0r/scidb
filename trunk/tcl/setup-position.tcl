@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 193 $
-# Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+# Version: $Revision: 267 $
+# Date   : $Date: 2012-03-06 08:52:13 +0000 (Tue, 06 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -159,6 +159,7 @@ proc open {parent} {
 		-textvar [namespace parent]::board::mc::Chess960Castling \
 		-variable [namespace current]::Vars(castling) \
 		;
+	set Vars(castling:widget) $top.control.castling
 	::ttk::entry $top.control.idn \
 		-textvariable [namespace current]::Vars(idn:text) \
 		-width 5 \
@@ -302,6 +303,12 @@ proc Update {} {
 	} else {
 		set Vars(idn:text) $Vars(idn)
 		set state normal
+	}
+
+	if {$Vars(idn) != 0 & $Vars(idn) > 960} {
+		$Vars(castling:widget) configure -state disabled
+	} else {
+		$Vars(castling:widget) configure -state normal
 	}
 
 	$Vars(dlg).ok configure -state $state

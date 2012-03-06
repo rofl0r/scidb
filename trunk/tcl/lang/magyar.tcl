@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 258 $
-# Date   : $Date: 2012-02-29 16:12:00 +0000 (Wed, 29 Feb 2012) $
+# Version: $Revision: 267 $
+# Date   : $Date: 2012-03-06 08:52:13 +0000 (Tue, 06 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -925,7 +925,7 @@
 ::import::mc::AbortedDueToInternalError		"Beslő hiba miatt Aborted"
 
 ### export #############################################################
-::export::mc::FileSelection			"&Fájl Kiválasztás(>%d)"
+::export::mc::FileSelection			"&Fájl Kiválasztás"
 ::export::mc::OptionsSetup					"Beállítás&ok"
 ::export::mc::PageSetup				"&Oldalbeállítás"
 ::export::mc::DiagramSetup					"&Diagramm Beállítások"

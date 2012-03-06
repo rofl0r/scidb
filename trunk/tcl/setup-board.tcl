@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 235 $
-# Date   : $Date: 2012-02-08 22:30:21 +0000 (Wed, 08 Feb 2012) $
+# Version: $Revision: 267 $
+# Date   : $Date: 2012-03-06 08:52:13 +0000 (Tue, 06 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -518,7 +518,7 @@ proc SetCursor {piece} {
 	variable Vars
 	variable Cursor
 
-	if {[string match *32x32* $Cursor($piece)]} {
+	if {[string match *32x32 $Cursor($piece)]} {
 		::xcursor::setCursor $Vars(board) $Cursor($piece)
 	} else {
 		$Vars(board) configure -cursor $Cursor($piece)

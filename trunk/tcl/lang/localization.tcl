@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 251 $
-# Date   : $Date: 2012-02-20 22:07:42 +0000 (Mon, 20 Feb 2012) $
+# Version: $Revision: 267 $
+# Date   : $Date: 2012-03-06 08:52:13 +0000 (Tue, 06 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -34,6 +34,7 @@ set languages {
    { Español  es    macRoman    espanol.tcl  }
    { Italiano  it    utf-8       italiano.tcl }
    { Magyar    hu    utf-8       magyar.tcl   }
+   { Svenska   sv    utf-8       svenska.tcl  }
 }
 
 } ;# namespace i18n

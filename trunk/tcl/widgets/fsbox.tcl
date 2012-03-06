@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 258 $
-# Date   : $Date: 2012-02-29 16:12:00 +0000 (Wed, 29 Feb 2012) $
+# Version: $Revision: 267 $
+# Date   : $Date: 2012-03-06 08:52:13 +0000 (Tue, 06 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -268,12 +268,6 @@ proc fsbox {w type args} {
 			set Vars(widget:filetypes:canvas) $top.cnv_filetype
 #			tooltip $top.cnv_filetype [Tr SelectWhichType]
 		}
-	}
-
-	if {[llength $Vars(selectencodingcommand)] == 0 && [llength $Vars(filetypes)] > 0} {
-		set cspan {-columnspan 4}
-	} else {
-		set cspan {}
 	}
 
 	grid columnconfigure $top {3} -weight 1

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 257 $
-// Date   : $Date: 2012-02-27 17:32:06 +0000 (Mon, 27 Feb 2012) $
+// Version: $Revision: 267 $
+// Date   : $Date: 2012-03-06 08:52:13 +0000 (Tue, 06 Mar 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -42,6 +42,7 @@ tk::init(Tcl_Interp* ti)
 	xcursor_init(ti);
 	busy_init(ti);
 	multiwindow_init(ti);
+	notebook_init(ti);
 
 	Tkhtml_Init(ti);
 //	Tcl_SetVar(ti, "tcl_rcFileName", "~/.scidb", TCL_GLOBAL_ONLY)
