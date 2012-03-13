@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 193 $
-# Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+# Version: $Revision: 268 $
+# Date   : $Date: 2012-03-13 16:47:20 +0000 (Tue, 13 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -304,7 +304,7 @@ proc choose {parent currentEnc defaultEnc {autoDetectFlag no}} {
 	if {$autoDetectFlag} { set encodingList [linsert $encodingList 0 $autoEncoding] }
 	set _Encoding $currentEnc
 	set dlg $parent.chooseEncoding
-	toplevel $dlg -class Dialog
+	tk::toplevel $dlg -class Dialog
 	if {[llength $defaultEnc] == 0} { set defaultEnc $defaultEncoding }
 	build $dlg.enc $currentEnc $defaultEnc 600 400 $encodingList
 	variable ${dlg}.enc.list.t::Vars

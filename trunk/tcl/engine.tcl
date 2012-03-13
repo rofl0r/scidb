@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 193 $
-# Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+# Version: $Revision: 268 $
+# Date   : $Date: 2012-03-13 16:47:20 +0000 (Tue, 13 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -34,7 +34,7 @@ proc choose {parent} {
 	global photo_Engine
 
 	set dlg $parent.chooseEngine
-	toplevel $dlg -class Scidb
+	tk::toplevel $dlg -class Scidb
 	wm withdraw $dlg
 	set top [ttk::frame $dlg.top]
 	pack $top

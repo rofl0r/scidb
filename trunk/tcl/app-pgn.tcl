@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 265 $
-# Date   : $Date: 2012-03-01 15:01:58 +0000 (Thu, 01 Mar 2012) $
+# Version: $Revision: 268 $
+# Date   : $Date: 2012-03-13 16:47:20 +0000 (Tue, 13 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1039,6 +1039,8 @@ proc Indent {w level key} {
 proc ProcessGoto {position w key succKey} {
 	variable Vars
 	variable Colors
+
+	::move::reset
 
 	if {$Vars(current:$position) ne $key} {
 		::scidb::game::variation unfold
@@ -2300,7 +2302,7 @@ proc SearchLang {w code sym} {
 proc CopyComments {parent} {
 	variable Vars
 
-	set dlg [toplevel $parent.copy_comments -class Dialog]
+	set dlg [tk::toplevel $parent.copy_comments -class Dialog]
 	set top [::ttk::frame $dlg.top]
 	pack $dlg.top
 
@@ -2479,7 +2481,7 @@ proc ExchangeMoves {parent} {
 
 	set key [::scidb::game::position key]
 	set varno [::scidb::game::variation leave]
-	set dlg [toplevel $parent.exchange -class Dialog]
+	set dlg [tk::toplevel $parent.exchange -class Dialog]
 	set top [::ttk::frame $dlg.top]
 	pack $dlg.top
 	set Length_ [::scidb::game::variation length $varno]

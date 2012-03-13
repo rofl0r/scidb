@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 235 $
-# Date   : $Date: 2012-02-08 22:30:21 +0000 (Wed, 08 Feb 2012) $
+# Version: $Revision: 268 $
+# Date   : $Date: 2012-03-13 16:47:20 +0000 (Tue, 13 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -169,8 +169,14 @@ proc WidgetProc {w parent command args} {
 			$parent.html parse -final [lindex $args 0]
 			if {[string length $Priv(css)]} { $parent.html style -id user $Priv(css) }
 			set Priv(bbox) [ComputeBoundingBox $parent.html [$parent.html node] $Priv(center)]
-			lset Priv(bbox) 2 [min [lindex $Priv(bbox) 2] 4000]
-#			lset Priv(bbox) 3 [min [lindex $Priv(bbox) 3] 8000]
+			if {[llength $Priv(bbox)] == 0} {
+				# Due to a bug in the html library sometimes
+				# we don't have a bounding box.
+				set Priv(bbox) {0 0 400 600}
+			} else {
+				lset Priv(bbox) 2 [min [lindex $Priv(bbox) 2] 4000]
+#				lset Priv(bbox) 3 [min [lindex $Priv(bbox) 3] 8000]
+			}
 			if {[llength $Priv(bbox)]} {
 				if {$Priv(center)} {
 					lset Priv(bbox) 2 [expr {[lindex $Priv(bbox) 2] + $Margin}]

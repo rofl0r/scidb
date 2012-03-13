@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 193 $
-# Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+# Version: $Revision: 268 $
+# Date   : $Date: 2012-03-13 16:47:20 +0000 (Tue, 13 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -29,7 +29,7 @@ namespace eval splash {
 proc open {} {
 	variable Picture
 
-	toplevel .splash -class Scidb
+	tk::toplevel .splash -class Scidb
 	wm title .splash $::scidb::app
 	wm attributes .splash -alpha 0.8
 	catch { wm attributes .splash -type splash }

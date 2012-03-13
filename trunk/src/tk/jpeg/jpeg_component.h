@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 268 $
+// Date   : $Date: 2012-03-13 16:47:20 +0000 (Tue, 13 Mar 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -135,9 +135,11 @@ private:
 	void upsampleH2V2(JPEGSample* source, int outputRows);
 	void upsampleGeneric(JPEGSample* source, int outputRows);
 
-	void upsampleH1V2Fancy(JPEGSample* source, int outputRows);
 	void upsampleH2V1Fancy(JPEGSample* source, int outputRows);
+#if 0
+	void upsampleH1V2Fancy(JPEGSample* source, int outputRows);
 	void upsampleH2V2Fancy(JPEGSample* source, int outputRows);
+#endif
 
 	// helpers
 	static bool isDCOnly(JPEGSample const* dataUnit) { return dataUnit[DataUnitSize - 1] == 1; }

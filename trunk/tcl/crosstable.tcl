@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 208 $
-# Date   : $Date: 2012-01-25 13:28:14 +0000 (Wed, 25 Jan 2012) $
+# Version: $Revision: 268 $
+# Date   : $Date: 2012-03-13 16:47:20 +0000 (Tue, 13 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -268,7 +268,7 @@ proc open {parent base index view source} {
 	set Vars(typeList) {}
 	set Vars(scoringList) {}
 
-	toplevel $dlg -class Scidb
+	tk::toplevel $dlg -class Scidb
 	bind $dlg <Destroy> [namespace code [list Destroy $dlg %W 1]]
 	wm withdraw $dlg
 
@@ -817,7 +817,7 @@ proc ShowTrace {which} {
 		$txt configure -state normal
 		$txt delete 1.0 end
 	} else {
-		toplevel $dlg -class Scidb
+		tk::toplevel $dlg -class Scidb
 		set f [::ttk::frame $dlg.f]
 
 		tk::text $f.text \

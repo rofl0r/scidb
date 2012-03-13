@@ -1,7 +1,7 @@
 ## ======================================================================
 # Author : $Author$
-# Version: $Revision: 257 $
-# Date   : $Date: 2012-02-27 17:32:06 +0000 (Mon, 27 Feb 2012) $
+# Version: $Revision: 268 $
+# Date   : $Date: 2012-03-13 16:47:20 +0000 (Tue, 13 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -115,7 +115,7 @@ proc open {parent {file {}}} {
 
 	::scidb::misc::html cache on
 
-	toplevel $dlg -class Scidb
+	tk::toplevel $dlg -class Scidb
 	wm protocol $dlg WM_DELETE_WINDOW [namespace code Destroy]
 	wm withdraw $dlg
 
@@ -248,7 +248,7 @@ proc CheckLanguage {parent} {
 
 	set Lang {}
 	set dlg $parent.lang
-	toplevel $dlg -class Scidb
+	tk::toplevel $dlg -class Scidb
 	wm withdraw $dlg
 	set top [ttk::frame $dlg.top]
 	pack $top

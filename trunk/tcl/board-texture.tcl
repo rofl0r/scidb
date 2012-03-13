@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 199 $
-# Date   : $Date: 2012-01-21 17:29:44 +0000 (Sat, 21 Jan 2012) $
+# Version: $Revision: 268 $
+# Date   : $Date: 2012-03-13 16:47:20 +0000 (Tue, 13 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -184,7 +184,7 @@ proc makePopup {} {
 	set w .board_texture_popup
 	if {[winfo exists $w]} { return $w }
 
-	toplevel $w -class TooltipPopup -relief raised -borderwidth 1
+	tk::toplevel $w -class TooltipPopup -relief raised -borderwidth 1
 	wm withdraw $w
 	wm overrideredirect $w 1
 	tk::canvas $w.texture
@@ -397,7 +397,7 @@ proc Focus {canv state} {
 proc openBrowser {parent which currentTexture {otherTexture {}} {place center}} {
 	variable Browser
 
-	set dlg [toplevel $parent.select_texture -class Scidb]
+	set dlg [tk::toplevel $parent.select_texture -class Scidb]
 	bind $dlg <Escape> [list destroy $dlg]
 	set top [ttk::frame $dlg.top]
 	pack $top -fill both -expand yes

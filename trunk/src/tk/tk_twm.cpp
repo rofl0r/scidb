@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 267 $
-// Date   : $Date: 2012-03-06 08:52:13 +0000 (Tue, 06 Mar 2012) $
+// Version: $Revision: 268 $
+// Date   : $Date: 2012-03-13 16:47:20 +0000 (Tue, 13 Mar 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -81,18 +81,16 @@ unlinkWindow(TkWindow* winPtr)
 	}
 	else
 	{
-		M_ASSERT(prevPtr);
-
-		while (prevPtr->nextPtr != winPtr)
-		{
+		while (prevPtr && prevPtr->nextPtr != winPtr)
 			prevPtr = prevPtr->nextPtr;
-			M_ASSERT(prevPtr);
+
+		if (prevPtr)
+		{
+			prevPtr->nextPtr = winPtr->nextPtr;
+
+			if (winPtr->nextPtr == 0)
+				winPtr->parentPtr->lastChildPtr = prevPtr;
 		}
-
-		prevPtr->nextPtr = winPtr->nextPtr;
-
-		if (winPtr->nextPtr == 0)
-			winPtr->parentPtr->lastChildPtr = prevPtr;
 	}
 }
 
@@ -193,7 +191,7 @@ captureWindow(Tcl_Interp *interp, Tk_Window tkmain, Tk_Window tkwin, Tk_Window t
 	// withdraw the window
 	TkpWmSetState(winPtr, WithdrawnState);
 
-	if (tkparent)
+	if (tkparent && tkparent != reinterpret_cast<Tk_Window>(winPtr->parentPtr))
 	{
 		TkWindow* parent = reinterpret_cast<TkWindow*>(tkparent);
 

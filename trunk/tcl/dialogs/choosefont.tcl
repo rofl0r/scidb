@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 216 $
-# Date   : $Date: 2012-01-29 19:02:12 +0000 (Sun, 29 Jan 2012) $
+# Version: $Revision: 268 $
+# Date   : $Date: 2012-03-13 16:47:20 +0000 (Tue, 13 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -484,9 +484,9 @@ proc OpenDialog {parent class app font title enableEffects applyProc receiver ge
 	set point [expr {$parent eq "." ? "" : "."}]
 	set dlg ${parent}${point}__choosefont__
 	if {[llength $class]} {
-		toplevel $dlg -padx 10 -pady 10 -class $class
+		tk::toplevel $dlg -padx 10 -pady 10 -class $class
 	} else {
-		toplevel $dlg -padx 10 -pady 10
+		tk::toplevel $dlg -padx 10 -pady 10
 	}
 	set cancelCmd [list $dlg.buttons.cancel invoke]
 	switch $::tcl_platform(platform) {

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 193 $
-# Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+# Version: $Revision: 268 $
+# Date   : $Date: 2012-03-13 16:47:20 +0000 (Tue, 13 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -851,7 +851,7 @@ proc openConfigDialog {parent size closeCmd updateCmd resetCmd} {
 
 	# toplevel
 	set point [expr {$parent eq "." ? "" : "."}]
-	set dlg [toplevel ${parent}${point}configSquares -class Scidb]
+	set dlg [tk::toplevel ${parent}${point}configSquares -class Scidb]
 	bind $dlg <Destroy> [namespace code {
 		if {"%W" eq [winfo toplevel %W]} {
 			unregisterSize [set [namespace parent]::designSize]

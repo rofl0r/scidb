@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 268 $
+// Date   : $Date: 2012-03-13 16:47:20 +0000 (Tue, 13 Mar 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -738,6 +738,7 @@ Component::upsampleH2V1Fancy(JPEGSample* source, int outputRows)
 		{
 			v = ::mul3(*source++);
 
+			// TODO: use SIMD
 			*b++ = ::div4(v + source[-2] + 1);
 			*b++ = ::div4(v + source[ 0] + 2);
 		}
@@ -750,6 +751,7 @@ Component::upsampleH2V1Fancy(JPEGSample* source, int outputRows)
 }
 
 
+#if 0 // not working
 void
 Component::upsampleH1V2Fancy(JPEGSample* source, int outputRows)
 {
@@ -852,6 +854,7 @@ Component::upsampleH2V2Fancy(JPEGSample* source, int outputRows)
 		source = next;
 	}
 }
+#endif
 
 
 char const*

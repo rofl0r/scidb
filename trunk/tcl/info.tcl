@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 266 $
-# Date   : $Date: 2012-03-02 14:22:55 +0000 (Fri, 02 Mar 2012) $
+# Version: $Revision: 268 $
+# Date   : $Date: 2012-03-13 16:47:20 +0000 (Tue, 13 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -62,7 +62,7 @@ proc openDialog {parent} {
 		raise $dlg
 		focus $dlg
 	} else {
-		toplevel $dlg -class $::scidb::app
+		tk::toplevel $dlg -class $::scidb::app
 		wm iconname $dlg ""
 		wm withdraw $dlg
 		BuildDialog $dlg

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 258 $
-# Date   : $Date: 2012-02-29 16:12:00 +0000 (Wed, 29 Feb 2012) $
+# Version: $Revision: 268 $
+# Date   : $Date: 2012-03-13 16:47:20 +0000 (Tue, 13 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -65,7 +65,7 @@ proc open {args} {
 	array set opts [lrange $args 1 end]
 
 	set w [lindex $args 0]
-	toplevel $w -relief solid -class $opts(-class)
+	tk::toplevel $w -relief solid -class $opts(-class)
 	set parent $opts(-parent)
 	if {[llength $parent] == 0} {
 		set parent [winfo parent $w]

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 257 $
-# Date   : $Date: 2012-02-27 17:32:06 +0000 (Mon, 27 Feb 2012) $
+# Version: $Revision: 268 $
+# Date   : $Date: 2012-03-13 16:47:20 +0000 (Tue, 13 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -119,7 +119,7 @@ proc open {parent pos lang} {
 
 	set dlg $parent.__comment__
 	set Vars(dialog) $dlg
-	toplevel $dlg -class Scidb
+	tk::toplevel $dlg -class Scidb
 	wm withdraw $dlg
 
 	set top [tk::frame $dlg.top]
@@ -1489,7 +1489,7 @@ proc PopdownLanguages {dlg} {
 	variable Vars
 
 	set popdown $dlg.popdown
-	toplevel $popdown -class AddLanguagePopdown
+	tk::toplevel $popdown -class AddLanguagePopdown
 	wm withdraw $popdown
 
 	switch -- [tk windowingsystem] {

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 199 $
-# Date   : $Date: 2012-01-21 17:29:44 +0000 (Sat, 21 Jan 2012) $
+# Version: $Revision: 268 $
+# Date   : $Date: 2012-03-13 16:47:20 +0000 (Tue, 13 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -554,7 +554,7 @@ proc EnterName {parent labelText} {
 	variable Identifier
 
 	set Identifier ""
-	set dlg [toplevel ${parent}.enterName -class Scidb]
+	set dlg [tk::toplevel ${parent}.enterName -class Scidb]
 	set f [::ttk::frame $dlg.top]
 	::ttk::label $f.l -text $labelText
 	::ttk::entry $f.e \
@@ -655,7 +655,7 @@ proc SaveSquareStyle {parent} {
 	RefreshBoard
 
 	set Identifier ""
-	set dlg [toplevel ${parent}.saveSquareStyle -class Scidb]
+	set dlg [tk::toplevel ${parent}.saveSquareStyle -class Scidb]
 	set f [::ttk::frame $dlg.top]
 	pack $f -fill both -expand yes
 
@@ -847,7 +847,7 @@ proc openConfigDialog {parent applyProc} {
 	if {$parent ne "."} { set path "$path." }
 	set dlg ${path}boardConfigDialog
 	set Widget(dialog) $dlg
-	toplevel $dlg -class Dialog
+	tk::toplevel $dlg -class Dialog
 	wm protocol $dlg WM_DELETE_WINDOW [namespace code [list Cancel $dlg $applyProc]]
 	bind $dlg <Escape> [namespace code [list Cancel $dlg $applyProc]]
 	bind $dlg <Destroy> "if {{$dlg} eq {%W}} { array unset [namespace current]::Widget }"

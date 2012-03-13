@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 266 $
-# Date   : $Date: 2012-03-02 14:22:55 +0000 (Fri, 02 Mar 2012) $
+# Version: $Revision: 268 $
+# Date   : $Date: 2012-03-13 16:47:20 +0000 (Tue, 13 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -730,6 +730,10 @@
 
 ### eventtable #########################################################
 ::eventtable::mc::Attendance	"Attendance"
+
+### twm - tiled window manager #########################################
+::twm::mc::Undock	"Undock"
+::twm::mc::Close	"Close"
 
 ### gamebar ############################################################
 ::gamebar::mc::StartPosition			"Start Position"

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 267 $
-# Date   : $Date: 2012-03-06 08:52:13 +0000 (Tue, 06 Mar 2012) $
+# Version: $Revision: 268 $
+# Date   : $Date: 2012-03-13 16:47:20 +0000 (Tue, 13 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -32,6 +32,7 @@
 ### global #############################################################
 ::mc::SortMapping		{Á A É E Í I Ó O Ö O Ő O Ú U Ü U Ű U á a é e í i ó o ö o ő o ú u ü u ű u}
 ::mc::AsciiMapping	{Á A É E Í I Ó O Ö O Ő O Ú U Ü U Ű U á a é e í i ó o ö o ő o ú u ü u ű}
+::mc::SortOrder		{A Á B C D E É F G H I Í J K L M N O Ó Ö Ő P Q R S T U Ú Ü Ű V W X Y Z a á b c d e é f g h i í j k l m n o ó ö ő p q r s t u ú ü ű v w x y z}
 
 ::mc::Alignment		"Sorba rendezés(?)"
 ::mc::Apply				"Alkalmaz"
@@ -731,6 +732,10 @@
 
 ### eventtable #########################################################
 ::eventtable::mc::Attendance	"Attendance" ;# NEW
+
+### twm - tiled window manager #########################################
+::twm::mc::Undock	"Undock" ;# NEW
+::twm::mc::Close	"Bezár"
 
 ### gamebar ############################################################
 ::gamebar::mc::StartPosition			"kiinduló állás"

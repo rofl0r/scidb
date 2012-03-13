@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 216 $
-# Date   : $Date: 2012-01-29 19:02:12 +0000 (Sun, 29 Jan 2012) $
+# Version: $Revision: 268 $
+# Date   : $Date: 2012-03-13 16:47:20 +0000 (Tue, 13 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -382,7 +382,7 @@ proc Build {dlg base position number} {
 	set Priv(twoRatings) $twoRatings
 	set Priv(format) [expr {$twoRatings ? "sci" : "si3"}]
 
-	toplevel $dlg -class Scidb
+	tk::toplevel $dlg -class Scidb
 	wm withdraw $dlg
 
 	set top [ttk::frame $dlg.top -takefocus 0]

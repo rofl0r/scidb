@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 258 $
-# Date   : $Date: 2012-02-29 16:12:00 +0000 (Wed, 29 Feb 2012) $
+# Version: $Revision: 268 $
+# Date   : $Date: 2012-03-13 16:47:20 +0000 (Tue, 13 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -88,7 +88,7 @@ proc build {w menu width height} {
 	::board::stuff::bind $board all <ButtonPress-1>		{ ::move::pressSquare %q %s }
 	::board::stuff::bind $board all <ButtonPress-1>		{+focus %W }
 	::board::stuff::bind $board all <ButtonRelease-1>	{ ::move::releaseSquare %X %Y %s }
-	::board::stuff::bind $board all <Button1-Motion>	[list ::board::stuff::dragPiece $board %X %Y]
+	::board::stuff::bind $board all <Button1-Motion>	{ ::move::dragPiece %X %Y }
 
 	::board::stuff::bind $board all <Control-ButtonPress-1>		{ ::marks::pressSquare %X %Y }
 	::board::stuff::bind $board all <Control-ButtonPress-1>		{+ ::move::disable }

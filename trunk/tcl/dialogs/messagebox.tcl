@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 193 $
-# Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+# Version: $Revision: 268 $
+# Date   : $Date: 2012-03-13 16:47:20 +0000 (Tue, 13 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -318,7 +318,7 @@ proc alert {args} {
 	set w ${path}alert[clock milliseconds]
 	while {[winfo exists $w]} { set w ${path}alert[clock milliseconds] }
 	set windowingsystem [tk windowingsystem]
-	toplevel $w -relief solid -class Dialog
+	tk::toplevel $w -relief solid -class Dialog
 	wm title $w $opts(-title)
 	wm iconname $w Dialog
 	wm protocol $w WM_DELETE_WINDOW {#}

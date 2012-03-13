@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 235 $
-# Date   : $Date: 2012-02-08 22:30:21 +0000 (Wed, 08 Feb 2012) $
+# Version: $Revision: 268 $
+# Date   : $Date: 2012-03-13 16:47:20 +0000 (Tue, 13 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -69,6 +69,12 @@ proc textPreventSelection {w} {
 	bind $w <Triple-1>	{ break }
 	bind $w <B1-Motion>	{ break }
 	bind $w <B2-Motion>	{ break }
+}
+
+
+proc notebookSetLabel {nb id text} {
+	lassign [::tk::UnderlineAmpersand $text] text idx
+	$nb tab $id -text [::mc::stripAmpersand $text] -underline $idx
 }
 
 

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 198 $
-# Date   : $Date: 2012-01-19 10:31:50 +0000 (Thu, 19 Jan 2012) $
+# Version: $Revision: 268 $
+# Date   : $Date: 2012-03-13 16:47:20 +0000 (Tue, 13 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -102,7 +102,7 @@ proc open {parent base info view index {fen {}}} {
 	set dlg $parent.browser$position
 	set Priv($base:$number:$view) $dlg
 	incr Priv($base:$number:$view:count)
-	toplevel $dlg -class Scidb
+	tk::toplevel $dlg -class Scidb
 
 	set top [::ttk::frame $dlg.top]
 	set bot [tk::frame $dlg.bot]

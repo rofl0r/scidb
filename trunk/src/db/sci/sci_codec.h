@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 266 $
-// Date   : $Date: 2012-03-02 14:22:55 +0000 (Fri, 02 Mar 2012) $
+// Version: $Revision: 268 $
+// Date   : $Date: 2012-03-13 16:47:20 +0000 (Tue, 13 Mar 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -161,11 +161,7 @@ private:
 
 	mstl::fstream				m_gameStream;
 	util::BlockFile*			m_gameData;
-#ifdef USE_SEPARATE_SEARCH_READER
-	mstl::fstream				m_treeStream;
-#else
 	util::BlockFileReader*	m_asyncReader;
-#endif
 	mstl::string				m_magicGameFile;
 	Lookup						m_lookup[4];
 	unsigned						m_progressFrequency;

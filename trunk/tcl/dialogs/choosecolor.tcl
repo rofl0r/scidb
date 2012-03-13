@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 193 $
-# Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+# Version: $Revision: 268 $
+# Date   : $Date: 2012-03-13 16:47:20 +0000 (Tue, 13 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -338,9 +338,9 @@ proc OpenDialog {parent class app title modal adjHeight geometry initialColor ol
 	set point [expr {$parent eq "." ? "" : "."}]
 	set dlg ${parent}${point}__choosecolor__
 	if {[llength $class]} {
-		toplevel $dlg -class $class
+		tk::toplevel $dlg -class $class
 	} else {
-		toplevel $dlg
+		tk::toplevel $dlg
 	}
 	bind $dlg <Configure> [namespace code [list RecordGeometry $dlg %W]]
 	event add <<ChooseColorSelected>> ChooseColorSelected
@@ -783,7 +783,7 @@ proc EnterColor {parent app} {
 
 	if {$haveNoWindowDecor || [tk windowingsystem] eq "aqua" || [winfo class $parent] ne "Canvas"} {
 		if {[winfo exists $parent.enter_color]} { return }
-		set w [toplevel $parent.enter_color -class EnterColor]
+		set w [tk::toplevel $parent.enter_color -class EnterColor]
 		lassign [CreateEntry $w] f e
 		bind $e <FocusOut>	"after idle { destroy $w }"
 		bind $e <Key-Return>	"[namespace current]::SetHexCode; focus $focus"

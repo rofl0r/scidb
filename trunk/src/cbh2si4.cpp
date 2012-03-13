@@ -1,7 +1,7 @@
 // ======================================================================
 // $RCSfile: tk_image.cpp,v $
-// $Revision: 257 $
-// $Date: 2012-02-27 17:32:06 +0000 (Mon, 27 Feb 2012) $
+// $Revision: 268 $
+// $Date: 2012-03-13 16:47:20 +0000 (Tue, 13 Mar 2012) $
 // $Author: gregor $
 // ======================================================================
 
@@ -51,6 +51,7 @@
 # include "db_board.h"
 # include "db_board_base.h"
 # include "db_home_pawns.h"
+# include "db_signature.h"
 #endif
 
 using namespace db;
@@ -409,6 +410,7 @@ main(int argc, char* argv[])
 		db::board::base::initialize();
 		db::Board::initialize();
 		db::HomePawns::initialize();
+		db::Signature::initialize();
 
 #endif
 

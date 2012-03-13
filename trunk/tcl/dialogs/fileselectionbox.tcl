@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 200 $
-# Date   : $Date: 2012-01-21 19:16:42 +0000 (Sat, 21 Jan 2012) $
+# Version: $Revision: 268 $
+# Date   : $Date: 2012-03-13 16:47:20 +0000 (Tue, 13 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -188,7 +188,7 @@ proc Open {type args} {
 		set dlg [winfo toplevel $w]
 		bind $dlg <Destroy> [namespace code [list TraceLastFolder $dlg %W $w]]
 	} elseif {$create} {
-		toplevel $w -class $class
+		tk::toplevel $w -class $class
 		bind $w <Configure> [namespace code [list RecordGeometry $w %W %w]]
 		wm withdraw $w
 		if {[winfo viewable [winfo toplevel $data(-parent)]]} {

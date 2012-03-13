@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 257 $
-// Date   : $Date: 2012-02-27 17:32:06 +0000 (Mon, 27 Feb 2012) $
+// Version: $Revision: 268 $
+// Date   : $Date: 2012-03-13 16:47:20 +0000 (Tue, 13 Mar 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -43,6 +43,8 @@
 # include "db_board.h"
 # include "db_board_base.h"
 # include "db_home_pawns.h"
+# include "db_signature.h"
+# include "db_probe.h"
 # include "tcl_progress.h"
 #endif
 
@@ -73,6 +75,8 @@ init(Tcl_Interp* ti)
 		db::board::base::initialize();
 		db::Board::initialize();
 		db::HomePawns::initialize();
+		db::Signature::initialize();
+		db::Probe::initialize();
 		tcl::Progress::initialize();
 
 #endif

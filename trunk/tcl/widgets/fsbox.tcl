@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 267 $
-# Date   : $Date: 2012-03-06 08:52:13 +0000 (Tue, 06 Mar 2012) $
+# Version: $Revision: 268 $
+# Date   : $Date: 2012-03-13 16:47:20 +0000 (Tue, 13 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -3104,7 +3104,7 @@ proc FinishDuplicateFile {w sel name} {
 		}
 	}
 
-	set dlg [toplevel $w.wait]
+	set dlg [tk::toplevel $w.wait]
 	wm withdraw $dlg
 	set top [tk::frame $dlg.top -border 2 -relief raised]
 	pack $top

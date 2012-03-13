@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 258 $
-# Date   : $Date: 2012-02-29 16:12:00 +0000 (Wed, 29 Feb 2012) $
+# Version: $Revision: 268 $
+# Date   : $Date: 2012-03-13 16:47:20 +0000 (Tue, 13 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -650,7 +650,7 @@ proc open {parent base type name view {closeViewAfterExit 0}} {
 		default { if {$Info(encoding) ni $PdfEncodingList} { set Info(pdf-encoding) 1 } }
 	}
 
-	set dlg [toplevel $parent.export -class Dialog]
+	set dlg [tk::toplevel $parent.export -class Dialog]
 	bind $dlg <Alt-Key> [list tk::AltKeyInDialog $dlg %A]
 	if {$closeViewAfterExit} { bind $dlg <Destroy> [namespace code CloseView] }
 	wm withdraw $dlg
@@ -3260,7 +3260,7 @@ proc ShowTrace {parent trace} {
 		$txt configure -state normal
 		$txt delete 1.0 end
 	} else {
-		toplevel $dlg -class Scidb
+		tk::toplevel $dlg -class Scidb
 		set f [::ttk::frame $dlg.f]
 
 		tk::text $f.text \

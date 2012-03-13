@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 266 $
-// Date   : $Date: 2012-03-02 14:22:55 +0000 (Fri, 02 Mar 2012) $
+// Version: $Revision: 268 $
+// Date   : $Date: 2012-03-13 16:47:20 +0000 (Tue, 13 Mar 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -858,14 +858,10 @@ Decoder::findExactPosition(Board const& position, bool skipVariations)
 
 	for ( ; runLength > 0; --runLength)
 	{
-#ifdef USE_SEPARATE_SEARCH_READER
-		m_position.doMove(move, decodeMove(m_strm.get(), move));
-#else
 		static_assert((1 << 16)/* Maximal Run Size */ <= Block_Size, "unsafeGet() is unsafe");
 
 		// unsafeGet() is ok because the block file is buffered with doubled size
 		m_position.doMove(move, decodeMove(m_strm.unsafeGet(), move));
-#endif
 
 		if (position.isEqualPosition(m_position.board()))
 			return nextMove(runLength - 1);

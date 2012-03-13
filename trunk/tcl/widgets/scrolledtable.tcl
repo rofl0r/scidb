@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 265 $
-# Date   : $Date: 2012-03-01 15:01:58 +0000 (Thu, 01 Mar 2012) $
+# Version: $Revision: 268 $
+# Date   : $Date: 2012-03-13 16:47:20 +0000 (Tue, 13 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -444,6 +444,10 @@ proc at {path y} {
 proc getOptions {path} {
 	set table $path.top.table
 	variable ${table}::Vars
+
+	if {![info exists Vars(options)]} {
+		set Vars(options) [::table::getOptions $table]
+	}
 
 	return $Vars(options)
 }

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 203 $
-# Date   : $Date: 2012-01-22 22:56:40 +0000 (Sun, 22 Jan 2012) $
+# Version: $Revision: 268 $
+# Date   : $Date: 2012-03-13 16:47:20 +0000 (Tue, 13 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -189,7 +189,7 @@ proc init {} {
 	if {!$G(init)} { return }
 
 	set b $G(toplevel)
-	toplevel $b -class TooltipPopup
+	tk::toplevel $b -class TooltipPopup
 
 	if {[tk windowingsystem] eq "aqua"} {
 		::tk::unsupported::MacWindowStyle style $b help none
