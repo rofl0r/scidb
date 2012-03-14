@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 193 $
-# Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+# Version: $Revision: 269 $
+# Date   : $Date: 2012-03-14 09:27:30 +0000 (Wed, 14 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -203,8 +203,10 @@ proc build {parent} {
 }
 
 
-proc activate {w menu flag} {
-	::toolbar::activate $w $flag
+proc activate {w flag} {
+	if {[winfo toplevel $w] ne $w} {
+		::toolbar::activate $w $flag
+	}
 #	::gametable::focus $w.table
 }
 
@@ -221,6 +223,11 @@ proc prepareSwitch {w newCodec} {
 
 proc overhang {parent} {
 	return [::gametable::overhang $parent.table]
+}
+
+
+proc linespace {parent} {
+	return [::gametable::linespace $parent.table]
 }
 
 

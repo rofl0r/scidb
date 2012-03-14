@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 193 $
-# Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+# Version: $Revision: 269 $
+# Date   : $Date: 2012-03-14 09:27:30 +0000 (Wed, 14 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -28,7 +28,7 @@ namespace eval application {
 namespace eval tree {
 namespace eval games {
 
-proc build {parent menu width height} {
+proc build {parent width height} {
 	variable Vars
 
 	set table $parent.treeGames

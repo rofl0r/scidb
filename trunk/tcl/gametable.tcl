@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 221 $
-# Date   : $Date: 2012-01-30 18:01:42 +0000 (Mon, 30 Jan 2012) $
+# Version: $Revision: 269 $
+# Date   : $Date: 2012-03-14 09:27:30 +0000 (Wed, 14 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -571,6 +571,11 @@ proc changeLayout {path dir} {
 
 proc overhang {path} {
 	return [::scrolledtable::overhang $path]
+}
+
+
+proc linespace {path} {
+	return [::scrolledtable::linespace $path]
 }
 
 

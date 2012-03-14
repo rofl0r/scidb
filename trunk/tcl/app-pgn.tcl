@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 268 $
-# Date   : $Date: 2012-03-13 16:47:20 +0000 (Tue, 13 Mar 2012) $
+# Version: $Revision: 269 $
+# Date   : $Date: 2012-03-14 09:27:30 +0000 (Wed, 14 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -149,7 +149,7 @@ variable CharLimit 250
 variable Counter 0
 
 
-proc build {parent menu width height} {
+proc build {parent width height} {
 	variable Vars
 	variable Options
 
@@ -381,7 +381,7 @@ proc setActiveLang {code flag} {
 }
 
 
-proc activate {w menu flag} {
+proc activate {w flag} {
 	variable Vars
 
 	::toolbar::activate [winfo parent [lindex $Vars(toolbars) 0]] $flag

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 268 $
-# Date   : $Date: 2012-03-13 16:47:20 +0000 (Tue, 13 Mar 2012) $
+# Version: $Revision: 269 $
+# Date   : $Date: 2012-03-14 09:27:30 +0000 (Wed, 14 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -542,6 +542,11 @@ proc changeLayout {path dir} {
 
 proc overhang {path} {
 	return [::table::overhang $path.top.table]
+}
+
+
+proc linespace {path} {
+	return [::table::linespace $path.top.table]
 }
 
 

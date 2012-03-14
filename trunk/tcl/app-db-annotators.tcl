@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 193 $
-# Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+# Version: $Revision: 269 $
+# Date   : $Date: 2012-03-14 09:27:30 +0000 (Wed, 14 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -167,13 +167,26 @@ proc build {parent} {
 }
 
 
-proc activate {w menu flag} {
+proc activate {w flag} {
 	set path $w.top
 	variable ${path}::Vars
 
 	set Vars(active) $flag
 	names::TableUpdate2 $path [::scidb::db::get name]
-	::toolbar::activate $path.names $flag
+
+	if {[winfo toplevel $w] ne $w} {
+		::toolbar::activate $path.names $flag
+	}
+}
+
+
+proc overhang {parent} {
+	return [::scrolledtable::overhang $parent.top.names]
+}
+
+
+proc linespace {parent} {
+	return [::scrolledtable::linespace $parent.top.names]
 }
 
 

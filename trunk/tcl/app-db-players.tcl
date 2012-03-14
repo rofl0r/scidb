@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 234 $
-# Date   : $Date: 2012-02-07 23:03:07 +0000 (Tue, 07 Feb 2012) $
+# Version: $Revision: 269 $
+# Date   : $Date: 2012-03-14 09:27:30 +0000 (Wed, 14 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -115,13 +115,26 @@ proc build {parent} {
 }
 
 
-proc activate {w menu flag} {
+proc activate {w flag} {
 	set path $w.top
 	variable ${path}::Vars
 
 	set Vars(active) $flag
 	players::Update2 $path [::scidb::db::get name]
-	::toolbar::activate $path.players $flag
+
+	if {[winfo toplevel $w] ne $w} {
+		::toolbar::activate $path.players $flag
+	}
+}
+
+
+proc overhang {parent} {
+	return [::playertable::overhang $parent.top.players]
+}
+
+
+proc linespace {parent} {
+	return [::playertable::linespace $parent.top.players]
 }
 
 

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 268 $
-# Date   : $Date: 2012-03-13 16:47:20 +0000 (Tue, 13 Mar 2012) $
+# Version: $Revision: 269 $
+# Date   : $Date: 2012-03-14 09:27:30 +0000 (Wed, 14 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -631,6 +631,11 @@ proc gridsize {table} {
 proc overhang {table} {
 	variable ${table}::Vars
 	return [expr {[$table.t header bbox 0] - 2*[$table.t cget -borderwidth]}]
+}
+
+
+proc linespace {table} {
+	return [set ${table}::Vars(linespace)]
 }
 
 
