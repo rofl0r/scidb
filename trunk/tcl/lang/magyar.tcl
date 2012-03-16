@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 268 $
-# Date   : $Date: 2012-03-13 16:47:20 +0000 (Tue, 13 Mar 2012) $
+# Version: $Revision: 270 $
+# Date   : $Date: 2012-03-16 16:26:50 +0000 (Fri, 16 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -134,6 +134,8 @@
 ::util::mc::IOError(MaxFileSizeExceeded)	"túl nagy fájlméret"
 ::util::mc::IOError(LoadFailed)				"Betöltési hiba (túl sok bejegyzés)"
 
+::util::mc::SelectionOwnerDidntRespond		"Timeout during drop action: selection owner didn't respond." ;# NEW
+
 ### progress ###########################################################
 ::progress::mc::Progress "Állapot" ;# ? NEW 
 
@@ -216,6 +218,7 @@
 ::application::database::mc::FileExport				"Export..."
 ::application::database::mc::FileImport				"PGN fájlok importálás..."
 ::application::database::mc::FileClose					"Bezárás"
+::application::database::mc::HelpSwitcher				"Help for Database Switcher" ;# NEW
 
 ::application::database::mc::Games						"&Játszmák"
 ::application::database::mc::Players					"&Játékosok"
@@ -244,6 +247,8 @@
 ::application::database::mc::ClipbaseDescription	"Ideiglenes adatbázis, nincs elmentve a lemezre."
 ::application::database::mc::HardLinkDetected		"'%file1' betöltése sikertelen. Már '%file2'-ként betöltődött. This can only happen if hard links are involved." ;# ? NEW
 ::application::database::mc::HardLinkDetectedDetail "If we load this database twice the application may crash due to the usage of threads." ;# NEW
+::application::database::mc::CannotOpenUri			"Cannot open the following URI:" ;# NEW
+::application::database::mc::InvalidUri				"Drop content is not a valid URI." ;# NEW
 
 ::application::database::mc::RecodingDatabase		"Recoding %s from %s to %s"
 ::application::database::mc::RecodedGames				"%s game(s) recoded"

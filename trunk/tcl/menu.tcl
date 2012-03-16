@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 267 $
-# Date   : $Date: 2012-03-06 08:52:13 +0000 (Tue, 06 Mar 2012) $
+# Version: $Revision: 270 $
+# Date   : $Date: 2012-03-16 16:26:50 +0000 (Fri, 16 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -388,8 +388,8 @@ proc viewFullscreen {{toggle {}}} {
 }
 
 
-proc openHelp {parent} {
-	::help::open $parent
+proc openHelp {parent {topic {}}} {
+	::help::open $parent $topic
 }
 
 } ;# namespace menu

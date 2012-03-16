@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 211 $
-# Date   : $Date: 2012-01-25 22:06:21 +0000 (Wed, 25 Jan 2012) $
+# Version: $Revision: 270 $
+# Date   : $Date: 2012-03-16 16:26:50 +0000 (Fri, 16 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -293,7 +293,7 @@ proc Config {w args} {
 	if {!$flag || [llength $options]} {
 		# call frame config
 		uplevel 1 [linsert $options 0 [namespace current]::_$w configure]
-#	}
+	}
 }
 
 

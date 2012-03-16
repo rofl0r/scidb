@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 269 $
-# Date   : $Date: 2012-03-14 09:27:30 +0000 (Wed, 14 Mar 2012) $
+# Version: $Revision: 270 $
+# Date   : $Date: 2012-03-16 16:26:50 +0000 (Fri, 16 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1118,6 +1118,7 @@ proc Highlight {table x y} {
 
 		header {
 			::TreeCtrl::ButtonPress1Header $table.t $id $x $y 0
+			$table.t configure -cursor hand2
 			set Vars(header) 1
 		}
 	}
@@ -1129,6 +1130,7 @@ proc Release {table x y} {
 
 	if {$Vars(header)} {
 		::TreeCtrl::Release1 $table.t $x $y
+		$table.t configure -cursor {}
 	}
 }
 
