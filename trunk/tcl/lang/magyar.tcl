@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 270 $
-# Date   : $Date: 2012-03-16 16:26:50 +0000 (Fri, 16 Mar 2012) $
+# Version: $Revision: 272 $
+# Date   : $Date: 2012-03-17 17:55:24 +0000 (Sat, 17 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -248,7 +248,10 @@
 ::application::database::mc::HardLinkDetected		"'%file1' betöltése sikertelen. Már '%file2'-ként betöltődött. This can only happen if hard links are involved." ;# ? NEW
 ::application::database::mc::HardLinkDetectedDetail "If we load this database twice the application may crash due to the usage of threads." ;# NEW
 ::application::database::mc::CannotOpenUri			"Cannot open the following URI:" ;# NEW
-::application::database::mc::InvalidUri				"Drop content is not a valid URI." ;# NEW
+::application::database::mc::InvalidUri				"Drop content is not a valid URI list." ;# NEW
+::application::database::mc::UriRejected				"The following files are rejected:" ;# NEW
+::application::database::mc::UriRejectedDetail		"Only Scidb databases can be opened:" ;# NEW
+::application::database::mc::EmptyUriList				"Drop content is empty." ;# NEW
 
 ::application::database::mc::RecodingDatabase		"Recoding %s from %s to %s"
 ::application::database::mc::RecodedGames				"%s game(s) recoded"
