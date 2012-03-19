@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 273 $
-# Date   : $Date: 2012-03-19 12:19:37 +0000 (Mon, 19 Mar 2012) $
+# Version: $Revision: 274 $
+# Date   : $Date: 2012-03-19 19:14:34 +0000 (Mon, 19 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -802,7 +802,8 @@ proc HandleDropEvent {action types} {
 		}
 		default {
 			$Vars(canvas) configure -background white
-			OpenUri $action
+			# It is important that HandleDropEvent is returning as fast as possible.
+			after idle [namespace code [list OpenUri $action]]
 		}
 	}
 
