@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 270 $
-# Date   : $Date: 2012-03-16 16:26:50 +0000 (Fri, 16 Mar 2012) $
+# Version: $Revision: 273 $
+# Date   : $Date: 2012-03-19 12:19:37 +0000 (Mon, 19 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -331,7 +331,7 @@ proc xdnd::_GetDroppedData { time } {
     # _get_selection $_drop_target $time $type
     if {![catch {
       selection get -displayof $_drop_target -selection XdndSelection \
-                    -type $type} result options]} {
+                    -type $type -time $time} result options]} {
       return $result
     }
   }

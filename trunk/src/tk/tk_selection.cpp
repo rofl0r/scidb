@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 272 $
-// Date   : $Date: 2012-03-17 17:55:24 +0000 (Sat, 17 Mar 2012) $
+// Version: $Revision: 273 $
+// Date   : $Date: 2012-03-19 12:19:37 +0000 (Mon, 19 Mar 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -23,8 +23,13 @@
 #include "m_string.h"
 #include "m_assert.h"
 
+#ifdef override
+# undef override
+#endif
+
 #include <tcl.h>
 #include <tk.h>
+#include <tkInt.h>
 #include <string.h>
 
 
@@ -204,12 +209,14 @@ selEventProc(Tk_Window tkwin, XEvent *eventPtr)
 
 		if (type == xaPlainText || type == xaPlainTextUtf8 || type == xaUriList)
 		{
+			Tcl_Interp* ti = ((TkWindow *)tkwin)->mainPtr->interp;
+
 			while (numItems > 0 && propInfo[numItems - 1] == '\0')
 				--numItems;
 
 			if (type == xaPlainTextUtf8)
 			{
-				Tcl_SetObjResult(tcl::interp(), Tcl_NewStringObj(propInfo, numItems));
+				Tcl_SetObjResult(ti, Tcl_NewStringObj(propInfo, numItems));
 			}
 			else
 			{
@@ -219,7 +226,7 @@ selEventProc(Tk_Window tkwin, XEvent *eventPtr)
 					numItems = unescapeChars(propInfo, propInfo + numItems) - propInfo;
 
 				Tcl_ExternalToUtfDString(0, propInfo, numItems, &ds);
-				Tcl_DStringResult(tcl::interp(), &ds);
+				Tcl_DStringResult(ti, &ds);
 				Tcl_DStringFree(&ds);
 			}
 
