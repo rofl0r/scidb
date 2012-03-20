@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 270 $
-# Date   : $Date: 2012-03-16 16:26:50 +0000 (Fri, 16 Mar 2012) $
+# Version: $Revision: 277 $
+# Date   : $Date: 2012-03-20 11:32:37 +0000 (Tue, 20 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -173,7 +173,6 @@ set ::scidb::revision [::scidb::misc::revision]
 
 # --- Initalization ----------------------------------------------------
 
-::tkdnd::initialise
 ::theme::setTheme $menu::Theme
 ::menu::setup
 ::board::setupTheme
