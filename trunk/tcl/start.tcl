@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 272 $
-# Date   : $Date: 2012-03-17 17:55:24 +0000 (Sat, 17 Mar 2012) $
+# Version: $Revision: 276 $
+# Date   : $Date: 2012-03-20 10:20:25 +0000 (Tue, 20 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -426,7 +426,7 @@ proc bgerror {err} {
          -message $::util::mc::SelectionOwnerDidntRespond \
       ]
 	} elseif {[string match {*selection doesn't exist*} $err]} {
-		# ignore this stupid message. This message appears
+		# ignore this stupid message. this message appears
 		# in case of empty strings. this is not an error!
 	} else {
 		::tk::dialog::error::bgerror $err
