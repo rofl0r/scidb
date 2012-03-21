@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 276 $
-// Date   : $Date: 2012-03-20 10:20:25 +0000 (Tue, 20 Mar 2012) $
+// Version: $Revision: 279 $
+// Date   : $Date: 2012-03-21 16:56:47 +0000 (Wed, 21 Mar 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -18,7 +18,6 @@
 
 #include "tk_init.h"
 
-#include "m_string.h"
 #include "m_assert.h"
 
 #ifdef override

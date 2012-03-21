@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 268 $
-# Date   : $Date: 2012-03-13 16:47:20 +0000 (Tue, 13 Mar 2012) $
+# Version: $Revision: 279 $
+# Date   : $Date: 2012-03-21 16:56:47 +0000 (Wed, 21 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -41,7 +41,7 @@ switch [tk windowingsystem] {
 	}
 }
 
-
+if {[tk windowingsystem] eq "x11"} {
 namespace eval fsbox {
 
 array set Priv {
@@ -484,6 +484,7 @@ proc WriteOptions {chan} {
 ::options::hookWriter [namespace current]::WriteOptions
 
 } ;# namespace fsbox
+} ;# x11
 } ;# namespace dialog
 
 # vi:set ts=3 sw=3:

@@ -1,12 +1,12 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 268 $
-// Date   : $Date: 2012-03-13 16:47:20 +0000 (Tue, 13 Mar 2012) $
+// Version: $Revision: 279 $
+// Date   : $Date: 2012-03-21 16:56:47 +0000 (Wed, 21 Mar 2012) $
 // Url    : $URL$
 // ======================================================================
 
 // ======================================================================
-// Copyright: (C)2011-2012 Gregor Cramer
+// Copyright: (C) 2012 Gregor Cramer
 // ======================================================================
 
 // ======================================================================
@@ -538,7 +538,7 @@ SetPadding(	ClientData clientData,
 			if (Tk_GetPixelsFromObj(interp, tkwin, padv[i], &pixels[i]) != TCL_OK)
 				return TCL_ERROR;
 		}
-		
+
 		padding.left   = pixels[0];
 		padding.top    = pixels[1];
 		padding.right  = pixels[2];

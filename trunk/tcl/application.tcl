@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 269 $
-# Date   : $Date: 2012-03-14 09:27:30 +0000 (Wed, 14 Mar 2012) $
+# Version: $Revision: 279 $
+# Date   : $Date: 2012-03-21 16:56:47 +0000 (Wed, 21 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -454,6 +454,7 @@ proc ChooseLanguage {parent} {
 			if {[string length $icon] == 0} { set icon none }
 			set code [set ::mc::lang$lang]
 			ttk::button $top.$code \
+				-style aligned.TButton \
 				-text " $lang" \
 				-image $icon \
 				-compound left \

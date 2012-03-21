@@ -1,7 +1,7 @@
 ## ======================================================================
 # Author : $Author$
-# Version: $Revision: 270 $
-# Date   : $Date: 2012-03-16 16:26:50 +0000 (Fri, 16 Mar 2012) $
+# Version: $Revision: 279 $
+# Date   : $Date: 2012-03-21 16:56:47 +0000 (Wed, 21 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -233,6 +233,10 @@ proc FullPath {file} {
 proc CheckLanguage {parent helpFile} {
 	variable Lang
 	variable ::country::icon::flag
+
+	if {![string match *.html $helpFile]} {
+		append helpFile .html
+	}
 
 	set rc "temporary"
 
