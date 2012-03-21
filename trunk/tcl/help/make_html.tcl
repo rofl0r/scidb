@@ -3,8 +3,8 @@
 exec tclsh "$0" "$@"
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 257 $
-# Date   : $Date: 2012-02-27 17:32:06 +0000 (Mon, 27 Feb 2012) $
+# Version: $Revision: 280 $
+# Date   : $Date: 2012-03-21 19:23:41 +0000 (Wed, 21 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -227,9 +227,31 @@ proc readContents {chan file} {
 	variable charset
 
 	set contents {}
+	set linePref ""
 
 	while {[gets $chan line] >= 0} {
 		if {[string match END* $line]} { break }
+
+		if {[string length $linePref]} {
+			append linePref $line
+			set line $linePref
+			set linePref ""
+		}
+
+		if {[string match *verbatim>* $line]} {
+			if {[string match *<verbatim>* $line]} {
+				append line "<--"
+				set linePref "-->"
+			} elseif {[llength $contents] > 0} {
+				set last [lindex $contents end]
+				append last "<--"
+				lset contents end $last
+				set s "-->"
+				append s $line
+				set line $s
+			}
+		}
+
 		set line [string map $HtmlMapping $line]
 
 		if {[string match CHARSET* $line]} {

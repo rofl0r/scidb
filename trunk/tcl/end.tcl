@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 277 $
-# Date   : $Date: 2012-03-20 11:32:37 +0000 (Tue, 20 Mar 2012) $
+# Version: $Revision: 280 $
+# Date   : $Date: 2012-03-21 19:23:41 +0000 (Wed, 21 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -39,10 +39,10 @@ proc welcomeToScidb {parent} {
 	variable WhatsNew
 
 	if {!$Welcome} {
-		::help::open .application Welcome
+		::help::open .application Welcome -transient yes
 		set Welcome 1
 	} elseif {$WhatsNew} {
-		::menu::whatsNew .application
+		::help::open .application Whats-New -transient yes
 	}
 }
 
