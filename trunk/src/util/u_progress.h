@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 282 $
+// Date   : $Date: 2012-03-26 08:07:32 +0000 (Mon, 26 Mar 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -35,6 +35,7 @@ public:
 	virtual unsigned ticks() const;
 
 	virtual void start(unsigned total);
+	virtual void tick(unsigned count);
 	virtual void update(unsigned progress);
 	virtual void finish();
 

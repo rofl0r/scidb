@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 216 $
-// Date   : $Date: 2012-01-29 19:02:12 +0000 (Sun, 29 Jan 2012) $
+// Version: $Revision: 282 $
+// Date   : $Date: 2012-03-26 08:07:32 +0000 (Mon, 26 Mar 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -144,7 +144,10 @@ public:
 											Board const& position,
 											bool skipVariations) override;
 
-	static int getNumberOfGames(mstl::string const& filename);
+	static bool getAttributes(	mstl::string const& filename,
+										int& numGames,
+										db::type::ID& type,
+										mstl::string* description = 0);
 	static void getSuffixes(mstl::string const& filename, StringList& result);
 	static bool isExtraTag(tag::ID tag);
 
@@ -188,8 +191,11 @@ private:
 
 	void save(mstl::string const& rootname, unsigned start, util::Progress& progress, bool attach);
 
-	void setRecodedDescription(char const* description);
 	void Report(char const* charset);
+
+	static void getRecodedDescription(	char const* description,
+													mstl::string& result,
+													sys::utf8::Codec& codec);
 
 	unsigned						m_headerSize;
 	unsigned						m_indexEntrySize;

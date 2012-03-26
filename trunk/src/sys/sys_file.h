@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 282 $
+// Date   : $Date: 2012-03-26 08:07:32 +0000 (Mon, 26 Mar 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -44,6 +44,7 @@ bool isHardLinked(char const* filename1, char const* filename2);
 
 void rename(char const* oldFilename, char const* newFilename, bool preserveOldAttrs = false);
 void deleteIt(char const* filename);
+bool setModificationTime(char const* filename, uint32_t time);
 
 void* createMapping(char const* filename, Mode mode);
 void closeMapping(void*& address);

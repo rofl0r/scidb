@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 193 $
-# Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+# Version: $Revision: 282 $
+# Date   : $Date: 2012-03-26 08:07:32 +0000 (Mon, 26 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -427,7 +427,7 @@ proc FindMatch {w cmd column key mapping strEqOpts} {
 
 
 proc Unposted {w focus} {
-	bind $w <<ComboboxUnposted>> {}
+	bind $w <<ComboboxUnposted>> {#}
 	if {[llength $focus]} { focus $focus }
 }
 
@@ -435,7 +435,7 @@ proc Unposted {w focus} {
 proc PlaceIcon {w icon} {
 	update idletasks
 	$w placeicon $icon
-	bind $w <Map> {}
+	bind $w <Map> {#}
 }
 
 

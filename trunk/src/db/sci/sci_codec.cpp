@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 268 $
-// Date   : $Date: 2012-03-13 16:47:20 +0000 (Tue, 13 Mar 2012) $
+// Version: $Revision: 282 $
+// Date   : $Date: 2012-03-26 08:07:32 +0000 (Mon, 26 Mar 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2149,23 +2149,38 @@ Codec::remove(mstl::string const& fileName)
 }
 
 
-int
-Codec::getNumberOfGames(mstl::string const& filename)
+bool
+Codec::getAttributes(mstl::string const& filename,
+							int& numGames,
+							db::type::ID& type,
+							uint32_t& creationTime,
+							mstl::string* description)
 {
 	mstl::fstream strm(sys::file::internalName(filename), mstl::ios_base::in | mstl::ios_base::binary);
 
 	if (!strm)
-		return -1;
+		return false;
 
-	char header[13];
+	char header[120];
 
-	if (!strm.read(header, sizeof(header)))
-		return -1;
+	strm.seekp(8, mstl::ios_base::beg);
+
+	if (!strm.read(header, description ? sizeof(header) : 24))
+		return false;
+
+	ByteStream bstrm(header, sizeof(header));
+
+	bstrm.skip(2);
+	numGames	= bstrm.uint24();
+	type = type::ID(bstrm.uint8());
+	creationTime  = bstrm.uint32();
+
+	if (description)
+		bstrm.get(*description);
 
 	strm.close();
 
-	ByteStream bstrm(header + 10, sizeof(header) - 10);
-	return bstrm.uint24();
+	return true;
 }
 
 

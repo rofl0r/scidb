@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 280 $
-# Date   : $Date: 2012-03-21 19:23:41 +0000 (Wed, 21 Mar 2012) $
+# Version: $Revision: 282 $
+# Date   : $Date: 2012-03-26 08:07:32 +0000 (Mon, 26 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -148,6 +148,7 @@
 ::menu::mc::ScidBases					"Scid databases"
 ::menu::mc::ScidbBases					"Scidb databases"
 ::menu::mc::ChessBaseBases				"ChessBase databases"
+::menu::mc::ScidbArchives				"Scidb archives"
 ::menu::mc::PGNFilesArchives			"PGN files/archives"
 ::menu::mc::PGNFiles						"PGN files"
 ::menu::mc::PGNArchives					"PGN archives"

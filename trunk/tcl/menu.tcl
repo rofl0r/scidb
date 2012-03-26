@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 279 $
-# Date   : $Date: 2012-03-21 16:56:47 +0000 (Wed, 21 Mar 2012) $
+# Version: $Revision: 282 $
+# Date   : $Date: 2012-03-26 08:07:32 +0000 (Mon, 26 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -36,6 +36,7 @@ set AllScidbBases				"All Scidb databases"
 set ScidBases					"Scid databases"
 set ScidbBases					"Scidb databases"
 set ChessBaseBases			"ChessBase databases"
+set ScidbArchives				"Scidb archives"
 set PGNFilesArchives			"PGN files/archives"
 set PGNFiles					"PGN files"
 set PGNArchives				"PGN archives"
@@ -292,15 +293,16 @@ proc dbNew {parent} {
 
 
 proc dbOpen {parent} {
-	set filetypes [list                                                       \
-		[list $mc::AllScidbFiles		{.sci .si4 .si3 .cbh .pgn .pgn.gz .zip}] \
-		[list $mc::AllScidbBases		{.sci .si4 .si3 .cbh}]                   \
-		[list $mc::ScidbBases			.sci]                                    \
-		[list $mc::ScidBases				{.si4 .si3}]                             \
-		[list $mc::ChessBaseBases		.cbh]                                    \
-		[list $mc::PGNFilesArchives	{.pgn .pgn.gz .zip}]                     \
-		[list $mc::PGNFiles				{.pgn .pgn.gz}]                          \
-		[list $mc::PGNArchives			{.zip}]                                  \
+	set filetypes [list                                                            \
+		[list $mc::AllScidbFiles		{.sci .si4 .si3 .cbh .scv .pgn .pgn.gz .zip}] \
+		[list $mc::AllScidbBases		{.sci .si4 .si3 .cbh .scv}]                   \
+		[list $mc::ScidbBases			.sci]                                         \
+		[list $mc::ScidBases				{.si4 .si3}]                                  \
+		[list $mc::ChessBaseBases		.cbh]                                         \
+		[list $mc::ScidbArchives		{.scv}]                                       \
+		[list $mc::PGNFilesArchives	{.pgn .pgn.gz .zip}]                          \
+		[list $mc::PGNFiles				{.pgn .pgn.gz}]                               \
+		[list $mc::PGNArchives			{.zip}]                                       \
 	]
 	set result [::dialog::openFile \
 		-parent $parent \

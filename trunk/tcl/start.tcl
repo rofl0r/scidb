@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 276 $
-# Date   : $Date: 2012-03-20 10:20:25 +0000 (Tue, 20 Mar 2012) $
+# Version: $Revision: 282 $
+# Date   : $Date: 2012-03-26 08:07:32 +0000 (Mon, 26 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -428,6 +428,8 @@ proc bgerror {err} {
 	} elseif {[string match {*selection doesn't exist*} $err]} {
 		# ignore this stupid message. this message appears
 		# in case of empty strings. this is not an error!
+	} elseif {[string length $err] == 0} {
+		# an empty background error! ignore this nonsense.
 	} else {
 		::tk::dialog::error::bgerror $err
 	}

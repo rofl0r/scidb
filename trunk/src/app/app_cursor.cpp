@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 216 $
-// Date   : $Date: 2012-01-29 19:02:12 +0000 (Sun, 29 Jan 2012) $
+// Version: $Revision: 282 $
+// Date   : $Date: 2012-03-26 08:07:32 +0000 (Mon, 26 Mar 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -78,6 +78,7 @@ Cursor::clear() throw()
 bool
 Cursor::isReadOnly() const
 {
+	M_REQUIRE(isOpen());
 	return m_db->isReadOnly();
 }
 
@@ -85,7 +86,17 @@ Cursor::isReadOnly() const
 bool
 Cursor::isWriteable() const
 {
+	M_REQUIRE(isOpen());
 	return m_db->isWriteable();
+}
+
+
+
+void
+Cursor::setDescription(mstl::string const& description)
+{
+	M_REQUIRE(isOpen());
+	m_db->setDescription(description);
 }
 
 

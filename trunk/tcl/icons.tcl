@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 270 $
-# Date   : $Date: 2012-03-16 16:26:50 +0000 (Fri, 16 Mar 2012) $
+# Version: $Revision: 282 $
+# Date   : $Date: 2012-03-26 08:07:32 +0000 (Mon, 26 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -2040,6 +2040,29 @@ namespace eval 16x16 {
 		q2GJwUJxK2cxxR5qm28IVXEEwjhhrxn8NkAMVqmI5bo4ly7i2jZRo0ESRkghD50d5PrPkaqi
 		jkN9x8d/8eqIQZqQ7vhIVxfq+6SuSxpFpI5D8rmNGCURQxxFpLZNa3cXhyMIuC7p9gfCMCSO
 		YxLZf5pjZYRQDJFALAa1DP9FvwCukf19pHFc/gAAAABJRU5ErkJggg==
+	}]
+
+	set filetypeArchive [image create photo -data {
+		iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAA
+		CXBIWXMAAABIAAAASABGyWs+AAAACXZwQWcAAAAQAAAAEABcxq3DAAADRElEQVQ4yz2RS2ic
+		VRzFf3e+O5lMJ5m0aWxiaifW0rQ1IrXWqiAl6EJBF6IrHwvtQoVSRFd1I2IqWLtQiAsR7EKM
+		O8VAKxSrloi1FWpi1KBNbGKaRMxrHpnMzPfde/9/F7EuDpzN4bzMsYF3cxb/spqoCrpFIa+q
+		raLkI8iLMa0RqdZ0xmZK5Wr7vt17Mm269MOR514Y63/86dPm+Kn3dWehQLlSwZgUznu8BELs
+		iYMncY4kcWSa0nz9/WXODn1Me/kPVosj1Lc9/6ktlsqsrIzhQsBLwCWexAXiJCbxjqThcMET
+		pS1jI99h0ykiG7G4cI09dzat2OLqInHsEMA7h3Me5zyJv8EdiXOkmzJQmSXdDGu1GvXiJMPf
+		ThasiDnWta1jsFFv4AUkJMReCN5v1PEe5wJpGzG77y6Gz1ykx8zg18s8eP/uGbuj57bB+/bf
+		wVKxhAFElCCCiBBEUBGSEMhlsmzp7OLggQO0LcVM/i1c+XXxFlssFfnm4mUaziEh4P0GnAR8
+		4ggozgVashmGz19g8ORbtIUOzkz9jt/8V93OzkwTB48KiG44a4BEHIjBB4+EQDqbRafGaW+C
+		0alrNKpr9B+652rUuWvvcPfNnS/ZVISNIowxRCmFoAge9R4JCRI8y/ML3HrwIarXx7m9u8g7
+		n5fn7E3bCx8eeeoJpq/PYYwlSECDbNz6/4gOay3jfX1EKcuj/Yc5cfxV6u2PDVmC9J4buUil
+		UiVlIgKCqoKCqqJGwSuZXDO/XZ3h6I7txMkMvTu3Lp089do5Ozc3Oz03d32/AoqiN4SqiCqK
+		Ik7Itm5i4qvzbM1nmZissbSy8giAXS+vvoHNfqEh+ZMUm9VrWpAmFW0Wlf8SgPc1iIQLly7R
+		6cuvF7blx97+5EtrOwu7VnPZzNHF5ZWSS+KWOHFpTeJNgjarupwmkg/i88aZHL6xd/SXicrp
+		N18Z+OBY1HL82QeqNk78lRefeXJyanre1eM4U6lUzepaOSquluxatRo14tjWGg1r0zZFlO04
+		fO+h0nv/zDcNnehZB7A/fvZRbWB5wfX29tLS3Kz5ts1RobvL3N23z4Cmlovl1Fq1ZnxwJo6T
+		hcRL+Hn0J7fnwMPAWf4F3lsL02zqR60AAAAldEVYdGRhdGU6Y3JlYXRlADIwMTAtMDItMTBU
+		MTI6MjQ6MTQtMDY6MDDuaEe3AAAAJXRFWHRkYXRlOm1vZGlmeQAyMDA5LTA0LTI1VDAxOjA1
+		OjMwLTA1OjAwLYYJWQAAAABJRU5ErkJggg==
 	}]
 
 #	set filetypePGN [image create photo -data {

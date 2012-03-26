@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 268 $
-# Date   : $Date: 2012-03-13 16:47:20 +0000 (Tue, 13 Mar 2012) $
+# Version: $Revision: 282 $
+# Date   : $Date: 2012-03-26 08:07:32 +0000 (Mon, 26 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -109,8 +109,12 @@ proc BuildAboutFrame {w} {
 		-relief sunken \
 		-doublebuffer no \
 		-center yes \
+		-exportselection yes \
 		;
 	pack $w.t
+
+	bind [winfo toplevel $w] <FocusIn>	[list $w.t focusin]
+	bind [winfo toplevel $w] <FocusOut>	[list $w.t focusout]
 
 	$w.t handler node link [list [namespace current]::LinkHandler $w.t]
 	$w.t handler node a    [namespace current]::A_NodeHandler

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 268 $
-// Date   : $Date: 2012-03-13 16:47:20 +0000 (Tue, 13 Mar 2012) $
+// Version: $Revision: 282 $
+// Date   : $Date: 2012-03-26 08:07:32 +0000 (Mon, 26 Mar 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -125,7 +125,11 @@ public:
 	static DatabaseCodec* makeCodec(mstl::string const& name);
 	static void rename(mstl::string const& oldName, mstl::string const& newName);
 	static void remove(mstl::string const& fileName);
-	static int getNumberOfGames(mstl::string const& filename);
+	static bool getAttributes(	mstl::string const& filename,
+										int& numGames,
+										db::type::ID& type,
+										uint32_t& creationTime,
+										mstl::string* description = 0);
 	static void getSuffixes(mstl::string const& filename, StringList& result);
 	static bool upgradeIndexOnly();
 	static bool isExtraTag(tag::ID tag);

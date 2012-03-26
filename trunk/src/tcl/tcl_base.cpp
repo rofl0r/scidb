@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 282 $
+// Date   : $Date: 2012-03-26 08:07:32 +0000 (Mon, 26 Mar 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -900,6 +900,7 @@ namespace pos			{ void init(Tcl_Interp* interp); }
 namespace board		{ void init(Tcl_Interp* interp); }
 namespace misc			{ void init(Tcl_Interp* interp); }
 namespace crosstable	{ void init(Tcl_Interp* interp); }
+namespace zlib			{ void init(Tcl_Interp* interp); }
 
 } // namespace tcl
 
@@ -939,6 +940,7 @@ tcl::init(Tcl_Interp* ti)
 	board::init(ti);
 	misc::init(ti);
 	crosstable::init(ti);
+	zlib::init(ti);
 }
 
 // vi:set ts=3 sw=3:
