@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 193 $
-# Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+# Version: $Revision: 283 $
+# Date   : $Date: 2012-03-29 18:05:34 +0000 (Thu, 29 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -81,12 +81,7 @@ proc DoCmd {cmd parent {value 0}} {
 			update
 		}
 
-		update {
-			set Priv(value) $value
-			update
-		}
-
-		finish {
+		update - finish {
 			set Priv(value) $value
 			update
 		}

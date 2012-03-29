@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 268 $
-# Date   : $Date: 2012-03-13 16:47:20 +0000 (Tue, 13 Mar 2012) $
+# Version: $Revision: 283 $
+# Date   : $Date: 2012-03-29 18:05:34 +0000 (Thu, 29 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -282,7 +282,7 @@ proc unbusyCursor {{w {}}} {
 proc busyOperation {args} {
 	busyCursor on
 
-	if {[catch {{*}$args} result options]} {
+	if {[catch {uplevel $args} result options]} {
 		busyCursor off
 		array set opts $options
 		return \

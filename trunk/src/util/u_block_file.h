@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 283 $
+// Date   : $Date: 2012-03-29 18:05:34 +0000 (Thu, 29 Mar 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -26,11 +26,12 @@
 #include "m_utility.h"
 
 namespace mstl { class fstream; }
-namespace mstl { class ofstream; }
+namespace mstl { class ostream; }
 
 namespace util {
 
 class BlockFile;
+class Progress;
 
 
 class BlockFileReader
@@ -107,8 +108,8 @@ public:
 	unsigned countSpans(unsigned size) const;
 	unsigned fileSize();
 
-	bool save(mstl::ofstream& stream);
-	bool attach(mstl::fstream* stream);
+	bool save(mstl::ostream& stream, Progress* progress = 0);
+	bool attach(mstl::fstream* stream, Progress* progress = 0);
 	bool close();
 	bool sync();
 

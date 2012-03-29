@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 279 $
-# Date   : $Date: 2012-03-21 16:56:47 +0000 (Wed, 21 Mar 2012) $
+# Version: $Revision: 283 $
+# Date   : $Date: 2012-03-29 18:05:34 +0000 (Thu, 29 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -188,6 +188,7 @@ proc MakeFrame {twm id} {
 proc HeaderPress {twm top x y} {
 	variable ${twm}::Vars
 
+	$top.__header__ configure -cursor hand2
 	SaveUndockPosition $twm $top
 	set Vars(init:x) $x
 	set Vars(init:y) $y
@@ -252,6 +253,7 @@ proc HeaderRelease {twm top x y} {
 	variable ${twm}::Vars
 
 	ttk::releaseGrab $top
+	$top.__header__ configure -cursor {}
 	after cancel $Vars(afterid)
 	HideDockingPoints $twm $top
 

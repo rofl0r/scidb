@@ -6,7 +6,7 @@
 // ======================================================================
 
 // ======================================================================
-// Copyright: (C) 2009-2012 Gregor Cramer
+// Copyright: (C) 2012 Gregor Cramer
 // ======================================================================
 
 // ======================================================================
@@ -16,55 +16,13 @@
 // (at your option) any later version.
 // ======================================================================
 
-#ifndef _u_progress_included
-#define _u_progress_included
-
 namespace util {
 
-class Progress
-{
-public:
-
-	Progress();
-	virtual ~Progress() throw();
-
-	virtual bool interrupted();
-
-	unsigned frequency() const;
-	unsigned frequency(unsigned count, unsigned maximum = 0) const;
-	virtual unsigned ticks() const;
-
-	virtual void start(unsigned total);
-	virtual void tick(unsigned count);
-	virtual void update(unsigned progress);
-	virtual void finish();
-
-	void setFrequency(unsigned frequency);
-	void setCount(unsigned count);
-
-private:
-
-	unsigned m_freq;
-};
-
-
-class ProgressWatcher
-{
-public:
-
-	ProgressWatcher(Progress& progress, unsigned total);
-	ProgressWatcher(Progress* progress, unsigned total);
-	~ProgressWatcher();
-
-private:
-
-	Progress* m_progress;
-};
+inline bool ZlibOStream::isOpen() const					{ return m_dst != 0; }
+inline uint32_t ZlibOStream::crc() const					{ return m_crc; }
+inline unsigned ZlibOStream::size() const					{ return m_size; }
+inline unsigned ZlibOStream::compressedSize() const	{ return m_compressedSize; }
 
 } // namespace util
-
-#include "u_progress.ipp"
-
-#endif // _u_progress_included
 
 // vi:set ts=3 sw=3:

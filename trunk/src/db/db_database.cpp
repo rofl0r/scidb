@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 218 $
-// Date   : $Date: 2012-01-29 21:31:44 +0000 (Sun, 29 Jan 2012) $
+// Version: $Revision: 283 $
+// Date   : $Date: 2012-03-29 18:05:34 +0000 (Thu, 29 Mar 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -229,6 +229,45 @@ Database::save(util::Progress& progress, unsigned start)
 	m_codec->reset();
 	m_codec->save(m_rootname, start, progress);
 	m_codec->updateHeader(m_rootname);
+	m_size = m_gameInfoList.size();
+	setEncodingFailed(m_codec->encodingFailed());
+}
+
+
+void
+Database::writeIndex(mstl::ostream& os, util::Progress& progress)
+{
+	M_REQUIRE(format() == format::Scidb);
+
+	m_namebases.update();
+	m_codec->reset();
+	m_codec->writeIndex(os, progress);
+	m_size = m_gameInfoList.size();
+	setEncodingFailed(m_codec->encodingFailed());
+}
+
+
+void
+Database::writeNamebases(mstl::ostream& os, util::Progress& progress)
+{
+	M_REQUIRE(format() == format::Scidb);
+
+	m_namebases.update();
+	m_codec->reset();
+	m_codec->writeNamebases(os, &progress);
+	m_size = m_gameInfoList.size();
+	setEncodingFailed(m_codec->encodingFailed());
+}
+
+
+void
+Database::writeGames(mstl::ostream& os, util::Progress& progress)
+{
+	M_REQUIRE(format() == format::Scidb);
+
+	m_namebases.update();
+	m_codec->reset();
+	m_codec->writeGames(os, progress);
 	m_size = m_gameInfoList.size();
 	setEncodingFailed(m_codec->encodingFailed());
 }

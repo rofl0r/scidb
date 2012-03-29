@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 280 $
-# Date   : $Date: 2012-03-21 19:23:41 +0000 (Wed, 21 Mar 2012) $
+# Version: $Revision: 283 $
+# Date   : $Date: 2012-03-29 18:05:34 +0000 (Thu, 29 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -498,10 +498,9 @@ proc Title {} {
 
 
 proc Exit {w} {
-	set ::remote::blocking 1
-	set ::remote::postponed 0
-
 	if {$w eq ".application"} {
+		set ::remote::blocking 1
+		set ::remote::postponed 0
 		::options::write
 		::load::write
 		exit

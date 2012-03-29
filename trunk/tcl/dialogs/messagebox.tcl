@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 268 $
-# Date   : $Date: 2012-03-13 16:47:20 +0000 (Tue, 13 Mar 2012) $
+# Version: $Revision: 283 $
+# Date   : $Date: 2012-03-29 18:05:34 +0000 (Thu, 29 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -36,7 +36,7 @@ set Continue		"Con&tinue"
 set Error			"Error"
 set Warning			"Warning"
 set Information	"Information"
-set Question		"Question"
+set Question		"Query"
 
 set DontAskAgain	"Don't ask again"
 #################################################################
@@ -493,6 +493,7 @@ proc alert {args} {
 	focus $focus
 
 	if {[llength $opts(-buttons)] == 0} {
+		wm protocol $w WM_DELETE_WINDOW [list destroy $w]
 		wm deiconify $w
 		return $w
 	}

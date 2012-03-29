@@ -1,8 +1,8 @@
 #!/bin/sh
 #! ======================================================================
 #! $RCSfile: tk_init.h,v $
-#! $Revision: 205 $
-#! $Date: 2012-01-24 21:40:03 +0000 (Tue, 24 Jan 2012) $
+#! $Revision: 283 $
+#! $Date: 2012-03-29 18:05:34 +0000 (Thu, 29 Mar 2012) $
 #! $Author: gregor $
 #! ======================================================================
 
@@ -227,16 +227,19 @@ proc Update {} {
 
 	if {[llength $Vars(pending)] == 0} { return }
 
-	set path [lindex $Vars(pending) 0]
-	set Vars(pending) [lreplace $Vars(pending) 0 0]
-	set postponed [expr {[llength $Vars(pending)] > 0}]
-
-	if {[winfo exists $Vars(infoBox:$path)]} {
-		destroy $Vars(infoBox:$path)
+	foreach path $Vars(pending) {
+		if {[info exists Vars(infoBox:$path)]} {
+			if {[winfo exists $Vars(infoBox:$path)]} {
+				destroy $Vars(infoBox:$path)
+			}
+			unset Vars(infoBox:$path)
+		}
 	}
-	unset Vars(infoBox:$path)
 
-	openBase $path
+	set files $Vars(pending)
+	set Vars(pending) {}
+	set postponed 0
+	openBases $files
 }
 
 
@@ -294,7 +297,7 @@ proc Execute {path} {
 				[::dialog::info -buttons {} -title $::scidb::app -message $msg -topmost yes]
 		}
 	} else {
-		openBase $path
+		openBases [list $path]
 	}
 }
 

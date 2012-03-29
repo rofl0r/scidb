@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 282 $
-# Date   : $Date: 2012-03-26 08:07:32 +0000 (Mon, 26 Mar 2012) $
+# Version: $Revision: 283 $
+# Date   : $Date: 2012-03-29 18:05:34 +0000 (Thu, 29 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -403,7 +403,7 @@ proc makePopup {w} {
 
 namespace eval remote {
 
-proc openBase {pathList} {
+proc openBases {pathList} {
 	raise .application
 
 	if {[llength $pathList]} {

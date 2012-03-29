@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 282 $
-// Date   : $Date: 2012-03-26 08:07:32 +0000 (Mon, 26 Mar 2012) $
+// Version: $Revision: 283 $
+// Date   : $Date: 2012-03-29 18:05:34 +0000 (Thu, 29 Mar 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -47,6 +47,7 @@ namespace mstl
 	class fstream;
 	class ifstream;
 	class ofstream;
+	class ostream;
 }
 
 namespace util
@@ -152,6 +153,9 @@ public:
 	void clear(mstl::string const& rootname = mstl::string::empty_string);
 	void rename(mstl::string const& oldName, mstl::string const& newName);
 	virtual void save(mstl::string const& rootname, unsigned start, util::Progress& progress);
+	virtual void writeNamebases(mstl::ostream& os, util::Progress* progress);
+	virtual void writeIndex(mstl::ostream& os, util::Progress& progress);
+	virtual void writeGames(mstl::ostream& os, util::Progress& progress);
 	virtual void update(mstl::string const& rootname, unsigned index, bool updateNamebase);
 	virtual void attach(mstl::string const& rootname, util::Progress& progress);
 	virtual void reloadDescription(mstl::string const& rootname);

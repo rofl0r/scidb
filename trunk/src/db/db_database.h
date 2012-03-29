@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 216 $
-// Date   : $Date: 2012-01-29 19:02:12 +0000 (Sun, 29 Jan 2012) $
+// Version: $Revision: 283 $
+// Date   : $Date: 2012-03-29 18:05:34 +0000 (Thu, 29 Mar 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -37,6 +37,7 @@
 #include "m_string.h"
 
 namespace mstl { class fstream; }
+namespace mstl { class ostream; }
 namespace util { class Progress; }
 namespace util { class ByteStream; }
 
@@ -196,6 +197,12 @@ public:
 	void attach(mstl::string const& filename, util::Progress& progress);
 	/// Update database files.
 	void save(util::Progress& progress, unsigned start = 0);
+	/// Write complete index of database to stream.
+	void writeIndex(mstl::ostream& os, util::Progress& progress);
+	/// Write complete namebases of database to stream.
+	void writeNamebases(mstl::ostream& os, util::Progress& progress);
+	/// Write all games of database to stream.
+	void writeGames(mstl::ostream& os, util::Progress& progress);
 	/// Recode content of database.
 	void recode(mstl::string const& encoding, util::Progress& progress);
 	/// Rename the database.

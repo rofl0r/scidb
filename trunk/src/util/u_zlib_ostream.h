@@ -6,7 +6,7 @@
 // ======================================================================
 
 // ======================================================================
-// Copyright: (C) 2009-2012 Gregor Cramer
+// Copyright: (C) 2012 Gregor Cramer
 // ======================================================================
 
 // ======================================================================
@@ -16,55 +16,53 @@
 // (at your option) any later version.
 // ======================================================================
 
-#ifndef _u_progress_included
-#define _u_progress_included
+#ifndef u_zlib_ostream_included
+#define u_zlib_ostream_included
+
+#include "m_ostream.h"
+
+#include "m_stdio.h"
+
+extern "C" { struct z_stream_s; }
 
 namespace util {
 
-class Progress
+class ZlibOStream : public mstl::ostream
 {
 public:
 
-	Progress();
-	virtual ~Progress() throw();
+	ZlibOStream(FILE* destination = 0);
+	~ZlibOStream() throw();
 
-	virtual bool interrupted();
+	bool isOpen() const;
 
-	unsigned frequency() const;
-	unsigned frequency(unsigned count, unsigned maximum = 0) const;
-	virtual unsigned ticks() const;
+	uint32_t crc() const;
+	unsigned size() const;
+	unsigned compressedSize() const;
 
-	virtual void start(unsigned total);
-	virtual void tick(unsigned count);
-	virtual void update(unsigned progress);
-	virtual void finish();
-
-	void setFrequency(unsigned frequency);
-	void setCount(unsigned count);
+	void open(FILE* destination);
+	void flush();
+	void close() throw();
 
 private:
 
-	unsigned m_freq;
-};
+	class Cookie;
+	friend class Cookie;
 
+	FILE*	m_dst;
+	char	m_buf[16384];
 
-class ProgressWatcher
-{
-public:
+	uint32_t m_crc;
+	unsigned m_size;
+	unsigned m_compressedSize;
 
-	ProgressWatcher(Progress& progress, unsigned total);
-	ProgressWatcher(Progress* progress, unsigned total);
-	~ProgressWatcher();
-
-private:
-
-	Progress* m_progress;
+	struct z_stream_s* m_zstrm;
 };
 
 } // namespace util
 
-#include "u_progress.ipp"
+#include "u_zlib_ostream.ipp"
 
-#endif // _u_progress_included
+#endif //u_zlib_ostream_included
 
 // vi:set ts=3 sw=3:

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 282 $
-// Date   : $Date: 2012-03-26 08:07:32 +0000 (Mon, 26 Mar 2012) $
+// Version: $Revision: 283 $
+// Date   : $Date: 2012-03-29 18:05:34 +0000 (Thu, 29 Mar 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -341,6 +341,27 @@ DatabaseCodec::updateHeader(mstl::string const&)
 
 void
 DatabaseCodec::save(mstl::string const&, unsigned, Progress&)
+{
+	M_RAISE("should not be used");
+}
+
+
+void
+DatabaseCodec::writeNamebases(mstl::ostream&, util::Progress*)
+{
+	M_RAISE("should not be used");
+}
+
+
+void
+DatabaseCodec::writeIndex(mstl::ostream&, util::Progress&)
+{
+	M_RAISE("should not be used");
+}
+
+
+void
+DatabaseCodec::writeGames(mstl::ostream&, util::Progress&)
 {
 	M_RAISE("should not be used");
 }

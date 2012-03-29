@@ -6,15 +6,7 @@
 // ======================================================================
 
 // ======================================================================
-//    _/|            __
-//   // o\         /    )           ,        /    /
-//   || ._)    ----\---------__----------__-/----/__-
-//   //__\          \      /   '  /    /   /    /   )
-//   )___(     _(____/____(___ __/____(___/____(___/_
-// ======================================================================
-
-// ======================================================================
-// Copyright: (C) 2009-2012 Gregor Cramer
+// Copyright: (C) 2012 Gregor Cramer
 // ======================================================================
 
 // ======================================================================
@@ -24,29 +16,41 @@
 // (at your option) any later version.
 // ======================================================================
 
-#ifndef _tcl_game_included
-#define _tcl_game_included
+#ifndef _tcl_file_included
+#define _tcl_file_included
 
-#include "db_common.h"
+#include "m_stdio.h"
 
-extern "C" { struct Tcl_Obj; }
-
-namespace db { class TagSet; }
+#include <tcl.h>
 
 namespace tcl {
-namespace game {
 
-typedef ::db::tag::ID Ratings[2];
+class File
+{
+public:
 
-int convertTags(	::db::TagSet& tags,
-						Tcl_Obj* taglist,
-						::db::tag::ID wrt = ::db::tag::ExtraTag,
-						::db::tag::ID brt = ::db::tag::ExtraTag,
-						Ratings const* ratings = 0);
+	File(Tcl_Channel chan = 0);
+	~File() throw();
 
-} // namespace game
+	bool isOpen() const;
+
+	FILE* handle() const;
+
+	void open(Tcl_Channel chan);
+	void flush();
+	void close();
+
+private:
+
+	class Cookie;
+	friend class Cookie;
+
+	Tcl_Channel	m_chan;
+	FILE*			m_fp;
+};
+
 } // namespace tcl
 
-#endif // _tcl_game_included
+#endif // _tcl_file_included
 
 // vi:set ts=3 sw=3:

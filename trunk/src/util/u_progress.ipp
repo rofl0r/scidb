@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 283 $
+// Date   : $Date: 2012-03-29 18:05:34 +0000 (Thu, 29 Mar 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -24,13 +24,26 @@ inline void Progress::setFrequency(unsigned frequency) { m_freq = frequency; }
 
 inline
 ProgressWatcher::ProgressWatcher(Progress& progress, unsigned total)
-	:m_progress(progress)
+	:m_progress(&progress)
 {
-	m_progress.start(total);
+	m_progress->start(total);
 }
 
 
-inline ProgressWatcher::~ProgressWatcher() { m_progress.finish(); }
+inline
+ProgressWatcher::ProgressWatcher(Progress* progress, unsigned total)
+	:m_progress(progress)
+{
+	if (m_progress)
+		m_progress->start(total);
+}
+
+
+inline ProgressWatcher::~ProgressWatcher()
+{
+	if (m_progress)
+		m_progress->finish();
+}
 
 } // namespace util
 

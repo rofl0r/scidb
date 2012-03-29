@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 193 $
-# Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+# Version: $Revision: 283 $
+# Date   : $Date: 2012-03-29 18:05:34 +0000 (Thu, 29 Mar 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -46,9 +46,9 @@ proc formatNumber {n {kilo false}} {
 		if {$n >= 1000000} {
 			set decimalPart [format "%02d" [expr {(int($n/10000)) % 100}]]
 			set n [expr {int($n)/1000000}]
-			set unit "${Pattern(decimalPoint)}${decimalPart}M"
+			set unit "${Pattern(decimalPoint)}${decimalPart} M"
 		} elseif {$n >= 100000} {
-			set unit "K"
+			set unit " K"
 			set n [expr {int($n/1000)} ]
 		}
 	}
@@ -57,6 +57,14 @@ proc formatNumber {n {kilo false}} {
 	while {[regsub {^([-+]?[0-9]+)([0-9][0-9][0-9])} $n "\\1$Pattern(thousandsSep)\\2" n]} {}
 
 	return "$n$unit"
+}
+
+
+proc formatFileSize {n} {
+	set result [formatNumber $n yes]
+	if {[string is digit [string index $result end]]} { append result " " }
+	append result "B"
+	return $result
 }
 
 
