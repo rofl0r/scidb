@@ -1,7 +1,7 @@
 ## ======================================================================
 # Author : $Author$
-# Version: $Revision: 280 $
-# Date   : $Date: 2012-03-21 19:23:41 +0000 (Wed, 21 Mar 2012) $
+# Version: $Revision: 284 $
+# Date   : $Date: 2012-04-01 19:39:32 +0000 (Sun, 01 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -280,6 +280,7 @@ proc CheckLanguage {parent helpFile} {
 				catch { set icon $flag([set ::mc::langToCountry($code)]) }
 				if {[string length $icon] == 0} { set icon none }
 				ttk::button $top.$code \
+					-style aligned.TButton \
 					-text " $::encoding::mc::Lang($code)" \
 					-image $icon \
 					-compound left \

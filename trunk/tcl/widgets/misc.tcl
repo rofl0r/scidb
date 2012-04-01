@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 283 $
-# Date   : $Date: 2012-03-29 18:05:34 +0000 (Thu, 29 Mar 2012) $
+# Version: $Revision: 284 $
+# Date   : $Date: 2012-04-01 19:39:32 +0000 (Sun, 01 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -125,27 +125,6 @@ proc dialogButtons {dlg buttons {dflt {}} {useIcons yes}} {
 		lassign $entry type var icon
 		set w [::ttk::button $dlg.$type -class TButton]
 
-		if {$useIcons} {
-			switch -- $type {
-				ok			{ set icon $icon::iconOk }
-				cancel	{ set icon $icon::iconCancel }
-				apply		{ set icon $icon::iconApply }
-				update	{ set icon $icon::iconUpdate }
-				reset		{ set icon $icon::iconReset }
-				clear		{ set icon $icon::iconClear }
-				close		{ set icon $icon::iconClose }
-				revert	{ set icon $icon::iconReset }
-				previous	{ set icon $icon::iconBackward }
-				next		{ set icon $icon::iconForward }
-				first		{ set icon $icon::iconFirst }
-				last		{ set icon $icon::iconLast }
-			}
-		}
-
-		if {[llength $icon]} {
-			$w configure -compound left -image $icon
-		}
-
 		switch -- $type {
 			ok			{ set var [namespace current]::mc::Ok }
 			cancel	{ set var [namespace current]::mc::Cancel }
@@ -171,6 +150,36 @@ proc dialogButtons {dlg buttons {dflt {}} {useIcons yes}} {
 		dialogButtonsSetup $dlg $type $var $dflt
 		bind $w <Return> "event generate $w <Key-space>; break"
 		pack $w -in $dlg.__buttons -pady $::theme::pady -padx $::theme::padx -side left
+	}
+
+	if {$useIcons} { dialogButtonSetIcons $dlg }
+}
+
+
+proc dialogButtonSetIcons {dlg} {
+	foreach w [winfo children $dlg] {
+		if {[winfo class $w] eq "TButton"} {
+			set icon {}
+
+			switch [lindex [split $w .] end] {
+				ok			{ set icon $::icon::iconOk }
+				cancel	{ set icon $::icon::iconCancel }
+				apply		{ set icon $::icon::iconApply }
+				update	{ set icon $::icon::iconUpdate }
+				reset		{ set icon $::icon::iconReset }
+				clear		{ set icon $::icon::iconClear }
+				close		{ set icon $::icon::iconClose }
+				revert	{ set icon $::icon::iconReset }
+				previous	{ set icon $::icon::iconBackward }
+				next		{ set icon $::icon::iconForward }
+				first		{ set icon $::icon::iconFirst }
+				last		{ set icon $::icon::iconLast }
+			}
+
+			if {[llength $icon]} {
+				$w configure -compound left -image $icon
+			}
+		}
 	}
 }
 

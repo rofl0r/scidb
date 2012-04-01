@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 235 $
-# Date   : $Date: 2012-02-08 22:30:21 +0000 (Wed, 08 Feb 2012) $
+# Version: $Revision: 284 $
+# Date   : $Date: 2012-04-01 19:39:32 +0000 (Sun, 01 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -37,6 +37,7 @@ set Close			"Close"
 set Color			"Color"
 set Colors			"Colors"
 set Copy				"Copy"
+set Ctrl				"Ctrl"
 set Cut				"Cut"
 set Dark				"Dark"
 set Database		"Database"

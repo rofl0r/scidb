@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 272 $
-# Date   : $Date: 2012-03-17 17:55:24 +0000 (Sat, 17 Mar 2012) $
+# Version: $Revision: 284 $
+# Date   : $Date: 2012-04-01 19:39:32 +0000 (Sun, 01 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -780,6 +780,8 @@
 ::browser::mc::GotoEndOfGame		"Ir al final de la partida"
 ::browser::mc::IncreaseBoardSize	"Agrandar el tablero"
 ::browser::mc::DecreaseBoardSize	"Achicar el tablero"
+::browser::mc::MaximizeBoardSize	"Maximize board size" ;# NEW
+::browser::mc::MinimizeBoardSize	"Minimize board size" ;# NEW
 ::browser::mc::GotoFirstGame		"Ir a la primera partida"
 ::browser::mc::GotoLastGame		"Ir a la œltima partida"
 

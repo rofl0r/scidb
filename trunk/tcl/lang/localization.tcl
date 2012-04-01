@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 267 $
-# Date   : $Date: 2012-03-06 08:52:13 +0000 (Tue, 06 Mar 2012) $
+# Version: $Revision: 284 $
+# Date   : $Date: 2012-04-01 19:39:32 +0000 (Sun, 01 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -31,7 +31,7 @@ namespace eval i18n {
 set languages {
    { Deutsch   de    iso8859-1   deutsch.tcl  }
    { English   en    iso8859-1   english.tcl  }
-   { Español  es    macRoman    espanol.tcl  }
+   { Español  es     macRoman    espanol.tcl  }
    { Italiano  it    utf-8       italiano.tcl }
    { Magyar    hu    utf-8       magyar.tcl   }
    { Svenska   sv    utf-8       svenska.tcl  }

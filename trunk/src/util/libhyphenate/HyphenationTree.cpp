@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 226 $
-// Date   : $Date: 2012-02-05 22:00:47 +0000 (Sun, 05 Feb 2012) $
+// Version: $Revision: 284 $
+// Date   : $Date: 2012-04-01 19:39:32 +0000 (Sun, 01 Apr 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -322,7 +322,12 @@ HyphenationTree::loadPatterns(mstl::istream &i)
 
 	while (i.get(ch))
 	{
-		if (::isspace(ch))
+		if (ch == '%')
+		{
+			while (i.get(ch) && ch != '\n')
+				continue;
+		}
+		else if (::isspace(ch))
 		{
 			// The output operation.
 			if (pattern.size() && numeric && num_field <= 1)

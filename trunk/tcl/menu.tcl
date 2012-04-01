@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 283 $
-# Date   : $Date: 2012-03-29 18:05:34 +0000 (Thu, 29 Mar 2012) $
+# Version: $Revision: 284 $
+# Date   : $Date: 2012-04-01 19:39:32 +0000 (Sun, 01 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -322,6 +322,7 @@ proc dbOpen {parent} {
 
 
 proc dbCreateArchive {parent {base ""}} {
+	if {[string length $base] == 0} { set base [::scidb::db::get name] }
 	set filetypes [list	[list $mc::ScidbArchives {.scv}]]
 	set result [::dialog::saveFile \
 		-parent $parent \
@@ -330,13 +331,13 @@ proc dbCreateArchive {parent {base ""}} {
 		-needencoding 0 \
 		-geometry last \
 		-title $mc::CreateArchive \
+		-initialfile [file tail [file rootname $base]] \
 	]
 	if {[llength $result]} {
 		set arch [lindex $result 0]
-		if {[string length $base] == 0} { set base [::scidb::db::get name] }
 		set progress $parent.__p__
-		::dialog::progressbar::open $progress -variable [namespace current]::_dummy
 		if {[::scidb::db::get memoryOnly? $base]} {
+			::dialog::progressbar::open $progress -mode indeterminate
 			set streams {}
 			foreach ext [::scidb::misc::suffixes "$base.sci"] { lappend streams "$base.$ext" }
 			set cmd [list ::archive::packStreams \
@@ -350,6 +351,7 @@ proc dbCreateArchive {parent {base ""}} {
 				$progress \
 			]
 		} else {
+			::dialog::progressbar::open $progress -mode determinate
 			set files {}
 			set rootname [file rootname $base]
 			foreach ext [::scidb::misc::suffixes $base] {
@@ -484,7 +486,6 @@ proc Write {file chan progress} {
 
 
 proc Progress {cmd w {value 0}} {
-puts "Progress: $cmd - $value"
 	switch $cmd {
 		start {
 			::dialog::progressbar::setMaximum $w $value
@@ -492,6 +493,7 @@ puts "Progress: $cmd - $value"
 		}
 
 		update - finish {
+			::dialog::progressbar::tick $w
 			update
 		}
 

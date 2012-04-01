@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 283 $
-# Date   : $Date: 2012-03-29 18:05:34 +0000 (Thu, 29 Mar 2012) $
+# Version: $Revision: 284 $
+# Date   : $Date: 2012-04-01 19:39:32 +0000 (Sun, 01 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -785,6 +785,8 @@
 ::browser::mc::GotoEndOfGame		"A játszma végére"
 ::browser::mc::IncreaseBoardSize	"Tábla méretánek növelése"
 ::browser::mc::DecreaseBoardSize	"Tábla méretének növelése"
+::browser::mc::MaximizeBoardSize	"Maximize board size" ;# NEW
+::browser::mc::MinimizeBoardSize	"Minimize board size" ;# NEW
 ::browser::mc::GotoFirstGame		"Első játszmához"
 ::browser::mc::GotoLastGame		"Utolsó játszmához"
 

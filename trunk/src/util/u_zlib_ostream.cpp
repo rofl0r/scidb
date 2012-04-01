@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 283 $
-// Date   : $Date: 2012-03-29 18:05:34 +0000 (Thu, 29 Mar 2012) $
+// Version: $Revision: 284 $
+// Date   : $Date: 2012-04-01 19:39:32 +0000 (Sun, 01 Apr 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -54,6 +54,7 @@ struct ZlibOStream::Cookie
 		size_t		have;
 
 		zstrm->total_out = 0;
+		zstrm->avail_in = 0;
 
 		do
 		{
@@ -69,7 +70,8 @@ struct ZlibOStream::Cookie
 			{
 				that->m_crc = crc32(that->m_crc, reinterpret_cast<Bytef*>(that->m_buf), have);
 
-				if (::fwrite(that->m_buf, 1, have, that->m_dst) != have)
+				int rc = ::fwrite(that->m_buf, 1, have, that->m_dst);
+				if (rc != int(have))
 				{
 					::deflateEnd(that->m_zstrm);
 					that->m_dst = 0;
@@ -80,6 +82,7 @@ struct ZlibOStream::Cookie
 		while (have > 0);
 
 		that->m_compressedSize += zstrm->total_out;
+
 		::deflateEnd(that->m_zstrm);
 		that->m_dst = 0;
 
@@ -122,7 +125,8 @@ struct ZlibOStream::Cookie
 
 		that->m_compressedSize += zstrm->total_out;
 
-		return zstrm->total_out;
+		// if we return zstrm->total_out then fwrite will return a stream error
+		return len;
 	}
 };
 
@@ -162,7 +166,7 @@ ZlibOStream::open(FILE* destination)
 		Cookie::read,
 		Cookie::write,
 		Cookie::seek,
-		Cookie::close
+		Cookie::close,
 	};
 
 	M_REQUIRE(destination);
@@ -173,6 +177,7 @@ ZlibOStream::open(FILE* destination)
 
 	m_dst = destination;
 	m_fp = ::fopencookie(this, "wb", Cookie);
+	::setvbuf(m_fp, 0, _IONBF, 0);
 	m_size = 0;
 	m_compressedSize = 0;
 }

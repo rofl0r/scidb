@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 259 $
-# Date   : $Date: 2012-02-29 17:03:30 +0000 (Wed, 29 Feb 2012) $
+# Version: $Revision: 284 $
+# Date   : $Date: 2012-04-01 19:39:32 +0000 (Sun, 01 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -34,7 +34,7 @@ array set Used {}
 proc prepare {w x y width height} {
 	variable Geometry
 
-	if {$width > 1 && $height > 1} {
+	if {$width > 1 && $height > 1 && $y >= 0} {
 		set Geometry($w) [list $x $y $width $height]
 	}
 }

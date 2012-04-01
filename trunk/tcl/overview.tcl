@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 268 $
-# Date   : $Date: 2012-03-13 16:47:20 +0000 (Tue, 13 Mar 2012) $
+# Version: $Revision: 284 $
+# Date   : $Date: 2012-04-01 19:39:32 +0000 (Sun, 01 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -342,7 +342,13 @@ proc BuildTab {nb boardSize sw sh specified} {
 				-state disabled \
 				-wrap word \
 				-cursor {} \
-				-background $Background]
+				-background $Background] \
+				;
+			bind $text <MouseWheel> { break }
+			if {[tk windowingsystem] eq "x11"} {
+				bind $text <4> { break }
+				bind $text <5> { break }
+			}
 			grid $board -column [expr {2*($col + 1)}] -row [expr {4*($row + 1)}]
 			grid $text  -column [expr {2*($col + 1)}] -row [expr {4*($row + 1) + 2}] -sticky ew
 			$text tag configure figurine -font $::font::figurine
@@ -370,7 +376,7 @@ proc BuildTab {nb boardSize sw sh specified} {
 
 proc ShowMoves {text} {
 	if {[$text count -displaylines 1.0 2.0] > 2} {
-		::gametable::showMoves $text [$text get 1.0 end]
+		::gametable::showMoves $text [string trim [$text get 1.0 end]]
 	}
 }
 

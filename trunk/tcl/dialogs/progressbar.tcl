@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 268 $
-# Date   : $Date: 2012-03-13 16:47:20 +0000 (Tue, 13 Mar 2012) $
+# Version: $Revision: 284 $
+# Date   : $Date: 2012-04-01 19:39:32 +0000 (Sun, 01 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -58,6 +58,7 @@ proc open {args} {
 		-topmost		0
 		-close		1
 		-class		Dialog
+		-mode			determinate
 		-variable	{}
 		-command		{}
 		-parent		{}
@@ -91,20 +92,19 @@ proc open {args} {
 		-image $HourGlass \
 		-text $opts(-message) \
 		-compound left \
-		-wraplength [expr {$ticks - 50}]
-	if {[llength $opts(-variable)]} {
-		ttk::progressbar $w.p \
-			-orient horizontal \
-			-mode determinate \
-			-length $ticks \
-			-maximum $opts(-maximum) \
-			-variable $opts(-variable)
-	} else {
-		ttk::progressbar $w.p \
-			-orient horizontal \
-			-mode indeterminate \
-			-length $ticks
-	}
+		-wraplength [expr {$ticks - 50}] \
+		;
+
+	set options {}
+	if {[llength $opts(-variable)]} { lappend options -variable $opts(-variable) }
+	if {$opts(-mode) eq "determinate"} { lappend options -maximum $opts(-maximum) }
+	ttk::progressbar $w.p \
+		-orient horizontal \
+		-mode $opts(-mode) \
+		-length $ticks \
+		{*}$options \
+		;
+
 	pack $w.l -side top -pady 10 -padx 10
 	pack $w.p -side top -pady 15 -padx 10
 	bind $w.l <Destroy> [namespace code [list Cleanup $w]]

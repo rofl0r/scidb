@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 283 $
-// Date   : $Date: 2012-03-29 18:05:34 +0000 (Thu, 29 Mar 2012) $
+// Version: $Revision: 284 $
+// Date   : $Date: 2012-04-01 19:39:32 +0000 (Sun, 01 Apr 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -89,13 +89,14 @@ File::open(Tcl_Channel chan)
 		Cookie::read,
 		Cookie::write,
 		Cookie::seek,
-		Cookie::close
+		Cookie::close,
 	};
 
 	M_REQUIRE(chan);
 	M_REQUIRE(!isOpen());
 
-	m_fp = ::fopencookie(this, "r+b", Cookie);
+	m_fp = ::fopencookie(this, "r+", Cookie);
+	::setvbuf(m_fp, 0, _IONBF, 0);
 }
 
 
@@ -113,6 +114,7 @@ File::close()
 	if (m_fp)
 	{
 		::fclose(m_fp);
+printf("File:~File()\n");
 		m_fp = 0;
 	}
 }

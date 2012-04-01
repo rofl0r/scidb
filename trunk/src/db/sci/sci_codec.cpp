@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 283 $
-// Date   : $Date: 2012-03-29 18:05:34 +0000 (Thu, 29 Mar 2012) $
+// Version: $Revision: 284 $
+// Date   : $Date: 2012-04-01 19:39:32 +0000 (Sun, 01 Apr 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1186,7 +1186,7 @@ Codec::writeIndexHeader(mstl::ostream& strm)
 									mstl::string::size_type(sizeof(header) - strm.tellp() - 1)));
 
 	if (!strm.seekp(0, mstl::ios_base::beg))	// skip magic
-		IO_RAISE(Index, Corrupted, "unexpected end of index file");
+		IO_RAISE(Index, Corrupted, "seek failed");
 
 	if (!strm.write(header, sizeof(header)))
 		IO_RAISE(Index, Write_Failed, "unexpected end of index file");

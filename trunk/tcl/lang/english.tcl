@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 283 $
-# Date   : $Date: 2012-03-29 18:05:34 +0000 (Thu, 29 Mar 2012) $
+# Version: $Revision: 284 $
+# Date   : $Date: 2012-04-01 19:39:32 +0000 (Sun, 01 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -783,6 +783,8 @@
 ::browser::mc::GotoEndOfGame		"Go to end of game"
 ::browser::mc::IncreaseBoardSize	"Increase board size"
 ::browser::mc::DecreaseBoardSize	"Decrease board size"
+::browser::mc::MaximizeBoardSize	"Maximize board size"
+::browser::mc::MinimizeBoardSize	"Minimize board size"
 ::browser::mc::GotoFirstGame		"Goto first game"
 ::browser::mc::GotoLastGame		"Goto last game"
 

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 283 $
-# Date   : $Date: 2012-03-29 18:05:34 +0000 (Thu, 29 Mar 2012) $
+# Version: $Revision: 284 $
+# Date   : $Date: 2012-04-01 19:39:32 +0000 (Sun, 01 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -782,6 +782,8 @@
 ::browser::mc::GotoEndOfGame		"Zum Partieende"
 ::browser::mc::IncreaseBoardSize	"Brett vergößern"
 ::browser::mc::DecreaseBoardSize	"Brett verkleinern"
+::browser::mc::MaximizeBoardSize	"Brett maximieren"
+::browser::mc::MinimizeBoardSize	"Brett minimieren"
 ::browser::mc::GotoFirstGame		"Zur ersten Partie"
 ::browser::mc::GotoLastGame		"Zur letzten Partie"
 

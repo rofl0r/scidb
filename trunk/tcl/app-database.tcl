@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 283 $
-# Date   : $Date: 2012-03-29 18:05:34 +0000 (Thu, 29 Mar 2012) $
+# Version: $Revision: 284 $
+# Date   : $Date: 2012-04-01 19:39:32 +0000 (Sun, 01 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -349,6 +349,8 @@ proc openBase {parent file byUser {encoding ""} {readonly -1} {switchToBase yes}
 	variable Types
 	variable Defaults
 
+	set file [file normalize $file]
+
 	if {![file readable $file]} {
 		set i [FindRecentFile $file]
 		if {$i >= 0} {
@@ -359,7 +361,6 @@ proc openBase {parent file byUser {encoding ""} {readonly -1} {switchToBase yes}
 		return 0
 	}
 
-	set file [file normalize $file]
 	if {[file type $file] eq "link"} { set file [file normalize [file readlink $file]] }
 
 	if {[file extension $file] eq ".scv"} {
@@ -1574,8 +1575,8 @@ proc PopupMenu {canv x y {index -1} {ignoreNext 0}} {
 			lappend specs separator {} {} {} {} {} {}
 		}
 	}
-	lappend specs command "$mc::FileNew..." [list ::menu::dbNew $top] 0 0 docNew {}
-	lappend specs command "$mc::FileOpen..." [list ::menu::dbOpen $top] 0 0 docOpen {}
+	lappend specs command $mc::FileNew [list ::menu::dbNew $top] 0 0 docNew {}
+	lappend specs command $mc::FileOpen [list ::menu::dbOpen $top] 0 0 docOpen {}
 
 	foreach {type text cmd writableOnly notSci icon var} $specs {
 		if {$type eq "separator"} {
@@ -2126,13 +2127,7 @@ proc GetRecentState {} {
 
 proc FindRecentFile {file} {
 	variable RecentFiles
-
-	set i 0
-	foreach entry $RecentFiles {
-		if {[lindex $entry 1] eq $file} { return $i }
-		incr i
-	}
-	return -1
+	return [lsearch -index 1 $RecentFiles $file]
 }
 
 

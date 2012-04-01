@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 283 $
-# Date   : $Date: 2012-03-29 18:05:34 +0000 (Thu, 29 Mar 2012) $
+# Version: $Revision: 284 $
+# Date   : $Date: 2012-04-01 19:39:32 +0000 (Sun, 01 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -242,14 +242,11 @@ proc Open {type args} {
 		if {[llength $opts(-defaultencoding)] == 0} {
 			set opts(-defaultencoding) $::encoding::mc::AutoDetect
 		}
+		set opts(-selectencodingcommand) [namespace code SelectEncoding]
+		set opts(-fileencodings) [set [namespace current]::FileEncodings]
 	}
 
 	if {$create} {
-		if {$data(-needencoding)} {
-			set opts(-selectencodingcommand) [namespace code SelectEncoding]
-			set opts(-fileencodings) [set [namespace current]::FileEncodings]
-		}
-
 		if {[string length $geometry] == 0} {
 			set opts(-rows) 8
 		}

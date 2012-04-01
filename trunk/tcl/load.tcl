@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 251 $
-# Date   : $Date: 2012-02-20 22:07:42 +0000 (Mon, 20 Feb 2012) $
+# Version: $Revision: 284 $
+# Date   : $Date: 2012-04-01 19:39:32 +0000 (Sun, 01 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -107,6 +107,8 @@ proc load {msg type path} {
 	} else {
 		lappend Log info "$msg: $path"
 	}
+
+	update idletasks
 }
 
 

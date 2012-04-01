@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 268 $
-# Date   : $Date: 2012-03-13 16:47:20 +0000 (Tue, 13 Mar 2012) $
+# Version: $Revision: 284 $
+# Date   : $Date: 2012-04-01 19:39:32 +0000 (Sun, 01 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -122,6 +122,11 @@ proc hide {{flag 1}} {
 
 
 proc exists	{} { return [winfo exists $Log] }
+
+
+proc finishLayout {} {
+	::widget::dialogButtonSetIcons [set [namespace current]::Log]
+}
 
 
 proc Show {} {
