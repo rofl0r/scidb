@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 284 $
-// Date   : $Date: 2012-04-01 19:39:32 +0000 (Sun, 01 Apr 2012) $
+// Version: $Revision: 285 $
+// Date   : $Date: 2012-04-01 21:39:16 +0000 (Sun, 01 Apr 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -468,7 +468,7 @@ Hyphenator::hyphenate_at(mstl::string const& src, mstl::string const& hyphen, si
 				if (m_lookup && (except = m_lookup->find(word)) != m_lookup->end())
 				{
 					unsigned start = cur - word_start;
-					unsigned found = -1;
+					unsigned found = unsigned(-1);
 					unsigned end = len - hyphen.size();
 
 					// TODO: test this algorithm
@@ -480,7 +480,7 @@ Hyphenator::hyphenate_at(mstl::string const& src, mstl::string const& hyphen, si
 							++start;
 					}
 
-					if (found >= 0)
+					if (found != unsigned(-1))
 					{
 						result.first.assign(src, 0, word_start - src.begin());
 						for (unsigned i = 0; i < found; ++i)

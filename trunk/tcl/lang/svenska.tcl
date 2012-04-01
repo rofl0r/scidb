@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 284 $
-# Date   : $Date: 2012-04-01 19:39:32 +0000 (Sun, 01 Apr 2012) $
+# Version: $Revision: 285 $
+# Date   : $Date: 2012-04-01 21:39:16 +0000 (Sun, 01 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -30,7 +30,7 @@
 # ======================================================================
 
 ### global #############################################################
-::mc::SortMapping		{à a á a æ ae ç c é e ë e í i ñ n õ o ø oe ß ss ü u Ü U}
+::mc::SortMapping		{ä ä à a á a å a æ ae ç c é e ë e í i ñ n ö o õ o ø oe ß ss ü u Ü U}
 ::mc::AsciiMapping	{ä a à a á a å a æ a é e ë e ç c í i ñ n ö o õ o ø o ü u ß ss Å A Ä A Ö O Ü U}
 ::mc::SortOrder		{A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Å Ä Ö a b c d e f g h i j k l m n o p q r s t u v w x y z å ä ö}
 
