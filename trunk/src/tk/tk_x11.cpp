@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 279 $
-// Date   : $Date: 2012-03-21 16:56:47 +0000 (Wed, 21 Mar 2012) $
+// Version: $Revision: 287 $
+// Date   : $Date: 2012-04-02 13:20:11 +0000 (Mon, 02 Apr 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -182,7 +182,7 @@ cmdX11(ClientData, Tcl_Interp *ti, int objc, Tcl_Obj* const objv[])
 
 
 static int
-handleXErrorMessage(Display *dpy, XErrorEvent *event)
+handleXErrorMessage(Display* dpy, XErrorEvent* event)
 {
 	// A BadWindow due to X_SendEvent is likely due to XDND, for example if
 	// the source application is crashing.
@@ -201,7 +201,7 @@ handleXErrorMessage(Display *dpy, XErrorEvent *event)
 	strm.format("==========================================================\n");
 	fprintf(stderr, "%s", strm.str().c_str());
 
-	::xErrorHandler(dpy, event);
+	xErrorHandler(dpy, event);
 
 	return event->error_code != BadImplementation;
 }

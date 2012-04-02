@@ -1,7 +1,7 @@
 ## ======================================================================
 # Author : $Author$
-# Version: $Revision: 284 $
-# Date   : $Date: 2012-04-01 19:39:32 +0000 (Sun, 01 Apr 2012) $
+# Version: $Revision: 287 $
+# Date   : $Date: 2012-04-02 13:20:11 +0000 (Mon, 02 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1558,6 +1558,10 @@ proc Parse {file wantedFile moveto {match {}}} {
 		if {[file readable $filename]} {
 			if {[string length $dictFilenames]} { append dictFilenames ";" }
 			append dictFilenames $filename
+		}
+		if {$lang eq "de"} {
+			# we cannot hyphenate "ß" properly
+			set content [string map {"ß" "ss"} $content]
 		}
 		set content [::scidb::misc::html hyphenate $patternFilename $dictFilenames $content]
 

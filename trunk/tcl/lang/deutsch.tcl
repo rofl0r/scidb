@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 284 $
-# Date   : $Date: 2012-04-01 19:39:32 +0000 (Sun, 01 Apr 2012) $
+# Version: $Revision: 287 $
+# Date   : $Date: 2012-04-02 13:20:11 +0000 (Mon, 02 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -253,7 +253,7 @@
 ::application::database::mc::UriRejected					"Die folgenden Dateien wurden zurückgewiesen:"
 ::application::database::mc::UriRejectedDetail			"Nur Scidb-Datenbanken können geöffnet werden:"
 ::application::database::mc::EmptyUriList					"Der Drop-Inhalt ist leer."
-::application::database::mc::OverwriteExistingFiles	"Die existierenden Dataien im Verzeichnis '%s' überschreiben?"
+::application::database::mc::OverwriteExistingFiles	"Die existierenden Dateien im Verzeichnis '%s' überschreiben?"
 ::application::database::mc::SelectDatabases				"Die zu öffnenden Datenbanken selektieren"
 
 ::application::database::mc::RecodingDatabase			"Umkodierung %base von %from nach %to"

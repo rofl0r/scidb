@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 284 $
-# Date   : $Date: 2012-04-01 19:39:32 +0000 (Sun, 01 Apr 2012) $
+# Version: $Revision: 287 $
+# Date   : $Date: 2012-04-02 13:20:11 +0000 (Mon, 02 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -985,7 +985,7 @@ proc OpenUri {uriFiles} {
 					}
 
 					switch [file extension $file] {
-						.sci - .si3 - .si4 - .cbh - .pgn - .zip {
+						.sci - .scv - .si3 - .si4 - .cbh - .pgn - .zip {
 							if {$file ni $databaseList} { lappend databaseList $file }
 						}
 						default {
@@ -1028,7 +1028,7 @@ proc OpenUri {uriFiles} {
 			append message \n\n [join $rejectList \n]
 		}
 		set detail $mc::UriRejectedDetail
-		append detail " .sci, .si4, .si3, .cbh, .pgn, .pgn.gz, .zip"
+		append detail " .sci, .scv, .si4, .si3, .cbh, .pgn, .pgn.gz, .zip"
 		dialog::info -parent $Vars(canvas) -message $message -detail $detail
 	}
 	

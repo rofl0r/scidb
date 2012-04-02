@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 284 $
-# Date   : $Date: 2012-04-01 19:39:32 +0000 (Sun, 01 Apr 2012) $
+# Version: $Revision: 287 $
+# Date   : $Date: 2012-04-02 13:20:11 +0000 (Mon, 02 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -29,12 +29,28 @@ namespace eval shadow {
 set offset 5
 
 array set Used {}
+array set Prevent {}
+
+
+proc prevent {w} {
+	variable Prevent
+	set Prevent($w) 1
+}
+
+
+proc allow {w} {
+	variable Prevent
+	array unset Prevent $w
+}
 
 
 proc prepare {w x y width height} {
 	variable Geometry
+	variable Prevent
 
-	if {$width > 1 && $height > 1 && $y >= 0} {
+	if {[info exists Prevent($w)]} { return }
+
+	if {$width > 1 && $height > 1} {
 		set Geometry($w) [list $x $y $width $height]
 	}
 }

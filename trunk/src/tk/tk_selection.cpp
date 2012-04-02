@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 286 $
-// Date   : $Date: 2012-04-02 09:14:45 +0000 (Mon, 02 Apr 2012) $
+// Version: $Revision: 287 $
+// Date   : $Date: 2012-04-02 13:20:11 +0000 (Mon, 02 Apr 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -112,6 +112,13 @@ selectionGet(Tcl_Interp* ti, Tk_Window tkwin, Atom selection, Atom target, unsig
 	return done;
 }
 
+
+static int
+selEventProc(Tk_Window, XEvent*)
+{
+	return TCL_OK;	// no action required
+}
+
 # elif defined(__unix__)
 
 #  include <X11/Xatom.h>
@@ -164,7 +171,7 @@ unescapeChars(char* s, char const* e)
 
 
 static int
-selEventProc(Tk_Window tkwin, XEvent *eventPtr)
+selEventProc(Tk_Window tkwin, XEvent* eventPtr)
 {
 	char*	propInfo	= 0;
 	Atom	type;

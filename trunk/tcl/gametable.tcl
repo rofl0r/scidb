@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 284 $
-# Date   : $Date: 2012-04-01 19:39:32 +0000 (Sun, 01 Apr 2012) $
+# Version: $Revision: 287 $
+# Date   : $Date: 2012-04-02 13:20:11 +0000 (Mon, 02 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -698,10 +698,13 @@ proc showMoves {path moves {result ""} {empty 0}} {
 		pack $f.text -padx 1 -pady 1
       $f.text tag configure figurine -font $::font::figurine
 		# NOTE: w/o this dirty trick -displaylines will not work.
-		wm geometry $w +0-1000
+		::shadow::prevent $w
+		wm geometry $w +[winfo screenwidth $w]+[winfo screenheight $w]
 		wm deiconify $w
 		lower $w
 		wm withdraw $w
+		::update idletasks
+		::shadow::allow $w
 	}
 	set t $w.f.text
 	$t delete 1.0 end
