@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 287 $
-// Date   : $Date: 2012-04-02 13:20:11 +0000 (Mon, 02 Apr 2012) $
+// Version: $Revision: 288 $
+// Date   : $Date: 2012-04-02 18:02:23 +0000 (Mon, 02 Apr 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -116,7 +116,7 @@ selectionGet(Tcl_Interp* ti, Tk_Window tkwin, Atom selection, Atom target, unsig
 static int
 selEventProc(Tk_Window, XEvent*)
 {
-	return TCL_OK;	// no action required
+	return 0; // no action required
 }
 
 # elif defined(__unix__)
@@ -181,7 +181,7 @@ selEventProc(Tk_Window tkwin, XEvent* eventPtr)
 	unsigned long bytesAfter;
 
 	if (m_timeOut)
-		return 0; // we don't expect a selection
+		return 1; // we don't expect a selection
 
 	if (eventPtr->xselection.property == None)
 		return 0; // this may happen sporadically
@@ -199,7 +199,7 @@ selEventProc(Tk_Window tkwin, XEvent* eventPtr)
 												&bytesAfter,
 												reinterpret_cast<unsigned char**>(&propInfo));
 
-	int done = TCL_ERROR;
+	int done = 0;
 
 	if (result == Success && propInfo != 0 && type != None && bytesAfter == 0 && format == 8)
 	{
@@ -235,7 +235,7 @@ selEventProc(Tk_Window tkwin, XEvent* eventPtr)
 				Tcl_DStringFree(&ds);
 			}
 
-			done = TCL_OK;
+			done = 1;
 			m_selectionRetrieved = true;
 			m_timeOut = true;
 		}

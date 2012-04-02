@@ -1,8 +1,8 @@
 #!/bin/sh
 #! ======================================================================
 #! $RCSfile: tk_init.h,v $
-#! $Revision: 283 $
-#! $Date: 2012-03-29 18:05:34 +0000 (Thu, 29 Mar 2012) $
+#! $Revision: 288 $
+#! $Date: 2012-04-02 18:02:23 +0000 (Mon, 02 Apr 2012) $
 #! $Author: gregor $
 #! ======================================================================
 
@@ -118,7 +118,19 @@ proc ParseArgs {} {
 		if {[string range $arg 0 1] ne "--"} {
 			break
 		}
-		set Options([string range $arg 2 end]) 1
+
+		set option [string range $arg 2 end]
+
+		switch -- $option {
+			{} - help - version - full-screen - show-board - re-open - fast-load - first-time -
+			elo-only - print-recovery-files - delete-recovery-files - dont-recover - recover-old -
+			single-process - force-grab {
+				set Options($option) 1
+			}
+			default {
+				puts stderr "Unrecognized option: $option"
+			}
+		}
 	}
 
 	if {[::scidb::misc::debug?]} {
