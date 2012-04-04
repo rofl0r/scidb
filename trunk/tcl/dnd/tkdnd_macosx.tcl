@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 270 $
-# Date   : $Date: 2012-03-16 16:26:50 +0000 (Fri, 16 Mar 2012) $
+# Version: $Revision: 289 $
+# Date   : $Date: 2012-04-04 09:47:19 +0000 (Wed, 04 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -58,6 +58,7 @@ if {[tk windowingsystem] eq "aqua" && "AppKit" ni [winfo server .]} {
   error {TkAqua Cocoa required}
 }
 
+namespace eval tkdnd {
 namespace eval macdnd {
   variable _dropped_data {}
   variable _prev_drop_target {}
@@ -186,3 +187,7 @@ proc macdnd::_supported_type { type } {
 proc xdnd::_supported_type { type } {
   return [::tkdnd::macdnd::_supported_type $type]
 }; # xdnd::_supported_type
+
+}; # namespace tkdnd
+
+# vi:set ts=2 sw=2 et:

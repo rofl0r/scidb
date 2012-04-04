@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 284 $
-# Date   : $Date: 2012-04-01 19:39:32 +0000 (Sun, 01 Apr 2012) $
+# Version: $Revision: 289 $
+# Date   : $Date: 2012-04-04 09:47:19 +0000 (Wed, 04 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -36,6 +36,7 @@
 
 ::mc::Alignment		"Allineamento"
 ::mc::Apply				"Applica"
+::mc::Archive			"Archive" ;# NEW
 ::mc::Background		"Sfondo"
 ::mc::Black				"Nero"
 ::mc::Bottom			"Basso"
@@ -190,6 +191,20 @@
 ::load::mc::PieceSet					"set di pezzi"
 ::load::mc::Theme						"temi"
 ::load::mc::Icons						"icone"
+
+### archive ############################################################
+::archive::mc::CorruptedArchive			"Archive '%s' is corrupted." ;# NEW
+::archive::mc::NotAnArchive				"'%s' is not an archive." ;# NEW
+::archive::mc::CorruptedHeader			"Archive header in '%s' is corrupted." ;# NEW
+::archive::mc::CannotCreateFile			"Failed to create file '%s'." ;# NEW
+::archive::mc::FailedToExtractFile		"Failed to extract file '%s'." ;# NEW
+::archive::mc::UnknownCompression		"Unknown compression method '%s'." ;# NEW
+::archive::mc::ChecksumError				"Checksum error while extracting '%s'." ;# NEW
+::archive::mc::ChecksumErrorDetail		"The extracted file '%s' will be corrupted." ;# NEW
+::archive::mc::FileNotReadable			"File '%s' is not readable." ;# NEW
+::archive::mc::UsingRawInstead			"Using compression method 'raw' instead." ;# NEW
+::archive::mc::CannotOpenArchive			"Cannot open archive '%s'." ;# NEW
+::archive::mc::CouldNotCreateArchive	"Could not create archive '%s'." ;# NEW
 
 ### application ########################################################
 ::application::mc::Database				"&Database"
@@ -1648,6 +1663,7 @@
 ::fsbox::mc::ContainsTwoDots				"Contiene due punti consecutivi."
 ::fsbox::mc::ContainsReservedChars		"Contiene caratteri riservati: %s."
 ::fsbox::mc::IsReservedName				"In alcuni sistemi operativi questo è un nome riservato."
+::fsbox::mc::FilenameTooLong				"A file name should have less than 256 characters." ;# NEW
 ::fsbox::mc::InvalidFileExtension		"Estensione file '%s' non valida."
 ::fsbox::mc::MissingFileExtension		"Manca estensione del file in '%s'."
 ::fsbox::mc::FileAlreadyExists			"Il file '%s' esiste già.\nVuoi sovrascriverlo?"

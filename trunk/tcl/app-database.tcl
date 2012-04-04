@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 287 $
-# Date   : $Date: 2012-04-02 13:20:11 +0000 (Mon, 02 Apr 2012) $
+# Version: $Revision: 289 $
+# Date   : $Date: 2012-04-04 09:47:19 +0000 (Wed, 04 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -600,6 +600,8 @@ proc OpenArchive {parent file byUser encoding readonly switchToBase} {
 	variable _Select
 
 	lassign [::archive::inspect $file] header files
+	if {[llength $header] == 0} { return [::log::show] }
+
 	set bases {}
 	set overwrite {}
 
@@ -629,8 +631,9 @@ proc OpenArchive {parent file byUser encoding readonly switchToBase} {
 
 	set progress $parent.__progress
 	::dialog::progressbar::open $progress -variable __dummy
-	::archive::unpack $file $progress $dirname
+	set rc [::archive::unpack $file $progress $dirname]
 	destroy $progress
+	if {!$rc} { return [::log::show] }
 
 	if {[llength $bases] == 1} {
 		return [openBase $parent [lindex $bases 0] $byUser $encoding $readonly $switchToBase]

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 272 $
-# Date   : $Date: 2012-03-17 17:55:24 +0000 (Sat, 17 Mar 2012) $
+# Version: $Revision: 289 $
+# Date   : $Date: 2012-04-04 09:47:19 +0000 (Wed, 04 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -43,6 +43,7 @@
 # MODIFICATIONS.
 #
 
+namespace eval tkdnd {
 namespace eval olednd {
   variable _types {}
   variable _typelist {}
@@ -273,7 +274,7 @@ proc olednd::_GetDroppedData {  } {
   foreach type $_common_drag_source_types {
     if {![catch {
       return [selection get -displayof $_drop_target -selection XdndSelection \
-                            -type $type] result options]} {
+                            -type $type] result options}]} {
       return $result
     }
   }
@@ -385,5 +386,7 @@ proc olednd::_supported_type { type } {
   if {[lsearch -exact $_unhandled_types $type] != -1} {return 1}
   return 0
 }; # olednd::_supported_type
+
+}; # namespace tkdnd
 
 # vi:set ts=2 sw=2 et:

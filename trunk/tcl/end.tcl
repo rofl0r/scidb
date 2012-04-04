@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 284 $
-# Date   : $Date: 2012-04-01 19:39:32 +0000 (Sun, 01 Apr 2012) $
+# Version: $Revision: 289 $
+# Date   : $Date: 2012-04-04 09:47:19 +0000 (Wed, 04 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -141,6 +141,11 @@ proc WriteOptions {chan} {
 options::hookWriter [namespace current]::WriteOptions
 
 proc archive::setModTime {file time} { return ::scidb::util::setModTime $file $time }
+
+proc archive::logError {msg detail} {
+	::log::error $::mc::Archive $msg
+	if {[string length $detail]} { ::log::info $::mc::Archive $detail }
+}
 
 proc archive::tick {progress n} {
 	::dialog::progressbar::tick $progress $n

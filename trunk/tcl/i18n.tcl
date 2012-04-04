@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 284 $
-# Date   : $Date: 2012-04-01 19:39:32 +0000 (Sun, 01 Apr 2012) $
+# Version: $Revision: 289 $
+# Date   : $Date: 2012-04-04 09:47:19 +0000 (Wed, 04 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -28,6 +28,7 @@ namespace eval mc {
 
 set Alignment		"Alignment"
 set Apply			"Apply"
+set Archive			"Archive"
 set Background		"Background"
 set Black			"Black"
 set Bottom			"Bottom"
