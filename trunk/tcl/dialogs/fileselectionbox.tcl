@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 284 $
-# Date   : $Date: 2012-04-01 19:39:32 +0000 (Sun, 01 Apr 2012) $
+# Version: $Revision: 290 $
+# Date   : $Date: 2012-04-05 15:25:01 +0000 (Thu, 05 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -496,6 +496,7 @@ proc Inspect {parent {filename ""}} {
 		file stat $filename stat
 		set mtime [::locale::formatTime [clock format $stat(mtime) -format {%Y.%m.%d %H:%M:%S}]]
 		set ctime [::locale::formatTime [clock format $stat(ctime) -format {%Y.%m.%d %H:%M:%S}]]
+		# TODO: should we sum the sizes of all related files?
 		set size [::locale::formatFileSize $stat(size)]
 		set ext [file extension $filename]
 		set fileType [set mc::$FileType($ext)]

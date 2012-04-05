@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 268 $
-# Date   : $Date: 2012-03-13 16:47:20 +0000 (Tue, 13 Mar 2012) $
+# Version: $Revision: 290 $
+# Date   : $Date: 2012-04-05 15:25:01 +0000 (Thu, 05 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -2946,7 +2946,7 @@ proc Select {nb index} {
 			set Info(build-style) 1
 			set var $mc::PdfFiles
 			set ext .pdf
-			::beta::notYetImplemented $nb pdf
+if {[pwd] ne "/home/gregor/development/c++/scidb/tcl"} { ::beta::notYetImplemented $nb pdf }
 		}
 
 		html {
@@ -2964,7 +2964,7 @@ proc Select {nb index} {
 			set Info(build-style) 1
 			set var $mc::HtmlFiles
 			if {$::tcl_platform(platform) eq "windows"} { set ext .htm } else { set ext .html }
-			::beta::notYetImplemented $nb html
+if {[pwd] ne "/home/gregor/development/c++/scidb/tcl"} { ::beta::notYetImplemented $nb html }
 		}
 
 		tex {

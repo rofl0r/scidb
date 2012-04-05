@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 269 $
-# Date   : $Date: 2012-03-14 09:27:30 +0000 (Wed, 14 Mar 2012) $
+# Version: $Revision: 290 $
+# Date   : $Date: 2012-04-05 15:25:01 +0000 (Thu, 05 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -2690,8 +2690,9 @@ switch [tk windowingsystem] {
 
 	win32 - aqua {
 		if {[tk windowingsystem] eq "win32"} { set ext cur } else { set ext crsr }
-		# IMPORTANT NOTE: under windows the cursor wil be displayed with size 32x32
-		# source: http://wiki.tcl.tk/8674
+		# IMPORTANT NOTE:
+		# under windows the cursor wil be displayed with size 32x32
+		# (source: http://wiki.tcl.tk/8674)
 		# but probably this information is wrong
 		set file1 [file join $::scidb::dir::share cursor collapse-16x16.$ext]
 		set file2 [file join $::scidb::dir::share cursor expand-16x16.$ext]

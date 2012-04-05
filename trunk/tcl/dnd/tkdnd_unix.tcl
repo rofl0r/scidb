@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 273 $
-# Date   : $Date: 2012-03-19 12:19:37 +0000 (Mon, 19 Mar 2012) $
+# Version: $Revision: 290 $
+# Date   : $Date: 2012-04-05 15:25:01 +0000 (Thu, 05 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -105,7 +105,7 @@ proc xdnd::_HandleXdndPosition { drop_target rootX rootY } {
   variable _drag_source
   variable _drop_target
   # debug "xdnd::_HandleXdndPosition: drop_target=$drop_target,\
-               _drop_target=$_drop_target, rootX=$rootX, rootY=$rootY"
+  #             _drop_target=$_drop_target, rootX=$rootX, rootY=$rootY"
 
   if {![info exists _drag_source] && ![string length $_drag_source]} {
     # debug "xdnd::_HandleXdndPosition: no or empty _drag_source:\

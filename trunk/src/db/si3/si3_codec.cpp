@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 283 $
-// Date   : $Date: 2012-03-29 18:05:34 +0000 (Thu, 29 Mar 2012) $
+// Version: $Revision: 290 $
+// Date   : $Date: 2012-04-05 15:25:01 +0000 (Thu, 05 Apr 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2131,7 +2131,7 @@ Codec::getAttributes(mstl::string const& filename,
 
 	strm.seekp(8, mstl::ios_base::beg);
 
-	if (!strm.read(header, description ? sizeof(header) : 8))
+	if (!strm.read(header, description ? sizeof(header) : 10))
 		return false;
 
 	ByteStream bstrm(header, sizeof(header));

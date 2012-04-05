@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 283 $
-// Date   : $Date: 2012-03-29 18:05:34 +0000 (Thu, 29 Mar 2012) $
+// Version: $Revision: 290 $
+// Date   : $Date: 2012-04-05 15:25:01 +0000 (Thu, 05 Apr 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -935,9 +935,6 @@ tcl::init(Tcl_Interp* ti)
 	Tcl_IncrRefCount(::m_value_1 = Tcl_NewIntObj(1));
 	Tcl_IncrRefCount(::m_blocked = Tcl_NewStringObj("::remote::blocked", -1));
 	Tcl_IncrRefCount(::m_postponed = Tcl_NewStringObj("::remote::postponed", -1));
-
-	// setup share directory
-	Tcl_SetVar2(ti, "::scidb::dir::share", 0, SHAREDIR, TCL_GLOBAL_ONLY);
 
 	app::init(ti);
 	db::init(ti);

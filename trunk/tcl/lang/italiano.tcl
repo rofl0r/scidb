@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 289 $
-# Date   : $Date: 2012-04-04 09:47:19 +0000 (Wed, 04 Apr 2012) $
+# Version: $Revision: 290 $
+# Date   : $Date: 2012-04-05 15:25:01 +0000 (Thu, 05 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -174,7 +174,9 @@
 ::menu::mc::CreateArchive				"Create an archive" ;# NEW
 
 ### load ###############################################################
-::load::mc::FileIsCorrupt	"Il file %s è corrotto:"
+::load::mc::SevereError				"Severe error during load of ECO file" ;# NEW
+::load::mc::FileIsCorrupt			"Il file %s è corrotto:"
+::load::mc::ProgramAborting		"Program is aborting." ;# NEW
 
 ::load::mc::Loading					"Carico %s"
 ::load::mc::ReadingOptionsFile	"Permessi di lettura del file" ;# "reading options file"

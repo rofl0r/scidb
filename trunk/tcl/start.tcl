@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 283 $
-# Date   : $Date: 2012-03-29 18:05:34 +0000 (Thu, 29 Mar 2012) $
+# Version: $Revision: 290 $
+# Date   : $Date: 2012-04-05 15:25:01 +0000 (Thu, 05 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -38,10 +38,17 @@ variable scratchbaseName	[::scidb::db::get scratchbase name]
 
 namespace eval dir {
 
-if {$tcl_platform(platform) eq "windows"} {
+if {[info exists ::env(SCIDB_SHAREDIR)]} {
+	set share $::env(SCIDB_SHAREDIR)
+} elseif {$tcl_platform(platform) eq "windows"} {
 	set share $exec
 } else {
-	# already defined in tkscidb
+	set share "%SHAREDIR%"
+	if {$share eq "%SHAREDIR%"} {
+		set share [file tail [info nameofexecutable]]
+		set share [string range $share [string first scidb $share] end]
+		set share "/usr/local/share/$share"
+	}
 }
 
 set home		[file nativename "~"]

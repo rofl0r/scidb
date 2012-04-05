@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 284 $
-# Date   : $Date: 2012-04-01 19:39:32 +0000 (Sun, 01 Apr 2012) $
+# Version: $Revision: 290 $
+# Date   : $Date: 2012-04-05 15:25:01 +0000 (Thu, 05 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -344,6 +344,7 @@ proc BuildTab {nb boardSize sw sh specified} {
 				-cursor {} \
 				-background $Background] \
 				;
+			::widget::textPreventSelection $text
 			bind $text <MouseWheel> { break }
 			if {[tk windowingsystem] eq "x11"} {
 				bind $text <4> { break }
@@ -416,12 +417,16 @@ proc PopupMenu {nb base} {
 #		;
 	$menu add separator
 	$menu add command \
-		-label $::browser::mc::GotoFirstGame \
+		-compound left \
+		-image $::icon::16x16::first \
+		-label " $::browser::mc::GotoFirstGame" \
 		-command [namespace code [list GotoFirstGame $nb $base]] \
 		-state $state \
 		;
 	$menu add command \
-		-label $::browser::mc::GotoLastGame \
+		-compound left \
+		-image $::icon::16x16::last \
+		-label " $::browser::mc::GotoLastGame" \
 		-command [namespace code [list GotoLastGame $nb $base]] \
 		-state $state \
 		;

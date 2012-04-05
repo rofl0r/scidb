@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 284 $
-# Date   : $Date: 2012-04-01 19:39:32 +0000 (Sun, 01 Apr 2012) $
+# Version: $Revision: 290 $
+# Date   : $Date: 2012-04-05 15:25:01 +0000 (Thu, 05 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -65,10 +65,12 @@ proc textLineScroll {w cmd args} {
 
 
 proc textPreventSelection {w} {
-	bind $w <Double-1>	{ break }
-	bind $w <Triple-1>	{ break }
-	bind $w <B1-Motion>	{ break }
-	bind $w <B2-Motion>	{ break }
+	bind $w <Double-1>			{ break }
+	bind $w <Triple-1>			{ break }
+	bind $w <B1-Motion>			{ break }
+	bind $w <B2-Motion>			{ break }
+	bind $w <ButtonPress-2>		{ break }
+	bind $w <ButtonRelease-2>	{ break }
 }
 
 
