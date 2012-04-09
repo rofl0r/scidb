@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 258 $
-// Date   : $Date: 2012-02-29 16:12:00 +0000 (Wed, 29 Feb 2012) $
+// Version: $Revision: 291 $
+// Date   : $Date: 2012-04-09 23:03:07 +0000 (Mon, 09 Apr 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -482,6 +482,7 @@ View::exportGames(Destination& destination, GameMode gameMode, Log& log, util::P
 	unsigned reportAfter = frequency;
 
 	util::ProgressWatcher watcher(progress, m_gameFilter.count());
+	progress.message("game");
 
 	unsigned count		= 0;
 	unsigned numGames	= 0;

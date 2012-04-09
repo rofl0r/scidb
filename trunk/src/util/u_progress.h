@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 283 $
-// Date   : $Date: 2012-03-29 18:05:34 +0000 (Thu, 29 Mar 2012) $
+// Version: $Revision: 291 $
+// Date   : $Date: 2012-04-09 23:03:07 +0000 (Mon, 09 Apr 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -19,6 +19,8 @@
 #ifndef _u_progress_included
 #define _u_progress_included
 
+namespace mstl { class string; }
+
 namespace util {
 
 class Progress
@@ -35,6 +37,7 @@ public:
 	virtual unsigned ticks() const;
 
 	virtual void start(unsigned total);
+	virtual void message(mstl::string const& msg);
 	virtual void tick(unsigned count);
 	virtual void update(unsigned progress);
 	virtual void finish();

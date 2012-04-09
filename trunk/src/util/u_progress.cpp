@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 282 $
-// Date   : $Date: 2012-03-26 08:07:32 +0000 (Mon, 26 Mar 2012) $
+// Version: $Revision: 291 $
+// Date   : $Date: 2012-04-09 23:03:07 +0000 (Mon, 09 Apr 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -28,6 +28,7 @@ Progress::Progress() : m_freq(0) {}
 Progress::~Progress() throw() {}
 
 void Progress::start(unsigned) {}
+void Progress::message(mstl::string const&) {}
 void Progress::tick(unsigned) {}
 void Progress::update(unsigned) {}
 void Progress::finish() {}

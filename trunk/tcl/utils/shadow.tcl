@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 287 $
-# Date   : $Date: 2012-04-02 13:20:11 +0000 (Mon, 02 Apr 2012) $
+# Version: $Revision: 291 $
+# Date   : $Date: 2012-04-09 23:03:07 +0000 (Mon, 09 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -210,8 +210,9 @@ bind Menu <Configure> {+
 
 bind Menu <Map> {+
 	if {![string match *#menu %W]} {
-		# a slight delay is reducing the flickering
-		after 25 { shadow::map %W yes }
+		# a slight delay is reducing the flickering (25ms)
+		# but this may confuse the order of map/unmap events.
+		after idle { shadow::map %W yes }
 	}
 }
 

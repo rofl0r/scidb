@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 216 $
-// Date   : $Date: 2012-01-29 19:02:12 +0000 (Sun, 29 Jan 2012) $
+// Version: $Revision: 291 $
+// Date   : $Date: 2012-04-09 23:03:07 +0000 (Mon, 09 Apr 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -372,7 +372,7 @@ MoveInfo::decode(ByteStream& strm)
 
 		case CorrespondenceChessSent:
 			v = strm.uint32();
-			m_time.m_date.setYMD(		((v >>  4) & 0x0fff),
+			m_time.m_date.setYMD(	((v >>  4) & 0x0fff),
 											((v      ) & 0x000f),
 											((u      ) & 0x000f));
 

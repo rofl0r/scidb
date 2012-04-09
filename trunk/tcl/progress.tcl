@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 283 $
-# Date   : $Date: 2012-03-29 18:05:34 +0000 (Thu, 29 Mar 2012) $
+# Version: $Revision: 291 $
+# Date   : $Date: 2012-04-09 23:03:07 +0000 (Mon, 09 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -28,6 +28,25 @@ namespace eval progress {
 namespace eval mc {
 
 set Progress "Progress"
+
+set Message(preload-namebase)		"Pre-loading namebase data"
+set Message(preload-tournament)	"Pre-loading tournament data"
+set Message(preload-player)		"Pre-loading player data"
+set Message(preload-annotator)	"Pre-loading annotator data"
+
+set Message(read-index)				"Loading index data"
+set Message(read-game)				"Loading game data"
+set Message(read-namebase)			"Loading namebase data"
+set Message(read-tournament)		"Loading tournament data"
+set Message(read-player)			"Loading player data"
+set Message(read-annotator)		"Loading annotator data"
+set Message(read-source)			"Loading source data"
+set Message(read-team)				"Loading team data"
+set Message(read-init)				"Loading initialization data"
+
+set Message(write-index)			"Writing index data"
+set Message(write-game)				"Writing game data"
+set Message(write-namebase)		"Writing namebase data"
 
 } ;# namespace mc
 
@@ -78,6 +97,12 @@ proc DoCmd {cmd parent {value 0}} {
 		start {
 			set Priv(value) 0
 			::dialog::progressbar::setMaximum .progress $value
+			update
+		}
+
+		message {
+			if {[info exists mc::Message($value)]} { set msg $mc::Message($value) } else { set msg $value }
+			::dialog::progressbar::setMessage .progress $msg
 			update
 		}
 

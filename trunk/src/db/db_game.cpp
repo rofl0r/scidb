@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 291 $
+// Date   : $Date: 2012-04-09 23:03:07 +0000 (Mon, 09 Apr 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1212,12 +1212,8 @@ Game::moveToMainlineEnd()
 void
 Game::exitToMainline()
 {
-	if (isMainline())
-		return;
-
-	do
+	while (isVariation())
 		exitVariation();
-	while (isVariation());
 }
 
 
@@ -3115,7 +3111,7 @@ Game::setup(unsigned linebreakThreshold,
 	m_linebreakThreshold				= linebreakThreshold;
 	m_linebreakMaxLineLengthMain	= linebreakMaxLineLengthMain;
 	m_linebreakMaxLineLengthVar	= linebreakMaxLineLengthVar;
-	m_linebreakMinCommentLength		= linebreakMinCommentLength;
+	m_linebreakMinCommentLength	= linebreakMinCommentLength;
 	m_displayStyle						= displayStyle;
 }
 

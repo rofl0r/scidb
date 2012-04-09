@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 291 $
+// Date   : $Date: 2012-04-09 23:03:07 +0000 (Mon, 09 Apr 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -946,8 +946,7 @@ TournamentTable::computeTiebreaks()
 			{
 				player->refinedBuchholz[Buchholz] += opponent->tiebreak[Buchholz];
 				player->refinedBuchholz[MedianBuchholz] += opponent->tiebreak[MedianBuchholz];
-				player->refinedBuchholz[ModifiedMedianBuchholz] +=
-								opponent->tiebreak[ModifiedMedianBuchholz];
+				player->refinedBuchholz[ModifiedMedianBuchholz] += opponent->tiebreak[ModifiedMedianBuchholz];
 			}
 		}
 	}
