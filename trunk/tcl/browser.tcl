@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 292 $
-# Date   : $Date: 2012-04-13 09:41:37 +0000 (Fri, 13 Apr 2012) $
+# Version: $Revision: 293 $
+# Date   : $Date: 2012-04-13 09:46:26 +0000 (Fri, 13 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -986,14 +986,14 @@ proc PopupMenu {parent board position {what ""}} {
 		-image $::icon::16x16::maximize \
 		-compound left \
 		-command [namespace code [list ChangeBoardSize $position $board max]] \
-		-accelerator "${::menu::mc::Ctrl}-+" \
+		-accelerator "${::mc::Ctrl}-+" \
 		;
 	$menu add command \
 		-label " $mc::MinimizeBoardSize" \
 		-image $::icon::16x16::minimize \
 		-compound left \
 		-command [namespace code [list ChangeBoardSize $position $board min]] \
-		-accelerator "${::menu::mc::Ctrl}-\u2212" \
+		-accelerator "${::mc::Ctrl}-\u2212" \
 		;
 
 	tk_popup $menu {*}[winfo pointerxy $dlg]
