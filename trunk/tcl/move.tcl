@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 268 $
-# Date   : $Date: 2012-03-13 16:47:20 +0000 (Tue, 13 Mar 2012) $
+# Version: $Revision: 292 $
+# Date   : $Date: 2012-04-13 09:41:37 +0000 (Fri, 13 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -461,9 +461,11 @@ proc ConfirmReplaceMove {} {
 											[namespace current]::mc::TryVariation		trial     \
 											[namespace current]::mc::ExchangeMove		exchange  \
 											::mc::Cancel										cancel] {
-		$m add command -command [namespace code [list set _action $action]]
-		::widget::menuTextvarHook $m $i $label
-		incr i
+		if {$action ne "trial" || ![::scidb::game::query trial]} {
+			$m add command -command [namespace code [list set _action $action]]
+			::widget::menuTextvarHook $m $i $label
+			incr i
+		}
 	}
 	$m entryconfigure 5 -accelerator $::mc::Escape
 	set entry [lsearch -exact {replace variation} $Options(defaultAction)]
@@ -479,7 +481,7 @@ proc ConfirmReplaceMove {} {
 	after idle [namespace code Unlock]
 
 	if {$_action eq "trial"} {
-		::game::startTrialMode
+		::game::flipTrialMode
 	}
 
 	return $_action

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 270 $
-// Date   : $Date: 2012-03-16 16:26:50 +0000 (Fri, 16 Mar 2012) $
+// Version: $Revision: 292 $
+// Date   : $Date: 2012-04-13 09:41:37 +0000 (Fri, 13 Apr 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -26,6 +26,7 @@ namespace tk { void init(Tcl_Interp* ti); }
 // internally used
 namespace tk {
 
+void fixes_init(Tcl_Interp*);
 void selection_init(Tcl_Interp*);
 void image_init(Tcl_Interp*);
 void jpeg_init(Tcl_Interp*);

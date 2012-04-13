@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 290 $
-// Date   : $Date: 2012-04-05 15:25:01 +0000 (Thu, 05 Apr 2012) $
+// Version: $Revision: 292 $
+// Date   : $Date: 2012-04-13 09:41:37 +0000 (Fri, 13 Apr 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -169,26 +169,18 @@ unescapeChars(char* s, char const* e)
 
 	while (s < e)
 	{
-		if (*s == '%')
+		if (*s != '%')
 		{
-			if (s[1] == '%')
-			{
-				*p++ = '%';
-				s += 2;
-			}
-			else if (isxdigit(s[1]) && isxdigit(s[2]))
-			{
-				*p++ = (xdigitToVal(s[1]) << 4) + xdigitToVal(s[2]);
-				s += 3;
-			}
-			else
-			{
-				// Ooops, this shouldn't happen.
-				*p++ = *s++;
-			}
+			*p++ = *s++;
+		}
+		else if (isxdigit(s[1]) && isxdigit(s[2]))
+		{
+			*p++ = (xdigitToVal(s[1]) << 4) + xdigitToVal(s[2]);
+			s += 3;
 		}
 		else
 		{
+			// Ooops, this shouldn't happen.
 			*p++ = *s++;
 		}
 	}

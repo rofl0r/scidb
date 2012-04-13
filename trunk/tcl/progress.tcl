@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 291 $
-# Date   : $Date: 2012-04-09 23:03:07 +0000 (Mon, 09 Apr 2012) $
+# Version: $Revision: 292 $
+# Date   : $Date: 2012-04-13 09:41:37 +0000 (Fri, 13 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -30,9 +30,9 @@ namespace eval mc {
 set Progress "Progress"
 
 set Message(preload-namebase)		"Pre-loading namebase data"
-set Message(preload-tournament)	"Pre-loading tournament data"
-set Message(preload-player)		"Pre-loading player data"
-set Message(preload-annotator)	"Pre-loading annotator data"
+set Message(preload-tournament)	"Pre-loading tournament index"
+set Message(preload-player)		"Pre-loading player index"
+set Message(preload-annotator)	"Pre-loading annotator index"
 
 set Message(read-index)				"Loading index data"
 set Message(read-game)				"Loading game data"

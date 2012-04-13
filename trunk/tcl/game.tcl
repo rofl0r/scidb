@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 217 $
-# Date   : $Date: 2012-01-29 19:54:08 +0000 (Sun, 29 Jan 2012) $
+# Version: $Revision: 292 $
+# Date   : $Date: 2012-04-13 09:41:37 +0000 (Fri, 13 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -453,20 +453,19 @@ proc resize {n} {
 }
 
 
-proc startTrialMode {{pos -1}} {
-	::scidb::game::push $pos
-	::gamebar::setEmphasized [::application::pgn::gamebar] 1
-}
-
-
-proc endTrialMode {{pos -1}} {
-	::scidb::game::pop $pos
-	::gamebar::setEmphasized [::application::pgn::gamebar] 0
+proc flipTrialMode {{pos -1}} {
+	if {[trialMode? $pos]} {
+		::scidb::game::pop $pos
+		::gamebar::setEmphasized [::application::pgn::gamebar] 0
+	} else {
+		::scidb::game::push $pos
+		::gamebar::setEmphasized [::application::pgn::gamebar] 1
+	}
 }
 
 
 proc trialMode? {{pos -1}} {
-	return [::scidb::game::query trial]
+	return [::scidb::game::query $pos trial]
 }
 
 

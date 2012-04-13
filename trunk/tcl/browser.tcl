@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 290 $
-# Date   : $Date: 2012-04-05 15:25:01 +0000 (Thu, 05 Apr 2012) $
+# Version: $Revision: 292 $
+# Date   : $Date: 2012-04-13 09:41:37 +0000 (Fri, 13 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -989,7 +989,7 @@ proc PopupMenu {parent board position {what ""}} {
 		-accelerator "${::menu::mc::Ctrl}-+" \
 		;
 	$menu add command \
-		-label $mc::MinimizeBoardSize \
+		-label " $mc::MinimizeBoardSize" \
 		-image $::icon::16x16::minimize \
 		-compound left \
 		-command [namespace code [list ChangeBoardSize $position $board min]] \

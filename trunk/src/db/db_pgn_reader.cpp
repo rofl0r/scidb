@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 282 $
-// Date   : $Date: 2012-03-26 08:07:32 +0000 (Mon, 26 Mar 2012) $
+// Version: $Revision: 292 $
+// Date   : $Date: 2012-04-13 09:41:37 +0000 (Fri, 13 Apr 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1587,6 +1587,9 @@ PgnReader::parseDescription(mstl::istream& strm, mstl::string& result)
 		{
 			case '\0':
 			case '[':
+				return;
+
+			case EOF:
 				return;
 
 			case '\n':

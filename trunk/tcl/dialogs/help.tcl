@@ -1,7 +1,7 @@
 ## ======================================================================
 # Author : $Author$
-# Version: $Revision: 291 $
-# Date   : $Date: 2012-04-09 23:03:07 +0000 (Mon, 09 Apr 2012) $
+# Version: $Revision: 292 $
+# Date   : $Date: 2012-04-13 09:41:37 +0000 (Fri, 13 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -96,7 +96,7 @@ proc open {parent {file {}} args} {
 		}
 	}
 
-	set dlg $parent.help
+	if {$parent eq "."} { set dlg .help } else { set dlg $parent.help }
 	if {[winfo exists $dlg]} {
 		raise $dlg
 		focus $dlg
@@ -114,6 +114,7 @@ proc open {parent {file {}} args} {
 	set Priv(dlg) $dlg
 	set Priv(minsize) 200
 	set Priv(recent) {}
+	set Priv(grab) {}
 
 	::scidb::misc::html cache on
 
@@ -227,6 +228,8 @@ proc open {parent {file {}} args} {
 		set Priv(currentfile) [FullPath $file]
 	}
 	ReloadCurrentPage
+
+	return $dlg
 }
 
 

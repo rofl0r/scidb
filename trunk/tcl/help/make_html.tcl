@@ -3,8 +3,8 @@
 exec tclsh "$0" "$@"
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 285 $
-# Date   : $Date: 2012-04-01 21:39:16 +0000 (Sun, 01 Apr 2012) $
+# Version: $Revision: 292 $
+# Date   : $Date: 2012-04-13 09:41:37 +0000 (Fri, 13 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -87,6 +87,10 @@ set HtmlMapping {
 
 	<annotation>	{<div class="annotation"><img src="../images/annotation.png" style="float:left; margin:0 1em 0 0"/>}
 	</annotation>	{</div>}
+}
+
+set KeyMapping {
+	<key>ESC</key>	<kbd>&lt;Esc&gt;</kbd>
 }
 
 
@@ -223,6 +227,7 @@ if {![string match TITLE* $line]} {
 }
 
 proc readContents {chan file} {
+	variable KeyMapping
 	variable HtmlMapping
 	variable charset
 
@@ -252,6 +257,7 @@ proc readContents {chan file} {
 			}
 		}
 
+		set line [string map $KeyMapping $line]
 		set line [string map $HtmlMapping $line]
 
 		if {[string match CHARSET* $line]} {

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 248 $
-// Date   : $Date: 2012-02-14 18:33:12 +0000 (Tue, 14 Feb 2012) $
+// Version: $Revision: 292 $
+// Date   : $Date: 2012-04-13 09:41:37 +0000 (Fri, 13 Apr 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1106,7 +1106,7 @@ deleteWidget(clientData)
     }
 
 #ifdef USE_DOUBLE_BUFFERING
-    if (pTree->buffer) {
+    if (pTree->buffer && Tk_MainWindow(pTree->interp)) {
         Tk_FreePixmap(Tk_Display(Tk_MainWindow(pTree->interp)), pTree->buffer);
         pTree->buffer = None;
     }

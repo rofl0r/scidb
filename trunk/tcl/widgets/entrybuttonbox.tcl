@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 193 $
-# Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+# Version: $Revision: 292 $
+# Date   : $Date: 2012-04-13 09:41:37 +0000 (Fri, 13 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -99,6 +99,13 @@ proc WidgetProc {w command args} {
 				if {$opts(-state) eq "normal"} { set opts(-state) readonly }
 			}
 			set args [array get opts]
+		}
+
+		invoke {
+			if {[$w cget -state] ne "disabled"} {
+				{*}[set ttk::entrybuttonbox::${w}::Vars(-command)]
+			}
+			return
 		}
 
 		instate {
