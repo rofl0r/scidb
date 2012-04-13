@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 292 $
-# Date   : $Date: 2012-04-13 09:41:37 +0000 (Fri, 13 Apr 2012) $
+# Version: $Revision: 294 $
+# Date   : $Date: 2012-04-13 17:41:49 +0000 (Fri, 13 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1702,7 +1702,7 @@
 ::fsbox::mc::FileHasDisappeared			"Die Datei '%s' ist nicht mehr vorhanden."
 ::fsbox::mc::CannotDelete					"Die Datei '%s' kann nicht gelöscht werden."
 ::fsbox::mc::CannotRename					"Die Datei '%s' kann nicht unbenannt werden."
-::fsbox::mc::CannotDeleteDetail			"Diese Datei ist zur Zeit im Gebrauch."
+::fsbox::mc::CannotDeleteDetail			"Diese Datei ist zur Zeit in Gebrauch."
 
 ### toolbar ############################################################
 ::toolbar::mc::Toolbar		"Funktionsleiste"

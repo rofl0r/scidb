@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 270 $
-# Date   : $Date: 2012-03-16 16:26:50 +0000 (Fri, 16 Mar 2012) $
+# Version: $Revision: 294 $
+# Date   : $Date: 2012-04-13 17:41:49 +0000 (Fri, 13 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -704,6 +704,19 @@ proc lookupClone {child w} {
 	set toolbar [winfo parent $child]
 	if {![info exists Specs(clone:$w:$toolbar.floating.frame)]} { return {} }
 	return $Specs(clone:$w:$toolbar.floating.frame)
+}
+
+
+proc requestetHeight {parent} {
+	set slaves [pack slaves $parent]
+	set height 0
+
+	foreach side {left right flat} {
+		set tbf [Join $parent __tbf__$side]
+		if {$tbf in $slaves} { incr height [winfo reqheight $tbf] }
+	}
+
+	return $height
 }
 
 
