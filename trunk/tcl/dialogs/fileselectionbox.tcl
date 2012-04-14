@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 295 $
-# Date   : $Date: 2012-04-14 10:59:57 +0000 (Sat, 14 Apr 2012) $
+# Version: $Revision: 296 $
+# Date   : $Date: 2012-04-14 18:13:53 +0000 (Sat, 14 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -374,6 +374,11 @@ proc Open {type args} {
 }
 
 
+proc OpenHelp {w} {
+	::help::open $w File-Selection-Dialog
+}
+
+
 proc Destroyed {w} {
 	variable Priv
 	set i [lsearch $Priv(dialogs) $w]
@@ -390,11 +395,6 @@ proc TraceLastFolder {dlg dlg2 w} {
 	if {$dlg eq $dlg2} {
 		set [namespace current]::Priv(lastFolder) [::fsbox::lastFolder $w.fsbox]
 	}
-}
-
-
-proc OpenHelp {parent} {
-	::help::open $parent File-Selection-Dialog
 }
 
 

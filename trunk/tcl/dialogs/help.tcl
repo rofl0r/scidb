@@ -1,7 +1,7 @@
 ## ======================================================================
 # Author : $Author$
-# Version: $Revision: 294 $
-# Date   : $Date: 2012-04-13 17:41:49 +0000 (Fri, 13 Apr 2012) $
+# Version: $Revision: 296 $
+# Date   : $Date: 2012-04-14 18:13:53 +0000 (Sat, 14 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -96,7 +96,7 @@ proc open {parent {file {}} args} {
 		}
 	}
 
-	if {$parent eq "."} { set dlg .help } else { set dlg $parent.help }
+	set dlg .help
 	if {[winfo exists $dlg]} {
 		ShowIndex
 		raise $dlg
