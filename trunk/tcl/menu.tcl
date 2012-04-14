@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 296 $
-# Date   : $Date: 2012-04-14 18:13:53 +0000 (Sat, 14 Apr 2012) $
+# Version: $Revision: 297 $
+# Date   : $Date: 2012-04-14 22:00:51 +0000 (Sat, 14 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -55,6 +55,7 @@ set ContactFeatureRequest	"&Feature Request"
 set OpenFile					"Open a Scidb File"
 set NewFile						"Create a Scidb File"
 set ImportFiles				"Import PGN files..."
+set Archiving					"Archiving"
 set CreateArchive				"Create Archive"
 set BuildArchive				"Create archive %s"
 set Data							"%s data"
@@ -312,7 +313,7 @@ proc dbOpen {parent} {
 		-geometry last \
 		-title $mc::OpenFile \
 		-customicon $::icon::16x16::filetypeArchive \
-		-customtooltip $mc::CreateArchive \
+		-customtooltip $mc::Archiving \
 		-customcommand [namespace code [list CreateArchive]] \
 		-customfiletypes {.sci .si4 .si3 .cbh .pgn .gz .zip} \
 	]

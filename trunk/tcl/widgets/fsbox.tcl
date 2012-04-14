@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 295 $
-# Date   : $Date: 2012-04-14 10:59:57 +0000 (Sat, 14 Apr 2012) $
+# Version: $Revision: 297 $
+# Date   : $Date: 2012-04-14 22:00:51 +0000 (Sat, 14 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -2666,9 +2666,8 @@ proc Glob {w refresh} {
 		}
 		eval $Vars(scriptDir)
 	}
-	if {[llength $Vars(list:folder)]} {
-		$Vars(widget:list:file) item tag add "root children" directory
-	}
+	if {[$t item count] == 1} { set item root } else { set item "root children" }
+	$Vars(widget:list:file) item tag add $item directory
 
 	set Vars(list:file) {}
 	foreach file $filelist {
@@ -3162,7 +3161,8 @@ proc DuplicateFile {w} {
 
 	$t item delete all
 	TraverseFolders $w
-	$t item tag add "root children" directory
+	if {[$t item count] == 1} { set item root } else { set item "root children" }
+	$t item tag add $item directory
 	TraverseFiles $w
 	foreach file [list $newFile] $Vars(scriptNewFile)
 	OpenEdit $w [expr {[llength $Vars(list:folder)] + [llength $Vars(list:file)] + 1}] duplicate

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 294 $
-# Date   : $Date: 2012-04-13 17:41:49 +0000 (Fri, 13 Apr 2012) $
+# Version: $Revision: 297 $
+# Date   : $Date: 2012-04-14 22:00:51 +0000 (Sat, 14 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -190,6 +190,7 @@
 ::menu::mc::OpenFile						"Eine Scidb-Datei öffnen"
 ::menu::mc::NewFile						"Eine Scidb-Datei anlegen"
 ::menu::mc::ImportFiles					"PGN Dateien importieren..."
+::menu::mc::Archiving					"Archivieren"
 ::menu::mc::CreateArchive				"Ein Archiv anlegen"
 ::menu::mc::BuildArchive				"Archiv %s erzeugen"
 ::menu::mc::Data							"%s-Daten"

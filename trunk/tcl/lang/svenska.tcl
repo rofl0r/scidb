@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 292 $
-# Date   : $Date: 2012-04-13 09:41:37 +0000 (Fri, 13 Apr 2012) $
+# Version: $Revision: 297 $
+# Date   : $Date: 2012-04-14 22:00:51 +0000 (Sat, 14 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -190,6 +190,7 @@
 ::menu::mc::OpenFile						"Öppna Scidb fil"
 ::menu::mc::NewFile						"Skapa Scidb fil"
 ::menu::mc::ImportFiles					"Importera PGN fil..."
+::menu::mc::Archiving					"Archiving" ;# NEW
 ::menu::mc::CreateArchive				"Create Archive" ;# NEW
 ::menu::mc::BuildArchive				"Create archive %s" ;# NEW
 ::menu::mc::Data							"%s data" ;# NEW
