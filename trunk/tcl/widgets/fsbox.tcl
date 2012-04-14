@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 294 $
-# Date   : $Date: 2012-04-13 17:41:49 +0000 (Fri, 13 Apr 2012) $
+# Version: $Revision: 295 $
+# Date   : $Date: 2012-04-14 10:59:57 +0000 (Sat, 14 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -2984,7 +2984,7 @@ proc DeleteFile {w} {
 #			if {[catch {exec /bin/sh -c $cmd}]} {
 #				# TODO: ktrash failed
 #			}
-		}
+#		}
 	} else {
 		if {[file writable $file]} { set mode w } else { set mode r }
 		if {$iskde} { set which ReallyMove } else { set which ReallyDelete }
