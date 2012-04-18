@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 284 $
-# Date   : $Date: 2012-04-01 19:39:32 +0000 (Sun, 01 Apr 2012) $
+# Version: $Revision: 298 $
+# Date   : $Date: 2012-04-18 20:09:25 +0000 (Wed, 18 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -23,6 +23,8 @@
 # the Free Software Foundation; either version 2 of the License, or
 # (at your option) any later version.
 # ======================================================================
+
+::util::source crosstable-dialog
 
 namespace eval crosstable {
 namespace eval mc {
@@ -1186,6 +1188,7 @@ proc BuildMenu {m} {
 			-variable [namespace current]::Options(fmt:padding) \
 			-value $pad \
 			;
+		::theme::configureRadioEntry $sub.padding $pad
 	}
 	foreach spc {0 1} {
 		$sub.spacing add radiobutton \
@@ -1194,6 +1197,7 @@ proc BuildMenu {m} {
 			-variable [namespace current]::Options(fmt:spacing) \
 			-value $spc \
 			;
+		::theme::configureRadioEntry $sub.spacing $spc
 	}
 
 	if {$Vars(bestMode) eq "knockout"} { set state normal } else { set state disabled }
@@ -1202,18 +1206,22 @@ proc BuildMenu {m} {
 	$sub add cascade -label $mc::Padding -menu $sub.padding
 	$sub add cascade -label $mc::KnockoutStyle -menu $sub.knockout -state $state
 
+	set text $mc::Triangle
 	$sub.knockout add radiobutton \
-		-label $mc::Triangle \
+		-label $text \
 		-command [namespace code Update] \
 		-variable [namespace current]::Options(fmt:pyramid) \
 		-value 0 \
 		;
+	::theme::configureRadioEntry $sub.knockout $text
+	set text $mc::Pyramid
 	$sub.knockout add radiobutton \
-		-label $mc::Pyramid \
+		-label $text \
 		-command [namespace code Update] \
 		-variable [namespace current]::Options(fmt:pyramid) \
 		-value 1 \
 		;
+	::theme::configureRadioEntry $sub.knockout $text
 
 	$m add cascade -label $mc::Style -menu $sub
 

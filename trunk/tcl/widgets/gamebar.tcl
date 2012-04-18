@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 282 $
-# Date   : $Date: 2012-03-26 08:07:32 +0000 (Mon, 26 Mar 2012) $
+# Version: $Revision: 298 $
+# Date   : $Date: 2012-04-18 20:09:25 +0000 (Wed, 18 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -23,6 +23,8 @@
 # the Free Software Foundation; either version 2 of the License, or
 # (at your option) any later version.
 # ======================================================================
+
+::util::source game-bar
 
 namespace eval gamebar {
 namespace eval mc {
@@ -1340,17 +1342,20 @@ proc BuildMenu {gamebar id side menu} {
 #				-variable [namespace current]::Specs(line:$gamebar) \
 #				-command [namespace code [list SelectLine $gamebar]]
 #		}
+#		::theme::configureRadioEntry $menu $text
 #		$menu add separator
 
 		menu $menu.alignment -tearoff no
 		$menu add cascade -label $mc::Alignment -menu $menu.alignment
 
 		foreach item {left center} {
+			set text [set ::toolbar::mc::[string toupper $item 0 0]]
 			$menu.alignment add radiobutton \
-				-label [set ::toolbar::mc::[string toupper $item 0 0]] \
+				-label $text \
 				-value $item \
 				-variable [namespace current]::Options(alignment) \
 				-command [namespace code [list Layout $gamebar]]
+			::theme::configureRadioEntry $menu.alignment $text
 		}
 
 		menu $menu.layout -tearoff no

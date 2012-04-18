@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 297 $
-# Date   : $Date: 2012-04-14 22:00:51 +0000 (Sat, 14 Apr 2012) $
+# Version: $Revision: 298 $
+# Date   : $Date: 2012-04-18 20:09:25 +0000 (Wed, 18 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -70,6 +70,7 @@
 ::mc::PieceSet			"Set di Pezzi"
 ::mc::Preview			"Anteprima"
 ::mc::Redo				"Rifai"
+::mc::Remove			"Remove" ;# NEW
 ::mc::Reset				"Reset"
 ::mc::Right				"Destra"
 ::mc::SelectAll		"Seleziona Tutto"
@@ -1142,14 +1143,14 @@
 ::dialog::save::mc::PressToSelect				"Premi da Ctrl+0 a Ctrl+9 (o tasto sinistro del mouse) per selezionare"
 ::dialog::save::mc::PressForWhole				"Premi da Alt-0 a Alt-9 (o tasto centrale del mouse) per l'intera selezione dati"
 ::dialog::save::mc::EditTags						"Modifica Tag"
-::dialog::save::mc::DeleteThisTag				"Eliminare tag '%s'?"
+::dialog::save::mc::RemoveThisTag				"Eliminare tag '%s'?"
 ::dialog::save::mc::TagAlreadyExists			"Il nome tag '%s' esiste già."
-::dialog::save::mc::TagDeleted					"La tag '%s' (valore attuale: '%s') sarà eliminata."
+::dialog::save::mc::TagRemoved					"La tag '%s' (valore attuale: '%s') sarà eliminata."
 ::dialog::save::mc::TagNameIsReserved			"Nome tag '%s' è riservato."
 ::dialog::save::mc::Locked							"Chiuso"
 ::dialog::save::mc::OtherTag						"Altra tag"
 ::dialog::save::mc::NewTag							"Nuova tag"
-::dialog::save::mc::DeleteTag						"Eliminare tag"
+::dialog::save::mc::RemoveTag						"Eliminare tag"
 ::dialog::save::mc::SetToGameDate				"Imposta a data partita"
 ::dialog::save::mc::SaveGameFailed				"Salvataggio partita fallito."
 ::dialog::save::mc::SaveGameFailedDetail		"Guarda il log per maggiori dettagli."
@@ -1645,6 +1646,7 @@
 
 ::fsbox::mc::AddBookmark					"Aggiungi Segnalibro '%s'"
 ::fsbox::mc::RemoveBookmark				"Rimuovi il segnalibro '%s'"
+::fsbox::mc::RenameBookmark				"Rename Bookmark '%s'" ;# NEW
 
 ::fsbox::mc::Filename						"Nom&e file:"
 ::fsbox::mc::Filenames						"Nom&i file:"

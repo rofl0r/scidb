@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 290 $
-# Date   : $Date: 2012-04-05 15:25:01 +0000 (Thu, 05 Apr 2012) $
+# Version: $Revision: 298 $
+# Date   : $Date: 2012-04-18 20:09:25 +0000 (Wed, 18 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -23,6 +23,8 @@
 # the Free Software Foundation; either version 2 of the License, or
 # (at your option) any later version.
 # ======================================================================
+
+::util::source overview-dialog
 
 namespace eval overview {
 namespace eval mc {
@@ -265,7 +267,7 @@ proc NextGame {nb base {step 0}} {
 			[::widget::busyOperation ::scidb::game::dump $base $Vars(view) $Vars(index) $Vars(fen) $num]
 		set failed 1
 		switch [lindex $result 0] {
-			 0 { set failed 0 }
+			 1 { set failed 0 }
 			-1 { after idle [list ::dialog::info  -parent $nb -message $::game::mc::GameDecodingFailed] }
 			-2 { after idle [list ::dialog::error -parent $nb -message $::game::mc::GameDataCorrupted] }
 		}

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 193 $
-# Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+# Version: $Revision: 298 $
+# Date   : $Date: 2012-04-18 20:09:25 +0000 (Wed, 18 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -23,6 +23,8 @@
 # the Free Software Foundation; either version 2 of the License, or
 # (at your option) any later version.
 # ======================================================================
+
+::util::source event-type-selection-box
 
 proc eventtypebox {w args} {
 	return [::eventtypebox::Build $w {*}$args]
@@ -133,7 +135,7 @@ proc WidgetProc {w command args} {
 			set value [$w.__w__ get]
 			set index [lsearch [$w.__w__ cget -values] $value]
 			if {$index >= 0} { return true }
-			if {$value eq "-" || $value eq "--" || $value eq ""} { return true }
+			if {$value eq "-" || $value eq "\u2014" || $value eq ""} { return true }
 			return false
 		}
 
@@ -190,7 +192,7 @@ proc Setup {w} {
 	variable types
 
 	$w.__w__ configure -width [expr {max([minWidth], $Width)}]
-	$w.__w__ listinsert { "" "--" } -index 0
+	$w.__w__ listinsert { "" "\u2014" } -index 0
 	set index 0
 	foreach type $types {
 		$w.__w__ listinsert [list $icon::12x12::Type($type) $mc::Type($type)] -index [incr index]
@@ -232,7 +234,7 @@ proc Completion2 {w var prevContent} {
 	set len [string length $content]
 	if {$len == 0} { return }
 
-	if {$len == 1 && [string is digit $content]} {
+	if {$len == 1 && [string is digit -strict $content]} {
 		if {$content <= [llength $types]} {
 			$w.__w__ current $content
 			$w.__w__ icursor end

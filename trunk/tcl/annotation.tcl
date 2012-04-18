@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 284 $
-# Date   : $Date: 2012-04-01 19:39:32 +0000 (Sun, 01 Apr 2012) $
+# Version: $Revision: 298 $
+# Date   : $Date: 2012-04-18 20:09:25 +0000 (Wed, 18 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -23,6 +23,8 @@
 # the Free Software Foundation; either version 2 of the License, or
 # (at your option) any later version.
 # ======================================================================
+
+::util::source annotation-toolwindow
 
 namespace eval annotation {
 namespace eval mc {

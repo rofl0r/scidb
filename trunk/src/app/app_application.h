@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 216 $
-// Date   : $Date: 2012-01-29 19:02:12 +0000 (Sun, 29 Jan 2012) $
+// Version: $Revision: 298 $
+// Date   : $Date: 2012-04-18 20:09:25 +0000 (Wed, 18 Apr 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -47,6 +47,7 @@ class Board;
 class Game;
 class GameInfo;
 class NamebasePlayer;
+class Producer;
 class TagSet;
 class Tree;
 class Query;
@@ -201,6 +202,7 @@ public:
 						unsigned linebreakMinCommentLength,
 						unsigned displayStyle);
 	void setupGameUndo(unsigned undoLevel, unsigned combinePredecessingMoves);
+	db::load::State importGame(db::Producer& producer, unsigned position, bool trialMode = false);
 
 	void clearBase(Cursor& cursor);
 	void compressBase(Cursor& cursor, ::util::Progress& progress);
@@ -275,6 +277,7 @@ private:
 	void setReferenceBase(Cursor* cursor, bool isUserSet);
 	void moveGamesToScratchbase(Cursor& cursor);
 	EditGame* findGame(Cursor* cursor, unsigned index, unsigned* position = 0);
+	unsigned findUnusedPosition() const;
 
 	typedef mstl::map<unsigned,EditGame>		GameMap;
 	typedef mstl::map<unsigned,unsigned> 		IndexMap;

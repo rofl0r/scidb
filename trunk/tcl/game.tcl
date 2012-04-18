@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 292 $
-# Date   : $Date: 2012-04-13 09:41:37 +0000 (Fri, 13 Apr 2012) $
+# Version: $Revision: 298 $
+# Date   : $Date: 2012-04-18 20:09:25 +0000 (Wed, 18 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -23,6 +23,8 @@
 # the Free Software Foundation; either version 2 of the License, or
 # (at your option) any later version.
 # ======================================================================
+
+::util::source game-management
 
 namespace eval game {
 namespace eval mc {
@@ -272,7 +274,7 @@ proc load {parent position base index} {
 		set rc 1
 	} else {
 		switch [::scidb::game::load $position $base $index] {
-			 0 { set rc 1 }
+			 1 { set rc 1 }
 			-1 { ::dialog::info  -parent [winfo toplevel $parent] -message $mc::GameDecodingFailed }
 			-2 { ::dialog::error -parent [winfo toplevel $parent] -message $mc::GameDataCorrupted }
 		}

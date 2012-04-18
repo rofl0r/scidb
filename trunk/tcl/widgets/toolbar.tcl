@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 294 $
-# Date   : $Date: 2012-04-13 17:41:49 +0000 (Fri, 13 Apr 2012) $
+# Version: $Revision: 298 $
+# Date   : $Date: 2012-04-18 20:09:25 +0000 (Wed, 18 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -434,6 +434,20 @@ proc childconfigure {w args} {
 
 		if {"-state" in $args} { Tooltip hide $w }
 	}
+}
+
+
+proc childcget {w key} {
+	variable Specs
+
+	set toolbar [winfo parent $w]
+	switch -- $key {
+		-state - -tooltip - -tooltipvar {
+			set key [string range $key 1 end]
+			return $Specs($key:$w:$toolbar)
+		}
+	}
+	return -code error "unknown option '$key'"
 }
 
 

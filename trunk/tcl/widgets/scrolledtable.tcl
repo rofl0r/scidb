@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 269 $
-# Date   : $Date: 2012-03-14 09:27:30 +0000 (Wed, 14 Mar 2012) $
+# Version: $Revision: 298 $
+# Date   : $Date: 2012-04-18 20:09:25 +0000 (Wed, 18 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -436,7 +436,7 @@ proc at {path y} {
 	variable ${table}::Vars
 
 	set row [::table::at $table $y]
-	if {![string is digit $row]} { return $row }
+	if {![string is digit -strict $row]} { return $row }
 	return [expr {$row + $Vars(start)}]
 }
 

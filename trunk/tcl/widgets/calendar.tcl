@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 199 $
-# Date   : $Date: 2012-01-21 17:29:44 +0000 (Sat, 21 Jan 2012) $
+# Version: $Revision: 298 $
+# Date   : $Date: 2012-04-18 20:09:25 +0000 (Wed, 18 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -348,7 +348,6 @@ proc popup {parent args} {
 	util::place $top below $parent
 	wm deiconify $top
 	raise $top
-	focus $top
 	if {[tk windowingsystem] == "x11"} {
 		catch { tkwait visibility $top }
 		update idletasks

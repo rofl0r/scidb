@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 298 $
+// Date   : $Date: 2012-04-18 20:09:25 +0000 (Wed, 18 Apr 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -147,7 +147,7 @@ bitfield<Bits>::bitfield()
 template <class Bits>
 inline
 bitfield<Bits>::bitfield(bool flag)
-	:m_bits(flag ? ~0u : 0u)
+	:m_bits(flag ? ~value_type(0) : value_type(0))
 {
 }
 

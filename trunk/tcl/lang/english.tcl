@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 297 $
-# Date   : $Date: 2012-04-14 22:00:51 +0000 (Sat, 14 Apr 2012) $
+# Version: $Revision: 298 $
+# Date   : $Date: 2012-04-18 20:09:25 +0000 (Wed, 18 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -69,6 +69,7 @@
 ::mc::PieceSet			"Piece Set"
 ::mc::Preview			"Preview"
 ::mc::Redo				"Redo"
+::mc::Remove			"Remove"
 ::mc::Reset				"Reset"
 ::mc::Right				"Right"
 ::mc::SelectAll		"Select all"
@@ -1141,14 +1142,14 @@
 ::dialog::save::mc::PressToSelect				"Press Ctrl+0 to Ctrl+9 (or left mouse button) to select"
 ::dialog::save::mc::PressForWhole				"Press Alt-0 to Alt-9 (or middle mouse button) for whole data set"
 ::dialog::save::mc::EditTags						"Edit Tags"
-::dialog::save::mc::DeleteThisTag				"Delete tag '%s'?"
+::dialog::save::mc::RemoveThisTag				"Remove tag '%s'?"
 ::dialog::save::mc::TagAlreadyExists			"Tag name '%s' already exists."
-::dialog::save::mc::TagDeleted					"Extra tag '%s' (current value: '%s') will be deleted."
+::dialog::save::mc::TagRemoved					"Extra tag '%s' (current value: '%s') will be removed."
 ::dialog::save::mc::TagNameIsReserved			"Tag name '%s' is reserved."
 ::dialog::save::mc::Locked							"Locked"
 ::dialog::save::mc::OtherTag						"Other tag"
 ::dialog::save::mc::NewTag							"New tag"
-::dialog::save::mc::DeleteTag						"Delete tag"
+::dialog::save::mc::RemoveTag						"Remove tag"
 ::dialog::save::mc::SetToGameDate				"Set to game date"
 ::dialog::save::mc::SaveGameFailed				"Save of game failed."
 ::dialog::save::mc::SaveGameFailedDetail		"See log for details."
@@ -1644,6 +1645,7 @@
 
 ::fsbox::mc::AddBookmark					"Add Bookmark '%s'"
 ::fsbox::mc::RemoveBookmark				"Remove Bookmark '%s'"
+::fsbox::mc::RenameBookmark				"Rename Bookmark '%s'"
 
 ::fsbox::mc::Filename						"File &name:"
 ::fsbox::mc::Filenames						"File &names:"

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 282 $
-// Date   : $Date: 2012-03-26 08:07:32 +0000 (Mon, 26 Mar 2012) $
+// Version: $Revision: 298 $
+// Date   : $Date: 2012-04-18 20:09:25 +0000 (Wed, 18 Apr 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -75,6 +75,7 @@ public:
 	bool isViewOpen(unsigned view) const;
 	bool isValidView(unsigned view) const;
 	bool isReferenceBase() const;
+	bool isScratchBase() const;
 	bool hasTreeView() const;
 
 	/// Count number of loaded games.
@@ -146,6 +147,8 @@ public:
 	void close();
 	/// Set whether this database is a reference database
 	void setReferenceBase(bool flag);
+	/// Set whether this database is a scratch database
+	void setScratchBase(bool flag);
 	/// Removes all games from the underlying database.
 	void clearBase();
 	/// Update the characteristics of a game.
@@ -176,6 +179,7 @@ private:
 	IndexSet			m_freeSet;
 	int				m_treeView;
 	bool				m_isRefBase;
+	bool				m_isScratchBase;
 	SubscriberP		m_subscriber;
 };
 

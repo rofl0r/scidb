@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 297 $
-# Date   : $Date: 2012-04-14 22:00:51 +0000 (Sat, 14 Apr 2012) $
+# Version: $Revision: 298 $
+# Date   : $Date: 2012-04-18 20:09:25 +0000 (Wed, 18 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -70,6 +70,7 @@
 ::mc::PieceSet			"Bábukészlet"
 ::mc::Preview			"Előnézet"
 ::mc::Redo				"Újra"
+::mc::Remove			"Remove" ;# NEW
 ::mc::Reset				"Reset"
 ::mc::Right				"Jobb"
 ::mc::SelectAll		"Mindent kijelöl"
@@ -1143,14 +1144,14 @@
 ::dialog::save::mc::PressToSelect		"Kiválasztáshoz nyomja meg a Ctrl+0-tól Ctrl+9-ig (vagy bal egérgomb)"
 ::dialog::save::mc::PressForWhole		"Nyomj Alt-0-9 -et (vagy jobb egérgomb) az egész adathalmazhoz"
 ::dialog::save::mc::EditTags			"Cimkék szerkesztése"
-::dialog::save::mc::DeleteThisTag		"Törölni kívánja a '%s' cimkét?"
+::dialog::save::mc::RemoveThisTag		"Törölni kívánja a '%s' cimkét?"
 ::dialog::save::mc::TagAlreadyExists		"'%s' cimke már létezik."
-::dialog::save::mc::TagDeleted			"'%s' extra cimke (jelenelgi tartalma: '%s') törlése kerül."
+::dialog::save::mc::TagRemoved			"'%s' extra cimke (jelenelgi tartalma: '%s') törlése kerül."
 ::dialog::save::mc::TagNameIsReserved		"'%s' cimke név foglalt."
 ::dialog::save::mc::Locked			"Zárolva"
 ::dialog::save::mc::OtherTag			"Más cike"
 ::dialog::save::mc::NewTag			"Új cimke"
-::dialog::save::mc::DeleteTag			"Cimke törlése"
+::dialog::save::mc::RemoveTag			"Cimke törlése"
 ::dialog::save::mc::SetToGameDate		"Set to game date"
 ::dialog::save::mc::SaveGameFailed		"A játszma mentése meghiúsult."
 ::dialog::save::mc::SaveGameFailedDetail	"Lásd az eseménynaplót a részletekért."
@@ -1645,6 +1646,7 @@
 
 ::fsbox::mc::AddBookmark					"Könyvjelző hozzáadása '%s'"
 ::fsbox::mc::RemoveBookmark				"Könyvjelző eltávolítása '%s'"
+::fsbox::mc::RenameBookmark				"Rename Bookmark '%s'" ;# NEW
 
 ::fsbox::mc::Filename						"Fájl &név:"
 ::fsbox::mc::Filenames						"Fájl &nevek:"
