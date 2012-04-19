@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 298 $
-# Date   : $Date: 2012-04-18 20:09:25 +0000 (Wed, 18 Apr 2012) $
+# Version: $Revision: 299 $
+# Date   : $Date: 2012-04-19 17:30:01 +0000 (Thu, 19 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -939,9 +939,8 @@ proc OpenUri {uriFiles} {
 	set databaseList {}
 
 	foreach file [split $uriFiles \n] {
-		set uri [string trimright $file]
-		set file $uri
 		if {[string length $file]} {
+			set uri $file
 			if {[string equal -length 5 $file "file:"]} {
 				if {[string equal -length 17 $file "file://localhost/"]} {
 					# correct implementation
@@ -1557,12 +1556,16 @@ proc PopupMenu {canv x y {index -1} {ignoreNext 0}} {
 				0 0 trash {} \
 				;
 		}
-		if {$ext eq "si3" || $ext eq "si4" || $ext eq "cbh" || $ext eq "pgn"} {
-			lappend specs	command \
-								"$mc::Recode..." \
-								[namespace code [list Recode $i $top]] \
-								0 1 {} {} \
-								;
+		switch $ext {
+			si3 - si4 - cbh - pgn {
+				if {[file readable $file]} {
+					lappend specs	command \
+										"$mc::Recode..." \
+										[namespace code [list Recode $i $top]] \
+										0 1 {} {} \
+										;
+				}
+			}
 		}
 		# TODO:
 		#	if {	[::scidb::view::count games $file 0] == [::scidb::db::count games $file]

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 289 $
-# Date   : $Date: 2012-04-04 09:47:19 +0000 (Wed, 04 Apr 2012) $
+# Version: $Revision: 299 $
+# Date   : $Date: 2012-04-19 17:30:01 +0000 (Thu, 19 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -56,14 +56,6 @@ namespace eval olednd {
   variable _unhandled_types {}
   variable _prev_drop_target {}
 };# namespace olednd
-
-# ----------------------------------------------------------------------------
-#  Command olednd::_DropTarget
-# ----------------------------------------------------------------------------
-proc olednd::_DropTarget {} {
-  variable _prev_drop_target;
-  return $_prev_drop_target
-}
 
 # ----------------------------------------------------------------------------
 #  Command olednd::_HandleDragEnter

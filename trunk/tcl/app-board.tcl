@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 298 $
-# Date   : $Date: 2012-04-18 20:09:25 +0000 (Wed, 18 Apr 2012) $
+# Version: $Revision: 299 $
+# Date   : $Date: 2012-04-19 17:30:01 +0000 (Thu, 19 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -926,7 +926,7 @@ proc LanguageChanged {} {
 	foreach key [array names Accel] {
 		bind <Control-[string tolower $Accel($key)]> $Vars(cmd:$key)
 		bind <Control-[string toupper $Accel($key)]> $Vars(cmd:$key)
-		set Vars(key:$key) $Vars(cmd:$key)
+		set Vars(key:$key) $Accel($key)
 	}
 
 	bind <Control-Shift-[string tolower $Accel(edit-comment)]> $Vars(cmd:shift:edit-comment)

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 298 $
-# Date   : $Date: 2012-04-18 20:09:25 +0000 (Wed, 18 Apr 2012) $
+# Version: $Revision: 299 $
+# Date   : $Date: 2012-04-19 17:30:01 +0000 (Thu, 19 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -295,7 +295,7 @@ proc build {parent width height} {
 	set Vars(button:import) [::toolbar::add $tbGame button \
 		-image $::icon::toolbarPGN \
 		-tooltip $::import::mc::ImportPgnGame \
-		-command [namespace code ImportGame] \
+		-command [namespace code [list ::menu::importGame $Vars(main)]] \
 	]
 	set tbGameHistory [::toolbar::toolbar $top \
 		-id history \
@@ -2627,14 +2627,6 @@ proc Refresh {var} {
 proc NewGame {} {
 	variable Vars
 	::setup::popupShuffleMenu [namespace current] $Vars(button:shuffle)
-}
-
-
-proc ImportGame {} {
-	variable Vars
-
-	set pos [::game::new $Vars(main)]
-	if {$pos >= 0} { ::import::openEdit $Vars(main) $pos }
 }
 
 

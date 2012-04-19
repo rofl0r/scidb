@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 298 $
-# Date   : $Date: 2012-04-18 20:09:25 +0000 (Wed, 18 Apr 2012) $
+# Version: $Revision: 299 $
+# Date   : $Date: 2012-04-19 17:30:01 +0000 (Thu, 19 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1559,6 +1559,9 @@
 ::dialog::fsbox::mc::PortableDocumentFile	"Portable Dokumentendatei"
 ::dialog::fsbox::mc::HypertextFile			"Hypertext-Datei"
 ::dialog::fsbox::mc::TypesettingFile		"Textsatz-Datei"
+::dialog::fsbox::mc::LinkTo					"Link auf %s"
+::dialog::fsbox::mc::LinkTarget				"Linkziel"
+::dialog::fsbox::mc::Directory				"Verzeichnis"
 
 ::dialog::fsbox::mc::Content					"Inhalt"
 ::dialog::fsbox::mc::Open						"Geöffnet"
