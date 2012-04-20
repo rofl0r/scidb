@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 300 $
-# Date   : $Date: 2012-04-20 13:06:24 +0000 (Fri, 20 Apr 2012) $
+# Version: $Revision: 301 $
+# Date   : $Date: 2012-04-20 17:47:04 +0000 (Fri, 20 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -403,9 +403,12 @@ proc fsbox {w type args} {
 	bind $top.main <<ThemeChanged>> [namespace code [list ThemeChanged $w]]
 
 	set tl [winfo toplevel $top]
-	bind $tl <Escape>  [list $Vars(button:cancel) invoke]
-	bind $tl <Return>  [list $Vars(button:ok) invoke]
-	bind $tl <Alt-Key> [list tk::AltKeyInDialog $tl %A]
+	bind $tl <Escape>		[list $Vars(button:cancel) invoke]
+	bind $tl <Return>		[list $Vars(button:ok) invoke]
+	bind $tl <Alt-Key>	[list tk::AltKeyInDialog $tl %A]
+	if {[llength $Vars(helpcommand)]} {
+		bind $tl <F1>		[list $Vars(helpcommand) $w]
+	}
 
 	array unset Vars widget:list:file
 	setFileTypes $w $Vars(filetypes) $Vars(defaultextension)

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 298 $
-# Date   : $Date: 2012-04-18 20:09:25 +0000 (Wed, 18 Apr 2012) $
+# Version: $Revision: 301 $
+# Date   : $Date: 2012-04-20 17:47:04 +0000 (Fri, 20 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -165,8 +165,11 @@ proc WidgetProc {w command args} {
 				error "wrong # args: should be \"[namespace current] set <value>\""
 			}
 			set value [lindex $args 0]
-			if {[info exists mc::Gender($value)]} { set value $mc::Gender($value) }
-			$w.__w__ current search sex $value
+			if {[info exists mc::Gender($value)]} {
+				$w.__w__ current search sex  $mc::Gender($value)
+			} else {
+				$w.__w__ current 0
+			}
 			ShowIcon $w
 			return $w
 		}

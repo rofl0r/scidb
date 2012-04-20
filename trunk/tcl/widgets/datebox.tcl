@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 298 $
-# Date   : $Date: 2012-04-18 20:09:25 +0000 (Wed, 18 Apr 2012) $
+# Version: $Revision: 301 $
+# Date   : $Date: 2012-04-20 17:47:04 +0000 (Fri, 20 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -225,6 +225,8 @@ proc WidgetProc {w command args} {
 			}
 			if {[lindex $args 0] eq "-state"} { return "normal" }
 		}
+
+		icursor - selection { return }
 	}
 
 	return [$w.__w__ $command {*}$args]
