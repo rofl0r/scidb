@@ -1,7 +1,7 @@
 ## ======================================================================
 # Author : $Author$
-# Version: $Revision: 298 $
-# Date   : $Date: 2012-04-18 20:09:25 +0000 (Wed, 18 Apr 2012) $
+# Version: $Revision: 300 $
+# Date   : $Date: 2012-04-20 13:06:24 +0000 (Fri, 20 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -100,7 +100,7 @@ proc open {parent {file {}} args} {
 
 	set dlg .help
 	if {[winfo exists $dlg]} {
-		ShowIndex
+		if {[string length $file] == 0} { ShowIndex }
 		raise $dlg
 		focus $dlg
 		set Priv(currentfile) [FullPath $file]

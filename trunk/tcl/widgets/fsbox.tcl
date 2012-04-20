@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 299 $
-# Date   : $Date: 2012-04-19 17:30:01 +0000 (Thu, 19 Apr 2012) $
+# Version: $Revision: 300 $
+# Date   : $Date: 2012-04-20 13:06:24 +0000 (Fri, 20 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -3800,9 +3800,9 @@ proc PopupMenu {w x y} {
 					-command [namespace code [list DuplicateFile $w]] \
 					;
 			}
-			if {	$Vars(state:custom) eq "normal"
-				&& [llength $Vars(customcommand)]
+			if {	[llength $Vars(customcommand)]
 				&& [llength $Vars(customtooltip)]
+				&& $Vars(state:custom) eq "normal"
 				&& [file extension $file] in $Vars(customfiletypes)} {
 				incr count
 				$m add command                                           \
