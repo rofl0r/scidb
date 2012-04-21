@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 299 $
-# Date   : $Date: 2012-04-19 17:30:01 +0000 (Thu, 19 Apr 2012) $
+# Version: $Revision: 304 $
+# Date   : $Date: 2012-04-21 20:39:59 +0000 (Sat, 21 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -279,6 +279,7 @@ proc build {parent width height} {
 
 	set tbGame [::toolbar::toolbar $top \
 		-id game \
+		-hide 1 \
 		-side bottom \
 		-tooltipvar ::mc::Game \
 	]
@@ -299,8 +300,9 @@ proc build {parent width height} {
 	]
 	set tbGameHistory [::toolbar::toolbar $top \
 		-id history \
+		-hide 1 \
 		-side bottom \
-		-tooltipvar ::mc::Game \
+		-tooltipvar ::dialog::save::mc::History \
 	]
 	set Vars(button:remove) [::toolbar::add $tbGameHistory button \
 		-image $::icon::toolbarRemove \
