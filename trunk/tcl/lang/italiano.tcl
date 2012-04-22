@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 301 $
-# Date   : $Date: 2012-04-20 17:47:04 +0000 (Fri, 20 Apr 2012) $
+# Version: $Revision: 306 $
+# Date   : $Date: 2012-04-22 18:16:09 +0000 (Sun, 22 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -964,6 +964,7 @@
 ::import::mc::TooManyNags							"Troppi NAG (ultimo ignorato)"
 ::import::mc::IllegalCastling						"Arrocco illegale"
 ::import::mc::IllegalMove							"Mossa illegale"
+::import::mc::CastlingCorrection					"Castling correction" ;# NEW
 ::import::mc::UnsupportedVariant					"Variante di scacchi non supportata"
 ::import::mc::DecodingFailed						"La decodifica di questa partita non è stata possibile"
 ::import::mc::ResultDidNotMatchHeaderResult	"Il risultato non corrisponde alle informazioni fornite"

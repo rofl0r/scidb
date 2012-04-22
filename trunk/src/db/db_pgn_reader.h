@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 282 $
-// Date   : $Date: 2012-03-26 08:07:32 +0000 (Mon, 26 Mar 2012) $
+// Version: $Revision: 306 $
+// Date   : $Date: 2012-04-22 18:16:09 +0000 (Sun, 22 Apr 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -107,6 +107,7 @@ public:
 		ResultDidNotMatchHeaderResult,
 		IllegalCastling,
 		IllegalMove,
+		CastlingCorrection,
 		ValueTooLong,
 		MaximalErrorCountExceeded,
 		MaximalWarningCountExceeded,

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 301 $
-# Date   : $Date: 2012-04-20 17:47:04 +0000 (Fri, 20 Apr 2012) $
+# Version: $Revision: 306 $
+# Date   : $Date: 2012-04-22 18:16:09 +0000 (Sun, 22 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -962,6 +962,7 @@
 ::import::mc::TooManyNags							"Zuviele NAG's (die letzteren werden ignoriert)"
 ::import::mc::IllegalCastling						"Regelwidrige Rochade"
 ::import::mc::IllegalMove							"Regelwidriger Zug"
+::import::mc::CastlingCorrection					"Castling correction"
 ::import::mc::UnsupportedVariant					"Unzulässige Schachvariante"
 ::import::mc::DecodingFailed						"Eine Dekodierung dieser Partie war nicht möglich"
 ::import::mc::ResultDidNotMatchHeaderResult	"Ergebnis stimmte nicht mit Ergebnis-Tag überein"

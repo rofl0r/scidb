@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 298 $
-// Date   : $Date: 2012-04-18 20:09:25 +0000 (Wed, 18 Apr 2012) $
+// Version: $Revision: 306 $
+// Date   : $Date: 2012-04-22 18:16:09 +0000 (Sun, 22 Apr 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -143,6 +143,7 @@ PgnReader::warning(	Warning code,
 		case TooManyNags:							msg = "TooManyNags"; break;
 		case IllegalCastling:					msg = "IllegalCastling"; break;
 		case IllegalMove:							msg = "IllegalMove"; break;
+		case CastlingCorrection:				msg = "CastlingCorrection"; break;
 		case ResultDidNotMatchHeaderResult: msg = "ResultDidNotMatchHeaderResult"; break;
 		case ValueTooLong:						msg = "ValueTooLong"; break;
 		case MaximalErrorCountExceeded:		msg = "MaximalErrorCountExceeded"; break;

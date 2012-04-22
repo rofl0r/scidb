@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 292 $
-// Date   : $Date: 2012-04-13 09:41:37 +0000 (Fri, 13 Apr 2012) $
+// Version: $Revision: 306 $
+// Date   : $Date: 2012-04-22 18:16:09 +0000 (Sun, 22 Apr 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2676,7 +2676,24 @@ PgnReader::doCastling(char const* castle)
 		board.parseMove(castle, m_move, move::AllowIllegalMove);
 
 		if (!m_move)
-			return false;
+		{
+			Move castling;
+			MoveList moves;
+
+			this->board().generateCastlingMoves(moves);
+			this->board().filterLegalMoves(moves);
+
+			if (moves.size() != 1)
+				return false;
+
+			mstl::string msg(castle);
+			msg.append(" -> ");
+			msg.append(moves[0].asString());
+
+			m_move = moves[0];
+			warning(CastlingCorrection, m_prevPos, msg);
+			return true;
+		}
 
 		m_move.setIllegalMove();
 		warning(IllegalCastling, m_prevPos, castle);

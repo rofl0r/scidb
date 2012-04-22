@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 306 $
+// Date   : $Date: 2012-04-22 18:16:09 +0000 (Sun, 22 Apr 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -179,10 +179,12 @@ public:
 	void prepareUndo(Move& move) const;
 	/// Generate all possible moves in a given position
 	void generateMoves(MoveList& result) const;
-	/// Remove all illegal moves from given move list
-	void filterLegalMoves(MoveList& result) const;
 	/// Generate all possible capturing moves in a given position
 	void generateCapturingMoves(MoveList& result) const;
+	/// Generate all possible castling moves in a given position.
+	void generateCastlingMoves(MoveList& result) const;
+	/// Remove all illegal moves from given move list
+	void filterLegalMoves(MoveList& result) const;
 
 	// Query
 

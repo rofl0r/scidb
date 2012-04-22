@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 298 $
-# Date   : $Date: 2012-04-18 20:09:25 +0000 (Wed, 18 Apr 2012) $
+# Version: $Revision: 306 $
+# Date   : $Date: 2012-04-22 18:16:09 +0000 (Sun, 22 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -82,6 +82,7 @@ set EncodingFailed						"Encoding failed"
 set TooManyNags							"Too many NAG's (latter ignored)"
 set IllegalCastling						"Illegal castling"
 set IllegalMove							"Illegal move"
+set CastlingCorrection					"Castling correction"
 set UnsupportedVariant					"Unsupported chess variant"
 set DecodingFailed						"Decoding of this game was not possible"
 set ResultDidNotMatchHeaderResult	"Result did not match header result"

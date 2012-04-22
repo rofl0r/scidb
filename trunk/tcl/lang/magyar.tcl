@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 301 $
-# Date   : $Date: 2012-04-20 17:47:04 +0000 (Fri, 20 Apr 2012) $
+# Version: $Revision: 306 $
+# Date   : $Date: 2012-04-22 18:16:09 +0000 (Sun, 22 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -965,6 +965,7 @@
 ::import::mc::TooManyNags					"Túl sok NAG (a későbbiek kihagyva)"
 ::import::mc::IllegalCastling					"Szabálytalan sáncolás"
 ::import::mc::IllegalMove					"Szabálytalan lépés"
+::import::mc::CastlingCorrection				"Castling correction" ;# NEW
 ::import::mc::UnsupportedVariant				"Unsupported chess variant"
 ::import::mc::DecodingFailed					"Sikertelen dekódolás"
 ::import::mc::ResultDidNotMatchHeaderResult			"Az eredmény nem egyezik meg a fejlécben megadott eredménnyel"

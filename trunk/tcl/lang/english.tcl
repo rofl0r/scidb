@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 301 $
-# Date   : $Date: 2012-04-20 17:47:04 +0000 (Fri, 20 Apr 2012) $
+# Version: $Revision: 306 $
+# Date   : $Date: 2012-04-22 18:16:09 +0000 (Sun, 22 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -963,6 +963,7 @@
 ::import::mc::TooManyNags							"Too many NAG's (latter ignored)"
 ::import::mc::IllegalCastling						"Illegal castling"
 ::import::mc::IllegalMove							"Illegal move"
+::import::mc::CastlingCorrection					"Rochadekorrektur"
 ::import::mc::UnsupportedVariant					"Unsupported chess variant"
 ::import::mc::DecodingFailed						"Decoding of this game was not possible"
 ::import::mc::ResultDidNotMatchHeaderResult	"Result did not match header result"

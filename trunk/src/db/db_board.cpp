@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 306 $
+// Date   : $Date: 2012-04-22 18:16:09 +0000 (Sun, 22 Apr 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2172,6 +2172,26 @@ Board::genCastleLong(MoveList& result, color::ID side) const
 
 
 void
+Board::generateCastlingMoves(MoveList& result) const
+{
+	if (m_stm == White)
+	{
+		if ((m_castle & WhiteKingside) && shortCastlingWhiteIsLegal())
+			genCastleShort(result, White);
+		if ((m_castle & WhiteQueenside) && longCastlingWhiteIsLegal())
+			genCastleLong(result, White);
+	}
+	else
+	{
+		if ((m_castle & BlackKingside) && shortCastlingBlackIsLegal())
+			genCastleShort(result, Black);
+		if ((m_castle & BlackQueenside) && longCastlingBlackIsLegal())
+			genCastleLong(result, Black);
+	}
+}
+
+
+void
 Board::generateMoves(MoveList& result) const
 {
 	result.clear();
@@ -3835,15 +3855,15 @@ Board::prepareMove(Square from, Square to, move::Constraint flag) const
 			break;
 	}
 
-	if (!move)
-		move.setSquares(from, to);
+	if (move)
+	{
+		move.setColor(m_stm);
 
-	move.setColor(m_stm);
-
-	if (!isIntoCheck(move))
-		move.setLegalMove();
-	else if (flag == move::DontAllowIllegalMove)
-		return Move::empty();
+		if (!isIntoCheck(move))
+			move.setLegalMove();
+		else if (flag == move::DontAllowIllegalMove)
+			return Move::empty();
+	}
 
 	return move;
 }
