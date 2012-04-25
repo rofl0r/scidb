@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 306 $
-# Date   : $Date: 2012-04-22 18:16:09 +0000 (Sun, 22 Apr 2012) $
+# Version: $Revision: 309 $
+# Date   : $Date: 2012-04-25 20:45:13 +0000 (Wed, 25 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -3045,6 +3045,9 @@ bind TagList <Key-Up>		{ ::dialog::save::ChangeCurrentElement %W 0 -1 }
 bind TagList <Key-Down>		{ ::dialog::save::ChangeCurrentElement %W 0 +1 }
 bind TagList <Key-space>	{ ::dialog::save::ActivateCurrentElement %W }
 
+
+# NOTE: we have to stipulate tk_focusNext before renaming is possibe!
+tk_focusNext .
 rename tk_focusNext tk_focusNext_save_replace_
 
 proc ::tk_focusNext w {
