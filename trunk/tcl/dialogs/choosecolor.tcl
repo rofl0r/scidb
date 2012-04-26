@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 268 $
-# Date   : $Date: 2012-03-13 16:47:20 +0000 (Tue, 13 Mar 2012) $
+# Version: $Revision: 310 $
+# Date   : $Date: 2012-04-26 20:16:11 +0000 (Thu, 26 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -761,7 +761,8 @@ proc CreateEntry {w} {
 		-validatecommand {
 			return [expr {%d == 0 || ([string match \[0-9a-fA-F\]* "%S"] && [string length %s] <= 5)}]
 		} \
-		-invalidcommand { bell }
+		-invalidcommand { bell } \
+		;
 	$f.e configure -validate key
 	$f.e selection range 0 end
 	pack $f -padx 5 -pady 5

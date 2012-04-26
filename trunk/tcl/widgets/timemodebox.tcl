@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 301 $
-# Date   : $Date: 2012-04-20 17:47:04 +0000 (Fri, 20 Apr 2012) $
+# Version: $Revision: 310 $
+# Date   : $Date: 2012-04-26 20:16:11 +0000 (Thu, 26 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -159,6 +159,10 @@ proc WidgetProc {w command args} {
 
 		focus {
 			return [focus $w.__w__]
+		}
+
+		path {
+			return $w.__w__
 		}
 
 		instate {

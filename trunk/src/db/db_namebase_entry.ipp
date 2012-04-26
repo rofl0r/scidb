@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 310 $
+// Date   : $Date: 2012-04-26 20:16:11 +0000 (Thu, 26 Apr 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -380,7 +380,7 @@ inline NamebasePlayer::Value::Value(uint32_t key) : m_key(key & KeyMask) {}
 inline
 NamebasePlayer::Value::Value()
 	:m_federation(country::Unknown)
-	,m_title(0)
+	,m_title(title::None)
 	,m_sex(sex::Unspecified)
 	,m_species(species::Unspecified)
 	,m_ignored_(0)

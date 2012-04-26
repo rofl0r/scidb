@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 306 $
-# Date   : $Date: 2012-04-22 18:16:09 +0000 (Sun, 22 Apr 2012) $
+# Version: $Revision: 310 $
+# Date   : $Date: 2012-04-26 20:16:11 +0000 (Thu, 26 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -533,7 +533,7 @@
 ::board::options::mc::ShowBorder				"Visa ram"
 ::board::options::mc::ShowCoordinates		"Visa kordinater"
 ::board::options::mc::ShowMaterialValues	"Visa materiella värde"
-::board::options::mc::ShowBar					"Visa stapel"
+::board::options::mc::ShowMaterialBar		"Show Material Bar" ;# NEW previously: "Visa stapel"
 ::board::options::mc::ShowSideToMove		"Visa sida vid draget"
 ::board::options::mc::ShowSuggestedMove	"Visa föreslagna drag"
 ::board::options::mc::SuggestedMove			"Föreslagna drag"
@@ -1473,21 +1473,23 @@
 ::log::mc::Information	"Info"
 
 ### titlebox ############################################################
-::titlebox::mc::Title(GM)	"Stormästare (FIDE)"
-::titlebox::mc::Title(IM)	"Internationell mästare (FIDE)"
-::titlebox::mc::Title(FM)	"Fide-mästare (FIDE)"
-::titlebox::mc::Title(CM)	"Candidate Master (FIDE)"
-::titlebox::mc::Title(WGM)	"Woman Grandmaster (FIDE)"
-::titlebox::mc::Title(WIM)	"Woman International Master (FIDE)"
-::titlebox::mc::Title(WFM)	"Woman Fide Master (FIDE)"
-::titlebox::mc::Title(WCM)	"Woman Candidate Master (FIDE)"
-::titlebox::mc::Title(HGM)	"Honorary Grandmaster (FIDE)"
-::titlebox::mc::Title(NM)	"National Master (USCF)"
-::titlebox::mc::Title(SM)	"Senior Master (USCF)"
-::titlebox::mc::Title(LM)	"Life Master (USCF)"
-::titlebox::mc::Title(CGM)	"Correspondence Grandmaster (ICCF)"
-::titlebox::mc::Title(CSM)	"Correspondence Senior International Master (ICCF)"
-::titlebox::mc::Title(CIM)	"Correspondence International Master (ICCF)"
+::titlebox::mc::Title(GM)		"Stormästare (FIDE)"
+::titlebox::mc::Title(IM)		"Internationell mästare (FIDE)"
+::titlebox::mc::Title(FM)		"Fide-mästare (FIDE)"
+::titlebox::mc::Title(CM)		"Candidate Master (FIDE)"
+::titlebox::mc::Title(WGM)		"Woman Grandmaster (FIDE)"
+::titlebox::mc::Title(WIM)		"Woman International Master (FIDE)"
+::titlebox::mc::Title(WFM)		"Woman Fide Master (FIDE)"
+::titlebox::mc::Title(WCM)		"Woman Candidate Master (FIDE)"
+::titlebox::mc::Title(HGM)		"Honorary Grandmaster (FIDE)"
+::titlebox::mc::Title(NM)		"National Master (USCF)"
+::titlebox::mc::Title(SM)		"Senior Master (USCF)"
+::titlebox::mc::Title(LM)		"Life Master (USCF)"
+::titlebox::mc::Title(CGM)		"Correspondence Grandmaster (ICCF)"
+::titlebox::mc::Title(CIM)		"Correspondence International Master (ICCF)"
+::titlebox::mc::Title(CLGM)	"Correspondence Lady Grandmaster (ICCF)"
+::titlebox::mc::Title(CILM)	"Correspondence Lady International Master (ICC)"
+::titlebox::mc::Title(CSIM)	"Correspondence Senior International Master (ICCF)"
 
 ### messagebox #########################################################
 ::dialog::mc::Ok				"&OK"

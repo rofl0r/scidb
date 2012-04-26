@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 304 $
-# Date   : $Date: 2012-04-21 20:39:59 +0000 (Sat, 21 Apr 2012) $
+# Version: $Revision: 310 $
+# Date   : $Date: 2012-04-26 20:16:11 +0000 (Thu, 26 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1477,7 +1477,7 @@ proc PrintAnnotation {w position level key nags isPrefix} {
 		set nagTag $keyTag:[incr count]
 		set c [string index $nag 0]
 		if {[string is alpha $c] && [string is ascii $c]} {
-			if {$prevSym >= 0 && [lindex [split [$w index current] .] end] ne "0"} {
+			if {[lindex [split [$w index current] .] end] ne "0"} {
 				$w insert current " "
 			}
 			set prevSym 1

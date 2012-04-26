@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 301 $
-# Date   : $Date: 2012-04-20 17:47:04 +0000 (Fri, 20 Apr 2012) $
+# Version: $Revision: 310 $
+# Date   : $Date: 2012-04-26 20:16:11 +0000 (Thu, 26 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -34,26 +34,28 @@ proc titlebox {w args} {
 namespace eval titlebox {
 namespace eval mc {
 
-set Title(GM)	"Grandmaster (FIDE)"
-set Title(IM)	"International Master (FIDE)"
-set Title(FM)	"Fide Master (FIDE)"
-set Title(CM)	"Candidate Master (FIDE)"
-set Title(WGM)	"Woman Grandmaster (FIDE)"
-set Title(WIM)	"Woman International Master (FIDE)"
-set Title(WFM)	"Woman Fide Master (FIDE)"
-set Title(WCM)	"Woman Candidate Master (FIDE)"
-set Title(HGM)	"Honorary Grandmaster (FIDE)"
-set Title(NM)	"National Master (USCF)"
-set Title(SM)	"Senior Master (USCF)"
-set Title(LM)	"Life Master (USCF)"
-set Title(CGM)	"Correspondence Grandmaster (ICCF)"
-set Title(CIM)	"Correspondence International Master (ICC)"
-set Title(CSM)	"Correspondence Senior International Master (ICCF)"
+set Title(GM)		"Grandmaster (FIDE)"
+set Title(IM)		"International Master (FIDE)"
+set Title(FM)		"Fide Master (FIDE)"
+set Title(CM)		"Candidate Master (FIDE)"
+set Title(WGM)		"Woman Grandmaster (FIDE)"
+set Title(WIM)		"Woman International Master (FIDE)"
+set Title(WFM)		"Woman Fide Master (FIDE)"
+set Title(WCM)		"Woman Candidate Master (FIDE)"
+set Title(HGM)		"Honorary Grandmaster (FIDE)"
+set Title(NM)		"National Master (USCF)"
+set Title(SM)		"Senior Master (USCF)"
+set Title(LM)		"Life Master (USCF)"
+set Title(CGM)		"Correspondence Grandmaster (ICCF)"
+set Title(CIM)		"Correspondence International Master (ICC)"
+set Title(CLGM)	"Correspondence Lady Grandmaster (ICCF)"
+set Title(CILM)	"Correspondence Lady International Master (ICC)"
+set Title(CSIM)	"Correspondence Senior International Master (ICCF)"
 
 }
 
 
-variable titles { GM IM FM CM WGM WIM WFM WCM HGM CGM CIM CSM NM SM LM }
+variable titles { GM IM FM CM WGM WIM WFM WCM HGM CGM CLGM CIM CILM CSIM NM SM LM }
 
 
 proc Build {w args} {

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 282 $
-// Date   : $Date: 2012-03-26 08:07:32 +0000 (Mon, 26 Mar 2012) $
+// Version: $Revision: 310 $
+// Date   : $Date: 2012-04-26 20:16:11 +0000 (Thu, 26 Apr 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -139,6 +139,7 @@ private:
 								GameInfo const& info,
 								bool& isChess960);
 	void decodeIndex(util::ByteStream& strm, GameInfo& info);
+	void decodeGuidingText(util::ByteStream& strm);
 
 	unsigned readHeader(mstl::string const& rootname);
 

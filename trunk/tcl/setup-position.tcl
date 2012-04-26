@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 298 $
-# Date   : $Date: 2012-04-18 20:09:25 +0000 (Wed, 18 Apr 2012) $
+# Version: $Revision: 310 $
+# Date   : $Date: 2012-04-26 20:16:11 +0000 (Thu, 26 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -162,10 +162,12 @@ proc open {parent} {
 		-variable [namespace current]::Vars(castling) \
 		;
 	set Vars(castling:widget) $top.control.castling
-	::ttk::entry $top.control.idn \
+	::ttk::label $top.control.idn \
 		-textvariable [namespace current]::Vars(idn:text) \
 		-width 5 \
-		-state readonly \
+		-relief sunken \
+		-anchor center \
+		-background [$dlg cget -background] \
 		;
 	::ttk::button $top.control.standard \
 		-style icon.TButton \

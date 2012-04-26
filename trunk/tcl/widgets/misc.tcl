@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 298 $
-# Date   : $Date: 2012-04-18 20:09:25 +0000 (Wed, 18 Apr 2012) $
+# Version: $Revision: 310 $
+# Date   : $Date: 2012-04-26 20:16:11 +0000 (Thu, 26 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -42,6 +42,10 @@ set Priv(busy:state) 0
 
 set ButtonOrder { previous next update clear close ok apply cancel reset revert }
 	
+
+proc focusNext {w next} { set [namespace current]::Priv(next:$w) $next }
+proc focusPrev {w prev} { set [namespace current]::Priv(prev:$w) $prev }
+
 
 proc textLineScroll {w cmd args} {
 	switch $cmd {
@@ -375,5 +379,28 @@ proc SetDialogTitle {dlg cmd} {
 }
 
 } ;# namespace widget
+
+
+# NOTE: we have to stipulate tk_focusNext before renaming is possibe!
+tk_focusNext .
+tk_focusPrev .
+rename tk_focusNext tk_focusNext_widget_
+rename tk_focusPrev tk_focusPrev_widget_
+
+
+proc ::tk_focusNext {w} {
+	variable widget::Priv
+
+	if {[info exists Priv(next:$w)]} { return $Priv(next:$w) }
+	return [tk_focusNext_widget_ $w]
+}
+
+
+proc ::tk_focusPrev {w} {
+	variable widget::Priv
+
+	if {[info exists Priv(prev:$w)]} { return $Priv(prev:$w) }
+	return [tk_focusPrev_widget_ $w]
+}
 
 # vi:set ts=3 sw=3:

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 310 $
+// Date   : $Date: 2012-04-26 20:16:11 +0000 (Thu, 26 Apr 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -56,7 +56,7 @@ NamebaseSite::findCountry() const
 NamebasePlayer::NamebasePlayer()
 	:m_player(0)
 	,m_federation(country::Unknown)
-	,m_title(0)
+	,m_title(title::None)
 	,m_sex(sex::Unspecified)
 	,m_species(species::Unspecified)
 	,m_federationFlag(1)

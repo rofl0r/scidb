@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 298 $
-# Date   : $Date: 2012-04-18 20:09:25 +0000 (Wed, 18 Apr 2012) $
+# Version: $Revision: 310 $
+# Date   : $Date: 2012-04-26 20:16:11 +0000 (Thu, 26 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -181,9 +181,10 @@ if {![::process::testOption elo-only]} {
 
 # --- Load rating lists ------------------------------------------------
 foreach rating {IPS DWZ ECF ICCF} {
+	set type [string tolower $rating]
 	load::load	[format $load::mc::Loading [format $load::mc::RatingList $rating]] \
-					ips \
-					[file join $scidb::dir::data [string tolower $rating]-ratings.txt] \
+					$type \
+					[file join $scidb::dir::data $type-ratings.txt] \
 					;
 }
 

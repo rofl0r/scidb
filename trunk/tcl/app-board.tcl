@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 299 $
-# Date   : $Date: 2012-04-19 17:30:01 +0000 (Thu, 19 Apr 2012) $
+# Version: $Revision: 310 $
+# Date   : $Date: 2012-04-26 20:16:11 +0000 (Thu, 26 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -413,7 +413,7 @@ proc PopupMenu {w} {
 		-command [namespace code [list Apply $Vars(widget:frame)]] \
 		;
 	$m add checkbutton \
-		-label $::board::options::mc::ShowBar \
+		-label $::board::options::mc::ShowMaterialBar \
 		-variable ::board::layout(material-bar) \
 		-state [expr {$::board::layout(material-values) ? "normal" : "disabled"}] \
 		-command [namespace code [list Apply $Vars(widget:frame)]] \

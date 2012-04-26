@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 306 $
-# Date   : $Date: 2012-04-22 18:16:09 +0000 (Sun, 22 Apr 2012) $
+# Version: $Revision: 310 $
+# Date   : $Date: 2012-04-26 20:16:11 +0000 (Thu, 26 Apr 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -535,7 +535,7 @@
 ::board::options::mc::ShowBorder				"Mostra bordo"
 ::board::options::mc::ShowCoordinates		"Mostra coordinate"
 ::board::options::mc::ShowMaterialValues	"Mostra valore dei pezzi"
-::board::options::mc::ShowBar					"Mostra barra"
+::board::options::mc::ShowMaterialBar		"Show Material Bar" ;# NEW previously "Mostra barra"
 ::board::options::mc::ShowSideToMove		"Mostra lato con il tratto"
 ::board::options::mc::ShowSuggestedMove	"Mostra mossa suggerita"
 ::board::options::mc::SuggestedMove			"Mossa suggerita"
@@ -1476,21 +1476,23 @@
 ::log::mc::Information	"Info"
 
 ### titlebox ############################################################
-::titlebox::mc::Title(GM)	"Grande Maestro (FIDE)"
-::titlebox::mc::Title(IM)	"Maestro Internazionale (FIDE)"
-::titlebox::mc::Title(FM)	"Maestro Fide (FIDE)"
-::titlebox::mc::Title(CM)	"Candidato Maestro (FIDE)"
-::titlebox::mc::Title(WGM)	"Grande Mestro Femminile (FIDE)"
-::titlebox::mc::Title(WIM)	"Maestro Internazionale Femminile (FIDE)"
-::titlebox::mc::Title(WFM)	"Maestro Fide Femminile (FIDE)"
-::titlebox::mc::Title(WCM)	"Candidato Maestro Femminile (FIDE)"
-::titlebox::mc::Title(HGM)	"Grande Maestro ad honorem (FIDE)"
-::titlebox::mc::Title(NM)	"Maestro Nazionale (USCF)"
-::titlebox::mc::Title(SM)	"Maestro Senior (USCF)"
-::titlebox::mc::Title(LM)	"Maestro a vita (USCF)"
-::titlebox::mc::Title(CGM)	"Grande Maestro per corrispondenza (ICCF)"
-::titlebox::mc::Title(CSM)	"Maestro Internazionale Senior per corrispondenza (ICCF)"
-::titlebox::mc::Title(CIM)	"Maestro Internazionale per corrispondenza (ICCF)"
+::titlebox::mc::Title(GM)		"Grande Maestro (FIDE)"
+::titlebox::mc::Title(IM)		"Maestro Internazionale (FIDE)"
+::titlebox::mc::Title(FM)		"Maestro Fide (FIDE)"
+::titlebox::mc::Title(CM)		"Candidato Maestro (FIDE)"
+::titlebox::mc::Title(WGM)		"Grande Mestro Femminile (FIDE)"
+::titlebox::mc::Title(WIM)		"Maestro Internazionale Femminile (FIDE)"
+::titlebox::mc::Title(WFM)		"Maestro Fide Femminile (FIDE)"
+::titlebox::mc::Title(WCM)		"Candidato Maestro Femminile (FIDE)"
+::titlebox::mc::Title(HGM)		"Grande Maestro ad honorem (FIDE)"
+::titlebox::mc::Title(NM)		"Maestro Nazionale (USCF)"
+::titlebox::mc::Title(SM)		"Maestro Senior (USCF)"
+::titlebox::mc::Title(LM)		"Maestro a vita (USCF)"
+::titlebox::mc::Title(CGM)		"Grande Maestro per corrispondenza (ICCF)"
+::titlebox::mc::Title(CIM)		"Maestro Internazionale per corrispondenza (ICCF)"
+::titlebox::mc::Title(CLGM)	"Correspondence Lady Grandmaster (ICCF)" ;# NEW
+::titlebox::mc::Title(CILM)	"Correspondence Lady International Master (ICC)" ;# NEW
+::titlebox::mc::Title(CSIM)	"Maestro Internazionale Senior per corrispondenza (ICCF)"
 
 ### messagebox #########################################################
 ::dialog::mc::Ok				"&OK"
