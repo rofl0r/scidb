@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 268 $
-// Date   : $Date: 2012-03-13 16:47:20 +0000 (Tue, 13 Mar 2012) $
+// Version: $Revision: 311 $
+// Date   : $Date: 2012-05-03 19:56:10 +0000 (Thu, 03 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -624,6 +624,12 @@ Decoder::decodeTags(ByteStream& strm, TagSet& tags)
 			if (tag::isRatingTag(id))
 				tags.setSignificance(id, 0);
 		}
+
+#define SCI_TAGS_FIX
+#ifdef SCI_TAGS_FIX
+		if (strm.remaining() == 0)
+			return;
+#endif
 	}
 }
 

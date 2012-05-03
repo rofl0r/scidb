@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 248 $
-// Date   : $Date: 2012-02-14 18:33:12 +0000 (Tue, 14 Feb 2012) $
+// Version: $Revision: 311 $
+// Date   : $Date: 2012-05-03 19:56:10 +0000 (Thu, 03 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -780,6 +780,8 @@ void HtmlDrawText(HtmlCanvas*,const char*,int,int,int,int,int,HtmlNode*,int);
 void HtmlDrawTextHyphen(HtmlCanvas*, int);
 void HtmlDrawTextExtend(HtmlCanvas*, int, int, int);
 int HtmlDrawTextLength(HtmlCanvas*);
+char CONST * HtmlDrawTextFirst(HtmlCanvas *, int *);
+char CONST * HtmlDrawTextLast(HtmlCanvas *, int *);
 
 #define CANVAS_BOX_OPEN_LEFT    0x01      /* Open left-border */
 #define CANVAS_BOX_OPEN_RIGHT   0x02      /* Open right-border */
@@ -979,6 +981,7 @@ void HtmlTextIterFirst(HtmlTextNode *, HtmlTextIter *);
 void HtmlTextIterNext(HtmlTextIter *);
 int HtmlTextIterIsValid(HtmlTextIter *);
 int HtmlTextIterIsNotLast(HtmlTextIter *);
+int HtmlTextIterIsFirst(HtmlTextIter *);
 
 /*
  * Query functions to discover the token type, length and data.

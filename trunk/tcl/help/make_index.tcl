@@ -3,8 +3,8 @@
 exec tclsh "$0" "$@"
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 199 $
-# Date   : $Date: 2012-01-21 17:29:44 +0000 (Sat, 21 Jan 2012) $
+# Version: $Revision: 311 $
+# Date   : $Date: 2012-05-03 19:56:10 +0000 (Thu, 03 May 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -68,10 +68,11 @@ foreach file [glob *.txt] {
 		}
 		if {[string match INDEX* $line]} {
 			set item [getArg $line]
-			set alph [string toupper [string index $item 0]]
+			lassign [split $item #] wref fragment
+			set alph [string toupper [string index $wref 0]]
 			set path [file rootname $file]
 			append path .html
-			lappend index($alph) [list $item $path]
+			lappend index($alph) [list $wref $path $fragment]
 		}
 	}
 	close $src
@@ -85,7 +86,8 @@ foreach alph $alphabet {
 	puts "  \{ $alph"
 	puts "    \{"
 	foreach entry [lsort -index 0 -dictionary $index($alph)] {
-		puts "      {{[lindex $entry 0]} {[lindex $entry 1]}}"
+		lassign $entry wref path fragment
+		puts "      {{$wref} {$path} {$fragment}}"
 	}
 	puts "    \}"
 	puts "  \}"

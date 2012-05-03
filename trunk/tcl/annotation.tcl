@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 298 $
-# Date   : $Date: 2012-04-18 20:09:25 +0000 (Wed, 18 Apr 2012) $
+# Version: $Revision: 311 $
+# Date   : $Date: 2012-05-03 19:56:10 +0000 (Thu, 03 May 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -935,6 +935,7 @@ proc SetValues {cb} {
 
 proc TracePosition {frame parent} {
 	variable Position
+	variable Vars
 
 	set fx [winfo rootx $frame]
 	set fy [winfo rooty $frame]
@@ -942,6 +943,9 @@ proc TracePosition {frame parent} {
 	set ty [winfo rooty $parent]
 
 	set Position [list [expr {$fx - $tx}] [expr {$fy - $ty}]]
+
+	array unset Vars x
+	array unset Vars y
 }
 
 

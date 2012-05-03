@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 299 $
-# Date   : $Date: 2012-04-19 17:30:01 +0000 (Thu, 19 Apr 2012) $
+# Version: $Revision: 311 $
+# Date   : $Date: 2012-05-03 19:56:10 +0000 (Thu, 03 May 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -258,10 +258,10 @@ proc Open {type args} {
 		set opts(-helplabel) $::menu::mc::Help
 	}
 	if {![info exists opts(-cancelcommand)]} {
-		set opts(-cancelcommand) [list set [namespace current]::Priv($type:result) {}]
+		set opts(-cancelcommand) [list set [namespace current]::Priv($type:$w:result) {}]
 	}
 	if {![info exists opts(-okcommand)]} {
-		set opts(-okcommand) [namespace code [list OkCmd $type]]
+		set opts(-okcommand) [namespace code [list OkCmd $type:$w]]
 	}
 
 	if {$create} {
@@ -293,7 +293,7 @@ proc Open {type args} {
 		return $w
 	}
 
-	wm protocol $w WM_DELETE_WINDOW [list set [namespace current]::Priv($type:result) {}]
+	wm protocol $w WM_DELETE_WINDOW [list set [namespace current]::Priv($type:$w:result) {}]
 	wm title $w $data(-title)
 
 	if {$create} {
@@ -359,23 +359,23 @@ proc Open {type args} {
 	wm iconname $w ""
 	wm deiconify $w
 
-	array unset Priv $type:result
+	array unset Priv $type:$w:result
 	tkwait visibility $w
 	::ttk::grabWindow $w
-	vwait [namespace current]::Priv($type:result)
+	vwait [namespace current]::Priv($type:$w:result)
 	::ttk::releaseGrab $w
 	wm withdraw $w
 
 	set Priv(lastFolder) [::fsbox::lastFolder $w.fsbox]
 
-	lassign $Priv($type:result) path encoding
+	lassign $Priv($type:$w:result) path encoding
 	if {[llength $path] == 0} { return {} }
 
 	if {$encoding eq $::encoding::mc::AutoDetect} {
 		return [list $path $::encoding::autoEncoding]
 	}
 
-	return $Priv($type:result)
+	return $Priv($type:$w:result)
 }
 
 

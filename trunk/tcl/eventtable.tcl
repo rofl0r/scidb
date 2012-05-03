@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 307 $
-# Date   : $Date: 2012-04-22 18:51:48 +0000 (Sun, 22 Apr 2012) $
+# Version: $Revision: 311 $
+# Date   : $Date: 2012-05-03 19:56:10 +0000 (Thu, 03 May 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -494,8 +494,6 @@ proc TableFill {path args} {
 					eventMode {
 						if {[string length $item] > 0} {
 							lappend text [list @ [set ::eventmodebox::icon::12x12::$item]]
-						} elseif {$codec eq "si3" || $codec eq "si4"} {
-							lappend text $::mc::NotAvailableSign
 						} else {
 							lappend text [list @ $::icon::12x12::none]
 						}
@@ -504,8 +502,6 @@ proc TableFill {path args} {
 					timeMode {
 						if {[string length $item] > 0} {
 							lappend text [list @ $::timemodebox::icon::12x12::Mode($item)]
-						} elseif {$codec eq "si3" || $codec eq "si4"} {
-							lappend text $::mc::NotAvailableSign
 						} else {
 							lappend text [list @ $::icon::12x12::none]
 						}

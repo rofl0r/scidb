@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 310 $
-# Date   : $Date: 2012-04-26 20:16:11 +0000 (Thu, 26 Apr 2012) $
+# Version: $Revision: 311 $
+# Date   : $Date: 2012-05-03 19:56:10 +0000 (Thu, 03 May 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -91,7 +91,7 @@ proc inspect {arch {destDir ""}} {
 			return {}
 		}
 		set attrs {}
-		unset -nocomplain FileName FileSize Size Compression Checksum Modified
+		unset -nocomplain FileName URI FileSize Size Compression Checksum Modified
 		gets $fd line
 		while {$line ne "<-- D A T A -->"} {
 			lassign {MissingAttribute MissingValue} attr value
@@ -122,7 +122,8 @@ proc inspect {arch {destDir ""}} {
 }
 
 
-proc packFiles {arch baseDir sources progress procCompression procGetName {procCount {}} {mapExtension {}}} {
+proc packFiles {arch baseDir sources progress procCompression
+						procGetName {procCount {}} {mapExtension {}}} {
 	set TotalSize 0
 	set Count 0
 	array set formats {}
@@ -273,7 +274,8 @@ proc packFiles {arch baseDir sources progress procCompression procGetName {procC
 }
 
 
-proc packStreams {arch baseDir sources formats compression modified count procWrite procGetName progress} {
+proc packStreams {arch baseDir sources formats compression
+						modified count procWrite procGetName progress} {
 	set TotalSize 0
 	set Count $count
 	set Type single
@@ -379,7 +381,7 @@ proc unpack {arch procGetName progress {destDir ""}} {
 		}
 		set attrs {}
 		set Compression raw
-		unset -nocomplain FileName FileSize Size Checksum Modified
+		unset -nocomplain FileName URI FileSize Size Checksum Modified
 		gets $fd line
 		while {$line ne "<-- D A T A -->"} {
 			regexp {<([A-Za-z]+)>[ 	]*(.*)} $line _ attr value
@@ -396,7 +398,7 @@ proc unpack {arch procGetName progress {destDir ""}} {
 		setMessage $progress [format $mc::UnpackFile [$procGetName $FileName]]
 		lappend entries $attrs
 		set destFilename [file join $destDir $FileName]
-		if {[string match http:* $FileName]} {
+		if {[info exists URI] && [string match http:* $URI]} {
 			# TODO
 		} else {
 			set dir [file dirname $destFilename]

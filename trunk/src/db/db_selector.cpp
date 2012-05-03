@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 226 $
-// Date   : $Date: 2012-02-05 22:00:47 +0000 (Sun, 05 Feb 2012) $
+// Version: $Revision: 311 $
+// Date   : $Date: 2012-05-03 19:56:10 +0000 (Thu, 03 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -474,6 +474,22 @@ compCountry(unsigned const* lhs, unsigned const* rhs)
 }
 
 
+static int
+compSex(unsigned const* lhs, unsigned const* rhs)
+{
+	NamebasePlayer const& l = database->player(*lhs);
+	NamebasePlayer const& r = database->player(*rhs);
+
+	sex::ID sexL = l.findSex();
+	sex::ID sexR = r.findSex();
+
+	if (sexL != sexR)
+		return int(sexL) - int(sexR);
+	
+	return int(l.findType()) - int(r.findType());
+}
+
+
 #define DEF_COMPARE(Type) \
 	static int compRating##Type(unsigned const* lhs, unsigned const* rhs) \
 	{ \
@@ -504,7 +520,7 @@ DEF_COMPARE(USCF)
 		return compare(database->player(*lhs).Accessor, database->player(*rhs).Accessor); \
 	}
 
-DEF_COMPARE(Sex, sex());
+//DEF_COMPARE(Sex, findSex());
 DEF_COMPARE(Name, name());
 DEF_COMPARE(FideID, fideID());
 DEF_COMPARE(Elo, playerHighestElo());

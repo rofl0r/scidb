@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 248 $
-// Date   : $Date: 2012-02-14 18:33:12 +0000 (Tue, 14 Feb 2012) $
+// Version: $Revision: 311 $
+// Date   : $Date: 2012-05-03 19:56:10 +0000 (Thu, 03 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1378,6 +1378,36 @@ HtmlDrawTextLength(pCanvas)
 {
     assert(pCanvas && pCanvas->pLast && pCanvas->pLast->type == CANVAS_TEXT);
     return pCanvas->pLast->x.t.nText;
+}
+
+char CONST*
+HtmlDrawTextFirst(pCanvas, nText)
+    HtmlCanvas *pCanvas;
+    int *nText;
+{
+    assert(pCanvas);
+    assert(nText);
+    if (pCanvas->pFirst && pCanvas->pFirst->type == CANVAS_TEXT) {
+        *nText = pCanvas->pFirst->x.t.nText;
+        return pCanvas->pFirst->x.t.zText;
+    }
+    *nText = 0;
+    return NULL;
+}
+
+char CONST*
+HtmlDrawTextLast(pCanvas, nText)
+    HtmlCanvas *pCanvas;
+    int *nText;
+{
+    assert(pCanvas);
+    assert(nText);
+    if (pCanvas->pLast && pCanvas->pLast->type == CANVAS_TEXT) {
+        *nText = pCanvas->pLast->x.t.nText;
+        return pCanvas->pLast->x.t.zText;
+    }
+    *nText = 0;
+    return NULL;
 }
 
 void

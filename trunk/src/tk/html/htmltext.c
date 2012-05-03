@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 248 $
-// Date   : $Date: 2012-02-14 18:33:12 +0000 (Tue, 14 Feb 2012) $
+// Version: $Revision: 311 $
+// Date   : $Date: 2012-05-03 19:56:10 +0000 (Thu, 03 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1867,7 +1867,7 @@ tokenLength(zToken, zEnd)
         Tcl_UniChar prevChar = iChar;
         zCsr = zNext;
         iChar = utf8Read(zCsr, zEnd, &zNext);
-        if (ISHYPHEN(prevChar) && Tcl_UniCharIsAlpha(iChar))
+        if (ISHYPHEN(prevChar) && Tcl_UniCharIsAlnum(iChar)) // Tcl_UniCharIsAlpha ?
             return zCsr - zToken;
     }
 
@@ -2295,6 +2295,13 @@ HtmlTextIterIsNotLast(pTextIter)
     HtmlTextIter *pTextIter;
 {
     return pTextIter->pTextNode->aToken[pTextIter->iToken + 1].eType != HTML_TEXT_TOKEN_END;
+}
+
+int
+HtmlTextIterIsFirst(pTextIter)
+    HtmlTextIter *pTextIter;
+{
+    return pTextIter->iToken == 0;
 }
 
 void
