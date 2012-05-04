@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 298 $
-// Date   : $Date: 2012-04-18 20:09:25 +0000 (Wed, 18 Apr 2012) $
+// Version: $Revision: 312 $
+// Date   : $Date: 2012-05-04 14:26:12 +0000 (Fri, 04 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -164,6 +164,7 @@ public:
 
 	db::Game& game(unsigned position = InvalidPosition);
 	db::Game const& game(unsigned position = InvalidPosition) const;
+	mstl::string const& encoding(unsigned position = InvalidPosition) const;
 	db::GameInfo const& gameInfo(unsigned index, unsigned view = 0) const;
 	db::GameInfo const& gameInfoAt(unsigned position = InvalidPosition) const;
 	db::NamebasePlayer const& player(unsigned index, unsigned view = 0) const;
@@ -180,6 +181,7 @@ public:
 
 	db::load::State loadGame(unsigned position);
 	db::load::State loadGame(unsigned position, Cursor& cursor, unsigned index);
+
 	void newGame(unsigned position);
 	void deleteGame(Cursor& cursor, unsigned index, unsigned view = 0, bool flag = true);
 	void swapGames(unsigned position1, unsigned position2);
@@ -268,6 +270,7 @@ private:
 		unsigned			refresh;
 		mstl::string	sourceBase;
 		unsigned			sourceIndex;
+		mstl::string	encoding;
 	};
 
 	EditGame& insertScratchGame(unsigned position);

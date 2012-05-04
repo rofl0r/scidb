@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 226 $
-// Date   : $Date: 2012-02-05 22:00:47 +0000 (Sun, 05 Feb 2012) $
+// Version: $Revision: 312 $
+// Date   : $Date: 2012-05-04 14:26:12 +0000 (Fri, 04 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -24,6 +24,8 @@ inline bool Codec::isUtf8() const				{ return m_isUtf8; }
 inline bool Codec::fromUtf8(mstl::string& s)	{ return fromUtf8(s, s); }
 inline bool Codec::toUtf8(mstl::string& s)	{ return toUtf8(s, s); }
 inline void Codec::reset()							{ m_failed = false; }
+
+inline void Codec::setFailed(bool flag)		{ m_failed = flag; }
 
 
 inline

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 283 $
-// Date   : $Date: 2012-03-29 18:05:34 +0000 (Thu, 29 Mar 2012) $
+// Version: $Revision: 312 $
+// Date   : $Date: 2012-05-04 14:26:12 +0000 (Fri, 04 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -164,7 +164,7 @@ public:
 
 	unsigned importGames(Producer& producer, util::Progress& progress, int startIndex = -1);
 
-	void decodeGame(GameData& data, GameInfo& info);
+	void decodeGame(GameData& data, GameInfo& info, mstl::string* encoding = 0);
 	void encodeGame(util::ByteStream& strm, GameData const& data, Signature const& signature);
 	void encodeGame(	util::ByteStream& strm,
 							GameData const& data,
@@ -220,7 +220,7 @@ protected:
 								util::Progress& progress) = 0;
 	virtual void doClear(mstl::string const& rootname);
 
-	virtual void doDecoding(GameData& data, GameInfo& info) = 0;
+	virtual void doDecoding(GameData& data, GameInfo& info, mstl::string* encoding) = 0;
 	virtual save::State doDecoding(Consumer& consumer, util::ByteStream& strm, TagSet& tags);
 	virtual save::State doDecoding(Consumer& consumer, TagSet& tags, GameInfo const& info) = 0;
 	virtual void doEncoding(util::ByteStream& strm,

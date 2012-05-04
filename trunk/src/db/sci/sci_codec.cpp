@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 310 $
-// Date   : $Date: 2012-04-26 20:16:11 +0000 (Thu, 26 Apr 2012) $
+// Version: $Revision: 312 $
+// Date   : $Date: 2012-05-04 14:26:12 +0000 (Fri, 04 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -791,7 +791,7 @@ Codec::doDecoding(db::Consumer& consumer, ByteStream& strm, TagSet& tags)
 
 
 void
-Codec::doDecoding(GameData& data, GameInfo& info)
+Codec::doDecoding(GameData& data, GameInfo& info, mstl::string*)
 {
 	ByteStream strm;
 	getGameRecord(info, m_gameData->reader(), strm);

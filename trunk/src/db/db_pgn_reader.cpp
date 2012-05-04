@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 307 $
-// Date   : $Date: 2012-04-22 18:51:48 +0000 (Sun, 22 Apr 2012) $
+// Version: $Revision: 312 $
+// Date   : $Date: 2012-05-04 14:26:12 +0000 (Fri, 04 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1412,25 +1412,27 @@ PgnReader::findNextEmptyLine(mstl::string& str)
 	{
 		int c = get(true);
 
-		if (c == '\n')
+		switch (c)
 		{
-			int d = get(true);
-
-			if (d == '\n')
+			case '\0':
 				return;
 
-			::addSpace(str);
+			case '\n':
+				{
+					int d = get(true);
 
-			if (d)
-				str += d;
-		}
-		else
-		{
-			str += c;
-		}
+					if (d == '\n' || d == '\0')
+						return;
 
-		if (m_stream.eof())
-			return;
+					::addSpace(str);
+					str += d;
+				}
+				break;
+
+			default:
+				str += c;
+				break;
+		}
 	}
 }
 

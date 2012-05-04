@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 283 $
-// Date   : $Date: 2012-03-29 18:05:34 +0000 (Thu, 29 Mar 2012) $
+// Version: $Revision: 312 $
+// Date   : $Date: 2012-05-04 14:26:12 +0000 (Fri, 04 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -164,6 +164,8 @@ public:
 
 	/// Loads a game from the given position.
 	load::State loadGame(unsigned index, Game& game);
+	/// Loads a game from the given position.
+	load::State loadGame(unsigned index, Game& game, mstl::string& encoding);
 	/// Saves a game at the given position.
 	void replaceGame(unsigned index, Game const& game);
 	/// Adds a game to the database.
@@ -244,6 +246,7 @@ private:
 	bool open(mstl::string const& name, mstl::fstream& stream);
 
 	void setEncodingFailed(bool flag);
+	load::State loadGame(unsigned index, Game& game, mstl::string* encoding);
 
 	NamebaseEntry const* insertPlayer(mstl::string const& name);
 	NamebaseEntry const* insertEvent(mstl::string const& name);

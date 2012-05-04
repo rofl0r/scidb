@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 226 $
-// Date   : $Date: 2012-02-05 22:00:47 +0000 (Sun, 05 Feb 2012) $
+// Version: $Revision: 312 $
+// Date   : $Date: 2012-05-04 14:26:12 +0000 (Fri, 04 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -56,6 +56,7 @@ public:
 
 	void reset();
 	void reset(mstl::string const& encoding);
+	void setFailed(bool flag = true);
 
 	static mstl::string const& automatic();
 	static mstl::string const& utf8();

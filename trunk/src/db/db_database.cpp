@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 283 $
-// Date   : $Date: 2012-03-29 18:05:34 +0000 (Thu, 29 Mar 2012) $
+// Version: $Revision: 312 $
+// Date   : $Date: 2012-05-04 14:26:12 +0000 (Fri, 04 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -395,7 +395,7 @@ Database::computeChecksum(unsigned index) const
 
 
 load::State
-Database::loadGame(unsigned index, Game& game)
+Database::loadGame(unsigned index, Game& game, mstl::string* encoding)
 {
 	M_REQUIRE(isOpen());
 	M_REQUIRE(index < countGames());
@@ -405,7 +405,7 @@ Database::loadGame(unsigned index, Game& game)
 
 	try
 	{
-		m_codec->decodeGame(game, *info);
+		m_codec->decodeGame(game, *info, encoding);
 	}
 	catch (DecodingFailedException const& exc)
 	{

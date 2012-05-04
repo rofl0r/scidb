@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 302 $
-// Date   : $Date: 2012-04-20 22:58:00 +0000 (Fri, 20 Apr 2012) $
+// Version: $Revision: 312 $
+// Date   : $Date: 2012-05-04 14:26:12 +0000 (Fri, 04 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -409,6 +409,7 @@ View::dumpGame(unsigned index,
 	typedef mstl::vector<unsigned> LengthList;
 
 	Game game;
+	mstl::string encoding;
 
 	load::State state = m_db.loadGame(gameIndex(index), game);
 

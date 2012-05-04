@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 310 $
-// Date   : $Date: 2012-04-26 20:16:11 +0000 (Thu, 26 Apr 2012) $
+// Version: $Revision: 312 $
+// Date   : $Date: 2012-05-04 14:26:12 +0000 (Fri, 04 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -90,7 +90,7 @@ public:
 
 	void close() override;
 
-	void doDecoding(GameData& data, GameInfo& info) override;
+	void doDecoding(GameData& data, GameInfo& info, mstl::string*) override;
 	save::State doDecoding(Consumer& consumer, TagSet& tags, GameInfo const& info) override;
 
 	void reset() override;

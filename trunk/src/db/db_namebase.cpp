@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 311 $
-// Date   : $Date: 2012-05-03 19:56:10 +0000 (Thu, 03 May 2012) $
+// Version: $Revision: 312 $
+// Date   : $Date: 2012-05-04 14:26:12 +0000 (Fri, 04 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -552,9 +552,9 @@ Namebase::insertPlayer(	mstl::string const& name,
 			--i;
 		}
 	}
-#else
-	M_ASSERT(size() == 1 || *playerAt(size() - 2) < *playerAt(size() - 1));
 #endif
+
+	M_ASSERT(size() == 1 || *playerAt(size() - 2) < *playerAt(size() - 1));
 
 	m_isConsistent = false;
 	m_isModified = true;

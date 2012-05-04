@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 298 $
-// Date   : $Date: 2012-04-18 20:09:25 +0000 (Wed, 18 Apr 2012) $
+// Version: $Revision: 312 $
+// Date   : $Date: 2012-05-04 14:26:12 +0000 (Fri, 04 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2068,6 +2068,7 @@ cmdQuery(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 			switch (cmd[1])
 			{
 				case 'm': setResult(Scidb->game(pos).isEmpty()); break;									// empty?
+				case 'n': setResult(Scidb->encoding(pos)); break;											// encoding?
 				case 'c': setResult(Scidb->game(pos).computeEcoCode().asShortString()); break;	// eco
 
 				case 'l':	// elo

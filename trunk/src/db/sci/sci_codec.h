@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 283 $
-// Date   : $Date: 2012-03-29 18:05:34 +0000 (Thu, 29 Mar 2012) $
+// Version: $Revision: 312 $
+// Date   : $Date: 2012-05-04 14:26:12 +0000 (Fri, 04 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -108,7 +108,7 @@ public:
 
 	save::State doDecoding(db::Consumer& consumer, TagSet& tags, GameInfo const& info) override;
 	save::State doDecoding(db::Consumer& consumer, util::ByteStream& strm, TagSet& tags) override;
-	void doDecoding(GameData& data, GameInfo& info) override;
+	void doDecoding(GameData& data, GameInfo& info, mstl::string*) override;
 
 	void doEncoding(	util::ByteStream& strm,
 							GameData const& data,

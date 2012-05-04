@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 283 $
-// Date   : $Date: 2012-03-29 18:05:34 +0000 (Thu, 29 Mar 2012) $
+// Version: $Revision: 312 $
+// Date   : $Date: 2012-05-04 14:26:12 +0000 (Fri, 04 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -663,10 +663,10 @@ DatabaseCodec::sync()
 
 
 void
-DatabaseCodec::decodeGame(GameData& data, GameInfo& info)
+DatabaseCodec::decodeGame(GameData& data, GameInfo& info, mstl::string* encoding)
 {
 	M_REQUIRE(isOpen());
-	doDecoding(data, info);
+	doDecoding(data, info, encoding);
 }
 
 

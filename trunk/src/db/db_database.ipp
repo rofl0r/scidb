@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 312 $
+// Date   : $Date: 2012-05-04 14:26:12 +0000 (Fri, 04 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -237,6 +237,22 @@ Database::findExactPositionAsync(unsigned index, Board const& position, bool ski
 	M_REQUIRE(usingAsyncReader());
 
 	return m_codec->findExactPositionAsync(*m_gameInfoList[index], position, skipVariations);
+}
+
+
+inline
+load::State
+Database::loadGame(unsigned index, Game& game)
+{
+	return loadGame(index, game, 0);
+}
+
+
+inline
+load::State
+Database::loadGame(unsigned index, Game& game, mstl::string& encoding)
+{
+	return loadGame(index, game, &encoding);
 }
 
 } // namespace db

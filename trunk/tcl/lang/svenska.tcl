@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 310 $
-# Date   : $Date: 2012-04-26 20:16:11 +0000 (Thu, 26 Apr 2012) $
+# Version: $Revision: 312 $
+# Date   : $Date: 2012-05-04 14:26:12 +0000 (Fri, 04 May 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1220,35 +1220,37 @@
 ::game::history::mc::GameHistory		"Partihistoria"
 
 ### game ###############################################################
-::game::mc::CloseDatabase				"Stäng databasen"
-::game::mc::CloseAllGames				"Stäng alla öppna partier i databas '%s'?"
-::game::mc::SomeGamesAreModified		"Några partier i databas '%s' har ändrats. Vill du stänga dem ändå?"
-::game::mc::AllSlotsOccupied			"All game slots are occupied."
-::game::mc::ReleaseOneGame				"Please release one of the games before loading a new one."
-::game::mc::GameAlreadyOpen			"Partiet är redan öppnat men har ändrats. Discard modified version of this game?"
-::game::mc::GameAlreadyOpenDetail	"'%s' kommer att öppna ett nytt parti."
-::game::mc::GameHasChanged				"Parti %s har ändrats."
-::game::mc::GameHasChangedDetail		"Probably this is not the expected game due to database changes."
-::game::mc::CorruptedHeader			"Corrupted header in recovery file '%s'."
-::game::mc::RenamedFile					"Filen har döpts om till '%s.bak'."
-::game::mc::CannotOpen					"Kan inte öppna återställningfilen '%s'."
-::game::mc::GameRestored				"Ett parti återställt från senaste session."
-::game::mc::GamesRestored				"%s partier återställda från senaste session."
-::game::mc::OldGameRestored			"Ett parti återställt."
-::game::mc::OldGamesRestored			"%s partier återställda."
-::game::mc::ErrorInRecoveryFile		"Fel i återställningsfilen '%s'"
-::game::mc::Recovery						"Återställning"
-::game::mc::UnsavedGames				"Det finns partiändringar som inte sparats."
-::game::mc::DiscardChanges				"'%s' kommer att ta bort alla ändringar."
-::game::mc::ShouldRestoreGame			"Ska detta parti återställas under nästa session?"
-::game::mc::ShouldRestoreGames		"Ska dessa partier återställas under nästa session?"
-::game::mc::NewGame						"Nytt parti"
-::game::mc::NewGames						"Nya partier"
-::game::mc::Created						"skapade"
-::game::mc::ClearHistory				"Töm historik"
-::game::mc::RemoveSelectedGame		"Ta bort valt parti från historien"
-::game::mc::GameDataCorrupted			"Partidata är skadade."
-::game::mc::GameDecodingFailed		"Partiet kunde inte avkodas."
+::game::mc::CloseDatabase					"Stäng databasen"
+::game::mc::CloseAllGames					"Stäng alla öppna partier i databas '%s'?"
+::game::mc::SomeGamesAreModified			"Några partier i databas '%s' har ändrats. Vill du stänga dem ändå?"
+::game::mc::AllSlotsOccupied				"All game slots are occupied."
+::game::mc::ReleaseOneGame					"Please release one of the games before loading a new one."
+::game::mc::GameAlreadyOpen				"Partiet är redan öppnat men har ändrats. Discard modified version of this game?"
+::game::mc::GameAlreadyOpenDetail		"'%s' kommer att öppna ett nytt parti."
+::game::mc::GameHasChanged					"Parti %s har ändrats."
+::game::mc::GameHasChangedDetail			"Probably this is not the expected game due to database changes."
+::game::mc::CorruptedHeader				"Corrupted header in recovery file '%s'."
+::game::mc::RenamedFile						"Filen har döpts om till '%s.bak'."
+::game::mc::CannotOpen						"Kan inte öppna återställningfilen '%s'."
+::game::mc::GameRestored					"Ett parti återställt från senaste session."
+::game::mc::GamesRestored					"%s partier återställda från senaste session."
+::game::mc::OldGameRestored				"Ett parti återställt."
+::game::mc::OldGamesRestored				"%s partier återställda."
+::game::mc::ErrorInRecoveryFile			"Fel i återställningsfilen '%s'"
+::game::mc::Recovery							"Återställning"
+::game::mc::UnsavedGames					"Det finns partiändringar som inte sparats."
+::game::mc::DiscardChanges					"'%s' kommer att ta bort alla ändringar."
+::game::mc::ShouldRestoreGame				"Ska detta parti återställas under nästa session?"
+::game::mc::ShouldRestoreGames			"Ska dessa partier återställas under nästa session?"
+::game::mc::NewGame							"Nytt parti"
+::game::mc::NewGames							"Nya partier"
+::game::mc::Created							"skapade"
+::game::mc::ClearHistory					"Töm historik"
+::game::mc::RemoveSelectedGame			"Ta bort valt parti från historien"
+::game::mc::GameDataCorrupted				"Partidata är skadade."
+::game::mc::GameDecodingFailed			"Partiet kunde inte avkodas."
+::game::mc::GameDecodingChanged			"The database is opened with character set '%base%', but this game seems to be encoded with character set '%game%', therefore this game is loaded with the detected character set." ;# NEW
+::game::mc::GameDecodingChangedDetail	"Probably you have opened the database with the wrong character set. Note that the automatic detection of the character set is limited." ;# NEW
 
 ### languagebox ########################################################
 ::languagebox::mc::AllLanguages	"Alla språk"

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 310 $
-# Date   : $Date: 2012-04-26 20:16:11 +0000 (Thu, 26 Apr 2012) $
+# Version: $Revision: 312 $
+# Date   : $Date: 2012-05-04 14:26:12 +0000 (Fri, 04 May 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1253,6 +1253,8 @@
 ::game::mc::RemoveSelectedGame		"Kijelölt játszmák törlése az előzmények közül"
 ::game::mc::GameDataCorrupted			"Játszma sérült."
 ::game::mc::GameDecodingFailed		"Ennek a jástszmának a dekódolása nem lehetséges."
+::game::mc::GameDecodingChanged		"The database is opened with character set '%base%', but this game seems to be encoded with character set '%game%', therefore this game is loaded with the detected character set." ;# NEW
+::game::mc::GameDecodingChangedDetail	"Probably you have opened the database with the wrong character set. Note that the automatic detection of the character set is limited." ;# NEW
 
 ### languagebox ########################################################
 ::languagebox::mc::AllLanguages	"Összes nyelv"
