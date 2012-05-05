@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 317 $
+// Date   : $Date: 2012-05-05 16:33:40 +0000 (Sat, 05 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -22,7 +22,7 @@
 
 #include <sys/stat.h>
 
-#ifdef WIN32
+#ifdef __WIN32__
 # include <fcntl.h>
 #endif
 
@@ -228,7 +228,7 @@ file::set_binary()
 {
 	if (m_open && !(mode() & binary))
 	{
-#if defined(WIN32)
+#if defined(__WIN32__)
 
 		if (::setmode(fileno(m_fp), O_BINARY) == -1)
 			M_RAISE("setmode() failed (fd=%d)", fileno(m_fp));
@@ -247,7 +247,7 @@ file::set_text()
 {
 	if (m_open && (mode() & binary))
 	{
-#if defined(WIN32)
+#if defined(__WIN32__)
 
 		if (::setmode(fileno(m_fp), O_TEXT) == -1)
 			M_RAISE("setmode() failed (fd=%d)", fileno(m_fp));

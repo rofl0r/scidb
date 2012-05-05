@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 280 $
-// Date   : $Date: 2012-03-21 19:23:41 +0000 (Wed, 21 Mar 2012) $
+// Version: $Revision: 317 $
+// Date   : $Date: 2012-05-05 16:33:40 +0000 (Sat, 05 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -217,7 +217,7 @@ static Tk_ObjCustomOption paddingOption =
 
 #if defined(__MacOSX__)
 # define NORMAL_BG	"systemWindowBody"
-#elif defined(WIN32)
+#elif defined(__WIN32__)
 # define NORMAL_BG	"SystemButtonFace"
 #elif defined(__unix__)
 # define NORMAL_BG	"#d9d9d9"
@@ -759,6 +759,7 @@ AdjustForSticky(	int sticky,				// Sticky value; see top of file for definition
 }
 
 
+#if 0
 //----------------------------------------------------------------------
 //
 // LayoutTabs --
@@ -800,6 +801,7 @@ LayoutTabs(Notebook* nb)
 
 	nb->tabHeight = tabHeight;
 }
+#endif
 
 
 //----------------------------------------------------------------------
@@ -2284,7 +2286,7 @@ NotebookWidgetObjCmd(ClientData clientData,	// Information about square widget
 			}
 			else
 			{
-				Tk_Window tkwin = Tk_NameToWindow(interp, Tcl_GetString(objv[2]), nb->tkwin);
+				//Tk_Window tkwin = Tk_NameToWindow(interp, Tcl_GetString(objv[2]), nb->tkwin);
 
 				// TODO: hide given tab
 				// TODO: probably switch tab

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 298 $
-# Date   : $Date: 2012-04-18 20:09:25 +0000 (Wed, 18 Apr 2012) $
+# Version: $Revision: 317 $
+# Date   : $Date: 2012-05-05 16:33:40 +0000 (Sat, 05 May 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -654,7 +654,8 @@ proc Update {{setup 0}} {
 			if {$i >= 0} {
 				lassign [lindex $MostRecentHistory $i 1] bestMode tiebreaks scoring
 			} else {
-				set bestMode [string tolower [::scidb::crosstable::get bestMode $Vars(tableId) $viewId] 0 0]
+				set bestMode [::scidb::crosstable::get bestMode $Vars(tableId) $viewId]
+				set bestMode [string tolower $bestMode 0 0]
 				set tiebreaks $RecentlyUsedTiebreaks($bestMode)
 				set scoring $RecentlyUsedScoring($bestMode)
 			}
@@ -736,6 +737,7 @@ proc Update {{setup 0}} {
 					set Vars(bestMode) $Vars(lastMode)
 					if {[string length $Vars(prevMode)] == 0} {
 						set Vars(bestMode) [::scidb::crosstable::get bestMode $Vars(tableId) $viewId]
+						set Vars(bestMode) [string tolower $Vars(bestMode) 0 0]
 						if {$Vars(bestMode) eq "crosstable"} { set Vars(bestMode) rankingList }
 						set Vars(value:type) [lindex $Vars(typeList) [lsearch $TypeList $Vars(bestMode)]]
 						UpdateHistory

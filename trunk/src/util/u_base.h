@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 317 $
+// Date   : $Date: 2012-05-05 16:33:40 +0000 (Sat, 05 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -26,7 +26,7 @@
 
 #define U_BITS_OF(type) (sizeof(type)*8)
 
-#if defined(__GNUC__) && !defined(WIN32)
+#if defined(__GNUC__) && !defined(__WIN32__)
 // We want to use 'minor' and 'major' as method names.
 // Unfortunately these names are used as macros,
 // so we have to undefine these macros.
@@ -35,7 +35,7 @@
 # undef major
 #endif
 
-#ifdef WIN32
+#ifdef __WIN32__
 # include <windows.h>
 # undef min
 # undef max

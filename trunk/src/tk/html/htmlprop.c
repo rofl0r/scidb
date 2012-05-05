@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 248 $
-// Date   : $Date: 2012-02-14 18:33:12 +0000 (Tue, 14 Feb 2012) $
+// Version: $Revision: 317 $
+// Date   : $Date: 2012-05-05 16:33:40 +0000 (Sat, 05 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -50,7 +50,7 @@
 #include <stdlib.h>
 #include <ctype.h>
 
-#ifdef WIN32
+#ifdef __WIN32__
 # include <windows.h>
 #endif
 
@@ -2071,7 +2071,7 @@ HtmlComputedValuesSet(p, eProp, pProp)
 }
 
 #ifdef USE_LATIN_LIGATURES
-# ifdef WIN32
+# ifdef __WIN32__
 
 void
 MeasureLatinLigatures(pTree, pFont, zFamily, isBold, isItalic)

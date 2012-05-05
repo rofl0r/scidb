@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 311 $
-// Date   : $Date: 2012-05-03 19:56:10 +0000 (Thu, 03 May 2012) $
+// Version: $Revision: 317 $
+// Date   : $Date: 2012-05-05 16:33:40 +0000 (Sat, 05 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2146,7 +2146,7 @@ drawBox(pQuery, pItem, pBox, drawable, x, y, w, h, xview, yview, flags)
             int iPosY;
             HtmlNode *pBgNode = pBox->pNode;
 
-#ifdef WIN32
+#ifdef __WIN32__
             /*
              * Todo: On windows, using XFillRectangle() to draw the image
              * doesn't seem to work. This is probably a shortcoming of the Tk

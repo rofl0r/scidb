@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 289 $
-// Date   : $Date: 2012-04-04 09:47:19 +0000 (Wed, 04 Apr 2012) $
+// Version: $Revision: 317 $
+// Date   : $Date: 2012-05-05 16:33:40 +0000 (Sat, 05 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -83,7 +83,7 @@ init(Tcl_Interp* ti)
 
 		tcl::app::setup(new app::Application);
 
-#ifdef WIN32
+#ifdef __WIN32__
 		return Tcl_FSEvalFileEx(tcl::interp(), "scidb.gui", 0);
 #endif
 	}

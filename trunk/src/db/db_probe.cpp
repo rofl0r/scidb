@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 317 $
+// Date   : $Date: 2012-05-05 16:33:40 +0000 (Sat, 05 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -149,7 +149,7 @@ inline static square SqFindThird(square const* squares, int piece)
 #include <stdlib.h>				// must be included before we include egtb/tbindex.cpp
 #define exit(n) egtb_exit(n)	// because of this macro definition
 #define printf(fmt,args...) egtb_printf(fmt,##args)
-#ifdef WIN32
+#ifdef __WIN32__
 # include <ctype.h>
 #endif
 #ifdef PROBE_USE_SCID

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 298 $
-# Date   : $Date: 2012-04-18 20:09:25 +0000 (Wed, 18 Apr 2012) $
+# Version: $Revision: 317 $
+# Date   : $Date: 2012-05-05 16:33:40 +0000 (Sat, 05 May 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -181,6 +181,13 @@ switch $::scidb::revision {
 		set ::export::Values(scid,encoding) utf-8
 		set ::export::Values(scidb,encoding) utf-8
 		set ::export::Values(pdf,encoding) iso8859-1
+		set ::crosstable::RecentlyUsedHistory {}
+		set ::crosstable::MostRecentHistory {}
+	}
+
+	96 {
+		set ::crosstable::RecentlyUsedHistory {}
+		set ::crosstable::MostRecentHistory {}
 	}
 }
 

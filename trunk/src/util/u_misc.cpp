@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 317 $
+// Date   : $Date: 2012-05-05 16:33:40 +0000 (Sat, 05 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -20,7 +20,7 @@
 
 #include <string.h>
 
-#ifdef WIN32
+#ifdef __WIN32__
 
 # include <windows.h>
 static char Separator = '\\';
@@ -97,7 +97,7 @@ util::misc::file::suffix(mstl::string const& path)
 bool
 util::misc::time::getCurrentTime(struct tm& result)
 {
-#ifdef WIN32
+#ifdef WI__WIN32__N32
 
 	SYSTEMTIME t;
 	::GetLocalTime(&t);

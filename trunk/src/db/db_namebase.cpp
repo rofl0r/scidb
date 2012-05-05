@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 312 $
-// Date   : $Date: 2012-05-04 14:26:12 +0000 (Fri, 04 May 2012) $
+// Version: $Revision: 317 $
+// Date   : $Date: 2012-05-05 16:33:40 +0000 (Sat, 05 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -393,6 +393,18 @@ Namebase::insertEvent(	mstl::string const& name,
 		entry->m_value.m_timeMode = timeMode;
 		entry->m_value.m_eventMode = eventMode;
 		entry->m_value.m_site = site;
+
+#ifdef SCI_NAMEBASE_FIX
+		{
+			unsigned i = size() - 1;
+
+			while (i > 0 && *eventAt(i) < *eventAt(i - 1))
+			{
+				mstl::swap(m_list[i], m_list[i - 1]);
+				--i;
+			}
+		}
+#endif
 
 		M_ASSERT(size() == 1 || *eventAt(size() - 2) < *eventAt(size() - 1));
 	}

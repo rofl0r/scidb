@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 317 $
+// Date   : $Date: 2012-05-05 16:33:40 +0000 (Sat, 05 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -22,7 +22,7 @@
 #include "m_exception.h"
 #include "m_types.h"
 
-#ifdef WIN32
+#ifdef __WIN32__
 
 extern "C" { struct _iobuf; }
 # define _IO_FILE _iobuf
@@ -117,7 +117,7 @@ private:
 
 #include "m_ios.ipp"
 
-#ifdef WIN32
+#ifdef __WIN32__
 # include <stdarg.h>
 
 extern "C"

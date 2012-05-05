@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 317 $
+// Date   : $Date: 2012-05-05 16:33:40 +0000 (Sat, 05 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -28,7 +28,7 @@
 #include "m_string.h"
 #include "m_ifstream.h"
 
-#if defined(WIN32)
+#if defined(__WIN32__)
 #elif defined(__unix__) || defined(__MacOSX__)
 # include <unistd.h>
 #endif
@@ -48,7 +48,7 @@ InputOutput::suffix()
 static bool
 fileExists(mstl::string const& name)
 {
-#if defined(WIN32)
+#if defined(__WIN32__)
 
 	DWORD fileAttr = GetFileAttributes(name);
 	return fileAttr != 0xffffffff;
@@ -77,7 +77,7 @@ InputOutput::searchFile(mstl::string const& searchDirs, mstl::string& filename)
 	{
 		mstl::string fullPathname(searchDirs.substr(start, end));
 
-#if defined(WIN32)
+#if defined(__WIN32__)
 		fullPathname += '\\';
 #else
 		fullPathname += '/';

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 299 $
-// Date   : $Date: 2012-04-19 17:30:01 +0000 (Thu, 19 Apr 2012) $
+// Version: $Revision: 317 $
+// Date   : $Date: 2012-05-05 16:33:40 +0000 (Sat, 05 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -30,7 +30,7 @@
 #include <string.h>
 
 
-#if defined(WIN32) || (defined(__unix__) && !defined(__MacOSX__))
+#if defined(__WIN32__) || (defined(__unix__) && !defined(__MacOSX__))
 
 extern "C" { int TclRenameCommand(Tcl_Interp* ti, char const* oldName, char const* newName); }
 
@@ -45,7 +45,7 @@ invokeTkSelection(Tcl_Interp *ti, int objc, Tcl_Obj* const objv[])
 	return Tcl_EvalObjv(ti, objc, objs, 0);
 }
 
-# if defined(WIN32)
+# if defined(__WIN32__)
 
 #  include <windows.h>
 
@@ -128,7 +128,7 @@ selectionGet(Tcl_Interp* ti, Tk_Window tkwin, Atom selection, Atom target, unsig
 	return TCL_ERROR;
 }
 
-# endif // WIN32
+# endif // __WIN32__
 
 # if defined(__unix__)
 

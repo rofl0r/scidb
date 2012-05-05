@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 304 $
-// Date   : $Date: 2012-04-21 20:39:59 +0000 (Sat, 21 Apr 2012) $
+// Version: $Revision: 317 $
+// Date   : $Date: 2012-05-05 16:33:40 +0000 (Sat, 05 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -438,11 +438,6 @@ TkPointerEvent(
 extern "C" int TkPositionInTree(TkWindow *winPtr, TkWindow *treePtr);
 extern "C" int TkGrabState(TkWindow *winPtr);
 
-typedef struct {
-    Display *display;		/* Display from which to discard events. */
-    unsigned int serial;	/* Serial number with which to compare. */
-} GrabInfo;
-
 
 static TkWindow *
 TopLevelWindow(
@@ -512,8 +507,8 @@ TkGrabState(
 void
 tk::fixes_init(Tcl_Interp*)
 {
-#ifdef FIX_TK_POINTER_EVENTS
     // force linkage
+#ifdef FIX_TK_POINTER_EVENTS
     {
 	int (*func)(XEvent *, TkWindow *) = TkPointerEvent;
 	if (func)

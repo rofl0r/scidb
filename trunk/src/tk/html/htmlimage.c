@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1 $
-// Date   : $Date: 2011-05-04 00:04:08 +0000 (Wed, 04 May 2011) $
+// Version: $Revision: 317 $
+// Date   : $Date: 2012-05-05 16:33:40 +0000 (Sat, 05 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1047,7 +1047,7 @@ int HtmlImageServerCount(pTree)
  *
  *---------------------------------------------------------------------------
  */
-#ifndef WIN32
+#ifndef __WIN32__
 #include <X11/Xutil.h>
 Tcl_Obj *HtmlXImageToImage(pTree, pXImage, w, h)
     HtmlTree *pTree;

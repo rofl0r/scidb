@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 317 $
+// Date   : $Date: 2012-05-05 16:33:40 +0000 (Sat, 05 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -28,7 +28,7 @@
 
 using namespace sys::thread;
 
-#ifdef WIN32
+#ifdef __WIN32__
 
 # include <windows.h>
 typedef HANDLE Id;
@@ -169,7 +169,7 @@ atomic_test(atomic_t* v)
 	return *v == 1;
 }
 
-#elif defined(WIN32)
+#elif defined(__WIN32__)
 
 static volatile LONG m_lock = 0;
 
@@ -397,7 +397,7 @@ atomic_test(atomic_t* v)
 
 // End of Mutex /////////////////////////////////////////////////////////
 
-#ifdef WIN32
+#ifdef __WIN32__
 
 static volatile LONG m_cancel = 1;
 

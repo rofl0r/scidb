@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 268 $
-// Date   : $Date: 2012-03-13 16:47:20 +0000 (Tue, 13 Mar 2012) $
+// Version: $Revision: 317 $
+// Date   : $Date: 2012-05-05 16:33:40 +0000 (Sat, 05 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -81,7 +81,7 @@ GetParent(
     return None;
 }
 
-#ifdef WIN32
+#ifdef __WIN32__
 
 static void
 ScCreateBusy(Tk_FakeWin *winPtr, Tk_Window tkRef, Window *parentPtr, Tk_Window tkParent, Busy* busy)
@@ -449,7 +449,7 @@ NewWindowObj(Tk_Window tkwin)
  * OSX/Aqua, that's nothing at all.
  */
 
-#ifdef WIN32
+#ifdef __WIN32__
 # define DEF_BUSY_CURSOR "wait"
 #else
 # define DEF_BUSY_CURSOR "watch"

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 285 $
-// Date   : $Date: 2012-04-01 21:39:16 +0000 (Sun, 01 Apr 2012) $
+// Version: $Revision: 317 $
+// Date   : $Date: 2012-05-05 16:33:40 +0000 (Sat, 05 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -48,13 +48,13 @@
 #include <ctype.h>
 #include <locale.h>
 
-#ifdef WIN32
+#ifdef __WIN32__
 static char const PathDelim = '\\';
 #else
 static char const PathDelim = '/';
 #endif
 
-#ifndef WIN32
+#ifndef __WIN32__
 # define LIBHYPHENATE_DEFAULT_PATH "/usr/local/share/libhyphenate/"
 #endif
 

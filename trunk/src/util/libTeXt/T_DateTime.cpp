@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 317 $
+// Date   : $Date: 2012-05-05 16:33:40 +0000 (Sat, 05 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -23,7 +23,7 @@
 
 #if defined(__unix__) || defined(__MaxOSX__)
 # include <time.h>
-#elif defined(WIN32)
+#elif defined(__WIN32__)
 # include <windows.h>
 #endif
 
@@ -69,7 +69,7 @@ DateTime::doRegister(Environment& env)
 	min	= lt->tm_min;
 	sec	= lt->tm_sec;
 
-#elif defined(WIN32)
+#elif defined(__WIN32__)
 
 	SYSTEMTIME lt;
 	GetLocalTime(&lt);
