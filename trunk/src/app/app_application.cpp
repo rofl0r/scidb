@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 314 $
-// Date   : $Date: 2012-05-04 16:18:57 +0000 (Fri, 04 May 2012) $
+// Version: $Revision: 316 $
+// Date   : $Date: 2012-05-05 08:58:05 +0000 (Sat, 05 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -910,7 +910,6 @@ Application::loadGame(unsigned position, Cursor& cursor, unsigned index)
 	game.game->setUndoLevel(::undoLevel, ::undoCombinePredecessingMoves);
 	game.cursor = &cursor;
 	game.index = index;
-	game.encoding = base.encoding();
 
 	load::State state = base.loadGame(index, *game.game, game.encoding);
 

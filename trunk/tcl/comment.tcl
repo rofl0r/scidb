@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 298 $
-# Date   : $Date: 2012-04-18 20:09:25 +0000 (Wed, 18 Apr 2012) $
+# Version: $Revision: 316 $
+# Date   : $Date: 2012-05-05 08:58:05 +0000 (Sat, 05 May 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1277,11 +1277,13 @@ proc PopupMenu {parent} {
 	$m add separator
 
 	if {$Vars(undoStackIndex:$lang) == 0} { set state disabled } else { set state normal }
+	set accel "$::mc::Ctrl-"
 	$m add command \
 		-compound left \
 		-image $::icon::16x16::undo \
 		-label $::mc::Undo \
 		-command [namespace code EditUndo] \
+		-accelerator ${accel}Z \
 		-state $state \
 		;
 	if {$Vars(undoStackIndex:$lang) < [llength $Vars(undoStack:$lang)] - 1} {
@@ -1294,6 +1296,7 @@ proc PopupMenu {parent} {
 		-image $::icon::16x16::redo \
 		-label $::mc::Redo \
 		-command [namespace code EditRedo] \
+		-accelerator ${accel}Y \
 		-state $state \
 		;
 	$m add command \

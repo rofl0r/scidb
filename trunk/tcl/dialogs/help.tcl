@@ -1,7 +1,7 @@
 ## ======================================================================
 # Author : $Author$
-# Version: $Revision: 311 $
-# Date   : $Date: 2012-05-03 19:56:10 +0000 (Thu, 03 May 2012) $
+# Version: $Revision: 316 $
+# Date   : $Date: 2012-05-05 08:58:05 +0000 (Sat, 05 May 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -249,8 +249,10 @@ proc FullPath {file} {
 
 	if {[file extension $file] eq ".html"} {
 		set lang [helpLanguage]
-	} else {
+	} elseif {[info exists Priv(current:lang)]} {
 		set lang $Priv(current:lang)
+	} else {
+		set lang [helpLanguage]
 	}
 	return [file normalize [file join $::scidb::dir::help $lang $file]]
 }

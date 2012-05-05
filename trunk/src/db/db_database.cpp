@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 312 $
-// Date   : $Date: 2012-05-04 14:26:12 +0000 (Fri, 04 May 2012) $
+// Version: $Revision: 316 $
+// Date   : $Date: 2012-05-05 08:58:05 +0000 (Sat, 05 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -402,6 +402,9 @@ Database::loadGame(unsigned index, Game& game, mstl::string* encoding)
 
 	GameInfo* info = m_gameInfoList[index];
 	m_codec->reset();
+
+	if (encoding)
+		*encoding = this->encoding();
 
 	try
 	{
