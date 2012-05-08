@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 317 $
-// Date   : $Date: 2012-05-05 16:33:40 +0000 (Sat, 05 May 2012) $
+// Version: $Revision: 319 $
+// Date   : $Date: 2012-05-08 23:47:44 +0000 (Tue, 08 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -857,12 +857,12 @@ Node::configure(unsigned& minw, unsigned& maxw)
 			break;
 	}
 
-	Tcl_Obj* objv[4];
+//	Tcl_Obj* objv[4];
 
-	objv[0] = m_objMinsize;
-	objv[1] = Tcl_NewIntObj(minw);
-	objv[2] = m_objMaxsize;
-	objv[3] = Tcl_NewIntObj(maxw);
+//	objv[0] = m_objMinsize;
+//	objv[1] = Tcl_NewIntObj(minw);
+//	objv[2] = m_objMaxsize;
+//	objv[3] = Tcl_NewIntObj(maxw);
 
 //	tcl::call(__func__, m_objConfigureCmd, root()->path(), m_parent->path(), path(), 4, objv);
 }
