@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 238 $
-// Date   : $Date: 2012-02-09 20:58:05 +0000 (Thu, 09 Feb 2012) $
+// Version: $Revision: 318 $
+// Date   : $Date: 2012-05-08 23:06:35 +0000 (Tue, 08 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -93,15 +93,16 @@ PdfWriter::PdfWriter(format::Type srcFormat,
 
 	m_font[GameInfo] = HPDF_GetFont(m_doc, "Helvetica", NULL);
 	m_font[Move_Text_MainLine] =
-	m_font[Move_Text_Variation] =
-	m_font[Move_Text_SubVariation] =
-	m_font[Move_Symbol_MainLine] =
-	m_font[Move_Symbol_Variation] =
-	m_font[Move_Symbol_SubVariation] =
-	m_font[Comment_MainLine] =
-	m_font[Comment_Variation] =
-	m_font[Comment_SubVariation] =
-	m_font[Result] = m_font[GameInfo];
+		m_font[Move_Text_Variation] =
+		m_font[Move_Text_SubVariation] =
+		m_font[Move_Symbol_MainLine] =
+		m_font[Move_Symbol_Variation] =
+		m_font[Move_Symbol_SubVariation] =
+		m_font[Comment_MainLine] =
+		m_font[Comment_Variation] =
+		m_font[Comment_SubVariation] =
+		m_font[Result] =
+		m_font[GameInfo];
 
 	for (unsigned i = 0; i < LAST; ++i)
 		m_fontSize[i] = 12;

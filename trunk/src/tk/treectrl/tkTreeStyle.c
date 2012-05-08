@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 27 $
-// Date   : $Date: 2011-05-20 14:02:53 +0000 (Fri, 20 May 2011) $
+// Version: $Revision: 318 $
+// Date   : $Date: 2012-05-08 23:06:35 +0000 (Tue, 08 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -6420,7 +6420,7 @@ TreeStyle_GetSortData(
 	int type,					/* SORT_xxx constant. */
 	long *lv,					/* Returned for SORT_LONG. */
 	double *dv,					/* Returned for SORT_DOUBLE. */
-	char **sv					/* Returned for SORT_ASCII or SORT_DICT. */
+	char **sv					/* Returned for SORT_ASCII, SORT_DICT, or SORT_NOCASE. */
 	)
 {
 	IStyle *style = (IStyle *) style_;

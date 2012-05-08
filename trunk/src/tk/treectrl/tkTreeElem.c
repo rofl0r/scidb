@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 27 $
-// Date   : $Date: 2011-05-20 14:02:53 +0000 (Fri, 20 May 2011) $
+// Version: $Revision: 318 $
+// Date   : $Date: 2012-05-08 23:06:35 +0000 (Tue, 08 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -3464,6 +3464,7 @@ TreeElement_GetSortData(
 	switch (type) {
 		case SORT_ASCII:
 		case SORT_DICT:
+		case SORT_NOCASE:
 			if (dataObj != NULL && dataType != TDT_NULL)
 				(*sv) = Tcl_GetString(dataObj);
 			else

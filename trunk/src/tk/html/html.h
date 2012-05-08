@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 311 $
-// Date   : $Date: 2012-05-03 19:56:10 +0000 (Thu, 03 May 2012) $
+// Version: $Revision: 318 $
+// Date   : $Date: 2012-05-08 23:06:35 +0000 (Tue, 08 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -416,6 +416,7 @@ struct HtmlOptions {
     /* Tkhtml3 supports the following standard Tk options */
     int       width;
     int       height;
+    int       fixedwidth;
     int       xscrollincrement;
     int       yscrollincrement;
     Tcl_Obj  *yscrollcommand;

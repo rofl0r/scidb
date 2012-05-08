@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 181 $
-// Date   : $Date: 2012-01-10 19:04:42 +0000 (Tue, 10 Jan 2012) $
+// Version: $Revision: 318 $
+// Date   : $Date: 2012-05-08 23:06:35 +0000 (Tue, 08 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -3898,6 +3898,9 @@ HtmlLayout(pTree)
     nWidth = Tk_Width(pTree->tkwin);
     if (nWidth < 5 || pTree->options.forcewidth) {
         nWidth = pTree->options.width;
+    }
+    if (pTree->options.fixedwidth) {
+        nWidth = pTree->options.fixedwidth;
     }
     nHeight = Tk_Height(pTree->tkwin);
     if (nHeight < 5) {

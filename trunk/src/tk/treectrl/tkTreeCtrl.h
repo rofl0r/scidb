@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 318 $
+// Date   : $Date: 2012-05-08 23:06:35 +0000 (Tue, 08 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -692,6 +692,7 @@ MODULE_SCOPE void TreeStyle_TreeChanged(TreeCtrl *tree, int flagT);
 #define SORT_DOUBLE 2
 #define SORT_LONG 3
 #define SORT_COMMAND 4
+#define SORT_NOCASE 5
 MODULE_SCOPE int TreeStyle_GetSortData(TreeCtrl *tree, TreeStyle style_, int elemIndex, int type, long *lv, double *dv, char **sv);
 #if 0
 MODULE_SCOPE int TreeStyle_ValidateElements(TreeCtrl *tree, TreeStyle style_, int objc, Tcl_Obj *CONST objv[]);

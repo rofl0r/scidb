@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 310 $
-# Date   : $Date: 2012-04-26 20:16:11 +0000 (Thu, 26 Apr 2012) $
+# Version: $Revision: 318 $
+# Date   : $Date: 2012-05-08 23:06:35 +0000 (Tue, 08 May 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -36,6 +36,7 @@ set ProgramAborting		"Program is aborting."
 set Loading					"Loading %s"
 set ReadingOptionsFile	"Reading options file"
 set StartupFinished		"Startup finished"
+set SystemEncoding		"System encoding is '%s'"
 
 set ECOFile					"ECO file"
 set EngineFile				"engine file"
@@ -120,6 +121,7 @@ proc load {msg type path} {
 proc writeLog {} {
 	variable Log
 
+	::log::info [format $mc::SystemEncoding [encoding system]]
 	foreach {type msg} $Log { log::$type $msg }
 	array unset Log
 	::log::info $mc::StartupFinished

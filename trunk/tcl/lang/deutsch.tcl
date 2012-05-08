@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 312 $
-# Date   : $Date: 2012-05-04 14:26:12 +0000 (Fri, 04 May 2012) $
+# Version: $Revision: 318 $
+# Date   : $Date: 2012-05-08 23:06:35 +0000 (Tue, 08 May 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -204,6 +204,7 @@
 ::load::mc::Loading					"Lade %s"
 ::load::mc::ReadingOptionsFile	"Lese Optionendatei"
 ::load::mc::StartupFinished		"Programmstart beendet"
+::load::mc::SystemEncoding			"Die Systemenkodierung ist '%s'"
 
 ::load::mc::ECOFile					"ECO-Datei"
 ::load::mc::EngineFile				"Engine-Datei"

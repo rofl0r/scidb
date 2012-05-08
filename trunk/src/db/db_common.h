@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 310 $
-// Date   : $Date: 2012-04-26 20:16:11 +0000 (Thu, 26 Apr 2012) $
+// Version: $Revision: 318 $
+// Date   : $Date: 2012-05-08 23:06:35 +0000 (Tue, 08 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -778,6 +778,8 @@ namespace format
 		ChessBase	= 1 << 3,
 		Pgn			= 1 << 4,
 		LaTeX			= 1 << 5,
+
+		Invalid		= LaTeX, // makes sense if used for input format
 	};
 
 	bool isScidFormat(Type type);

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 291 $
-// Date   : $Date: 2012-04-09 23:03:07 +0000 (Mon, 09 Apr 2012) $
+// Version: $Revision: 318 $
+// Date   : $Date: 2012-05-08 23:06:35 +0000 (Tue, 08 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -629,7 +629,7 @@ void
 Game::applyUndo(Undo& undo, bool redo)
 {
 	if (redo || undo.action != Set_Start_Position)
-		tryToMoveTo(undo.key);
+		tryMoveTo(undo.key);
 
 	switch (undo.action)
 	{
@@ -696,7 +696,7 @@ Game::applyUndo(Undo& undo, bool redo)
 	}
 
 	if (!redo || undo.action != Set_Start_Position)
-		tryToMoveTo(undo.key);
+		tryMoveTo(undo.key);
 
 	switch (int(undo.action))
 	{
@@ -1107,7 +1107,7 @@ Game::undoMove()
 
 
 void
-Game::tryToMoveTo(edit::Key const& key)
+Game::tryMoveTo(edit::Key const& key)
 {
 	M_REQUIRE(isValidKey(key));
 
@@ -3111,7 +3111,7 @@ Game::setup(unsigned linebreakThreshold,
 	m_linebreakThreshold				= linebreakThreshold;
 	m_linebreakMaxLineLengthMain	= linebreakMaxLineLengthMain;
 	m_linebreakMaxLineLengthVar	= linebreakMaxLineLengthVar;
-	m_linebreakMinCommentLength	= linebreakMinCommentLength;
+	m_linebreakMinCommentLength		= linebreakMinCommentLength;
 	m_displayStyle						= displayStyle;
 }
 

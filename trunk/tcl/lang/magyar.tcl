@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 312 $
-# Date   : $Date: 2012-05-04 14:26:12 +0000 (Fri, 04 May 2012) $
+# Version: $Revision: 318 $
+# Date   : $Date: 2012-05-08 23:06:35 +0000 (Tue, 08 May 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -206,6 +206,7 @@
 ::load::mc::Loading					"%s betöltése"
 ::load::mc::ReadingOptionsFile	"beállítások beolvasása"
 ::load::mc::StartupFinished		"A betöltés befejeződött"
+::load::mc::SystemEncoding	"System encoding is '%s'" ;# NEW
 
 ::load::mc::ECOFile					"ECO fájl"
 ::load::mc::EngineFile				"Elemző program fájl"

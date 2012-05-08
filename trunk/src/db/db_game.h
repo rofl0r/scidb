@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 198 $
-// Date   : $Date: 2012-01-19 10:31:50 +0000 (Thu, 19 Jan 2012) $
+// Version: $Revision: 318 $
+// Date   : $Date: 2012-05-08 23:06:35 +0000 (Tue, 08 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -548,7 +548,7 @@ private:
 	void doMove();
 	void undoMove();
 	void goToCurrentMove(bool forward) const;
-	void tryToMoveTo(edit::Key const& key);
+	void tryMoveTo(edit::Key const& key);
 
 	void getMoves(StringList& resul, unsigned flags);
 	void getKeys(StringList& result);

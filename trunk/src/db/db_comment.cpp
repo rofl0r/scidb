@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 222 $
-// Date   : $Date: 2012-01-31 18:15:44 +0000 (Tue, 31 Jan 2012) $
+// Version: $Revision: 318 $
+// Date   : $Date: 2012-05-08 23:06:35 +0000 (Tue, 08 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1295,10 +1295,7 @@ Comment::append(Comment const& comment, char delim)
 
 	if (m_content.empty())
 	{
-		m_content = comment;
-		m_engFlag = comment.m_engFlag;
-		m_othFlag = comment.m_othFlag;
-		m_languageSet.clear();
+		*this = comment;
 	}
 	else
 	{
