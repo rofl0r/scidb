@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 320 $
-# Date   : $Date: 2012-05-11 17:55:28 +0000 (Fri, 11 May 2012) $
+# Version: $Revision: 321 $
+# Date   : $Date: 2012-05-11 18:22:22 +0000 (Fri, 11 May 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -75,7 +75,7 @@ proc open {parent base info view index {fen {}}} {
 	::widget::dialogButtons $dlg {close previous next help} close
 #	foreach type {close previous next help} { $dlg.$type configure -width 15 }
 	$dlg.close configure -command [list destroy $dlg]
-	$dlg.help configure -command { ::help::open .application Overview-Browser }
+	$dlg.help configure -command { ::help::open .application Game-Overview }
 
 	set sw [expr {[winfo screenwidth $dlg] - 30}]
 	set sh [expr {[winfo screenheight $dlg] - 140}]
