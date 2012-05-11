@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 318 $
-// Date   : $Date: 2012-05-08 23:06:35 +0000 (Tue, 08 May 2012) $
+// Version: $Revision: 320 $
+// Date   : $Date: 2012-05-11 17:55:28 +0000 (Fri, 11 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -865,6 +865,14 @@ HtmlCallbackLayout(pTree, pNode)
 {
     if (pNode) {
         HtmlNode *p;
+
+#ifdef USE_DOUBLE_BUFFERING
+        if (pTree->bufferRegion) {
+            TkDestroyRegion(pTree->bufferRegion);
+            pTree->bufferRegion = NULL;
+        }
+#endif
+
         snapshotLayout(pTree);
         if (!pTree->cb.flags) {
             Tcl_DoWhenIdle(callbackHandler, (ClientData)pTree);

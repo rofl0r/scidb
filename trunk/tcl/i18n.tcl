@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 311 $
-# Date   : $Date: 2012-05-03 19:56:10 +0000 (Thu, 03 May 2012) $
+# Version: $Revision: 320 $
+# Date   : $Date: 2012-05-11 17:55:28 +0000 (Fri, 11 May 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -55,6 +55,7 @@ set Game				"Game"
 set Layout			"Layout"
 set Left				"Left"
 set Lite				"Light"
+set Minimize		"Minimize"
 set Modify			"Modify"
 set No				"No"
 set NotAvailable	"n/a"

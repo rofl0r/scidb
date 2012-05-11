@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 298 $
-# Date   : $Date: 2012-04-18 20:09:25 +0000 (Wed, 18 Apr 2012) $
+# Version: $Revision: 320 $
+# Date   : $Date: 2012-05-11 17:55:28 +0000 (Fri, 11 May 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -104,13 +104,12 @@ proc BuildDialog {dlg} {
 proc BuildAboutFrame {w} {
 	::html $w.t \
 		-imagecmd [namespace code GetImage] \
-		-center no \
+		-center yes \
 		-width 580 \
 		-height 400 \
 		-borderwidth 1 \
 		-relief sunken \
 		-doublebuffer no \
-		-center yes \
 		-exportselection yes \
 		;
 	pack $w.t

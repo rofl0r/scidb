@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 312 $
-// Date   : $Date: 2012-05-04 14:26:12 +0000 (Fri, 04 May 2012) $
+// Version: $Revision: 320 $
+// Date   : $Date: 2012-05-11 17:55:28 +0000 (Fri, 11 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -395,7 +395,8 @@ View::dumpGame(unsigned index, mstl::string const& fen, mstl::string& result) co
 	if (!fen.empty())
 		game.goToPosition(fen);
 
-	return Result(state, game.dumpMoves(result));
+	// NOTE: we like to use flag UseZeroWidthSpace, but Tk cannot handle this character.
+	return Result(state, game.dumpMoves(result, Game::SuppressSpace | Game::WhiteNumbers));
 }
 
 
@@ -437,7 +438,13 @@ View::dumpGame(unsigned index,
 		lengths.resize(size);
 
 		for (unsigned i = 0; i < size; ++i)
-			count += (lengths[i] = game.dumpMoves(result[i], unsigned((i + 1)*delta + 0.5) - count));
+		{
+			// NOTE: we like to use flag UseZeroWidthSpace, but Tk cannot handle this character.
+			count += (lengths[i] = game.dumpMoves(
+												result[i],
+												unsigned((i + 1)*delta + 0.5) - count,
+												Game::SuppressSpace | Game::WhiteNumbers));
+		}
 	}
 	else
 	{

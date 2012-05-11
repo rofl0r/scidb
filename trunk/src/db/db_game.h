@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 318 $
-// Date   : $Date: 2012-05-08 23:06:35 +0000 (Tue, 08 May 2012) $
+// Version: $Revision: 320 $
+// Date   : $Date: 2012-05-11 17:55:28 +0000 (Fri, 11 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -77,7 +77,8 @@ public:
 		BlackNumbers		= 1 << 1,	//*< Black moves should be preceded by a move number
 		IncludeAnnotation	= 1 << 2,	//*< Nags/symbolic annotation should be included
 		SuppressSpace		= 1 << 3,	//*< Don't add space after move number
-		ExportFormat		= 1 << 4,	//*< Use PGN standard (superseeds other flags)
+		UseZeroWidthSpace	= 1 << 4,	//*< Use zero width space after move number
+		ExportFormat		= 1 << 5,	//*< Use PGN standard (superseeds other flags)
 	};
 
 	enum
@@ -507,8 +508,8 @@ public:
 	Board const& getFinalBoard() const override;
 	Board const& getStartBoard() const override;
 
-	unsigned dumpMoves(mstl::string& result);
-	unsigned dumpMoves(mstl::string& result, unsigned length);
+	unsigned dumpMoves(mstl::string& result, unsigned flags);
+	unsigned dumpMoves(mstl::string& result, unsigned length, unsigned flags);
 	unsigned dumpHistory(mstl::string& result) const;
 	void getHistory(History& result) const;
 

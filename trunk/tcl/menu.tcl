@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 310 $
-# Date   : $Date: 2012-04-26 20:16:11 +0000 (Thu, 26 Apr 2012) $
+# Version: $Revision: 320 $
+# Date   : $Date: 2012-05-11 17:55:28 +0000 (Fri, 11 May 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -488,6 +488,11 @@ proc viewFullscreen {{toggle {}}} {
 
 	if {[llength $toggle]} { set Fullscreen [expr {!$Fullscreen}] }
 	wm attributes .application -fullscreen $Fullscreen
+}
+
+
+proc fullscreen? {} {
+	return [set [namespace current]::Fullscreen]
 }
 
 

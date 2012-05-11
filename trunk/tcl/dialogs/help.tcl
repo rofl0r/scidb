@@ -1,7 +1,7 @@
 ## ======================================================================
 # Author : $Author$
-# Version: $Revision: 316 $
-# Date   : $Date: 2012-05-05 08:58:05 +0000 (Sat, 05 May 2012) $
+# Version: $Revision: 320 $
+# Date   : $Date: 2012-05-11 17:55:28 +0000 (Fri, 11 May 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -90,7 +90,7 @@ proc open {parent {file {}} args} {
 	variable Geometry
 
 	set Priv(check:lang) [CheckLanguage $parent $file]
-	if {$Priv(check:lang) eq "none"} { return }
+	if {$Priv(check:lang) eq "none"} { return "" }
 
 	if {[string length $file] == 0} {
 		set Priv(current:file) ""
@@ -107,7 +107,7 @@ proc open {parent {file {}} args} {
 		set Priv(current:file) [FullPath $file]
 		set Priv(current:lang) [helpLanguage]
 		ReloadCurrentPage
-		return
+		return $dlg
 	}
 
 	array unset Links
