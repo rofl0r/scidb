@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 320 $
-# Date   : $Date: 2012-05-11 17:55:28 +0000 (Fri, 11 May 2012) $
+# Version: $Revision: 322 $
+# Date   : $Date: 2012-05-12 16:27:31 +0000 (Sat, 12 May 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -50,9 +50,11 @@ set LeaveFullscreen			"Leave &Full-Screen"
 set Help							"&Help"
 set Contact						"&Contact (Web Browser)"
 set Quit							"&Quit"
+set Extras						"&Extras"
 
 set ContactBugReport			"&Bug Report"
 set ContactFeatureRequest	"&Feature Request"
+set InstallChessBaseFonts	"Install ChessBase Fonts"
 
 set OpenFile					"Open a Scidb File"
 set NewFile						"Create a Scidb File"
@@ -224,16 +226,15 @@ proc build {menu} {
 	set m [menu $menu.mContact]
 	lassign [::tk::UnderlineAmpersand $mc::Contact] text ul
 	$menu add cascade \
+		-compound left \
 		-menu $m \
 		-label " $text" \
 		-underline [incr ul] \
 		-image $::icon::16x16::contact \
-		-compound left \
 		;
 
 	lassign [::tk::UnderlineAmpersand $mc::ContactBugReport] text ul
 	$m add command \
-		-compound left \
 		-label $text \
 		-underline $ul \
 		-command [namespace code [list bugReport .application]] \
@@ -241,11 +242,32 @@ proc build {menu} {
 
 	lassign [::tk::UnderlineAmpersand $mc::ContactFeatureRequest] text ul
 	$m add command \
-		-compound left \
 		-label $text \
 		-underline $ul \
 		-command [namespace code [list featureRequest .application]] \
 		;
+
+	### extras ###############################################################
+	if {[llength [info procs ::font::installChessBaseFonts]]} {
+		set m [menu $menu.mExtras]
+		lassign [::tk::UnderlineAmpersand $mc::Extras] text ul
+		$menu add cascade \
+			-compound left \
+			-menu $m \
+			-label " $text" \
+			-underline [incr ul] \
+			-image $::icon::16x16::none \
+			;
+
+		lassign [::tk::UnderlineAmpersand $mc::InstallChessBaseFonts] text ul
+		$m add command \
+			-compound left \
+			-label " $text" \
+			-underline $ul \
+			-image $::icon::16x16::fonts \
+			-command [namespace code [list ::font::installChessBaseFonts .application]] \
+			;
+	}
 
 	### fullscreen ###########################################################
 	$menu add separator

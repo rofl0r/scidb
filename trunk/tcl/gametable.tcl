@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 320 $
-# Date   : $Date: 2012-05-11 17:55:28 +0000 (Fri, 11 May 2012) $
+# Version: $Revision: 322 $
+# Date   : $Date: 2012-05-12 16:27:31 +0000 (Sat, 12 May 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -713,8 +713,8 @@ proc showMoves {path moves result showEmpty {width 50}} {
 		::shadow::allow $w
 	}
 	set t $w.f.text
-	$t delete 1.0 end
 	$t configure -width $width -state normal
+	$t delete 1.0 end
 	set moves [::font::splitMoves $moves]
 	set complete 1
 	if {[string length $moves] == 0} {

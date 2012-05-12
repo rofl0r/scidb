@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 320 $
-# Date   : $Date: 2012-05-11 17:55:28 +0000 (Fri, 11 May 2012) $
+# Version: $Revision: 322 $
+# Date   : $Date: 2012-05-12 16:27:31 +0000 (Sat, 12 May 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1826,6 +1826,16 @@ proc LayoutBookmarks {w} {
 proc AddBookmark {w} {
 	variable [namespace parent]::${w}::Vars
 	variable Bookmarks
+
+#	set ReallyAddBookmark "A bookmark for folder '%folder%' already exists, with name '%name%'. Really add this bookmark again?"
+#	set i [lsearch -index 0 $Bookmarks(user) $Vars(folder)]
+#	if {$i >= 0} {
+#		set msg [string map \
+#			[list %name% [lindex $Bookmarks(user) $i 1] %folder% [file tail $Vars(folder)]] \
+#			[set [namespace parent]::mc::ReallyAddBookmark] \
+#		]
+#		set reply [messageBox -yesno -parent $w -icon question -message $msg]
+#	}
 
 	lappend Bookmarks(user) $Vars(folder) [file tail $Vars(folder)]
 	set list {}

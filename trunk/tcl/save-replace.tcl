@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 310 $
-# Date   : $Date: 2012-04-26 20:16:11 +0000 (Thu, 26 Apr 2012) $
+# Version: $Revision: 322 $
+# Date   : $Date: 2012-05-12 16:27:31 +0000 (Sat, 12 May 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -231,6 +231,7 @@ array set Colors {
 	federation						darkblue
 	score								darkgreen
 	ratingType						darkblue
+	date								darkblue
 	eventDate						darkblue
 	eventCountry					darkblue
 	taglistOutline					gray
