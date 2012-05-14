@@ -30,10 +30,11 @@ function prepareThumbnails()
 
 						if (itemImage)
 						{
-							var id = itemImage.getAttribute("src");
+							var id	= itemImage.getAttribute("src");
+							var dim	= itemImage.getAttribute("name").split("x");
 
-							itemWidths[id]		= parseInt(itemImage.getAttribute("iwidth"));
-							itemHeights[id]	= parseInt(itemImage.getAttribute("iheight"));
+							itemWidths[id]		= parseInt(dim[0]);
+							itemHeights[id]	= parseInt(dim[1]);
 							itemTitles[id]		= itemImage.getAttribute("title");
 							itemUrls[id]		= itemLink.getAttribute("href");
 

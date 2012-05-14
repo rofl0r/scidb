@@ -7,7 +7,7 @@ CONTENT
 <div class="block">
 
   <div class="header">
-    Das Scidb-Projekt <hr/>
+    Das Scidb-Projekt <hr />
   </div>
 
   <p>Im Februar 2010 wurde das Projeckt Scidb auf Sourceforge angelegt. Klicke
@@ -21,7 +21,7 @@ CONTENT
   Danke!</p>
 
   <p>Wenn Sie uns kontaktieren möchten, bitte eine Nachricht an die
-  <a href="https://lists.sourceforge.net/lists/listinfo/scidb-users">Scidb Users Mailing List</a>
+  <a href="https://lists.sourceforge.net/lists/listinfo/scidb-users" lang="en">Scidb Users Mailing List</a>
   senden.</p>
 
 </div>

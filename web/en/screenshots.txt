@@ -17,7 +17,7 @@ CONTENT
   <div id="imagePopup"><img width="0" height="0" alt="" src="" /></div>
 
   <div class="header">
-    Screenshots <hr/>
+    Screenshots <hr />
   </div>
 
   <table width="100%" cellspacing="15" id="thumbnails">
@@ -31,44 +31,40 @@ CONTENT
                class="bordersOff"
                width="120"
               height="99"
-              iwidth="1105"
-             iheight="909"/>
+                name="1105x909" />
            </a>
         </td>
         <td>
 					<a href="screenshots/board-2.png">
             <img src="screenshots/thumbs/board-2.png"
-               alt="Burnett Theme"
-             title="Burnett Theme"
-             class="bordersOff"
-             width="120"
-            height="94"
-            iwidth="1015"
-           iheight="791"/>
+                 alt="Burnett Theme"
+               title="Burnett Theme"
+               class="bordersOff"
+               width="120"
+              height="94"
+                name="1015x791" />
            </a>
         </td>
         <td>
 					<a href="screenshots/board-3.png">
             <img src="screenshots/thumbs/board-3.png"
-               alt="Alpha Theme"
-             title="Alpha Theme"
-             class="bordersOff"
-             width="120"
-             height="88"
-            iwidth="1189"
-           iheight="874"/>
+                 alt="Alpha Theme"
+               title="Alpha Theme"
+               class="bordersOff"
+               width="120"
+               height="88"
+                name="1189x874" />
            </a>
         </td>
         <td>
 					<a href="screenshots/board-4.png">
             <img src="screenshots/thumbs/board-4.png"
-               alt="Game History"
-             title="Game History"
-             class="bordersOff"
-             width="120"
-            height="101"
-            iwidth="960"
-           iheight="806"/>
+                 alt="Game History"
+               title="Game History"
+               class="bordersOff"
+               width="120"
+              height="101"
+                name="960x806" />
            </a>
         </td>
       </tr>
@@ -76,49 +72,45 @@ CONTENT
         <td>
 					<a href="screenshots/board-5.png">
             <img src="screenshots/thumbs/board-5.png"
-               alt="Gray Theme"
-             title="Gray Theme"
-             class="bordersOff"
-             width="120"
-            height="90"
-            iwidth="909"
-           iheight="680"/>
+                 alt="Gray Theme"
+               title="Gray Theme"
+               class="bordersOff"
+               width="120"
+              height="90"
+                name="909x680" />
            </a>
         </td>
         <td>
 					<a href="screenshots/board-6.png">
             <img src="screenshots/thumbs/board-6.png"
-               alt="Sand Theme"
-             title="Sand Theme"
-             class="bordersOff"
-             width="120"
-            height="90"
-            iwidth="909"
-           iheight="680"/>
+                 alt="Sand Theme"
+               title="Sand Theme"
+               class="bordersOff"
+               width="120"
+              height="90"
+                name="909x680" />
            </a>
         </td>
         <td>
 					<a href="screenshots/help-1.png">
             <img src="screenshots/thumbs/help-1.png"
-               alt="Help Dialog"
-             title="Help Dialog"
-             class="bordersOff"
-             width="120"
-            height="81"
-            iwidth="936"
-           iheight="629"/>
+                 alt="Help Dialog"
+               title="Help Dialog"
+               class="bordersOff"
+               width="120"
+              height="81"
+                name="936x629" />
            </a>
         </td>
         <td>
 					<a href="screenshots/board-8.png">
             <img src="screenshots/thumbs/board-8.png"
-               alt="Woodgrain Theme"
-             title="Woodgrain Theme"
-             class="bordersOff"
-             width="116"
-            height="90"
-            iwidth="986"
-           iheight="762"/>
+                 alt="Woodgrain Theme"
+               title="Woodgrain Theme"
+               class="bordersOff"
+               width="116"
+              height="90"
+                name="986x762" />
            </a>
         </td>
       </tr>
@@ -126,49 +118,45 @@ CONTENT
         <td>
 					<a href="screenshots/board-9.png">
             <img src="screenshots/thumbs/board-9.png"
-               alt="Set Start Board"
-             title="Set Start Board"
-             class="bordersOff"
-             width="117"
-            height="89"
-            iwidth="752"
-           iheight="575"/>
+                 alt="Set Start Board"
+               title="Set Start Board"
+               class="bordersOff"
+               width="117"
+              height="89"
+                name="752x575" />
            </a>
         </td>
         <td>
 					<a href="screenshots/gamelist-1.png">
             <img src="screenshots/thumbs/gamelist-1.png"
-               alt="Game List"
-             title="Game List"
-             class="bordersOff"
-             width="120"
-            height="105"
-            iwidth="1055"
-           iheight="924"/>
+                 alt="Game List"
+               title="Game List"
+               class="bordersOff"
+               width="120"
+              height="105"
+                name="1055x924" />
            </a>
         </td>
         <td>
 					<a href="screenshots/playerlist-1.png">
             <img src="screenshots/thumbs/playerlist-1.png"
-               alt="Player List"
-             title="Player List"
-             class="bordersOff"
-             width="120"
-            height="83"
-            iwidth="987"
-           iheight="681"/>
+                 alt="Player List"
+               title="Player List"
+               class="bordersOff"
+               width="120"
+              height="83"
+                name="987x681" />
            </a>
         </td>
         <td>
 					<a href="screenshots/gamelist-3.png">
             <img src="screenshots/thumbs/gamelist-3.png"
-               alt="Game Browser"
-             title="Game Browser"
-             class="bordersOff"
-             width="120"
-            height="90"
-            iwidth="908"
-           iheight="681"/>
+                 alt="Game Browser"
+               title="Game Browser"
+               class="bordersOff"
+               width="120"
+              height="90"
+                name="908x681" />
            </a>
         </td>
       </tr>
@@ -176,49 +164,45 @@ CONTENT
         <td>
 					<a href="screenshots/save-dialog-1.png">
             <img src="screenshots/thumbs/save-dialog-1.png"
-               alt="Save Dialog"
-             title="Save Dialog"
-             class="bordersOff"
-             width="128"
-            height="77"
-            iwidth="989"
-           iheight="583"/>
+                 alt="Save Dialog"
+               title="Save Dialog"
+               class="bordersOff"
+               width="128"
+              height="77"
+                name="989x583" />
            </a>
         </td>
         <td>
 					<a href="screenshots/gamelist-5.png">
             <img src="screenshots/thumbs/gamelist-5.png"
-               alt="File Selection Dialog"
-             title="File Selection Dialog"
-             class="bordersOff"
-             width="120"
-            height="87"
-            iwidth="987"
-           iheight="713"/>
+                 alt="File Selection Dialog"
+               title="File Selection Dialog"
+               class="bordersOff"
+               width="120"
+              height="87"
+                name="987x713" />
            </a>
         </td>
         <td>
 					<a href="screenshots/setup-1.png">
             <img src="screenshots/thumbs/setup-1.png"
-               alt="Board Setup"
-             title="Board Setup"
-             class="bordersOff"
-             width="117"
-            height="90"
-            iwidth="1202"
-           iheight="923"/>
+                 alt="Board Setup"
+               title="Board Setup"
+               class="bordersOff"
+               width="117"
+              height="90"
+                name="1202x923" />
            </a>
         </td>
         <td>
 					<a href="screenshots/crosstable-1.png">
             <img src="screenshots/thumbs/crosstable-1.png"
-               alt="Tournament Table"
-             title="Tournament Table"
-             class="bordersOff"
-             width="120"
-            height="88"
-            iwidth="996"
-           iheight="731"/>
+                 alt="Tournament Table"
+               title="Tournament Table"
+               class="bordersOff"
+               width="120"
+              height="88"
+                name="996x731" />
            </a>
         </td>
       </tr>

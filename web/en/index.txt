@@ -44,7 +44,7 @@ CONTENT
 <div class="block">
 
   <div class="header">
-    Welcome to Scidb <hr/>
+    Welcome to Scidb <hr />
   </div>
 
   <p>
@@ -59,7 +59,7 @@ CONTENT
 <div class="block">
 
   <div class="header">
-    News <hr/>
+    News <hr />
   </div>
 
   <p>
@@ -80,7 +80,7 @@ CONTENT
 <div class="block">
 
   <div class="header">
-    What's new in second version? <hr/>
+    What's new in second version? <hr />
   </div>
 
   <dir>

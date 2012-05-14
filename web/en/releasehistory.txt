@@ -7,7 +7,7 @@ CONTENT
 <div class="block">
 
   <div class="header">
-    Second public preview version (February 2012) <hr/>
+    Second public preview version (February 2012) <hr />
   </div>
 
   <p>The second public preview version is based on <acronym>SVN</acronym> revision 238.</p>
@@ -58,7 +58,7 @@ CONTENT
 <div class="block">
 
   <div class="header">
-    First public preview version (July 2011) <hr/>
+    First public preview version (July 2011) <hr />
   </div>
 
   <p>The first public preview version is based on <acronym>SVN</acronym> revision 83.</p>

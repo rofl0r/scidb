@@ -7,7 +7,7 @@ CONTENT
 <div class="block">
 
   <div class="header">
-    Some Scidb-related web links <hr/>
+    Some Scidb-related web links <hr />
   </div>
 
   <ul>
@@ -27,7 +27,7 @@ CONTENT
       Jessy Project on SourceForge Home Page</a></li>
   </ul>
 
-  <hr/>
+  <hr />
 
   <ul>
     <li><a href="http://blogchess.blogosfere.it/2010/11/scidb-un-nuovo-programma-per-gestire-database.html">
@@ -49,7 +49,7 @@ CONTENT
 	   Scidb alla sua beta release numero 100!</a></li>
   </ul>
 
-  <hr/>
+  <hr />
 
   <ul>
 	 <li><a href="http://ghandybh.blogspot.com/2011/10/aonde-guardar-suas-partidas-de-xadrez.html">

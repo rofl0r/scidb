@@ -7,7 +7,7 @@ CONTENT
 <div class="block">
 
   <div class="header">
-    Einige Links zu verwandten Themen <hr/>
+    Einige <span lang="en">Links</span> zu verwandten Themen <hr />
   </div>
 
   <ul>
@@ -27,7 +27,7 @@ CONTENT
       Jessy Project on SourceForge Home Page</a></li>
   </ul>
 
-  <hr/>
+  <hr />
 
   <ul>
     <li><a href="http://blogchess.blogosfere.it/2010/11/scidb-un-nuovo-programma-per-gestire-database.html">
@@ -49,7 +49,7 @@ CONTENT
 	   Scidb alla sua beta release numero 100!</a></li>
   </ul>
 
-  <hr/>
+  <hr />
 
   <ul>
 	 <li><a href="http://ghandybh.blogspot.com/2011/10/aonde-guardar-suas-partidas-de-xadrez.html">
@@ -62,6 +62,6 @@ FOOTER
 
   <li><a href="index.html">Scidb</a>&nbsp;|&nbsp;</li>
   <li><a href="moreinfo.html">Weitere Informationen</a>&nbsp;|&nbsp;</li>
-  <li><a href="links.html">Links</a>&nbsp;|&nbsp;</li>
+  <li><a href="links.html" lang="en">Links</a>&nbsp;|&nbsp;</li>
 
 # vi:set ts=2 sw=2 et filetype=html:

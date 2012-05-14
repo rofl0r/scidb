@@ -7,7 +7,7 @@ CONTENT
 <div class="block">
 
   <div class="header">
-    Wanted <hr/>
+    Wanted <hr />
   </div>
 
   <p>Testers are welcome for the preliminary version. Volunteers should
@@ -22,7 +22,7 @@ CONTENT
         <a href="https://sourceforge.net/account/registration/">Account Registration</a>).
         The membership is free of charge and duties.
       </li>
-      <li><p/>
+      <li>
         Open <a href="https://sourceforge.net/sendmessage.php?touser=2321037">Send an Email</a>,
         log in with your member name, and send the message.
       </li>
@@ -42,7 +42,7 @@ CONTENT
 
     <ol>
        <li>Open <a href="http://sourceforge.net/tracker/?group_id=307371&amp;atid=1294800">Tracker: Feature Requests</a></li>
-       <li><p/>Click "Add new".</li>
+       <li>Click "Add new".</li>
     </ol>
   </div>
 
@@ -50,7 +50,7 @@ CONTENT
   That means the following functionalities are not destined for Scidb:</p>
 
   <ul type="disc">
-    <li>FICS connection</li>
+    <li><acronym>FICS</acronym> connection</li>
     <li>Correspondence/Email chess support</li>
     <li>Automatic game analysis</li>
     <li>Chess training</li>
@@ -80,11 +80,11 @@ CONTENT
 
     <li><p>Programming a 'Tip of the Day' dialog with appendant tips.</p></li>
 
-    <li><p>Writing the HTML online help pages.</p></li>
+    <li><p>Writing the <acronym>HTML</acronym> online help pages.</p></li>
 
-    <li><p>Printing PDF documents and images (board dumps).</p></li>
+    <li><p>Printing <acronym>PDF</acronym> documents and images (board dumps).</p></li>
 
-    <li><p>Programming an ECO browser.</p></li>
+    <li><p>Programming an <acronym>ECO</acronym> browser.</p></li>
   </dir>
 
   <h4>C++</h4>
@@ -98,9 +98,10 @@ CONTENT
 
     <li><p>Embedding a drag&amp;drop library.</p></li>
      
-    <li><p>HTML generation (see LaTeX generation).</p></li>
+    <li><p><acronym>HTML</acronym> generation (see <acronym>LaTeX</acronym> generation).</p></li>
 
-    <li><p>The SVG library Anti-Grain (AGG) delivers dissatisfying results for
+    <li><p>The <acronym>SVG</acronym> library Anti-Grain (<acronym>AGG</acronym>)
+    delivers dissatisfying results for
     line drawing. The lines are not anti-aliased, but they should be.
     This part of the library has to be modified/overworked. Apparently
     the author Maxim Shemanarev abondend the development of this library.

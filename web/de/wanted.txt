@@ -7,7 +7,7 @@ CONTENT
 <div class="block">
 
   <div class="header">
-    Gesucht <hr/>
+    Gesucht <hr />
   </div>
 
   <p>
@@ -22,11 +22,11 @@ CONTENT
     <ol>
       <li>
         Eine Mitgliedschaft bei Sourceforge ist erforderlich
-        (<a href="https://sourceforge.net/account/registration">Account Registration</a>).
+        (<a href="https://sourceforge.net/account/registration" lang="en">Account Registration</a>).
         Die Mitgliedschaft ist Gebuehren- und Verpflichtungsfrei.
       </li>
       <li>
-        <a href="https://sourceforge.net/sendmessage.php?touser=2321037">Send an Email</a>
+        <a href="https://sourceforge.net/sendmessage.php?touser=2321037" lang="en">Send an Email</a>
         öffnen, mit dem Mitgliedsnamen einloggen und die Nachricht senden.
       </li>
     </ol>
@@ -46,8 +46,8 @@ CONTENT
    <p>Wie ein Funktionswunsch eingetragen werden kann:</p>
 
     <ol>
-       <li><a href="http://sourceforge.net/tracker/?group_id=307371&amp;atid=1294800">Tracker: Feature Requests</a> öffnen.</li>
-       <li>"Add new" anklicken.</li>
+       <li><a href="http://sourceforge.net/tracker/?group_id=307371&amp;atid=1294800" lang="en">Tracker: Feature Requests</a> öffnen.</li>
+       <li><span lang="en">"Add new"</span> anklicken.</li>
     </ol>
   </div>
 
@@ -58,7 +58,7 @@ CONTENT
   </p>
 
   <ul type="disc">
-    <li>FICS-Verbindung</li>
+    <li><acronym>FICS</acronym>-Verbindung</li>
     <li>Korrespondenz-/Email-Schach</li>
     <li>Automatische Partienanalyse</li>
     <li>Schachtraining</li>
@@ -85,7 +85,7 @@ CONTENT
     <li>
     Die einzelnen Fenster innerhalb des Hauptfensters sollten
     lösbar/verankerbar sein. Weiterhin sollten sie frei verschiebbar
-    sein (mit Drag&amp;Drop). Zur Zeit sind alle Fensterpositionen fix.
+    sein (mit <span lang="en">Drag&amp;Drop</span>). Zur Zeit sind alle Fensterpositionen fix.
     </li>
 
     <li>Einige Icons bedürfen der Überarbeitung.</li>
@@ -94,9 +94,9 @@ CONTENT
 
     <li>Mehr Hilfeseiten für den Hilfedialog.</li>
 
-    <li>PDF-Dokumentendruck und Schachbbrettausdrucke.</li>
+    <li><acronym>PDF</acronym>-Dokumentendruck und Schachbbrettausdrucke.</li>
 
-    <li>Das Programmieren eines ECO-Browsers.</li>
+    <li>Das Programmieren eines <acronym>ECO</acronym>-Browsers.</li>
   </dir>
 
   <h4>C++</h4>
@@ -111,12 +111,13 @@ CONTENT
       Weiterer Aufwand ausser dem Testen sollte nicht vonnöten sein.
     </li>
 
-    <li>Einbindung einer Drag&amp;Drop-Bibliothek.</li>
+    <li>Einbindung einer <span lang="en">Drag&amp;Drop</span>-Bibliothek.</li>
 
-    <li>HTML-Generierung (siehe LaTeX-Generierung).</li>
+    <li><acronym>HTML</acronym>-Generierung (siehe <acronym>LaTeX</acronym>-Generierung).</li>
 
     <li>
-    Die SVG-Bibliothek Anti-Grain (AGG) liefert unbefriedigende Resultate
+    Die <acronym>SVG</acronym>-Bibliothek Anti-Grain (<acronym>AGG</acronym>)
+    liefert unbefriedigende Resultate
     für Linienzeichnung, sie sind nicht kantengeglättet, obwohl sie es
     sein sollten. Dieser Teil der Bibliothek benötigt eine Überarbeitung.
     Leider hat der Autor Maxim Shemanarev die Weiterentwicklung für
@@ -130,7 +131,7 @@ CONTENT
     <li>
     Für das Zeichnen von Tortendiagrammen wird die Funktion arc() benötigt.
     Diese Funktion liefert alles, nur keine Kreisebögen, eine Überarbeitung
-    ist angesagt (erfordert viel Know-How!).
+    ist angesagt (erfordert viel <span lang="en">Know-How</span>!).
     </li>
 
     <li>
@@ -154,6 +155,6 @@ FOOTER
 
   <li><a href="index.html">Scidb</a>&nbsp;|&nbsp;</li>
   <li><a href="moreinfo.html">Weitere Informationen</a>&nbsp;|&nbsp;</li>
-  <li><a href="links.html">Links</a>&nbsp;|&nbsp;</li>
+  <li><a href="links.html" lang="en">Links</a>&nbsp;|&nbsp;</li>
 
 # vi:set ts=2 sw=2 et filetype=html:

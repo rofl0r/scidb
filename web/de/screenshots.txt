@@ -20,7 +20,7 @@ CONTENT
   <div id="imagePopup"><img width="0" height="0" alt="" src="" /></div>
 
   <div class="header">
-    Screenshots <hr/>
+    <span lang="en">Screenshots</span> <hr />
   </div>
 
   <table width="100%" cellspacing="15" id="thumbnails">
@@ -34,44 +34,40 @@ CONTENT
                class="bordersOff"
                width="120"
               height="99"
-              iwidth="1105"
-             iheight="909"/>
+                name="1105x909" />
            </a>
         </td>
         <td>
 					<a href="screenshots/board-2.png">
             <img src="screenshots/thumbs/board-2.png"
-               alt="Thema Burnett"
-             title="Thema Burnett"
-             class="bordersOff"
-             width="120"
-            height="94"
-            iwidth="1015"
-           iheight="791"/>
+                 alt="Thema Burnett"
+               title="Thema Burnett"
+               class="bordersOff"
+               width="120"
+              height="94"
+               name="1015x791" />
            </a>
         </td>
         <td>
 					<a href="screenshots/board-3.png">
             <img src="screenshots/thumbs/board-3.png"
-               alt="Thema Alpha"
-             title="Thema Alpha"
-             class="bordersOff"
-             width="120"
-            height="88"
-            iwidth="1189"
-           iheight="874"/>
+                 alt="Thema Alpha"
+               title="Thema Alpha"
+               class="bordersOff"
+               width="120"
+              height="88"
+                name="1189x874" />
            </a>
         </td>
         <td>
 					<a href="screenshots/board-4.png">
             <img src="screenshots/thumbs/board-4.png"
-               alt="Partienhistorie"
-             title="Partienhistorie"
-             class="bordersOff"
-             width="120"
-            height="101"
-            iwidth="960"
-           iheight="806"/>
+                 alt="Partienhistorie"
+               title="Partienhistorie"
+               class="bordersOff"
+               width="120"
+              height="101"
+                name="960x806" />
            </a>
         </td>
       </tr>
@@ -79,49 +75,45 @@ CONTENT
         <td>
 					<a href="screenshots/board-5.png">
             <img src="screenshots/thumbs/board-5.png"
-               alt="Thema Gray"
-             title="Thema Gray"
-             class="bordersOff"
-             width="120"
-            height="90"
-            iwidth="909"
-           iheight="680"/>
+                 alt="Thema Gray"
+               title="Thema Gray"
+               class="bordersOff"
+               width="120"
+              height="90"
+                name="909x680" />
            </a>
         </td>
         <td>
 					<a href="screenshots/board-6.png">
             <img src="screenshots/thumbs/board-6.png"
-               alt="Thema Sand"
-             title="Thema Sand"
-             class="bordersOff"
-             width="120"
-            height="90"
-            iwidth="909"
-           iheight="680"/>
+                 alt="Thema Sand"
+               title="Thema Sand"
+               class="bordersOff"
+               width="120"
+              height="90"
+                name="909x680" />
            </a>
         </td>
         <td>
 					<a href="screenshots/help-1.png">
             <img src="screenshots/thumbs/help-1.png"
-               alt="Hilfe-Dialog"
-             title="Hilfe-Dialog"
-             class="bordersOff"
-             width="120"
-            height="81"
-            iwidth="936"
-           iheight="629"/>
+                 alt="Hilfe-Dialog"
+               title="Hilfe-Dialog"
+               class="bordersOff"
+               width="120"
+              height="81"
+                name="936x629" />
            </a>
         </td>
         <td>
 					<a href="screenshots/board-8.png">
             <img src="screenshots/thumbs/board-8.png"
-               alt="Thema Woodgrain"
-             title="Thema Woodgrain"
-             class="bordersOff"
-             width="116"
-            height="90"
-            iwidth="986"
-           iheight="762"/>
+                 alt="Thema Woodgrain"
+               title="Thema Woodgrain"
+               class="bordersOff"
+               width="116"
+              height="90"
+                name="986x762" />
            </a>
         </td>
       </tr>
@@ -129,49 +121,45 @@ CONTENT
         <td>
 					<a href="screenshots/board-9.png">
             <img src="screenshots/thumbs/board-9.png"
-             alt="Stellungseingabe"
-           title="Stellungseingabe"
-             class="bordersOff"
-             width="117"
-            height="89"
-            iwidth="752"
-           iheight="575"/>
+               alt="Stellungseingabe"
+             title="Stellungseingabe"
+               class="bordersOff"
+               width="117"
+              height="89"
+                name="752x575" />
            </a>
         </td>
         <td>
 					<a href="screenshots/gamelist-1.png">
             <img src="screenshots/thumbs/gamelist-1.png"
-               alt="Partienliste"
-             title="Partienliste"
-             class="bordersOff"
-             width="120"
-            height="105"
-            iwidth="1055"
-           iheight="924"/>
+                 alt="Partienliste"
+               title="Partienliste"
+               class="bordersOff"
+               width="120"
+              height="105"
+                name="1055x924" />
            </a>
         </td>
         <td>
 					<a href="screenshots/playerlist-1.png">
             <img src="screenshots/thumbs/playerlist-1.png"
-               alt="Spielerliste"
-             title="Spielerliste"
-             class="bordersOff"
-             width="120"
-            height="83"
-            iwidth="987"
-           iheight="681"/>
+                 alt="Spielerliste"
+               title="Spielerliste"
+               class="bordersOff"
+               width="120"
+              height="83"
+                name="987x681" />
            </a>
         </td>
         <td>
 					<a href="screenshots/gamelist-3.png">
             <img src="screenshots/thumbs/gamelist-3.png"
-               alt="Partien-Browser"
-             title="Partien-Browser"
-             class="bordersOff"
-             width="120"
-            height="90"
-            iwidth="908"
-           iheight="681"/>
+                 alt="Partien-Browser"
+               title="Partien-Browser"
+               class="bordersOff"
+               width="120"
+              height="90"
+                name="908x681" />
            </a>
         </td>
       </tr>
@@ -179,49 +167,45 @@ CONTENT
         <td>
 					<a href="screenshots/save-dialog-1.png">
             <img src="screenshots/thumbs/save-dialog-1.png"
-               alt="Partie speichern"
-             title="Partie speichern"
-             class="bordersOff"
-             width="128"
-            height="77"
-            iwidth="989"
-           iheight="583"/>
+                 alt="Partie speichern"
+               title="Partie speichern"
+               class="bordersOff"
+               width="128"
+              height="77"
+                name="989x583" />
            </a>
         </td>
         <td>
 					<a href="screenshots/gamelist-5.png">
             <img src="screenshots/thumbs/gamelist-5.png"
-               alt="Dateiauswahldialog"
-             title="Dateiauswahldialog"
-             class="bordersOff"
-             width="120"
-            height="87"
-            iwidth="987"
-           iheight="713"/>
+                 alt="Dateiauswahldialog"
+               title="Dateiauswahldialog"
+               class="bordersOff"
+               width="120"
+              height="87"
+                name="987x713" />
            </a>
         </td>
         <td>
 					<a href="screenshots/setup-1.png">
             <img src="screenshots/thumbs/setup-1.png"
-               alt="Brettkonfiguration"
-             title="Brettkonfiguration"
-             class="bordersOff"
-             width="117"
-            height="90"
-            iwidth="1202"
-           iheight="923"/>
+                 alt="Brettkonfiguration"
+               title="Brettkonfiguration"
+               class="bordersOff"
+               width="117"
+              height="90"
+                name="1202x923" />
            </a>
         </td>
         <td>
 					<a href="screenshots/crosstable-1.png">
             <img src="screenshots/thumbs/crosstable-1.png"
-               alt="Turniertabelle"
-             title="Turniertabelle"
-             class="bordersOff"
-             width="120"
-            height="88"
-            iwidth="996"
-           iheight="731"/>
+                 alt="Turniertabelle"
+               title="Turniertabelle"
+               class="bordersOff"
+               width="120"
+              height="88"
+                name="996x731" />
            </a>
         </td>
       </tr>
@@ -231,6 +215,6 @@ CONTENT
 FOOTER
 
   <li><a href="index.html">Scidb</a>&nbsp;|&nbsp;</li>
-  <li><a href="screenshots.html">Screenshots</a>&nbsp;|&nbsp;</li>
+  <li><a href="screenshots.html" lang="en">Screenshots</a>&nbsp;|&nbsp;</li>
 
 # vi:set ts=2 sw=2 et filetype=html:

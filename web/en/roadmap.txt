@@ -7,7 +7,7 @@ CONTENT
 <div class="block">
 
   <div class="header">
-    Features for next releases <hr/>
+    Features for next releases <hr />
   </div>
 
   <dir>
@@ -27,7 +27,7 @@ CONTENT
 <div class="block">
 
   <div class="header">
-    Features for the far future <hr/>
+    Features for the far future <hr />
   </div>
 
   <dir>
@@ -46,7 +46,7 @@ CONTENT
 <div class="block">
 
   <div class="header">
-    Volunteers wanted for... <hr/>
+    Volunteers wanted for... <hr />
   </div>
 
   <dir>

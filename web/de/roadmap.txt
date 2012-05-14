@@ -7,14 +7,14 @@ CONTENT
 <div class="block">
 
   <div class="header">
-    Funktionen für die nächsten Veröffentlichungen <hr/>
+    Funktionen für die nächsten Veröffentlichungen <hr />
   </div>
 
   <dir>
     <li>Analyse-Fenster: Starten von externen Schachprogrammen</li>
     <li>Suchfunktionen: Partiedatensuche, Positionssuche, etc.</li>
     <li>Filterfunktionen: Partienfilter, Spielerfilter</li>
-    <li>Drag &amp; Drop von Partien in andere Datenbanken</li>
+    <li><span lang="en">Drag &amp; Drop</span> von Partien in andere Datenbanken</li>
     <li>Flexibles Fensterlayout</li>
     <li>Dokumentenerzeugung: LaTeX-Export</li>
     <li>Windows-Unterstützung</li>
@@ -27,7 +27,7 @@ CONTENT
 <div class="block">
 
   <div class="header">
-    Funktionen für spätere Veröffentlichungen <hr/>
+    Funktionen für spätere Veröffentlichungen <hr />
   </div>
 
   <dir>
@@ -46,7 +46,7 @@ CONTENT
 <div class="block">
 
   <div class="header">
-    Freiwillige gesucht für... <hr/>
+    Freiwillige gesucht für... <hr />
   </div>
 
   <dir>

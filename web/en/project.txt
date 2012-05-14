@@ -7,7 +7,7 @@ CONTENT
 <div class="block">
 
   <div class="header">
-    The Scidb Project <hr/>
+    The Scidb Project <hr />
   </div>
 
   <p>In February of 2010 the Scidb project on SourceForge was created. Click on the

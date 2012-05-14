@@ -40,14 +40,14 @@ CONTENT
 <div class="block">
 
   <div class="header">
-    Willkommen zu Scidb <hr/>
+    Willkommen zu Scidb <hr />
   </div>
 
   <p>
-  Scidb ("Scidb is a Chess Information Data Base")
+  Scidb <span lang="en">("Scidb is a Chess Information Data Base")</span>
   ist eine Schachdatenbank-Applikation für Linux/Unix und Windows. Scidb wurde durch
-  Scid ("Shane's Chess Information Database") inspiriert, ist aber eine komplette
-  Neuentwicklung.
+  Scid <span lang="en">("Shane's Chess Information Database")</span> inspiriert, ist
+  aber eine komplette Neuentwicklung.
   </p>
 
 </div>
@@ -55,18 +55,19 @@ CONTENT
 <div class="block">
 
   <div class="header">
-    Neuigkeiten <hr/>
+    Neuigkeiten <hr />
   </div>
 
   <p>
   Die zweite öffentliche Vorschau-Version wurde freigegeben
-  (siehe <a href="download.html">Download</a>).
+  (siehe <a href="download.html" lang="en">Download</a>).
   </p>
 
   <p>
-  Scidb hat eine neu gestaltete Homepage. Sie ist mit allen modernen Browsern getestet:
-  Firefox 4+, Safari 4+, Chrome 6+, Opera 11+, Konqueror 4+ und Internet-Explorer 9+.
-  Mit älteren Browsern entfalten diese Seiten nicht das vorgesehene Aussehen.
+  Scidb hat eine neu gestaltete <span lang="en">Homepage</span>. Sie ist mit allen modernen
+  Browsern getestet: Firefox 4+, Safari 4+, Chrome 6+, Opera 11+, Konqueror 4+ und
+  Internet-Explorer 9+.  Mit älteren Browsern entfalten diese Seiten nicht das vorgesehene
+  Aussehen.
   </p>
 
 </div>
@@ -74,7 +75,7 @@ CONTENT
 <div class="block">
 
   <div class="header">
-    Was ist neu in der zweiten Version? <hr/>
+    Was ist neu in der zweiten Version? <hr />
   </div>
 
   <dir>

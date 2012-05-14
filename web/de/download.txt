@@ -6,12 +6,12 @@ CONTENT
 
 <div class="block">
 
-  <div class="header">
-    Download <hr/> 
+  <div class="header" lang="en">
+    Download <hr /> 
   </div>
 
   <p>
-  Die zweite öffentliche Vorschauversion ist bereit für den Download:
+  Die zweite öffentliche Vorschauversion ist bereit für den <span lang="en">Download</span>:
   <a href="http://sourceforge.net/projects/scidb/files/scidb-beta--2012-02-19--rev250.tar.gz/download">scidb-beta--2012-02-19--rev250.tar.gz</a>.
   Diese Version ist nur für Linux/Unix Betriebssysteme. Die Windows-Version wird später
   veröffentlicht, eventuell am Ende des Jahres 2012.
@@ -23,19 +23,19 @@ CONTENT
   </p>
 
 	<p>
-	&nbsp;&nbsp;&gt; sudo apt-get install tcl8.5<br/>
-	&nbsp;&nbsp;&gt; sudo apt-get install tcl8.5-dev<br/>
-	&nbsp;&nbsp;&gt; sudo apt-get install tk8.5<br/>
+	&nbsp;&nbsp;&gt; sudo apt-get install tcl8.5<br />
+	&nbsp;&nbsp;&gt; sudo apt-get install tcl8.5-dev<br />
+	&nbsp;&nbsp;&gt; sudo apt-get install tk8.5<br />
 	&nbsp;&nbsp;&gt; sudo apt-get install tk8.5-dev
 	</p>
 
   <p>Scidb wird wie gewöhnlich gebaut:</p>
 	
 	<p>
-	&nbsp;&nbsp;&gt; tar -xzf scidb-beta--2012-02-19--rev250.tar.gz<br/>
-	&nbsp;&nbsp;&gt; cd scidb<br/>
-	&nbsp;&nbsp;&gt; ./configure<br/>
-	&nbsp;&nbsp;&gt; make<br/>
+	&nbsp;&nbsp;&gt; tar -xzf scidb-beta--2012-02-19--rev250.tar.gz<br />
+	&nbsp;&nbsp;&gt; cd scidb<br />
+	&nbsp;&nbsp;&gt; ./configure<br />
+	&nbsp;&nbsp;&gt; make<br />
 	&nbsp;&nbsp;&gt; sudo make install
 	</p>
 
@@ -55,6 +55,6 @@ CONTENT
 FOOTER
 
   <li><a href="index.html">Scidb</a>&nbsp;|&nbsp;</li>
-  <li><a href="download.html">Download</a>&nbsp;|&nbsp;</li>
+  <li><a href="download.html" lang="en">Download</a>&nbsp;|&nbsp;</li>
 
 # vi:set ts=2 sw=2 et filetype=html:
