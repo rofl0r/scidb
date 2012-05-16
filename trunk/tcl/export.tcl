@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 298 $
-# Date   : $Date: 2012-04-18 20:09:25 +0000 (Wed, 18 Apr 2012) $
+# Version: $Revision: 324 $
+# Date   : $Date: 2012-05-16 13:27:17 +0000 (Wed, 16 May 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1966,7 +1966,7 @@ proc UpdateSample {family} {
 		Figurines {
 			variable ::font::chessFigurineFontsMap
 			set encoding $chessFigurineFontsMap($family)
-			set sample [join [split $::font::figurines(graphic) {}] " "]
+			set sample [join $::font::figurines(graphic) " "]
 			if {[llength $encoding]} { set sample [string map $encoding $sample] }
 		}
 

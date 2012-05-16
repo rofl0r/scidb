@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 268 $
-# Date   : $Date: 2012-03-13 16:47:20 +0000 (Tue, 13 Mar 2012) $
+# Version: $Revision: 324 $
+# Date   : $Date: 2012-05-16 13:27:17 +0000 (Wed, 16 May 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1170,9 +1170,9 @@ proc Select {w {autoComplete 0}} {
 		set e $w.e${attr}
 		set l $w.l${attr}s
 		$l selection clear 0 end
-		if {[$e selection present]} {
-			$e delete sel.first sel.last
-		}
+#		if {[$e selection present]} {
+#			$e delete sel.first sel.last
+#		}
 	   set value [string tolower $S(current,$var)]
 
 		if {[string length $value] > 0} {

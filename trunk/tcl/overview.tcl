@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 321 $
-# Date   : $Date: 2012-05-11 18:22:22 +0000 (Fri, 11 May 2012) $
+# Version: $Revision: 324 $
+# Date   : $Date: 2012-05-16 13:27:17 +0000 (Wed, 16 May 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -326,7 +326,6 @@ proc BuildTab {nb boardSize sw sh specified} {
 	variable Priv
 
 	if {$boardSize < $MinSize && [llength [$nb tabs]] >= 2} { return }
-	if {$Priv(count) == 1} { ::board::registerSize $boardSize }
 	set nrows [expr {$sh/(8*$boardSize + 47)}]
 	set ncols [expr {$sw/(8*$boardSize + 12)}]
 	if {!$specified} {
@@ -335,6 +334,7 @@ proc BuildTab {nb boardSize sw sh specified} {
 		set boardSize [min $size1 $size2]
 	}
 	if {[winfo exists $nb.s$boardSize]} { return }
+	if {$Priv(count) == 1} { ::board::registerSize $boardSize }
 	set f [::ttk::frame $nb.s$boardSize]
 	$nb add $f -sticky nsew -text "${nrows}x${ncols}"
 	variable ${nb}::Vars

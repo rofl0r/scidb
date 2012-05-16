@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 322 $
-# Date   : $Date: 2012-05-12 16:27:31 +0000 (Sat, 12 May 2012) $
+# Version: $Revision: 324 $
+# Date   : $Date: 2012-05-16 13:27:17 +0000 (Wed, 16 May 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -393,6 +393,10 @@ proc selectLang {{lang {}}} {
 	array unset EcoMatch
 
 	set file [file join $::scidb::dir::share lang eco $mc::input($Language)]
+	if {![file readable $file]} {
+		# use English descriptions as fallback
+		set file [file join $::scidb::dir::share lang eco $mc::input(English)]
+	}
 	if {[file readable $file]} {
 		set f [open $file r]
 		chan configure $f -encoding $encoding
