@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 322 $
-# Date   : $Date: 2012-05-12 16:27:31 +0000 (Sat, 12 May 2012) $
+# Version: $Revision: 325 $
+# Date   : $Date: 2012-05-18 17:11:30 +0000 (Fri, 18 May 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -218,7 +218,7 @@ proc build {menu} {
 		-label " $text..." \
 		-underline [incr ul] \
 		-image $::icon::16x16::log \
-		-accelerator "${::mc::Ctrl}+L" \
+		-accelerator "${::mc::Key(Ctrl)}+L" \
 		-command ::log::show \
 		;
 
@@ -291,7 +291,7 @@ proc build {menu} {
 		-underline [incr ul] \
 		-image $::icon::16x16::exit \
 		-command ::application::shutdown \
-		-accelerator "${::mc::Ctrl}+Q" \
+		-accelerator "${::mc::Key(Ctrl)}+Q" \
 		;
 }
 

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 324 $
-# Date   : $Date: 2012-05-16 13:27:17 +0000 (Wed, 16 May 2012) $
+# Version: $Revision: 325 $
+# Date   : $Date: 2012-05-18 17:11:30 +0000 (Fri, 18 May 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -189,6 +189,7 @@ switch $::scidb::revision {
 		set ::crosstable::RecentlyUsedHistory {}
 		set ::crosstable::MostRecentHistory {}
 		array unset ::browser::Options font:bold
+		array unset ::application::pgn::Options board-size
 	}
 }
 

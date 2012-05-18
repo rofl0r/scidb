@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 316 $
-# Date   : $Date: 2012-05-05 08:58:05 +0000 (Sat, 05 May 2012) $
+# Version: $Revision: 325 $
+# Date   : $Date: 2012-05-18 17:11:30 +0000 (Fri, 18 May 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1277,7 +1277,7 @@ proc PopupMenu {parent} {
 	$m add separator
 
 	if {$Vars(undoStackIndex:$lang) == 0} { set state disabled } else { set state normal }
-	set accel "$::mc::Ctrl-"
+	set accel "$::mc::Key(Ctrl)-"
 	$m add command \
 		-compound left \
 		-image $::icon::16x16::undo \

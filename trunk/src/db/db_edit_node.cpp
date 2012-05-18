@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 325 $
+// Date   : $Date: 2012-05-18 17:11:30 +0000 (Fri, 18 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1224,6 +1224,7 @@ Root::makeList(Work& work, KeyNode::List& result, MoveNode const* node)
 		work.pop(const_cast<Move*>(static_cast<Move const*>(result.back()))->m_list);
 		result.push_back(new Diagram(
 			work, node->annotation().contains(nag::Diagram) ? color::White : color::Black));
+		work.m_isVirgin = false;
 		work.pushParagraph(Spacing::Diagram);
 		work.needMoveNo = true;
 	}

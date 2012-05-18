@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 298 $
-# Date   : $Date: 2012-04-18 20:09:25 +0000 (Wed, 18 Apr 2012) $
+# Version: $Revision: 325 $
+# Date   : $Date: 2012-05-18 17:11:30 +0000 (Fri, 18 May 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -25,10 +25,10 @@ package provide calendar 1.0
 namespace eval calendar {
 namespace eval mc {
 
-set OneMonthForward	"One month forward (Shift-Right)"
-set OneMonthBackward	"One month backward (Shift-Left)"
-set OneYearForward	"One year forward (Ctrl-Right)"
-set OneYearBackward	"One year backward (Ctrl-Left)"
+set OneMonthForward	"One month forward (Shift-\u2192)"
+set OneMonthBackward	"One month backward (Shift-\u2190)"
+set OneYearForward	"One year forward (Ctrl-\u2192)"
+set OneYearBackward	"One year backward (Ctrl-\u2190)"
 
 set Su "Su"
 set Mo "Mo"

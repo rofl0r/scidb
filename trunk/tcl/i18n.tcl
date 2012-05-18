@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 324 $
-# Date   : $Date: 2012-05-16 13:27:17 +0000 (Wed, 16 May 2012) $
+# Version: $Revision: 325 $
+# Date   : $Date: 2012-05-18 17:11:30 +0000 (Fri, 18 May 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -28,9 +28,17 @@
 
 namespace eval mc {
 
-set Alt				"Alt"
-set Ctrl				"Ctrl"
-set Shift			"Shift"
+set Key(Alt)		"Alt"
+set Key(Ctrl)		"Ctrl"
+set Key(Down)		"\u2193"
+set Key(End)		"End"
+set Key(Home)		"Home"
+set Key(Left)		"\u2190"
+set Key(Next)		"Page\u2193"	;# Page Down
+set Key(Prior)		"Page\u2191"	;# Page Up
+set Key(Right)		"\u2192"
+set Key(Shift)		"Shift"
+set Key(Up)			"\u2191"
 
 set Alignment		"Alignment"
 set Apply			"Apply"

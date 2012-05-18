@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 320 $
-// Date   : $Date: 2012-05-11 17:55:28 +0000 (Fri, 11 May 2012) $
+// Version: $Revision: 325 $
+// Date   : $Date: 2012-05-18 17:11:30 +0000 (Fri, 18 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2931,13 +2931,17 @@ Game::setFolded(edit::Key const& key, bool flag)
 	if (key.level() == 0)
 		return;
 
-	MoveNode* node = key.findPosition(m_startNode, m_startBoard.plyNumber())->getLineStart();
+	MoveNode*	node		= key.findPosition(m_startNode, m_startBoard.plyNumber())->getLineStart();
+	unsigned		update	= UpdatePgn;
 
 	if (flag && node->contains(m_currentNode))
+	{
 		goToFirst();
+		update |= UpdateBoard;
+	}
 
 	node->setFolded(flag);
-	updateSubscriber(UpdatePgn | UpdateBoard);
+	updateSubscriber(update);
 }
 
 
@@ -2947,14 +2951,18 @@ Game::toggleFolded(edit::Key const& key)
 	M_REQUIRE(isValidKey(key));
 	M_REQUIRE(key.level() > 0);
 
-	MoveNode*	node = key.findPosition(m_startNode, m_startBoard.plyNumber())->getLineStart();
-	bool			flag = !node->isFolded();
+	MoveNode*	node		= key.findPosition(m_startNode, m_startBoard.plyNumber())->getLineStart();
+	bool			flag		= !node->isFolded();
+	unsigned		update	= UpdatePgn;
 
 	if (flag && node->contains(m_currentNode))
+	{
 		goToFirst();
+		update |= UpdateBoard;
+	}
 
 	node->setFolded(flag);
-	updateSubscriber(UpdatePgn | UpdateBoard);
+	updateSubscriber(update);
 }
 
 
