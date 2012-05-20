@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 312 $
-// Date   : $Date: 2012-05-04 14:26:12 +0000 (Fri, 04 May 2012) $
+// Version: $Revision: 326 $
+// Date   : $Date: 2012-05-20 20:27:50 +0000 (Sun, 20 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2217,6 +2217,14 @@ Codec::rename(mstl::string const& oldName, mstl::string const& newName)
 
 		::sys::file::rename(oldFile, newFile, true);
 	}
+}
+
+
+void
+Codec::removeAllFiles(mstl::string const& rootname)
+{
+	M_ASSERT(!m_gameStream.is_open());
+	remove(rootname);
 }
 
 

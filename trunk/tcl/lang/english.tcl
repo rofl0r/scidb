@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 325 $
-# Date   : $Date: 2012-05-18 17:11:30 +0000 (Fri, 18 May 2012) $
+# Version: $Revision: 326 $
+# Date   : $Date: 2012-05-20 20:27:50 +0000 (Sun, 20 May 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -285,6 +285,7 @@
 ::application::database::mc::FileImport					"Import PGN files..."
 ::application::database::mc::FileCreate					"Create Archive..."
 ::application::database::mc::FileClose						"Close"
+::application::database::mc::FileCompress					"Compress"
 ::application::database::mc::HelpSwitcher					"Help for Database Switcher"
 
 ::application::database::mc::Games							"&Games"
@@ -301,8 +302,9 @@
 ::application::database::mc::Empty							"empty"
 ::application::database::mc::None							"none"
 ::application::database::mc::Failed							"failed"
-::application::database::mc::LoadMessage					"Opening Database %s"
-::application::database::mc::UpgradeMessage				"Upgrading Database %s"
+::application::database::mc::LoadMessage					"Opening database %s"
+::application::database::mc::UpgradeMessage				"Upgrading database %s"
+::application::database::mc::CompressMessage				"Compressing database %s"
 ::application::database::mc::CannotOpenFile				"Cannot open file '%s'."
 ::application::database::mc::EncodingFailed				"Encoding %s failed."
 ::application::database::mc::DatabaseAlreadyOpen		"Database '%s' is already open."

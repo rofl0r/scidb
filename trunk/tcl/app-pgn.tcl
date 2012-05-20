@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 325 $
-# Date   : $Date: 2012-05-18 17:11:30 +0000 (Fri, 18 May 2012) $
+# Version: $Revision: 326 $
+# Date   : $Date: 2012-05-20 20:27:50 +0000 (Sun, 20 May 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -2051,7 +2051,7 @@ proc PopupMenu {parent position} {
 			$menu add command \
 				-label "$mc::EditCommentBefore..." \
 				-command [namespace code [list editComment a $position]] \
-				-accel $Accel \
+				-accel $accel \
 				;
 		}
 		if {[::scidb::game::position atEnd?] || [::scidb::game::query length] == 0} {

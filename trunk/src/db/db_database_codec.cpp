@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 312 $
-// Date   : $Date: 2012-05-04 14:26:12 +0000 (Fri, 04 May 2012) $
+// Version: $Revision: 326 $
+// Date   : $Date: 2012-05-20 20:27:50 +0000 (Sun, 20 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -240,9 +240,6 @@ DatabaseCodec::makeCodec(mstl::string const& name)
 	if (ext == "cbh")
 		return new cbh::Codec();
 
-	if (ext.empty())
-		return new sci::Codec;
-
 	if (ext == "sci")
 		return sci::Codec::makeCodec(name);
 
@@ -341,6 +338,13 @@ DatabaseCodec::updateHeader(mstl::string const&)
 
 void
 DatabaseCodec::save(mstl::string const&, unsigned, Progress&)
+{
+	M_RAISE("should not be used");
+}
+
+
+void
+DatabaseCodec::removeAllFiles(mstl::string const& rootname)
 {
 	M_RAISE("should not be used");
 }

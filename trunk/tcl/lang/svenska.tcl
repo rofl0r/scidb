@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 325 $
-# Date   : $Date: 2012-05-18 17:11:30 +0000 (Fri, 18 May 2012) $
+# Version: $Revision: 326 $
+# Date   : $Date: 2012-05-20 20:27:50 +0000 (Sun, 20 May 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -284,6 +284,7 @@
 ::application::database::mc::FileImport				"Importera PGN fil..."
 ::application::database::mc::FileCreate				"Skapa arkiv..."
 ::application::database::mc::FileClose					"Stäng"
+::application::database::mc::FileCompress				"Compress" ;# NEW
 ::application::database::mc::HelpSwitcher				"Hjälp om databasväljare"
 
 ::application::database::mc::Games						"&Partier"
@@ -302,6 +303,7 @@
 ::application::database::mc::Failed						"misslyckades"
 ::application::database::mc::LoadMessage				"Öppnar databas %s"
 ::application::database::mc::UpgradeMessage			"Upgraderar databas %s"
+::application::database::mc::CompressMessage			"Compressing database %s" ;# NEW
 ::application::database::mc::CannotOpenFile			"Kan inte öppna fil '%s'."
 ::application::database::mc::EncodingFailed			"Kodning %s misslyckades."
 ::application::database::mc::DatabaseAlreadyOpen	"Databasen '%s' är redan öppen."

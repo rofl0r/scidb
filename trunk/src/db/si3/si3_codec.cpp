@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 312 $
-// Date   : $Date: 2012-05-04 14:26:12 +0000 (Fri, 04 May 2012) $
+// Version: $Revision: 326 $
+// Date   : $Date: 2012-05-20 20:27:50 +0000 (Sun, 20 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2182,6 +2182,20 @@ Codec::getSuffixes(mstl::string const& filename, StringList& result)
 
 	if (ext[2] == '4')
 		result.push_back("ssc");
+}
+
+
+void
+Codec::removeAllFiles(mstl::string const& rootname)
+{
+	M_ASSERT(!m_gameStream.is_open());
+
+	mstl::string base(rootname);
+
+	::sys::file::deleteIt(base + m_extNamebase);
+	::sys::file::deleteIt(base + m_extGame);
+	::sys::file::deleteIt(base + m_extIndex);
+	::sys::file::deleteIt(base + ".ssc");
 }
 
 // vi:set ts=3 sw=3:

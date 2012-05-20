@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 326 $
+// Date   : $Date: 2012-05-20 20:27:50 +0000 (Sun, 20 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -81,6 +81,7 @@ public:
 					order::ID order = order::Ascending);
 
 	void reverse(Database const& db);
+	void swap(Selector& selector);
 	void update(Filter const& filter);
 	void update(unsigned newSize);
 	void update();

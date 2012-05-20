@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 325 $
-# Date   : $Date: 2012-05-18 17:11:30 +0000 (Fri, 18 May 2012) $
+# Version: $Revision: 326 $
+# Date   : $Date: 2012-05-20 20:27:50 +0000 (Sun, 20 May 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1188,8 +1188,13 @@ proc ChangeBoardSize {position board delta} {
 				::board::registerSize $newSize
 				set Priv(fullscreen:size) $newSize
 			}
-		} elseif {$Vars(board:size) != $Priv(fullscreen:size)} {
-			::board::unregisterSize $Vars(board:size)
+		} else {
+			if {$newSize != $Priv(fullscreen:size)} {
+				::board::registerSize $newSize
+			}
+			if {$Vars(board:size) != $Priv(fullscreen:size)} {
+				::board::unregisterSize $Vars(board:size)
+			}
 		}
 		::board::stuff::resize $board $newSize 1
 		grid columnconfigure $dlg.bot 1 -minsize [expr {8*$newSize + 2}]

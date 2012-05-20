@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 320 $
-// Date   : $Date: 2012-05-11 17:55:28 +0000 (Fri, 11 May 2012) $
+// Version: $Revision: 326 $
+// Date   : $Date: 2012-05-20 20:27:50 +0000 (Sun, 20 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -89,6 +89,24 @@ View::View(Application& app, Database& db)
 	,m_annotatorUpdateMode(AddNewGames)
 {
 	initialize();
+}
+
+
+View::View(View& view, db::Database& db)
+	:m_app(view.m_app)
+	,m_db(db)
+	,m_gameUpdateMode(view.m_gameUpdateMode)
+	,m_playerUpdateMode(view.m_playerUpdateMode)
+	,m_eventUpdateMode(view.m_eventUpdateMode)
+	,m_annotatorUpdateMode(view.m_annotatorUpdateMode)
+{
+	m_gameFilter.swap(view.m_gameFilter);
+	m_playerFilter.swap(view.m_playerFilter);
+	m_eventFilter.swap(view.m_eventFilter);
+	m_gameSelector.swap(view.m_gameSelector);
+	m_playerSelector.swap(view.m_playerSelector);
+	m_eventSelector.swap(view.m_eventSelector);
+	m_annotatorSelector.swap(view.m_annotatorSelector);
 }
 
 

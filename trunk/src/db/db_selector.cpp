@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 311 $
-// Date   : $Date: 2012-05-03 19:56:10 +0000 (Thu, 03 May 2012) $
+// Version: $Revision: 326 $
+// Date   : $Date: 2012-05-20 20:27:50 +0000 (Sun, 20 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1211,6 +1211,14 @@ Selector::update(unsigned newSize)
 		m_map.clear();
 		m_list.release();
 	}
+}
+
+
+void
+Selector::swap(Selector& selector)
+{
+	m_map.swap(selector.m_map);
+	m_list.swap(selector.m_list);
 }
 
 // vi:set ts=3 sw=3:

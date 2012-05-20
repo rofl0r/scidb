@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 312 $
-// Date   : $Date: 2012-05-04 14:26:12 +0000 (Fri, 04 May 2012) $
+// Version: $Revision: 326 $
+// Date   : $Date: 2012-05-20 20:27:50 +0000 (Sun, 20 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -84,7 +84,7 @@ public:
 
 	/// Returns whether the database is set read-only or not.
 	bool isReadOnly() const;
-	/// Returns whether the database is petentially writeable or not.
+	/// Returns whether the database is potentially writeable or not.
 	bool isWriteable() const;
 	/// Returns whether the database is memory-only or not.
 	bool isMemoryOnly() const;
@@ -98,6 +98,8 @@ public:
 	bool usingAsyncReader() const;
 	/// Returns whether the database format should be upgraded.
 	bool shouldUpgrade() const;
+	/// Returns whether this database should be compressed.
+	bool shouldCompress() const;
 
 	/// Returns an unique database id.
 	unsigned id() const;
@@ -209,6 +211,8 @@ public:
 	void recode(mstl::string const& encoding, util::Progress& progress);
 	/// Rename the database.
 	void rename(mstl::string const& name);
+	/// Remove database from disk
+	void remove();
 
 	/// Build tournament table for selected games.
 	TournamentTable* makeTournamentTable(Filter const& gameFilter) const;

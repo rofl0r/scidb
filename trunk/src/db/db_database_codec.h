@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 312 $
-// Date   : $Date: 2012-05-04 14:26:12 +0000 (Fri, 04 May 2012) $
+// Version: $Revision: 326 $
+// Date   : $Date: 2012-05-20 20:27:50 +0000 (Sun, 20 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -161,6 +161,7 @@ public:
 	virtual void reloadDescription(mstl::string const& rootname);
 	virtual void reloadNamebases(mstl::string const& rootname, util::Progress& progress);
 	virtual void close() = 0;
+	virtual void removeAllFiles(mstl::string const& rootname);
 
 	unsigned importGames(Producer& producer, util::Progress& progress, int startIndex = -1);
 

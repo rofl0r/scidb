@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 324 $
-// Date   : $Date: 2012-05-16 13:27:17 +0000 (Wed, 16 May 2012) $
+// Version: $Revision: 326 $
+// Date   : $Date: 2012-05-20 20:27:50 +0000 (Sun, 20 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2035,10 +2035,10 @@ if (::getenv("SCIDB_GUIDING_TEXT") == 0) return;
 //printf("skip(0): %02x %02x %02x\n", Byte(strm.data()[0]), Byte(strm.data()[1]), Byte(strm.data()[2]));
 	strm.skip(3);
 
-	unsigned tournamentId	= strm.uint24();
-	unsigned sourceId			= strm.uint24();
-	unsigned annotatorId		= strm.uint24();;
-	unsigned round				= strm.get();
+	__attribute__((unused)) unsigned tournamentId	= strm.uint24();
+	__attribute__((unused)) unsigned sourceId			= strm.uint24();
+	__attribute__((unused)) unsigned annotatorId		= strm.uint24();;
+	__attribute__((unused)) unsigned round				= strm.get();
 
 //printf("offset:     %u\n", offset);
 //printf("tournament: %u\n", tournamentId);
@@ -2106,8 +2106,8 @@ if (::getenv("SCIDB_GUIDING_TEXT") == 0) return;
 				if (bstrm.remaining() <= 4)
 					return;
 
-				unsigned lang		= bstrm.uint16LE();
-				unsigned length	= bstrm.uint16LE();
+				__attribute__((unused)) unsigned lang		= bstrm.uint16LE();
+				__attribute__((unused)) unsigned length	= bstrm.uint16LE();
 
 				if (length > bstrm.remaining())
 					return;
@@ -2140,9 +2140,9 @@ if (::getenv("SCIDB_GUIDING_TEXT") == 0) return;
 		{
 			if (bstrm.remaining() > 7)
 			{
-				unsigned lang		= bstrm.get();
-				unsigned id			= bstrm.uint32LE();	// which?
-				unsigned length	= bstrm.uint16LE();
+				__attribute__((unused)) unsigned lang		= bstrm.get();
+				__attribute__((unused)) unsigned id			= bstrm.uint32LE();	// which?
+				__attribute__((unused)) unsigned length	= bstrm.uint16LE();
 
 				if (length > bstrm.remaining())
 					return;

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 312 $
-// Date   : $Date: 2012-05-04 14:26:12 +0000 (Fri, 04 May 2012) $
+// Version: $Revision: 326 $
+// Date   : $Date: 2012-05-20 20:27:50 +0000 (Sun, 20 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -116,6 +116,7 @@ public:
 	void reloadNamebases(mstl::string const& rootname, util::Progress& progress) override;
 	void close() override;
 	void sync() override;
+	void removeAllFiles(mstl::string const& rootname) override;
 
 	save::State doDecoding(db::Consumer& consumer, TagSet& tags, GameInfo const& info) override;
 	save::State doDecoding(db::Consumer& consumer, util::ByteStream& strm, TagSet& tags) override;
