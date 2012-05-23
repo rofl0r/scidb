@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 312 $
-// Date   : $Date: 2012-05-04 14:26:12 +0000 (Fri, 04 May 2012) $
+// Version: $Revision: 327 $
+// Date   : $Date: 2012-05-23 20:29:58 +0000 (Wed, 23 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -207,7 +207,7 @@ public:
 	db::load::State importGame(db::Producer& producer, unsigned position, bool trialMode = false);
 
 	void clearBase(Cursor& cursor);
-	void compressBase(Cursor& cursor, ::util::Progress& progress);
+	void compactBase(Cursor& cursor, ::util::Progress& progress);
 
 	void setReferenceBase(Cursor* cursor);
 	void setSwitchReferenceBase(bool flag);

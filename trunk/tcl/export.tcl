@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 324 $
-# Date   : $Date: 2012-05-16 13:27:17 +0000 (Wed, 16 May 2012) $
+# Version: $Revision: 327 $
+# Date   : $Date: 2012-05-23 20:29:58 +0000 (Wed, 23 May 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1797,7 +1797,7 @@ proc BuildFrame {w} {
 			lset Styles($type,$Info(style)) 0 $family
 		}
 	}
-	::dialog::::choosefont::build $w.fontsel $font {} $color
+	::dialog::choosefont::build $w.fontsel $font {} $color
 	bind $w.fontsel <<FontSelected>> [namespace code [list FontSelected %d]]
 	bind $w.fontsel <<FontColor>> [namespace code [list FontColor %d]]
 
@@ -1924,10 +1924,10 @@ proc StyleSelected {tree index} {
 			set sizes {}
 		}
 
-		::dialog::::choosefont::setFonts $Info(fontsel) $fonts
-		::dialog::::choosefont::setSizes $Info(fontsel) $sizes
+		::dialog::choosefont::setFonts $Info(fontsel) $fonts
+		::dialog::choosefont::setSizes $Info(fontsel) $sizes
 		UpdateSample $family
-		::dialog::::choosefont::select $Info(fontsel) \
+		::dialog::choosefont::select $Info(fontsel) \
 			-family $family \
 			-size $size \
 			-weight $weight \
@@ -1975,7 +1975,7 @@ proc UpdateSample {family} {
 		}
 	}
 
-	::dialog::::choosefont::setSample $Info(fontsel) $sample
+	::dialog::choosefont::setSample $Info(fontsel) $sample
 }
 
 

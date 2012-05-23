@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 327 $
+// Date   : $Date: 2012-05-23 20:29:58 +0000 (Wed, 23 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -198,6 +198,7 @@ public:
 	unsigned findMatches(mstl::string const& name, Matches& result, unsigned maxMatches = 9) const;
 
 	char* alloc(unsigned length);
+	void copy(mstl::string& dst, mstl::string const& src);
 	void shrink(unsigned oldLength, unsigned newLength);
 	void ref(Entry* entry);
 	void deref(Entry* entry);

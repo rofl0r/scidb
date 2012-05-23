@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 327 $
+// Date   : $Date: 2012-05-23 20:29:58 +0000 (Wed, 23 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -27,6 +27,7 @@ namespace misc {
 namespace file
 {
 	bool hasSuffix(mstl::string const& path);
+	mstl::string dirname(mstl::string const& path);
 	mstl::string basename(mstl::string const& path);
 	mstl::string rootname(mstl::string const& path);
 	mstl::string suffix(mstl::string const& path);

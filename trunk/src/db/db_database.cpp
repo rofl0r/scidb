@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 326 $
-// Date   : $Date: 2012-05-20 20:27:50 +0000 (Sun, 20 May 2012) $
+// Version: $Revision: 327 $
+// Date   : $Date: 2012-05-23 20:29:58 +0000 (Wed, 23 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -90,7 +90,10 @@ Database::Database(Database const& db, mstl::string const& name)
 	,m_encodingOk(true)
 	,m_usingAsyncReader(false)
 {
-	m_codec->open(this, m_encoding);
+	if (m_memoryOnly)
+		m_codec->open(this, m_encoding);
+	else
+		m_codec->open(this, m_rootname, m_encoding);
 }
 
 
@@ -328,7 +331,7 @@ Database::shouldCompress() const
 		if (format::isScidFormat(format) || format == format::Scidb)
 			return m_statistic.deleted > 0;
 	}
-	
+
 	return false;
 }
 
@@ -477,7 +480,7 @@ Database::newGame(Game& game, GameInfo const& info)
 	unsigned char buffer[8192];
 	ByteStream strm(buffer, sizeof(buffer));
 	m_codec->encodeGame(strm, game, game.getFinalBoard().signature());
-	save::State state = m_codec->addGame(strm, info);
+	save::State state = m_codec->addGame(strm, info, DatabaseCodec::Hook);
 	m_namebases.update();
 
 	if (save::isOk(state))
@@ -706,7 +709,7 @@ Database::exportGame(unsigned index, Database& destination)
 
 	GameInfo const& info = *m_gameInfoList[index];
 	ByteStream data(m_codec->getGame(info));
-	return destination.codec().addGame(data, info);
+	return destination.codec().addGame(data, info, DatabaseCodec::Alloc);
 }
 
 

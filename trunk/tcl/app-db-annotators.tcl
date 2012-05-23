@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 298 $
-# Date   : $Date: 2012-04-18 20:09:25 +0000 (Wed, 18 Apr 2012) $
+# Version: $Revision: 327 $
+# Date   : $Date: 2012-05-23 20:29:58 +0000 (Wed, 23 May 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -114,7 +114,7 @@ proc build {parent} {
 	}
 	set table [::scrolledtable::build $lt $columns]
 	::scidb::db::subscribe annotatorList \
-		[namespace current]::::names::TableUpdate \
+		[namespace current]::names::TableUpdate \
 		[namespace current]::Close \
 		$top
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 317 $
-// Date   : $Date: 2012-05-05 16:33:40 +0000 (Sat, 05 May 2012) $
+// Version: $Revision: 327 $
+// Date   : $Date: 2012-05-23 20:29:58 +0000 (Wed, 23 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -698,6 +698,18 @@ Namebase::shrink(unsigned oldLength, unsigned newLength)
 {
 	M_REQUIRE(newLength <= NamebaseEntry::MaxNameLength);
 	m_stringAllocator.shrink(oldLength + 1, newLength ? newLength + 1 : 0u);
+}
+
+
+void
+Namebase::copy(mstl::string& dst, mstl::string const& src)
+{
+	M_REQUIRE(src.size() <= NamebaseEntry::MaxNameLength);
+
+	unsigned length = src.size();
+	char* s = m_stringAllocator.alloc(length + 1);
+	::memcpy(s, src, length + 1);
+	dst.hook(s, length);
 }
 
 

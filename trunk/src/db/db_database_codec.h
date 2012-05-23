@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 326 $
-// Date   : $Date: 2012-05-20 20:27:50 +0000 (Sun, 20 May 2012) $
+// Version: $Revision: 327 $
+// Date   : $Date: 2012-05-23 20:29:58 +0000 (Wed, 23 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -96,7 +96,8 @@ public:
 
 	typedef format::Type Format;
 
-	enum Section { InfoTags, GameTags };
+	enum Section		{ InfoTags, GameTags };
+	enum Allocation	{ Hook, Alloc };
 
 //	static unsigned const Decode_Tags		= 1 << 0;
 //	static unsigned const Decode_Comments	= 1 << 1;
@@ -177,7 +178,7 @@ public:
 	save::State exportGame(Consumer& consumer, util::ByteStream& strm, TagSet& tags);
 
 	virtual util::ByteStream getGame(GameInfo const& info);
-	save::State addGame(util::ByteStream const& gameData, GameInfo const& info);
+	save::State addGame(util::ByteStream const& gameData, GameInfo const& info, Allocation allocation);
 	save::State addGame(util::ByteStream& gameData, TagSet const& tags, Consumer& consumer);
 	save::State saveGame(util::ByteStream const& gameData, TagSet const& tags, Provider const& provider);
 	save::State updateCharacteristics(unsigned index, TagSet const& tags);

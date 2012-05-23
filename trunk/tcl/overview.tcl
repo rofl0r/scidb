@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 324 $
-# Date   : $Date: 2012-05-16 13:27:17 +0000 (Wed, 16 May 2012) $
+# Version: $Revision: 327 $
+# Date   : $Date: 2012-05-23 20:29:58 +0000 (Wed, 23 May 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -134,6 +134,15 @@ proc open {parent base info view index {fen {}}} {
 	}
 
 	return $nb
+}
+
+
+proc closeAll {base} {
+	variable Priv
+
+	foreach key [array names Priv $base:*] {
+		foreach dlg $Priv($key) { destroy $dlg }
+	}
 }
 
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 316 $
-// Date   : $Date: 2012-05-05 08:58:05 +0000 (Sat, 05 May 2012) $
+// Version: $Revision: 327 $
+// Date   : $Date: 2012-05-23 20:29:58 +0000 (Wed, 23 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -905,7 +905,7 @@ Application::loadGame(unsigned position, Cursor& cursor, unsigned index)
 	TagSet tags;
 	base.getGameTags(index, tags);
 
-	// TODO: compress scratch base (we need fast compress)
+	// TODO: compact scratch base (we need fast compact)
 
 	game.game->setUndoLevel(::undoLevel, ::undoCombinePredecessingMoves);
 	game.cursor = &cursor;
@@ -1285,7 +1285,7 @@ Application::clearBase(Cursor& cursor)
 
 
 void
-Application::compressBase(Cursor& cursor, ::util::Progress& progress)
+Application::compactBase(Cursor& cursor, ::util::Progress& progress)
 {
 	M_REQUIRE(!cursor.isReadOnly());
 	M_REQUIRE(!cursor.isScratchBase());
@@ -1293,7 +1293,7 @@ Application::compressBase(Cursor& cursor, ::util::Progress& progress)
 	if (cursor.isReferenceBase())
 		cancelUpdateTree();
 
-	if (cursor.compress(progress))
+	if (cursor.compact(progress))
 	{
 		m_subscriber->updateDatabaseInfo(cursor.name());
 

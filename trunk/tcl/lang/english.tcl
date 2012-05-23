@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 326 $
-# Date   : $Date: 2012-05-20 20:27:50 +0000 (Sun, 20 May 2012) $
+# Version: $Revision: 327 $
+# Date   : $Date: 2012-05-23 20:29:58 +0000 (Wed, 23 May 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -285,7 +285,7 @@
 ::application::database::mc::FileImport					"Import PGN files..."
 ::application::database::mc::FileCreate					"Create Archive..."
 ::application::database::mc::FileClose						"Close"
-::application::database::mc::FileCompress					"Compress"
+::application::database::mc::FileCompact					"Compact"
 ::application::database::mc::HelpSwitcher					"Help for Database Switcher"
 
 ::application::database::mc::Games							"&Games"
@@ -304,7 +304,7 @@
 ::application::database::mc::Failed							"failed"
 ::application::database::mc::LoadMessage					"Opening database %s"
 ::application::database::mc::UpgradeMessage				"Upgrading database %s"
-::application::database::mc::CompressMessage				"Compressing database %s"
+::application::database::mc::CompactMessage				"Compacting database %s"
 ::application::database::mc::CannotOpenFile				"Cannot open file '%s'."
 ::application::database::mc::EncodingFailed				"Encoding %s failed."
 ::application::database::mc::DatabaseAlreadyOpen		"Database '%s' is already open."
@@ -324,6 +324,7 @@
 ::application::database::mc::OverwriteExistingFiles	"Overwrite exisiting files in directory '%s'?"
 ::application::database::mc::SelectDatabases				"Select the databases to be opened"
 ::application::database::mc::ExtractArchive				"Extract archive %s"
+::application::database::mc::CompactDetail				"All games must be closed before a compaction can be done."
 
 ::application::database::mc::RecodingDatabase			"Recoding %base from %from to %to"
 ::application::database::mc::RecodedGames					"%s game(s) recoded"

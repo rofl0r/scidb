@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 317 $
-// Date   : $Date: 2012-05-05 16:33:40 +0000 (Sat, 05 May 2012) $
+// Version: $Revision: 327 $
+// Date   : $Date: 2012-05-23 20:29:58 +0000 (Wed, 23 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -50,6 +50,18 @@ util::misc::file::hasSuffix(mstl::string const& path)
 		return false;
 
 	return !::strchr(p + 1, Separator);
+}
+
+
+mstl::string
+util::misc::file::dirname(mstl::string const& path)
+{
+	char const* p = ::strrchr(path.c_str(), Separator);
+
+	if (!p)
+		return mstl::string::empty_string;
+
+	return mstl::string(path.begin(), p + 1);
 }
 
 

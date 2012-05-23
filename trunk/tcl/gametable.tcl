@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 322 $
-# Date   : $Date: 2012-05-12 16:27:31 +0000 (Sat, 12 May 2012) $
+# Version: $Revision: 327 $
+# Date   : $Date: 2012-05-23 20:29:58 +0000 (Wed, 23 May 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1621,7 +1621,7 @@ proc PopupMenu {path menu base index} {
 			$menu add command \
 				-compound left \
 				-image $::icon::16x16::setup \
-				-label " $::dialog::::save::mc::EditCharacteristics" \
+				-label " $::dialog::save::mc::EditCharacteristics" \
 				-command [list ::dialog::save::open $path $base {} [column $info number]] \
 				;
 		}

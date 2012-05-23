@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 326 $
-# Date   : $Date: 2012-05-20 20:27:50 +0000 (Sun, 20 May 2012) $
+# Version: $Revision: 327 $
+# Date   : $Date: 2012-05-23 20:29:58 +0000 (Wed, 23 May 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -284,7 +284,7 @@
 ::application::database::mc::FileImport					"PGN-Dateien importieren..."
 ::application::database::mc::FileCreate					"Archiv erzeugen..."
 ::application::database::mc::FileClose						"Schliessen"
-::application::database::mc::FileCompress					"Komprimieren"
+::application::database::mc::FileCompact					"Kompaktieren"
 ::application::database::mc::HelpSwitcher					"Hilfe zum Datenbankumschalter"
 
 ::application::database::mc::Games							"&Partien"
@@ -303,7 +303,7 @@
 ::application::database::mc::Failed							"fehlgeschlagen"
 ::application::database::mc::LoadMessage					"Datenbank %s öffnen"
 ::application::database::mc::UpgradeMessage				"Datenbank %s aktualisieren"
-::application::database::mc::CompressMessage				"Datenbank %s komprimieren"
+::application::database::mc::CompactMessage				"Datenbank %s kompaktieren"
 ::application::database::mc::CannotOpenFile				"Die Datei '%s' kann nicht geöffnet werden."
 ::application::database::mc::EncodingFailed				"Die Enkodierung %s ist fehlgeschlagen."
 ::application::database::mc::DatabaseAlreadyOpen		"Die Datenbank '%s' ist bereits geöffnet."
@@ -323,6 +323,7 @@
 ::application::database::mc::OverwriteExistingFiles	"Die existierenden Dateien im Verzeichnis '%s' überschreiben?"
 ::application::database::mc::SelectDatabases				"Die zu öffnenden Datenbanken selektieren"
 ::application::database::mc::ExtractArchive				"Archiv %s extrahieren"
+::application::database::mc::CompactDetail				"Alle Partien müssen geschlossen werden bevor eine Kompaktierung erfolgen kann."
 
 ::application::database::mc::RecodingDatabase			"Umkodierung %base von %from nach %to"
 ::application::database::mc::RecodedGames					"%s Partie(n) umkodiert"

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 322 $
-# Date   : $Date: 2012-05-12 16:27:31 +0000 (Sat, 12 May 2012) $
+# Version: $Revision: 327 $
+# Date   : $Date: 2012-05-23 20:29:58 +0000 (Wed, 23 May 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1230,7 +1230,7 @@ if {$tcl_platform(platform) ne "windows"} {
 				catch { exec fc-cache -f $fontDir }
 			}
 
-			::dialog::::choosefont::resetFonts
+			::dialog::choosefont::resetFonts
 			set fonts [::dialog::choosefont::fontFamilies]
 
 			if {{FigurineCB AriesSP} in $fonts} {
