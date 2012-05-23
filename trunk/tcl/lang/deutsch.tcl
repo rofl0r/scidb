@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 327 $
-# Date   : $Date: 2012-05-23 20:29:58 +0000 (Wed, 23 May 2012) $
+# Version: $Revision: 328 $
+# Date   : $Date: 2012-05-23 20:50:15 +0000 (Wed, 23 May 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -323,7 +323,7 @@
 ::application::database::mc::OverwriteExistingFiles	"Die existierenden Dateien im Verzeichnis '%s' überschreiben?"
 ::application::database::mc::SelectDatabases				"Die zu öffnenden Datenbanken selektieren"
 ::application::database::mc::ExtractArchive				"Archiv %s extrahieren"
-::application::database::mc::CompactDetail				"Alle Partien müssen geschlossen werden bevor eine Kompaktierung erfolgen kann."
+::application::database::mc::CompactDetail				"Alle Partien müssen geschlossen sein bevor eine Kompaktierung erfolgen kann."
 
 ::application::database::mc::RecodingDatabase			"Umkodierung %base von %from nach %to"
 ::application::database::mc::RecodedGames					"%s Partie(n) umkodiert"

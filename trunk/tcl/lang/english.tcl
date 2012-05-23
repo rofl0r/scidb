@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 327 $
-# Date   : $Date: 2012-05-23 20:29:58 +0000 (Wed, 23 May 2012) $
+# Version: $Revision: 328 $
+# Date   : $Date: 2012-05-23 20:50:15 +0000 (Wed, 23 May 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -324,7 +324,7 @@
 ::application::database::mc::OverwriteExistingFiles	"Overwrite exisiting files in directory '%s'?"
 ::application::database::mc::SelectDatabases				"Select the databases to be opened"
 ::application::database::mc::ExtractArchive				"Extract archive %s"
-::application::database::mc::CompactDetail				"All games must be closed before a compaction can be done."
+::application::database::mc::CompactDetail				"All games must been closed before a compaction can be done."
 
 ::application::database::mc::RecodingDatabase			"Recoding %base from %from to %to"
 ::application::database::mc::RecodedGames					"%s game(s) recoded"
