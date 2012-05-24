@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 328 $
-# Date   : $Date: 2012-05-23 20:50:15 +0000 (Wed, 23 May 2012) $
+# Version: $Revision: 329 $
+# Date   : $Date: 2012-05-24 23:29:20 +0000 (Thu, 24 May 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -325,6 +325,9 @@
 ::application::database::mc::SelectDatabases				"Select the databases to be opened"
 ::application::database::mc::ExtractArchive				"Extract archive %s"
 ::application::database::mc::CompactDetail				"All games must been closed before a compaction can be done."
+::application::database::mc::ReallyCompact				"Really compact database '%s'?"
+::application::database::mc::ReallyCompactDetail(1)	"One game will be deleted."
+::application::database::mc::ReallyCompactDetail(N)	"%s games will be deleted."
 
 ::application::database::mc::RecodingDatabase			"Recoding %base from %from to %to"
 ::application::database::mc::RecodedGames					"%s game(s) recoded"

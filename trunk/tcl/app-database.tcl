@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 327 $
-# Date   : $Date: 2012-05-23 20:29:58 +0000 (Wed, 23 May 2012) $
+# Version: $Revision: 329 $
+# Date   : $Date: 2012-05-24 23:29:20 +0000 (Thu, 24 May 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -77,6 +77,9 @@ set OverwriteExistingFiles	"Overwrite exisiting files in directory '%s'?"
 set SelectDatabases			"Select the databases to be opened"
 set ExtractArchive			"Extract archive %s"
 set CompactDetail				"All games must be closed before a compaction can be done."
+set ReallyCompact				"Really compact database '%s'?"
+set ReallyCompactDetail(1)	"One game will be deleted."
+set ReallyCompactDetail(N)	"%s games will be deleted."
 
 set RecodingDatabase			"Recoding %base from %from to %to"
 set RecodedGames				"%s game(s) recoded"
@@ -1782,7 +1785,22 @@ proc ChangeIconSize {canv} {
 
 
 proc Compact {parent file} {
-	if {[::game::closeAll $parent $file $mc::CompactDetail]} {
+	set msg [format $mc::ReallyCompact [::util::databaseName $file]]
+	set n [lindex [::scidb::db::get stats $file] 0]
+	if {$n == 1} {
+		set detail $mc::ReallyCompactDetail(1)
+	} else {
+		set detail [format $mc::ReallyCompactDetail(N) $n]
+	}
+	set reply [::dialog::question \
+		-parent $parent \
+		-title "$::scidb::app: $mc::FileCompact" \
+		-message $msg \
+		-detail $detail \
+		-buttons {yes no} \
+		-default no \
+	]
+	if {$reply eq "yes" && [::game::closeAll $parent $file $mc::FileCompact $mc::CompactDetail]} {
 		::browser::closeAll $file
 		::overview::closeAll $file
 		set cmd [list ::scidb::db::compact $file]
