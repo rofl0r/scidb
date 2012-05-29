@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 329 $
-# Date   : $Date: 2012-05-24 23:29:20 +0000 (Thu, 24 May 2012) $
+# Version: $Revision: 331 $
+# Date   : $Date: 2012-05-29 20:31:47 +0000 (Tue, 29 May 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -579,16 +579,16 @@ proc replace {parent} {
 }
 
 
-proc replaceMoves {parent} {
-	if {[::scidb::game::current] != 9} {
-		set base [::scidb::db::get name]
-		set number [::scidb::game::number]
-
-		if {[::dialog::save::checkIfWriteable $parent $base -1 $number]} {
-			::application::pgn::replaceMoves $parent
-		}
-	}
-}
+# proc replaceMoves {parent} {
+# 	if {[::scidb::game::current] != 9} {
+# 		set base [::scidb::db::get name]
+# 		set number [::scidb::game::number]
+# 
+# 		if {[::dialog::save::checkIfWriteable $parent $base -1 $number]} {
+# 			::application::pgn::replaceMoves $parent
+# 		}
+# 	}
+# }
 
 
 proc clearHistory {} {

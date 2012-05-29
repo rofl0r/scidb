@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 329 $
-# Date   : $Date: 2012-05-24 23:29:20 +0000 (Thu, 24 May 2012) $
+# Version: $Revision: 331 $
+# Date   : $Date: 2012-05-29 20:31:47 +0000 (Tue, 29 May 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -284,7 +284,7 @@
 ::application::database::mc::FileImport					"PGN-Dateien importieren..."
 ::application::database::mc::FileCreate					"Archiv erzeugen..."
 ::application::database::mc::FileClose						"Schliessen"
-::application::database::mc::FileCompact					"Kompaktieren"
+::application::database::mc::FileCompact					"Komprimieren"
 ::application::database::mc::HelpSwitcher					"Hilfe zum Datenbankumschalter"
 
 ::application::database::mc::Games							"&Partien"
@@ -303,7 +303,7 @@
 ::application::database::mc::Failed							"fehlgeschlagen"
 ::application::database::mc::LoadMessage					"Datenbank %s öffnen"
 ::application::database::mc::UpgradeMessage				"Datenbank %s aktualisieren"
-::application::database::mc::CompactMessage				"Datenbank %s kompaktieren"
+::application::database::mc::CompactMessage				"Datenbank %s komprimieren"
 ::application::database::mc::CannotOpenFile				"Die Datei '%s' kann nicht geöffnet werden."
 ::application::database::mc::EncodingFailed				"Die Enkodierung %s ist fehlgeschlagen."
 ::application::database::mc::DatabaseAlreadyOpen		"Die Datenbank '%s' ist bereits geöffnet."
@@ -323,8 +323,8 @@
 ::application::database::mc::OverwriteExistingFiles	"Die existierenden Dateien im Verzeichnis '%s' überschreiben?"
 ::application::database::mc::SelectDatabases				"Die zu öffnenden Datenbanken selektieren"
 ::application::database::mc::ExtractArchive				"Archiv %s extrahieren"
-::application::database::mc::CompactDetail				"Alle Partien müssen geschlossen sein bevor eine Kompaktierung erfolgen kann."
-::application::database::mc::ReallyCompact				"Soll die Datenbank '%s' wirklich kompaktiert werden?"
+::application::database::mc::CompactDetail				"Alle Partien müssen geschlossen sein bevor eine Komprimierung erfolgen kann."
+::application::database::mc::ReallyCompact				"Soll die Datenbank '%s' wirklich komprimieren werden?"
 ::application::database::mc::ReallyCompactDetail(1)	"Eine Partie wird dabei entfernt."
 ::application::database::mc::ReallyCompactDetail(N)	"%s Partien werden dabei entfernt."
 
@@ -476,8 +476,9 @@
 ::application::pgn::mc::InvalidInput						"Ungültige Eingabe '%d'."
 ::application::pgn::mc::MustBeEven							"Die Eingabe muß eine gerade Zahl sein."
 ::application::pgn::mc::MustBeOdd							"Die Eingabe muß eine ungerade Zahl sein."
-::application::pgn::mc::ReplaceMovesSucceeded			"Die Partiezüge wurden erfolgreich ersetzt."
 ::application::pgn::mc::CannotOpenCursorFiles			"Die Cursor-Dateien konnten nicht geöffnet werden: %s"
+::application::pgn::mc::ReallyReplaceMoves				"Wirklich die Partiezüge der aktuellen Partie ersetzen?"
+::application::pgn::mc::CurrentGameIsNotModified		"Die aktuelle Partie ist nicht modifiziert,"
 
 ::application::pgn::mc::EditAnnotation						"Anmerkungen bearbeiten"
 ::application::pgn::mc::EditMoveInformation				"Zuginformationen bearbeiten"

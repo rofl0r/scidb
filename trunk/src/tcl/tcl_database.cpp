@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 327 $
-// Date   : $Date: 2012-05-23 20:29:58 +0000 (Wed, 23 May 2012) $
+// Version: $Revision: 331 $
+// Date   : $Date: 2012-05-29 20:31:47 +0000 (Tue, 29 May 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2093,7 +2093,7 @@ cmdGet(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 	{
 		"clipbase", "scratchbase", "types", "type", "name", "codec", "encoding", "created?",
 		"modified?", "gameInfo", "playerInfo", "eventInfo", "annotator", "gameIndex", "playerIndex",
-		"eventIndex", "annotatorIndex", "description", "stats", "readonly?", "encodingState",
+		"eventIndex", "annotatorIndex", "description", "",
 		"deleted?", "open?", "lastChange", "customFlags", "gameFlags", "gameNumber",
 		"minYear", "maxYear", "maxUsage", "tags", "checksum", "idn", "eco", "ratingTypes",
 		"lookupPlayer", "lookupEvent", "writeable?", "upgrade?", "memoryOnly?", "compress?",

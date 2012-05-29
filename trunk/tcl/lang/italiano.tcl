@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 329 $
-# Date   : $Date: 2012-05-24 23:29:20 +0000 (Thu, 24 May 2012) $
+# Version: $Revision: 331 $
+# Date   : $Date: 2012-05-29 20:31:47 +0000 (Tue, 29 May 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -478,8 +478,9 @@
 ::application::pgn::mc::InvalidInput						"Input non valido '%d'."
 ::application::pgn::mc::MustBeEven							"Input deve essere un numero pari."
 ::application::pgn::mc::MustBeOdd							"Input deve essere un numero dispari."
-::application::pgn::mc::ReplaceMovesSucceeded			"Mosse nella partita sostituite con successo."
 ::application::pgn::mc::CannotOpenCursorFiles			"Impossibile aprire il file del cursore: %s"
+::application::pgn::mc::ReallyReplaceMoves				"Really replace moves of current game?" ;# NEW
+::application::pgn::mc::CurrentGameIsNotModified		"Current game is not modified." ;# NEW
 
 ::application::pgn::mc::EditAnnotation						"Modifica annotazioni"
 ::application::pgn::mc::EditMoveInformation				"Modifica informazioni mossa"

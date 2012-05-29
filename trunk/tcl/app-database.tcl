@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 329 $
-# Date   : $Date: 2012-05-24 23:29:20 +0000 (Thu, 24 May 2012) $
+# Version: $Revision: 331 $
+# Date   : $Date: 2012-05-29 20:31:47 +0000 (Tue, 29 May 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1545,7 +1545,7 @@ proc PopupMenu {canv x y {index -1} {ignoreNext 0}} {
 		lappend specs command $mc::FileExport [list ::export::open $canv $file $type $name 0] \
 			0 0 fileExport {} {}
 		lappend specs command $mc::FileImport [list ::menu::dbImport $top $file] 1 0 filetypePGN {} {}
-		if {$isClipbase || ($ext eq "sci" || $ext eq "si3" || $ext eq "si4")} {
+		if {$isClipbase || $ext eq "sci"} {
 			if {[::scidb::db::get compress? $file]} { set state normal } else { set state disabled }
 			lappend specs command \
 				"$mc::FileCompact" \

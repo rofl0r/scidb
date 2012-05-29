@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 329 $
-# Date   : $Date: 2012-05-24 23:29:20 +0000 (Thu, 24 May 2012) $
+# Version: $Revision: 331 $
+# Date   : $Date: 2012-05-29 20:31:47 +0000 (Tue, 29 May 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -479,8 +479,9 @@
 ::application::pgn::mc::InvalidInput						"Érvénytelen input '%d'."
 ::application::pgn::mc::MustBeEven						"Inputnak páros számnak kell lennie."
 ::application::pgn::mc::MustBeOdd							"Inputnak páratlan számnak kell lennie."
-::application::pgn::mc::ReplaceMovesSucceeded			"Game moves successfully replaced."
 ::application::pgn::mc::CannotOpenCursorFiles			"Cannot open cursor files: %s" ;# NEW
+::application::pgn::mc::ReallyReplaceMoves			"Really replace moves of current game?" ;# NEW
+::application::pgn::mc::CurrentGameIsNotModified		"Current game is not modified." ;# NEW
 
 ::application::pgn::mc::EditAnnotation						"Értékelés szerkesztése"
 ::application::pgn::mc::EditMoveInformation				"Lépés információ szerkesztése"

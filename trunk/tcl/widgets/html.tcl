@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 320 $
-# Date   : $Date: 2012-05-11 17:55:28 +0000 (Fri, 11 May 2012) $
+# Version: $Revision: 331 $
+# Date   : $Date: 2012-05-29 20:31:47 +0000 (Tue, 29 May 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -254,7 +254,7 @@ proc WidgetProc {w command args} {
 				error "wrong # args: should be \"[namespace current] $command <px>\""
 			}
 			variable Margin
-			set height [winfo height $w.sub.html]
+			set height [lindex [$w.sub.html bbox [$w.sub.html node]] 3]
 			set y [expr {max(0, [lindex $args 0] - $Margin)}]
 			set fraction [expr {double($y)/double($height)}]
 			return [$w.sub.html yview moveto $fraction]

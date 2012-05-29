@@ -1,7 +1,7 @@
 ## ======================================================================
 # Author : $Author$
-# Version: $Revision: 325 $
-# Date   : $Date: 2012-05-18 17:11:30 +0000 (Fri, 18 May 2012) $
+# Version: $Revision: 331 $
+# Date   : $Date: 2012-05-29 20:31:47 +0000 (Tue, 29 May 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1283,7 +1283,7 @@ proc VisitItem {t mode item} {
 proc VisitElem {t mode item elem} {
 	if {[string length $item] == 0} { return }
 	if {![$t item enabled $item]} { return }
-	if {$elem ne "elemTxt"} { return }
+	if {$elem ne "elemTxt" && $elem ne "elemBrd"} { return }
 
 	switch $mode {
 		enter {
@@ -1760,7 +1760,7 @@ bind HelpTree <ButtonPress-1> {
 	lassign $id where item arg1 _ _ elem
 	if {$arg1 eq "button"} {
 		TreeCtrl::ButtonPress1 %W %x %y
-	} elseif {$where eq "item" && $arg1 eq "column" && $elem eq "elemTxt"} {
+	} elseif {$where eq "item" && $arg1 eq "column" && ($elem eq "elemTxt" || $elem eq "elemBrd")} {
 		TreeCtrl::ButtonPress1 %W %x %y
 		%W selection clear
 		%W selection add $item
