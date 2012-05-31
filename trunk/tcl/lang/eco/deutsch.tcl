@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 193 $
-# Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+# Version: $Revision: 333 $
+# Date   : $Date: 2012-05-31 15:48:41 +0000 (Thu, 31 May 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -215,7 +215,7 @@
 "Keoni-Hiva Gambit Delayed"								"Verzögertes Keoni-Hiva Gambit"
 "Kiel Variation"												"Kieler Variante"
 "King's Head Opening"										"Königshaupt-Eröffnung"
-"King's Indian Attack"										"Königsindischer Angriff"
+"King's Indian Attack"										"Königsindisch im Anzug"
 "King's Indian Defence"										"Königsindische Verteidigung"
 "King's Indian System"										"Königsindisches System"
 "Kingfisher Gambit"											"Eisvogel-Gambit"

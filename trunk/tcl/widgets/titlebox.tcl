@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 320 $
-# Date   : $Date: 2012-05-11 17:55:28 +0000 (Fri, 11 May 2012) $
+# Version: $Revision: 333 $
+# Date   : $Date: 2012-05-31 15:48:41 +0000 (Thu, 31 May 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -116,6 +116,7 @@ proc Build {w args} {
 		-state $opts(-state) \
 		-highlightbackground whitesmoke \
 		-highlightforeground black \
+		-cursor xterm \
 		;
 
 	$w addcol text  -id title -width 4

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 298 $
-# Date   : $Date: 2012-04-18 20:09:25 +0000 (Wed, 18 Apr 2012) $
+# Version: $Revision: 333 $
+# Date   : $Date: 2012-05-31 15:48:41 +0000 (Thu, 31 May 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -80,6 +80,7 @@ proc Build {w args} {
 		-validate key \
 		-validatecommand { return [regexp {^[*012/=-]*$} %P] } \
 		-invalidcommand bell \
+		-cursor xterm \
 		;
 	$w.__w__ current 0
 	ttk::label $w.keys -borderwidth 0 -text $keys

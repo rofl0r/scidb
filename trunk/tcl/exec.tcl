@@ -1,8 +1,8 @@
 #!/bin/sh
 #! ======================================================================
 #! $RCSfile: tk_init.h,v $
-#! $Revision: 310 $
-#! $Date: 2012-04-26 20:16:11 +0000 (Thu, 26 Apr 2012) $
+#! $Revision: 333 $
+#! $Date: 2012-05-31 15:48:41 +0000 (Thu, 31 May 2012) $
 #! $Author: gregor $
 #! ======================================================================
 
@@ -314,7 +314,7 @@ proc Execute {path} {
 			set Vars(infoBox:$path) \
 				[::dialog::info -buttons {} -title $::scidb::app -message $msg -topmost yes]
 		}
-	} else {
+	} elseif {[llength $path]} {
 		openBases [list $path]
 	}
 }

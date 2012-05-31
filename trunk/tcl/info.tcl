@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 320 $
-# Date   : $Date: 2012-05-11 17:55:28 +0000 (Fri, 11 May 2012) $
+# Version: $Revision: 333 $
+# Date   : $Date: 2012-05-31 15:48:41 +0000 (Thu, 31 May 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -249,6 +249,7 @@ proc DisplayContributions {t} {
 	$t insert end [Enc "[set [namespace current]::mc::Localization]:\n"] caption
 	$t insert end [Enc "Giovanni Ornaghi ([::encoding::languageName it]), "]
 	$t insert end [Enc "Carlos Fernando González ([::encoding::languageName es]), "]
+	$t insert end [Enc "Juan Carlos V�squez ([::encoding::languageName es]), "]
 #	$t insert end [Enc "Benigno Hernández Bacallado ([::encoding::languageName es]), "]
 	$t insert end [Enc "Zoltán Tibenszky ([::encoding::languageName hu]), "]
 	$t insert end [Enc "Lars Ekman ([::encoding::languageName sv]), "]

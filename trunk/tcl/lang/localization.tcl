@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 324 $
-# Date   : $Date: 2012-05-16 13:27:17 +0000 (Wed, 16 May 2012) $
+# Version: $Revision: 333 $
+# Date   : $Date: 2012-05-31 15:48:41 +0000 (Thu, 31 May 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -31,12 +31,11 @@ namespace eval i18n {
 set languages {
    { Deutsch   de    iso8859-1   deutsch.tcl  }
    { English   en    iso8859-1   english.tcl  }
+   { Español  es    utf-8       espanol.tcl  }
    { Italiano  it    utf-8       italiano.tcl }
    { Magyar    hu    utf-8       magyar.tcl   }
    { Svenska   sv    utf-8       svenska.tcl  }
 }
-#  removed, because Benigno Hernandez did never respond
-#  { Español  es    macRoman    espanol.tcl  }
 
 } ;# namespace i18n
 

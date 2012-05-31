@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 298 $
-# Date   : $Date: 2012-04-18 20:09:25 +0000 (Wed, 18 Apr 2012) $
+# Version: $Revision: 333 $
+# Date   : $Date: 2012-05-31 15:48:41 +0000 (Thu, 31 May 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -34,7 +34,7 @@ proc roundbox {w args} {
 namespace eval roundbox {
 
 proc Build {w args} {
-	array set opts { -useString 1 }
+	array set opts { -useString 1 -cursor xterm }
 	array set opts $args
 
 	namespace eval [namespace current]::$w {}

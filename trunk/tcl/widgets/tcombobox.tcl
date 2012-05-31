@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 282 $
-# Date   : $Date: 2012-03-26 08:07:32 +0000 (Mon, 26 Mar 2012) $
+# Version: $Revision: 333 $
+# Date   : $Date: 2012-05-31 15:48:41 +0000 (Thu, 31 May 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -65,6 +65,7 @@ proc Build {w args} {
 		-width				0
 		-postcommand		{}
 		-takefocus			{}
+		-cursor				{}
 	}
 
 	array set listopts { -textvar {} -textvariable {} }
@@ -463,9 +464,8 @@ proc DestroyHandler {w} {
 ttk::copyBindings Entry TTCombobox
 ttk::copyBindings TCombobox TTCombobox
 
-bind TTCombobox <B1-Leave> { break } ;# avoid AutoScroll (bug in Tk)
+bind TTCombobox <B1-Leave>	{ break } ;# avoid AutoScroll (bug in Tk)
 #bind TTCombobox <<PasteSelection>> { %W forgeticon }	;# not working! why?
-
 
 rename ttk::combobox::Press				ttk::combobox::Press_orig_
 rename ttk::combobox::LBSelect			ttk::combobox::LBSelect_orig_
@@ -642,7 +642,7 @@ proc Unpost {cb} {
 
 proc PopdownWindow {cb} {
 	if {[winfo class $cb] ne "TTCombobox"} {
-		return [PopdownWindow_orig_ $cb]
+		PopdownWindow_orig_ $cb
 	}
 
 	return $cb.popdown

@@ -1,7 +1,7 @@
 # =====================================================================
 # Author : $Author$
-# Version: $Revision: 304 $
-# Date   : $Date: 2012-04-21 20:39:59 +0000 (Sat, 21 Apr 2012) $
+# Version: $Revision: 333 $
+# Date   : $Date: 2012-05-31 15:48:41 +0000 (Thu, 31 May 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -168,7 +168,7 @@ proc Build {w args} {
 	if {$opts(-usescroll)} {
 		$t configure -yscrollcommand [list $w.vsb set]
 		::ttk::scrollbar $w.vsb -orient vertical -command [list $t yview] -takefocus 0
-		bind $w.vsb <Button-1> [namespace code [list Focus $t]]
+#		bind $w.vsb <Button-1> [namespace code [list Focus $t]]
 		grid $w.vsb -row 0 -column 1 -sticky ns
 	}
 	if {$opts(-columns) > 1} {
@@ -1251,7 +1251,7 @@ proc Prior {t} {
 
 
 proc Focus {t} {
-	if {[$t cget -state] ne "disabled"} { focus $t }
+	if {[$t cget -state] ne "disabled"} { after idle [list focus $t] }
 }
 
 

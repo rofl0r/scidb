@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 301 $
-# Date   : $Date: 2012-04-20 17:47:04 +0000 (Fri, 20 Apr 2012) $
+# Version: $Revision: 333 $
+# Date   : $Date: 2012-05-31 15:48:41 +0000 (Thu, 31 May 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -91,6 +91,7 @@ proc Build {w args} {
 		-exportselection no \
 		-column type \
 		-state $opts(-state) \
+		-cursor xterm \
 		;
 	$w.__w__ addcol image -id icon
 	$w.__w__ addcol text -id type

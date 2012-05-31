@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 298 $
-# Date   : $Date: 2012-04-18 20:09:25 +0000 (Wed, 18 Apr 2012) $
+# Version: $Revision: 333 $
+# Date   : $Date: 2012-05-31 15:48:41 +0000 (Thu, 31 May 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -57,6 +57,7 @@ proc Build {w args} {
 		-validate key \
 		-validatecommand [namespace code { ValidateEco %P %S }] \
 		-invalidcommand { bell } \
+		-cursor xterm \
 		;
 
 	bind $w <Destroy> [list catch [list namespace delete [namespace current]::${w}]]
