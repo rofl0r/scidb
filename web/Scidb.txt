@@ -16,6 +16,8 @@
   <meta http-equiv="content-style-type"
            content="text/css" />
 
+  <meta name="author"
+     content="scidb.sourceforge.net" />
   <meta name="generator"
      content="scidb.sourceforge.net" />
   <meta name="robots"

@@ -49,14 +49,14 @@ CONTENT
            </a>
         </td>
         <td>
-					<a href="screenshots/board-3.png">
-            <img src="screenshots/thumbs/board-3.png"
-                 alt="Thema Alpha"
-               title="Thema Alpha"
+					<a href="screenshots/player-card-1.png">
+            <img src="screenshots/thumbs/player-card-1.png"
+                 alt="Spielerkarteikarte"
+               title="Spielerkarteikarte"
                class="bordersOff"
-               width="120"
-              height="88"
-                name="1189x874" />
+               width="103"
+              height="104"
+                name="843x848" />
            </a>
         </td>
         <td>
@@ -100,9 +100,9 @@ CONTENT
                  alt="Hilfe-Dialog"
                title="Hilfe-Dialog"
                class="bordersOff"
-               width="120"
-              height="81"
-                name="936x629" />
+               width="118"
+              height="105"
+                name="951x847" />
            </a>
         </td>
         <td>
