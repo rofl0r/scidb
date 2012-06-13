@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 327 $
-// Date   : $Date: 2012-05-23 20:29:58 +0000 (Wed, 23 May 2012) $
+// Version: $Revision: 336 $
+// Date   : $Date: 2012-06-13 15:29:18 +0000 (Wed, 13 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -196,6 +196,11 @@ public:
 	void setReadonly(bool flag = true);
 
 	unsigned findMatches(mstl::string const& name, Matches& result, unsigned maxMatches = 9) const;
+
+	int lookupPosition(PlayerEntry const* entry) const;
+	int lookupPosition(EventEntry const* entry) const;
+	int lookupPosition(SiteEntry const* entry) const;
+	int lookupPosition(Entry const* entry) const;
 
 	char* alloc(unsigned length);
 	void copy(mstl::string& dst, mstl::string const& src);

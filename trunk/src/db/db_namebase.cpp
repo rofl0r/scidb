@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 327 $
-// Date   : $Date: 2012-05-23 20:29:58 +0000 (Wed, 23 May 2012) $
+// Version: $Revision: 336 $
+// Date   : $Date: 2012-06-13 15:29:18 +0000 (Wed, 13 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -907,6 +907,38 @@ Namebase::nextFreeId()
 }
 
 
+int
+Namebase::lookupPosition(PlayerEntry const* entry) const
+{
+	List::const_iterator i = mstl::lower_bound(m_list.begin(), m_list.end(), NamebasePlayer::Key(*entry));
+	return i == m_list.end() || *i != entry ? -1 : int(i - m_list.begin());
+}
+
+
+int
+Namebase::lookupPosition(EventEntry const* entry) const
+{
+	List::const_iterator i = mstl::lower_bound(m_list.begin(), m_list.end(), NamebaseEvent::Key(*entry));
+	return i == m_list.end() || *i != entry ? -1 : int(i - m_list.begin());
+}
+
+
+int
+Namebase::lookupPosition(SiteEntry const* entry) const
+{
+	List::const_iterator i = mstl::lower_bound(m_list.begin(), m_list.end(), NamebaseSite::Key(*entry));
+	return i == m_list.end() || *i != entry ? -1 : int(i - m_list.begin());
+}
+
+
+int
+Namebase::lookupPosition(Entry const* entry) const
+{
+	List::const_iterator i = mstl::lower_bound(m_list.begin(), m_list.end(), entry->name());
+	return i == m_list.end() || *i != entry ? -1 : int(i - m_list.begin());
+}
+
+
 void
 Namebase::rename(NamebaseEntry* entry, mstl::string const& name)
 {
@@ -956,6 +988,7 @@ Namebase::rename(NamebaseEntry* entry, mstl::string const& name)
 	}
 
 	M_ASSERT(oldPos != m_list.end());
+	M_ASSERT(*oldPos == entry);
 
 	mstl::string oldName;
 

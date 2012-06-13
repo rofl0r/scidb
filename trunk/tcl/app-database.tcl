@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 331 $
-# Date   : $Date: 2012-05-29 20:31:47 +0000 (Tue, 29 May 2012) $
+# Version: $Revision: 336 $
+# Date   : $Date: 2012-06-13 15:29:18 +0000 (Wed, 13 Jun 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -179,7 +179,7 @@ array set Defaults {
 
 array set Options {
 	visible				10
-	prop:background	#fff5d6
+	prop:background	#aee239
 }
 
 variable ClipbaseType	[::scidb::db::get clipbase type]
