@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 333 $
-# Date   : $Date: 2012-05-31 15:48:41 +0000 (Thu, 31 May 2012) $
+# Version: $Revision: 334 $
+# Date   : $Date: 2012-06-13 09:36:59 +0000 (Wed, 13 Jun 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -63,7 +63,6 @@ proc Build {w args} {
 		-justify right \
 		-textvariable $opts(-textvariable) \
 		-command [namespace code [list Focus $w.__w__]] \
-		-cursor xterm \
 		;
 	::validate::spinboxInt $w.__w__
 	::theme::configureSpinbox $w.__w__

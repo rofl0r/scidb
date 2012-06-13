@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 310 $
-// Date   : $Date: 2012-04-26 20:16:11 +0000 (Thu, 26 Apr 2012) $
+// Version: $Revision: 334 $
+// Date   : $Date: 2012-06-13 09:36:59 +0000 (Wed, 13 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1375,6 +1375,19 @@ title::ID
 title::best(unsigned titles)
 {
 	return titles ? title::ID(mstl::bf::lsb_index(titles) + 1) : title::None;
+}
+
+
+char
+species::toChar(ID type)
+{
+	switch (int(type))
+	{
+		case Human:		return *StrHuman;
+		case Program:	return *StrProgram;
+	}
+
+	return '?';
 }
 
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 318 $
-// Date   : $Date: 2012-05-08 23:06:35 +0000 (Tue, 08 May 2012) $
+// Version: $Revision: 334 $
+// Date   : $Date: 2012-06-13 09:36:59 +0000 (Wed, 13 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -685,6 +685,7 @@ struct HtmlTree {
 #ifdef USE_DOUBLE_BUFFERING
     Pixmap buffer;
     XRectangle bufferRect;
+    XRectangle docRect;
     struct TkRegion_ *bufferRegion;
 #endif
 

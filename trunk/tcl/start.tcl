@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 310 $
-# Date   : $Date: 2012-04-26 20:16:11 +0000 (Thu, 26 Apr 2012) $
+# Version: $Revision: 334 $
+# Date   : $Date: 2012-06-13 09:36:59 +0000 (Wed, 13 Jun 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -303,6 +303,9 @@ proc databaseName {base {withExtension 1}} {
 			}
 			.zip {
 				set ext .pgn
+			}
+			.sci {
+				set ext ""
 			}
 		}
 

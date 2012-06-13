@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 327 $
-// Date   : $Date: 2012-05-23 20:29:58 +0000 (Wed, 23 May 2012) $
+// Version: $Revision: 334 $
+// Date   : $Date: 2012-06-13 09:36:59 +0000 (Wed, 13 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1839,6 +1839,20 @@ Application::setupGameUndo(unsigned undoLevel, unsigned combinePredecessingMoves
 
 	::undoLevel = undoLevel;
 	::undoCombinePredecessingMoves = combinePredecessingMoves;
+}
+
+
+
+Cursor const&
+Application::cursor(unsigned databaseId) const
+{
+	for (CursorMap::const_iterator i = m_cursorMap.begin(); i != m_cursorMap.end(); ++i)
+	{
+		if (i->second->database().id() == databaseId)
+			return *i->second;
+	}
+
+	return cursor(); // fallback; should never be reached
 }
 
 

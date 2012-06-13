@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 334 $
+// Date   : $Date: 2012-06-13 09:36:59 +0000 (Wed, 13 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -25,6 +25,7 @@
 #include "T_TextToken.h"
 #include "T_ListToken.h"
 #include "T_TextConsumer.h"
+#include "T_List.h"
 
 #include "m_limits.h"
 
@@ -210,41 +211,25 @@ performLength(Environment& env)
 }
 
 
+static void
+performMap(Environment& env)
+{
+	TokenP		text		= Miscellaneous::getTextToken(env);
+	List::ListP mapping	= List::getListToken(env);
+
+	if (!text || !mapping)
+		Messages::errmessage(env, "unterminated map definition", Messages::Incorrigible);
+
+	static_cast<TextToken*>(text.get())->map(env, mapping);
+	env.putFinalToken(text);
+}
+
+
 Miscellaneous::TextTokenP
 Miscellaneous::getTextToken(Environment& env)
 {
-	TokenP token = env.getUndefinedToken(Environment::AllowNull);
-
-	if (token)
-	{
-		switch (token->type())
-		{
-			case Token::T_Text:
-				// no action
-				break;
-
-			case Token::T_Ascii:
-				token.reset(new TextToken(token->name())); // MEMORY
-				break;
-
-			case Token::T_Number:
-				token.reset(new TextToken(token->description(env))); // MEMORY
-				break;
-
-			default:
-				switch (token->type())
-				{
-					case Token::T_List:			token = token->performThe(env); break;
-					case Token::T_LeftBrace:	token.reset(new ListToken(env)); break; // MEMORY
-					default:							token.reset(new ListToken(token)); break; // MEMORY
-				}
-				static_cast<ListToken*>(token.get())->flatten();
-				token.reset(new TextToken(token->description(env))); // MEMORY
-				break;
-		}
-	}
-
-	return token;
+	TokenP token = env.getExpandableToken(Environment::AllowNull);
+	return token ? TextToken::convert(env, token) : TextTokenP();
 }
 
 
@@ -259,6 +244,7 @@ Miscellaneous::doRegister(Environment& env)
 	env.bindMacro(new GenericExpandableToken("\\context",	::performContext));
 	env.bindMacro(new GenericExpandableToken("\\compare",	::performCompare));
 	env.bindMacro(new GenericExpandableToken("\\length",	::performLength));
+	env.bindMacro(new GenericExpandableToken("\\tmap",		::performMap));
 }
 
 // vi:set ts=3 sw=3:

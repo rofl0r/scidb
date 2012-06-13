@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 327 $
-# Date   : $Date: 2012-05-23 20:29:58 +0000 (Wed, 23 May 2012) $
+# Version: $Revision: 334 $
+# Date   : $Date: 2012-06-13 09:36:59 +0000 (Wed, 13 Jun 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -37,6 +37,13 @@ set ChessBaseFontsAlreadyInstalled		"ChessBase fonts already installed. Install 
 } ;# namespace mc
 
 namespace import ::tcl::mathfunc::int
+
+set DefaultHtmlFixedFamilies {
+	{Arial Monospaced} {Bitstream Vera Sans Mono} TkFixedFont
+}
+set DefaultHtmlTextFamilies {
+	Arial {Bitstream Vera Sans} TkTextFont {DejaVu Sans} Verdana {Lucida Grande} Lucida
+} 
 
 array set SymbolUtfEncoding {
 	  1 "!"
@@ -1178,6 +1185,46 @@ proc splitAnnotation {text} {
 	}
 
 	return $result
+}
+
+
+proc htmlFixedFamilies {} {
+	variable DefaultHtmlFixedFamilies
+	variable _MonoFamilies
+
+	if {![info exists _MonoFamilies]} {
+		set _MonoFamilies {}
+		foreach fam $DefaultHtmlFixedFamilies {
+			array set attrs [font actual [list $fam]]
+			set f $attrs(-family)
+			if {($f eq $fam || [string match Tk* $fam]) && $f ni $_MonoFamilies} {
+				lappend _MonoFamilies $f
+			}
+		}
+		lappend _MonoFamilies Monospace Fixed
+	}
+
+	return $_MonoFamilies
+}
+
+
+proc htmlTextFamilies {} {
+	variable DefaultHtmlTextFamilies
+	variable _TextFamilies
+
+	if {![info exists _TextFamilies]} {
+		set _TextFamilies {}
+		foreach fam $DefaultHtmlTextFamilies {
+			array set attrs [font actual [list $fam]]
+			set f $attrs(-family)
+			if {($f eq $fam || [string match Tk* $fam]) && $f ni $_TextFamilies} {
+				lappend _TextFamilies $f
+			}
+		}
+		lappend _TextFamilies Sans-Serif Helvetica
+	}
+
+	return $_TextFamilies
 }
 
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 318 $
-// Date   : $Date: 2012-05-08 23:06:35 +0000 (Tue, 08 May 2012) $
+// Version: $Revision: 334 $
+// Date   : $Date: 2012-06-13 09:36:59 +0000 (Wed, 13 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -47,6 +47,7 @@ namespace color
 	bool isBlack(ID color);
 
 	char const* printColor(ID color);
+	ID fromSide(char const* side);
 }
 
 namespace piece
@@ -363,6 +364,7 @@ namespace result
 	mstl::string const& toString(ID result);
 	ID fromString(mstl::string const& s);
 	ID opponent(ID result);
+	ID fromColor(color::ID color);
 	unsigned value(ID result);
 }
 
@@ -526,6 +528,7 @@ namespace species
 		Program,
 	};
 
+	char toChar(ID type);
 	mstl::string const& toString(ID type);
 	ID fromString(char const* s);
 

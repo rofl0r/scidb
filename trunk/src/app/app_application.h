@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 327 $
-// Date   : $Date: 2012-05-23 20:29:58 +0000 (Wed, 23 May 2012) $
+// Version: $Revision: 334 $
+// Date   : $Date: 2012-06-13 09:36:59 +0000 (Wed, 13 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -161,6 +161,7 @@ public:
 	Cursor const& cursor(char const* name) const;
 	Cursor& cursor(mstl::string const& name);
 	Cursor const& cursor(mstl::string const& name) const;
+	Cursor const& cursor(unsigned databaseId) const;
 
 	db::Game& game(unsigned position = InvalidPosition);
 	db::Game const& game(unsigned position = InvalidPosition) const;

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 334 $
+// Date   : $Date: 2012-06-13 09:36:59 +0000 (Wed, 13 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -23,11 +23,17 @@
 
 namespace TeXt {
 
+class ListToken;
+
 class List : public Package
 {
 public:
 
+	typedef mstl::ref_counted_ptr<ListToken> ListP;
+
 	List();
+
+	static ListP getListToken(Environment& env);
 
 private:
 

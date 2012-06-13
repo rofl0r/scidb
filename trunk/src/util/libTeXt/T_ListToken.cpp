@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 334 $
+// Date   : $Date: 2012-06-13 09:36:59 +0000 (Wed, 13 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -284,7 +284,6 @@ Producer*
 ListToken::getProducer(TokenP const& self) const
 {
 	M_REQUIRE(self.get() == this);
-
 	return new TokenProducer(self); // MEMORY
 }
 
@@ -401,6 +400,26 @@ void
 ListToken::prepend(TokenP const& token)
 {
 	m_tokenList.push_front(token);
+}
+
+
+TokenP
+ListToken::join(TokenP const& delim)
+{
+	ListToken* result = new ListToken; // MEMORY
+
+	TokenList::const_iterator b = m_tokenList.begin();
+	TokenList::const_iterator e = m_tokenList.end();
+
+	for (TokenList::const_iterator i = b; i != e; ++i)
+	{
+		if (i != b)
+			result->append(delim);
+
+		result->append(*i);
+	}
+
+	return TokenP(result);
 }
 
 

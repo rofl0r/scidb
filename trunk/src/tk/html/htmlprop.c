@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 317 $
-// Date   : $Date: 2012-05-05 16:33:40 +0000 (Sat, 05 May 2012) $
+// Version: $Revision: 334 $
+// Date   : $Date: 2012-06-13 09:36:59 +0000 (Wed, 13 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2276,6 +2276,20 @@ allocateNewFont(clientData)
         }
 
     } while (0 == tkfont);
+
+#ifndef NDEBUG
+	if (getenv("HTML_TRACE_FONTS")) {
+		 Tcl_Obj* objv[3];
+		 Tcl_IncrRefCount(objv[0] = Tcl_NewStringObj("font", -1));
+		 Tcl_IncrRefCount(objv[1] = Tcl_NewStringObj("actual", -1));
+		 Tcl_IncrRefCount(objv[2] = Tcl_NewStringObj(Tk_NameOfFont(tkfont), -1));
+		 Tcl_EvalObjv(interp, 3, objv, TCL_EVAL_GLOBAL);
+		 Tcl_DecrRefCount(objv[0]);
+		 Tcl_DecrRefCount(objv[1]);
+		 Tcl_DecrRefCount(objv[2]);
+		 printf("allocateNewFont(%s): %s\n", zTkFontName, Tcl_GetString(Tcl_GetObjResult(interp)));
+	}
+#endif
 
     pFont = (HtmlFont *)HtmlClearAlloc(
         "HtmlFont", sizeof(HtmlFont) + strlen(zTkFontName)+1

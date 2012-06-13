@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 334 $
+// Date   : $Date: 2012-06-13 09:36:59 +0000 (Wed, 13 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -17,8 +17,10 @@
 // ======================================================================
 
 #include "T_Receptacle.h"
+#include "T_NumberToken.h"
+#include "T_AsciiToken.h"
+#include "T_TextToken.h"
 #include "T_Token.h"
-
 
 using namespace TeXt;
 
@@ -33,6 +35,27 @@ void
 Receptacle::add(mstl::string const& name, Token* token)
 {
 	add(name, TokenP(token));
+}
+
+
+void
+Receptacle::add(mstl::string const& name, Value value)
+{
+	add(name, new NumberToken(value));
+}
+
+
+void
+Receptacle::add(mstl::string const& name, char c)
+{
+	add(name, new AsciiToken(c));
+}
+
+
+void
+Receptacle::add(mstl::string const& name, mstl::string const& s)
+{
+	add(name, new TextToken(s));
 }
 
 // vi:set ts=3 sw=3:

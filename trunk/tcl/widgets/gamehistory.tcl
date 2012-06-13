@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 298 $
-# Date   : $Date: 2012-04-18 20:09:25 +0000 (Wed, 18 Apr 2012) $
+# Version: $Revision: 334 $
+# Date   : $Date: 2012-06-13 09:36:59 +0000 (Wed, 13 Jun 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -147,11 +147,11 @@ proc WidgetProc {w command args} {
 
 		selection {
 			variable Map
-
 			set selection [$w.__scrolledframe__.scrolled.f.t selection get]
 			if {[llength $selection] == 0} { return -1 }
 			set selection [expr {[lindex $selection 0]}]
 			if {![info exists Map($selection)]} { return -1 }
+			if {[llength $Map($selection)] == 1} { return -1 }
 			return [lindex $Map($selection) 0]
 		}
 
@@ -236,14 +236,14 @@ proc OpenGame {t args} {
 	}
 
 	if {[info exists Map($sel)]} {
-		::game::openGame $t [lindex $Map($sel) 0]
+		if {[llength $Map($sel)] > 1} {
+			::game::openGame $t [lindex $Map($sel) 0]
+		}
 	}
 }
 
 
 proc VisitItem {t mode item} {
-	variable Map
-
 	# Note: this function may be invoked with non-existing items
 	if {[string length $item]} {
 		switch $mode {

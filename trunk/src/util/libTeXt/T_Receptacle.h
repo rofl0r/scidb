@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 334 $
+// Date   : $Date: 2012-06-13 09:36:59 +0000 (Wed, 13 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -20,6 +20,7 @@
 #define _TeXt_Receptacle_included
 
 #include "T_TokenP.h"
+#include "T_Base.h"
 
 #include "m_string.h"
 
@@ -37,6 +38,9 @@ public:
 	Environment& env();
 
 	void add(mstl::string const& name, Token* token);
+	void add(mstl::string const& name, Value value);
+	void add(mstl::string const& name, char c);
+	void add(mstl::string const& name, mstl::string const& s);
 	virtual void add(mstl::string const& name, TokenP const& token) = 0;
 
 private:

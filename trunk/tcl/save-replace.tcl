@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 325 $
-# Date   : $Date: 2012-05-18 17:11:30 +0000 (Fri, 18 May 2012) $
+# Version: $Revision: 334 $
+# Date   : $Date: 2012-06-13 09:36:59 +0000 (Wed, 13 Jun 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1074,7 +1074,7 @@ proc UpdateName {top nameField fideIdField} {
 
 	set fideId [$top.$fideIdField get]
 	if {[string length $fideId] && [string length [$top.$nameField get]] == 0} {
-		$top.$nameField set [::scidb::misc::lookup $fideId -unicode $Options(unicode)]
+		$top.$nameField set [::scidb::misc::lookup player $fideId -unicode $Options(unicode)]
 	}
 }
 

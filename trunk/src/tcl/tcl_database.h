@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 283 $
-// Date   : $Date: 2012-03-29 18:05:34 +0000 (Thu, 29 Mar 2012) $
+// Version: $Revision: 334 $
+// Date   : $Date: 2012-06-13 09:36:59 +0000 (Wed, 13 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -51,6 +51,7 @@ namespace tcl
 								Ratings const& ratings,
 								bool info,
 								bool idCard);
+		int getPlayerStats(::db::Database const& db, ::db::NamebasePlayer const& player);
 		int getTags(::db::TagSet const& tags, bool userSuppliedOnly);
 
 		char const* lookupType(::db::type::ID type);

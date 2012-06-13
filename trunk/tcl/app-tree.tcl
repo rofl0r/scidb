@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 311 $
-# Date   : $Date: 2012-05-03 19:56:10 +0000 (Thu, 03 May 2012) $
+# Version: $Revision: 334 $
+# Date   : $Date: 2012-06-13 09:36:59 +0000 (Wed, 13 Jun 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -761,7 +761,7 @@ proc ShowPlayerInfo {table x y} {
 	::table::activate $table $row 1
 	if {$row == $nrows} { incr row -1 }
 	set info [::scidb::tree::player $row $id $Options(rating:type)]
-	::playertable::showInfo $table $info
+	::playercard::popupInfo $table $info
 }
 
 
@@ -770,7 +770,7 @@ proc HideInfo {table} {
 
 	::tooltip::enable
 	set Vars(button) 0
-	::playertable::hideInfo $table
+	::playercard::popdownInfo $table
 	after idle [namespace code [list DoSelection $table]]
 }
 

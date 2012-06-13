@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 334 $
+// Date   : $Date: 2012-06-13 09:36:59 +0000 (Wed, 13 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -20,6 +20,8 @@
 #include "T_GenericExpandableToken.h"
 #include "T_Environment.h"
 #include "T_TokenP.h"
+#include "T_ListToken.h"
+#include "T_TextToken.h"
 #include "T_ReadAgainProducer.h"
 #include "T_Messages.h"
 
@@ -30,20 +32,40 @@ using namespace TeXt;
 static void
 performExpandafter(Environment& env)
 {
-	TokenP token1 = env.getUndefinedToken();
-	TokenP token2 = env.getExpandableToken();
+	TokenP token1(env.getUndefinedToken());
+	TokenP token2(env.getExpandableToken());
 
-	env.expand(token2);
+	switch (token2->type())
+	{
+		case Token::T_List:
+			{
+				ListToken* list = static_cast<ListToken*>(token2.get());
 
-	TokenP token3 = env.getPendingToken();
+				if (!list->isEmpty())
+					env.pushProducer(Environment::ProducerP(list->getProducer(token2)));
+			}
+			break;
 
-//	while (token3 && token3->type() >= Token::T_Generic)
-//	{
-//		// TODO: we have to expand/execute until pending token is not a generic token ?!
-//	}
+		case Token::T_Text:
+			{
+				TextToken* list = static_cast<TextToken*>(token2.get());
 
-	if (token3)
-		env.pushProducer(Environment::ProducerP(new ReadAgainProducer(token3))); // MEMORY
+				if (!list->isEmpty())
+					env.pushProducer(Environment::ProducerP(list->getProducer(token2)));
+			}
+			break;
+
+		default:
+			{
+				env.expand(token2);
+
+				TokenP token3(env.getPendingToken());
+
+				if (token3)
+					env.pushProducer(Environment::ProducerP(new ReadAgainProducer(token3))); // MEMORY
+			}
+			break;
+	}
 
 	env.pushProducer(Environment::ProducerP(new ReadAgainProducer(token1))); // MEMORY
 }

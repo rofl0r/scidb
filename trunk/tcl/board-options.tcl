@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 310 $
-# Date   : $Date: 2012-04-26 20:16:11 +0000 (Thu, 26 Apr 2012) $
+# Version: $Revision: 334 $
+# Date   : $Date: 2012-06-13 09:36:59 +0000 (Wed, 13 Jun 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1968,7 +1968,8 @@ proc SelectBackgroundColor {which setter eraser} {
 							-modal true \
 							-parent $setter \
 							-place centeronparent]
-	
+
+	if {![winfo exists $eraser]} { return } ;# may happen if dialog is destroyed
 	if {[llength $selection] == 0} { return }
 	set n [string first ":" $selection]
 

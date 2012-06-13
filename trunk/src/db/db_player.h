@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 334 $
+// Date   : $Date: 2012-06-13 09:36:59 +0000 (Wed, 13 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -36,10 +36,13 @@
 #include "m_pair.h"
 
 namespace mstl { class istream; }
+namespace TeXt { class Receptacle; }
 
 namespace db {
 
 class Namebase;
+class NamebasePlayer;
+class PlayerStats;
 
 class Player
 {
@@ -163,6 +166,10 @@ public:
 	static void parseChessgamesDotComLinks(mstl::istream& stream);
 	static void parseComputerList(mstl::istream& stream);
 	static void loadDone();
+
+	static void emitPlayerCard(TeXt::Receptacle& receptacle,
+										NamebasePlayer const& player,
+										PlayerStats const& stats);
 
 	static void dump();
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 216 $
-// Date   : $Date: 2012-01-29 19:02:12 +0000 (Sun, 29 Jan 2012) $
+// Version: $Revision: 334 $
+// Date   : $Date: 2012-06-13 09:36:59 +0000 (Wed, 13 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -69,6 +69,14 @@ inline ID opposite(ID color) { return ID(!color); }
 
 inline bool isWhite(ID color) { return color == White; }
 inline bool isBlack(ID color) { return color == Black; }
+
+inline
+ID
+fromSide(char const* side)
+{
+	M_REQUIRE(side);
+	return *side == 'w' ? White : Black;
+}
 
 inline
 char const*
@@ -186,6 +194,14 @@ opponent(ID result)
 	}
 
 	return result;
+}
+
+
+inline
+ID
+fromColor(color::ID color)
+{
+	return isWhite(color) ? White : Black;
 }
 
 

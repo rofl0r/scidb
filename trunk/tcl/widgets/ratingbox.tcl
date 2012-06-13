@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 333 $
-# Date   : $Date: 2012-05-31 15:48:41 +0000 (Thu, 31 May 2012) $
+# Version: $Revision: 334 $
+# Date   : $Date: 2012-06-13 09:36:59 +0000 (Wed, 13 Jun 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -84,7 +84,6 @@ proc Build {w args} {
 		-exportselection no \
 		-state $opts(-state) \
 		-textvariable $opts(-textvariable) \
-		-cursor xterm \
 		;
 	pack $w.__w__ -side left
 
