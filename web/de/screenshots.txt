@@ -203,9 +203,9 @@ CONTENT
                  alt="Turniertabelle"
                title="Turniertabelle"
                class="bordersOff"
-               width="120"
-              height="88"
-                name="996x731" />
+               width="128"
+              height="83"
+                name="1089x710" />
            </a>
         </td>
       </tr>
