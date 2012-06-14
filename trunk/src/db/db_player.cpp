@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 334 $
-// Date   : $Date: 2012-06-13 09:36:59 +0000 (Wed, 13 Jun 2012) $
+// Version: $Revision: 342 $
+// Date   : $Date: 2012-06-14 22:10:11 +0000 (Thu, 14 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1294,7 +1294,7 @@ Player::insertPlayer(mstl::string& name, unsigned region, country::Code federati
 			else
 			{
 				DEBUG(::printf("'%s' does not fit region 1, 2, and 4\n", name.c_str()));
-				return false;
+				return 0;;
 			}
 		}
 		else
@@ -1306,7 +1306,7 @@ Player::insertPlayer(mstl::string& name, unsigned region, country::Code federati
 	if (!sys::utf8::Codec::fitsRegion(name, region))
 	{
 		DEBUG(::printf("'%s' does not fit region %u\n", name.c_str(), region));
-		return false;
+		return 0;;
 	}
 
 	mstl::string ascii;
