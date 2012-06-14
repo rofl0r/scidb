@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 226 $
-// Date   : $Date: 2012-02-05 22:00:47 +0000 (Sun, 05 Feb 2012) $
+// Version: $Revision: 341 $
+// Date   : $Date: 2012-06-14 19:53:25 +0000 (Thu, 14 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -279,9 +279,10 @@
 # define nullptr NULL
 #endif
 
-#if !HAVE_0X_EXPLICIT_VIRTUAL_OVERRRIDES
+// XXX preliminary
+//#if !HAVE_0X_EXPLICIT_VIRTUAL_OVERRRIDES
 # define override
-#endif
+//#endif
 
 #if !HAVE_0X_ALLOWING_MOVE_CONSTRUCTORS_TO_THROW
 # define noexcept
