@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 334 $
-// Date   : $Date: 2012-06-13 09:36:59 +0000 (Wed, 13 Jun 2012) $
+// Version: $Revision: 339 $
+// Date   : $Date: 2012-06-14 10:36:37 +0000 (Thu, 14 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1319,10 +1319,7 @@ Application::treeIsUpToDate(Tree::Key const& key) const
 
 	Runnable::TreeP tree(Tree::lookup(base, g.game->currentBoard(), key.mode(), key.ratingType()));
 
-	if (!tree)
-		return false;
-
-	return tree->key() == key;
+	return tree ? tree->key() == key : false;
 }
 
 

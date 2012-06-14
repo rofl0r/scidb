@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 334 $
-# Date   : $Date: 2012-06-13 09:36:59 +0000 (Wed, 13 Jun 2012) $
+# Version: $Revision: 339 $
+# Date   : $Date: 2012-06-14 10:36:37 +0000 (Thu, 14 Jun 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -39,10 +39,10 @@ set ChessBaseFontsAlreadyInstalled		"ChessBase fonts already installed. Install 
 namespace import ::tcl::mathfunc::int
 
 set DefaultHtmlFixedFamilies {
-	{Arial Monospaced} {Bitstream Vera Sans Mono} TkFixedFont
+	{Arial Monospaced} {Bitstream Vera Sans Mono} TkFixedFont {Nimbus Monoe L} {Lucida Typewriter}
 }
 set DefaultHtmlTextFamilies {
-	Arial {Bitstream Vera Sans} TkTextFont {DejaVu Sans} Verdana {Lucida Grande} Lucida
+	Arial {Bitstream Vera Sans} TkTextFont {Nimbus Sans L} Verdana {Lucida Grande} Lucida {DejaVu Sans}
 } 
 
 array set SymbolUtfEncoding {
