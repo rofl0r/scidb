@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 298 $
-# Date   : $Date: 2012-04-18 20:09:25 +0000 (Wed, 18 Apr 2012) $
+# Version: $Revision: 340 $
+# Date   : $Date: 2012-06-14 19:06:13 +0000 (Thu, 14 Jun 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -300,6 +300,8 @@ proc dragPiece {x y} {
 
 
 proc addMove {san noMoveCmd {force no}} {
+	variable ::application::board::board
+
 	if {[::scidb::game::position atEnd?]} {
 		application::pgn::ensureScratchGame
 		set action "add"
@@ -315,6 +317,8 @@ proc addMove {san noMoveCmd {force no}} {
 				}
 			}
 		}
+		::board::stuff::finishDrag $board
+		update idletasks
 		set action [ConfirmReplaceMove]
 	}
 
@@ -491,6 +495,7 @@ proc ConfirmReplaceMove {} {
 
 
 proc Unlock {} {
+puts "Unlock"
 	set [namespace current]::Lock 0
 	set [namespace current]::Disabled 0
 }

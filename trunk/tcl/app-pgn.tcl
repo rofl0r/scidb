@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 331 $
-# Date   : $Date: 2012-05-29 20:31:47 +0000 (Tue, 29 May 2012) $
+# Version: $Revision: 340 $
+# Date   : $Date: 2012-06-14 19:06:13 +0000 (Thu, 14 Jun 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1733,11 +1733,12 @@ proc Undo {action} {
 	variable Vars
 
 	if {[llength [::scidb::game::query $action]]} {
-		::widget::busyCursor on
+#		Do not use busy cursor, because the KeyRelease event will be lost!
+#		::widget::busyCursor on
 		::scidb::game::execute $action
 		[namespace parent]::board::updateMarks [::scidb::game::query marks]
 		::annotation::update
-		::widget::busyCursor off
+#		::widget::busyCursor off
 	}
 }
 

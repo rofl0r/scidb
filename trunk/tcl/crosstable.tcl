@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 339 $
-# Date   : $Date: 2012-06-14 10:36:37 +0000 (Thu, 14 Jun 2012) $
+# Version: $Revision: 340 $
+# Date   : $Date: 2012-06-14 19:06:13 +0000 (Thu, 14 Jun 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -279,7 +279,15 @@ proc open {parent base index view source} {
 	ttk::frame $top
 	ttk::frame $canv
 	set css [::html::defaultCSS [::font::htmlFixedFamilies] [::font::htmlTextFamilies]]
-	::html $html -imagecmd [namespace code GetImage] -delay 10 -center yes -fittowidth no -css $css
+	set dir [file join $::scidb::dir::share scripts]
+	::html $html \
+		-imagecmd [namespace code GetImage] \
+		-delay 10 \
+		-center yes \
+		-fittowidth no \
+		-css $css \
+		-importdir $dir \
+		;
 	$html handler node td [namespace current]::NodeHandler
 	$html handler node span [namespace current]::NodeHandler
 	bind [winfo parent [$html drawable]] <ButtonPress-3> [namespace code PopupMenu]

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 334 $
-// Date   : $Date: 2012-06-13 09:36:59 +0000 (Wed, 13 Jun 2012) $
+// Version: $Revision: 340 $
+// Date   : $Date: 2012-06-14 19:06:13 +0000 (Thu, 14 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -236,6 +236,18 @@ ListToken::meaning() const
 	mstl::string result;
 	result += "list: ";
 	result += meaning(m_tokenList.end());
+	return result;
+}
+
+
+mstl::string
+ListToken::text() const
+{
+	mstl::string result;
+
+	for (TokenList::const_iterator i = m_tokenList.begin(); i != m_tokenList.end(); ++i)
+		result.append((*i)->text());
+
 	return result;
 }
 

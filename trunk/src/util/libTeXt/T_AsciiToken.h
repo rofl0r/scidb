@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 340 $
+// Date   : $Date: 2012-06-14 19:06:13 +0000 (Thu, 14 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -33,6 +33,7 @@ public:
 	RefID refID() const override;
 	mstl::string name() const override;
 	mstl::string meaning() const override;
+	mstl::string text() const override;
 	Value value() const override;
 
 	void traceCommand(Environment& env) const override;

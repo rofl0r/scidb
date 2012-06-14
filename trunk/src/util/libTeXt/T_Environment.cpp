@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 334 $
-// Date   : $Date: 2012-06-13 09:36:59 +0000 (Wed, 13 Jun 2012) $
+// Version: $Revision: 340 $
+// Date   : $Date: 2012-06-14 19:06:13 +0000 (Thu, 14 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1807,7 +1807,7 @@ Environment::perform(TokenP const& token, mstl::string& result)
 		putUnboundToken(token);
 
 		while (TokenP t = m_impl->getFinalToken(*this, AllowNull))
-			result += t->name();
+			result += t->text();
 	}
 	catch (EndOfExecutionProducer::Exception)
 	{

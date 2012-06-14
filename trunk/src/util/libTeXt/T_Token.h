@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 340 $
+// Date   : $Date: 2012-06-14 19:06:13 +0000 (Thu, 14 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -95,6 +95,7 @@ public:
 	mstl::string name(Environment& env) const;
 	virtual mstl::string meaning() const;
 	virtual mstl::string description(Environment& env) const;
+	virtual mstl::string text() const;
 	virtual Value value() const;
 	virtual bool isEmpty() const;
 	virtual RefID refID() const;

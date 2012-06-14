@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 325 $
-// Date   : $Date: 2012-05-18 17:11:30 +0000 (Fri, 18 May 2012) $
+// Version: $Revision: 340 $
+// Date   : $Date: 2012-06-14 19:06:13 +0000 (Thu, 14 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -180,6 +180,8 @@ Game::Game(Game const& game)
 	,m_line(m_lineBuf[0])
 {
 	*this = game;
+	m_tags = game.m_tags;
+	m_engines = game.m_engines;
 }
 
 

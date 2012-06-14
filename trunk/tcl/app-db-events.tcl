@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 298 $
-# Date   : $Date: 2012-04-18 20:09:25 +0000 (Wed, 18 Apr 2012) $
+# Version: $Revision: 340 $
+# Date   : $Date: 2012-06-14 19:06:13 +0000 (Thu, 14 Jun 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -64,6 +64,7 @@ proc build {parent} {
 
 	::eventtable::build $lt [namespace code [list View $top]] {} \
 		-selectcmd [list [namespace current]::events::Search $top] \
+		-usefind 1 \
 		;
 
 	tk::panedwindow $rt -orient vertical -opaqueresize true -borderwidth 0

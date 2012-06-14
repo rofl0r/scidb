@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 340 $
+// Date   : $Date: 2012-06-14 19:06:13 +0000 (Thu, 14 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -37,6 +37,7 @@ public:
 	mstl::string name() const override;
 	mstl::string name(Environment& env) const override;
 	mstl::string meaning() const override;
+	mstl::string text() const override;
 	mstl::string description(Environment& env) const override;
 	Value value() const override;
 	RefID refID() const override;

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 334 $
-// Date   : $Date: 2012-06-13 09:36:59 +0000 (Wed, 13 Jun 2012) $
+// Version: $Revision: 340 $
+// Date   : $Date: 2012-06-14 19:06:13 +0000 (Thu, 14 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -40,6 +40,7 @@ public:
 	RefID refID() const override;
 	mstl::string name() const override;
 	mstl::string meaning() const override;
+	mstl::string text() const override;
 	mstl::string const& content() const override;
 	bool isEqualTo(Token const& token) const override;
 	bool isEmpty() const override;

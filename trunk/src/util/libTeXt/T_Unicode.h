@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 340 $
+// Date   : $Date: 2012-06-14 19:06:13 +0000 (Thu, 14 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -42,6 +42,7 @@ private:
 
 	void performUcPref(Environment& env);
 	void performUcSuff(Environment& env);
+	void performUcMap(Environment& env);
 
 	FilterP m_filter;
 };

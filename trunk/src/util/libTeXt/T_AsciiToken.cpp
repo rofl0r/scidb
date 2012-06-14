@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 340 $
+// Date   : $Date: 2012-06-14 19:06:13 +0000 (Thu, 14 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -56,6 +56,13 @@ AsciiToken::name() const
 		c = '\r';
 
 	return mstl::string("^^") += c + 64;
+}
+
+
+mstl::string
+AsciiToken::text() const
+{
+	return mstl::string(1, m_value);
 }
 
 
