@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 317 $
-// Date   : $Date: 2012-05-05 16:33:40 +0000 (Sat, 05 May 2012) $
+// Version: $Revision: 343 $
+// Date   : $Date: 2012-06-15 12:05:39 +0000 (Fri, 15 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -118,7 +118,7 @@ createInput(Environment& env, mstl::string const& filename)
 		pathname += suffix;
 
 		if (!InputOutput::searchFile(env.searchDirs(), pathname))
-			return false;
+			return 0;
 
 		stream.reset(new mstl::ifstream(pathname));
 	}

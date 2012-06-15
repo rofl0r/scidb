@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 340 $
-# Date   : $Date: 2012-06-14 19:06:13 +0000 (Thu, 14 Jun 2012) $
+# Version: $Revision: 343 $
+# Date   : $Date: 2012-06-15 12:05:39 +0000 (Fri, 15 Jun 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -377,8 +377,8 @@ proc UpdateContent {w key base name playerCardArgs} {
 		\\def\\Label-Federation{$::playertable::mc::T_Federation}
 		\\def\\Label-FIDE-ID{$::playertable::mc::F_FideID}
 		\\def\\Label-Title{$::playertable::mc::F_Title}
-		\\def\\Label-Birthday{$::playertable::mc::DateOfBirth}
-		\\def\\Label-Deathday{$::playertable::mc::DateOfDeath}
+		\\def\\Label-BirthDay{$::playertable::mc::DateOfBirth}
+		\\def\\Label-DeathDay{$::playertable::mc::DateOfDeath}
 		\\def\\Label-Latest{$mc::Latest}
 		\\def\\Label-Highest{$mc::Highest}
 		\\def\\Label-Minimal{$mc::Minimal}

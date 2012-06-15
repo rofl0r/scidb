@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 343 $
+// Date   : $Date: 2012-06-15 12:05:39 +0000 (Fri, 15 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -50,7 +50,7 @@ public:
 	~HtmlWriter() throw();
 
 	void writeTag(mstl::string const& name, mstl::string const& value) override;
-	void writeComment(Comment const& comment, MarkSet const& marks) override;
+	void writeComment(Comment const& comment, MarkSet const& marks);
 	void writeMove(Move const& move,
 						mstl::string const& moveNumber,
 						Annotation const& annotation,

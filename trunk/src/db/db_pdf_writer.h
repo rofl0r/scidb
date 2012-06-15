@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 238 $
-// Date   : $Date: 2012-02-09 20:58:05 +0000 (Thu, 09 Feb 2012) $
+// Version: $Revision: 343 $
+// Date   : $Date: 2012-06-15 12:05:39 +0000 (Fri, 15 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -54,7 +54,7 @@ public:
 	~PdfWriter() throw();
 
 	void writeTag(mstl::string const& name, mstl::string const& value) override;
-	void writeComment(Comment const& comment, MarkSet const& marks) override;
+	void writeComment(Comment const& comment, MarkSet const& marks);
 	void writeMove(Move const& move,
 						mstl::string const& moveNumber,
 						Annotation const& annotation,

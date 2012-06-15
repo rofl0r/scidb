@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 312 $
-// Date   : $Date: 2012-05-04 14:26:12 +0000 (Fri, 04 May 2012) $
+// Version: $Revision: 343 $
+// Date   : $Date: 2012-06-15 12:05:39 +0000 (Fri, 15 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -97,10 +97,10 @@ public:
 	util::ByteStream getGame(GameInfo const& info) override;
 	void save(mstl::string const& rootname, unsigned start, util::Progress& progress) override;
 	void attach(mstl::string const& rootname, util::Progress& progress) override;
-	void update(mstl::string const& rootname) override;
+	void update(mstl::string const& rootname);
 	void update(mstl::string const& rootname, unsigned index, bool updateNamebase) override;
 	void updateHeader(mstl::string const& rootname) override;
-	void unlock(mstl::string const& rootname) override;
+	void unlock(mstl::string const& rootname);
 	void close() override;
 	void sync() override;
 
@@ -108,7 +108,7 @@ public:
 	save::State doDecoding(db::Consumer& consumer, util::ByteStream& strm, TagSet& tags) override;
 	void doDecoding(GameData& data, GameInfo& info, mstl::string*) override;
 
-	void doEncoding(util::ByteStream& strm, GameData const& data, Signature const& signature) override;
+	void doEncoding(util::ByteStream& strm, GameData const& data, Signature const& signature);
 	Consumer* getConsumer(format::Type srcFormat) override;
 
 	void reset() override;

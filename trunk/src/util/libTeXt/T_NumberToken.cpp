@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 340 $
-// Date   : $Date: 2012-06-14 19:06:13 +0000 (Thu, 14 Jun 2012) $
+// Version: $Revision: 343 $
+// Date   : $Date: 2012-06-15 12:05:39 +0000 (Fri, 15 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -49,13 +49,6 @@ mstl::string
 NumberToken::name() const
 {
 	return "\\" + mstl::string::cast(m_value);
-}
-
-
-mstl::string
-NumberToken::name(Environment&) const
-{
-	return name();
 }
 
 

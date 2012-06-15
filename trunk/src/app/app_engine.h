@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 267 $
-// Date   : $Date: 2012-03-06 08:52:13 +0000 (Tue, 06 Mar 2012) $
+// Version: $Revision: 343 $
+// Date   : $Date: 2012-06-15 12:05:39 +0000 (Fri, 15 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -80,7 +80,7 @@ public:
 		virtual void protocolEnd() = 0;
 
 		virtual void processMessage(mstl::string const& message) = 0;
-		virtual void sendNumberOfVariations() override = 0;
+		virtual void sendNumberOfVariations() = 0;
 		virtual void doMove(db::Game const& game, db::Move const& lastMove) = 0;
 
 		virtual Result probeResult() const = 0;

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 340 $
-// Date   : $Date: 2012-06-14 19:06:13 +0000 (Thu, 14 Jun 2012) $
+// Version: $Revision: 343 $
+// Date   : $Date: 2012-06-15 12:05:39 +0000 (Fri, 15 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -41,7 +41,7 @@ public:
 	mstl::string name() const override;
 	mstl::string meaning() const override;
 	mstl::string text() const override;
-	mstl::string const& content() const override;
+	mstl::string const& content() const;
 	bool isEqualTo(Token const& token) const override;
 	bool isEmpty() const override;
 

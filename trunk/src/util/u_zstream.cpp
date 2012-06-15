@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 234 $
-// Date   : $Date: 2012-02-07 23:03:07 +0000 (Tue, 07 Feb 2012) $
+// Version: $Revision: 343 $
+// Date   : $Date: 2012-06-15 12:05:39 +0000 (Fri, 15 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -44,7 +44,7 @@ using namespace util;
 #define IS_WRITEABLE	(static_cast<ZStream::Handle*>(cookie)->mode & mstl::ios_base::out)
 
 
-static unsigned char const gzipMagic [2] = { '\037', '\213' };
+static unsigned char const gzipMagic [2] = { '\037', static_cast<unsigned char>('\213') };
 static unsigned char const zzipMagic [4] = { 'P', 'K', '\003', '\004' };
 
 static double const DecompressionFactor = 3.365;

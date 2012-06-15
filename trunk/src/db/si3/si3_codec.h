@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 326 $
-// Date   : $Date: 2012-05-20 20:27:50 +0000 (Sun, 20 May 2012) $
+// Version: $Revision: 343 $
+// Date   : $Date: 2012-06-15 12:05:39 +0000 (Fri, 15 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -72,8 +72,8 @@ public:
 
 	bool isWriteable() const override;
 	bool encodingFailed() const override;
-	bool isFormat3() const override;
-	bool isFormat4() const override;
+	bool isFormat3() const;
+	bool isFormat4() const;
 
 	Format format() const override;
 
@@ -89,7 +89,7 @@ public:
 	unsigned maxDescriptionLength() const override;
 
 	unsigned gameFlags() const override;
-	unsigned blockSize() const override;
+	unsigned blockSize() const;
 
 	void filterTag(TagSet& tags, tag::ID tag, Section section) const override;
 	mstl::string const& extension() const override;
@@ -109,7 +109,7 @@ public:
 	util::ByteStream getGame(GameInfo const& info) override;
 	void save(mstl::string const& rootname, unsigned start, util::Progress& progress) override;
 	void attach(mstl::string const& rootname, util::Progress& progress) override;
-	void update(mstl::string const& rootname) override;
+	void update(mstl::string const& rootname);
 	void update(mstl::string const& rootname, unsigned index, bool updateNamebase) override;
 	void updateHeader(mstl::string const& rootname) override;
 	void reloadDescription(mstl::string const& rootname) override;

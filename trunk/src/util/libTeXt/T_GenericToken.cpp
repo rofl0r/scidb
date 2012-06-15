@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 343 $
+// Date   : $Date: 2012-06-15 12:05:39 +0000 (Fri, 15 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -60,7 +60,7 @@ GenericToken::setType(Type type)
 
 
 void
-GenericToken::perform(Environment& env)
+GenericToken::perform(Environment& env) const
 {
 	m_func(env);
 }

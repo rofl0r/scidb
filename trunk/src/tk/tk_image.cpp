@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 268 $
-// Date   : $Date: 2012-03-13 16:47:20 +0000 (Tue, 13 Mar 2012) $
+// Version: $Revision: 343 $
+// Date   : $Date: 2012-06-15 12:05:39 +0000 (Fri, 15 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -66,6 +66,18 @@ using namespace tcl;
 #define BGR		2,1,0,0
 #define RGBA	0,1,2,3
 #define BGRA	2,1,0,3
+
+
+template <typename PixBuf>
+static void blur_image(PixBuf const& src, PixBuf& dst, double radius);
+template <typename PixBuf>
+static void scale_image(PixBuf const& src, PixBuf& dst, double scale_x, double scale_y);
+template <typename PixBuf>
+static void rot_90_image(PixBuf const& src, PixBuf& dst);
+template <typename PixBuf>
+static void rot180_image(PixBuf const& src, PixBuf& dst);
+template <typename PixBuf>
+static void rot270_image(PixBuf const& src, PixBuf& dst);
 
 
 namespace {

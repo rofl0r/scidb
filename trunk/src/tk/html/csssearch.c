@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 168 $
-// Date   : $Date: 2012-01-04 02:01:05 +0000 (Wed, 04 Jan 2012) $
+// Version: $Revision: 343 $
+// Date   : $Date: 2012-06-15 12:05:39 +0000 (Fri, 15 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -57,10 +57,7 @@ struct CssSearch {
 typedef struct CssSearch CssSearch;
 
 static int
-cssSearchCb(pTree, pNode, clientData)
-    HtmlTree *pTree;
-    HtmlNode *pNode;
-    ClientData clientData;
+cssSearchCb(HtmlTree *pTree, HtmlNode *pNode, ClientData clientData)
 {
     CssSearch *pSearch = (CssSearch *)clientData;
     assert(pSearch->pRuleList);
@@ -88,8 +85,7 @@ cssSearchCb(pTree, pNode, clientData)
 }
 
 int
-HtmlCssSearchInit(pTree)
-    HtmlTree *pTree;
+HtmlCssSearchInit(HtmlTree *pTree)
 {
     pTree->pSearchCache = HtmlNew(HtmlSearchCache);
     Tcl_InitHashTable(&pTree->pSearchCache->aCache, TCL_STRING_KEYS);
@@ -97,8 +93,7 @@ HtmlCssSearchInit(pTree)
 }
 
 int
-HtmlCssSearchInvalidateCache(pTree)
-    HtmlTree *pTree;
+HtmlCssSearchInvalidateCache(HtmlTree *pTree)
 {
     Tcl_HashSearch sSearch;
     Tcl_HashEntry *pEntry;
@@ -115,8 +110,7 @@ HtmlCssSearchInvalidateCache(pTree)
 }
 
 int
-HtmlCssSearchShutdown(pTree)
-    HtmlTree *pTree;
+HtmlCssSearchShutdown(HtmlTree *pTree)
 {
     HtmlCssSearchInvalidateCache(pTree);
     Tcl_DeleteHashTable(&pTree->pSearchCache->aCache);
@@ -152,11 +146,11 @@ HtmlCssSearchShutdown(pTree)
  *---------------------------------------------------------------------------
  */
 int
-HtmlCssSearch(clientData, interp, objc, objv)
-    ClientData clientData;             /* The HTML widget */
-    Tcl_Interp *interp;                /* The interpreter */
-    int objc;                          /* Number of arguments */
-    Tcl_Obj *CONST objv[];             /* List of all arguments */
+HtmlCssSearch(
+    ClientData clientData,             /* The HTML widget */
+    Tcl_Interp *interp,                /* The interpreter */
+    int objc,                          /* Number of arguments */
+    Tcl_Obj *CONST objv[])             /* List of all arguments */
 {
     HtmlTree *pTree = (HtmlTree *)clientData;
     char *zOrig;
@@ -302,4 +296,4 @@ HtmlCssSearch(clientData, interp, objc, objv)
     return TCL_OK;
 }
 
-
+// vi:set ts=4 sw=4 et:

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 248 $
-# Date   : $Date: 2012-02-14 18:33:12 +0000 (Tue, 14 Feb 2012) $
+# Version: $Revision: 343 $
+# Date   : $Date: 2012-06-15 12:05:39 +0000 (Fri, 15 Jun 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -173,9 +173,7 @@ proc CodeInfrastructure {} {
          * and 127, inclusive.
          */
         static int 
-        Hash(nString, zString) 
-            int nString;
-            const char *zString;
+        Hash(int nString, const char *zString)
         {
             unsigned int result = 0;
             const char *string = zString;
@@ -191,11 +189,7 @@ proc CodeInfrastructure {} {
         }
 
         static int
-        Lookup(nString, zString, aTable, aHashTable) 
-            int nString;
-            const char *zString;
-            int *aTable;
-            HashEntry *aHashTable;
+        Lookup(int nString, const char *zString, int *aTable, const HashEntry *aHashTable)
         {
             int t;
 
@@ -299,9 +293,7 @@ proc CodeLookup {prefix entries firstconstant} {
     append ::cssprop_c "\n"
 
     append ::cssprop_c "int\n"
-    append ::cssprop_c "${prefix}Lookup(n, z)\n"
-    append ::cssprop_c "    int n;\n"
-    append ::cssprop_c "    const char *z;\n"
+    append ::cssprop_c "${prefix}Lookup(int n, const char *z)\n"
     append ::cssprop_c "\{\n"
     append ::cssprop_c "    int aTable\[\] = \{\n"
 
@@ -333,8 +325,7 @@ proc CodeLookup {prefix entries firstconstant} {
     append ::cssprop_c "\n"
     append ::cssprop_c "\n"
     append ::cssprop_c "const char *\n"
-    append ::cssprop_c "${prefix}ToString(e)\n"
-    append ::cssprop_c "    int e;\n"
+    append ::cssprop_c "${prefix}ToString(int e)\n"
     append ::cssprop_c "\{\n"
     append ::cssprop_c "    return a${prefix}\[e - $firstconstant\].zString;\n"
     append ::cssprop_c "\}\n"

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 327 $
-// Date   : $Date: 2012-05-23 20:29:58 +0000 (Wed, 23 May 2012) $
+// Version: $Revision: 343 $
+// Date   : $Date: 2012-06-15 12:05:39 +0000 (Fri, 15 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -229,7 +229,7 @@ protected:
 									GameData const& data,
 									Signature const& signature,
 									TagBits const& allowedTags,
-									bool allowExtraTags) override;
+									bool allowExtraTags);
 	virtual unsigned putGame(util::ByteStream const& data);
 	virtual unsigned putGame(	util::ByteStream const& strm,
 										unsigned prevOffset,
