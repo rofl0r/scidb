@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 344 $
+// Date   : $Date: 2012-06-15 14:00:46 +0000 (Fri, 15 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -33,7 +33,7 @@ private:
 
 public:
 
-	static double constexpr Load = 70.0;
+	static double const Load = 70.0;
 
 	typedef Value					value_type;
 	typedef Key						key_type;

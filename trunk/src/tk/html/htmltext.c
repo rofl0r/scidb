@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 343 $
-// Date   : $Date: 2012-06-15 12:05:39 +0000 (Fri, 15 Jun 2012) $
+// Version: $Revision: 344 $
+// Date   : $Date: 2012-06-15 14:00:46 +0000 (Fri, 15 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1851,7 +1851,7 @@ copyText(char* dst, const char* src, unsigned len)
     char* p = dst;
 
     for ( ; src < e; ++src) {
-        if (src[0] == 0xC2 && src < e - 1 && src[1] == 0xAD) {
+        if (src[0] == (char)0xC2 && src < e - 1 && src[1] == (char)0xAD) {
             ++src;
         } else {
             *p++ = *src;
