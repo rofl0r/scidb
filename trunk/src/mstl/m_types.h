@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 343 $
-// Date   : $Date: 2012-06-15 12:05:39 +0000 (Fri, 15 Jun 2012) $
+// Version: $Revision: 346 $
+// Date   : $Date: 2012-06-15 21:04:20 +0000 (Fri, 15 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -291,7 +291,7 @@
 // C++Ox definitions //////////////////////////////////////////////////////////
 
 #if !HAVE_0X_CONSTANT_EXPRESSIONS
-#define constexpr
+#define constexpr const
 #endif
 
 #if !HAVE_0X_NULL_POINTER_CONSTANT

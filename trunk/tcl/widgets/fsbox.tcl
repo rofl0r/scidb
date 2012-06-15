@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 331 $
-# Date   : $Date: 2012-05-29 20:31:47 +0000 (Tue, 29 May 2012) $
+# Version: $Revision: 346 $
+# Date   : $Date: 2012-06-15 21:04:20 +0000 (Fri, 15 Jun 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -4043,7 +4043,7 @@ set restore [image create photo -data {
 	5bcAAAAASUVORK5CYII=
 }]
 
-set modify [set ::fsbox::bookmarks::icon::16x16::modify]
+set modify $::fsbox::bookmarks::icon::16x16::modify
 
 set duplicate [image create photo -data {
 	iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAElBMVEVjGABli9ydt+7s7/j/
