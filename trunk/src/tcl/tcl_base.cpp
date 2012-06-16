@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 290 $
-// Date   : $Date: 2012-04-05 15:25:01 +0000 (Thu, 05 Apr 2012) $
+// Version: $Revision: 349 $
+// Date   : $Date: 2012-06-16 22:15:15 +0000 (Sat, 16 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -95,10 +95,10 @@ tcl::uniqueMatchObj(Tcl_Obj* obj, char const** options)
 }
 
 
-static int
-verror(	char const* cmd, char const* subcmd, char const* subsubcmd,
-			char const* format,
-			va_list ap)
+int
+tcl::error(	char const* cmd, char const* subcmd, char const* subsubcmd,
+				char const* format,
+				va_list ap)
 {
 	char fmt[1024];
 
@@ -124,7 +124,7 @@ tcl::error( char const* cmd, char const* subcmd, char const* subsubcmd,
 {
 	va_list args;
 	va_start(args, format);
-	int rc = ::verror(cmd, subcmd, subsubcmd, format, args);
+	int rc = error(cmd, subcmd, subsubcmd, format, args);
 	va_end(args);
 	return rc;
 }

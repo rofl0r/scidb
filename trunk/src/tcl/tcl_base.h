@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 283 $
-// Date   : $Date: 2012-03-29 18:05:34 +0000 (Thu, 29 Mar 2012) $
+// Version: $Revision: 349 $
+// Date   : $Date: 2012-06-16 22:15:15 +0000 (Sat, 16 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -66,6 +66,11 @@ void setResult(long result);
 void setResult(unsigned long result);
 
 int ioError(mstl::string const& file, mstl::string const& error, mstl::string const& message);
+
+int
+error(
+	char const* cmd, char const* subcmd, char const* subsubcmd,
+	char const* format, va_list ap);
 
 int
 __attribute__((__format__(__printf__, 4, 5)))
