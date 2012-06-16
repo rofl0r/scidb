@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 327 $
-# Date   : $Date: 2012-05-23 20:29:58 +0000 (Wed, 23 May 2012) $
+# Version: $Revision: 348 $
+# Date   : $Date: 2012-06-16 14:32:54 +0000 (Sat, 16 Jun 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -291,7 +291,7 @@ proc build {path getViewCmd {visibleColumns {}} {args {}}} {
 		positioncmd	{}
 	}
 
-	if {[array size Options] == 0} {
+	if {[array size Options] < [array size Defaults]} {
 		array set Options [array get Defaults]
 	}
 
