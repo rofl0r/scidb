@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 340 $
-# Date   : $Date: 2012-06-14 19:06:13 +0000 (Thu, 14 Jun 2012) $
+# Version: $Revision: 347 $
+# Date   : $Date: 2012-06-16 14:24:05 +0000 (Sat, 16 Jun 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -113,9 +113,6 @@ proc build {path getViewCmd {visibleColumns {}} {args {}}} {
 	namespace eval [namespace current]::$path {}
 	variable ${path}::Vars
 
-	set mc::F_Rating1 $Options(rating1:type)
-	set mc::F_Rating2 $Options(rating2:type)
-
 	RefreshHeader 1
 	RefreshHeader 2
 
@@ -128,6 +125,9 @@ proc build {path getViewCmd {visibleColumns {}} {args {}}} {
 	if {[array size Options] == 0} {
 		array set Options [array get Defaults]
 	}
+
+	set mc::F_Rating1 $Options(rating1:type)
+	set mc::F_Rating2 $Options(rating2:type)
 
 	if {[llength $visibleColumns] == 0} { set visibleColumns $columns }
 
