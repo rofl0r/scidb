@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 351 $
-// Date   : $Date: 2012-06-17 09:45:39 +0000 (Sun, 17 Jun 2012) $
+// Version: $Revision: 352 $
+// Date   : $Date: 2012-06-17 11:08:47 +0000 (Sun, 17 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1174,10 +1174,8 @@ namespace tag
 			NameLookup[NameMap[i].id] = &NameMap[i].name;
 
 #ifndef NDEBUG
-# if !__GNUC_PREREQ(7,0)
-		for (int i = 0; i < ExtraTag; ++i)
-			assert(NameLookup[i]);
-# endif
+//		for (int i = 0; i < ExtraTag; ++i)
+//			assert(NameLookup[i]);
 #endif
 
 		IsWhiteRating.set(WhiteDWZ);
