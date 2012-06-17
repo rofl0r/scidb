@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 345 $
-// Date   : $Date: 2012-06-15 14:32:26 +0000 (Fri, 15 Jun 2012) $
+// Version: $Revision: 350 $
+// Date   : $Date: 2012-06-17 08:49:59 +0000 (Sun, 17 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1164,6 +1164,8 @@ namespace tag
 		static_assert(ExtraTag <= 8*sizeof(uint64_t), "BitField size exceeded");
 
 #ifndef NDEBUG
+		if (NameMap[0].name == 0)
+			return; // NameMap not yyet initialized
 		::memset(NameLookup, 0, sizeof(NameLookup));
 #endif
 
