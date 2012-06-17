@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 346 $
-# Date   : $Date: 2012-06-15 21:04:20 +0000 (Fri, 15 Jun 2012) $
+# Version: $Revision: 353 $
+# Date   : $Date: 2012-06-17 16:08:59 +0000 (Sun, 17 Jun 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1498,12 +1498,12 @@
 ::annotation::mc::TooManyNags						"Zuviele Anmerkungen (die letzte wurde ignoriert)."
 ::annotation::mc::TooManyNagsDetail				"Maximal %d Anmerkungen pro Halbzug sind möglich."
 
-::annotation::mc::PrefixedCommentaries				"Vorangestellte Kommentierungen"
-::annotation::mc::MoveAssesments						"Zugbewertungen"
-::annotation::mc::PositionalAssessments			"Stellungsbewertungen"
-::annotation::mc::TimePressureCommentaries		"Zeitnotkommentierungen"
-::annotation::mc::AdditionalCommentaries			"Zusätzliche Kommentierungen"
-::annotation::mc::ChessBaseCommentaries			"ChessBase-Kommentierungen"
+::annotation::mc::PrefixedCommentaries			"Vorangestellte Kommentierungen"
+::annotation::mc::MoveAssesments					"Zugbewertungen"
+::annotation::mc::PositionalAssessments		"Stellungsbewertungen"
+::annotation::mc::TimePressureCommentaries	"Zeitnotkommentierungen"
+::annotation::mc::AdditionalCommentaries		"Zusätzliche Kommentierungen"
+::annotation::mc::ChessBaseCommentaries		"ChessBase-Kommentierungen"
 
 ### marks ##############################################################
 ::marks::mc::MarksPalette			"Markierungen - Palette"

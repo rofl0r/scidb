@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 331 $
-# Date   : $Date: 2012-05-29 20:31:47 +0000 (Tue, 29 May 2012) $
+# Version: $Revision: 353 $
+# Date   : $Date: 2012-06-17 16:08:59 +0000 (Sun, 17 Jun 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -638,8 +638,9 @@ proc recover {} {
 	if {[::process::testOption recover-old]} { append pattern .bak }
 
 	log::open $mc::Recovery
+	set files [lsort -dictionary [glob -directory $::scidb::dir::backup -nocomplain $pattern]]
 
-	foreach file [glob -directory $::scidb::dir::backup -nocomplain $pattern] {
+	foreach file $files {
 		if {![::process::testOption dont-recover]} {
 			if {[file readable $file]} {
 				set position [string range $file 5 end-4]
@@ -683,6 +684,7 @@ proc recover {} {
 						set index [lindex $key 2]
 						::scidb::game::sink $count $base $index
 						::application::pgn::add $count $base $tags
+						::application::pgn::setModified $count
 						::scidb::game::modified $count
 						incr count
 					}

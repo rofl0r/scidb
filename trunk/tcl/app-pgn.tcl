@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 346 $
-# Date   : $Date: 2012-06-15 21:04:20 +0000 (Fri, 15 Jun 2012) $
+# Version: $Revision: 353 $
+# Date   : $Date: 2012-06-17 16:08:59 +0000 (Sun, 17 Jun 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -466,6 +466,11 @@ proc selectAt {index} {
 
 proc lock {position} {
 	::gamebar::lock [set [namespace current]::Vars(gamebar)] $position
+}
+
+
+proc setModified {position} {
+	::gamebar::setState [set [namespace current]::Vars(gamebar)] $position yes
 }
 
 
@@ -1864,11 +1869,18 @@ proc PopupMenu {parent position} {
 		}
 
 		$menu add command \
-			-label $mc::StartTrialMode \
+			-label " $mc::StartTrialMode" \
+			-image $::icon::16x16::trial \
+			-compound left \
 			-command ::game::flipTrialMode \
 			-accel "$::mc::Key(Ctrl)-[set [namespace parent]::board::mc::Accel(trial-mode)]" \
 			;
-		$menu add command -label $mc::Command(game:transpose) -command [namespace code TransposeGame]
+		$menu add command \
+			-label " $mc::Command(game:transpose)" \
+			-image $::icon::16x16::none \
+			-compound left \
+			-command [namespace code TransposeGame] \
+			;
 
 		menu $menu.strip -tearoff no
 		set state "normal"
@@ -1907,7 +1919,7 @@ proc PopupMenu {parent position} {
 		menu $menu.strip.comments -tearoff no
 		$menu.strip add cascade \
 			-menu $menu.strip.comments \
-			-label $mc::Command(strip:comments) \
+			-label " $mc::Command(strip:comments)" \
 			-state $state \
 			;
 
@@ -1929,9 +1941,16 @@ proc PopupMenu {parent position} {
 			}
 		}
 
-		$menu add cascade -menu $menu.strip -label $mc::Strip
+		$menu add cascade \
+			-menu $menu.strip \
+			-label " $mc::Strip" \
+			-image $::fsbox::filelist::icon::16x16::delete \
+			-compound left \
+			;
 		$menu add command \
-			-label "$mc::Command(copy:comments)..." \
+			-label " $mc::Command(copy:comments)..." \
+			-image $::icon::16x16::none \
+			-compound left \
 			-command [namespace code [list CopyComments $parent]] \
 			-state $state \
 			;
@@ -1992,7 +2011,12 @@ proc PopupMenu {parent position} {
 					lassign [lindex $ranges 0] descr from to
 					bind $m <<MenuSelect>> [namespace code { ::widget::menuItemHighlightSecond %W }]
 				} else {
-					$menu add cascade -menu $m -label $mc::SuffixCommentaries
+					$menu add cascade \
+						-menu $m \
+						-label " $mc::SuffixCommentaries" \
+						-image $::icon::16x16::annotation($type) \
+						-compound left \
+						;
 					$m add command -label "($mc::None)" -command "$cmd $type 0"
 				}
 
@@ -2001,11 +2025,16 @@ proc PopupMenu {parent position} {
 					set text [set ::annotation::mc::$descr]
 
 					if {[llength $ranges] == 1} {
-						$menu add cascade -menu $m -label $text
+						$menu add cascade \
+							-menu $m \
+							-label " $text"  \
+							-image $::icon::16x16::annotation($type) \
+							-compound left \
+							;
 						set sub $m
 					} else {
 						set sub [menu $m.[string tolower $descr 0 0]]
-						$m add cascade -menu $sub -label $text
+						$m add cascade -menu $sub -label $text 
 						bind $sub <<MenuSelect>> [namespace code { ::widget::menuItemHighlightSecond %W }]
 					}
 
@@ -2042,7 +2071,7 @@ proc PopupMenu {parent position} {
 		if {[::annotation::open?]} { set state disabled } else { set state normal }
 		$menu add command \
 			-label " $mc::EditAnnotation..." \
-			-image $::icon::16x16::annotation \
+			-image $::icon::16x16::annotation(all) \
 			-compound left \
 			-state $state \
 			-command [namespace code [list editAnnotation $position]] \
