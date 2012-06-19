@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 327 $
-# Date   : $Date: 2012-05-23 20:29:58 +0000 (Wed, 23 May 2012) $
+# Version: $Revision: 354 $
+# Date   : $Date: 2012-06-19 20:02:35 +0000 (Tue, 19 Jun 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -369,8 +369,8 @@ proc BuildTab {nb boardSize sw sh specified} {
 			::widget::textPreventSelection $text
 			bind $text <MouseWheel> { break }
 			if {[tk windowingsystem] eq "x11"} {
-				bind $text <4> { break }
-				bind $text <5> { break }
+				bind $text <Button-4> { break }
+				bind $text <Button-5> { break }
 			}
 			grid $board -column [expr {2*($col + 1)}] -row [expr {4*($row + 1)}]
 			grid $text  -column [expr {2*($col + 1)}] -row [expr {4*($row + 1) + 2}] -sticky ew

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 334 $
-# Date   : $Date: 2012-06-13 09:36:59 +0000 (Wed, 13 Jun 2012) $
+# Version: $Revision: 354 $
+# Date   : $Date: 2012-06-19 20:02:35 +0000 (Tue, 19 Jun 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -50,6 +50,30 @@ set ButtonOrder { previous next update clear close ok apply cancel reset revert 
 
 proc focusNext {w next} { set [namespace current]::Priv(next:$w) $next }
 proc focusPrev {w prev} { set [namespace current]::Priv(prev:$w) $prev }
+
+
+proc bindMouseWheel {w} {
+	switch [tk windowingsystem] {
+		x11 {
+			bind $w <Button-4> { %W yview scroll -5 units }
+			bind $w <Button-5> { %W yview scroll +5 units }
+		}
+		aqua {
+			bind $w <MouseWheel> { %W yview scroll [expr {-(%D)}] units }
+		}
+		win32 {
+			bind $w <MouseWheel> { %W yview scroll [expr {-(%D/120)*4}] units }
+		}
+	}
+	if {[string first . $w] >= 0} {
+		if {[tk windowingsystem] eq "x11"} {
+			bind $w <Button-4> {+ break }
+			bind $w <Button-5> {+ break }
+		} else {
+			bind $w <MouseWheel> {+ break }
+		}
+	}
+}
 
 
 proc showTrace {path text useHorzScroll closeCmd} {

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 353 $
-# Date   : $Date: 2012-06-17 16:08:59 +0000 (Sun, 17 Jun 2012) $
+# Version: $Revision: 354 $
+# Date   : $Date: 2012-06-19 20:02:35 +0000 (Tue, 19 Jun 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -103,11 +103,16 @@ proc open {parent base info view index {fen {}}} {
 		}
 		return
 	}
-
 	set position [incr Priv(count)]
 	set dlg $parent.browser$position
 	lappend Priv($base:$number:$view) $dlg
 	tk::toplevel $dlg -class Scidb
+	if {[tk windowingsystem] eq "x11"} {
+		bind $dlg <Button-4> [namespace code [list Goto $position -1]]
+		bind $dlg <Button-5> [namespace code [list Goto $position +1]]
+	} else {
+		bind $dlg <MouseWheel> [namespace code [list Goto $position [expr {%D < 0 ? +1 : -1}]]]
+	}
 	namespace eval [namespace current]::${position} {}
 	variable ${position}::Vars
 
@@ -202,6 +207,7 @@ proc open {parent base info view index {fen {}}} {
 		-font $Options(font) \
 		-cursor {} \
 		;
+	::widget::bindMouseWheel $rt.pgn
 	::widget::textPreventSelection $rt.header
 	::widget::textPreventSelection $rt.pgn
 	::ttk::scrollbar $rt.sb -command [list $rt.pgn yview] -takefocus 0

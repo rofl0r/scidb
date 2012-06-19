@@ -1,7 +1,7 @@
 # =====================================================================
 # Author : $Author$
-# Version: $Revision: 333 $
-# Date   : $Date: 2012-05-31 15:48:41 +0000 (Thu, 31 May 2012) $
+# Version: $Revision: 354 $
+# Date   : $Date: 2012-06-19 20:02:35 +0000 (Tue, 19 Jun 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -54,6 +54,19 @@ bind TListBox <Down>			[namespace code { Down %W }]
 bind TListBox <Left>			[namespace code { Left %W }]
 bind TListBox <Right>		[namespace code { Right %W }]
 bind TListBox <Key-space>	[namespace code { SelectActive %W }]
+
+switch [tk windowingsystem] {
+	x11 {
+		bind TListBox <Button-4> { %W yview scroll -5 units }
+		bind TListBox <Button-5> { %W yview scroll +5 units }
+	}
+	aqua {
+		bind TreeCtrl <MouseWheel> { %W yview scroll [expr {-(%D)}] units }
+	}
+	win32 {
+		bind TreeCtrl <MouseWheel> { %W yview scroll [expr {-(%D/120)*4}] units }
+	}
+}
 
 bind TListBox <<PasteSelection>>	{ break }
 

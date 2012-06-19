@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 349 $
-# Date   : $Date: 2012-06-16 22:15:15 +0000 (Sat, 16 Jun 2012) $
+# Version: $Revision: 354 $
+# Date   : $Date: 2012-06-19 20:02:35 +0000 (Tue, 19 Jun 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -91,6 +91,13 @@ proc build {w width height} {
 	::bind $canv <Configure> [namespace code { ConfigureWindow %W %w %h }]
 	::bind $canv <Destroy> [namespace code [list activate $w 0]]
 	::bind $canv <FocusIn> [namespace code { GotFocus %W }]
+
+	if {[tk windowingsystem] eq "x11"} {
+		::bind $canv <Button-4> [namespace code [list goto -1]]
+		::bind $canv <Button-5> [namespace code [list goto +1]]
+	} else {
+		::bind $canv <MouseWheel> [namespace code [list goto [expr {%D < 0 ? +1 : -1}]]]
+	}
 
 	::board::stuff::bind $board all <Enter>				{ ::move::enterSquare %q }
 	::board::stuff::bind $board all <Leave>				{ ::move::leaveSquare %q }
