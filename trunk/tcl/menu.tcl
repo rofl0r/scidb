@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 325 $
-# Date   : $Date: 2012-05-18 17:11:30 +0000 (Fri, 18 May 2012) $
+# Version: $Revision: 355 $
+# Date   : $Date: 2012-06-20 20:51:25 +0000 (Wed, 20 Jun 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -260,12 +260,13 @@ proc build {menu} {
 			;
 
 		lassign [::tk::UnderlineAmpersand $mc::InstallChessBaseFonts] text ul
+		set cmd [namespace code [list ::font::installChessBaseFonts .application]]
 		$m add command \
 			-compound left \
 			-label " $text" \
 			-underline $ul \
 			-image $::icon::16x16::fonts \
-			-command [namespace code [list ::font::installChessBaseFonts .application]] \
+			-command $cmd \
 			;
 	}
 

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 325 $
-# Date   : $Date: 2012-05-18 17:11:30 +0000 (Fri, 18 May 2012) $
+# Version: $Revision: 355 $
+# Date   : $Date: 2012-06-20 20:51:25 +0000 (Wed, 20 Jun 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -190,6 +190,7 @@ switch $::scidb::revision {
 		set ::crosstable::MostRecentHistory {}
 		array unset ::browser::Options font:bold
 		array unset ::application::pgn::Options board-size
+		array unset ::dialog::fsbox::Priv lastFolder
 	}
 }
 

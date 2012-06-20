@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 347 $
-// Date   : $Date: 2012-06-16 14:24:05 +0000 (Sat, 16 Jun 2012) $
+// Version: $Revision: 355 $
+// Date   : $Date: 2012-06-20 20:51:25 +0000 (Wed, 20 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -39,11 +39,9 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-// On "modern" Linux distributions the static object
-// initialization is not working properly!
-#ifndef BROKEN_LINKER_HACK
-# define BROKEN_LINKER_HACK
-#endif
+//#ifndef BROKEN_LINKER_HACK
+//# define BROKEN_LINKER_HACK
+//#endif
 
 #ifdef BROKEN_LINKER_HACK
 # include "db_board.h"

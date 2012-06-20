@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 327 $
-// Date   : $Date: 2012-05-23 20:29:58 +0000 (Wed, 23 May 2012) $
+// Version: $Revision: 355 $
+// Date   : $Date: 2012-06-20 20:51:25 +0000 (Wed, 20 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2184,7 +2184,8 @@ cmdBoard(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 static int
 cmdFen(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 {
-	setResult(Scidb->game().currentBoard().toFen());
+	int pos = objc == 1 ? Application::InvalidPosition : intFromObj(objc, objv, 1);
+	setResult(Scidb->game(pos).currentBoard().toFen());
 	return TCL_OK;
 }
 

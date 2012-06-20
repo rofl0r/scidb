@@ -1,7 +1,7 @@
 // ======================================================================
 // $RCSfile: tk_image.cpp,v $
-// $Revision: 347 $
-// $Date: 2012-06-16 14:24:05 +0000 (Sat, 16 Jun 2012) $
+// $Revision: 355 $
+// $Date: 2012-06-20 20:51:25 +0000 (Wed, 20 Jun 2012) $
 // $Author: gregor $
 // ======================================================================
 
@@ -47,11 +47,9 @@
 #include <unistd.h>
 #include <tcl.h>
 
-// On "modern" Linux distributions the static object
-// initialization is not working properly!
-#ifndef BROKEN_LINKER_HACK
-# define BROKEN_LINKER_HACK
-#endif
+//#ifndef BROKEN_LINKER_HACK
+//# define BROKEN_LINKER_HACK
+//#endif
 
 #ifdef BROKEN_LINKER_HACK
 # include "db_board.h"

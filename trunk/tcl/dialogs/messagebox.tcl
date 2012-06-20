@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 283 $
-# Date   : $Date: 2012-03-29 18:05:34 +0000 (Thu, 29 Mar 2012) $
+# Version: $Revision: 355 $
+# Date   : $Date: 2012-06-20 20:51:25 +0000 (Wed, 20 Jun 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -37,6 +37,7 @@ set Error			"Error"
 set Warning			"Warning"
 set Information	"Information"
 set Question		"Query"
+set Wait				"Wait"
 
 set DontAskAgain	"Don't ask again"
 #################################################################

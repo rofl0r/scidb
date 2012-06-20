@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 354 $
-# Date   : $Date: 2012-06-19 20:02:35 +0000 (Tue, 19 Jun 2012) $
+# Version: $Revision: 355 $
+# Date   : $Date: 2012-06-20 20:51:25 +0000 (Wed, 20 Jun 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -817,6 +817,8 @@ proc CBMotion {w x y} {
 	}
 }
 
+# we want the invocation with a space key-press:
+bind TCombobox <KeyPress-space> { ttk::combobox::Post %W }
 
 if {[tk windowingsystem] eq "x11"} {
 
