@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 355 $
-# Date   : $Date: 2012-06-20 20:51:25 +0000 (Wed, 20 Jun 2012) $
+# Version: $Revision: 356 $
+# Date   : $Date: 2012-06-21 22:51:27 +0000 (Thu, 21 Jun 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -3024,7 +3024,7 @@ proc InvokeFile {w args} {
 
 	if {$sel >= [llength $Vars(list:folder)]} {
 		SelectFiles $w [expr {$sel - [llength $Vars(list:folder)]}]]
-		if {!$Vars(multiple)} { [namespace parent]::Activate $w }
+		if {!$Vars(multiple)} { [namespace parent]::Activate $w yes }
 	} elseif {$Vars(type) ne "dir"} {
 		[namespace parent]::VisitItem $w $t leave [expr {$sel + 1}]
 		set folder [lindex $Vars(list:folder) $sel]
