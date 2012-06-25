@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 343 $
-// Date   : $Date: 2012-06-15 12:05:39 +0000 (Fri, 15 Jun 2012) $
+// Version: $Revision: 358 $
+// Date   : $Date: 2012-06-25 12:25:25 +0000 (Mon, 25 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -713,13 +713,6 @@ operator*(double s, pixel<Alpha> const& pix)
 }
 
 
-bool
-match(agg::rgba8 const& lhs, agg::rgba8 const& rhs)
-{
-	return lhs.r == rhs.r && lhs.g == rhs.g && lhs.b == rhs.b;
-}
-
-
 struct renderer : public svg::path_renderer
 {
 	renderer()
@@ -1322,7 +1315,7 @@ rot180_image(PixBuf const& src, PixBuf& dst)
 			unsigned char const*	e = p + 3*src.cols();
 			unsigned char*			q = dst.scanline(dst.rows() - y - 1);
 
-			for (q += 3*(dst.cols() - 1); p < e; p += 3, q -= 3);
+			for (q += 3*(dst.cols() - 1); p < e; p += 3, q -= 3)
 				memcpy(q, p, 3);
 		}
 	}
@@ -1515,7 +1508,7 @@ inline
 static bool
 match(int const lhs[4], int const rhs[4])
 {
-	return memcmp(lhs, rhs, sizeof(lhs)) == 0;
+	return memcmp(lhs, rhs, 4*sizeof(int)) == 0;
 }
 
 

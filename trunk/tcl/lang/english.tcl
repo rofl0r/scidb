@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 355 $
-# Date   : $Date: 2012-06-20 20:51:25 +0000 (Wed, 20 Jun 2012) $
+# Version: $Revision: 358 $
+# Date   : $Date: 2012-06-25 12:25:25 +0000 (Mon, 25 Jun 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -44,6 +44,12 @@
 ::mc::Key(Right)		"\u2192"
 ::mc::Key(Shift)		"Shift"
 ::mc::Key(Up)			"\u2191"
+
+::mc::MoveForm(alg)	"Algebraic"
+::mc::MoveForm(san)	"Short Algebraic"
+::mc::MoveForm(lan)	"Long Algebraic"
+::mc::MoveForm(cor)	"Correspondence"
+::mc::MoveForm(tel)	"Telegraphic"
 
 ::mc::Alignment		"Alignment"
 ::mc::Apply				"Apply"
@@ -469,6 +475,7 @@
 ::application::pgn::mc::BoldTextForMainlineMoves		"Bold Text for Main Line Moves"
 ::application::pgn::mc::ShowDiagrams						"Show Diagrams"
 ::application::pgn::mc::Languages							"Languages"
+::application::pgn::mc::MoveNotation						"Move Notation"
 ::application::pgn::mc::CollapseVariations				"Collapse Variations"
 ::application::pgn::mc::ExpandVariations					"Expand Variations"
 ::application::pgn::mc::EmptyGame							"Empty Game"
@@ -505,6 +512,7 @@
 ::application::tree::mc::UseQuickMode						"Use quick search"
 ::application::tree::mc::AutomaticSearch					"Automatic search"
 ::application::tree::mc::LockReferenceBase				"Lock reference database"
+::application::tree::mc::SwitchReferenceBase				"Switch reference database"
 ::application::tree::mc::TransparentBar					"Transparent bar"
 
 ::application::tree::mc::FromWhitesPerspective			"From whites perspective"
@@ -1374,6 +1382,7 @@
 ::help::mc::CollapseAllItems		"Collapse all items"
 ::help::mc::SelectLanguage			"Select Language"
 ::help::mc::NoHelpAvailable		"No help files available for language English.\nPlease choose an alternative language\nfor the help dialog."
+::help::mc::NoHelpAvailableAtAll	"No help files available for this topic."
 ::help::mc::KeepLanguage			"Keep language %s for subsequent sessions?"
 ::help::mc::ParserError				"Error while parsing file %s."
 ::help::mc::NoMatch					"No match is found"

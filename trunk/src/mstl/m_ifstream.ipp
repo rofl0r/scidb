@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 358 $
+// Date   : $Date: 2012-06-25 12:25:25 +0000 (Mon, 25 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -21,8 +21,6 @@ namespace mstl {
 inline bool ifstream::is_open() const			{ return bits::file::is_open(); }
 inline bool ifstream::is_buffered() const		{ return bits::file::is_buffered(); }
 inline bool ifstream::is_unbuffered() const	{ return bits::file::is_unbuffered(); }
-
-inline int64_t ifstream::size()	{ return bits::file::size(); }
 inline void ifstream::close()		{ bits::file::close(); }
 
 inline void ifstream::set_unbuffered()					{ bits::file::set_unbuffered(); }
@@ -30,6 +28,7 @@ inline void ifstream::set_binary()						{ bits::file::set_binary(); }
 inline void ifstream::set_text()							{ bits::file::set_text(); }
 inline void ifstream::set_bufsize(unsigned size)	{ bits::file::set_bufsize(size); }
 
+inline int64_t ifstream::size() const		{ return bits::file::size(); }
 inline unsigned ifstream::bufsize() const	{ return bits::file::bufsize(); }
 inline char* ifstream::buffer() const		{ return bits::file::buffer(); }
 inline uint64_t ifstream::mtime()			{ return bits::file::mtime(); }

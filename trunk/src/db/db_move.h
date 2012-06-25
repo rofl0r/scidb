@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 358 $
+// Date   : $Date: 2012-06-25 12:25:25 +0000 (Mon, 25 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -217,6 +217,10 @@ public:
 	mstl::string& printNumeric(mstl::string& s) const;
 	/// Print telegraphic form.
 	mstl::string& printAlphabetic(mstl::string& s) const;
+	/// Print in given notation style.
+	mstl::string& print(	mstl::string& s,
+								move::Notation style,
+								encoding::CharSet charSet = encoding::Latin1) const;
 
 	/// Make empty move.
 	void clear();

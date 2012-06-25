@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 334 $
-// Date   : $Date: 2012-06-13 09:36:59 +0000 (Wed, 13 Jun 2012) $
+// Version: $Revision: 358 $
+// Date   : $Date: 2012-06-25 12:25:25 +0000 (Mon, 25 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -147,7 +147,7 @@ public:
 	void closeAllGames(Cursor& cursor);
 	void switchBase(Cursor& cursor);
 	void switchBase(mstl::string const& name);
-	void refreshGame(unsigned position = InvalidPosition, bool radical = false);
+	void refreshGame(unsigned position = InvalidPosition, bool immediate = false);
 
 	Cursor& clipBase();
 	Cursor const& clipBase() const;
@@ -203,7 +203,8 @@ public:
 						unsigned linebreakMaxLineLengthMain,
 						unsigned linebreakMaxLineLengthVar,
 						unsigned linebreakMinCommentLength,
-						unsigned displayStyle);
+						unsigned displayStyle,
+						db::move::Notation moveStyle);
 	void setupGameUndo(unsigned undoLevel, unsigned combinePredecessingMoves);
 	db::load::State importGame(db::Producer& producer, unsigned position, bool trialMode = false);
 

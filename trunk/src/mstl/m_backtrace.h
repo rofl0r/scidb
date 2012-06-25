@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 358 $
+// Date   : $Date: 2012-06-25 12:25:25 +0000 (Mon, 25 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -24,7 +24,7 @@
 namespace mstl {
 
 class ostringstream;
-template <typename T> class chunk_allocator;
+template <typename T, bool Zero> class chunk_allocator;
 
 class backtrace
 {
@@ -44,7 +44,7 @@ public:
 private:
 
 #ifndef __OPTIMIZE__
-	typedef chunk_allocator<char> allocator;
+	typedef chunk_allocator<char,false> allocator;
 
 	void symbols();
 # ifdef __unix__

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 358 $
+// Date   : $Date: 2012-06-25 12:25:25 +0000 (Mon, 25 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -85,7 +85,7 @@ private:
 	typedef mstl::vector<Node*> List;
 	typedef List::const_iterator Iterator;
 
-	typedef mstl::chunk_allocator<Node> NodeAlloc;
+	typedef mstl::chunk_allocator<Node,true> NodeAlloc;
 	typedef mstl::chunk_allocator<char> StringAlloc;
 	typedef sys::utf8::Codec Codec;
 

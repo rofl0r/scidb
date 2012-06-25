@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 355 $
-# Date   : $Date: 2012-06-20 20:51:25 +0000 (Wed, 20 Jun 2012) $
+# Version: $Revision: 358 $
+# Date   : $Date: 2012-06-25 12:25:25 +0000 (Mon, 25 Jun 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -156,6 +156,8 @@ proc archive::tick {progress n} {
 	::dialog::progressbar::tick $progress $n
 	update
 }
+
+proc scrolledframe::MapWindow {w} { ::scidb::misc::mapWindow $w }
 
 log::finishLayout
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 358 $
+// Date   : $Date: 2012-06-25 12:25:25 +0000 (Mon, 25 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -65,8 +65,10 @@ append(mstl::string& result, mstl::string const& s)
 }
 
 
-struct Annotation::Default
+class Annotation::Default
 {
+public:
+
 	Default()
 	{
 		for (unsigned i = 0; i < U_NUMBER_OF(m_sets); ++i)

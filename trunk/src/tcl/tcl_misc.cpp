@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 334 $
-// Date   : $Date: 2012-06-13 09:36:59 +0000 (Wed, 13 Jun 2012) $
+// Version: $Revision: 358 $
+// Date   : $Date: 2012-06-25 12:25:25 +0000 (Mon, 25 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -70,6 +70,7 @@ static char const* CmdHtml					= "::scidb::misc::html";
 static char const* CmdIsAscii				= "::scidb::misc::isAscii?";
 static char const* CmdLookup				= "::scidb::misc::lookup";
 static char const* CmdMapExtension		= "::scidb::misc::mapExtension";
+static char const* CmdMapWindow			= "::scidb::misc::mapWindow";
 static char const* CmdRevision			= "::scidb::misc::revision";
 static char const* CmdSetModTime			= "::scidb::misc::setModTime";
 static char const* CmdSize					= "::scidb::misc::size";
@@ -1017,6 +1018,20 @@ cmdGeometryRequest(ClientData clientData, Tcl_Interp* ti, int objc, Tcl_Obj* con
 }
 
 
+
+static int
+cmdMapWindow(ClientData clientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
+{
+	Tk_Window tkwin = Tk_NameToWindow(ti, stringFromObj(objc, objv, 1), Tk_MainWindow(ti));
+
+	if (!tkwin)
+		return error(CmdMapWindow, 0, 0, "unknown window '%s'", stringFromObj(objc, objv, 1));
+
+	Tk_MapWindow(tkwin);
+	return TCL_OK;
+}
+
+
 namespace tcl {
 namespace misc {
 
@@ -1024,9 +1039,9 @@ void
 init(Tcl_Interp* ti)
 {
 	createCommand(ti, CmdAttributes,			cmdAttributes);
-	createCommand(ti, CmdCrc32,					cmdCrc32);
-	createCommand(ti, CmdDebug,					cmdDebug);
-	createCommand(ti, CmdEncoding,				cmdEncoding);
+	createCommand(ti, CmdCrc32,				cmdCrc32);
+	createCommand(ti, CmdDebug,				cmdDebug);
+	createCommand(ti, CmdEncoding,			cmdEncoding);
 	createCommand(ti, CmdExtraTags,			cmdExtraTags);
 	createCommand(ti, CmdFitsRegion,			cmdFitsRegion);
 	createCommand(ti, CmdGeometryRequest,	cmdGeometryRequest);
@@ -1035,10 +1050,11 @@ init(Tcl_Interp* ti)
 	createCommand(ti, CmdIsAscii,				cmdIsAscii);
 	createCommand(ti, CmdLookup,				cmdLookup);
 	createCommand(ti, CmdMapExtension,		cmdMapExtension);
-	createCommand(ti, CmdRevision,				cmdRevision);
+	createCommand(ti, CmdMapWindow,			cmdMapWindow);
+	createCommand(ti, CmdRevision,			cmdRevision);
 	createCommand(ti, CmdSetModTime,			cmdSetModTime);
 	createCommand(ti, CmdSize,					cmdSize);
-	createCommand(ti, CmdSuffixes,				cmdSuffixes);
+	createCommand(ti, CmdSuffixes,			cmdSuffixes);
 	createCommand(ti, CmdToAscii,				cmdToAscii);
 	createCommand(ti, CmdVersion,				cmdVersion);
 	createCommand(ti, CmdXml,					cmdXml);

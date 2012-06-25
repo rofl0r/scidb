@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 358 $
+// Date   : $Date: 2012-06-25 12:25:25 +0000 (Mon, 25 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -20,6 +20,10 @@
 #define _m_exception_included
 
 #ifndef __OPTIMIZE__
+
+#ifdef __clang__
+class type_info; // because of a cyclic bug in gcc headers
+#endif
 
 #include <typeinfo>
 

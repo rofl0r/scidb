@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 317 $
-// Date   : $Date: 2012-05-05 16:33:40 +0000 (Sat, 05 May 2012) $
+// Version: $Revision: 358 $
+// Date   : $Date: 2012-06-25 12:25:25 +0000 (Mon, 25 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -45,8 +45,8 @@ file::~file() throw()
 }
 
 
-unsigned long
-file::size()
+int64_t
+file::size() const
 {
 	M_REQUIRE(is_open());
 
@@ -54,7 +54,7 @@ file::size()
 	st.st_size = 0;
 
 	if (::fstat(fileno(m_fp), &st) == -1)
-		setstate(m_open ? badbit | failbit : failbit);
+		return -1;
 
 	return st.st_size;
 }

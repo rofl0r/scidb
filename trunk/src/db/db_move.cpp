@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 358 $
+// Date   : $Date: 2012-06-25 12:25:25 +0000 (Mon, 25 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -217,6 +217,22 @@ Move::printAlphabetic(mstl::string& s) const
 	{
 		s += sq::printAlphabetic(from());
 		s += sq::printAlphabetic(to());
+	}
+
+	return s;
+}
+
+
+mstl::string&
+Move::print(mstl::string& s, move::Notation form, encoding::CharSet charSet) const
+{
+	switch (form)
+	{
+		case move::Algebraic:		printAlgebraic(s); break;
+		case move::ShortAlgebraic:	printSan(s, charSet); break;
+		case move::LongAlgebraic:	printLan(s, charSet); break;
+		case move::Correspondence:	printNumeric(s); break;
+		case move::Telegraphic:		printAlphabetic(s); break;
 	}
 
 	return s;

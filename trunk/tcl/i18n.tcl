@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 325 $
-# Date   : $Date: 2012-05-18 17:11:30 +0000 (Fri, 18 May 2012) $
+# Version: $Revision: 358 $
+# Date   : $Date: 2012-06-25 12:25:25 +0000 (Mon, 25 Jun 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -39,6 +39,12 @@ set Key(Prior)		"Page\u2191"	;# Page Up
 set Key(Right)		"\u2192"
 set Key(Shift)		"Shift"
 set Key(Up)			"\u2191"
+
+set MoveForm(alg)	"Algebraic"
+set MoveForm(san)	"Short Algebraic"
+set MoveForm(lan)	"Long Algebraic"
+set MoveForm(cor)	"Correspondence"
+set MoveForm(tel)	"Telegraphic"
 
 set Alignment		"Alignment"
 set Apply			"Apply"

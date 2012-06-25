@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 318 $
-// Date   : $Date: 2012-05-08 23:06:35 +0000 (Tue, 08 May 2012) $
+// Version: $Revision: 358 $
+// Date   : $Date: 2012-06-25 12:25:25 +0000 (Mon, 25 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1865,7 +1865,7 @@ Comment::convertCommentToXml(	mstl::string const& comment,
 										char* e = const_cast<char*>(s);
 										unsigned nag = ::strtoul(s, &e, 10);
 
-										if (0 <= nag && nag < nag::Scidb_Last)
+										if (nag < nag::Scidb_Last)
 										{
 											result.m_content.append("<nag>", 5);
 											result.m_content.append(s, e - s);

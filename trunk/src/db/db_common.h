@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 334 $
-// Date   : $Date: 2012-06-13 09:36:59 +0000 (Wed, 13 Jun 2012) $
+// Version: $Revision: 358 $
+// Date   : $Date: 2012-06-25 12:25:25 +0000 (Mon, 25 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -414,6 +414,7 @@ namespace move {
 
 	enum Constraint	{ DontAllowIllegalMove, AllowIllegalMove };
 	enum Position		{ Ante, Post };
+	enum Notation		{ Algebraic, ShortAlgebraic, LongAlgebraic, Correspondence, Telegraphic };
 
 } // namespace move
 

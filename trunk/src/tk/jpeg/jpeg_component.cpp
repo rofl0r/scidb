@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 268 $
-// Date   : $Date: 2012-03-13 16:47:20 +0000 (Tue, 13 Mar 2012) $
+// Version: $Revision: 358 $
+// Date   : $Date: 2012-06-25 12:25:25 +0000 (Mon, 25 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -44,12 +44,10 @@ namespace {
 template <typename T> inline T min(T a, T b) { return a < b ? a : b; }
 template <typename T> inline T max(T a, T b) { return a < b ? b : a; }
 
-inline int mul2 (int v) { return v << 1; }
 inline int mul3 (int v) { return (v << 1) + v; }
-inline int mul4 (int v) { return v << 2; }
-inline int div2 (int v) { return v >> 1; }
+//inline int mul4 (int v) { return v << 2; }
 inline int div4 (int v) { return v >> 2; }
-inline int div16(int v) { return v >> 4; }
+//inline int div16(int v) { return v >> 4; }
 
 inline int div_round_up(int x, int y) { return (x + y - 1)/y; }
 

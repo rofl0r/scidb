@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 358 $
+// Date   : $Date: 2012-06-25 12:25:25 +0000 (Mon, 25 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -594,7 +594,7 @@ function<R (T1,T2,T3)>::invoke_null::invoke(function_base*, T1, T2, T3)
 template <typename R, typename T1, typename T2, typename T3, typename T4>
 inline
 function<R (T1,T2,T3,T4)>::function(R (*func)(T1, T2, T3, T4))
-	:function_base(reinterpret_cast<void (function_base::*)()>(func))
+	:function_base(reinterpret_cast<void (*)()>(func))
 	,invoker_(invoke_func::invoke)
 {
 }

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 358 $
+// Date   : $Date: 2012-06-25 12:25:25 +0000 (Mon, 25 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -51,24 +51,6 @@ enum
 };
 
 
-unsigned char const*
-findStr(unsigned char const* haystack, size_t lenOfHaystack, char const* needle, size_t lenOfNeedle)
-{
-	assert(lenOfHaystack > 0 && lenOfNeedle > 0);
-
-	if (lenOfNeedle < lenOfHaystack)
-	{
-		for (unsigned char const* e = haystack + lenOfHaystack - lenOfNeedle; haystack < e; ++haystack)
-		{
-			if (*haystack == *needle && memcmp(haystack + 1, needle + 1, lenOfNeedle - 1) == 0)
-				return haystack;
-		}
-	}
-
-	return 0;
-}
-
-
 bool
 compareIDs(Component** components, char const* id)
 {
@@ -89,12 +71,14 @@ convToUint16(unsigned char const* buf)
 }
 
 
+#if 0
 inline
 uint32_t
 convToUint32(unsigned char const* buf)
 {
 	return (int32_t(buf[0]) << 24) | (int32_t(buf[1]) << 16) | (int32_t(buf[2]) << 8) | int32_t(buf[3]);
 }
+#endif
 
 
 inline

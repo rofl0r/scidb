@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 355 $
-# Date   : $Date: 2012-06-20 20:51:25 +0000 (Wed, 20 Jun 2012) $
+# Version: $Revision: 358 $
+# Date   : $Date: 2012-06-25 12:25:25 +0000 (Mon, 25 Jun 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -45,6 +45,12 @@
 ::mc::Key(Right)		"\u2192"
 ::mc::Key(Shift)		"Shift" ;# NEW
 ::mc::Key(Up)			"\u2191"
+
+::mc::MoveForm(alg)	"Algebraic" ;# NEW
+::mc::MoveForm(san)	"Short Algebraic" ;# NEW
+::mc::MoveForm(lan)	"Long Algebraic" ;# NEW
+::mc::MoveForm(cor)	"Correspondence" ;# NEW
+::mc::MoveForm(tel)	"Telegraphic" ;# NEW
 
 ::mc::Alignment		"Sorba rendezés(?)"
 ::mc::Apply				"Alkalmaz"
@@ -471,6 +477,7 @@
 ::application::pgn::mc::BoldTextForMainlineMoves		"Főváltozat félkövér betűkkel"
 ::application::pgn::mc::ShowDiagrams						"Diagramok mutatása"
 ::application::pgn::mc::Languages							"Nyelvek"
+::application::pgn::mc::MoveNotation					"Move Notation" ;# NEW
 ::application::pgn::mc::CollapseVariations				"Változatok elrejtése"
 ::application::pgn::mc::ExpandVariations					"Változatok kibontása"
 ::application::pgn::mc::EmptyGame							"Üres játszma"
@@ -507,6 +514,7 @@
 ::application::tree::mc::UseQuickMode					"Gyors keresés"
 ::application::tree::mc::AutomaticSearch				"Automatikus keresés"
 ::application::tree::mc::LockReferenceBase			"Referencia adatbázis zárolása"
+::application::tree::mc::SwitchReferenceBase			"Switch reference database" ;# NEW
 ::application::tree::mc::TransparentBar				"Transparent bar"
 
 ::application::tree::mc::FromWhitesPerspective		"Világos nézőpontjából"
@@ -1376,6 +1384,7 @@
 ::help::mc::CollapseAllItems		"Összecsukás"
 ::help::mc::SelectLanguage			"Nyelv választás"
 ::help::mc::NoHelpAvailable		"Nincs elérhető súgó fájl magyar nyelven.\nVálaszz másik nyelvet\na súgó számára."
+::help::mc::NoHelpAvailableAtAll	"No help files available for this topic." ;# NEW
 ::help::mc::KeepLanguage			"Őrizzem meg a %s nyelvet a következő alkalmakra is?"
 ::help::mc::ParserError				"Error while parsing file %s." ;# NEW
 ::help::mc::NoMatch					"Nincs találat"

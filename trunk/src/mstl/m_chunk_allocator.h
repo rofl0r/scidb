@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 358 $
+// Date   : $Date: 2012-06-25 12:25:25 +0000 (Mon, 25 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -24,7 +24,7 @@
 
 namespace mstl {
 
-template <typename T>
+template <typename T, bool Zero = false>
 class chunk_allocator
 {
 public:
@@ -79,7 +79,6 @@ private:
 	size_t		m_chunk_size;
 	size_t		m_num_elems;
 	chunk_list	m_chunk_list;
-	bool			m_zero;
 };
 
 } // namespace mstl

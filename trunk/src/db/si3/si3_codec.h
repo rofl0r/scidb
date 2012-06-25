@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 343 $
-// Date   : $Date: 2012-06-15 12:05:39 +0000 (Fri, 15 Jun 2012) $
+// Version: $Revision: 358 $
+// Date   : $Date: 2012-06-25 12:25:25 +0000 (Mon, 25 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -161,7 +161,7 @@ private:
 
 	typedef mstl::vector<NamebaseEntry*> Lookup;
 
-	void writeIndex(mstl::fstream& fstrm, unsigned start, util::Progress& progress);
+	void writeIndexEntries(mstl::fstream& fstrm, unsigned start, util::Progress& progress);
 	void writeIndexHeader(mstl::fstream& fstrm);
 	void updateIndex(mstl::fstream& fstrm);
 	void encodeIndex(GameInfo const& item, unsigned index, util::ByteStream& buf);
@@ -186,8 +186,8 @@ private:
 								unsigned maxFreq,
 								unsigned count,
 								util::Progress& progress);
-	void writeNamebases(mstl::string const& filename);
-	void writeNamebases(mstl::fstream& stream);
+	void writeAllNamebases(mstl::string const& filename);
+	void writeAllNamebases(mstl::fstream& stream);
 	void writeNamebase(mstl::fstream& stream, NameList& base);
 
 	void save(mstl::string const& rootname, unsigned start, util::Progress& progress, bool attach);

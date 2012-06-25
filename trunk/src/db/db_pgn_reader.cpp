@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 312 $
-// Date   : $Date: 2012-05-04 14:26:12 +0000 (Fri, 04 May 2012) $
+// Version: $Revision: 358 $
+// Date   : $Date: 2012-06-25 12:25:25 +0000 (Mon, 25 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1969,7 +1969,7 @@ PgnReader::checkTag(ID tag, mstl::string& value)
 				case 3:	if (::strcasecmp(value, "FRC") == 0)
 								m_variant = variant::Chess960;
 							break;
-				case 4:	if (::strcasecmp(value, "SFRC") == 0); // Symmetrical Fischerandom
+				case 4:	if (::strcasecmp(value, "SFRC") == 0) // Symmetrical Fischerandom
 								m_variant = variant::Chess960;
 							break;
 				case 7:	if (::strcasecmp(value, "Shuffle") == 0)

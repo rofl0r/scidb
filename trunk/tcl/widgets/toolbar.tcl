@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 298 $
-# Date   : $Date: 2012-04-18 20:09:25 +0000 (Wed, 18 Apr 2012) $
+# Version: $Revision: 358 $
+# Date   : $Date: 2012-06-25 12:25:25 +0000 (Mon, 25 Jun 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1972,7 +1972,7 @@ proc Tooltip {mode w} {
 
 	if {	$mode eq "show"
 		&& [info exists Specs(state:$w:$toolbar)]
-		&& $Specs(state:$w:$toolbar) ne "normal"} {
+		&& $Specs(state:$w:$toolbar) eq "disabled"} {
 
 		return
 	}

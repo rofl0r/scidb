@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 358 $
+// Date   : $Date: 2012-06-25 12:25:25 +0000 (Mon, 25 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -162,7 +162,8 @@ public:
 									db::Board const& startBoard,
 									MoveNode const* node,
 									unsigned linebreakThreshold,
-									unsigned linebreakMaxLineLength);
+									unsigned linebreakMaxLineLength,
+									unsigned displayStyle);
 	static Root* makeList(	TagSet const& tags,
 									uint16_t idn,
 									Eco eco,

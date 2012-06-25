@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 326 $
-// Date   : $Date: 2012-05-20 20:27:50 +0000 (Sun, 20 May 2012) $
+// Version: $Revision: 358 $
+// Date   : $Date: 2012-06-25 12:25:25 +0000 (Mon, 25 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -636,7 +636,7 @@ View::exportGames(mstl::string const& filename,
 		{
 			int64_t size;
 
-			if (size > 0 && type != util::ZStream::Zip && util::ZStream::size(filename, size))
+			if (type != util::ZStream::Zip && util::ZStream::size(filename, size) > 0)
 				flags |= PgnWriter::Flag_Append_Games;
 
 			mode |= mstl::ios_base::app;

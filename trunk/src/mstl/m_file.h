@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 358 $
+// Date   : $Date: 2012-06-25 12:25:25 +0000 (Mon, 25 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -36,7 +36,7 @@ public:
 	bool is_buffered() const;
 	bool is_unbuffered() const;
 
-	unsigned long size();
+	int64_t size() const;
 	unsigned bufsize() const;
 	char* buffer() const;
 	uint64_t mtime();

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 355 $
-# Date   : $Date: 2012-06-20 20:51:25 +0000 (Wed, 20 Jun 2012) $
+# Version: $Revision: 358 $
+# Date   : $Date: 2012-06-25 12:25:25 +0000 (Mon, 25 Jun 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -43,6 +43,12 @@
 ::mc::Key(Right)		"\u2192"
 ::mc::Key(Shift)		"Umschalt"
 ::mc::Key(Up)			"\u2191"
+
+::mc::MoveForm(alg)	"Algebraisch"
+::mc::MoveForm(san)	"Algebraisch - Kurzform"
+::mc::MoveForm(lan)	"Algebraisch - Langform"
+::mc::MoveForm(cor)	"Korrespondenz"
+::mc::MoveForm(tel)	"Telegraphie"
 
 ::mc::Alignment		"Ausrichtung"
 ::mc::Apply				"Anwenden"
@@ -468,6 +474,7 @@
 ::application::pgn::mc::BoldTextForMainlineMoves		"Fettdruck für Hauptfortsetzung"
 ::application::pgn::mc::ShowDiagrams						"Diagramme zeigen"
 ::application::pgn::mc::Languages							"Sprachen"
+::application::pgn::mc::MoveNotation						"Zugnotation"
 ::application::pgn::mc::CollapseVariations				"Alle Varianten zusammenfalten"
 ::application::pgn::mc::ExpandVariations					"Alle Varianten auffalten"
 ::application::pgn::mc::EmptyGame							"Leere Partie"
@@ -504,6 +511,7 @@
 ::application::tree::mc::UseQuickMode						"Benutze Schnellsuche"
 ::application::tree::mc::AutomaticSearch					"Automatischer Start"
 ::application::tree::mc::LockReferenceBase				"Referenzdatenbank sperren"
+::application::tree::mc::SwitchReferenceBase				"Referenzdatenbank wechseln"
 ::application::tree::mc::TransparentBar					"Transparente Balken"
 
 ::application::tree::mc::FromWhitesPerspective			"Aus weißer Sicht"
@@ -871,7 +879,7 @@
 ::gamebar::mc::GameNewShuffle			"Neue Partie: Shuffle-Schach"
 
 ### browser ############################################################
-::browser::mc::BrowseGame			"Partie-Browser"
+::browser::mc::BrowseGame			"Partien-Browser"
 ::browser::mc::StartAutoplay		"Automtisches Vorspielen starten"
 ::browser::mc::StopAutoplay		"Automtisches Vorspielen beenden"
 ::browser::mc::GoForward			"Ein Zug vorwärts"
@@ -1373,6 +1381,7 @@
 ::help::mc::CollapseAllItems		"Alle Elemente zusammenfalten"
 ::help::mc::SelectLanguage			"Sprachauswahl"
 ::help::mc::NoHelpAvailable		"Es sind keine Hilfedateien verfügbar für die\ndeutsche Sprache. Bitte wählen Sie zwischen einer\nanderen Sprache für den Hilfe-Dialog."
+::help::mc::NoHelpAvailableAtAll	"Es sind keine Hilfedateien verfügbar für diesen Kontext."
 ::help::mc::KeepLanguage			"Die Sprache %s zukünftig beibehalten?"
 ::help::mc::ParserError				"Fehler beim Parsen der Datei %s."
 ::help::mc::NoMatch					"Keine Übereinstimmung gefunden"
