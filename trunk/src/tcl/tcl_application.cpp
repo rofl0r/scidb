@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 360 $
+// Date   : $Date: 2012-06-26 17:02:51 +0000 (Tue, 26 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -84,7 +84,13 @@ cmdLoad(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 				return TCL_ERROR;
 			}
 
-			db::EcoTable::specimen().load(stream);
+			try {
+				db::EcoTable::specimen().load(stream);
+			}
+			catch (...) {
+				appendResult("exception caught during load of file '%s'", path);
+				return TCL_ERROR;
+			}
 		}
 		else
 		{

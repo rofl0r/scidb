@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 358 $
-# Date   : $Date: 2012-06-25 12:25:25 +0000 (Mon, 25 Jun 2012) $
+# Version: $Revision: 360 $
+# Date   : $Date: 2012-06-26 17:02:51 +0000 (Tue, 26 Jun 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -469,7 +469,7 @@
 
 ::application::pgn::mc::AddNewGame							"Mentés: új játszma hozzáadása %s-hez..."
 ::application::pgn::mc::ReplaceGame							"Mentés: Játszma felülírása %s-ben..."
-::application::pgn::mc::ReplaceMoves						"Mentés: Replace Moves Only in Game"
+::application::pgn::mc::ReplaceMoves						"Mentés: Replace Moves Only in Game..."
 
 ::application::pgn::mc::ColumnStyle							"Oszlop stílus"
 ::application::pgn::mc::UseParagraphSpacing				"Bekezdés stílus"

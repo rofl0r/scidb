@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 358 $
-# Date   : $Date: 2012-06-25 12:25:25 +0000 (Mon, 25 Jun 2012) $
+# Version: $Revision: 360 $
+# Date   : $Date: 2012-06-26 17:02:51 +0000 (Tue, 26 Jun 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -467,7 +467,7 @@
 
 ::application::pgn::mc::AddNewGame							"Save: Add New Game to %s..."
 ::application::pgn::mc::ReplaceGame							"Save: Replace Game in %s..."
-::application::pgn::mc::ReplaceMoves						"Save: Replace Moves Only in Game"
+::application::pgn::mc::ReplaceMoves						"Save: Replace Moves Only in Game..."
 
 ::application::pgn::mc::ColumnStyle							"Column Style"
 ::application::pgn::mc::UseParagraphSpacing				"Use Paragraph Spacing"

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 358 $
-# Date   : $Date: 2012-06-25 12:25:25 +0000 (Mon, 25 Jun 2012) $
+# Version: $Revision: 360 $
+# Date   : $Date: 2012-06-26 17:02:51 +0000 (Tue, 26 Jun 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -466,7 +466,7 @@
 
 ::application::pgn::mc::AddNewGame							"Spara: Lägg till nytt parti till %s..."
 ::application::pgn::mc::ReplaceGame							"Spara: Ersätt parti i %s..."
-::application::pgn::mc::ReplaceMoves						"Spara: Ersätt bara dragen i partiet"
+::application::pgn::mc::ReplaceMoves						"Spara: Ersätt bara dragen i partiet..."
 
 ::application::pgn::mc::ColumnStyle							"Kolumnformat"
 ::application::pgn::mc::UseParagraphSpacing				"Använd styckeavstånd"

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 358 $
-# Date   : $Date: 2012-06-25 12:25:25 +0000 (Mon, 25 Jun 2012) $
+# Version: $Revision: 360 $
+# Date   : $Date: 2012-06-26 17:02:51 +0000 (Tue, 26 Jun 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -84,7 +84,7 @@ set StripOriginalComments			"Strip original comments"
 
 set AddNewGame							"Save: Add New Game to %s..."
 set ReplaceGame						"Save: Replace Game in %s..."
-set ReplaceMoves						"Save: Replace Moves Only in Game"
+set ReplaceMoves						"Save: Replace Moves Only in Game..."
 
 set EditAnnotation					"Edit annotation"
 set EditMoveInformation				"Edit move information"
@@ -149,7 +149,7 @@ array set Options {
 variable Vars
 variable CharLimit 250
 variable Counter 0
-variable MoveStyles { alg san lan cor tel }
+variable MoveStyles { san lan alg cor tel }
 
 
 proc build {parent width height} {

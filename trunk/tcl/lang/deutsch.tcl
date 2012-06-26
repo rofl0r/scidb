@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 358 $
-# Date   : $Date: 2012-06-25 12:25:25 +0000 (Mon, 25 Jun 2012) $
+# Version: $Revision: 360 $
+# Date   : $Date: 2012-06-26 17:02:51 +0000 (Tue, 26 Jun 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -330,7 +330,7 @@
 ::application::database::mc::SelectDatabases				"Die zu öffnenden Datenbanken selektieren"
 ::application::database::mc::ExtractArchive				"Archiv %s extrahieren"
 ::application::database::mc::CompactDetail				"Alle Partien müssen geschlossen sein bevor eine Komprimierung erfolgen kann."
-::application::database::mc::ReallyCompact				"Soll die Datenbank '%s' wirklich komprimieren werden?"
+::application::database::mc::ReallyCompact				"Soll die Datenbank '%s' wirklich komprimiert werden?"
 ::application::database::mc::ReallyCompactDetail(1)	"Nur eine Partie wird dabei entfernt."
 ::application::database::mc::ReallyCompactDetail(N)	"%s Partien werden dabei entfernt."
 
@@ -466,7 +466,7 @@
 
 ::application::pgn::mc::AddNewGame							"Partie hinzufügen zu %s..."
 ::application::pgn::mc::ReplaceGame							"Partie ersetzen in %s..."
-::application::pgn::mc::ReplaceMoves						"Partiezüge ersetzen in aktueller Partie"
+::application::pgn::mc::ReplaceMoves						"Partiezüge ersetzen in aktueller Partie..."
 
 ::application::pgn::mc::ColumnStyle							"Spaltenanzeige"
 ::application::pgn::mc::UseParagraphSpacing				"Absatzformatierung"
