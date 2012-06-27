@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 362 $
+// Date   : $Date: 2012-06-27 19:52:57 +0000 (Wed, 27 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -167,7 +167,7 @@ public:
 	void setComment(Comment const& comment, move::Position position);
 	void setInfoFlag(bool flag = true);
 	void swapVariations(unsigned varNo1, unsigned varNo2);
-	void prepareForSan(Board const& board);
+	void prepareForPrint(Board const& board);
 	void transpose();
 	void finish(Board const& board);
 	void unfold();

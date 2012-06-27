@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 298 $
-# Date   : $Date: 2012-04-18 20:09:25 +0000 (Wed, 18 Apr 2012) $
+# Version: $Revision: 362 $
+# Date   : $Date: 2012-06-27 19:52:57 +0000 (Wed, 27 Jun 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -96,7 +96,7 @@ set UnsupportedVariant		"Position is a start position but not a Shuffle Chess po
 set Error(InvalidFen)					"FEN is invalid."
 set Error(NoWhiteKing)					"Missing white king."
 set Error(NoBlackKing)					"Missing black king."
-set Error(DoubleCheck)					"Both kings are in check."
+set Error(BothInCheck)					"Both kings are in check."
 set Error(OppositeCheck)				"Side not to move is in check."
 set Error(TooManyWhitePawns)			"Too many white pawns."
 set Error(TooManyBlackPawns)			"Too many black pawns."

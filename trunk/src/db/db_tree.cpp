@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 291 $
-// Date   : $Date: 2012-04-09 23:03:07 +0000 (Mon, 09 Apr 2012) $
+// Version: $Revision: 362 $
+// Date   : $Date: 2012-06-27 19:52:57 +0000 (Wed, 27 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -702,7 +702,7 @@ Tree::makeTree(TreeP tree,
 			if (info.move())
 			{
 				info.move().setColor(myPosition.sideToMove());
-				myPosition.prepareForSan(info.move());
+				myPosition.prepareForPrint(info.move());
 			}
 
 			if (	line.length <= opening::Max_Line_Length

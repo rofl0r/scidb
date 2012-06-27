@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 360 $
-# Date   : $Date: 2012-06-26 17:02:51 +0000 (Tue, 26 Jun 2012) $
+# Version: $Revision: 362 $
+# Date   : $Date: 2012-06-27 19:52:57 +0000 (Wed, 27 Jun 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -47,6 +47,7 @@
 ::mc::MoveForm(alg)	"Algebraisch"
 ::mc::MoveForm(san)	"Algebraisch - Kurzform"
 ::mc::MoveForm(lan)	"Algebraisch - Langform"
+::mc::MoveForm(eng)	"Englisch"
 ::mc::MoveForm(cor)	"Korrespondenz"
 ::mc::MoveForm(tel)	"Telegraphie"
 

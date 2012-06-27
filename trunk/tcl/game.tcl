@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 353 $
-# Date   : $Date: 2012-06-17 16:08:59 +0000 (Sun, 17 Jun 2012) $
+# Version: $Revision: 362 $
+# Date   : $Date: 2012-06-27 19:52:57 +0000 (Wed, 27 Jun 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -720,7 +720,7 @@ proc recover {} {
 			}
 		}
 		::dialog::info -parent .application -message $msg
-		::scidb::game::switch 0
+		::application::pgn::select 0
 	}
 }
 

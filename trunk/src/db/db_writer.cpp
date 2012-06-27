@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 362 $
+// Date   : $Date: 2012-06-27 19:52:57 +0000 (Wed, 27 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -420,7 +420,7 @@ Writer::writeMove(Move const& move,
 	if (!move.isPrintable())
 	{
 		Move m(move);
-		board().prepareForSan(m);
+		board().prepareForPrint(m);
 		writeMove(m, m_moveNumber, annotation, marks, preComment, comment);
 	}
 	else

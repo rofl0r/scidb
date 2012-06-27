@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 358 $
-// Date   : $Date: 2012-06-25 12:25:25 +0000 (Mon, 25 Jun 2012) $
+// Version: $Revision: 362 $
+// Date   : $Date: 2012-06-27 19:52:57 +0000 (Wed, 27 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1000,6 +1000,9 @@ Game::printMove(	Board const& board,
 		case move::LongAlgebraic:
 			move.printLan(result, flags & ExportFormat ? encoding::Latin1 : encoding::Utf8);
 			break;
+		case move::Descriptive:
+			move.printDescriptive(result);
+			break;
 		case move::Correspondence:
 			move.printNumeric(result);
 			break;
@@ -1008,8 +1011,13 @@ Game::printMove(	Board const& board,
 			break;
 	}
 
-	if (!(flags & ExportFormat) && !move.givesMate() && board.isDoubleCheck())
+	if (	!(flags & ExportFormat)
+		&& form != move::Descriptive
+		&& !move.givesMate()
+		&& board.isDoubleCheck())
+	{
 		result += '+';
+	}
 
 	// annotation
 	if (flags & IncludeAnnotation)
@@ -1898,7 +1906,7 @@ Game::addVariation(MoveNodeP node)
 	for (MoveNode* n = node->next(); n->isBeforeLineEnd(); n = n->next())
 	{
 		board.prepareUndo(n->move());
-		board.prepareForSan(n->move());
+		board.prepareForPrint(n->move());
 		board.doMove(n->move());
 	}
 
@@ -2286,7 +2294,7 @@ Game::changeVariation(MoveNodeP node, unsigned variationNumber)
 	for (MoveNode* n = node->next(); n->isBeforeLineEnd(); n = n->next())
 	{
 		board.prepareUndo(n->move());
-		board.prepareForSan(n->move());
+		board.prepareForPrint(n->move());
 		board.doMove(n->move());
 	}
 

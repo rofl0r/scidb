@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 358 $
-# Date   : $Date: 2012-06-25 12:25:25 +0000 (Mon, 25 Jun 2012) $
+# Version: $Revision: 362 $
+# Date   : $Date: 2012-06-27 19:52:57 +0000 (Wed, 27 Jun 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -43,6 +43,7 @@ set Key(Up)			"\u2191"
 set MoveForm(alg)	"Algebraic"
 set MoveForm(san)	"Short Algebraic"
 set MoveForm(lan)	"Long Algebraic"
+set MoveForm(eng)	"English"
 set MoveForm(cor)	"Correspondence"
 set MoveForm(tel)	"Telegraphic"
 

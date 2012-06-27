@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 205 $
-// Date   : $Date: 2012-01-24 21:40:03 +0000 (Tue, 24 Jan 2012) $
+// Version: $Revision: 362 $
+// Date   : $Date: 2012-06-27 19:52:57 +0000 (Wed, 27 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -156,11 +156,11 @@ Tablebase::getOnlineQuery(Board const& board, Move& result)
 	{
 		case 'E':	// "Error"
 			{
-				Board::Status state = board.checkState();
+				unsigned state = board.checkState();
 
-				if (state == Board::CheckMate)
+				if (state & Board::CheckMate)
 					return tb::Is_Check_Mate;
-				if (state == Board::StaleMate)
+				if (state & Board::StaleMate)
 					return tb::Is_Stale_Mate;
 
 				return tb::Illegal_Position;

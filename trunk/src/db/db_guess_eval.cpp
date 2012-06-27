@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 362 $
+// Date   : $Date: 2012-06-27 19:52:57 +0000 (Wed, 27 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2071,7 +2071,7 @@ db::Guess::evaluatePassedPawnRaces()
 
 	for (int color = 0; color < 2; ++color)
 	{
-		sq::ID (*flip)(sq::ID) = (color ? ::identicalSquare : sq::flipRank);
+		sq::ID (*flip)(sq::ID) = (color ? ::wflip : ::bflip);
 
 		color::ID	side		= color ? White : Black;
 		color::ID	opponent	= opposite(side);

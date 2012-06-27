@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 340 $
-# Date   : $Date: 2012-06-14 19:06:13 +0000 (Thu, 14 Jun 2012) $
+# Version: $Revision: 362 $
+# Date   : $Date: 2012-06-27 19:52:57 +0000 (Wed, 27 Jun 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -316,6 +316,12 @@ proc rotate {w} {
 
 	set Board(flip) [expr {!$Board(flip)}]
 	rebuild $w
+}
+
+
+proc rotated? {w} {
+	variable ${w}::Board
+	return $Board(flip)
 }
 
 

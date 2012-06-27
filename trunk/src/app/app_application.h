@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 358 $
-// Date   : $Date: 2012-06-25 12:25:25 +0000 (Mon, 25 Jun 2012) $
+// Version: $Revision: 362 $
+// Date   : $Date: 2012-06-27 19:52:57 +0000 (Wed, 27 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -147,6 +147,7 @@ public:
 	void closeAllGames(Cursor& cursor);
 	void switchBase(Cursor& cursor);
 	void switchBase(mstl::string const& name);
+	void refreshGames();
 	void refreshGame(unsigned position = InvalidPosition, bool immediate = false);
 
 	Cursor& clipBase();

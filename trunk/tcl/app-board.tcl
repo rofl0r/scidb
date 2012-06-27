@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 354 $
-# Date   : $Date: 2012-06-19 20:02:35 +0000 (Tue, 19 Jun 2012) $
+# Version: $Revision: 362 $
+# Date   : $Date: 2012-06-27 19:52:57 +0000 (Wed, 27 Jun 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -275,8 +275,8 @@ proc goto {step} {
 
 proc update {position cmd data} {
 	variable ::board::layout
-	variable Vars
 	variable board
+	variable Vars
 
 	switch $cmd {
 		set	{ ::board::stuff::update $board $data }
@@ -298,6 +298,12 @@ proc updateMarks {marks} {
 		::move::leaveSquare
 		::move::enterSquare
 	}
+}
+
+
+proc rotated? {} {
+	variable board
+	return [::board::stuff::rotated? $board]
 }
 
 
