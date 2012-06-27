@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 362 $
-// Date   : $Date: 2012-06-27 19:52:57 +0000 (Wed, 27 Jun 2012) $
+// Version: $Revision: 363 $
+// Date   : $Date: 2012-06-27 22:03:34 +0000 (Wed, 27 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -4169,7 +4169,7 @@ Board::isValidMove(Move const& move, move::Constraint flag) const
 	if (move.isNull())
 	{
 		unsigned state = checkState();
-		return state & (CheckMate | StaleMate) == state;
+		return (state & (CheckMate | StaleMate)) == 0;
 	}
 
 	if (flag == move::AllowIllegalMove)
