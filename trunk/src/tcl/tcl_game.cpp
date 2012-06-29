@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 362 $
-// Date   : $Date: 2012-06-27 19:52:57 +0000 (Wed, 27 Jun 2012) $
+// Version: $Revision: 367 $
+// Date   : $Date: 2012-06-29 17:33:57 +0000 (Fri, 29 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2537,7 +2537,10 @@ cmdImport(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 
 	char const* figurine = 0;
 	char const* encoding = sys::utf8::Codec::utf8();
+	char const* database	= 0;
 	char const* option;
+
+	int index = -1;
 
 	bool	asVariation	= false;
 	bool	trialMode	= false;
@@ -2578,9 +2581,17 @@ cmdImport(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 			if (boolFromObj(objc, objv, objc - 1))
 				modification = tcl::PgnReader::Raw;
 		}
+		else if (::strcmp(option, "-database") == 0)
+		{
+			database = stringFromObj(objc, objv, objc - 1);
+		}
+		else if (::strcmp(option, "-index") == 0)
+		{
+			index = unsignedFromObj(objc, objv, objc - 1);
+		}
 		else
 		{
-			return error (CmdImport, nullptr, nullptr, "unexpected option '%s'", option);
+			return error(CmdImport, nullptr, nullptr, "unexpected option '%s'", option);
 		}
 
 		objc -= 2;
@@ -2593,6 +2604,11 @@ cmdImport(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 			"<position> <text> <log> <log-arg> ?-encoding <string>?");
 		return TCL_ERROR;
 	}
+
+	if (database && index == -1)
+		error(CmdImport, nullptr, nullptr, "-database specified, but no -index");
+	if (index >= 0 && database == 0)
+		error(CmdImport, nullptr, nullptr, "-index specified, but no -database");
 
 	Tcl_Obj* cmd = objc < 4 ? nullptr : objv[3];
 	Tcl_Obj* arg = objc < 4 ? nullptr : objv[4];
@@ -2653,6 +2669,9 @@ cmdImport(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 			reader.setFigurine(figurine);
 
 		load::State state = scidb->importGame(reader, position, trialMode);
+
+		if (database && Scidb->scratchBase().name() != database)
+			scidb->bindGameToDatabase(position, database, index);
 
 		if (trialMode)
 			setResult(reader.lastErrorCode() == tcl::PgnReader::LastError);

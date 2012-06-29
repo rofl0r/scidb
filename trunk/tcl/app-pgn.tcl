@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 362 $
-# Date   : $Date: 2012-06-27 19:52:57 +0000 (Wed, 27 Jun 2012) $
+# Version: $Revision: 367 $
+# Date   : $Date: 2012-06-29 17:33:57 +0000 (Fri, 29 Jun 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -542,7 +542,7 @@ proc redo {} { Undo redo }
 proc replaceMoves {parent} {
 	if {[::scidb::game::query modified?]} {
 		set reply [::dialog::question -parent $parent -message $mc::ReallyReplaceMoves]
-		if {$reply eq "yes"} { ::util::catchIoError [list ::scidb::game::update moves }
+		if {$reply eq "yes"} { ::util::catchIoError [list ::scidb::game::update moves] }
 	} else {
 		::dialog::info -parent $parent -message $mc::CurrentGameIsNotModified
 	}

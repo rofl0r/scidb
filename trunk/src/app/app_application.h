@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 362 $
-// Date   : $Date: 2012-06-27 19:52:57 +0000 (Wed, 27 Jun 2012) $
+// Version: $Revision: 367 $
+// Date   : $Date: 2012-06-29 17:33:57 +0000 (Fri, 29 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -208,6 +208,7 @@ public:
 						db::move::Notation moveStyle);
 	void setupGameUndo(unsigned undoLevel, unsigned combinePredecessingMoves);
 	db::load::State importGame(db::Producer& producer, unsigned position, bool trialMode = false);
+	void bindGameToDatabase(unsigned position, mstl::string const& name, unsigned index);
 
 	void clearBase(Cursor& cursor);
 	void compactBase(Cursor& cursor, ::util::Progress& progress);

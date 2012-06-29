@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 348 $
-# Date   : $Date: 2012-06-16 14:32:54 +0000 (Sat, 16 Jun 2012) $
+# Version: $Revision: 367 $
+# Date   : $Date: 2012-06-29 17:33:57 +0000 (Fri, 29 Jun 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -989,7 +989,7 @@ proc TableFill {path args} {
 
 					termination {
 						if {$codec ne "sci"} {
-							lappend text $::mc::NotAvailableSign]
+							lappend text $::mc::NotAvailableSign
 						} elseif {[string length $item]} {
 							lappend text [list @ [set ::terminationbox::icon::12x12::$item]]
 						} else {

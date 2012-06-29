@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 362 $
-// Date   : $Date: 2012-06-27 19:52:57 +0000 (Wed, 27 Jun 2012) $
+// Version: $Revision: 367 $
+// Date   : $Date: 2012-06-29 17:33:57 +0000 (Fri, 29 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1812,6 +1812,22 @@ Application::importGame(db::Producer& producer, unsigned position, bool trialMod
 	}
 
 	return state;
+}
+
+
+void
+Application::bindGameToDatabase(unsigned position, mstl::string const& name, unsigned index)
+{
+	M_REQUIRE(containsGameAt(position));
+	M_REQUIRE(isScratchGame(position));
+
+	EditGame& game = m_gameMap.find(position)->second;
+		
+	game.sourceBase = name;
+	game.sourceIndex = index;
+
+	if (m_subscriber)
+		m_subscriber->updateGameInfo(position);
 }
 
 

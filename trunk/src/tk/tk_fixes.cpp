@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 317 $
-// Date   : $Date: 2012-05-05 16:33:40 +0000 (Sat, 05 May 2012) $
+// Version: $Revision: 367 $
+// Date   : $Date: 2012-06-29 17:33:57 +0000 (Fri, 29 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -22,6 +22,8 @@
 #include <tk.h>
 #include <tkInt.h>
 #undef namespace_
+
+#ifndef DISCARD_TK_FIXES
 
 //#define FIX_TK_POINTER_EVENTS
 #define FIX_TK_GRAB_STATE
@@ -523,5 +525,11 @@ tk::fixes_init(Tcl_Interp*)
     }
 #endif
 }
+
+#else // DISCARD_TK_FIXES
+
+void tk::fixes_init(Tcl_Interp*) {}
+
+#endif // DISCARD_TK_FIXES
 
 // vi:set ts=8 sw=4:
