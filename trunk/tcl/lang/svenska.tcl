@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 364 $
-# Date   : $Date: 2012-06-29 05:46:30 +0000 (Fri, 29 Jun 2012) $
+# Version: $Revision: 368 $
+# Date   : $Date: 2012-06-29 17:57:33 +0000 (Fri, 29 Jun 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -191,6 +191,7 @@
 ::menu::mc::ScidBases					"Scid databaser"
 ::menu::mc::ScidbBases					"Scidb databaser"
 ::menu::mc::ChessBaseBases				"ChessBase databaser"
+::menu::mc::ScidbArchives				"Scidb arkiv"
 ::menu::mc::PGNFilesArchives			"PGN filer/arkiv"
 ::menu::mc::PGNFiles						"PGN filer"
 ::menu::mc::PGNArchives					"PGN arkiv"
