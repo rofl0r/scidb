@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 362 $
-// Date   : $Date: 2012-06-27 19:52:57 +0000 (Wed, 27 Jun 2012) $
+// Version: $Revision: 364 $
+// Date   : $Date: 2012-06-29 05:46:30 +0000 (Fri, 29 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -172,6 +172,7 @@ public:
 	static Tag extractPlayerData(mstl::string& data, mstl::string& value);
 	static country::Code extractCountryFromSite(mstl::string& data);
 	static time::Mode getTimeModeFromTimeControl(mstl::string const& value);
+	static termination::Reason getTerminationReason(mstl::string const& value);
 	static event::Mode getEventMode(char const* event, char const* site);
 	static bool parseRound(mstl::string const& data, unsigned& round, unsigned& subround);
 	static bool getAttributes(mstl::string const& filename, int& numGames, mstl::string* description = 0);
