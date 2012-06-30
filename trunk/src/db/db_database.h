@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 334 $
-// Date   : $Date: 2012-06-13 09:36:59 +0000 (Wed, 13 Jun 2012) $
+// Version: $Revision: 369 $
+// Date   : $Date: 2012-06-30 21:23:33 +0000 (Sat, 30 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -68,6 +68,7 @@ public:
 
 	enum Storage	{ MemoryOnly, OnDisk };
 	enum Mode		{ ReadOnly, ReadWrite };
+	enum Access		{ GameIndex, EventIndex };
 
 	Database(Database const& db, mstl::string const& name);
 	Database(mstl::string const& name,
@@ -151,7 +152,7 @@ public:
 	/// Returns the player for given game index and specified side.
 	NamebasePlayer const& player(unsigned gameIndex, color::ID side) const;
 	/// Returns the event at given index.
-	NamebaseEvent const& event(unsigned index) const;
+	NamebaseEvent const& event(unsigned index, Access access = EventIndex) const;
 	/// Returns the annotator at given index.
 	NamebaseEntry const& annotator(unsigned index) const;
 	/// Collect tags specific for current database format.

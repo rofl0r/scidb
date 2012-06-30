@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 357 $
-# Date   : $Date: 2012-06-22 00:01:16 +0000 (Fri, 22 Jun 2012) $
+# Version: $Revision: 369 $
+# Date   : $Date: 2012-06-30 21:23:33 +0000 (Sat, 30 Jun 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -183,6 +183,32 @@ proc menuTextvarHook {m index var {args {}}} {
 #	For some reasons this callback will be called although the menu is not destroyed
 #	(possibly some kind of copy operation).
 #	bind $m <Destroy> +[list trace remove variable $var write $cmd]
+}
+
+
+proc dialogRaise {dlg} {
+	switch [wm state $dlg] {
+		withdrawn - iconic - icon {
+			wm deiconify $dlg
+		}
+
+		default {
+			if {[::fsbox::checkIsKDE]} {
+				# stupid handling of KDE: without withdrawing
+				# the window will not be raised
+				set geom [wm geometry $dlg]
+				if {[string length $geom]} {
+					set geom [string range $geom [string first + $geom] end]
+					catch { wm geometry $dlg $geom }
+				}
+				wm withdraw $dlg
+			}
+			wm deiconify $dlg
+		}
+	}
+
+	raise $dlg
+	focus -force $dlg
 }
 
 

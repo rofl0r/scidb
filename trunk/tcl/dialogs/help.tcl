@@ -1,7 +1,7 @@
 ## ======================================================================
 # Author : $Author$
-# Version: $Revision: 358 $
-# Date   : $Date: 2012-06-25 12:25:25 +0000 (Mon, 25 Jun 2012) $
+# Version: $Revision: 369 $
+# Date   : $Date: 2012-06-30 21:23:33 +0000 (Sat, 30 Jun 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -225,7 +225,7 @@ proc open {parent {file {}} args} {
 	wm minsize $dlg 600 300
 	if {[string length $file] == 0} {
 		if {[llength $Geometry] == 0} {
-			wm deiconify $dlg
+			::widget::dialogRaise $dlg
 			update idletasks
 			set Geometry [winfo width $dlg]x[winfo height $dlg]
 			focus $Priv($Priv(tab))

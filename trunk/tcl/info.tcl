@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 364 $
-# Date   : $Date: 2012-06-29 05:46:30 +0000 (Fri, 29 Jun 2012) $
+# Version: $Revision: 369 $
+# Date   : $Date: 2012-06-30 21:23:33 +0000 (Sat, 30 Jun 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -60,9 +60,7 @@ proc openDialog {parent} {
 	set dlg ${path}infoDialog
 
 	if {[winfo exists $dlg]} {
-		wm deiconify $dlg
-		raise $dlg
-		focus $dlg
+		::widget::dialogRaise $dlg
 	} else {
 		tk::toplevel $dlg -class $::scidb::app
 		wm iconname $dlg ""

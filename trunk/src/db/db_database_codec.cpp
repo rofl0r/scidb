@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 327 $
-// Date   : $Date: 2012-05-23 20:29:58 +0000 (Wed, 23 May 2012) $
+// Version: $Revision: 369 $
+// Date   : $Date: 2012-06-30 21:23:33 +0000 (Sat, 30 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -894,7 +894,7 @@ DatabaseCodec::saveGame(ByteStream const& gameData, TagSet const& tags, Provider
 								data.eventMode,
 								maxEventCount(),
 								siteEntry ? siteEntry : NamebaseEvent::emptySite());
-	Entry annotatorEntry	= 0;
+	Entry annotatorEntry	= NamebaseEntry::emptyEntry();
 
 	if (maxAnnotatorCount)
 	{
@@ -908,7 +908,7 @@ DatabaseCodec::saveGame(ByteStream const& gameData, TagSet const& tags, Provider
 						|| blackEntry == 0
 						|| eventEntry == 0
 						|| siteEntry == 0
-						|| (maxAnnotatorCount > 0 && annotatorEntry == 0);
+						|| annotatorEntry == 0;
 
 	if (!failed && format() != format::Scidb)
 	{
@@ -1036,7 +1036,7 @@ DatabaseCodec::addGame(ByteStream const& gameData, GameInfo const& info, Allocat
 	NamebasePlayer*	blackEntry;
 	NamebaseSite*		siteEntry;
 	NamebaseEvent*		eventEntry;
-	NamebaseEntry*		annotatorEntry	= 0;
+	NamebaseEntry*		annotatorEntry	= NamebaseEntry::emptyEntry();
 
 	unsigned maxPlayerCount = this->maxPlayerCount();
 
@@ -1076,7 +1076,7 @@ DatabaseCodec::addGame(ByteStream const& gameData, GameInfo const& info, Allocat
 						|| blackEntry == 0
 						|| eventEntry == 0
 						|| siteEntry == 0
-						|| (maxAnnotatorCount > 0 && annotatorEntry == 0);
+						|| annotatorEntry == 0;
 
 	save::State state = save::Ok;
 
@@ -1188,19 +1188,19 @@ DatabaseCodec::updateCharacteristics(unsigned index, TagSet const& tags)
 										data.eventMode,
 										maxEventCount(),
 										siteEntry ? siteEntry : NamebaseEvent::emptySite());
-	Entry		annotatorEntry	= 0;
+	Entry		annotatorEntry	= NamebaseEntry::emptyEntry();
 
 	if (maxAnnotatorCount)
 	{
-		annotatorEntry = namebase(Namebase::Annotator).insert(tags.value(tag::Annotator),
-																				maxAnnotatorCount);
+		annotatorEntry = namebase(Namebase::Annotator).
+									insert(tags.value(tag::Annotator), maxAnnotatorCount);
 	}
 
 	bool failed = 		whiteEntry == 0
 						|| blackEntry == 0
 						|| eventEntry == 0
 						|| siteEntry == 0
-						|| (maxAnnotatorCount > 0 && annotatorEntry == 0);
+						|| annotatorEntry == 0;
 
 	save::State state = save::Ok;
 

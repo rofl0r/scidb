@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 362 $
-# Date   : $Date: 2012-06-27 19:52:57 +0000 (Wed, 27 Jun 2012) $
+# Version: $Revision: 369 $
+# Date   : $Date: 2012-06-30 21:23:33 +0000 (Sat, 30 Jun 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -85,17 +85,16 @@ proc show {base args} {
 	variable Counter
 
 	set info [::scidb::db::playerInfo $base {*}$args]
-	lassign $info name fideID type sex elo _ _ country titles _ _ dateOfBirth _
-	if {[string length $name] == 0} { return }
-	set key card:$base:$name:$fideID:$type:$sex:$country:$titles:$dateOfBirth
+	set key [MakeKey $base $info]
+	if {[string length $key] == 0} { return }
+	set name [lindex $info 0]
 
 	if {[info exists Vars($key)]} {
 		if {$Vars($key:open)} {
-			wm withdraw $Vars($key)
-			wm deiconify $Vars($key)
+			::widget::dialogRaise $Vars($key)
 		} else {
 			set Vars($key:open) 1
-			UpdateContent $Vars($key).content $key $base $name [list $base {*}$args]
+			UpdateContent $Vars($key).content $key $base $name $args
 		}
 		return
 	}
@@ -129,17 +128,18 @@ proc show {base args} {
 		-useVertScroll yes \
 		-keepVertScroll yes \
 		;
-	set updateCmd [list UpdateContent $dlg.content $key $base $name [list $base {*}$args]]
 	bind [winfo parent [$dlg.content drawable]] <ButtonPress-3> [namespace code [list PopupMenu $key]]
 	pack $dlg.content -fill both -expand yes
 	bind $dlg.content <Destroy> [list array unset [namespace current]::Vars $key*]
+	set id [::scidb::db::get playerKey $base {*}$args]
+	set updateCmd [list UpdatePlayer $dlg.content $id $key $base $name $args]
 	bind $dlg.content <<LanguageChanged>> [namespace code $updateCmd]
 	$dlg.content onmouseover [namespace code [list MouseEnter $dlg.content]]
 	$dlg.content onmouseout [namespace code [list MouseLeave $dlg.content]]
 	$dlg.content onmousedown3 [namespace code [list Mouse3Down $dlg.content $key $info]]
 	set Vars($dlg.content:tooltip) ""
 
-	set geometry [{*}$updateCmd]
+	set geometry [UpdateContent $dlg.content $key $base $name $args]
 	::widget::busyCursor off
 
 	wm protocol $dlg WM_DELETE_WINDOW [list destroy $dlg]
@@ -369,6 +369,27 @@ proc buildWebMenu {parent m info} {
 }
 
 
+proc UpdatePlayer {w id key base name playerCardArgs} {
+	if {[llength $playerCardArgs] == 1} {
+		set pos [::scidb::db::find player $base $id]
+		if {$pos == -1} {
+			destroy [winfo toplevel $w]
+			return
+		}
+		set playerCardArgs $pos
+	}
+
+	UpdateContent $w $key $base $name $playerCardArgs
+}
+
+
+proc MakeKey {base info} {
+	lassign $info name fideID type sex elo _ _ country titles _ _ dateOfBirth _
+	if {[string length $name] == 0} { return "" }
+	return card:$base:$name:$fideID:$type:$sex:$country:$titles:$dateOfBirth
+}
+
+
 proc UpdateContent {w key base name playerCardArgs} {
 	variable Vars
 	variable Options
@@ -406,7 +427,7 @@ proc UpdateContent {w key base name playerCardArgs} {
 	"
 	set searchDir [file join $::scidb::dir::share scripts]
 	set script "player-card.eXt"
-	set result [::scidb::db::playerCard $searchDir $script $preamble {*}$playerCardArgs]
+	set result [::scidb::db::playerCard $searchDir $script $preamble $base {*}$playerCardArgs]
 	lassign $result html log
 
 	set i [string first "%date%(" $html]

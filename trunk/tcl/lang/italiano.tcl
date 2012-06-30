@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 364 $
-# Date   : $Date: 2012-06-29 05:46:30 +0000 (Fri, 29 Jun 2012) $
+# Version: $Revision: 369 $
+# Date   : $Date: 2012-06-30 21:23:33 +0000 (Sat, 30 Jun 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1413,7 +1413,6 @@
 ::crosstable::mc::Settings					"Opzioni"
 ::crosstable::mc::RevertToStart			"Torna ai valori iniziali"
 ::crosstable::mc::UpdateDisplay			"Aggiorna visualizzazione"
-::crosstable::mc::ShowPlayerCard			"Show Player Card" ;# NEW
 
 ::crosstable::mc::Traditional				"Tradizionale"
 ::crosstable::mc::Bilbao					"Bilbao"

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 312 $
-// Date   : $Date: 2012-05-04 14:26:12 +0000 (Fri, 04 May 2012) $
+// Version: $Revision: 369 $
+// Date   : $Date: 2012-06-30 21:23:33 +0000 (Sat, 30 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -79,15 +79,6 @@ Database::player(unsigned index) const
 {
 	M_REQUIRE(index < countPlayers());
 	return *m_namebases(Namebase::Player).player(index);
-}
-
-
-inline
-NamebaseEvent const&
-Database::event(unsigned index) const
-{
-	M_REQUIRE(index < countEvents());
-	return *m_namebases(Namebase::Event).event(index);
 }
 
 

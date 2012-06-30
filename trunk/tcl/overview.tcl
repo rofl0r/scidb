@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 358 $
-# Date   : $Date: 2012-06-25 12:25:25 +0000 (Mon, 25 Jun 2012) $
+# Version: $Revision: 369 $
+# Date   : $Date: 2012-06-30 21:23:33 +0000 (Sat, 30 Jun 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -54,16 +54,7 @@ proc open {parent base info view index {fen {}}} {
 	set name [file rootname [file tail $base]]
 
 	if {[info exists Priv($base:$number:$view)]} {
-		set dlg [lindex $Priv($base:$number:$view) 0]
-		switch [tk windowingsystem] {
-			x11 {
-				wm withdraw $dlg
-				wm deiconify $dlg
-			}
-			default {
-				raise $dlg
-			}
-		}
+		::widget::dialogRaise [lindex $Priv($base:$number:$view) 0]
 		return
 	}
 

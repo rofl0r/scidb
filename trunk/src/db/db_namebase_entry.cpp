@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 311 $
-// Date   : $Date: 2012-05-03 19:56:10 +0000 (Thu, 03 May 2012) $
+// Version: $Revision: 369 $
+// Date   : $Date: 2012-06-30 21:23:33 +0000 (Sat, 30 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -33,7 +33,8 @@
 using namespace db;
 
 
-NamebaseSite* NamebaseEvent::m_emptySite = new NamebaseSite();
+NamebaseSite* NamebaseEvent::m_emptySite	= new NamebaseSite();
+NamebaseEntry* NamebaseEntry::m_emptyEntry	= new NamebaseEntry();
 
 
 NamebaseEntry::NamebaseEntry(mstl::string const& name) :m_name(name) {}

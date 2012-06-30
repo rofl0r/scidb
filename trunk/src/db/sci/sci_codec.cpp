@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 326 $
-// Date   : $Date: 2012-05-20 20:27:50 +0000 (Sun, 20 May 2012) $
+// Version: $Revision: 369 $
+// Date   : $Date: 2012-06-30 21:23:33 +0000 (Sat, 30 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1444,8 +1444,6 @@ Codec::readNamebases(mstl::fstream& stream, Progress& progress)
 		unsigned maxFreq = bstrm.uint24();
 		unsigned maxUsage = bstrm.uint24();
 		unsigned nextId = bstrm.uint24();
-
-		M_ASSERT(nextId >= size);
 
 		m_lookup[i].resize(nextId);
 

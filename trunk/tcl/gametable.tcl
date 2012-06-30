@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 367 $
-# Date   : $Date: 2012-06-29 17:33:57 +0000 (Fri, 29 Jun 2012) $
+# Version: $Revision: 369 $
+# Date   : $Date: 2012-06-30 21:23:33 +0000 (Sat, 30 Jun 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -749,6 +749,59 @@ proc showMoves {path moves result showEmpty {width 50}} {
 proc hideMoves {path} {
 	::tooltip::popdown $path.showmoves
 	::tooltip::enable
+}
+
+
+proc deleteGame {base index {view -1}} {
+	::widget::busyCursor on
+	set flag [expr {![::scidb::db::get deleted? $index $view $base]}]
+	::scidb::db::set delete $index $view $base $flag
+	::widget::busyCursor off
+}
+
+
+proc addGameFlagsMenuEntry {menu base view index} {
+	variable Columns
+
+	set item  [::scidb::db::get gameInfo $index $view $base [lsearch -exact -index 0 $Columns flags]]
+	set flags [::scidb::db::get gameFlags $base]
+
+	foreach flag $flags	{ set _Flags($flag) 0 }
+	foreach flag $item	{ set _Flags($flag) 1 }
+
+	menu $menu.gameflags
+	foreach flag $flags {
+		if {[info exist ::icon::12x12::gameflag($flag)]} {
+			set img $::icon::12x12::gameflag($flag)
+		} else {
+			set img $::icon::12x12::none
+		}
+		switch $flag {
+			1 - 2 - 3 - 4 - 5 - 6 {
+				set text [lindex [::scidb::db::get customFlags $base] [expr {$flag - 1}]]
+				if {[string length $text] == 0} { set text $mc::Custom }
+			}
+
+			default { set text $mc::GameFlags($flag) }
+		}
+		if {$flag == 1} {
+			$menu.gameflags add separator
+		}
+		$menu.gameflags add checkbutton \
+			-label " $text" \
+			-image $img \
+			-compound left \
+			-variable [namespace current]::_Flags($flag) \
+			-command [namespace code [list SetFlag $base $index $view $flag]]
+			;
+	}
+
+	$menu add cascade \
+		-compound left \
+		-image $::icon::16x16::flag \
+		-label " $mc::EditGameFlags" \
+		-menu $menu.gameflags
+		;
 }
 
 
@@ -1574,50 +1627,12 @@ proc PopupMenu {path menu base index} {
 				-compound left \
 				-image $::icon::16x16::remove \
 				-label " $text" \
-				-command [namespace code [list DeleteGame $base $index $view [expr {!$flag}]]] \
+				-command [namespace code [list deleteGame $base $index $view]] \
 				;
 
-			set item  [::scidb::db::get gameInfo $index $view $base [lsearch -exact $Vars(columns) flags]]
-			set flags [::scidb::db::get gameFlags $base]
-
-			foreach flag $flags	{ set _Flags($flag) 0 }
-			foreach flag $item	{ set _Flags($flag) 1 }
-
-			menu $menu.gameflags
-			foreach flag $flags {
-				if {[info exist ::icon::12x12::gameflag($flag)]} {
-					set img $::icon::12x12::gameflag($flag)
-				} else {
-					set img $::icon::12x12::none
-				}
-				switch $flag {
-					1 - 2 - 3 - 4 - 5 - 6 {
-						set text [lindex [::scidb::db::get customFlags $base] [expr {$flag - 1}]]
-						if {[string length $text] == 0} { set text $mc::Custom }
-					}
-
-					default { set text $mc::GameFlags($flag) }
-				}
-				if {$flag == 1} {
-					$menu.gameflags add separator
-				}
-				$menu.gameflags add checkbutton \
-					-label " $text" \
-					-image $img \
-					-compound left \
-					-variable [namespace current]::_Flags($flag) \
-					-command [namespace code [list SetFlag $base $index $view $flag]]
-					;
-			}
+			addGameFlagsMenuEntry $menu $base $view $index
 
 			set info [::scidb::db::get gameInfo $index $view $base]
-
-			$menu add cascade \
-				-compound left \
-				-image $::icon::16x16::flag \
-				-label " $mc::EditGameFlags" \
-				-menu $menu.gameflags
-				;
 			$menu add command \
 				-compound left \
 				-image $::icon::16x16::setup \
@@ -1703,13 +1718,6 @@ proc PopupMenu {path menu base index} {
 			}
 		}
 	}
-}
-
-
-proc DeleteGame {base index view value} {
-	::widget::busyCursor on
-	::scidb::db::set delete $index $view $base $value
-	::widget::busyCursor off
 }
 
 

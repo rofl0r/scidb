@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 367 $
-# Date   : $Date: 2012-06-29 17:33:57 +0000 (Fri, 29 Jun 2012) $
+# Version: $Revision: 369 $
+# Date   : $Date: 2012-06-30 21:23:33 +0000 (Sat, 30 Jun 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -2132,7 +2132,7 @@ proc PopupMenu {parent position} {
 		if {[::scidb::game::query database] eq $::scidb::scratchbaseName} {
 			$menu add command \
 				-label " $::import::mc::ImportPgnGame..." \
-				-image $::icon::16x16::pgn \
+				-image $::icon::16x16::filetypePGN \
 				-compound left \
 				-command [namespace code PasteClipboardGame] \
 				;

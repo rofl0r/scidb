@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 334 $
-// Date   : $Date: 2012-06-13 09:36:59 +0000 (Wed, 13 Jun 2012) $
+// Version: $Revision: 369 $
+// Date   : $Date: 2012-06-30 21:23:33 +0000 (Sat, 30 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -898,10 +898,12 @@ Database::countAnnotators() const
 	if (annotatorBase.isEmpty())
 		return 0;
 
-	if (annotatorBase.entryAt(0)->name().empty())
-		return annotatorBase.size() - 1;
+	unsigned count = annotatorBase.used();
 
-	return annotatorBase.size();
+	if (annotatorBase.entryAt(0)->name().empty() && annotatorBase.entryAt(0)->frequency() > 0)
+		--count;
+
+	return count;
 }
 
 
@@ -1006,6 +1008,24 @@ Database::player(unsigned gameIndex, color::ID side) const
 	M_REQUIRE(gameIndex < countGames());
 
 	return *m_gameInfoList[gameIndex]->playerEntry(side);
+}
+
+
+NamebaseEvent const&
+Database::event(unsigned index, Access access) const
+{
+	M_REQUIRE(access == EventIndex ? index < countEvents() : index < countGames());
+
+	switch (access)
+	{
+		case EventIndex:
+			return *m_namebases(Namebase::Event).event(index);
+
+		case GameIndex:
+			return *m_gameInfoList[index]->eventEntry();
+	}
+
+	return *m_namebases(Namebase::Event).event(0); // never reached
 }
 
 

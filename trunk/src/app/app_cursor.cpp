@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 327 $
-// Date   : $Date: 2012-05-23 20:29:58 +0000 (Wed, 23 May 2012) $
+// Version: $Revision: 369 $
+// Date   : $Date: 2012-06-30 21:23:33 +0000 (Sat, 30 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -487,8 +487,15 @@ Cursor::compact(::util::Progress& progress)
 
 	for (unsigned i = 0; i < m_viewList.size(); ++i)
 	{
-		viewList.push_back(new View(*m_viewList[i], *m_db));
-		delete m_viewList[i];
+		if (m_viewList[i])
+		{
+			viewList.push_back(new View(*m_viewList[i], *m_db));
+			delete m_viewList[i];
+		}
+		else
+		{
+			viewList.push_back(0);
+		}
 	}
 
 	m_viewList.clear();

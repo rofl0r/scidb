@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 356 $
-# Date   : $Date: 2012-06-21 22:51:27 +0000 (Thu, 21 Jun 2012) $
+# Version: $Revision: 369 $
+# Date   : $Date: 2012-06-30 21:23:33 +0000 (Sat, 30 Jun 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -713,6 +713,23 @@ proc configureRadioEntry {sub text} {}
 
 proc makeStateSpecificIcons {img} {
 	return $img ;# XXX how to do?
+}
+
+
+proc checkIsKDE {} {
+	variable _IsKDE
+
+	if {![info exists _IsKDE]} {
+		if {[tk windowingsystem] eq "x11"} {
+			set atoms {}
+			catch {set atoms [exec /bin/sh -c "xlsatoms | grep _KDE_RUNNING"]}
+			set _IsKDE [expr {[string length $atoms] > 0}]
+		} else {
+			set _IsKDE 0
+		}
+	}
+
+	return $_IsKDE
 }
 
 
@@ -1578,13 +1595,7 @@ proc CheckIsKDE {w} {
 	variable ${w}::Vars
 
 	if {![info exists Vars(iskde)]} {
-		if {[tk windowingsystem] eq "x11"} {
-			set atoms {}
-			catch {set atoms [exec /bin/sh -c "xlsatoms | grep _KDE_RUNNING"]}
-			set Vars(iskde) [expr {[llength $atoms] > 0}]
-		} else {
-			set Vars(iskde) 0
-		}
+		set Vars(iskde) [checkIsKDE]
 		if {$Vars(iskde)} {
 			set Vars(exec:delete) [auto_execok kioclient]
 			if {[llength $Vars(exec:delete)] == 0} {

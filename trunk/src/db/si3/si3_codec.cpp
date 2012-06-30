@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 358 $
-// Date   : $Date: 2012-06-25 12:25:25 +0000 (Mon, 25 Jun 2012) $
+// Version: $Revision: 369 $
+// Date   : $Date: 2012-06-30 21:23:33 +0000 (Sat, 30 Jun 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1714,6 +1714,7 @@ Codec::readNamebase(	ByteIStream& bstrm,
 	typedef Namebase::Type Type;
 
 	M_ASSERT(m_codec && m_codec->hasEncoding());
+	M_ASSERT(count >= base.size());
 	M_ASSERT(count <= limit);
 	M_ASSERT(m_codec);
 
