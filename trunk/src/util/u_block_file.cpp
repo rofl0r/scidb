@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 367 $
-// Date   : $Date: 2012-06-29 17:33:57 +0000 (Fri, 29 Jun 2012) $
+// Version: $Revision: 370 $
+// Date   : $Date: 2012-07-01 07:34:57 +0000 (Sun, 01 Jul 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -360,7 +360,8 @@ BlockFile::save(mstl::ostream& stream, Progress* progress)
 			}
 		}
 
-		progress->finish();
+		if (progress)
+			progress->finish();
 
 		if (__builtin_expect(!stream.write(m_cache.back(), m_sizeInfo.back()), 0))
 			return false;

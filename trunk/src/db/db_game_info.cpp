@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 301 $
-// Date   : $Date: 2012-04-20 17:47:04 +0000 (Fri, 20 Apr 2012) $
+// Version: $Revision: 370 $
+// Date   : $Date: 2012-07-01 07:34:57 +0000 (Sun, 01 Jul 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -234,9 +234,10 @@ GameInfo::update(	NamebasePlayer* whitePlayer,
 	M_REQUIRE(whitePlayer);
 	M_REQUIRE(blackPlayer);
 	M_REQUIRE(event);
+	M_REQUIRE(annotator);
 	M_REQUIRE((reinterpret_cast<long>(annotator) & 1) == 0);
 
-	if (annotator)
+	if (annotator != NamebaseEntry::emptyEntry())
 	{
 		m_annotator = annotator;
 		namebases(Namebase::Annotator).ref(m_annotator);
@@ -458,16 +459,17 @@ GameInfo::setup(	uint32_t gameOffset,
 	M_REQUIRE(whitePlayer);
 	M_REQUIRE(blackPlayer);
 	M_REQUIRE(event);
+	M_REQUIRE(annotator);
 	M_REQUIRE((reinterpret_cast<long>(annotator) & 1) == 0);
 
-	if (annotator)
+	if (annotator == NamebaseEntry::emptyEntry())
 	{
-		m_annotator = annotator;
-		namebases(Namebase::Annotator).ref(m_annotator);
+		setGameRecordLength(gameRecordLength);
 	}
 	else
 	{
-		setGameRecordLength(gameRecordLength);
+		m_annotator = annotator;
+		namebases(Namebase::Annotator).ref(m_annotator);
 	}
 
 	m_gameOffset		= gameOffset;

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 334 $
-# Date   : $Date: 2012-06-13 09:36:59 +0000 (Wed, 13 Jun 2012) $
+# Version: $Revision: 370 $
+# Date   : $Date: 2012-07-01 07:34:57 +0000 (Sun, 01 Jul 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -147,9 +147,9 @@ proc WidgetProc {w command args} {
 			set item [$w.__w__ current]
 			if {$item <= 0} { return "" }
 			if {[lindex $types [expr {$item - 1}]] eq $mc::Gender(c)} {
-				return "Program"
+				return "program"
 			}
-			return "Human"
+			return "human"
 		}
 
 		valid? {

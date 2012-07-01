@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 267 $
-// Date   : $Date: 2012-03-06 08:52:13 +0000 (Tue, 06 Mar 2012) $
+// Version: $Revision: 370 $
+// Date   : $Date: 2012-07-01 07:34:57 +0000 (Sun, 01 Jul 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -413,6 +413,9 @@ winboard::Engine::stopAnalysis()
 
 		reset();
 //		setAnalyzing(false);
+
+		// TODO: we should send now the best move so far
+		// because the UCI protocol is doing this
 	}
 
 	return true;

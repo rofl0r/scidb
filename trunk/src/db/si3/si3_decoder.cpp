@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 367 $
-// Date   : $Date: 2012-06-29 17:33:57 +0000 (Fri, 29 Jun 2012) $
+// Version: $Revision: 370 $
+// Date   : $Date: 2012-07-01 07:34:57 +0000 (Sun, 01 Jul 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -439,39 +439,34 @@ Decoder::skipTags()
 void
 Decoder::determineCharsetTags()
 {
-	Byte b;
+	Byte tagLen;
 
-	while ((b = m_strm.get()))
+	while ((tagLen = m_strm.get()))
 	{
-		if (b <= ::Max_Tag_Length)
+		if (tagLen <= ::Max_Tag_Length)
 		{
 			char*	tag = const_cast<char*>(reinterpret_cast<char const*>(m_strm.data()));
 
-			m_strm.skip(b);
-			Byte c = m_strm.get();
+			m_strm.skip(tagLen);
+			Byte len = m_strm.get();
 
 			// NOTE: we ignore invalid tags (Scid bug)
-			if (PgnReader::validateTagName(tag, b))
-				HandleData(reinterpret_cast<char const*>(m_strm.data()), c);
+			if (PgnReader::validateTagName(tag, tagLen))
+				HandleData(reinterpret_cast<char const*>(m_strm.data()), len);
 
-			m_strm.skip(c);
+			m_strm.skip(len);
+		}
+		else if (tagLen == 255)
+		{
+			// special binary 3-byte encoding of EventDate (obsolete since 3.x)
+			m_strm.skip(3);
 		}
 		else
 		{
-			switch (b)
-			{
-				case 245:	// event date
-				case 255:	// special binary 3-byte encoding of EventDate (obsolete since 3.x)
-					break;
-
-				default:		// a common tag name, not explicitly stored
-					{
-						b = m_strm.get();
-						HandleData(reinterpret_cast<char const*>(m_strm.data()), b);
-						m_strm.skip(b);
-					}
-					break;
-			}
+			// a common tag name, not explicitly stored
+			Byte len = m_strm.get();
+			HandleData(reinterpret_cast<char const*>(m_strm.data()), len);
+			m_strm.skip(len);
 		}
 	}
 }

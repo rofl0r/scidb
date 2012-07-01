@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 370 $
+// Date   : $Date: 2012-07-01 07:34:57 +0000 (Sun, 01 Jul 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -81,6 +81,7 @@ private:
 	bool				m_hasShowCurrLine;
 	bool				m_hasShowRefutations;
 	bool				m_hasPonder;
+	bool				m_stopAnalyizeIsPending;
 };
 
 } // namespace uci

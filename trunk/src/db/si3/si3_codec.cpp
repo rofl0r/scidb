@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 369 $
-// Date   : $Date: 2012-06-30 21:23:33 +0000 (Sat, 30 Jun 2012) $
+// Version: $Revision: 370 $
+// Date   : $Date: 2012-07-01 07:34:57 +0000 (Sun, 01 Jul 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -737,7 +737,7 @@ Codec::attach(mstl::string const& rootname, Progress& progress)
 	m_gameStream.set_unbuffered();
 	m_gameStream.open(sys::file::internalName(gameFilename), mode);
 	progress.message("read-game");
-	m_gameData->attach(&m_gameStream);
+	m_gameData->attach(&m_gameStream, &progress);
 	save(rootname, 0, progress, true);
 }
 
