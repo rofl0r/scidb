@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 313 $
-// Date   : $Date: 2012-05-04 14:41:49 +0000 (Fri, 04 May 2012) $
+// Version: $Revision: 376 $
+// Date   : $Date: 2012-07-02 17:54:39 +0000 (Mon, 02 Jul 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -71,7 +71,6 @@ private:
 
 	void determineCharsetComments(MoveNode* node);
 	void determineCharsetTags();
-	void determineCharsetFinish();
 
 	void decodeVariation(unsigned level = 0);
 	Byte decodeMove(Byte value);
@@ -104,7 +103,6 @@ private:
 	MoveNode*			m_currentNode;
 	Move					m_move;
 	bool					m_hasVariantTag;
-	bool					m_isLatin1;
 
 #ifdef DEBUG_SI4
 	HomePawns m_homePawns;

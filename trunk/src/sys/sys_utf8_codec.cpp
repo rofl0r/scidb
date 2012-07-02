@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 226 $
-// Date   : $Date: 2012-02-05 22:00:47 +0000 (Sun, 05 Feb 2012) $
+// Version: $Revision: 376 $
+// Date   : $Date: 2012-07-02 17:54:39 +0000 (Mon, 02 Jul 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2024,6 +2024,14 @@ mstl::string const&
 Codec::windows()
 {
 	static mstl::string const Name("cp1252");
+	return Name;
+}
+
+
+mstl::string const&
+Codec::ascii()
+{
+	static mstl::string const Name("ascii");
 	return Name;
 }
 

@@ -1,7 +1,7 @@
 /* ======================================================================
  * Author : $Author$
- * Version: $Revision: 102 $
- * Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
+ * Version: $Revision: 376 $
+ * Date   : $Date: 2012-07-02 17:54:39 +0000 (Mon, 02 Jul 2012) $
  * Url    : $URL$
  * ====================================================================== */
 /* ***** BEGIN LICENSE BLOCK *****
@@ -296,6 +296,9 @@ void nsUniversalDetector::DataEnd()
     }
     break;
   case eEscAscii:
+#ifdef CS_ASCII
+    Report(CS_ASCII);
+#endif
     break;
   default:
     ;
