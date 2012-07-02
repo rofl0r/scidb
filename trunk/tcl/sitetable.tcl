@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 373 $
-# Date   : $Date: 2012-07-02 10:25:19 +0000 (Mon, 02 Jul 2012) $
+# Version: $Revision: 374 $
+# Date   : $Date: 2012-07-02 10:35:47 +0000 (Mon, 02 Jul 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -62,6 +62,7 @@ proc build {path getViewCmd {visibleColumns {}} {args {}}} {
 	variable columns
 	variable Columns
 	variable Options
+	variable Defaults
 	variable Find
 
 	array set Vars {
