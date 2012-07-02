@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 373 $
-# Date   : $Date: 2012-07-02 10:25:19 +0000 (Mon, 02 Jul 2012) $
+# Version: $Revision: 377 $
+# Date   : $Date: 2012-07-02 20:45:56 +0000 (Mon, 02 Jul 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -618,6 +618,11 @@ proc setOptions {path options} {
 	}
 
 	::scrolledtable::setOptions $path [array get myOptions]
+}
+
+
+proc see {path position} {
+	::scrolledtable::see $path $position
 }
 
 

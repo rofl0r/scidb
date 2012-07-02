@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 373 $
-// Date   : $Date: 2012-07-02 10:25:19 +0000 (Mon, 02 Jul 2012) $
+// Version: $Revision: 377 $
+// Date   : $Date: 2012-07-02 20:45:56 +0000 (Mon, 02 Jul 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -30,6 +30,7 @@ namespace db {
 namespace si3 {
 
 inline bool NameList::isEmpty() const				{ return m_size == 0; }
+inline bool NameList::hasId(unsigned id) const	{ return m_lookup[id] != 0; }
 
 inline unsigned NameList::size() const				{ return m_size; }
 inline unsigned NameList::maxFrequency() const	{ return m_maxFrequency; }

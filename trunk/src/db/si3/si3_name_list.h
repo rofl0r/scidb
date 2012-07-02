@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 373 $
-// Date   : $Date: 2012-07-02 10:25:19 +0000 (Mon, 02 Jul 2012) $
+// Version: $Revision: 377 $
+// Date   : $Date: 2012-07-02 20:45:56 +0000 (Mon, 02 Jul 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -60,6 +60,7 @@ public:
 	NameList();
 
 	bool isEmpty() const;
+	bool hasId(unsigned id) const;
 
 	Node* operator[](unsigned i) const;
 

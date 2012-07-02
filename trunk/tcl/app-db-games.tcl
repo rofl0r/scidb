@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 298 $
-# Date   : $Date: 2012-04-18 20:09:25 +0000 (Wed, 18 Apr 2012) $
+# Version: $Revision: 377 $
+# Date   : $Date: 2012-07-02 20:45:56 +0000 (Mon, 02 Jul 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -351,10 +351,10 @@ proc Goto {table} {
 	variable ${table}::Vars
 
 	set Vars(gameno) [string trim [string map {. "" , ""} $Vars(gameno)]]
-	if {[llength $Vars(gameno)] && [string is integer $Vars(gameno)] && $Vars(gameno) > 0} {
+	if {[string is integer -strict $Vars(gameno)] && $Vars(gameno) > 0} {
 		set index [::scidb::db::get gameIndex [expr {$Vars(gameno) - 1}] 0]
 		if {$index >= 0} {
-			::gametable::scroll $table $index
+			::gametable::see $table $index
 			after idle [list ::gametable::activate $table [::gametable::indexToRow $table $index]]
 		}
 	}

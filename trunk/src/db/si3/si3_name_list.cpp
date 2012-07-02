@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 358 $
-// Date   : $Date: 2012-06-25 12:25:25 +0000 (Mon, 25 Jun 2012) $
+// Version: $Revision: 377 $
+// Date   : $Date: 2012-07-02 20:45:56 +0000 (Mon, 02 Jul 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -310,7 +310,14 @@ NameList::addEntry(unsigned originalId, NamebaseEntry* entry)
 {
 	M_ASSERT(m_lookup[originalId]);
 
-	unsigned id = entry->id();
+	unsigned id = m_usedIdSet.find_first_not();
+
+	if (id == m_usedIdSet.npos)
+	{
+		id = m_usedIdSet.size();
+		m_usedIdSet.resize(id + mstl::max(50u, (id*9)/10));
+		m_usedIdSet.set(id);
+	}
 
 	if (id >= m_lookup.size())
 		reserve(id + 1);

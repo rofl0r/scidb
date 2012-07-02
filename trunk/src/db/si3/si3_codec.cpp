@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 376 $
-// Date   : $Date: 2012-07-02 17:54:39 +0000 (Mon, 02 Jul 2012) $
+// Version: $Revision: 377 $
+// Date   : $Date: 2012-07-02 20:45:56 +0000 (Mon, 02 Jul 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -86,7 +86,7 @@ strippedLength(char const* s, unsigned len)
 {
 	while (len > 0 && ::isspace(s[len - 1]))
 		--len;
-	
+
 	return len;
 }
 
