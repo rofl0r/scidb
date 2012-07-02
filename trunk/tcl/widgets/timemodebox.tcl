@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 334 $
-# Date   : $Date: 2012-06-13 09:36:59 +0000 (Wed, 13 Jun 2012) $
+# Version: $Revision: 375 $
+# Date   : $Date: 2012-07-02 13:04:39 +0000 (Mon, 02 Jul 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -322,6 +322,7 @@ namespace eval 12x12 {
 #}]
 
 set Mode(normal) $::eventtypebox::icon::12x12::Type(tourn)
+# TODO: use 12x12 clock instead
 
 #set Mode(rapid) [image create photo -data {
 #	iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAABlElEQVQoz2NgwAQsbGxsGfb2

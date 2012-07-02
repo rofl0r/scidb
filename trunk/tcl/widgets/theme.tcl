@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 355 $
-# Date   : $Date: 2012-06-20 20:51:25 +0000 (Wed, 20 Jun 2012) $
+# Version: $Revision: 375 $
+# Date   : $Date: 2012-07-02 13:04:39 +0000 (Mon, 02 Jul 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -831,17 +831,17 @@ bind ComboboxPopdown <ButtonPress> {
 
 # We like to bind the mouse wheel to the list box.
 bind ComboboxListbox <ButtonPress-4> {
-	%W yview scroll -5 units
+	%W yview scroll -1 units
 	after idle { ttk::combobox::LBHover %W %x %y }
 }
 
 bind ComboboxListbox <ButtonPress-5> {
-	%W yview scroll +5 units
+	%W yview scroll +1 units
 	after idle { ttk::combobox::LBHover %W %x %y }
 }
 
-bind ComboboxPopdown <ButtonPress-4> { %W.l yview scroll -5 units }
-bind ComboboxPopdown <ButtonPress-5> { %W.l yview scroll +5 units }
+bind ComboboxPopdown <ButtonPress-4> { %W.l yview scroll -1 units }
+bind ComboboxPopdown <ButtonPress-5> { %W.l yview scroll +1 units }
 
 }
 

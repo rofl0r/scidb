@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 311 $
-# Date   : $Date: 2012-05-03 19:56:10 +0000 (Thu, 03 May 2012) $
+# Version: $Revision: 375 $
+# Date   : $Date: 2012-07-02 13:04:39 +0000 (Mon, 02 Jul 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -661,13 +661,11 @@ proc Init {dlg} {
 			if {$atStart} { set state "disabled" } else { set state "normal" }
 			foreach group {0 1 2 3 4 5} {
 				foreach child [winfo children $dlg.top.std.f${group}] {
-					if {[string match {*.15[56]} $child]} {
-						$child configure -state normal
-					} else {
-						$child configure -state $state
-					}
+					$child configure -state $state
 				}
 			}
+			$dlg.top.std.f4.155 configure -state normal
+			$dlg.top.std.f4.156 configure -state normal
 		}
 	}
 }

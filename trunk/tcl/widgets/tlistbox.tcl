@@ -1,7 +1,7 @@
 # =====================================================================
 # Author : $Author$
-# Version: $Revision: 354 $
-# Date   : $Date: 2012-06-19 20:02:35 +0000 (Tue, 19 Jun 2012) $
+# Version: $Revision: 375 $
+# Date   : $Date: 2012-07-02 13:04:39 +0000 (Mon, 02 Jul 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -57,14 +57,14 @@ bind TListBox <Key-space>	[namespace code { SelectActive %W }]
 
 switch [tk windowingsystem] {
 	x11 {
-		bind TListBox <Button-4> { %W yview scroll -5 units }
-		bind TListBox <Button-5> { %W yview scroll +5 units }
+		bind TListBox <Button-4> { %W yview scroll -1 units }
+		bind TListBox <Button-5> { %W yview scroll +1 units }
 	}
 	aqua {
 		bind TreeCtrl <MouseWheel> { %W yview scroll [expr {-(%D)}] units }
 	}
 	win32 {
-		bind TreeCtrl <MouseWheel> { %W yview scroll [expr {-(%D/120)*4}] units }
+		bind TreeCtrl <MouseWheel> { %W yview scroll [expr {-(%D/120)}] units }
 	}
 }
 

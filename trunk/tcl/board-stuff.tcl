@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 362 $
-# Date   : $Date: 2012-06-27 19:52:57 +0000 (Wed, 27 Jun 2012) $
+# Version: $Revision: 375 $
+# Date   : $Date: 2012-07-02 13:04:39 +0000 (Mon, 02 Jul 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -296,6 +296,7 @@ proc move {w list} {
 			$w.c raise input
 		} else {
 			# castling w/o moving king and w/o rook
+			# TODO: probably we should animate a piece swap twice times
 			return
 		}
 

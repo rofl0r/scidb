@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 367 $
-// Date   : $Date: 2012-06-29 17:33:57 +0000 (Fri, 29 Jun 2012) $
+// Version: $Revision: 375 $
+// Date   : $Date: 2012-07-02 13:04:39 +0000 (Mon, 02 Jul 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -18,9 +18,18 @@
 
 namespace util {
 
-inline NulString::NulString(char* s, size_t len) :m_pos(s + len), m_nulChar(*m_pos) { *m_pos = '\0'; }
 inline NulString::~NulString() { *m_pos = m_nulChar; }
 inline NulString::operator NulString::const_pointer() const { return c_str(); }
+
+
+inline
+NulString::NulString(char* s, size_t len)
+	:m_pos(s + len)
+	,m_nulChar(*m_pos)
+{
+	*m_pos = '\0';
+	hook(s, len);
+}
 
 } // namespace util
 

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 354 $
-# Date   : $Date: 2012-06-19 20:02:35 +0000 (Tue, 19 Jun 2012) $
+# Version: $Revision: 375 $
+# Date   : $Date: 2012-07-02 13:04:39 +0000 (Mon, 02 Jul 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -492,12 +492,12 @@ bind TComboboxListbox <Motion>				[namespace code { LBHover %W %x %y }]
 bind TComboboxListbox <Map>					{ focus -force %W }
 
 bind TComboboxListbox <ButtonPress-4> {
-	%W yview scroll -5 units
+	%W yview scroll -1 units
 	after idle { ttk::combobox::LBHover %W %x %y }
 }
 
 bind TComboboxListbox <ButtonPress-5> {
-	%W yview scroll +5 units
+	%W yview scroll +1 units
 	after idle { ttk::combobox::LBHover %W %x %y }
 }
 
