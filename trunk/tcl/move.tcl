@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 349 $
-# Date   : $Date: 2012-06-16 22:15:15 +0000 (Sat, 16 Jun 2012) $
+# Version: $Revision: 373 $
+# Date   : $Date: 2012-07-02 10:25:19 +0000 (Mon, 02 Jul 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -500,8 +500,11 @@ proc ConfirmReplaceMove {} {
 
 
 proc Unlock {} {
-	set [namespace current]::Lock 0
-	set [namespace current]::Disabled 0
+	variable Lock
+	variable Disabled
+
+	set Lock 0
+	set Disabled 0
 }
 
 

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 334 $
-# Date   : $Date: 2012-06-13 09:36:59 +0000 (Wed, 13 Jun 2012) $
+# Version: $Revision: 373 $
+# Date   : $Date: 2012-07-02 10:25:19 +0000 (Mon, 02 Jul 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -534,7 +534,7 @@ proc Build {dlg base position number} {
 
 		if {$state eq "normal"} {
 			bind $top.$side-fideID <FocusOut> \
-				[namespace code [list UpdateName $top $side-name $side-fideID]]
+				+[namespace code [list UpdateName $top $side-name $side-fideID]]
 		}
 
 		foreach {attr tag} {rating {} title Title federation Country sex Sex} {
@@ -1072,7 +1072,7 @@ proc UpdateNameLabel {lbl state} {
 proc UpdateName {top nameField fideIdField} {
 	variable Options
 
-	set fideId [$top.$fideIdField get]
+	set fideId [$top.$fideIdField value]
 	if {[string length $fideId] && [string length [$top.$nameField get]] == 0} {
 		$top.$nameField set [::scidb::misc::lookup player $fideId -unicode $Options(unicode)]
 	}
@@ -2838,6 +2838,14 @@ proc CheckFields {top title fields} {
 					set type [string range [lindex $entry 0] 0 4][$top.$typeField value]
 					set Tags($type) $value
 					set [lindex $entry 0] $type
+				}
+			}
+
+			WhiteFideId - BlackFideId {
+				lassign $entry tagName field
+				set value [$top.$field value]
+				if {[string length $value]} {
+					set Tags($tagName) $value
 				}
 			}
 

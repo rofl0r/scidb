@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 334 $
-# Date   : $Date: 2012-06-13 09:36:59 +0000 (Wed, 13 Jun 2012) $
+# Version: $Revision: 373 $
+# Date   : $Date: 2012-07-02 10:25:19 +0000 (Mon, 02 Jul 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -236,6 +236,8 @@ if {[::scidb::misc::debug?]} {
 	if {[tk windowingsystem] eq "x11"} { ::scidb::tk::wm sync }
 	if {![::process::testOption force-grab]} { proc grab {args} {} }
 }
+
+proc decr {w} { uplevel [list incr $w -1] }
 
 ### need to predefine some namespaces ################################
 

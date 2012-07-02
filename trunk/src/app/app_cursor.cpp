@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 369 $
-// Date   : $Date: 2012-06-30 21:23:33 +0000 (Sat, 30 Jun 2012) $
+// Version: $Revision: 373 $
+// Date   : $Date: 2012-07-02 10:25:19 +0000 (Mon, 02 Jul 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -113,6 +113,7 @@ unsigned
 Cursor::newView(	View::UpdateMode gameUpdateMode,
 						View::UpdateMode playerUpdateMode,
 						View::UpdateMode eventUpdateMode,
+						View::UpdateMode siteUpdateMode,
 						View::UpdateMode annotatorUpdateMode)
 {
 	M_REQUIRE(isOpen());
@@ -123,6 +124,7 @@ Cursor::newView(	View::UpdateMode gameUpdateMode,
 										gameUpdateMode,
 										playerUpdateMode,
 										eventUpdateMode,
+										siteUpdateMode,
 										annotatorUpdateMode);
 
 	if (m_freeSet.empty())
@@ -145,7 +147,9 @@ unsigned
 Cursor::newTreeView()
 {
 	M_REQUIRE(isReferenceBase());
-	return m_treeView = newView(View::LeaveEmpty, View::LeaveEmpty, View::LeaveEmpty, View::LeaveEmpty);
+
+	return m_treeView =
+		newView(View::LeaveEmpty, View::LeaveEmpty, View::LeaveEmpty, View::LeaveEmpty, View::LeaveEmpty);
 }
 
 
@@ -219,6 +223,14 @@ Cursor::countEvents() const
 
 
 unsigned
+Cursor::countSites() const
+{
+	M_REQUIRE(isOpen());
+	return m_db->countSites();
+}
+
+
+unsigned
 Cursor::countAnnotators() const
 {
 	M_REQUIRE(isOpen());
@@ -263,6 +275,16 @@ Cursor::eventIndex(unsigned index, unsigned view) const
 	M_REQUIRE(isViewOpen(view));
 
 	return view == BaseView ? index : m_viewList[view + 1]->eventIndex(index);
+}
+
+
+unsigned
+Cursor::siteIndex(unsigned index, unsigned view) const
+{
+	M_REQUIRE(isOpen());
+	M_REQUIRE(isViewOpen(view));
+
+	return view == BaseView ? index : m_viewList[view + 1]->siteIndex(index);
 }
 
 
@@ -410,7 +432,7 @@ Cursor::compact(::util::Progress& progress)
 
 	if (deleted == 0)
 		return false;
-	
+
 	mstl::string orig(m_db->name());
 	mstl::string name;
 

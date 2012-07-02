@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 373 $
+// Date   : $Date: 2012-07-02 10:25:19 +0000 (Mon, 02 Jul 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -30,6 +30,7 @@ inline unsigned View::countGames() const		{ return m_gameFilter.count(); }
 inline unsigned View::totalGames() const		{ return m_gameFilter.size(); }
 inline unsigned View::countPlayers() const	{ return m_playerFilter.count(); }
 inline unsigned View::countEvents() const		{ return m_eventFilter.count(); }
+inline unsigned View::countSites() const		{ return m_siteFilter.count(); }
 inline unsigned View::totalPlayers() const	{ return m_playerFilter.size(); }
 inline unsigned View::totalEvents() const		{ return m_eventFilter.size(); }
 

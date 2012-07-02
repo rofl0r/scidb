@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 348 $
-# Date   : $Date: 2012-06-16 14:32:54 +0000 (Sat, 16 Jun 2012) $
+# Version: $Revision: 373 $
+# Date   : $Date: 2012-07-02 10:25:19 +0000 (Mon, 02 Jul 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -528,10 +528,10 @@ proc TableFill {path args} {
 		set base [::scrolledtable::base $path.table]
 		set line [scidb::db::get playerInfo $index $view $base -ratings $ratings]
 		set text {}
-		set k -1
+		set k 0
 
 		foreach id $columns {
-			set item [lindex $line [incr k]]
+			set item [lindex $line $k]
 
 			switch $id {
 				lastName {
@@ -549,9 +549,9 @@ proc TableFill {path args} {
 
 				fideID {
 					if {[string index $item 0] eq "-"} {
-						lappend text "[string range $item 1 end]*"
+						lappend text "*[string range $item 1 end]"
 					} else {
-						lappend text "$item "
+						lappend text $item
 					}
 				}
 
@@ -640,6 +640,8 @@ proc TableFill {path args} {
 					lappend text $item
 				}
 			}
+
+			incr k
 		}
 
 		::table::insert $table $i $text

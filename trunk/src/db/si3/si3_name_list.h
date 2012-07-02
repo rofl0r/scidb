@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 358 $
-// Date   : $Date: 2012-06-25 12:25:25 +0000 (Mon, 25 Jun 2012) $
+// Version: $Revision: 373 $
+// Date   : $Date: 2012-07-02 10:25:19 +0000 (Mon, 02 Jul 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -61,8 +61,12 @@ public:
 
 	bool isEmpty() const;
 
+	Node* operator[](unsigned i) const;
+
 	unsigned size() const;
 	unsigned maxFrequency() const;
+
+	Node* lookup(unsigned id);
 	Node const* lookup(unsigned id) const;
 
 	Node const* first() const;
@@ -79,6 +83,9 @@ public:
 	void addEntry(unsigned originalId, NamebaseEntry* entry);
 	void update(Namebase& base, sys::utf8::Codec& codec);
 	void reserve(unsigned size);
+
+	void resetMaxFrequency();
+	void updateMaxFrequency(unsigned freq);
 
 private:
 

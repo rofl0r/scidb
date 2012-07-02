@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 373 $
+// Date   : $Date: 2012-07-02 10:25:19 +0000 (Mon, 02 Jul 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -36,6 +36,7 @@ namespace db {
 class GameInfo;
 class NamebasePlayer;
 class NamebaseEvent;
+class NamebaseSite;
 class NamebaseAnnotator;
 
 class Search : public mstl::ref_counter
@@ -107,6 +108,19 @@ public:
 private:
 
 	NamebaseEvent const* m_entry;
+};
+
+class SearchSite : public Search
+{
+public:
+
+	SearchSite(NamebaseSite const* entry);
+
+	bool match(GameInfo const& info) const override;
+
+private:
+
+	NamebaseSite const* m_entry;
 };
 
 class SearchAnnotator : public Search

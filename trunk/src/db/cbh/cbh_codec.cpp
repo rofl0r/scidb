@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 326 $
-// Date   : $Date: 2012-05-20 20:27:50 +0000 (Sun, 20 May 2012) $
+// Version: $Revision: 373 $
+// Date   : $Date: 2012-07-02 10:25:19 +0000 (Mon, 02 Jul 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1967,9 +1967,10 @@ Codec::getEvent(uint32_t ref)
 	{
 		NamebaseEvent* event = static_cast<NamebaseEvent*>(p->second);
 
-		event->ref();
-		event->site()->ref();
+		if (event->frequency() == 0)
+			event->site()->ref();
 
+		event->ref();
 		return event;
 	}
 
@@ -1982,10 +1983,10 @@ Codec::getEvent(uint32_t ref)
 									mstl::string::empty_string,
 									country::Unknown,
 									m_eventMap.size() + 1));
+		m_illegalEvent->site()->ref();
 	}
 
 	m_illegalEvent->ref();
-	m_illegalEvent->site()->ref();
 
 	return m_illegalEvent;
 }

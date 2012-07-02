@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 373 $
+// Date   : $Date: 2012-07-02 10:25:19 +0000 (Mon, 02 Jul 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -38,6 +38,7 @@ SearchOpNot::~SearchOpNot() throw() {}
 
 SearchPlayer::SearchPlayer(NamebasePlayer const* entry) :m_entry(entry) {}
 SearchEvent::SearchEvent(NamebaseEvent const* entry) :m_entry(entry) {}
+SearchSite::SearchSite(NamebaseSite const* entry) :m_entry(entry) {}
 SearchOpNot::SearchOpNot(SearchP const& search) :m_search(search) { M_REQUIRE(search); }
 SearchAnnotator::SearchAnnotator(mstl::string const& name) :m_name(name) {}
 
@@ -80,6 +81,13 @@ bool
 SearchEvent::match(GameInfo const& info) const
 {
 	return info.eventEntry() == m_entry;
+}
+
+
+bool
+SearchSite::match(GameInfo const& info) const
+{
+	return info.eventEntry()->site() == m_entry;
 }
 
 

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 330 $
-# Date   : $Date: 2012-05-27 21:29:36 +0000 (Sun, 27 May 2012) $
+# Version: $Revision: 373 $
+# Date   : $Date: 2012-07-02 10:25:19 +0000 (Mon, 02 Jul 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -885,6 +885,7 @@ proc SetHighlighting {table} {
 proc PopupMenu {table y} {
 	variable ${table}::Vars
 
+	::tooltip::hide
 	set row [::table::at $table $y]
 
 	switch $row {

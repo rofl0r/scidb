@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 372 $
-# Date   : $Date: 2012-07-01 10:02:49 +0000 (Sun, 01 Jul 2012) $
+# Version: $Revision: 373 $
+# Date   : $Date: 2012-07-02 10:25:19 +0000 (Mon, 02 Jul 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -300,6 +300,7 @@
 ::application::database::mc::Games							"&Partidas"
 ::application::database::mc::Players						"&Jugadores"
 ::application::database::mc::Events							"Even&tos"
+::application::database::mc::Sites							"&Sites" ;# NEW
 ::application::database::mc::Annotators					"&Comentaristas"
 
 ::application::database::mc::File							"Archivo"

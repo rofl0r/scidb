@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 369 $
-# Date   : $Date: 2012-06-30 21:23:33 +0000 (Sat, 30 Jun 2012) $
+# Version: $Revision: 373 $
+# Date   : $Date: 2012-07-02 10:25:19 +0000 (Mon, 02 Jul 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -299,6 +299,7 @@
 ::application::database::mc::Games							"&Játszmák"
 ::application::database::mc::Players						"&Játékosok"
 ::application::database::mc::Events							"&Versenyek"
+::application::database::mc::Sites							"&Sites" ;# NEW
 ::application::database::mc::Annotators					"&Elemző"
 
 ::application::database::mc::File							"Fájl"

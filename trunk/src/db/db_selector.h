@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 326 $
-// Date   : $Date: 2012-05-20 20:27:50 +0000 (Sun, 20 May 2012) $
+// Version: $Revision: 373 $
+// Date   : $Date: 2012-07-02 10:25:19 +0000 (Mon, 02 Jul 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -60,9 +60,11 @@ public:
 
 	int findPlayer(Database const& db, mstl::string const& name) const;
 	int findEvent(Database const& db, mstl::string const& name) const;
+	int findSite(Database const& db, mstl::string const& name) const;
 	int findAnnotator(Database const& db, mstl::string const& name) const;
 	int searchPlayer(Database const& db, mstl::string const& name) const;
 	int searchEvent(Database const& db, mstl::string const& name) const;
+	int searchSite(Database const& db, mstl::string const& name) const;
 	int searchAnnotator(Database const& db, mstl::string const& name) const;
 
 	void sort(	Database const& db,
@@ -77,6 +79,9 @@ public:
 					attribute::event::ID attr,
 					order::ID order = order::Ascending);
 	void sort(	Database const& db,
+					attribute::site::ID attr,
+					order::ID order = order::Ascending);
+	void sort(	Database const& db,
 					attribute::annotator::ID attr,
 					order::ID order = order::Ascending);
 
@@ -89,6 +94,9 @@ public:
 private:
 
 	typedef mstl::vector<unsigned> Map;
+	typedef int(*Compar)(void const*, void const*);
+
+	void finish(Database const& db, unsigned numEntries, order::ID order, Compar compFunc);
 
 	Map m_map;
 	Map m_list;

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 346 $
-# Date   : $Date: 2012-06-15 21:04:20 +0000 (Fri, 15 Jun 2012) $
+# Version: $Revision: 373 $
+# Date   : $Date: 2012-07-02 10:25:19 +0000 (Mon, 02 Jul 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -43,6 +43,7 @@ set HelpSwitcher				"Help for Database Switcher"
 set Games						"&Games"
 set Players						"&Players"
 set Events						"&Events"
+set Sites						"&Sites"
 set Annotators					"&Annotators"
 
 set File							"File"
@@ -161,7 +162,7 @@ array set Vars {
 	afterid			{}
 	showDisabled	0
 	pressed			0
-	taborder			{games players events annotators}
+	taborder			{games players events sites annotators}
 }
 
 array set Defaults {
@@ -546,6 +547,17 @@ proc selectEvent {base index} {
 
 	if {[winfo toplevel $Vars(events)] eq $Vars(events)} {
 		events::activate $Vars(events) 1
+	}
+}
+
+
+proc selectSite {base index} {
+	variable Vars
+
+	sites::select $Vars(sites) $base $index
+
+	if {[winfo toplevel $Vars(sites)] eq $Vars(sites)} {
+		sites::activate $Vars(sites) 1
 	}
 }
 
@@ -1240,7 +1252,7 @@ proc Switch {filename} {
 		$canv itemconfigure content$i -fill $background
 	}
 
-	foreach tab {players events annotators} {
+	foreach tab {players events sites annotators} {
 		if {[winfo toplevel $Vars($tab)] eq $Vars($tab)} {
 			[namespace current]::${tab}::activate $Vars($tab) 1
 		}

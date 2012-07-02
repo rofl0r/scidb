@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 369 $
-# Date   : $Date: 2012-06-30 21:23:33 +0000 (Sat, 30 Jun 2012) $
+# Version: $Revision: 373 $
+# Date   : $Date: 2012-07-02 10:25:19 +0000 (Mon, 02 Jul 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -98,8 +98,8 @@ proc build {parent} {
 		$top \
 		;
 
-	bind $rt <<TableMinSize>>	[namespace code [list TableMinSize $rt %d]]
-	bind $lt <<TableMinSize>>	[namespace code [list TableMinSize $lt %d]]
+	bind $rt <<TableMinSize>> [namespace code [list TableMinSize $rt %d]]
+	bind $lt <<TableMinSize>> [namespace code [list TableMinSize $lt %d]]
 
 	$top add $lt
 	$top add $rt
@@ -190,7 +190,7 @@ proc InitBase {path base} {
 
 	if {![info exists Vars($base:view)]} {
 		set Vars($base:initializing) 1
-		set Vars($base:view) [::scidb::view::new $base slave master slave slave]
+		set Vars($base:view) [::scidb::view::new $base slave master slave slave slave]
 		set Vars($base:update:players) 1
 		set Vars($base:sort:players) $Defaults(sort:players)
 		set Vars($base:sort:events) $Defaults(sort:events)
@@ -294,6 +294,8 @@ proc Search {path base view {selected -1}} {
 	if {$selected >= 0} {
 		# TODO: we do an exact search, but probably we like to seach only for player name!
 		::scidb::view::search $base $view null events [list player $selected]
+		::eventtable::scroll $path.info.events home
+		::gametable::scroll $path.info.games home
 	} else {
 		Reset $path $base
 	}
