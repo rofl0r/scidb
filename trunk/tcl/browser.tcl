@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 369 $
-# Date   : $Date: 2012-06-30 21:23:33 +0000 (Sat, 30 Jun 2012) $
+# Version: $Revision: 380 $
+# Date   : $Date: 2012-07-05 20:29:07 +0000 (Thu, 05 Jul 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -362,14 +362,9 @@ proc load {parent base info view index windowId} {
 	}
 
 	variable ${windowId}::Vars
-	NextGame $Vars(dlg) $windowId [expr {$index - $Vars(index)}]
+	set Vars(index) $index
+	NextGame $Vars(dlg) $windowId 0
 	return $windowId
-}
-
-
-proc ShowPosition {parent position key {state 0}} {
-	variable ${position}::Vars
-	showPosition $parent $position [::board::stuff::rotated? $Vars(board)] $key $state
 }
 
 
@@ -459,6 +454,12 @@ if {0} {
 	}
 
 	return [list [list $opening1 eco] $opening2 [list $opening3 eco]]
+}
+
+
+proc ShowPosition {parent position key {state 0}} {
+	variable ${position}::Vars
+	showPosition $parent $position [::board::stuff::rotated? $Vars(board)] $key $state
 }
 
 

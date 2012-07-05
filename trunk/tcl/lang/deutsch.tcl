@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 373 $
-# Date   : $Date: 2012-07-02 10:25:19 +0000 (Mon, 02 Jul 2012) $
+# Version: $Revision: 380 $
+# Date   : $Date: 2012-07-05 20:29:07 +0000 (Thu, 05 Jul 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1190,6 +1190,7 @@
 ::export::mc::Option(pgn,append_mode_to_event_type)			"Modus an Ereignistyp anhängen"
 ::export::mc::Option(pgn,comment_to_html)							"Schreibe Kommentar im HTML-Format"
 ::export::mc::Option(pgn,exclude_games_with_illegal_moves)	"Partien mit regelwidrigen Zügen ausschliessen"
+::export::mc::Option(pgn,use_utf8_encoding)						"UTF-8 Enkodierung benutzen"
 
 ### save/replace #######################################################
 ::dialog::save::mc::SaveGame						"Partie speichern"

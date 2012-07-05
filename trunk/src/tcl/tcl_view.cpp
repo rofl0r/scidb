@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 373 $
-// Date   : $Date: 2012-07-02 10:25:19 +0000 (Mon, 02 Jul 2012) $
+// Version: $Revision: 380 $
+// Date   : $Date: 2012-07-05 20:29:07 +0000 (Thu, 05 Jul 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -652,16 +652,15 @@ cmdSubscribe(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 	Tcl_Obj* base	= objectFromObj(objc, objv, 2);
 	Tcl_Obj* arg = objc > 3 ? objv[3] : 0;
 
-	// XXX we don't want cancelling tree search
 	mstl::string basename(Tcl_GetString(base));
-	Cursor& cursor = scidb->cursor(basename);
+	Cursor const& cursor = Scidb->cursor(basename); // don't cancel tree search
 
 	SubscriberP& subscriber = ::subscriberMap[basename];
 
 	if (!subscriber)
 	{
 		subscriber = new Subscriber;
-		cursor.setSubscriber(subscriber);
+		const_cast<Cursor&>(cursor).setSubscriber(subscriber);
 	}
 
 	subscriber->addProc(proc, base, arg);

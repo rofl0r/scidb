@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 312 $
-// Date   : $Date: 2012-05-04 14:26:12 +0000 (Fri, 04 May 2012) $
+// Version: $Revision: 380 $
+// Date   : $Date: 2012-07-05 20:29:07 +0000 (Thu, 05 Jul 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -183,6 +183,8 @@ private:
 	mstl::fstream		m_gameStream;
 	mstl::fstream		m_annotationStream;
 	mstl::fstream		m_teamStream;
+	unsigned				m_teamRecords;
+	unsigned				m_teamRecordSize;
 	AnnotationMap		m_annotationMap;
 	BaseMap				m_playerMap;
 	BaseMap				m_eventMap;

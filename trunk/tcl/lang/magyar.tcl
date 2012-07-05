@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 373 $
-# Date   : $Date: 2012-07-02 10:25:19 +0000 (Mon, 02 Jul 2012) $
+# Version: $Revision: 380 $
+# Date   : $Date: 2012-07-05 20:29:07 +0000 (Thu, 05 Jul 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1191,6 +1191,7 @@
 ::export::mc::Option(pgn,append_mode_to_event_type)	"Add mode after event type"
 ::export::mc::Option(pgn,comment_to_html)		"Megjegyzés írása HTML stílusban"
 ::export::mc::Option(pgn,exclude_games_with_illegal_moves)	"Érvénytelen lépést tartalmazó játszmák elvetése"
+::export::mc::Option(pgn,use_utf8_encoding)		"Use UTF-8 encoding" ;# NEW
 
 ### save/replace #######################################################
 ::dialog::save::mc::SaveGame			"Játszma mentése"

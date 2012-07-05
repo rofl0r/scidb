@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 377 $
-# Date   : $Date: 2012-07-02 20:45:56 +0000 (Mon, 02 Jul 2012) $
+# Version: $Revision: 380 $
+# Date   : $Date: 2012-07-05 20:29:07 +0000 (Thu, 05 Jul 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -27,7 +27,7 @@
 # ======================================================================
 
 # ======================================================================
-# File encoding: macRoman
+# File encoding: utf-8
 # ======================================================================
 
 ### global #############################################################
@@ -1193,6 +1193,7 @@
 ::export::mc::Option(pgn,append_mode_to_event_type)			"Agregar modo tras el tipo de evento"
 ::export::mc::Option(pgn,comment_to_html)							"Escribir comentario en estilo HTML"
 ::export::mc::Option(pgn,exclude_games_with_illegal_moves)	"Excluir partidas con jugadas ilegales"
+::export::mc::Option(pgn,use_utf8_encoding)						"Use UTF-8 encoding" ;# NEW
 
 ### save/replace #######################################################
 ::dialog::save::mc::SaveGame						"Guardar partida"

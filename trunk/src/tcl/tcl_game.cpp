@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 367 $
-// Date   : $Date: 2012-06-29 17:33:57 +0000 (Fri, 29 Jun 2012) $
+// Version: $Revision: 380 $
+// Date   : $Date: 2012-07-05 20:29:07 +0000 (Thu, 05 Jul 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2533,8 +2533,6 @@ cmdUpdate(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 static int
 cmdImport(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 {
-	typedef tcl::PgnReader::Encoder Encoder;
-
 	char const* figurine = 0;
 	char const* encoding = sys::utf8::Codec::utf8();
 	char const* database	= 0;
@@ -2615,9 +2613,8 @@ cmdImport(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 
 	if (asVariation)
 	{
-		Encoder					encoder(encoding);
 		mstl::istringstream	stream(stringFromObj(objc, objv, 2));
-		tcl::PgnReader			reader(stream, encoder, cmd, arg, modification, -1);
+		tcl::PgnReader			reader(stream, encoding, cmd, arg, modification, -1);
 		VarConsumer				consumer(Scidb->game().currentBoard());
 		SingleProgress			progress;
 
@@ -2661,9 +2658,8 @@ cmdImport(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 		}
 
 		int						position(intFromObj(objc, objv, 1));
-		Encoder					encoder(encoding);
 		mstl::istringstream	stream(text);
-		tcl::PgnReader			reader(stream, encoder, cmd, arg, modification, 0, lineOffset, trialMode);
+		tcl::PgnReader			reader(stream, encoding, cmd, arg, modification, 0, lineOffset, trialMode);
 
 		if (figurine)
 			reader.setFigurine(figurine);

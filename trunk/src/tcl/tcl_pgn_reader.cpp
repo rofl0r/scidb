@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 306 $
-// Date   : $Date: 2012-04-22 18:16:09 +0000 (Sun, 22 Apr 2012) $
+// Version: $Revision: 380 $
+// Date   : $Date: 2012-07-05 20:29:07 +0000 (Thu, 05 Jul 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -42,21 +42,8 @@
 using namespace tcl;
 
 
-PgnReader::Encoder::Encoder(char const* encoding)
-	:codec(new sys::utf8::Codec(encoding))
-{
-	M_ASSERT(codec->hasEncoding());
-}
-
-
-PgnReader::Encoder::~Encoder() throw()
-{
-	delete codec;
-}
-
-
 PgnReader::PgnReader(mstl::istream& strm,
-							Encoder& encoder,
+							mstl::string const& encoding,
 							Tcl_Obj* cmd,
 							Tcl_Obj* arg,
 							Modification modification,
@@ -64,7 +51,7 @@ PgnReader::PgnReader(mstl::istream& strm,
 							unsigned lineOffset,
 							bool trialMode)
 	:db::PgnReader(strm,
-						*encoder.codec,
+						encoding.empty() ? sys::utf8::Codec::automatic() : encoding,
 						firstGameNumber,
 						modification,
 						lineOffset ? InMoveSection : UseResultTag)

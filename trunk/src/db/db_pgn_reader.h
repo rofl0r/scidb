@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 364 $
-// Date   : $Date: 2012-06-29 05:46:30 +0000 (Fri, 29 Jun 2012) $
+// Version: $Revision: 380 $
+// Date   : $Date: 2012-07-05 20:29:07 +0000 (Thu, 05 Jul 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -139,7 +139,7 @@ public:
 	};
 
 	PgnReader(	mstl::istream& stream,
-					sys::utf8::Codec& codec,
+					mstl::string const& encoding,
 					int firstGameNumber = 0,
 					Modification modification = Normalize,
 					ResultMode resultMode = UseResultTag);
@@ -355,7 +355,8 @@ private:
 	variant::Type		m_variant;
 	mstl::string		m_figurine;
 	mstl::string		m_description;
-	sys::utf8::Codec&	m_codec;
+	mstl::string		m_encoding;
+	sys::utf8::Codec*	m_codec;
 };
 
 } // namespace db

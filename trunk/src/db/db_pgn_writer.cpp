@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 380 $
+// Date   : $Date: 2012-07-05 20:29:07 +0000 (Thu, 05 Jul 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -116,6 +116,7 @@ PgnWriter::PgnWriter(format::Type srcFormat,
 		addFlag(Flag_Include_Position_Tag);
 		addFlag(Flag_Include_Time_Mode_Tag);
 		addFlag(Flag_Use_Shredder_FEN);
+		addFlag(Flag_Write_UTF8_BOM);
 
 		removeFlag(Flag_Exclude_Extra_Tags);
 		removeFlag(Flag_Symbolic_Annotation_Style);
@@ -124,6 +125,13 @@ PgnWriter::PgnWriter(format::Type srcFormat,
 		removeFlag(Flag_Convert_Lost_Result_To_Comment);
 		removeFlag(Flag_Append_Mode_To_Event_Type);
 		removeFlag(Flag_Use_Scidb_Import_Format);
+	}
+
+	if (	test(Flag_Write_UTF8_BOM)
+		&& !test(Mode_PGN_Standard)
+		&& encoding == sys::utf8::Codec::utf8())
+	{
+		m_strm.write("\xef\xbb\xbf\n"); // UTF-8 BOM
 	}
 }
 

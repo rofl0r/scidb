@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 216 $
-// Date   : $Date: 2012-01-29 19:02:12 +0000 (Sun, 29 Jan 2012) $
+// Version: $Revision: 380 $
+// Date   : $Date: 2012-07-05 20:29:07 +0000 (Thu, 05 Jul 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -174,6 +174,9 @@ public:
 
 	int format(const_pointer fmt, ...) __attribute__((__format__(__printf__, 2, 3)));
 	int vformat(const_pointer fmt, va_list args);
+
+	unsigned appendRomanNumber(unsigned n);
+	int toArabic(size_type pos = 0, size_type len = npos) const;
 
 	void trim();
 	void ltrim();

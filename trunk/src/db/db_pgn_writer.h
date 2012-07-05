@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 380 $
+// Date   : $Date: 2012-07-05 20:29:07 +0000 (Thu, 05 Jul 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -51,7 +51,7 @@ public:
 													 | Flag_Indent_Variations
 													 | Flag_Convert_Lost_Result_To_Comment;
 
-	static unsigned const Flag_Append_Games = Flag_LAST << 3;
+	static unsigned const Flag_Append_Games = Flag_LAST << 4;
 
 	PgnWriter(	format::Type srcFormat,
 					mstl::ostream& strm,

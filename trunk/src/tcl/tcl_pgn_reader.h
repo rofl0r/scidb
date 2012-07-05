@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 283 $
-// Date   : $Date: 2012-03-29 18:05:34 +0000 (Thu, 29 Mar 2012) $
+// Version: $Revision: 380 $
+// Date   : $Date: 2012-07-05 20:29:07 +0000 (Thu, 05 Jul 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -33,7 +33,6 @@ extern "C" { struct Tcl_Interp; }
 extern "C" { struct Tcl_Obj; }
 
 namespace db   { class GameInfo; }
-namespace sys  { namespace utf8 { class Codec; } }
 namespace mstl { class istream; }
 namespace mstl { class string; }
 
@@ -44,16 +43,8 @@ class PgnReader : public ::db::PgnReader
 {
 public:
 
-	struct Encoder
-	{
-		Encoder(char const* encoding);
-		~Encoder() throw();
-
-		sys::utf8::Codec* codec;
-	};
-
 	PgnReader(	mstl::istream& strm,
-					Encoder& encoder,
+					mstl::string const& encoding,
 					Tcl_Obj* cmd,
 					Tcl_Obj* arg,
 					Modification modification,
