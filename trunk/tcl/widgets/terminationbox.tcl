@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 334 $
-# Date   : $Date: 2012-06-13 09:36:59 +0000 (Wed, 13 Jun 2012) $
+# Version: $Revision: 381 $
+# Date   : $Date: 2012-07-06 17:37:29 +0000 (Fri, 06 Jul 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -198,6 +198,7 @@ proc Setup {w} {
 	variable ${w}::Width
 	variable reasons
 
+	$w.__w__ forgeticon
 	$w.__w__ configure -width [expr {max([minWidth], $Width)}]
 	$w.__w__ listinsert [list "" "\u2014"] -index 0
 	set index 0
@@ -213,7 +214,7 @@ proc ShowIcon {w} {
 	variable reasons
 
 	set content [$w get]
-	if {[string length $content]} {
+	if {[string length $content] > 1} {
 		set idx [$w.__w__ find $content]
 		if {$idx >= 1} {
 			set img [set icon::12x12::[lindex $reasons [expr {$idx - 1}]]]
@@ -257,9 +258,10 @@ proc Completion2 {w var prevContent} {
 
 	set content [string trimleft [set $var]]
 	set len [string length $content]
-	if {$len == 0} { return }
 
-	if {$len == 1 && [string is digit -strict $content]} {
+	if {$len == 0} {
+		$w.__w__ current 0
+	} elseif {$len == 1 && [string is digit -strict $content]} {
 		if {$content <= [llength $reasons]} {
 			$w.__w__ current $content
 			$w.__w__ icursor end

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 370 $
-# Date   : $Date: 2012-07-01 07:34:57 +0000 (Sun, 01 Jul 2012) $
+# Version: $Revision: 381 $
+# Date   : $Date: 2012-07-06 17:37:29 +0000 (Fri, 06 Jul 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -166,7 +166,7 @@ proc WidgetProc {w command args} {
 			}
 			set value [lindex $args 0]
 			if {[info exists mc::Gender($value)]} {
-				$w.__w__ current search sex  $mc::Gender($value)
+				$w.__w__ current search sex $mc::Gender($value)
 			} else {
 				$w.__w__ current 0
 			}
@@ -294,7 +294,7 @@ proc ShowIcon {w} {
 	variable types
 
 	set content [$w get]
-	if {[string length $content]} {
+	if {[string length $content] > 1} {
 		set idx [$w.__w__ find $content]
 		if {$idx >= 1} {
 			set img $icon::12x12::Gender([lindex $types [expr {$idx - 1}]])

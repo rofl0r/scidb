@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 381 $
+// Date   : $Date: 2012-07-06 17:37:29 +0000 (Fri, 06 Jul 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -21,7 +21,7 @@
 namespace mstl {
 namespace bits {
 
-extern void rotate_fast(void* first, void* middle, void* last);
+void rotate_fast(void* first, void* middle, void* last);
 
 }
 

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 298 $
-# Date   : $Date: 2012-04-18 20:09:25 +0000 (Wed, 18 Apr 2012) $
+# Version: $Revision: 381 $
+# Date   : $Date: 2012-07-06 17:37:29 +0000 (Fri, 06 Jul 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -292,7 +292,7 @@ proc ShowCountry {cb} {
 	variable ${cb}::None
 
 	set content [$cb get]
-	if {[string length $content]} {
+	if {[string length $content] > 1} {
 		set n [lsearch -index 1 $Values $content]
 		if {$n >= 1 || (!$None && $n == 0)} {
 			set code [::mc::countryForLang [lindex $Values $n 2]]

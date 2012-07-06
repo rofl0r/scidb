@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 369 $
-# Date   : $Date: 2012-06-30 21:23:33 +0000 (Sat, 30 Jun 2012) $
+# Version: $Revision: 381 $
+# Date   : $Date: 2012-07-06 17:37:29 +0000 (Fri, 06 Jul 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -301,6 +301,7 @@ proc fsbox {w type args} {
 		-command [namespace code [list SelectEncoding $w]] \
 	]
 	bind $Vars(widget:encoding:label) <<AltUnderlined>> [list $Vars(widget:encoding:entry) invoke]
+	bind $Vars(widget:encoding:entry) <Any-ButtonPress> {+ ::tooltip::tooltip hide }
 	tooltip $top.ent_encoding [Tr SelectEncoding]
 
 	if {[llength $Vars(selectencodingcommand)]} {

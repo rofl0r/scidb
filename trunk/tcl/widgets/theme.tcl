@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 380 $
-# Date   : $Date: 2012-07-05 20:29:07 +0000 (Thu, 05 Jul 2012) $
+# Version: $Revision: 381 $
+# Date   : $Date: 2012-07-06 17:37:29 +0000 (Fri, 06 Jul 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -817,14 +817,20 @@ proc CBMotion {w x y} {
 	}
 }
 
-# we want the invocation with a space key-press (but only if it is empty):
-bind TCombobox <KeyPress-space> {
-	if {[string length [%W get]] == 0} {
-		ttk::combobox::Post %W
-	} else {
-		%W insert end " "
-	}
-}
+# # we want the invocation with a space key-press, but only if
+# #   - it is empty
+# #   - or the insertion cursor is at position 0
+# #   - or the insertion cursor is at end of selection, and the
+# #     selection starts at position 0
+# bind TCombobox <KeyPress-space> {
+# 	if {	[string length [%W get]] == 0
+# 		|| [%W index insert] == 0
+# 		|| ([%W index sel.first] == 0 && [%W index insert] == [%W index sel.last])} {
+# 		ttk::combobox::Post %W
+# 	} else {
+# 		ttk::entry::Insert %W " "
+# 	}
+# }
 
 if {[tk windowingsystem] eq "x11"} {
 
