@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 216 $
-// Date   : $Date: 2012-01-29 19:02:12 +0000 (Sun, 29 Jan 2012) $
+// Version: $Revision: 383 $
+// Date   : $Date: 2012-07-07 10:44:09 +0000 (Sat, 07 Jul 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -96,6 +96,7 @@ private:
 	bool					m_endOfRun;
 	bool					m_danglingPop;
 	unsigned				m_danglingEndMarker;
+	unsigned				m_lastCommentPos;
 };
 
 } // namespace sci

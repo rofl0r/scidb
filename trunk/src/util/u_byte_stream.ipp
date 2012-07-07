@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 383 $
+// Date   : $Date: 2012-07-07 10:44:09 +0000 (Sat, 07 Jul 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -199,6 +199,15 @@ ByteStream::seekg(unsigned offset)
 {
 	M_REQUIRE(offset <= capacity());
 	m_getp = m_base + offset;
+}
+
+
+inline
+void
+ByteStream::seekp(unsigned offset)
+{
+	M_REQUIRE(offset <= tellp());
+	m_putp = m_base + offset;
 }
 
 #if HAVE_0X_MOVE_CONSTRCUTOR_AND_ASSIGMENT_OPERATOR
