@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 373 $
-// Date   : $Date: 2012-07-02 10:25:19 +0000 (Mon, 02 Jul 2012) $
+// Version: $Revision: 385 $
+// Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1099,11 +1099,12 @@ namespace display
 {
 	enum
 	{
-		CompactStyle		= 1 << 0,
-		ColumnStyle			= 1 << 1,
-		ParagraphSpacing	= 1 << 2,
-		ShowDiagrams		= 1 << 3,
-		ShowMoveInfo		= 1 << 4,
+		CompactStyle			= 1 << 0,
+		ColumnStyle				= 1 << 1,
+		ParagraphSpacing		= 1 << 2,
+		ShowDiagrams			= 1 << 3,
+		ShowMoveInfo			= 1 << 4,
+		ShowVariationNumbers	= 1 << 5,
 	};
 };
 

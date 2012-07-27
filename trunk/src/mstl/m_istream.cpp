@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 385 $
+// Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -241,7 +241,7 @@ istream::unget()
 }
 
 
-unsigned long
+uint64_t
 istream::tellg()
 {
 	return ftell(m_fp);
@@ -249,7 +249,7 @@ istream::tellg()
 
 
 istream&
-istream::seekg(unsigned long offset)
+istream::seekg(uint64_t offset)
 {
 	if (fseek(m_fp, offset, SEEK_CUR) == -1)
 		setstate(failbit);
@@ -259,7 +259,7 @@ istream::seekg(unsigned long offset)
 
 
 istream&
-istream::seekg(long offset, seekdir dir)
+istream::seekg(int64_t offset, seekdir dir)
 {
 	if (fseek(m_fp, offset, fdir(dir)) == -1)
 		setstate(failbit);
@@ -272,6 +272,13 @@ int64_t
 istream::size() const
 {
 	return -1;
+}
+
+
+uint64_t
+istream::goffset()
+{
+	return tellg();
 }
 
 // vi:set ts=3 sw=3:

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 369 $
-# Date   : $Date: 2012-06-30 21:23:33 +0000 (Sat, 30 Jun 2012) $
+# Version: $Revision: 385 $
+# Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -66,7 +66,7 @@ proc open {parent base info view index {fen {}}} {
 	::widget::dialogButtons $dlg {close previous next help} close
 #	foreach type {close previous next help} { $dlg.$type configure -width 15 }
 	$dlg.close configure -command [list destroy $dlg]
-	$dlg.help configure -command { ::help::open .application Game-Overview }
+	$dlg.help configure -command [list ::help::open .application Game-Overview -parent $dlg]
 
 	set sw [expr {[winfo screenwidth $dlg] - 30}]
 	set sh [expr {[winfo screenheight $dlg] - 140}]
@@ -80,7 +80,7 @@ proc open {parent base info view index {fen {}}} {
 	bind $nb <<NotebookTabChanged>> [namespace code [list TabChanged $nb]]
 	bind $nb <<LanguageChanged>> [namespace code [list LanguageChanged $nb]]
 	bind $dlg <ButtonPress-3> [namespace code [list PopupMenu $nb $base]]
-	bind $dlg <F1> { ::help::open .application Game-Overview }
+	bind $dlg <F1> [list ::help::open .application Game-Overview -parent $dlg ]
 
 	namespace eval $nb {}
 	variable ${nb}::Vars
@@ -385,7 +385,7 @@ proc BuildTab {nb boardSize sw sh specified} {
 			::widget::bindMouseWheel $text 1
 			grid $board -column [expr {2*($col + 1)}] -row [expr {4*($row + 1)}]
 			grid $text  -column [expr {2*($col + 1)}] -row [expr {4*($row + 1) + 2}] -sticky ew
-			$text tag configure figurine -font $::font::figurine
+			$text tag configure figurine -font $::font::figurine(text:normal)
 		}
 	}
 

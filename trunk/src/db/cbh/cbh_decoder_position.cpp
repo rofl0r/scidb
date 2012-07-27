@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 385 $
+// Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -77,7 +77,7 @@ Position::doMove(Move move)
 
 	move.setColor(board.sideToMove());
 
-	if (board.isValidMove(move, move::DontAllowIllegalMove))
+	if (board.isValidMove(move, move::AllowIllegalMove))
 		move.setLegalMove();
 	else if (!board.checkMove(move, move::AllowIllegalMove))
 		return Move::empty();

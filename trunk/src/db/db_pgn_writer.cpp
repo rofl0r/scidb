@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 380 $
-// Date   : $Date: 2012-07-05 20:29:07 +0000 (Thu, 05 Jul 2012) $
+// Version: $Revision: 385 $
+// Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -444,6 +444,8 @@ PgnWriter::putComment(mstl::string const& comment, char ldelim, char rdelim)
 
 	if (test(Flag_Indent_Comments))
 		putNewline();
+	else
+		putSpace();
 }
 
 

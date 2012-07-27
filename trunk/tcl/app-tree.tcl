@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 358 $
-# Date   : $Date: 2012-06-25 12:25:25 +0000 (Mon, 25 Jun 2012) $
+# Version: $Revision: 385 $
+# Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -321,7 +321,7 @@ proc build {parent width height} {
 		lappend Vars(styles) $id styTotal$id
 	}
 
-	::table::configure $tb move -font2 $::font::figurine
+	::table::configure $tb move -font2 $::font::figurine(text:normal)
 
 	::table::bind $tb <ButtonPress-2>	[namespace code [list ShowPlayerInfo $tb %x %y]]
 	::table::bind $tb <ButtonRelease-2>	[namespace code [list HideInfo $tb]]

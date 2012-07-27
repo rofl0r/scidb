@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 385 $
+// Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -50,6 +50,7 @@ inline db::Tree const* Application::currentTree() const				{ return m_currentTre
 
 inline void Application::setSwitchReferenceBase(bool flag)			{ m_switchReference = flag; }
 inline void Application::setReferenceBase(Cursor* cursor)			{ setReferenceBase(cursor, true); }
+inline void Application::freezeTree(bool flag)							{ m_treeIsFrozen = flag; }
 
 
 inline

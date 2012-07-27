@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 376 $
-// Date   : $Date: 2012-07-02 17:54:39 +0000 (Mon, 02 Jul 2012) $
+// Version: $Revision: 385 $
+// Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -776,6 +776,8 @@ Decoder::decodeComments(MoveNode* node, Consumer* consumer)
 			if (Comment::convertCommentToXml(buffer, comment, encoding::Utf8))
 				node->addAnnotation(nag::Diagram);
 
+			comment.normalize();
+
 			if (node->next()->atLineEnd())
 				node->swapComment(comment, move::Post);
 			else
@@ -815,10 +817,12 @@ Decoder::decodeComments(MoveNode* node, Consumer* consumer)
 						Comment total;
 						node->prev()->swapComment(total, move::Ante);
 						total.append(comment, ' ');
+						total.normalize();
 						node->swapComment(total, move::Ante);
 					}
 					else
 					{
+						comment.normalize();
 						node->swapComment(comment, move::Ante);
 					}
 				}
@@ -866,6 +870,7 @@ Decoder::decodeComments(MoveNode* node, Consumer* consumer)
 					if (Comment::convertCommentToXml(buffer, comment, encoding::Utf8))
 						node->addAnnotation(nag::Diagram);
 
+					comment.normalize();
 					node->swapComment(comment, move::Post);
 				}
 			}

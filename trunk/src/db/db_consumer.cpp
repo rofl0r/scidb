@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 385 $
+// Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -64,6 +64,8 @@ Consumer::Consumer(	format::Type srcFormat,
 	,m_setupBoard(true)
 	,m_commentEngFlag(false)
 	,m_commentOthFlag(false)
+	,m_illegalCastling(false)
+	,m_illegalMove(false)
 {
 }
 
@@ -144,6 +146,8 @@ Consumer::startGame(TagSet const& tags, Board const* board)
 	m_line.length = 0;
 	m_commentEngFlag = false;
 	m_commentOthFlag = false;
+	m_illegalCastling = false;
+	m_illegalMove = false;
 	m_moveInfoSet.clear();
 	m_engines.clear();
 	m_homePawns.clear();
@@ -315,7 +319,12 @@ Consumer::putMove(Move const& move,
 		entry.board.doMove(entry.move);
 
 		if (!move.isLegal())
-			m_flags |= GameInfo::Flag_Illegal_Move;
+		{
+			if (move.isCastling())
+				m_flags |= GameInfo::Flag_Illegal_Castling;
+			else
+				m_flags |= GameInfo::Flag_Illegal_Move;
+		}
 
 		if (isMainline())
 		{
@@ -368,7 +377,12 @@ Consumer::putMove(Move const& move)
 		entry.board.doMove(entry.move);
 
 		if (!move.isLegal())
-			m_flags |= GameInfo::Flag_Illegal_Move;
+		{
+			if (move.isCastling())
+				m_flags |= GameInfo::Flag_Illegal_Castling;
+			else
+				m_flags |= GameInfo::Flag_Illegal_Move;
+		}
 
 		if (isMainline())
 		{

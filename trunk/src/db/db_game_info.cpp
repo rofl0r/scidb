@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 373 $
-// Date   : $Date: 2012-07-02 10:25:19 +0000 (Mon, 02 Jul 2012) $
+// Version: $Revision: 385 $
+// Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1243,9 +1243,22 @@ GameInfo::flagsToString(uint32_t flags, mstl::string& result)
 {
 	unsigned size = result.size();
 
+	if (flags & Flag_Illegal_Move)
+	{
+		result += mapFlag(Flag_Illegal_Move);
+		result += ' ';
+	}
+	else if (flags & Flag_Illegal_Castling)
+	{
+		result += mapFlag(Flag_Illegal_Castling);
+		result += ' ';
+	}
+
 	for (unsigned i = 0; i < U_NUMBER_OF(::GameFlagMap); ++i)
 	{
-		if (flags & (1 << (i + 1)))
+		unsigned flag = (1u << (i + 1)) & ~(Flag_Illegal_Castling | Flag_Illegal_Move);
+
+		if (flags & flag)
 		{
 			result += ::GameFlagMap[i];
 			result += ' ';

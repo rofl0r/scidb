@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 367 $
-# Date   : $Date: 2012-06-29 17:33:57 +0000 (Fri, 29 Jun 2012) $
+# Version: $Revision: 385 $
+# Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -788,7 +788,10 @@ proc openGame {parent index} {
 
 	if {!$rc} {
 		set History [lreplace $History $index $index]
+		::application::pgn::historyChanged
 	}
+
+	return $rc
 }
 
 

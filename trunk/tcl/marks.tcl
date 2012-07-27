@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 298 $
-# Date   : $Date: 2012-04-18 20:09:25 +0000 (Wed, 18 Apr 2012) $
+# Version: $Revision: 385 $
+# Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -223,16 +223,17 @@ proc open {parent} {
 	}
 	if {[llength $Position] == 2} {
 		::update idletasks
-		scan [winfo geometry [winfo toplevel $parent]] "%dx%d+%d+%d" tw th tx ty
-		set rx [expr {$tx + [lindex $Position 0]}]
-		set ry [expr {$ty + [lindex $Position 1]}]
-		set rw [winfo reqwidth $dlg]
-		set rh [winfo reqheight $dlg]
-		set sw [winfo screenwidth $dlg]
-		set sh [winfo screenheight $dlg]
-		set rx [expr {max(min($rx, $sw - $rw), 0)}]
-		set ry [expr {max(min($ry, $sh - $rh), 0)}]
-		wm geometry $dlg +$rx+$ry
+		if {[scan [winfo geometry [winfo toplevel $parent]] "%dx%d+%d+%d" tw th tx ty] == 4} {
+			set rx [expr {$tx + [lindex $Position 0]}]
+			set ry [expr {$ty + [lindex $Position 1]}]
+			set rw [winfo reqwidth $dlg]
+			set rh [winfo reqheight $dlg]
+			set sw [winfo screenwidth $dlg]
+			set sh [winfo screenheight $dlg]
+			set rx [expr {max(min($rx, $sw - $rw), 0)}]
+			set ry [expr {max(min($ry, $sh - $rh), 0)}]
+			wm geometry $dlg +$rx+$ry
+		}
 	} else {
 		::util::place $dlg center $parent
 	}

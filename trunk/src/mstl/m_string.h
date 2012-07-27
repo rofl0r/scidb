@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 380 $
-// Date   : $Date: 2012-07-05 20:29:07 +0000 (Thu, 05 Jul 2012) $
+// Version: $Revision: 385 $
+// Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -176,6 +176,7 @@ public:
 	int vformat(const_pointer fmt, va_list args);
 
 	unsigned appendRomanNumber(unsigned n);
+	unsigned appendSmallRomanNumber(unsigned n);
 	int toArabic(size_type pos = 0, size_type len = npos) const;
 
 	void trim();
@@ -229,6 +230,7 @@ private:
 	void clone();
 	void copy();
 	void init(const_pointer s, size_type len);
+	unsigned appendRomanNumber(unsigned n, int (*caseconv)(int));
 
 	size_type	m_size;
 	size_type	m_capacity;

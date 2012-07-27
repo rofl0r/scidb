@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 373 $
-# Date   : $Date: 2012-07-02 10:25:19 +0000 (Mon, 02 Jul 2012) $
+# Version: $Revision: 385 $
+# Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -263,7 +263,7 @@ proc build {path getViewCmd {visibleColumns {}} {args {}}} {
 	::scrolledtable::bind $table <ButtonRelease-2>	[namespace code [list HideInfo $path]]
 	::scrolledtable::bind $table <ButtonPress-3>		+[namespace code [list HideInfo $path]]
 
-#	::scrolledtable::configure $table lastName -font2 $::font::figurine
+#	::scrolledtable::configure $table lastName -font2 $::font::figurine(text:normal)
 
 	if {$useFind} {
 		set tbFind [::toolbar::toolbar $path \

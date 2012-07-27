@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 385 $
+// Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -46,6 +46,7 @@ public:
 	size_t readsome(unsigned char* buf, size_t n);
 
 	virtual int64_t size() const;
+	virtual uint64_t goffset();
 
 	bool eof();
 
@@ -55,9 +56,9 @@ public:
 	istream& putback(char c);
 	istream& unget();
 
-	unsigned long tellg();
-	istream& seekg(unsigned long offset);
-	istream& seekg(long offset, seekdir dir);
+	uint64_t tellg();
+	istream& seekg(uint64_t offset);
+	istream& seekg(int64_t, seekdir dir);
 
 private:
 

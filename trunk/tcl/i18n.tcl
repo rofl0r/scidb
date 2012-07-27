@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 362 $
-# Date   : $Date: 2012-06-27 19:52:57 +0000 (Wed, 27 Jun 2012) $
+# Version: $Revision: 385 $
+# Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -40,13 +40,6 @@ set Key(Right)		"\u2192"
 set Key(Shift)		"Shift"
 set Key(Up)			"\u2191"
 
-set MoveForm(alg)	"Algebraic"
-set MoveForm(san)	"Short Algebraic"
-set MoveForm(lan)	"Long Algebraic"
-set MoveForm(eng)	"English"
-set MoveForm(cor)	"Correspondence"
-set MoveForm(tel)	"Telegraphic"
-
 set Alignment		"Alignment"
 set Apply			"Apply"
 set Archive			"Archive"
@@ -58,6 +51,7 @@ set Clear			"Clear"
 set Close			"Close"
 set Color			"Color"
 set Colors			"Colors"
+set Configuration	"Configuration"
 set Copy				"Copy"
 set Cut				"Cut"
 set Dark				"Dark"
@@ -75,6 +69,7 @@ set No				"No"
 set NotAvailable	"n/a"
 set Number			"Number"
 set OK				"OK"
+set Order			"Order"
 set Paste			"Paste"
 set PieceSet		"Piece Set"
 set Preview			"Preview"

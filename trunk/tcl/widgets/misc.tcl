@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 369 $
-# Date   : $Date: 2012-06-30 21:23:33 +0000 (Sat, 30 Jun 2012) $
+# Version: $Revision: 385 $
+# Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -45,7 +45,7 @@ set Control(close)		"Close"
 set Priv(busy:state) 0
 
 
-set ButtonOrder { previous next update clear close ok apply cancel reset revert help }
+set ButtonOrder { previous next update clear close ok apply cancel revert reset help }
 	
 
 proc focusNext {w next} { set [namespace current]::Priv(next:$w) $next }
@@ -281,7 +281,7 @@ proc dialogButtonSetIcons {dlg} {
 				cancel	{ set icon $::icon::iconCancel }
 				apply		{ set icon $::icon::iconApply }
 				update	{ set icon $::icon::iconUpdate }
-				reset		{ set icon $::icon::iconReset }
+				reset		{ set icon $::icon::iconEraser }
 				clear		{ set icon $::icon::iconClear }
 				close		{ set icon $::icon::iconClose }
 				revert	{ set icon $::icon::iconReset }

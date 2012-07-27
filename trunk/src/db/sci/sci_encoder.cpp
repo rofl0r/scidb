@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 311 $
-// Date   : $Date: 2012-05-03 19:56:10 +0000 (Thu, 03 May 2012) $
+// Version: $Revision: 385 $
+// Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -341,8 +341,11 @@ Encoder::encodeMainline(MoveNode const* node)
 	{
 		node = node->next();
 
-		for ( ; node->isBeforeLineEnd() && !node->hasSupplement(); node = node->next())
+		for ( ; node->isBeforeLineEnd(); node = node->next())
 		{
+			if (node->hasSupplement())
+				return encodeVariation(node);
+
 			if (encodeMove(node->move()))
 			{
 				m_position.doMove(node->move());
@@ -351,7 +354,7 @@ Encoder::encodeMainline(MoveNode const* node)
 			else
 			{
 				m_position.doMove(node->move());
-				encodeVariation(node);
+				encodeVariation(node->next());
 				return;
 			}
 		}

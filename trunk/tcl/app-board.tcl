@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 362 $
-# Date   : $Date: 2012-06-27 19:52:57 +0000 (Wed, 27 Jun 2012) $
+# Version: $Revision: 385 $
+# Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -221,7 +221,12 @@ proc build {w width height} {
 	set Vars(cmd:trial-mode)			::game::flipTrialMode
 
 	LanguageChanged
-	bind <<LanguageChanged>> [namespace code LanguageChanged]
+
+	bind <<LanguageChanged>>	[namespace code LanguageChanged]
+	bind <Control-plus>			[list ::application::pgn::changeFontSize +1]
+	bind <Control-KP_Add>		[list ::application::pgn::changeFontSize +1]
+	bind <Control-minus>			[list ::application::pgn::changeFontSize -1]
+	bind <Control-KP_Subtract>	[list ::application::pgn::changeFontSize -1]
 
 	BuildBoard $canv
 	ConfigureBoard $canv
@@ -857,9 +862,11 @@ proc BuildBoard {canv} {
 
 proc Rotate {canv} {
 	variable board
+	variable Vars
 
 	::board::stuff::rotate $board
 	ConfigureBoard $canv
+	DrawMaterialValues $Vars(widget:frame)
 }
 
 

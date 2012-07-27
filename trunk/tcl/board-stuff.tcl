@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 375 $
-# Date   : $Date: 2012-07-02 13:04:39 +0000 (Mon, 02 Jul 2012) $
+# Version: $Revision: 385 $
+# Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -605,7 +605,7 @@ proc drawText {canv squareSize color x y text} {
 	set y0 [expr {$y + $squareSize/2}]
 	scan [::dialog::choosecolor::getActualColor $color] "\#%2x%2x%2x" r g b
 	set luma	[expr {$r*0.2125 + $g*0.7154 + $b*0.0721}]
-	set font [list [font configure TkDefaultFont -family] $size bold]
+	set font [list [font configure TkFixedFont -family] $size bold]
 	set x1 [expr {$x0 + 1}]
 	set y1 [expr {$y0 + 1}]
 	set tags {mark text}

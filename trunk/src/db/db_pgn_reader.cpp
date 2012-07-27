@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 380 $
-// Date   : $Date: 2012-07-05 20:29:07 +0000 (Thu, 05 Jul 2012) $
+// Version: $Revision: 385 $
+// Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -669,21 +669,20 @@ PgnReader::process(Progress& progress)
 
 	try
 	{
-		Token		token				= m_firstGameNumber < 0 ? kTag : searchTag();
-		unsigned	numGames			= ::estimateNumberOfGames(m_stream.size());
-		unsigned	frequency		= progress.frequency(numGames, 1000);
-		unsigned	reportAfter		= frequency;
-		unsigned	count				= 0;
+		Token		token			= m_firstGameNumber < 0 ? kTag : searchTag();
+		unsigned	streamSize	= m_stream.size();
+		unsigned	numGames		= ::estimateNumberOfGames(streamSize);
+		unsigned	frequency	= progress.frequency(numGames, 1000);
+		unsigned	reportAfter	= frequency;
+		unsigned	count			= 0;
 
-		// TODO: do a correction of the estimation periodically.
-
-		ProgressWatcher watcher(progress, numGames);
+		ProgressWatcher watcher(progress, streamSize);
 
 		while (token == kTag)
 		{
 			if (reportAfter == count++)
 			{
-				progress.update(count);
+				progress.update(m_stream.goffset());
 
 				if (progress.interrupted())
 					return m_gameCount;
@@ -2884,21 +2883,18 @@ PgnReader::parseComment(Token prevToken, int c)
 		consumer().preparseComment(content);
 	}
 
-	if (content.empty())
-		return kComment;
-
-	Comment comment;
-
-	if (m_modification != Raw || !comment.fromHtml(content))
+	if (m_modification == Raw || !content.empty())
 	{
-		convertToUtf(content);
-		Comment::convertCommentToXml(
-			content, comment, encoding::Utf8);
-		comment.normalize();
-	}
+		Comment comment;
 
-	if (m_modification == Raw || !comment.isEmpty())
-	{
+		if (m_modification != Raw || !comment.fromHtml(content))
+		{
+			convertToUtf(content);
+			Comment::convertCommentToXml(
+				content, comment, encoding::Utf8);
+			comment.normalize();
+		}
+
 		m_hasNote = true;
 		m_comments.push_back();
 		m_comments.back().swap(comment);

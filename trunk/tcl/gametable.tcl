@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 377 $
-# Date   : $Date: 2012-07-02 20:45:56 +0000 (Mon, 02 Jul 2012) $
+# Version: $Revision: 385 $
+# Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -489,9 +489,9 @@ proc build {path getViewCmd {visibleColumns {}} {args {}}} {
 	}
 	lappend args -popupcmd [namespace code PopupMenu]
 	set Vars(table) [::scrolledtable::build $path $columns {*}$args]
-	::scrolledtable::configure $path material -font2 $::font::figurine
-	::scrolledtable::configure $path position -font2 $::font::figurine
-	::scrolledtable::configure $path overview -font2 $::font::figurine
+	::scrolledtable::configure $path material -font2 $::font::figurine(text:normal)
+	::scrolledtable::configure $path position -font2 $::font::figurine(text:normal)
+	::scrolledtable::configure $path overview -font2 $::font::figurine(text:normal)
 	RefreshEventType $path
 
 	::bind $path <<TableFill>>			[namespace code [list TableFill $path %d]]
@@ -705,7 +705,7 @@ proc showMoves {path moves result showEmpty {width 50}} {
 			-cursor {} \
 			;
 		pack $f.text -padx 1 -pady 1
-      $f.text tag configure figurine -font $::font::figurine
+      $f.text tag configure figurine -font $::font::figurine(text:normal)
 		# NOTE: w/o this dirty trick -displaylines will not work.
 		::shadow::prevent $w
 		wm geometry $w +[winfo screenwidth $w]+[winfo screenheight $w]
@@ -1399,7 +1399,7 @@ proc TableVisit {table data} {
 			if {[string length [lindex $lines 1 0]]} {
 				if {!$Options(showIDN)} { return }
 				set tip [lindex $lines 1 0]
-				set font ::font::figurineSmall
+				set font ::font::figurine(small:normal)
 			} else {
 				set tip [string range [lindex $lines 0 0] 6 end]
 			}
@@ -1466,7 +1466,7 @@ proc TableVisit {table data} {
 		}
 
 		idn {
-			set font ::font::figurineSmall
+			set font ::font::figurine(small:normal)
 			set tip $item
 		}
 

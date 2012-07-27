@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 291 $
-# Date   : $Date: 2012-04-09 23:03:07 +0000 (Mon, 09 Apr 2012) $
+# Version: $Revision: 385 $
+# Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1548,6 +1548,11 @@ proc ::tk_popup {menu x y {entry {}}} {
 	set Priv(popup) $menu
 	tk_menuSetFocus $menu
     }
+    ### FIX begin ####################################################################
+    # tk_menuSetFocus is not always sufficient
+    tkwait visibility $menu
+    focus -force $menu
+    ### FIX end ######################################################################
 }
 
 ### MODERNIZE begin ##########################################################

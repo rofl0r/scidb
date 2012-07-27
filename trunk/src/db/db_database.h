@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 373 $
-// Date   : $Date: 2012-07-02 10:25:19 +0000 (Mon, 02 Jul 2012) $
+// Version: $Revision: 385 $
+// Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -190,13 +190,13 @@ public:
 	/// Export one game at the given position.
 	save::State exportGame(unsigned index, Database& destination);
 	/// Add new game to database.
-	save::State addGame(Game const& game);
+	save::State addGame(Game& game);
 	/// Replace game in database.
-	save::State updateGame(Game const& game);
+	save::State updateGame(Game& game);
 	/// Update the characteristics of a game
 	save::State updateCharacteristics(unsigned index, TagSet const& tags);
 	/// Update the move data of a game
-	save::State updateMoves(Game const& game);
+	save::State updateMoves(Game& game);
 
 	/// Removes all games from the database.
 	void clear();

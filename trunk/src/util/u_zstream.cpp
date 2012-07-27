@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 343 $
-// Date   : $Date: 2012-06-15 12:05:39 +0000 (Fri, 15 Jun 2012) $
+// Version: $Revision: 385 $
+// Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -17,6 +17,7 @@
 // ======================================================================
 
 #include "u_zstream.h"
+#include "u_byte_stream.h"
 #include "u_misc.h"
 
 #include "m_ifstream.h"
@@ -323,6 +324,26 @@ write(void* cookie, char const* buf, size_t len)
 	return ::gzwrite(HANDLE, buf, len);
 }
 
+
+unsigned
+readUncompressedSize(mstl::ifstream& strm)
+{
+	char buf[4];
+
+	unsigned offs = strm.tellg();
+	unsigned size;
+
+	strm.seekg(-4, mstl::ios_base::end);
+	strm.read(buf, 4);
+	ByteStream bstrm(buf, 4);
+	size = bstrm.uint32LE();
+	strm.seekg(offs, mstl::ios_base::beg);
+
+	// IMPORTANT NOTE: This is the size modulo 2**32. If the decompressed
+	// file has more than 4GB we have to increase the size by 2**32.
+	return size;
+}
+
 } // namespace gzip
 } // namespace
 
@@ -376,6 +397,16 @@ ZStream::zipFileSuffixes()
 }
 
 
+uint64_t
+ZStream::goffset()
+{
+	if (m_type == GZip)
+		return gzoffset(m_handle.handle);
+
+	return tellg();
+}
+
+
 void
 ZStream::open(char const* filename, Mode mode)
 {
@@ -412,7 +443,7 @@ ZStream::open(char const* filename, Mode mode)
 		if (!m_fp)
 			::gzclose(HANDLE);
 
-		m_size = uint64_t(strm.size()*::DecompressionFactor);	// it's an estimation
+		m_size = gzip::readUncompressedSize(strm);
 		m_type = GZip;
 	}
 	else if (::memcmp(buffer, zzipMagic, sizeof(zzipMagic)) == 0)
@@ -553,7 +584,7 @@ ZStream::size(char const* filename, int64_t& size, Type* type)
 
 	if (::memcmp(buffer, gzipMagic, sizeof(gzipMagic)) == 0)
 	{
-		size = int64_t(strm.size()*::DecompressionFactor);	// it's an estimation
+		size = gzip::readUncompressedSize(strm);
 		if (type) *type = GZip;
 	}
 	else if (::memcmp(buffer, zzipMagic, sizeof(zzipMagic)) == 0)

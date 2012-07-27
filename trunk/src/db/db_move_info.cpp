@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 291 $
-// Date   : $Date: 2012-04-09 23:03:07 +0000 (Mon, 09 Apr 2012) $
+// Version: $Revision: 385 $
+// Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -220,7 +220,9 @@ MoveInfo::parseEvaluation(char const* s)
 	switch (*e)
 	{
 		case '|':
-			if (e[1] == 'd' && ::isdigit(e[2]))
+			if (::isdigit(e[1]))
+				m_analysis.m_depth = ::strtoul(e + 1, &e, 10);
+			else if (e[1] == 'd' && ::isdigit(e[2]))
 				m_analysis.m_depth = ::strtoul(e + 2, &e, 10);
 			break;
 

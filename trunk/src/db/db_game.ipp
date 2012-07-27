@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 358 $
-// Date   : $Date: 2012-06-25 12:25:25 +0000 (Mon, 25 Jun 2012) $
+// Version: $Revision: 385 $
+// Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -40,7 +40,6 @@ inline bool Game::isVariation() const					{ return m_currentKey.level() > 0; }
 inline bool Game::atMainlineStart() const				{ return m_currentNode == m_startNode; }
 inline bool Game::hasUndo() const						{ return m_undoIndex > 0; }
 inline bool Game::hasRedo() const						{ return m_undoIndex < m_undoList.size(); }
-inline bool Game::containsIllegalMoves() const		{ return m_containsIllegalMoves; }
 inline bool Game::isModified() const					{ return m_isModified || m_undoIndex > 0; }
 inline bool Game::hasVariations() const				{ return countVariations() > 0; }
 inline bool Game::hasMoveInfo() const					{ return countMoveInfo() > 0; }

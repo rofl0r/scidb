@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 234 $
-// Date   : $Date: 2012-02-07 23:03:07 +0000 (Tue, 07 Feb 2012) $
+// Version: $Revision: 385 $
+// Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -47,7 +47,9 @@ public:
 	bool is_open() const;
 
 	// NOTE: in case of GZIP stream the decompressed size is only an estimation
-	int64_t size() const;	// decompressed size
+	int64_t size() const override;	// decompressed size
+	uint64_t goffset() override;
+
 	Type type() const;
 
 	void open(char const* filename, Mode mode = mstl::ios_base::in);

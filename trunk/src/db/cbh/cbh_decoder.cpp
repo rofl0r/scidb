@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 310 $
-// Date   : $Date: 2012-04-26 20:16:11 +0000 (Thu, 26 Apr 2012) $
+// Version: $Revision: 385 $
+// Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -716,6 +716,7 @@ Decoder::decodeComment(MoveNode* node, unsigned length, move::Position position)
 
 		Comment comment;
 		comment.swap(str, isEnglish, isOther);
+		comment.normalize();
 
 		if (node->hasComment(position))
 		{

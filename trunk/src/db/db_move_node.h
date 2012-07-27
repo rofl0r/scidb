@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 362 $
-// Date   : $Date: 2012-06-27 19:52:57 +0000 (Wed, 27 Jun 2012) $
+// Version: $Revision: 385 $
+// Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -108,6 +108,7 @@ public:
 	bool hasNote() const;
 	bool hasSupplement() const;
 	bool hasMoveInfo() const;
+	bool containsIllegalCastlings() const;
 	bool containsIllegalMoves() const;
 	bool containsEnglishLang() const;
 	bool containsOtherLang() const;

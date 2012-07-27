@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 355 $
-# Date   : $Date: 2012-06-20 20:51:25 +0000 (Wed, 20 Jun 2012) $
+# Version: $Revision: 385 $
+# Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -523,12 +523,9 @@ proc CheckFullscreen {app} {
 	variable Fullscreen
 
 	if {$app eq ".application"} {
-		lassign [scan [wm geometry $app] "%dx%d"] wd ht
-
-		if {$wd == [winfo screenwidth $app] && $ht == [winfo screenheight $app]} {
-			set Fullscreen 1
-		} else {
-			set Fullscreen 0
+		set Fullscreen 0
+		if {[scan [wm geometry $app] "%dx%d" wd ht] == 2} {
+			if {$wd == [winfo screenwidth $app] && $ht == [winfo screenheight $app]} { set Fullscreen 1 }
 		}
 	}
 }
