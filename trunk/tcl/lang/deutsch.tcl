@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 385 $
-# Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
+# Version: $Revision: 387 $
+# Date   : $Date: 2012-07-28 12:35:39 +0000 (Sat, 28 Jul 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -632,6 +632,8 @@
 ### pgn-setup ##########################################################
 ::pgn::setup::mc::Configure(editor)				"Editor konfigurieren"
 ::pgn::setup::mc::Configure(browser)			"Textausgabe konfigurieren"
+::pgn::setup::mc::TakeOver(editor)				"Einstellungen des Partiebrowsers übernehmen"
+::pgn::setup::mc::TakeOver(browser)				"Einstellungen des Partieeditors übernehmen"
 ::pgn::setup::mc::Pixel								"pixel"
 ::pgn::setup::mc::RevertSettings					"Auf Anfangswerte zurücksetzen"
 ::pgn::setup::mc::ResetSettings					"Auf Werkseinstellung zurücksetzen"
