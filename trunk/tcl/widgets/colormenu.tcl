@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 385 $
-# Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
+# Version: $Revision: 386 $
+# Date   : $Date: 2012-07-28 11:14:45 +0000 (Sat, 28 Jul 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -288,6 +288,8 @@ proc popup {parent args} {
 		}
 	}
 
+	if {$col != 0} { incr row 2 }
+	set col 0
 	set buttonRow {}
 
 	if {$nt > 0} {
@@ -324,6 +326,9 @@ proc popup {parent args} {
 		}
 	}
 
+	if {$col != 0} { incr row 2 }
+	set lastrow [expr {$row - 1}]
+
 	foreach row $buttonList {
 		for {set i 0} {$i < [llength $row]} {incr i} {
 			set k [expr {$i + 1}]
@@ -351,8 +356,8 @@ proc popup {parent args} {
 	set sum 0
 	foreach v {nb nu nd nr nt} {
 		set sum [expr {$sum + [set $v]}]
-		set row [expr {2*(($sum + 5)/6) - 1}]
-		if {$row >= 0} { grid rowconfigure $top.f $row -minsize 5 }
+		set row [expr {2*(($sum + 5)/6) + 2}]
+		if {0 <= $row && $row < $lastrow} { grid rowconfigure $top.f $row -minsize 8 }
 	}
 	grid columnconfigure $top.f 6 -minsize 1
 

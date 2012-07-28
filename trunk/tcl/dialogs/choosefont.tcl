@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 385 $
-# Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
+# Version: $Revision: 386 $
+# Date   : $Date: 2012-07-28 11:14:45 +0000 (Sat, 28 Jul 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1071,7 +1071,7 @@ proc SelectColor {w} {
 							-class Dialog \
 							-oldcolor $S(color) \
 							-initialcolor $S(color) \
-							-recentcolors $Vars(recentColors) \
+							-recentcolors [namespace current]::Vars(recentColors) \
 							-geometry last \
 							-modal true \
 							-parent [winfo toplevel $w] \
