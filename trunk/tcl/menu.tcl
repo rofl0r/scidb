@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 385 $
-# Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
+# Version: $Revision: 390 $
+# Date   : $Date: 2012-08-03 18:22:56 +0000 (Fri, 03 Aug 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -248,17 +248,29 @@ proc build {menu} {
 		;
 
 	### extras ###############################################################
-	if {[llength [info procs ::font::installChessBaseFonts]]} {
-		set m [menu $menu.mExtras]
-		lassign [::tk::UnderlineAmpersand $mc::Extras] text ul
-		$menu add cascade \
-			-compound left \
-			-menu $m \
-			-label " $text" \
-			-underline [incr ul] \
-			-image $::icon::16x16::none \
-			;
+	set m [menu $menu.mExtras]
+	lassign [::tk::UnderlineAmpersand $mc::Extras] text ul
+	$menu add cascade \
+		-compound left \
+		-menu $m \
+		-label " $text" \
+		-underline [incr ul] \
+		-image $::icon::16x16::none \
+		;
 
+	if {[::util::photos::busy?]} { set state disabled } else { set state normal }
+	lassign [::tk::UnderlineAmpersand $::util::photos::mc::InstallPlayerPhotos] text ul
+	set cmd [namespace code [list ::util::photos::openDialog .application]]
+	$m add command \
+		-compound left \
+		-label " $text" \
+		-underline $ul \
+		-image $::icon::16x16::none \
+		-command $cmd \
+		-state $state \
+		;
+
+	if {[llength [info procs ::font::installChessBaseFonts]]} {
 		lassign [::tk::UnderlineAmpersand $mc::InstallChessBaseFonts] text ul
 		set cmd [namespace code [list ::font::installChessBaseFonts .application]]
 		$m add command \

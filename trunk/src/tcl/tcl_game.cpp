@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 385 $
-// Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
+// Version: $Revision: 390 $
+// Date   : $Date: 2012-08-03 18:22:56 +0000 (Fri, 03 Aug 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1945,8 +1945,8 @@ cmdQuery(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 					case 'h':	// checksum
 						{
 							Tcl_Obj* objs[2];
-							objs[0] = Tcl_NewIntObj(Scidb->checksumIndex(pos));
-							objs[1] = Tcl_NewIntObj(Scidb->checksumMoves(pos));
+							objs[0] = Tcl_NewWideIntObj(Scidb->checksumIndex(pos));
+							objs[1] = Tcl_NewWideIntObj(Scidb->checksumMoves(pos));
 							setResult(2, objs);
 						}
 						break;

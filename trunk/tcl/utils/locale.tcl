@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 283 $
-# Date   : $Date: 2012-03-29 18:05:34 +0000 (Thu, 29 Mar 2012) $
+# Version: $Revision: 390 $
+# Date   : $Date: 2012-08-03 18:22:56 +0000 (Fri, 03 Aug 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -137,6 +137,11 @@ proc formatTime {time} {
 	return [string map \
 				[list "Y" $year "M" $MonthName($mon) "D" $day "h" $hour "m" $min "s" $sec] \
 				$Pattern(time)]
+}
+
+
+proc currentTime {} {
+	return [formatTime [clock format [clock seconds] -format "%Y.%m.%d %H:%M:%S"]]
 }
 
 } ;# namespace locale

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 373 $
-# Date   : $Date: 2012-07-02 10:25:19 +0000 (Mon, 02 Jul 2012) $
+# Version: $Revision: 390 $
+# Date   : $Date: 2012-08-03 18:22:56 +0000 (Fri, 03 Aug 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -40,11 +40,11 @@ namespace eval dir {
 
 if {[info exists ::env(SCIDB_SHAREDIR)]} {
 	set share $::env(SCIDB_SHAREDIR)
-} elseif {$tcl_platform(platform) eq "windows"} {
-	set share $exec
+} elseif {$::tcl_platform(platform) eq "windows"} {
+	set share [file dirname $::nameofexecutable]
 } else {
 	set share "%SHAREDIR%"
-	if {$share eq "%SHAREDIR%"} {
+	if {[string match ?SHAREDIR? $share]} {
 		set share [file tail $::nameofexecutable]
 		set share [string range $share [string first scidb $share] end]
 		set share "/usr/local/share/$share"
@@ -75,6 +75,8 @@ if {![file isdirectory $user]} {
 if {![file isdirectory $config]} {
 	file mkdir $config
 }
+
+if {![info exists ::env(SCIDB_SHAREDIR)]} { set ::env(SCIDB_SHAREDIR) $share }
 
 } ;# namespace dir
 

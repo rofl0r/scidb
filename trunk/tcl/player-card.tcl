@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 369 $
-# Date   : $Date: 2012-06-30 21:23:33 +0000 (Sat, 30 Jun 2012) $
+# Version: $Revision: 390 $
+# Date   : $Date: 2012-08-03 18:22:56 +0000 (Fri, 03 Aug 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -124,9 +124,9 @@ proc show {base args} {
 		-importdir $dir \
 		-css $css \
 		-showhyphens 0 \
-		-useHorzScroll no \
-		-useVertScroll yes \
-		-keepVertScroll yes \
+		-usehorzscroll no \
+		-usevertscroll yes \
+		-keepvertscroll yes \
 		;
 	bind [winfo parent [$dlg.content drawable]] <ButtonPress-3> [namespace code [list PopupMenu $key]]
 	pack $dlg.content -fill both -expand yes
@@ -210,7 +210,7 @@ proc popupInfo {path info} {
 	grid columnconfigure $f {2 6} -minsize 2
 	grid rowconfigure $f [list 0 [incr row -1]] -minsize 2
 
-	set Photo [FindPlayerPhoto $name $info]
+	set Photo [::util::photos::get $name $info]
 	if {[string length $Photo]} {
 		tk::frame $top.lt -background $bg -borderwidth 0
 		set lbl [tk::label $top.lt.photo -background $bg -image $Photo -relief solid]
@@ -603,7 +603,7 @@ proc GetImage {info code} {
 		}
 
 		photo {
-			set img [FindPlayerPhoto $name $info]
+			set img [::util::photos::get $name $info]
 			if {[string length $img] > 0} { return $img }
 			if {$species eq "program"} {
 				set img $icon::80x80::engine
@@ -698,57 +698,6 @@ proc ToggleTrace {which key} {
 	} else {
 		CloseTrace $which $key
 	}
-}
-
-
-proc FindPhotoFile {name} {
-	set dir [string index $name 0]
-	if {![string match {[a-z]} $dir]} { return "" }
-	set path [file join $::scidb::dir::home photos $dir $name]
-	if {[file readable $path]} { return $path }
-	set path [file join $::scidb::dir::photos $dir $name]
-	if {[file readable $path]} { return $path }
-	return ""
-}
-
-
-proc FindPlayerPhoto {name info} {
-	set key [NormalizeName $name]
-	set file [FindPhotoFile $key]
-	set found $file
-	set img ""
-
-	if {[string length $found] == 0} {
-		set aliases [lindex $info 20]
-
-		foreach alias $aliases {
-			set key [NormalizeName $alias]
-			set file [FindPhotoFile $key]
-			if {[string length $file]} {
-				set found $file
-				break
-			}
-		}
-	}
-
-	if {[string length $found] > 0} {
-		catch {
-			set fd [open $found rb]
-			set data [read $fd]
-			close $fd
-			set img [image create photo -data $data]
-		}
-	}
-
-	return $img
-}
-
-
-proc NormalizeName {name} {
-	set key [string map {. "" " " "" - ""} [string tolower $name]]
-	set index [string last ",dr" $key]
-	if {$index >= 0} { set key [string range $key 0 [expr {$index - 1}]] }
-	return $key
 }
 
 

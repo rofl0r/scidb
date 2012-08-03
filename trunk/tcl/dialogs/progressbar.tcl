@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 292 $
-# Date   : $Date: 2012-04-13 09:41:37 +0000 (Fri, 13 Apr 2012) $
+# Version: $Revision: 390 $
+# Date   : $Date: 2012-08-03 18:22:56 +0000 (Fri, 03 Aug 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -21,8 +21,8 @@ package provide progressbar 1.0
 
 namespace eval dialog {
 
-proc progressBar {args} {
-	return [progressbar::open {*}$args]
+proc progressBar {path args} {
+	return [progressbar::open $path {*}$args]
 }
 
 namespace export progressBar
@@ -45,7 +45,7 @@ proc busyCursor {w state} {
 }
 
 
-proc open {args} {
+proc open {w args} {
 	variable HourGlass
 	variable Priv
 	variable ticks
@@ -57,32 +57,30 @@ proc open {args} {
 		-interrupt	0
 		-topmost		0
 		-close		1
+		-transient	1
 		-class		Dialog
 		-mode			determinate
 		-variable	{}
 		-command		{}
 		-parent		{}
 	}
-	array set opts [lrange $args 1 end]
+	array set opts $args
 
-	set w [lindex $args 0]
 	tk::toplevel $w -relief solid -class $opts(-class)
 	set parent $opts(-parent)
 	if {[llength $parent] == 0} {
 		set parent [winfo parent $w]
 	}
-	set title [tk appname]
 	set Priv(interrupted:$w) 0
-	if {[llength $opts(-title)]} { append title " - $opts(-title)" }
-   wm title $w $title
+	setTitle $w $opts(-title)
 	wm iconname $w ""
 	wm resizable $w false false
-	wm protocol $w WM_DELETE_WINDOW {}
+	wm protocol $w WM_DELETE_WINDOW {#}
 	if {[string length $parent]} {
-		wm transient $w $parent
+		if {$opts(-transient)} { wm transient $w $parent }
 		wm group $w $parent
 	} else {
-		wm transient $w [winfo toplevel $parent]
+		if {$opts(-transient)} { wm transient $w [winfo toplevel $parent] }
 		wm group $w [winfo toplevel $parent]
 	}
 	wm attributes $w -topmost $opts(-topmost)
@@ -181,9 +179,21 @@ proc interrupt {w} {
 }
 
 
-proc setMessage {w msg} {
+proc setInformation {w msg} {
 #	if {[string length $msg]} { grid $w.m } else { grid remove $w.m }
-	$w.m configure -text "$msg..."
+	$w.m configure -text $msg
+}
+
+
+proc setMessage {w msg} {
+	$w.l configure -text $msg
+}
+
+
+proc setTitle {w title} {
+	set t [tk appname]
+	if {[llength $title]} { append t " - $title" }
+   wm title $w $t
 }
 
 

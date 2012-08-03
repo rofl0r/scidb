@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 385 $
-// Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
+// Version: $Revision: 390 $
+// Date   : $Date: 2012-08-03 18:22:56 +0000 (Fri, 03 Aug 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -238,7 +238,7 @@ tcl::setResult(int result)
 void
 tcl::setResult(unsigned result)
 {
-	Tcl_SetObjResult(interp(), Tcl_NewIntObj(result));
+	Tcl_SetObjResult(interp(), Tcl_NewWideIntObj(result));
 }
 
 
@@ -252,7 +252,7 @@ tcl::setResult(long result)
 void
 tcl::setResult(unsigned long result)
 {
-	Tcl_SetObjResult(interp(), Tcl_NewLongObj(result));
+	Tcl_SetObjResult(interp(), Tcl_NewWideIntObj(result));
 }
 
 

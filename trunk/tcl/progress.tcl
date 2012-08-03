@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 298 $
-# Date   : $Date: 2012-04-18 20:09:25 +0000 (Wed, 18 Apr 2012) $
+# Version: $Revision: 390 $
+# Date   : $Date: 2012-08-03 18:22:56 +0000 (Fri, 03 Aug 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -104,7 +104,7 @@ proc DoCmd {cmd parent {value 0}} {
 
 		message {
 			if {[info exists mc::Message($value)]} { set msg $mc::Message($value) } else { set msg $value }
-			::dialog::progressbar::setMessage .progress $msg
+			::dialog::progressbar::setInformation .progress ${msg}...
 			update
 		}
 

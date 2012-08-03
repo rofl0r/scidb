@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 343 $
-// Date   : $Date: 2012-06-15 12:05:39 +0000 (Fri, 15 Jun 2012) $
+// Version: $Revision: 390 $
+// Date   : $Date: 2012-08-03 18:22:56 +0000 (Fri, 03 Aug 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -595,7 +595,13 @@ fixLineBreak(InlineContext *p, char CONST *zText, int nText)
                         InlineBox *pBox = &p->aInline[p->nInline - 1];
                         pBox->eWhitespace = pPrevBox->eWhitespace = CSS_CONST_NOWRAP;
                     }
-                } else if (strchr("})]", zText[0]) || Tcl_UniCharIsPunct(ch) || isAlnum(ch)) {
+                } else if (strchr("})]", zText[0])) {
+                    Tcl_UtfToUniChar(Tcl_UtfPrev(zLast + nLast, zLast), &ch);
+                    if (Tcl_UniCharIsPunct(ch) || isAlnum(ch) || ch == '/') {
+                        InlineBox *pBox = &p->aInline[p->nInline - 1];
+                        pBox->eWhitespace = pPrevBox->eWhitespace = CSS_CONST_NOWRAP;
+                    }
+                } else if (Tcl_UniCharIsPunct(ch)) {
                     Tcl_UtfToUniChar(Tcl_UtfPrev(zLast + nLast, zLast), &ch);
                     if (isAlnum(ch)) {
                         InlineBox *pBox = &p->aInline[p->nInline - 1];
