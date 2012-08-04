@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 390 $
-# Date   : $Date: 2012-08-03 18:22:56 +0000 (Fri, 03 Aug 2012) $
+# Version: $Revision: 392 $
+# Date   : $Date: 2012-08-04 13:57:25 +0000 (Sat, 04 Aug 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -276,6 +276,7 @@
 ::util::photos::mc::Error(busy)					"The installation/update is already running." ;# NEW
 ::util::photos::mc::Error(failed)				"Unexpected error: The invocation of the sub-process has failed." ;# NEW
 ::util::photos::mc::Error(passwd)				"The password is wrong." ;# NEW
+::util::photos::mc::Error(nosudo)				"Cannot invoke 'sudo' command." ;# NEW
 
 ::util::photos::mc::Message(uptodate)			"The photo files are already up-to-date." ;# NEW
 ::util::photos::mc::Message(finished)			"The installation/update of photo files has finished." ;# NEW
@@ -283,9 +284,12 @@
 ::util::photos::mc::Message(noperm)				"You dont have write permissions for directory '%s'." ;# NEW
 ::util::photos::mc::Message(missing)			"Cannot find directory '%s'." ;# NEW
 ::util::photos::mc::Message(httperr)			"HTTP error: %s" ;# NEW
+::util::photos::mc::Message(httpcode)			"Unexpected HTTP code %s." ;# NEW
+::util::photos::mc::Message(badhost)			"HTTP connection failed due to a bad host, or a bad port." ;# NEW
 ::util::photos::mc::Message(timeout)			"HTTP timeout occurred." ;# NEW
 ::util::photos::mc::Message(crcerror)			"Checksum error occurred. Possibly the file server is currently in maintenance mode." ;# NEW
 ::util::photos::mc::Message(maintenance)		"Photo file server maintenance is currently in progress." ;# NEW
+::util::photos::mc::Message(notfound)			"Download aborted because photo file server maintenance is currently in progress." ;# NEW
 ::util::photos::mc::Message(aborted)			"User has aborted download." ;# NEW
 ::util::photos::mc::Message(killed)				"Unexpected termination of download. The sub-process has died." ;# NEW
 
