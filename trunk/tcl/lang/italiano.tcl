@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 392 $
-# Date   : $Date: 2012-08-04 13:57:25 +0000 (Sat, 04 Aug 2012) $
+# Version: $Revision: 393 $
+# Date   : $Date: 2012-08-04 16:30:58 +0000 (Sat, 04 Aug 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -972,9 +972,9 @@
 ::gamebar::mc::DiscardNewGame			"Vuoi davvero buttare via questa partita?"
 ::gamebar::mc::NewGameFstPart			"Nuovo"
 ::gamebar::mc::NewGameSndPart			"Partita"
-::gamebar::mc::Unlock					"Sblocca"
 
 ::gamebar::mc::LockGame					"Blocca Partita"
+::gamebar::mc::UnlockGame				"Sblocca Partita"
 ::gamebar::mc::CloseGame				"Chiudi Partita"
 
 ::gamebar::mc::GameNew					"Nuova Partita"

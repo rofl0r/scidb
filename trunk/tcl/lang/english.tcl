@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 392 $
-# Date   : $Date: 2012-08-04 13:57:25 +0000 (Sat, 04 Aug 2012) $
+# Version: $Revision: 393 $
+# Date   : $Date: 2012-08-04 16:30:58 +0000 (Sat, 04 Aug 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -971,9 +971,9 @@
 ::gamebar::mc::DiscardNewGame			"Do you really want to throw away this game?"
 ::gamebar::mc::NewGameFstPart			"New"
 ::gamebar::mc::NewGameSndPart			"Game"
-::gamebar::mc::Unlock					"Unlock"
 
 ::gamebar::mc::LockGame					"Lock Game"
+::gamebar::mc::UnlockGame				"Unlock Game"
 ::gamebar::mc::CloseGame				"Close Game"
 
 ::gamebar::mc::GameNew					"New Game"

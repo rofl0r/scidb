@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 392 $
-# Date   : $Date: 2012-08-04 13:57:25 +0000 (Sat, 04 Aug 2012) $
+# Version: $Revision: 393 $
+# Date   : $Date: 2012-08-04 16:30:58 +0000 (Sat, 04 Aug 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -972,9 +972,9 @@
 ::gamebar::mc::DiscardNewGame			"Tényleg el akarod vetni ezt a játszmát?"
 ::gamebar::mc::NewGameFstPart			"Új"
 ::gamebar::mc::NewGameSndPart			"Játszma"
-::gamebar::mc::Unlock				"Zárolás feloldása"
 
 ::gamebar::mc::LockGame				"Játszma zárolása"
+::gamebar::mc::UnlockGame			"Zárolás feloldása"
 ::gamebar::mc::CloseGame			"Játszma bezárása"
 
 ::gamebar::mc::GameNew				"Új tábla"

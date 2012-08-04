@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 392 $
-# Date   : $Date: 2012-08-04 13:57:25 +0000 (Sat, 04 Aug 2012) $
+# Version: $Revision: 393 $
+# Date   : $Date: 2012-08-04 16:30:58 +0000 (Sat, 04 Aug 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -972,9 +972,9 @@
 ::gamebar::mc::DiscardNewGame			"Vill du verkligen kasta bort det här partiet?"
 ::gamebar::mc::NewGameFstPart			"Nytt"
 ::gamebar::mc::NewGameSndPart			"parti"
-::gamebar::mc::Unlock					"Lås upp"
 
 ::gamebar::mc::LockGame					"Lås partiet"
+::gamebar::mc::UnlockGame				"Lås upp partiet"
 ::gamebar::mc::CloseGame				"Stäng partiet"
 
 ::gamebar::mc::GameNew					"Nytt parti"

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 385 $
-// Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
+// Version: $Revision: 393 $
+// Date   : $Date: 2012-08-04 16:30:58 +0000 (Sat, 04 Aug 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -117,8 +117,8 @@ public:
 	bool isChanged() const;
 	bool hasPromotion() const;								// ChessBase: n/a
 	bool hasUnderPromotion() const;						// ChessBase: n/a
-	bool containsIllegalMoves() const override;
-	bool containsIllegalCastlings() const override;
+	bool containsIllegalMoves() const;
+	bool containsIllegalCastlings() const;
 	bool isEngine(color::ID color) const;
 	bool hasGameRecordLength() const;
 
