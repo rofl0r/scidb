@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 385 $
-# Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
+# Version: $Revision: 397 $
+# Date   : $Date: 2012-08-05 06:33:57 +0000 (Sun, 05 Aug 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -215,17 +215,19 @@ proc dialogRaise {dlg} {
 proc dialogButtons {dlg buttons {dflt {}} {useIcons yes}} {
 	variable ButtonOrder
 
-	if {[llength $dflt] == 0} { set dflt [lindex $buttons 0] }
-	bind $dlg <Alt-Key> [list tk::AltKeyInDialog $dlg %A]
-	::ttk::separator $dlg.__sep -class Dialog
-	tk::frame $dlg.__buttons -class Dialog
-	set slaves [pack slaves $dlg]
-	if {[llength $slaves]} {
-		pack $dlg.__sep -fill x -side bottom -before [lindex $slaves 0]
-	} else {
-		pack $dlg.__sep -fill x -side bottom
+	if {![winfo exists $dlg.__buttons]} {
+		if {[llength $dflt] == 0} { set dflt [lindex $buttons 0] }
+		bind $dlg <Alt-Key> [list tk::AltKeyInDialog $dlg %A]
+		::ttk::separator $dlg.__sep -class Dialog
+		tk::frame $dlg.__buttons -class Dialog
+		set slaves [pack slaves $dlg]
+		if {[llength $slaves]} {
+			pack $dlg.__sep -fill x -side bottom -before [lindex $slaves 0]
+		} else {
+			pack $dlg.__sep -fill x -side bottom
+		}
+		pack $dlg.__buttons -anchor center -side bottom -before $dlg.__sep
 	}
-	pack $dlg.__buttons -anchor center -side bottom -before $dlg.__sep
 
 	set entries {}
 	foreach entry $buttons {
@@ -301,6 +303,7 @@ proc dialogButtonSetIcons {dlg} {
 
 
 proc dialogButtonAdd {dlg type labelvar {icon {}}} {
+	if {![winfo exists $dlg.__buttons]} { dialogButtons $dlg {} }
 	set w [::ttk::button $dlg.$type -class TButton]
 	if {[llength $icon]} {
 		$w configure -compound left -image $icon
