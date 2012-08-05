@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 397 $
-# Date   : $Date: 2012-08-05 06:33:57 +0000 (Sun, 05 Aug 2012) $
+# Version: $Revision: 401 $
+# Date   : $Date: 2012-08-05 11:34:32 +0000 (Sun, 05 Aug 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -256,7 +256,7 @@
 ### player photos ######################################################
 ::util::photos::mc::InstallPlayerPhotos		"Install/Update Player Photos"
 ::util::photos::mc::TimeOut						"Timeout occurred."
-::util::photos::mc::EnterPassword				"Enter Password"
+::util::photos::mc::EnterPassword				"Personal Password"
 ::util::photos::mc::Download						"Download"
 ::util::photos::mc::SharedInstallation			"Shared installation"
 ::util::photos::mc::LocalInstallation			"Private installation"
