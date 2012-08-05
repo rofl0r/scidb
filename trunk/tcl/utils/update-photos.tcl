@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 392 $
-# Date   : $Date: 2012-08-04 13:57:25 +0000 (Sat, 04 Aug 2012) $
+# Version: $Revision: 404 $
+# Date   : $Date: 2012-08-05 23:37:08 +0000 (Sun, 05 Aug 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -158,7 +158,7 @@ proc Checksum {file} {
 }
 
 proc GetUrl {url} {
-	if {[catch { ::http::geturl $url {*}$::GetUrlArgs } token]} { Return badhost }
+	if {[catch { ::http::geturl $url {*}$::GetUrlArgs } token]} { Return noconnect }
 	return $token
 }
 
