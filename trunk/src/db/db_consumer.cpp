@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 385 $
-// Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
+// Version: $Revision: 406 $
+// Date   : $Date: 2012-08-06 07:01:35 +0000 (Mon, 06 Aug 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -318,16 +318,16 @@ Consumer::putMove(Move const& move,
 
 		entry.board.doMove(entry.move);
 
-		if (!move.isLegal())
-		{
-			if (move.isCastling())
-				m_flags |= GameInfo::Flag_Illegal_Castling;
-			else
-				m_flags |= GameInfo::Flag_Illegal_Move;
-		}
-
 		if (isMainline())
 		{
+			if (!move.isLegal())
+			{
+				if (move.isCastling())
+					m_flags |= GameInfo::Flag_Illegal_Castling;
+				else
+					m_flags |= GameInfo::Flag_Illegal_Move;
+			}
+
 			m_homePawns.move(move);
 
 			if (m_line.length < opening::Max_Line_Length)
@@ -376,16 +376,16 @@ Consumer::putMove(Move const& move)
 
 		entry.board.doMove(entry.move);
 
-		if (!move.isLegal())
-		{
-			if (move.isCastling())
-				m_flags |= GameInfo::Flag_Illegal_Castling;
-			else
-				m_flags |= GameInfo::Flag_Illegal_Move;
-		}
-
 		if (isMainline())
 		{
+			if (!move.isLegal())
+			{
+				if (move.isCastling())
+					m_flags |= GameInfo::Flag_Illegal_Castling;
+				else
+					m_flags |= GameInfo::Flag_Illegal_Move;
+			}
+
 			m_homePawns.move(move);
 
 			if (m_line.length < opening::Max_Line_Length)
