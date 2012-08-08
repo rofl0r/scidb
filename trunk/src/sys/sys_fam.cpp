@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 407 $
-// Date   : $Date: 2012-08-08 21:52:05 +0000 (Wed, 08 Aug 2012) $
+// Version: $Revision: 408 $
+// Date   : $Date: 2012-08-08 22:59:40 +0000 (Wed, 08 Aug 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -271,15 +271,16 @@ cancelMonitorFAM(Request& req)
 	}
 }
 
-#elif defined(HAVE_INOTIFY) || defined(SYS_INOTIFY) /////////////////////
+#elif defined(HAVE_INOTIFY) /////////////////////////////////////////////
 
 #include "m_hash.h"
 
 #include <stdio.h>
 #include <string.h>
+#include <unistd.h>
 #include <errno.h>
 
-#ifndef HAVE_INOTIFY
+#ifdef SYS_INOTIFY
 # include "sys_inotify.h"
 #else
 # include <sys/inotify.h>
