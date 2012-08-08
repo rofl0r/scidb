@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 333 $
-# Date   : $Date: 2012-05-31 15:48:41 +0000 (Thu, 31 May 2012) $
+# Version: $Revision: 407 $
+# Date   : $Date: 2012-08-08 21:52:05 +0000 (Wed, 08 Aug 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -395,7 +395,7 @@
 "Advance Variation"											"Vorstoßvariante"
 "Anglo-Slav"													"Anglo-Slawisch"
 "Bishop's Gambit"												"Läufer-Gambit"
-"Bishop's Opening"											"Läufereröffung"
+"Bishop's Opening"											"Läuferspiel" ;# "Läufereröffung"
 "Bogo-Catalan"													"Bogo-Katalanisch"
 "Bogo-Indian"													"Bogo-Indisch"
 "Center Attack"												"Zentrumsangriff"
@@ -429,6 +429,7 @@
 "Nimzo-Indian"													"Nimzoindisch"
 "Normal Variation"											"Hauptfortsetzung"
 "Old Benoni"													"Alt-Benoni"
+"Old Benoni Defence"											"Alt-Benoni"
 "Old Indian"													"Altindisch"
 "Old Line"														"Alte Fortsetzung"
 "Old Main Line"												"Alte Hauptvariante"
@@ -612,6 +613,7 @@
 "Yusupov"														"Jussupow"
 "Zaitsev"														"Zaitsew"
 "Znosko Borovsky"												"Snosko-Borowski"
+"Zukertort"														"Zuckertort"
 "Zytogorsky"													"Zytogorski"
 
 "Carlsbad"														"Karlsbad"

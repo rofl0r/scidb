@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 407 $
+// Date   : $Date: 2012-08-08 21:52:05 +0000 (Wed, 08 Aug 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -55,6 +55,42 @@ inline typename map<K,V>::iterator map<K,V>::erase(iterator ep) { return m_v.era
 
 template <typename K, typename V>
 inline typename map<K,V>::container_type const& map<K,V>::container() const { return m_v; }
+
+
+template <typename K, typename V>
+inline
+typename map<K,V>::reverse_iterator
+map<K,V>::rbegin()
+{
+	return m_v.rbegin();
+}
+
+
+template <typename K, typename V>
+inline
+typename map<K,V>::reverse_iterator
+map<K,V>::rend()
+{
+	return m_v.rend();
+}
+
+
+template <typename K, typename V>
+inline
+typename map<K,V>::const_reverse_iterator
+map<K,V>::rbegin() const
+{
+	return m_v.rbegin();
+}
+
+
+template <typename K, typename V>
+inline
+typename map<K,V>::const_reverse_iterator
+map<K,V>::rend() const
+{
+	return m_v.rend();
+}
 
 
 template <typename K, typename V>

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 390 $
-# Date   : $Date: 2012-08-03 18:22:56 +0000 (Fri, 03 Aug 2012) $
+# Version: $Revision: 407 $
+# Date   : $Date: 2012-08-08 21:52:05 +0000 (Wed, 08 Aug 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -402,6 +402,7 @@ proc UpdateContent {w key base name playerCardArgs} {
 		\\def\\DecimalPoint{[::locale::decimalPoint]}
 		\\def\\Lang{$::mc::langID}
 		\\def\\Title{$mc::PlayerCard: $name}
+		\\let\\Tracing\\$Options(debug:log)
 		\\def\\Label-White{$::mc::White}
 		\\def\\Label-Black{$::mc::Black}
 		\\def\\Label-Surname{$::playertable::mc::F_LastName}

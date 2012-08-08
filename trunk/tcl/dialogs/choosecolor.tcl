@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 385 $
-# Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
+# Version: $Revision: 407 $
+# Date   : $Date: 2012-08-08 21:52:05 +0000 (Wed, 08 Aug 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -486,7 +486,7 @@ proc BuildFrame {w options} {
 	if {$opts(embedcmd) ne ""} {
 		set Priv(embedded) [ttk::frame $lt.embed -takefocus 0]
 		grid $Priv(embedded) -row $frow -sticky nsew
-		lappend frows [expr {$frow - 1}]
+		lappend frows [expr {$frow + 1}]
 		set rcv [eval $opts(embedcmd) $Priv(embedded)]
 		if {$rcv ni $Priv(receiver)} { lappend Priv(receiver) $rcv }
 		incr frow 2

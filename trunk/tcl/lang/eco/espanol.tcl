@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 171 $
-# Date   : $Date: 2012-01-05 00:15:08 +0000 (Thu, 05 Jan 2012) $
+# Version: $Revision: 407 $
+# Date   : $Date: 2012-08-08 21:52:05 +0000 (Wed, 08 Aug 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -183,6 +183,7 @@
 "Latvian"				"letón"
 "Lithuanian"				"lituana"
 "Mexican"				"mejicana"
+"Mittelgambit"				"Apertura del centro (Partida central)"
 "Modern"				"moderna"
 "Norwegian"				"noruega"
 "Old"					"antigüa"

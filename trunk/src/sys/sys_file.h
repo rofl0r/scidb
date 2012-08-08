@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 282 $
-// Date   : $Date: 2012-03-26 08:07:32 +0000 (Mon, 26 Mar 2012) $
+// Version: $Revision: 407 $
+// Date   : $Date: 2012-08-08 21:52:05 +0000 (Wed, 08 Aug 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -34,6 +34,19 @@ enum Mode
 	Readable		= 4,
 };
 
+enum Type
+{
+	None,
+	RegularFile,
+	Directory,
+	CharacterDevice,
+	BlockDevice,
+	NamedPipe,
+	SymbolicLink,
+	Socket,
+	Unknown,
+};
+
 mstl::string internalName(char const* externalName);
 
 bool access(char const* filename, Mode mode);
@@ -41,6 +54,7 @@ bool access(char const* filename, Mode mode);
 long size(char const* filename);
 bool changed(char const* filename, uint32_t& time);
 bool isHardLinked(char const* filename1, char const* filename2);
+Type type(char const* filename);
 
 void rename(char const* oldFilename, char const* newFilename, bool preserveOldAttrs = false);
 void deleteIt(char const* filename);

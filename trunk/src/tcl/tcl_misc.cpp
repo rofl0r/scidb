@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 358 $
-// Date   : $Date: 2012-06-25 12:25:25 +0000 (Mon, 25 Jun 2012) $
+// Version: $Revision: 407 $
+// Date   : $Date: 2012-08-08 21:52:05 +0000 (Wed, 08 Aug 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -770,7 +770,10 @@ cmdMapExtension(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 {
 	static char const* Extensions[] = { "sci", "si3", "si4", "cbh" };
 
-	mstl::string extension(stringFromObj(objc, objv, 1));
+	char const* extension = stringFromObj(objc, objv, 1);
+
+	if (*extension == '.')
+		++extension;
 
 	for (unsigned i = 0; i < U_NUMBER_OF(Extensions); ++i)
 	{

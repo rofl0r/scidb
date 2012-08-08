@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 390 $
-# Date   : $Date: 2012-08-03 18:22:56 +0000 (Fri, 03 Aug 2012) $
+# Version: $Revision: 407 $
+# Date   : $Date: 2012-08-08 21:52:05 +0000 (Wed, 08 Aug 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -381,6 +381,7 @@ proc dbOpen {parent} {
 
 proc dbCreateArchive {parent {base ""}} {
 	if {[string length $base] == 0} { set base [::scidb::db::get name] }
+	if {$base eq $::scidb::clipbaseName} { set name $::util::clipbaseName } else { set name $base}
 	set filetypes [list	[list $mc::ScidbArchives {.scv}]]
 	set result [::dialog::saveFile \
 		-parent $parent \
@@ -389,7 +390,7 @@ proc dbCreateArchive {parent {base ""}} {
 		-needencoding 0 \
 		-geometry last \
 		-title $mc::CreateArchive \
-		-initialfile [file tail [file rootname $base]] \
+		-initialfile [file tail [file rootname $name]] \
 		-customcommand {} \
 	]
 	if {[llength $result]} {

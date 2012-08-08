@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 358 $
-// Date   : $Date: 2012-06-25 12:25:25 +0000 (Mon, 25 Jun 2012) $
+// Version: $Revision: 407 $
+// Date   : $Date: 2012-08-08 21:52:05 +0000 (Wed, 08 Aug 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -50,7 +50,6 @@ public:
 	size_t chunk_size() const;
 	size_t elems_per_chunk() const;
 
-	void set_zero();
 	void clear();
 
 	T* alloc();

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 404 $
-# Date   : $Date: 2012-08-05 23:37:08 +0000 (Sun, 05 Aug 2012) $
+# Version: $Revision: 407 $
+# Date   : $Date: 2012-08-08 21:52:05 +0000 (Wed, 08 Aug 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -222,7 +222,7 @@ proc get {name info} {
 
 		foreach alias $aliases {
 			set key [NormalizeName $alias]
-			set file [find $key]
+			set file [FindPhotoFile $key]
 			if {[string length $file]} {
 				set found $file
 				break

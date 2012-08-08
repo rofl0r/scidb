@@ -3,8 +3,8 @@
 exec tclsh "$0" "$@"
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 390 $
-# Date   : $Date: 2012-08-03 18:22:56 +0000 (Fri, 03 Aug 2012) $
+# Version: $Revision: 407 $
+# Date   : $Date: 2012-08-08 21:52:05 +0000 (Wed, 08 Aug 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -270,11 +270,9 @@ proc formatPath {path} {
 	}
 	set result ""
 	for {set i 0} {$i < [llength $parts]} {incr i} {
-		if {$i < [llength $parts] - 1} {
-			append result "<code>[lindex $parts $i]/</code>&#8203;"
-		}  else {
-			append result "<code>[lindex $parts $i]</code>"
-		}
+		set part [lindex $parts $i]
+		append result "<code>$part/</code>"
+		if {$i < [llength $parts] - 1 && [string length $part] > 2} { append result "&#8203;" }
 	}
 	return $result
 }

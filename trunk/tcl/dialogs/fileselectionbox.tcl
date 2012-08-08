@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 355 $
-# Date   : $Date: 2012-06-20 20:51:25 +0000 (Wed, 20 Jun 2012) $
+# Version: $Revision: 407 $
+# Date   : $Date: 2012-08-08 21:52:05 +0000 (Wed, 08 Aug 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -278,7 +278,9 @@ proc Open {type args} {
 			-bookmarkswidth 120 \
 			-duplicatecommand [namespace code DuplicateFile] \
 			-inspectcommand [namespace code Inspect] \
+			-mapextcommand [namespace code MapExtension] \
 			-isusedcommand [namespace code IsUsed] \
+			-formattimecmd [namespace code FormatTime] \
 			-font TkTextFont \
 			{*}[array get opts] \
 			;
@@ -366,6 +368,7 @@ proc Open {type args} {
 	wm withdraw $w
 
 	set Priv(lastFolder:$class) [::fsbox::lastFolder $w.fsbox]
+	::fsbox::cleanup $w.fsbox
 
 	lassign $Priv($type:$w:result) path encoding
 	if {[llength $path] == 0} { return {} }
@@ -517,6 +520,20 @@ proc IsUsed {folder file} {
 	}
 
 	return no
+}
+
+
+proc FormatTime {time} {
+	return [::locale::formatTime [clock format $time -format {%Y.%m.%d %H:%M:%S}]]
+}
+
+
+proc MapExtension {extension} {
+	set result [::scidb::misc::mapExtension $extension]
+	if {[string length $result]} { set result ".$result" }
+	if {$result ne $extension} { return $result }
+	if {$result in {.sci .scv .si3 .si4 .cbh .pgn .gz .zip}} { return $result }
+	return ""
 }
 
 

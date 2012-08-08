@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 79 $
-# Date   : $Date: 2011-07-14 13:14:44 +0000 (Thu, 14 Jul 2011) $
+# Version: $Revision: 407 $
+# Date   : $Date: 2012-08-08 21:52:05 +0000 (Wed, 08 Aug 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -360,6 +360,7 @@
 "Mexican Variation"					"Variante Messicana"
 "Milner-Barry (Zurich) Variation"			"Variante Milner-Barry (di Zurigo)"
 "Mieses (Paulsen) Variation"				"Variante Mieses (Paulsen)"
+"Mittelgambit"						"Partita del Centro"
 "Modern (Steinitz) Attack"				"Attacco Moderno (Steinitz)"
 "Modern Benoni"						"Moderna Benoni"
 "Modern Botvinnik Variation"				"Moderna Variante Botvinnik"

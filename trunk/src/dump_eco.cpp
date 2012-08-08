@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 310 $
-// Date   : $Date: 2012-04-26 20:16:11 +0000 (Thu, 26 Apr 2012) $
+// Version: $Revision: 407 $
+// Date   : $Date: 2012-08-08 21:52:05 +0000 (Wed, 08 Aug 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -578,7 +578,7 @@ dumpAscii(	Board& board,
 		mstl::string s;
 
 		board.prepareUndo(move);
-		board.prepareForSan(move);
+		board.prepareForPrint(move);
 		board.doMove(move);
 		for (unsigned k = 0; k < level; ++k) printf("| ");
 		printf("%s: ", move.printSan(s).c_str());

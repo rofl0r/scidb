@@ -1,8 +1,8 @@
 #!/bin/sh
 #! ======================================================================
 #! $RCSfile: tk_init.h,v $
-#! $Revision: 390 $
-#! $Date: 2012-08-03 18:22:56 +0000 (Fri, 03 Aug 2012) $
+#! $Revision: 407 $
+#! $Date: 2012-08-08 21:52:05 +0000 (Wed, 08 Aug 2012) $
 #! $Author: gregor $
 #! ======================================================================
 
@@ -290,6 +290,29 @@ proc cleanup {} {
 }
 
 
+proc requestOpenBases {pathList} {
+	variable blocked
+	variable postponed
+	variable Vars
+
+	if {[llength $pathList]} {
+		if {$blocked} {
+			foreach path $pathList {
+				if {![info exists Vars(infoBox:$path)]} {
+					set postponed 1
+					lappend Vars(pending) $path
+					set msg [format $mc::PostponedMessage $path]
+					set Vars(infoBox:$path) \
+						[::dialog::info -buttons {} -title $::scidb::app -message $msg -topmost yes]
+				}
+			}
+		} else {
+			openBases $pathList
+		}
+	}
+}
+
+
 proc Update {} {
 	variable blocked
 	variable postponed
@@ -344,30 +367,7 @@ proc IncomingOffered {chan} {
 	if {[gets $chan pathList] >= 0} {
 		fileevent $chan readable {}
 #		fconfigure $chan -blocking 1
-		after idle [namespace code [list Execute $pathList]]
-	}
-}
-
-
-proc Execute {pathList} {
-	variable blocked
-	variable postponed
-	variable Vars
-
-	if {[llength $pathList]} {
-		if {$blocked} {
-			foreach path $pathList {
-				if {![info exists Vars(infoBox:$path)]} {
-					set postponed 1
-					lappend Vars(pending) $path
-					set msg [format $mc::PostponedMessage $path]
-					set Vars(infoBox:$path) \
-						[::dialog::info -buttons {} -title $::scidb::app -message $msg -topmost yes]
-				}
-			}
-		} else {
-			openBases $pathList
-		}
+		after idle [namespace code [list requestOpenBases $pathList]]
 	}
 }
 

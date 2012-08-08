@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 390 $
-# Date   : $Date: 2012-08-03 18:22:56 +0000 (Fri, 03 Aug 2012) $
+# Version: $Revision: 407 $
+# Date   : $Date: 2012-08-08 21:52:05 +0000 (Wed, 08 Aug 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -427,7 +427,10 @@ proc openBases {pathList} {
 
 	if {[llength $pathList]} {
 		foreach path $pathList {
-			::application::database::openBase .application [::util::databasePath $path] no
+			::application::database::openBase .application [::util::databasePath $path] no {} no
+		}
+		if {[llength $pathList] == 1} {
+			::application::database::switchToBase [lindex $pathList 0]
 		}
 	}
 

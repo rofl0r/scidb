@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 385 $
-# Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
+# Version: $Revision: 407 $
+# Date   : $Date: 2012-08-08 21:52:05 +0000 (Wed, 08 Aug 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -447,7 +447,7 @@ proc popupMenu {menu base info {playerCard {}}} {
 	set m [menu $menu.web -tearoff false]
 	$menu add cascade \
 		-menu $m \
-		-label " $::playercard::mc::OpenInWebBrowser..." \
+		-label " $::playercard::mc::OpenInWebBrowser" \
 		-image $::icon::16x16::internet \
 		-compound left \
 		;

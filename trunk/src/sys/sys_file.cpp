@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 317 $
-// Date   : $Date: 2012-05-05 16:33:40 +0000 (Sat, 05 May 2012) $
+// Version: $Revision: 407 $
+// Date   : $Date: 2012-08-08 21:52:05 +0000 (Wed, 08 Aug 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -355,6 +355,39 @@ sys::file::rename(char const* oldFilename, char const* newFilename, bool preserv
 		chown(newFilename, st.st_uid, st.st_gid);
 #endif
 	}
+}
+
+
+sys::file::Type
+sys::file::type(char const* filename)
+{
+	M_REQUIRE(filename);
+
+	struct stat st;
+
+	if (stat(internalName(filename), &st) == -1)
+		return None;
+
+	if (S_ISREG(st.st_mode))
+		return RegularFile;
+	if (S_ISDIR(st.st_mode))
+		return Directory;
+	if (S_ISCHR(st.st_mode))
+		return CharacterDevice;
+	if (S_ISBLK(st.st_mode))
+		return BlockDevice;
+	if (S_ISFIFO(st.st_mode))
+		return NamedPipe;
+#ifdef S_ISLNK
+	if (S_ISLNK(st.st_mode))
+		return SymbolicLink;
+#endif
+#ifdef S_ISSOCK
+	if (S_ISSOCK(st.st_mode))
+		return Socket;
+#endif
+
+	return Unknown;
 }
 
 
