@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 407 $
-# Date   : $Date: 2012-08-08 21:52:05 +0000 (Wed, 08 Aug 2012) $
+# Version: $Revision: 409 $
+# Date   : $Date: 2012-08-09 22:07:40 +0000 (Thu, 09 Aug 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -508,7 +508,7 @@ proc GetNumGames {filename mtime} {
 }
 
 
-proc IsUsed {folder file} {
+proc IsUsed {file} {
 	switch [file extension $file] {
 		.pgn - .gz - .zip {
 			# no action

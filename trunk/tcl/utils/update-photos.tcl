@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 404 $
-# Date   : $Date: 2012-08-05 23:37:08 +0000 (Sun, 05 Aug 2012) $
+# Version: $Revision: 409 $
+# Date   : $Date: 2012-08-09 22:07:40 +0000 (Thu, 09 Aug 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -198,7 +198,7 @@ proc FetchFile {file srvCrc} {
 				if {$::Terminate} { Return aborted }
 				if {[incr retry] > $::MaxRetry} { Return timeout [MakeFile $url] }
 				ResetConnection $url.
-				after $::Wait ;# wait a bit
+				after [expr {($retry - 1)*$::Wait}] ;# wait a bit
 			}
 			error {
 				Return httperr [::http::error $token] [MakeFile $url]
@@ -249,7 +249,7 @@ if {[string length locTimestamp] > 0} {
 			timeout {
 				if {[incr retry] > $::MaxRetry} { Return timeout [MakeFile $url] }
 				ResetConnection $url.
-				after $::Wait ;# wait a bit
+				after [expr {($retry - 1)*$::Wait}] ;# wait a bit
 			}
 		}
 	}
@@ -273,7 +273,7 @@ while {$retry > 0} {
 		timeout {
 			if {[incr retry] > $::MaxRetry} { Return timeout [MakeFile $url] }
 			ResetConnection $url.
-			after $::Wait ;# wait a bit
+			after [expr {($retry - 1)*$::Wait}] ;# wait a bit
 		}
 	}
 }
