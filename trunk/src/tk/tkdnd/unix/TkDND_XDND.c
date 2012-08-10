@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 409 $
-// Date   : $Date: 2012-08-09 22:07:40 +0000 (Thu, 09 Aug 2012) $
+// Version: $Revision: 411 $
+// Date   : $Date: 2012-08-10 14:22:19 +0000 (Fri, 10 Aug 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -79,6 +79,7 @@
   (Tk_NameToWindow(interp, Tcl_GetString(x), Tk_MainWindow(interp)))
 
 extern Tk_Cursor TkDND_GetCursor(Tcl_Interp *interp, Tcl_Obj *name);
+extern void TkDND_InitialiseCursors(Tcl_Interp *interp);
 
 int
 TkDND_Eval(Tcl_Interp* interp, int objc, Tcl_Obj* const* objv)
@@ -1536,6 +1537,7 @@ int Tkdnd_Init(Tcl_Interp *interp) {
   /* Finally, register the XDND Handler... */
   Tk_CreateClientMessageHandler(&TkDND_XDNDHandler);
 
+  TkDND_InitialiseCursors(interp);
   Tcl_PkgProvide(interp, PACKAGE_NAME, PACKAGE_VERSION);
   return TCL_OK;
 } /* Tkdnd_Init */

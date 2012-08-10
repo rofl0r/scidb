@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 409 $
-# Date   : $Date: 2012-08-09 22:07:40 +0000 (Thu, 09 Aug 2012) $
+# Version: $Revision: 411 $
+# Date   : $Date: 2012-08-10 14:22:19 +0000 (Fri, 10 Aug 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -56,6 +56,7 @@ namespace eval xdnd {
   variable _drag_source {}
   variable _drop_target {}
   variable _prev_drop_target {}
+  variable _dragging 0
 
   proc debug {msg} {
     puts $msg
