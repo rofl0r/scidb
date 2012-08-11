@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 413 $
-# Date   : $Date: 2012-08-11 09:49:56 +0000 (Sat, 11 Aug 2012) $
+# Version: $Revision: 414 $
+# Date   : $Date: 2012-08-11 11:39:38 +0000 (Sat, 11 Aug 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -268,7 +268,7 @@
 ::util::photos::mc::RequiresSuperuserRights	"L'installazione/aggiornamento richiede diritti di super-user.\n\nNota che l apassword non sarà accettata se il tuo utente non è nel gruppo wheel." ;# sudoers file?
 ::util::photos::mc::RequiresInternetAccess	"L'installazione/aggiornamento delle foto dei giocatori richiede una connessione internet."
 ::util::photos::mc::AlternativelyDownload(0)	"Alternativamente puoi scaricare le foto da %link%. Installa questi file nella directory %local%."
-::util::photos::mc::AlternativelyDownload(1)	"Alternativamente puoi scaricare questi file da %link%. Installa questi file nella cartella condivisa %shared%, o nella cartella privata %local%.
+::util::photos::mc::AlternativelyDownload(1)	"Alternativamente puoi scaricare questi file da %link%. Installa questi file nella cartella condivisa %shared%, o nella cartella privata %local%."
 
 ::util::photos::mc::Error(nohttp)				"Non posso aprire una connessione internet perché il pacchetto TclHttp non è installato."
 ::util::photos::mc::Error(busy)					"L'installazione/aggiornamento è ancora in corso."
