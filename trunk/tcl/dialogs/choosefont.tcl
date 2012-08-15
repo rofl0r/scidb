@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 390 $
-# Date   : $Date: 2012-08-03 18:22:56 +0000 (Fri, 03 Aug 2012) $
+# Version: $Revision: 415 $
+# Date   : $Date: 2012-08-15 12:04:37 +0000 (Wed, 15 Aug 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -422,7 +422,6 @@ proc setSizes {w {sizes {}} {units px}} {
 
 	set S(sizes) $sizes
 	set S(sizes,lcase) $sizes
-puts "setSizes: $units"
 	set S(size,units) $units
 }
 

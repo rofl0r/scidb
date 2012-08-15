@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 407 $
-// Date   : $Date: 2012-08-08 21:52:05 +0000 (Wed, 08 Aug 2012) $
+// Version: $Revision: 415 $
+// Date   : $Date: 2012-08-15 12:04:37 +0000 (Wed, 15 Aug 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -45,6 +45,8 @@ public:
 	virtual void signalChanged(mstl::string const& path) = 0;
 	virtual void signalDeleted(mstl::string const& path) = 0;
 	virtual void signalCreated(mstl::string const& path) = 0;
+
+	static bool isSupported();
 
 private:
 

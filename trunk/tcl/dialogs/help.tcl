@@ -1,7 +1,7 @@
 ## ======================================================================
 # Author : $Author$
-# Version: $Revision: 390 $
-# Date   : $Date: 2012-08-03 18:22:56 +0000 (Fri, 03 Aug 2012) $
+# Version: $Revision: 415 $
+# Date   : $Date: 2012-08-15 12:04:37 +0000 (Wed, 15 Aug 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -96,7 +96,7 @@ proc open {parent {file {}} args} {
 	variable Links
 	variable ExternalLinks
 	variable Geometry
-	
+
 	array set opts {
 		-transient	no
 		-parent		{}
