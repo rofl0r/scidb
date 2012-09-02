@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 310 $
-# Date   : $Date: 2012-04-26 20:16:11 +0000 (Thu, 26 Apr 2012) $
+# Version: $Revision: 416 $
+# Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -218,7 +218,7 @@ proc open {parent} {
 	grid rowconfigure $top 4 -minsize [expr {2*$::theme::padding}]
 	grid rowconfigure $top {0 2 6} -minsize $::theme::padding
 
-	::widget::dialogButtons $dlg {ok cancel} ok
+	::widget::dialogButtons $dlg {ok cancel}
 	$dlg.cancel configure -command [list destroy $dlg]
 	$dlg.ok configure -command [namespace code [list Accept $dlg]] -state disabled
 

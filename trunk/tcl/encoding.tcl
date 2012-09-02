@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 298 $
-# Date   : $Date: 2012-04-18 20:09:25 +0000 (Wed, 18 Apr 2012) $
+# Version: $Revision: 416 $
+# Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -242,7 +242,7 @@ proc build {path currentEncoding defaultEncoding {width 0} {height 0} {encodingL
 			-text "$mc::CurrentEncoding\n$currentEncoding" \
 			-command [namespace code [list select $f $currentEncoding]] \
 		]
-		if {[lsearch $encodingList $currentEncoding] == -1} {
+		if {[lsearch -exact $encodingList $currentEncoding] == -1} {
 			$cur configure -state disabled
 		}
 	}
@@ -312,7 +312,7 @@ proc choose {parent currentEnc defaultEnc {autoDetectFlag no}} {
 	variable ${dlg}.enc.list.t::Vars
 	bind $dlg.enc <<TreeControlSelect>> [namespace code [list TreeControlSelect $dlg %d]]
 	pack $dlg.enc -fill both -expand yes
-	::widget::dialogButtons $dlg {ok cancel} ok
+	::widget::dialogButtons $dlg {ok cancel}
 	set cancel "
 		set [namespace current]::_Encoding {}
 		destroy $dlg"
@@ -330,7 +330,7 @@ proc choose {parent currentEnc defaultEnc {autoDetectFlag no}} {
 	focus $dlg.enc.list.t
 	ttk::grabWindow $dlg
 	set encoding $currentEnc
-	if {[lsearch $Vars(encodings) $encoding] == -1} { set encoding $defaultEnc }
+	if {[lsearch -exact $Vars(encodings) $encoding] == -1} { set encoding $defaultEnc }
 	after idle [namespace code [list select $dlg.enc $encoding]]
 	tkwait window $dlg
 	ttk::releaseGrab $dlg

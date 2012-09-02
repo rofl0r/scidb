@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 291 $
-// Date   : $Date: 2012-04-09 23:03:07 +0000 (Mon, 09 Apr 2012) $
+// Version: $Revision: 416 $
+// Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -41,7 +41,8 @@ public:
 	void message(mstl::string const& msg) override;
 	void tick(unsigned count) override;
 	void update(unsigned progress) override;
-	void finish() override;
+	void finish() throw() override;
+	void checkInterruption();
 
 	static void initialize();
 
@@ -55,6 +56,7 @@ private:
 	mutable int	m_numTicks;
 	bool			m_sendFinish;
 	bool			m_firstStart;
+	bool			m_checkInterruption;
 
 	static Tcl_Obj* m_open;
 	static Tcl_Obj* m_close;

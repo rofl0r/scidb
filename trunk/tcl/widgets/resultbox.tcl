@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 334 $
-# Date   : $Date: 2012-06-13 09:36:59 +0000 (Wed, 13 Jun 2012) $
+# Version: $Revision: 416 $
+# Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -138,7 +138,7 @@ proc WidgetProc {w command args} {
 			set result [lindex $args 0]
 			if {$result eq "1/2-1/2"} { set result "1/2" }
 			variable results
-			set index [lsearch $results $result]
+			set index [lsearch -exact $results $result]
 			if {$index == -1} {
 				error "wrong arg '$result'; should be one of [join $results \", \"]"
 			}
@@ -162,6 +162,7 @@ proc WidgetProc {w command args} {
 
 
 proc Select {w key} {
+	if {[$w popdown?]} { return }
 	if {[string length [$w get]] != 1} { return }
 
 	set index -1

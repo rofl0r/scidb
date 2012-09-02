@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 373 $
-# Date   : $Date: 2012-07-02 10:25:19 +0000 (Mon, 02 Jul 2012) $
+# Version: $Revision: 416 $
+# Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1031,7 +1031,7 @@ proc Build {dlg base position number} {
 	bind $top.game-date <<LanguageChanged>> $cmd
 
 	# Dialog Buttons ##########################################
-	::widget::dialogButtons $dlg {ok cancel} ok
+	::widget::dialogButtons $dlg {ok cancel}
 	$dlg.ok configure -command [namespace code [list Save $top $fields]]
 	$dlg.cancel configure -command [namespace code [list Withdraw $dlg]]
 #	bind $dlg.ok <FocusIn> [namespace code [list ClearMatchList $top]]
@@ -1481,7 +1481,7 @@ proc RemoveTag {t name {showWarning 0}} {
 	$t item delete $Item($name)
 	unset Item($name)
 	unset Lookup($name)
-	set index [lsearch -index 0 $Priv(tags) $name]
+	set index [lsearch -exact -index 0 $Priv(tags) $name]
 	set Priv(tags) [lreplace $Priv(tags) $index $index]
 }
 
@@ -2498,12 +2498,12 @@ proc Save {top fields} {
 				[namespace current]::Log {} \
 				-replace $replace \
 			]
-			if {[::util::catchIoError $cmd rc]} {
+			if {[::util::catchException $cmd result] != 0} {
 				::widget::busyCursor off
 				return
 			}
 			::widget::busyCursor off
-			if {$rc} {
+			if {$result} {
 				::log::hide
 			} else {
 				::dialog::error \

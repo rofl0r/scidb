@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 369 $
-// Date   : $Date: 2012-06-30 21:23:33 +0000 (Sat, 30 Jun 2012) $
+// Version: $Revision: 416 $
+// Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -582,7 +582,7 @@ void
 DatabaseCodec::open(	DatabaseContent* db,
 							mstl::string const& rootname,
 							mstl::string const& encoding,
-							Progress& progress)
+							util::Progress& progress)
 {
 	M_REQUIRE(db);
 
@@ -595,7 +595,7 @@ void
 DatabaseCodec::open(	DatabaseContent* db,
 							mstl::string const& encoding,
 							Producer& producer,
-							Progress& progress)
+							util::Progress& progress)
 {
 	M_REQUIRE(db);
 

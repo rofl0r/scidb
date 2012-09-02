@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 385 $
-// Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
+// Version: $Revision: 416 $
+// Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -34,6 +34,7 @@
 #include "db_comment.h"
 #include "db_eco.h"
 #include "db_pgn_aquarium.h"
+#include "db_exception.h"
 
 #include "u_nul_string.h"
 #include "u_progress.h"

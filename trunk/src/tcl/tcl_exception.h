@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 416 $
+// Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -36,6 +36,7 @@ public:
 	~Exception() throw();
 };
 
+
 class Error : public util::Exception
 {
 public:
@@ -43,6 +44,21 @@ public:
 	Error();
 	Error(util::Exception& exc);
 	~Error() throw();
+};
+
+
+class InterruptException : public util::BasicException
+{
+public:
+
+	InterruptException();
+	InterruptException(unsigned count);
+
+	int count() const;
+
+private:
+
+	int m_count;
 };
 
 } // namespace tcl

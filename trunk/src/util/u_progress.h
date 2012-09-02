@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 291 $
-// Date   : $Date: 2012-04-09 23:03:07 +0000 (Mon, 09 Apr 2012) $
+// Version: $Revision: 416 $
+// Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -40,7 +40,7 @@ public:
 	virtual void message(mstl::string const& msg);
 	virtual void tick(unsigned count);
 	virtual void update(unsigned progress);
-	virtual void finish();
+	virtual void finish() throw();
 
 	void setFrequency(unsigned frequency);
 	void setCount(unsigned count);

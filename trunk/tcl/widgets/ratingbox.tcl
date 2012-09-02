@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 334 $
-# Date   : $Date: 2012-06-13 09:36:59 +0000 (Wed, 13 Jun 2012) $
+# Version: $Revision: 416 $
+# Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -129,7 +129,7 @@ proc WidgetProc {w command args} {
 		}
 
 		valid? {
-			return [expr {[lsearch [$w.__w__ cget -values] [$w.__w__ get]] >= 0}]
+			return [expr {[lsearch -exact [$w.__w__ cget -values] [$w.__w__ get]] >= 0}]
 		}
 
 		set {
@@ -161,6 +161,7 @@ proc WidgetProc {w command args} {
 
 
 proc Select {w key sym var} {
+	if {[$w popdown?]} { return }
 	if {![info exists [winfo parent $w]::Ratings]} { return }
 
 	variable [winfo parent $w]::Ratings

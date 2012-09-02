@@ -1,8 +1,8 @@
 #!/bin/sh
 #! ======================================================================
 #! $RCSfile: tk_init.h,v $
-#! $Revision: 407 $
-#! $Date: 2012-08-08 21:52:05 +0000 (Wed, 08 Aug 2012) $
+#! $Revision: 416 $
+#! $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
 #! $Author: gregor $
 #! ======================================================================
 
@@ -155,7 +155,7 @@ proc ParseArgs {} {
 		set option [string range $arg 2 end]
 		set Options($option) 1
 
-		if {[lsearch -index 0 $ProgramOptions $arg] == -1} {
+		if {[lsearch -exact -index 0 $ProgramOptions $arg] == -1} {
 			puts stderr "Unrecognized option: $arg"
 		}
 	}

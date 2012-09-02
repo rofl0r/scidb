@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 407 $
-# Date   : $Date: 2012-08-08 21:52:05 +0000 (Wed, 08 Aug 2012) $
+# Version: $Revision: 416 $
+# Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -612,7 +612,7 @@ proc SaveUndockPosition {twm top} {
 							lappend options [lindex $entry 0] [lindex $entry 4]
 						}
 					}
-					set pos [lsearch $panes $top]
+					set pos [lsearch -exact $panes $top]
 					if {$pos + 1 < [llength $panes]} {
 						lappend options -before [lindex $panes [expr {$pos + 1}]]
 					}
@@ -623,7 +623,7 @@ proc SaveUndockPosition {twm top} {
 				if {$top in $tabs} {
 					set container $w
 					set options [$w tab $top]
-					set pos [lsearch $tabs $top]
+					set pos [lsearch -exact $tabs $top]
 					if {$pos + 1 == [llength $tabs]} { set pos end }
 				}
 			}

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 257 $
-# Date   : $Date: 2012-02-27 17:32:06 +0000 (Mon, 27 Feb 2012) $
+# Version: $Revision: 416 $
+# Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -123,7 +123,7 @@ proc IsX11Browser {browser} {
 proc IsExcluded {browser} {
 	variable Excluded
 
-	return [expr {[lsearch $Excluded $browser] >= 0}]
+	return [expr {[lsearch -exact $Excluded $browser] >= 0}]
 }
 
 } ;# namespace web

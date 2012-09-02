@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 380 $
-// Date   : $Date: 2012-07-05 20:29:07 +0000 (Thu, 05 Jul 2012) $
+// Version: $Revision: 416 $
+// Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -680,7 +680,9 @@ Codec::close()
 
 
 void
-Codec::doOpen(mstl::string const& rootname, mstl::string const& encoding, util::Progress& progress)
+Codec::doOpen(	mstl::string const& rootname,
+					mstl::string const& encoding,
+					util::Progress& progress)
 {
 	ProgressWatcher watcher(progress, 0);
 
@@ -1245,7 +1247,7 @@ Codec::reloadDescription(mstl::string const& rootname)
 
 
 void
-Codec::reloadNamebases(mstl::string const& rootname, util::Progress& progress)
+Codec::reloadNamebases(mstl::string const& rootname, Progress& progress)
 {
 	ProgressWatcher watcher(progress, 0);
 

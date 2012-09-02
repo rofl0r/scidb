@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 283 $
-// Date   : $Date: 2012-03-29 18:05:34 +0000 (Thu, 29 Mar 2012) $
+// Version: $Revision: 416 $
+// Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -15,6 +15,8 @@
 // the Free Software Foundation; either version 2 of the License, or
 // (at your option) any later version.
 // ======================================================================
+
+#include "m_exception.h"
 
 namespace util {
 
@@ -41,7 +43,7 @@ ProgressWatcher::ProgressWatcher(Progress* progress, unsigned total)
 
 inline ProgressWatcher::~ProgressWatcher()
 {
-	if (m_progress)
+	if (m_progress && !mstl::uncaught_exception() && !m_progress->interrupted())
 		m_progress->finish();
 }
 

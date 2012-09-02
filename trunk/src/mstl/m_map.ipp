@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 407 $
-// Date   : $Date: 2012-08-08 21:52:05 +0000 (Wed, 08 Aug 2012) $
+// Version: $Revision: 416 $
+// Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -37,6 +37,9 @@ inline map<K,V>::map(const_iterator first, const_iterator last) { insert(first, 
 
 template <typename K, typename V>
 inline typename map<K,V>::size_type map<K,V>::size() const { return m_v.size(); }
+
+template <typename K, typename V>
+inline typename map<K,V>::size_type map<K,V>::capacity() const { return m_v.capacity(); }
 
 template <typename K, typename V>
 inline typename map<K,V>::iterator map<K,V>::begin() { return m_v.begin(); }

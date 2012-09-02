@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 390 $
-# Date   : $Date: 2012-08-03 18:22:56 +0000 (Fri, 03 Aug 2012) $
+# Version: $Revision: 416 $
+# Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -140,8 +140,13 @@ proc formatTime {time} {
 }
 
 
+proc timestampToTime {timestamp} {
+	return [formatTime [clock format $timestamp -format "%Y.%m.%d %H:%M:%S"]]
+}
+
+
 proc currentTime {} {
-	return [formatTime [clock format [clock seconds] -format "%Y.%m.%d %H:%M:%S"]]
+	return [timestampToTime [clock seconds]]
 }
 
 } ;# namespace locale

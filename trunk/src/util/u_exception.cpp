@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 416 $
+// Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -23,6 +23,24 @@
 #include <stdarg.h>
 
 using namespace util;
+
+
+BasicException::BasicException() {}
+
+
+BasicException::BasicException(char const* fmt, ...)
+{
+	va_list args;
+	va_start(args, fmt);
+	set_message(fmt, args);
+	va_end(args);
+}
+
+
+BasicException::BasicException(char const* fmt, va_list args)
+	:mstl::basic_exception(fmt, args)
+{
+}
 
 
 Exception::Exception() {}

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 385 $
-// Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
+// Version: $Revision: 416 $
+// Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -205,8 +205,6 @@ private:
 	bool					m_setupBoard;
 	bool					m_commentEngFlag;
 	bool					m_commentOthFlag;
-	bool					m_illegalCastling;
-	bool					m_illegalMove;
 };
 
 } // namespace db

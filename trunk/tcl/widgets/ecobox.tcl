@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 381 $
-# Date   : $Date: 2012-07-06 17:37:29 +0000 (Fri, 06 Jul 2012) $
+# Version: $Revision: 416 $
+# Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -143,6 +143,8 @@ proc ValidateEco {eco key} {
 
 
 proc Completion {w code sym var} {
+	if {[$w popdown?]} { return }
+
 	if {$sym eq "Tab"} {
 		after idle [namespace code [list Completion2 $w $var no]]
 	} elseif {[string is alnum -strict $code] || $code eq " "} {

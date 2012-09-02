@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 311 $
-# Date   : $Date: 2012-05-03 19:56:10 +0000 (Thu, 03 May 2012) $
+# Version: $Revision: 416 $
+# Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -157,7 +157,7 @@ proc View {pane base} {
 }
 
 
-proc TableUpdate {table base {view -1} {index -1}} {
+proc TableUpdate {table id base {view -1} {index -1}} {
 	variable Vars
 
 	if {[::scidb::tree::isRefBase? $base]} {

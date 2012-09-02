@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 406 $
-// Date   : $Date: 2012-08-06 07:01:35 +0000 (Mon, 06 Aug 2012) $
+// Version: $Revision: 416 $
+// Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -64,8 +64,6 @@ Consumer::Consumer(	format::Type srcFormat,
 	,m_setupBoard(true)
 	,m_commentEngFlag(false)
 	,m_commentOthFlag(false)
-	,m_illegalCastling(false)
-	,m_illegalMove(false)
 {
 }
 
@@ -146,8 +144,7 @@ Consumer::startGame(TagSet const& tags, Board const* board)
 	m_line.length = 0;
 	m_commentEngFlag = false;
 	m_commentOthFlag = false;
-	m_illegalCastling = false;
-	m_illegalMove = false;
+	m_flags = 0;
 	m_moveInfoSet.clear();
 	m_engines.clear();
 	m_homePawns.clear();

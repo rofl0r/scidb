@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 385 $
-// Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
+// Version: $Revision: 416 $
+// Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -134,7 +134,7 @@ Database::Database(mstl::string const& name, mstl::string const& encoding, Stora
 Database::Database(	mstl::string const& name,
 							mstl::string const& encoding,
 							Mode mode,
-							Progress& progress)
+							util::Progress& progress)
 	:DatabaseContent(encoding)
 	,m_codec(0)
 	,m_name(name)
@@ -175,7 +175,7 @@ Database::Database(	mstl::string const& name,
 }
 
 
-Database::Database(mstl::string const& name, Producer& producer, Progress& progress)
+Database::Database(mstl::string const& name, Producer& producer, util::Progress& progress)
 	:DatabaseContent(producer.encoding())
 	,m_codec(0)
 	,m_name(name)
@@ -390,7 +390,7 @@ Database::clear()
 
 
 void
-Database::reopen(mstl::string const& encoding, Progress& progress)
+Database::reopen(mstl::string const& encoding, util::Progress& progress)
 {
 	M_REQUIRE(file::hasSuffix(name()));
 	M_REQUIRE(!isMemoryOnly());

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 385 $
-# Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
+# Version: $Revision: 416 $
+# Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -352,21 +352,21 @@ proc build {parent width height} {
 	$tb.t style elements styLine {rectDivider}
 	$tb.t style layout styLine rectDivider -pady {3 2} -iexpand x
 
-	set tbControl [::toolbar::toolbar $parent \
-		-id control \
-		-hide 0 \
-		-side bottom \
-		-alignment left \
-		-allow {top bottom} \
-		-tooltipvar [namespace current]::mc::Control \
-		]
 	set tbSwitcher [::toolbar::toolbar $parent \
-		-id switcher \
+		-id tree-switcher \
 		-side top \
 		-alignment left \
 		-allow {top bottom} \
 		-tooltipvar [namespace current]::mc::ReferenceBaseSwitcher \
-		]
+	]
+	set tbControl [::toolbar::toolbar $parent \
+		-id tree-control \
+		-hide 0 \
+		-side top \
+		-alignment left \
+		-allow {top bottom} \
+		-tooltipvar [namespace current]::mc::Control \
+	]
 	::toolbar::add $tbControl checkbutton \
 		-image $::icon::toolbarSearch \
 		-variable [namespace current]::Options(search:automatic) \
@@ -391,7 +391,7 @@ proc build {parent width height} {
 		-textvariable [namespace current]::Vars(name) \
 		-tooltipvar [namespace current]::mc::SwitchReferenceBase \
 		-showcolumns {name} \
-		]
+	]
 	$switcher configure -postcommand [namespace code [list FillSwitcher $switcher]]
 	::toolbar::add $tbSwitcher frame -width 4
 	set stm [::toolbar::add $tbSwitcher label -image $Vars(whiteKnob)]
@@ -406,7 +406,7 @@ proc build {parent width height} {
 			;
 	}
 	set tbProgress [::toolbar::toolbar $parent \
-		-id progress \
+		-id tree-progress \
 		-hide 0 \
 		-side bottom \
 		-alignment left \
@@ -430,7 +430,6 @@ proc build {parent width height} {
 	set Vars(active) -1
 	set Vars(hidden) 1
 	set Vars(button) 0
-	set Vars(switcher) $switcher
 	set Vars(name) {}
 	set Vars(current) {}
 	set Vars(list) {}

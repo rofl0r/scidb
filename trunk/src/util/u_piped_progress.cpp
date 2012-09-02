@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 416 $
+// Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -76,7 +76,7 @@ PipedProgress::update(unsigned progress)
 
 
 void
-PipedProgress::finish()
+PipedProgress::finish() throw()
 {
 	if (!m_interrupted)
 		send(255);

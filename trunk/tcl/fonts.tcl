@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 390 $
-# Date   : $Date: 2012-08-03 18:22:56 +0000 (Fri, 03 Aug 2012) $
+# Version: $Revision: 416 $
+# Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1008,7 +1008,7 @@ proc FindOle!Fonts {} {
 
 	set reset 0
 
-	if {[lsearch -nocase $chessFigurineFonts {Scidb Chess Ole!}] == -1} {
+	if {[lsearch -exact -nocase $chessFigurineFonts {Scidb Chess Ole!}] == -1} {
 		array set opts [font actual {{Scidb Chess Ole!} -12}]
 		if {[string compare -nocase $opts(-family) {Scidb Chess Ole!}] == 0} {
 			AddFigurineFont $opts(-family)
@@ -1016,7 +1016,7 @@ proc FindOle!Fonts {} {
 		}
 	}
 
-	if {[lsearch -nocase $chessSymbolFonts {Scidb Symbol Ole!}] == -1} {
+	if {[lsearch -exact -nocase $chessSymbolFonts {Scidb Symbol Ole!}] == -1} {
 		array set opts [font actual {{Scidb Symbol Ole!} -12}]
 		if {[string compare -nocase $opts(-family) {Scidb Symbol Ole!}] == 0} {
 			AddSymbolFont $opts(-family)

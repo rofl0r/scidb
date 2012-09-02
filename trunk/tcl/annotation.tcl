@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 385 $
-# Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
+# Version: $Revision: 416 $
+# Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -536,7 +536,7 @@ proc update {{key ""}} {
 	set Vars(key) $key
 
 	if {[open?]} {
-		set Vars(stm) [::scidb::game::query stm]
+		set Vars(stm) [string index [::scidb::game::query stm] 0]
 		lassign [::scidb::game::query annotation] Vars(infix) Vars(prefix) Vars(suffix)
 		Init $Vars(dialog)
 		set Vars(needUpdate) 0
@@ -681,7 +681,7 @@ proc ConfigureButtons {dlg type entered} {
 	variable Vars
 
 	set text $Vars($type)
-	set annotations $Annotations([expr {$Vars(stm) eq "white" ? "b" : "w"}])
+	set annotations $Annotations([expr {$Vars(stm) eq "w" ? "b" : "w"}])
 	set used 0
 
 	foreach nag $text {
@@ -830,7 +830,7 @@ proc SendNags {dlg} {
 		}
 	}
 
-	if {$Vars(stm) eq "white"} {
+	if {$Vars(stm) eq "w"} {
 		set list {}
 		foreach nag $nagList {
 			lappend list $MapToBlack($nag)
@@ -856,8 +856,7 @@ proc Tooltip {w args} {
 
 		if {[$w cget -state] eq "disabled"} { return }
 		lassign $args nag row col
-		set stm [::scidb::pos::stm]
-		if {$stm eq "white"} { set stm b } else { set stm w }
+		if {[::scidb::pos::stm] eq "w"} { set stm "b" } else { set stm "w" }
 		set nag [lindex $Annotations($stm) $row $col]
 		::tooltip::show $w "[string toupper $mc::Nag($nag) 0 0] (\$$nag)"
 	} elseif {[string match *Combobox [winfo class $w]]} {

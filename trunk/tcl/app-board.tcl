@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 385 $
-# Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
+# Version: $Revision: 416 $
+# Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -119,11 +119,19 @@ proc build {w width height} {
 	::board::stuff::update $board standard
 	::board::unregisterSize $Dim(squaresize)
 
-	set tbTools		[::toolbar::toolbar $w -hide 1 -id tools -tooltipvar [namespace current]::mc::Tools]
-	set tbLayout	[::toolbar::toolbar $w -hide 1 -id layout -tooltipvar ::mc::Layout]
+	set tbTools		[::toolbar::toolbar $w \
+							-hide 1 \
+							-id board-tools \
+							-tooltipvar [namespace current]::mc::Tools \
+						]
+	set tbLayout	[::toolbar::toolbar $w \
+							-hide 1 \
+							-id board-layout \
+							-tooltipvar ::mc::Layout \
+						]
 	set tbControl	[::toolbar::toolbar $w \
 							-hide 1 \
-							-id control \
+							-id board-control \
 							-tooltipvar [namespace current]::mc::Control \
 							-orientation bottom \
 							-alignment center]
@@ -141,10 +149,12 @@ proc build {w width height} {
 		-command [namespace code [list ShowCrossTable [winfo toplevel $board]]] \
 		-tooltipvar [namespace current]::mc::ShowCrosstable \
 	]
-#	::toolbar::add $tbTools button \
-#		-image $::icon::toolbarEngine \
-#		-command [namespace code StartAnalysis] \
-#		;
+if {[::process::testOption use-analysis]} {
+	::toolbar::add $tbTools button \
+		-image $::icon::toolbarEngine \
+		-command [namespace code StartAnalysis] \
+		;
+}
 
 	::toolbar::add $tbLayout button \
 		-image $::icon::toolbarRotateBoard \
@@ -927,7 +937,10 @@ proc UpdateControls {} {
 
 
 proc StartAnalysis {} {
-	puts "StartAnalysis"
+	variable Vars
+
+	set engine [::engine::choose [winfo toplevel $Vars(widget:frame)]]
+	# TODO
 }
 
 

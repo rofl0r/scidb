@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 358 $
-// Date   : $Date: 2012-06-25 12:25:25 +0000 (Mon, 25 Jun 2012) $
+// Version: $Revision: 416 $
+// Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -172,7 +172,10 @@ private:
 	void readIndex(mstl::fstream& fstrm, util::Progress& progress);
 
 	void readNamebases(mstl::fstream& stream, util::Progress& progress);
-	void preloadNamebase(ByteIStream& bstrm, unsigned maxFreq, unsigned count, util::Progress& progress);
+	void preloadNamebase(ByteIStream& bstrm,
+								unsigned maxFreq,
+								unsigned count,
+								util::Progress& progress);
 	void readNamebase(ByteIStream& stream,
 							Namebase& base,
 							NameList& shadowBase,

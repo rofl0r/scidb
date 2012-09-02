@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 390 $
-# Date   : $Date: 2012-08-03 18:22:56 +0000 (Fri, 03 Aug 2012) $
+# Version: $Revision: 416 $
+# Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -99,6 +99,10 @@ proc DoCmd {cmd parent {value 0}} {
 		start {
 			set Priv(value) 0
 			::dialog::progressbar::setMaximum .progress $value
+			array set opts $Priv(options)
+			if {[info exists opts(-information)]} {
+				::dialog::progressbar::setInformation .progress $opts(-information)
+			}
 			update
 		}
 

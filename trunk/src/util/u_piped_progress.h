@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 416 $
+// Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -31,13 +31,13 @@ public:
 
 	PipedProgress();
 
-	bool interrupted();
+	bool interrupted() override;
 	bool interruptReceived() const;
 
-	void start(unsigned total);
-	void update(unsigned progress);
+	void start(unsigned total) override;
+	void update(unsigned progress) override;
 	void refresh(unsigned progress);
-	void finish();
+	void finish() throw() override;
 
 private:
 

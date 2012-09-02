@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 358 $
-// Date   : $Date: 2012-06-25 12:25:25 +0000 (Mon, 25 Jun 2012) $
+// Version: $Revision: 416 $
+// Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -27,6 +27,8 @@ class type_info; // because of a cyclic bug in gcc headers
 
 #include <typeinfo>
 
+namespace std { bool uncaught_exception() throw(); }
+
 namespace mstl {
 
 class exception;
@@ -51,6 +53,10 @@ throw_exc(Exc const& exc, char const* file, int line, char const* func)
 }
 
 } // namespace bits
+
+
+inline bool uncaught_exception() throw() { return ::std::uncaught_exception(); }
+
 } // namespace mstl
 
 #endif // __OPTIMIZE__

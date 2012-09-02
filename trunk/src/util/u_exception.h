@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 416 $
+// Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -24,6 +24,16 @@
 #define U_RAISE(fmt,args...) M_THROW(::util::Exception(fmt,##args))
 
 namespace util {
+
+class BasicException : public mstl::basic_exception
+{
+public:
+
+	// structors
+	BasicException();
+	explicit BasicException(char const* fmt, ...) __attribute__((__format__(__printf__, 2, 3)));
+	BasicException(char const* fmt, va_list args);
+};
 
 class Exception : public mstl::exception
 {

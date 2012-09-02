@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 416 $
+// Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -36,9 +36,15 @@ inline void Player::setIccfID(unsigned id)							{ m_iccfID = id; }
 inline void Player::setSex(sex::ID id)									{ m_sex = id; }
 inline void Player::setType(species::ID id)							{ m_species = id; }
 inline void Player::setChess960Flag(bool flag)						{ m_chess960 = flag; }
+inline void Player::setShuffleChessFlag(bool flag)					{ m_shuffle = flag; }
 inline void Player::setWinboardProtocol(bool flag)					{ m_winboard = flag; }
 inline void Player::setUciProtocol(bool flag)						{ m_uci = flag; }
 inline void Player::setUnique(bool flag)								{ m_notUnique = !flag; }
+
+inline bool Player::supportsUciProtocol() const						{ return m_uci; }
+inline bool Player::supportsWinboardProtocol() const				{ return m_winboard; }
+inline bool Player::supportsChess960() const							{ return m_chess960; }
+inline bool Player::supportsShuffleChess() const					{ return m_shuffle; }
 
 inline sex::ID Player::sex() const						{ return sex::ID(m_sex); }
 inline species::ID Player::type() const				{ return species::ID(m_species); }

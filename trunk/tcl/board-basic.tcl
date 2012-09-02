@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 298 $
-# Date   : $Date: 2012-04-18 20:09:25 +0000 (Wed, 18 Apr 2012) $
+# Version: $Revision: 416 $
+# Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -265,7 +265,7 @@ array set Texture {}
 
 array set layout {
 	material-values	1
-	material-bar		1
+	material-bar		0
 	side-to-move		1
 	border				1
 	coordinates			1

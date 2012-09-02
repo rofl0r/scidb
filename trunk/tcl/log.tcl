@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 369 $
-# Date   : $Date: 2012-06-30 21:23:33 +0000 (Sat, 30 Jun 2012) $
+# Version: $Revision: 416 $
+# Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -279,7 +279,7 @@ proc Open {} {
 	$log tag configure Callee -foreground #88681a
 	$log tag configure hyperlink -underline on -foreground blue
 	$log tag configure link -foreground blue
-	widget::dialogButtons $Log {clear close} close no
+	widget::dialogButtons $Log {clear close} -default close -icons no
 	$Log.close configure -command [list wm withdraw $Log]
 	$Log.clear configure -command [namespace code Clear]
 	wm title $Log "$::scidb::app - $mc::LogTitle"

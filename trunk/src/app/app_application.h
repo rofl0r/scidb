@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 385 $
-// Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
+// Version: $Revision: 416 $
+// Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -73,33 +73,34 @@ public:
 
 		virtual void setBoard(mstl::string const& position) = 0;
 
-		void updateList(mstl::string const& filename);
-		void updateList(mstl::string const& filename, unsigned view);
+		void updateList(unsigned id, mstl::string const& filename);
+		void updateList(unsigned id, mstl::string const& filename, unsigned view);
 
-		virtual void updateDatabaseInfo(mstl::string const& filename) = 0;
+		virtual void updateGameList(unsigned id, mstl::string const& filename) = 0;
+		virtual void updateGameList(unsigned id, mstl::string const& filename, unsigned view) = 0;
+		virtual void updateGameList(unsigned id, mstl::string const& filename, unsigned view, unsigned index) = 0;
 
-		virtual void updateGameList(mstl::string const& filename) = 0;
-		virtual void updateGameList(mstl::string const& filename, unsigned view) = 0;
-		virtual void updateGameList(mstl::string const& filename, unsigned view, unsigned index) = 0;
+		virtual void updatePlayerList(unsigned id, mstl::string const& filename) = 0;
+		virtual void updatePlayerList(unsigned id, mstl::string const& filename, unsigned view) = 0;
+		virtual void updatePlayerList(unsigned id, mstl::string const& filename, unsigned view, unsigned index) = 0;
 
-		virtual void updatePlayerList(mstl::string const& filename) = 0;
-		virtual void updatePlayerList(mstl::string const& filename, unsigned view) = 0;
-		virtual void updatePlayerList(mstl::string const& filename, unsigned view, unsigned index) = 0;
+		virtual void updateEventList(unsigned id, mstl::string const& filename) = 0;
+		virtual void updateEventList(unsigned id, mstl::string const& filename, unsigned view) = 0;
+		virtual void updateEventList(unsigned id, mstl::string const& filename, unsigned view, unsigned index) = 0;
 
-		virtual void updateEventList(mstl::string const& filename) = 0;
-		virtual void updateEventList(mstl::string const& filename, unsigned view) = 0;
-		virtual void updateEventList(mstl::string const& filename, unsigned view, unsigned index) = 0;
+		virtual void updateSiteList(unsigned id, mstl::string const& filename) = 0;
+		virtual void updateSiteList(unsigned id, mstl::string const& filename, unsigned view) = 0;
+		virtual void updateSiteList(unsigned id, mstl::string const& filename, unsigned view, unsigned index) = 0;
 
-		virtual void updateSiteList(mstl::string const& filename) = 0;
-		virtual void updateSiteList(mstl::string const& filename, unsigned view) = 0;
-		virtual void updateSiteList(mstl::string const& filename, unsigned view, unsigned index) = 0;
+		virtual void updateAnnotatorList(unsigned id, mstl::string const& filename) = 0;
+		virtual void updateAnnotatorList(unsigned id, mstl::string const& filename, unsigned view) = 0;
+		virtual void updateAnnotatorList(unsigned id, mstl::string const& filename, unsigned view, unsigned index) = 0;
 
-		virtual void updateAnnotatorList(mstl::string const& filename) = 0;
-		virtual void updateAnnotatorList(mstl::string const& filename, unsigned view) = 0;
-		virtual void updateAnnotatorList(mstl::string const& filename, unsigned view, unsigned index) = 0;
+		virtual void updateDatabaseInfo( mstl::string const& filename) = 0;
 
 		virtual void updateGameInfo(mstl::string const& filename, unsigned index) = 0;
 		virtual void updateGameInfo(unsigned position) = 0;
+
 		virtual void gameSwitched(unsigned position) = 0;
 		virtual void updateTree(mstl::string const& filename) = 0;
 		virtual void closeDatabase(mstl::string const& filename) = 0;
@@ -308,6 +309,7 @@ private:
 	bool			m_isUserSet;
 	unsigned		m_position;
 	unsigned		m_fallbackPosition;
+	unsigned		m_updateCount;
 	GameMap		m_gameMap;
 	CursorMap	m_cursorMap;
 	IndexMap		m_indexMap;

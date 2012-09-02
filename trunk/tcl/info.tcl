@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 369 $
-# Date   : $Date: 2012-06-30 21:23:33 +0000 (Sat, 30 Jun 2012) $
+# Version: $Revision: 416 $
+# Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -93,7 +93,7 @@ proc BuildDialog {dlg} {
 		incr count
 	}
 
-	widget::dialogButtons $dlg close close
+	widget::dialogButtons $dlg close
 	$dlg.close configure -command [list destroy $dlg]
 	bind $dlg <Escape> [list $dlg.close invoke]
 }

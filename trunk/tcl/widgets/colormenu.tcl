@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 407 $
-# Date   : $Date: 2012-08-08 21:52:05 +0000 (Wed, 08 Aug 2012) $
+# Version: $Revision: 416 $
+# Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -32,6 +32,12 @@ set Texture				"Texture"
 set OpenColorDialog	"Open Color Dialog"
 set EraseColor			"Erase Color"
 set Close				"Close"
+}
+
+variable baseColors {
+	\#0000ff \#00ff00 \#00ffff \#ff0000 \#ff00ff \#ffff00
+	\#000099 \#009900 \#009999 \#990000 \#990099 \#999900
+	\#000000 \#333333 \#666666 \#999999 \#cccccc \#ffffff
 }
 
 variable selection {}

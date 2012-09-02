@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 373 $
-# Date   : $Date: 2012-07-02 10:25:19 +0000 (Mon, 02 Jul 2012) $
+# Version: $Revision: 416 $
+# Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -325,22 +325,22 @@ proc addMove {san noMoveCmd {force no}} {
 
 	switch $action {
 		mainline {
-			::widget::busyOperation ::scidb::game::variation mainline $san
+			::widget::busyOperation { ::scidb::game::variation mainline $san }
 			::scidb::game::go 1
 		}
 
 		variation {
 			set varno [::scidb::game::variation new $san]
-			::widget::busyOperation [namespace code [list EnterVariation $varno]]
+			::widget::busyOperation { EnterVariation $varno }
 		}
 
 		replace {
-			::widget::busyOperation ::scidb::game::replace $san
+			::widget::busyOperation { ::scidb::game::replace $san }
 			::scidb::game::go 1
 		}
 
 		trial {
-			::widget::busyOperation ::scidb::game::trial $san
+			::widget::busyOperation { ::scidb::game::trial $san }
 			::scidb::game::go 1
 		}
 
@@ -349,7 +349,7 @@ proc addMove {san noMoveCmd {force no}} {
 			doDestructiveCommand \
 				$board \
 				$mc::ExchangeMove \
-				[list ::widget::busyOperation ::scidb::game::exchange $san] \
+				[list ::widget::busyOperation [list ::scidb::game::exchange $san]] \
 				[list ::scidb::game::go 1] \
 				$noMoveCmd \
 				;

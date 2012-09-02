@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 385 $
-# Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
+# Version: $Revision: 416 $
+# Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -59,6 +59,7 @@ set Database		"Database"
 set Delete			"Delete"
 set Edit				"Edit"
 set Escape			"Esc"
+set File				"File"
 set From				"From"
 set Game				"Game"
 set Layout			"Layout"
@@ -309,10 +310,10 @@ proc setLang {id} {
 	variable langID
 	variable ::i18n::languages
 
-	set n [lsearch -index 1 $languages $id]
+	set n [lsearch -exact -index 1 $languages $id]
 	if {$n == -1} {
 		set id en	;# language id is gone
-		set n [lsearch -index 1 $languages $id]
+		set n [lsearch -exact -index 1 $languages $id]
 		if {$n == -1} { return } ;# no language set loaded
 	}
 

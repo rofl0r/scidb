@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 358 $
-// Date   : $Date: 2012-06-25 12:25:25 +0000 (Mon, 25 Jun 2012) $
+// Version: $Revision: 416 $
+// Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1744,6 +1744,13 @@ Comment::convertCommentToXml(	mstl::string const& comment,
 										encoding::CharSet encoding)
 {
 	M_REQUIRE(&comment != &result.content());
+
+	if (	comment.size() >= 13
+		&& strncmp(comment.begin(), "<html>", 6) == 0
+		&& strncmp(comment.end() - 7, "</html>", 7) == 0)
+	{
+		return result.fromHtml(comment); // NOTE: encoding is ignored
+	}
 
 	char const* s = comment.c_str();
 	bool hasDiagram = false;

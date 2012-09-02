@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 415 $
-// Date   : $Date: 2012-08-15 12:04:37 +0000 (Wed, 15 Aug 2012) $
+// Version: $Revision: 416 $
+// Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -42,9 +42,10 @@ public:
 	bool add(mstl::string const& path, unsigned states = StateAll);
 	void remove(mstl::string const& path);
 
-	virtual void signalChanged(mstl::string const& path) = 0;
-	virtual void signalDeleted(mstl::string const& path) = 0;
-	virtual void signalCreated(mstl::string const& path) = 0;
+	virtual void signalId(unsigned id, mstl::string const& path) = 0;
+	virtual void signalChanged(unsigned id, mstl::string const& path) = 0;
+	virtual void signalDeleted(unsigned id, mstl::string const& path) = 0;
+	virtual void signalCreated(unsigned id, mstl::string const& path) = 0;
 
 	static bool isSupported();
 

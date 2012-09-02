@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 375 $
-# Date   : $Date: 2012-07-02 13:04:39 +0000 (Mon, 02 Jul 2012) $
+# Version: $Revision: 416 $
+# Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -379,6 +379,10 @@ proc WidgetProc {w command args} {
 			}
 			$w.popdown.l clone $cb.popdown.l
 			return $w
+		}
+
+		popdown? {
+			return [winfo ismapped $w.popdown.l]
 		}
 	}
 

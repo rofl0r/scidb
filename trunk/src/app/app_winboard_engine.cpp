@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 370 $
-// Date   : $Date: 2012-07-01 07:34:57 +0000 (Sun, 01 Jul 2012) $
+// Version: $Revision: 416 $
+// Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -438,7 +438,7 @@ winboard::Engine::protocolStart(bool isProbing)
 		send("level 1 1 0");	// better than "st 1"
 		send("post");
 		send("go");				// NOTE: don't send "go" if the user is to move
-		send("?");
+//		send("?");
 //		send("force");
 //		send("easy");
 //		send("hard");
@@ -477,7 +477,8 @@ winboard::Engine::featureDone(bool done)
 
 	if (isProbing())
 	{
-		m_response = done;
+		if (done)
+			m_response = true;
 	}
 	else
 	{
@@ -610,7 +611,7 @@ winboard::Engine::parseFeatures(char const* msg)
 			case 'a':
 				if (::strncmp(key, "analyze=", 8) == 0)
 				{
-					m_featureAnalyze= *val == '1';
+					m_featureAnalyze = *val == '1';
 					accept = true;
 				}
 				break;

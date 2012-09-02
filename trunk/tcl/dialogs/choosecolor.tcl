@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 407 $
-# Date   : $Date: 2012-08-08 21:52:05 +0000 (Wed, 08 Aug 2012) $
+# Version: $Revision: 416 $
+# Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -37,7 +37,6 @@ set UserColors			"User Colors"
 set RecentColors		"Recent Colors"
 set Old					"Old"
 set Current				"Current"
-set Color				"Color"
 set HexCode				"Hex Code"
 set ColorSelection	"Color Selection"
 set Red					"Red"
@@ -467,7 +466,8 @@ proc BuildFrame {w options} {
 			-image [set GreenArrow] \
 			-width [expr {$Options(button:width) - 2}] \
 			-height [expr {$Options(button:height) - 2}] \
-			-background $bg \
+			-background [ttk::style lookup $::ttk::currentTheme -background] \
+			-activebackground $bg \
 			-relief raised \
 			-borderwidth 1 \
 			-takefocus 0 \
@@ -594,7 +594,7 @@ proc ParseArguments {args} {
 	}
 	set opts(usercolors)		[namespace current]::userColorList
 	set opts(recentcolors)	[namespace current]::recentColorList
-	set opts(title)			[Tr Color]
+	set opts(title)			[Tr ColorSelection]
 	set opts(app)				[tk appname]
 
 	set key [lindex $args 0]

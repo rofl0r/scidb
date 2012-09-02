@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 385 $
-# Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
+# Version: $Revision: 416 $
+# Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -491,7 +491,7 @@ proc open {parent} {
 	grid columnconfigure $top {2 4} -minsize 10
 	grid rowconfigure $top 0 -minsize $::theme::padding
 
-	::widget::dialogButtons $dlg {ok cancel revert} ok
+	::widget::dialogButtons $dlg {ok cancel revert}
 	$dlg.cancel configure -command [list destroy $dlg]
 	$dlg.revert configure -command [namespace code Reset]
 	$dlg.ok configure -command [namespace code Accept]
@@ -951,7 +951,7 @@ proc Accept {} {
 		set Vars(fen) [::scidb::board::normalizeFen $Vars(fen)]
 		::scidb::game::clear $Vars(fen)
 		destroy [winfo toplevel $Vars(combo)]
-		set i [lsearch $History $Vars(fen)]
+		set i [lsearch -exact $History $Vars(fen)]
 		if {$i != 0} {
 			if {$i == -1 && [llength $History] == 10} { set i 9 }
 			if {$i != -1} { set History [lreplace $History $i $i] }

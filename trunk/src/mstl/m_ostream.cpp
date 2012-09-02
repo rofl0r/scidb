@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 284 $
-// Date   : $Date: 2012-04-01 19:39:32 +0000 (Sun, 01 Apr 2012) $
+// Version: $Revision: 416 $
+// Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -91,19 +91,9 @@ ostream::operator<<(void const* p)
 
 
 ostream&
-ostream::put(char c)
-{
-	if (fputc(c, m_fp) == EOF)
-		setstate(badbit);
-
-	return *this;
-}
-
-
-ostream&
 ostream::write(char const* buffer, size_t size)
 {
-	if (fwrite(buffer, size, 1, m_fp) == 0)
+	if (fwrite(buffer, 1, size, m_fp) == 0)
 	{
 		if (ferror(m_fp))
 			setstate(badbit);

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 416 $
+// Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -23,6 +23,7 @@
 #include "jpeg_exception.h"
 
 #include "u_base64_decoder.h"
+#include "u_exception.h"
 
 #include <string.h>
 #include <assert.h>
@@ -132,8 +133,9 @@ ChannelReader::skip(size_t nbytes)
 } // namespace
 
 
+template <typename Exception>
 static int
-handle_exception(Tcl_Interp* ti, JPEG::Exception const& exc)
+handle_exception(Tcl_Interp* ti, Exception const& exc)
 {
 	static char msg[1024];
 	strncpy(msg, exc.what(), sizeof(msg));
@@ -288,6 +290,10 @@ str_read_jpeg(	Tcl_Interp* ti,
 	{
 		return handle_exception(ti, exc);
 	}
+	catch (util::BasicException const& exc)
+	{
+		return handle_exception(ti, exc);
+	}
 
 	return TCL_ERROR;
 }
@@ -314,6 +320,7 @@ str_match_jpeg(Tcl_Obj* dataObj, Tcl_Obj*, int* width, int* height, Tcl_Interp* 
 		}
 
 		Base64Reader reader(data, data + length);
+
 		reader.read(magic, sizeof(magic));
 		reader.reset();
 
@@ -321,6 +328,9 @@ str_match_jpeg(Tcl_Obj* dataObj, Tcl_Obj*, int* width, int* height, Tcl_Interp* 
 			return process_header(ti, reader, width, height);
 	}
 	catch (JPEG::Exception const& exc)
+	{
+	}
+	catch (util::BasicException const&)
 	{
 	}
 

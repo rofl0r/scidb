@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 380 $
-// Date   : $Date: 2012-07-05 20:29:07 +0000 (Thu, 05 Jul 2012) $
+// Version: $Revision: 416 $
+// Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -126,7 +126,7 @@ private:
 	}
 	__attribute__((packed));
 
-	typedef mstl::map<uint32_t,NamebaseEntry*>				BaseMap;
+	typedef mstl::map<uint32_t,NamebaseEntry*>			BaseMap;
 	typedef mstl::map<uint32_t,uint32_t>					AnnotationMap;
 	typedef mstl::hash<GameInfo const*,Source*>			SourceMap;
 	typedef mstl::map<NamebaseEvent const*,Tournament>	TournamentMap;

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 374 $
-# Date   : $Date: 2012-07-02 10:35:47 +0000 (Mon, 02 Jul 2012) $
+# Version: $Revision: 416 $
+# Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -166,20 +166,20 @@ proc build {path getViewCmd {visibleColumns {}} {args {}}} {
 
 	if {$useFind} {
 		set tbFind [::toolbar::toolbar $path \
-			-id find \
+			-id sitetable-find \
 			-hide 1 \
 			-side bottom \
 			-alignment left \
 			-allow {top bottom} \
-			-tooltipvar ::playertable::mc::Find] \
-			;
+			-tooltipvar ::playertable::mc::Find \
+		]
 		::toolbar::add $tbFind label -float 0 -textvar [::mc::var ::playertable::mc::Find ":"]
 		set cb [::toolbar::add $tbFind ttk::combobox \
 			-width 20 \
 			-takefocus 1 \
 			-values $Find \
-			-textvariable [namespace current]::${path}::Vars(find-current)] \
-			;
+			-textvariable [namespace current]::${path}::Vars(find-current) \
+		]
 		trace add variable [namespace current]::${path}::Vars(find-current) \
 			write [namespace code [list Find $path $cb]]
 		::bind $cb <Return> [namespace code [list Find $path $cb]]

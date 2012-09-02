@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 385 $
-# Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
+# Version: $Revision: 416 $
+# Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -31,7 +31,7 @@ package require tkscidb
 namespace eval dialog {
 namespace eval choosecolor {
 
-set Methods [lreplace $Methods [lsearch $Methods circle] [lsearch $Methods circle] cube]
+set Methods [lreplace $Methods [lsearch -exact $Methods circle] [lsearch -exact $Methods circle] cube]
 set AdjustWidth -10
 
 namespace eval cube {

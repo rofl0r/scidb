@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 294 $
-# Date   : $Date: 2012-04-13 17:41:49 +0000 (Fri, 13 Apr 2012) $
+# Version: $Revision: 416 $
+# Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -452,7 +452,7 @@ proc PopupDirs {w btn i} {
 		if {$::tcl_platform(platform) eq "unix" && $Vars(showhidden)} { lappend filter .* }
 		set subdirs [glob -nocomplain -tails -dir $rootdir -types d {*}$filter]
 		foreach dir {. ..} {
-			set i [lsearch $subdirs $dir]
+			set i [lsearch -exact $subdirs $dir]
 			if {$i >= 0} { set subdirs [lreplace $subdirs $i $i] }
 		}
 		set subdirs [lsort -dictionary -unique $subdirs]

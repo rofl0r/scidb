@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 298 $
-# Date   : $Date: 2012-04-18 20:09:25 +0000 (Wed, 18 Apr 2012) $
+# Version: $Revision: 416 $
+# Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -408,7 +408,7 @@ proc openBrowser {parent which currentTexture {otherTexture {}} {place center}} 
 		[buildBrowser $top $dlg $which $Browser(rows) $Browser(cols) $currentTexture $otherTexture]
 	set Browser(recv) $parent
 	
-	widget::dialogButtons $dlg close close
+	widget::dialogButtons $dlg close
 	$dlg.close configure -command [list destroy $dlg]
 
 	if {[winfo viewable [winfo toplevel $parent]]} {

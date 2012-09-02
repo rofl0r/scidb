@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 355 $
-# Date   : $Date: 2012-06-20 20:51:25 +0000 (Wed, 20 Jun 2012) $
+# Version: $Revision: 416 $
+# Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -371,7 +371,7 @@ proc alert {args} {
 	set entries {}
 	foreach entry $opts(-buttons) {
 		lassign $entry type text icon
-		set index [lsearch $ButtonOrder $type]
+		set index [lsearch -exact $ButtonOrder $type]
 		lappend entries [list $type $text $icon $index]
 	}
 	set entries [lsort -integer -index 3 $entries]

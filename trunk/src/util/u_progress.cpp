@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 291 $
-// Date   : $Date: 2012-04-09 23:03:07 +0000 (Mon, 09 Apr 2012) $
+// Version: $Revision: 416 $
+// Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -31,7 +31,7 @@ void Progress::start(unsigned) {}
 void Progress::message(mstl::string const&) {}
 void Progress::tick(unsigned) {}
 void Progress::update(unsigned) {}
-void Progress::finish() {}
+void Progress::finish() throw() {}
 bool Progress::interrupted() { return false; }
 unsigned Progress::ticks() const { return 0; }
 

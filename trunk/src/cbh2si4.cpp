@@ -1,7 +1,7 @@
 // ======================================================================
 // $RCSfile: tk_image.cpp,v $
-// $Revision: 355 $
-// $Date: 2012-06-20 20:51:25 +0000 (Wed, 20 Jun 2012) $
+// $Revision: 416 $
+// $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
 // $Author: gregor $
 // ======================================================================
 
@@ -76,13 +76,13 @@ struct TclInterpreter
 
 struct Progress : public util::Progress
 {
-	void update(unsigned progress)
+	void update(unsigned progress) override
 	{
 		::printf(".");
 		::fflush(stdout);
 	}
 
-	void finish() { }
+	void finish() throw() override {}
 };
 
 

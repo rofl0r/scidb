@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 385 $
-# Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
+# Version: $Revision: 416 $
+# Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -82,6 +82,11 @@ switch $::tcl_platform(platform) {
 # This is not working under older Tk versions.
 #proc currentTheme {} { return ttk::style theme use] }
 proc currentTheme {} { return $::ttk::currentTheme }
+
+
+proc getToplevelBackground {} {
+	return [set [namespace current]::Settings(tk:background)]
+}
 
 
 proc getBackgroundColor {} {
@@ -864,6 +869,26 @@ bind ComboboxListbox <ButtonPress-4> {
 bind ComboboxListbox <ButtonPress-5> {
 	%W yview scroll +1 units
 	after idle { ttk::combobox::LBHover %W %x %y }
+}
+
+bind ComboboxListbox <Any-Key> {
+	if {[string is alnum -strict "%A"]} {
+		set key  [string toupper "%A"]
+		set cb [ttk::combobox::LBMaster %W]
+		set values [$cb cget -values]
+		set i [$cb current]
+		if {$i >= 0} {
+			while {$i < [llength $values] && [string index [lindex $values $i] 0] eq $key} { incr i }
+			set i [lsearch -glob -start $i $values ${key}*]
+		}
+		if {$i == -1} { set i [lsearch -glob $values ${key}*] }
+		if {$i >= 0} {
+			%W activate $i
+			%W selection clear 0 end
+			%W selection set $i
+			%W see $i
+		}
+	}
 }
 
 bind ComboboxPopdown <ButtonPress-4> { %W.l yview scroll -1 units }
