@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 362 $
-// Date   : $Date: 2012-06-27 19:52:57 +0000 (Wed, 27 Jun 2012) $
+// Version: $Revision: 419 $
+// Date   : $Date: 2012-09-07 18:15:59 +0000 (Fri, 07 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -432,7 +432,7 @@ db::Guess::preEvaluate()
 	::memset(m_pawnData = m_pawnTable, 0, sizeof(m_pawnTable));
 
 	m_root.m_castle	= m_castle;
-	m_root.m_stm			= m_stm;
+	m_root.m_stm		= m_stm;
 
 	// Now check to see if the "trojan check" code should be
 	// turned on. Basically if the king is in the corner,

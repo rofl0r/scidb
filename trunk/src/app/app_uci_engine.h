@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 370 $
-// Date   : $Date: 2012-07-01 07:34:57 +0000 (Sun, 01 Jul 2012) $
+// Version: $Revision: 419 $
+// Date   : $Date: 2012-09-07 18:15:59 +0000 (Fri, 07 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -45,6 +45,7 @@ public:
 	bool startAnalysis(db::Board const& board) override;
 	bool startAnalysis(db::Game const& game, bool isNewGame) override;
 	bool stopAnalysis() override;
+	bool isReady() const override;
 
 protected:
 
@@ -55,6 +56,7 @@ protected:
 	void doMove(db::Game const& game, db::Move const& lastMove) override;
 
 	Result probeResult() const override;
+	unsigned probeTimeout() const override;
 	unsigned maxVariations() const override;
 
 private:
@@ -73,6 +75,7 @@ private:
 	unsigned			m_maxMultiPV;
 	bool				m_needChess960;
 	bool				m_uciok;
+	bool				m_isReady;
 	bool				m_hasMultiPV;
 	bool				m_hasAnalyseMode;
 	bool				m_hasChess960;

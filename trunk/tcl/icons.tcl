@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 385 $
-# Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
+# Version: $Revision: 419 $
+# Date   : $Date: 2012-09-07 18:15:59 +0000 (Fri, 07 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -602,6 +602,21 @@ namespace eval 12x12 {
 		goT9kUgK9DEVROwPRFKghqnAv9/7v2MAhK3iINePocBNwf69xXlDhf8Myg4y58UUsISkmYL+
 		fI39ivul+0UMSA/q/wza/1X+y/0X/y/0n+c/+3/m/6SbgAsCAM8i/W7eee6fAAAAAElFTkSu
 		QmCC
+	}]
+
+	set eraser [image create photo -data {
+		iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAABmJLR0QA/wD/AP+gvaeTAAAA
+		CXBIWXMAAABIAAAASABGyWs+AAACAUlEQVQoz3XRzWuSAQDH8d/zlo/DbfCMnkpoPb4roQ2C
+		wdbIWDBQ1yIPS4dgeWqHIFgRGNUl8Nh/oEEddrDDDg+BRFAHu4wYCsIUxMeVh1X6hOnz6OPz
+		PB06Betz/t6+FE4QDs+BJBV6Z+eRe3n52jlJkvq5XG4iiiKoE3pCki77x+N7Gbfb/jgWW9yM
+		x296Wq0We3z8o0sBwNpaDNPTKmMYgnswyNwHHjzR9SubR0deod3Wz/K8ubiw4Lze78tXCUEQ
+		YJrmfCqVyLDsxdTurvP84aHv1GQyB4AAMMbUVAOrqx/NeJwdUbIsE5FIZNvpdD8Nhy+d3tjg
+		KI77iU5HhixbAXyHpmnwemewskKMqUKhkEun03ddLhdXr9eJ0UjG+voFLC2pkKTPaLdnAfjh
+		9/+Cx9PsUNls9q3P5+N5niccDgd0XcfBQQUsq2AyobG/74auW01N+/RFVd88pC0WC80wDAzD
+		AMuyCIVCGA6HYBgSgjAL0+wbQPVDs1l+3myWyqSiKANd10HTNEiSBABYLBYoigqC6KoUVXwN
+		vNoGImUAoDweT9dms80wDHPGarUyhmGYtVptUKlUezT9++Xe3rMXW1u3v1Wrd/5OKhaLyOfz
+		9kQicSsQCNzQNG0siuK7Uqn0tdFovCcIQun1ev+uDQaD4DiOjEaj88lk0g6AxH/8AdBczMaU
+		K4aPAAAAAElFTkSuQmCC
 	}]
 
 } ;# namespace 12x12
@@ -6133,6 +6148,7 @@ set iconClose		[makeStateSpecificIcons [set [namespace current]::16x16::close]]
 set iconEraser		[makeStateSpecificIcons [set [namespace current]::16x16::eraser]]
 set iconRepeat		[makeStateSpecificIcons [set [namespace current]::16x16::repeat]]
 set iconBlackPawn	[makeStateSpecificIcons [set [namespace current]::16x16::blackPawn]]
+set iconSetup		[makeStateSpecificIcons [set [namespace current]::16x16::setup]]
 
 set toolbarDocNew					[makeToolbarIcon docNew]
 set toolbarDocOpen				[makeToolbarIcon docOpen]

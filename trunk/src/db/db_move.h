@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 362 $
-// Date   : $Date: 2012-06-27 19:52:57 +0000 (Wed, 27 Jun 2012) $
+// Version: $Revision: 419 $
+// Date   : $Date: 2012-09-07 18:15:59 +0000 (Fri, 07 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -285,9 +285,6 @@ public:
 	friend bool operator==(Move const& m1, Move const& m2);
 	/// Required for keeping moves in some map-like structures (discarding info values).
 	friend bool operator<(Move const& m1, Move const& m2);
-
-	template <int N> static uint8_t compress(uint16_t move);
-	template <int N> static uint16_t uncompress(uint8_t move);
 
 	friend class Board;
 	friend class MoveList;

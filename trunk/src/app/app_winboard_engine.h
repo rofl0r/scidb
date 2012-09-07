@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 267 $
-// Date   : $Date: 2012-03-06 08:52:13 +0000 (Tue, 06 Mar 2012) $
+// Version: $Revision: 419 $
+// Date   : $Date: 2012-09-07 18:15:59 +0000 (Fri, 07 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -53,6 +53,7 @@ public:
 	bool startAnalysis(db::Board const& board) override;
 	bool startAnalysis(db::Game const& game, bool isNew) override;
 	bool stopAnalysis() override;
+	bool isReady() const override;
 
 	void timeout();
 
@@ -68,6 +69,7 @@ protected:
 	void doMove(db::Game const& game, db::Move const& lastMove) override;
 
 	Result probeResult() const override;
+	unsigned probeTimeout() const override;
 
 private:
 
@@ -91,7 +93,6 @@ private:
 	db::Board		m_board;
 	TimerP			m_timer;
 	mstl::string	m_variant;
-	bool				m_done;
 	bool				m_response;
 	bool				m_detected;
 	bool				m_mustUseChess960;

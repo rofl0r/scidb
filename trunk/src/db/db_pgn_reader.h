@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 380 $
-// Date   : $Date: 2012-07-05 20:29:07 +0000 (Thu, 05 Jul 2012) $
+// Version: $Revision: 419 $
+// Date   : $Date: 2012-09-07 18:15:59 +0000 (Fri, 07 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -283,6 +283,7 @@ private:
 	Token parseLowercaseE(Token prevToken, int c);
 	Token parseLowercaseN(Token prevToken, int c);
 	Token parseLowercaseO(Token prevToken, int c);
+	Token parseLowercaseP(Token prevToken, int c);
 	Token parseLowercaseZ(Token prevToken, int c);
 	Token parseMate(Token prevToken, int c);
 	Token parseMinusSign(Token prevToken, int c);

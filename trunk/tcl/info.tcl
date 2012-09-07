@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 416 $
-# Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
+# Version: $Revision: 419 $
+# Date   : $Date: 2012-09-07 18:15:59 +0000 (Fri, 07 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -258,7 +258,7 @@ proc DisplayContributions {t} {
 	$t insert end [Enc "Steven Atkinson, "]
 	$t insert end [Enc "Paolo Casaschi, "]
 	$t insert end [Enc "Lars Ekman, "]
-#	$t insert end [Enc "Fernando González, "]
+#	$t insert end [Enc "Carlos Fernando González, "]
 #	$t insert end [Enc "Austen Green, "]
 	$t insert end [Enc "Giovanni Ornaghi, "]
 	$t insert end [Enc "Zoltán Tibenszky"]

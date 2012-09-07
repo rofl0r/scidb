@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 419 $
+// Date   : $Date: 2012-09-07 18:15:59 +0000 (Fri, 07 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -67,6 +67,15 @@ Timer::timerEvent(void* clientData)
 
 	timer->m_expired = true;
 	timer->timeout();
+}
+
+
+void
+Timer::restart(unsigned timeout)
+{
+	Tcl_DeleteTimerHandler(m_token);
+	m_expired = false;
+	m_token = Tcl_CreateTimerHandler(timeout, Timer::timerEvent, this);
 }
 
 // vi:set ts=3 sw=3:

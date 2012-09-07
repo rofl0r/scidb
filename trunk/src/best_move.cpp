@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 418 $
-// Date   : $Date: 2012-09-07 16:17:45 +0000 (Fri, 07 Sep 2012) $
+// Version: $Revision: 419 $
+// Date   : $Date: 2012-09-07 18:15:59 +0000 (Fri, 07 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -77,7 +77,7 @@ init(Tcl_Interp* ti)
 {
 	util::ZStream::setZipFileSuffixes(util::ZStream::Strings(1, "pgn"));
 
-	char const* ecoPath = "/home/gregor/development/c++/scidb/src/data/eco.bin";
+	char const* ecoPath = SHAREDIR "/data/eco.bin";
 	mstl::ifstream stream(ecoPath, mstl::ios_base::in | mstl::ios_base::binary);
 	db::EcoTable::specimen().load(stream);
 

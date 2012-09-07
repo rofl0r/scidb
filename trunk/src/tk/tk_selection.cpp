@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 415 $
-// Date   : $Date: 2012-08-15 12:04:37 +0000 (Wed, 15 Aug 2012) $
+// Version: $Revision: 419 $
+// Date   : $Date: 2012-09-07 18:15:59 +0000 (Fri, 07 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -187,7 +187,7 @@ quoteChars(char* src, char const* end, char* dst)
 
 	for ( ; src < end; ++src)
 	{
-		switch (char c = *src)
+		switch (unsigned char c = *src)
 		{
 			case '\r':
 			case '\n':

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 416 $
-# Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
+# Version: $Revision: 419 $
+# Date   : $Date: 2012-09-07 18:15:59 +0000 (Fri, 07 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -312,7 +312,7 @@ proc dialogButtonSetIcons {dlg} {
 				cancel	{ set icon $::icon::iconCancel }
 				apply		{ set icon $::icon::iconApply }
 				update	{ set icon $::icon::iconUpdate }
-				reset		{ set icon $::icon::iconEraser }
+				reset		{ set icon $::icon::iconSetup }
 				clear		{ set icon $::icon::iconClear }
 				close		{ set icon $::icon::iconClose }
 				revert	{ set icon $::icon::iconReset }
