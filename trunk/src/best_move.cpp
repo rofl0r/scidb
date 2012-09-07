@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 418 $
+// Date   : $Date: 2012-09-07 16:17:45 +0000 (Fri, 07 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -61,7 +61,7 @@ best_move()
 	if (move)
 	{
 		mstl::string m;
-		board.prepareForSan(move);
+		board.prepareForPrint(move);
 		move.printSan(m);
 		printf("best move: %s\n", m.c_str());
 	}
