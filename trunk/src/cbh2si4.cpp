@@ -1,7 +1,7 @@
 // ======================================================================
 // $RCSfile: tk_image.cpp,v $
-// $Revision: 416 $
-// $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
+// $Revision: 420 $
+// $Date: 2012-09-09 14:33:43 +0000 (Sun, 09 Sep 2012) $
 // $Author: gregor $
 // ======================================================================
 
@@ -218,16 +218,24 @@ static void
 printEncodingsAndExit(int rc)
 {
 	sys::utf8::Codec::EncodingList encodings;
-	unsigned n = sys::utf8::Codec::getEncodingList(encodings);
+	sys::utf8::Codec::getEncodingList(encodings);
 
-	for (unsigned i = 0; i < n; ++i)
+	sys::utf8::Codec::EncodingList::const_iterator i = encodings.begin();
+	sys::utf8::Codec::EncodingList::const_iterator e = encodings.end();
+
+	while (i != e)
 	{
-		if (!isForbiddenEncoding(encodings[i]))
+		sys::utf8::Codec::EncodingList::const_iterator next = i + 1;
+
+		if (!isForbiddenEncoding(*i))
 		{
-			printf(encodings[i].c_str());
-			if (i + 1 < n)
+			printf(i->c_str());
+
+			if (next != e)
 				printf(", ");
 		}
+
+		i = next;
 	}
 
 	printf("\n");
@@ -245,11 +253,14 @@ checkEncoding(mstl::string const& encoding)
 	}
 
 	sys::utf8::Codec::EncodingList encodings;
-	unsigned n = sys::utf8::Codec::getEncodingList(encodings);
+	sys::utf8::Codec::getEncodingList(encodings);
 
-	for (unsigned i = 0; i < n; ++i)
+	sys::utf8::Codec::EncodingList::const_iterator i = encodings.begin();
+	sys::utf8::Codec::EncodingList::const_iterator e = encodings.end();
+
+	for ( ; i != e; ++i)
 	{
-		if (encodings[i] == encoding)
+		if (*i == encoding)
 			return;
 	}
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 419 $
-// Date   : $Date: 2012-09-07 18:15:59 +0000 (Fri, 07 Sep 2012) $
+// Version: $Revision: 420 $
+// Date   : $Date: 2012-09-09 14:33:43 +0000 (Sun, 09 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -30,6 +30,7 @@
 #include "db_move_list.h"
 
 #include "m_string.h"
+#include "m_pvector.h"
 #include "m_list.h"
 
 namespace mstl	{ class ostream; }
@@ -237,7 +238,7 @@ protected:
 
 private:
 
-	typedef mstl::list<db::MoveList> Variations;
+	typedef mstl::pvector<db::MoveList> Variations;
 
 	class Process;
 	friend class Process;

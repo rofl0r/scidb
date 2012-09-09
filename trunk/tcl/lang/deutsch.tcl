@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 419 $
-# Date   : $Date: 2012-09-07 18:15:59 +0000 (Fri, 07 Sep 2012) $
+# Version: $Revision: 420 $
+# Date   : $Date: 2012-09-09 14:33:43 +0000 (Sun, 09 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -786,6 +786,7 @@
 ::engine::mc::DoesNotRespond			"Dieses Schachprogramm reagiert weder auf auf das UCI- noch auf das XBoard/WinBoard-Protokoll."
 ::engine::mc::DiscardChanges			"Der aktuelle Posten wurde verändert.\n\nDie Änderungen tatsächlich verwerfen?"
 ::engine::mc::ReallyDelete				"Den Eintrag für das Programm '%s' tatsächlich löschen?"
+::engine::mc::EntryAlreadyExists		"Ein Eintrag mit dem Namen '%s' existiert bereits."
 
 ### gametable ##########################################################
 ::gametable::mc::DeleteGame				"Partie zum Löschen markieren"
@@ -1633,25 +1634,28 @@
 ::crosstable::mc::CrosstableLimitDetail "'%s' wählt einen anderen Tabellenmodus."
 
 ### info ###############################################################
-::info::mc::InfoTitle				"Über %s"
-::info::mc::Info						"Information"
-::info::mc::About						"Über Scidb"
-::info::mc::Contributions			"Beteiligte"
-::info::mc::License					"Lizens"
-::info::mc::Localization			"Lokalisierung"
-::info::mc::Testing					"Tester"
-::info::mc::References				"Quellen"
-::info::mc::System					"System"
-::info::mc::FontDesign				"Schachzeichensatzdesign"
-::info::mc::ChessPieceDesign		"Schachfigurendesign"
-::info::mc::BoardThemeDesign		"Schachbrettthemendesign"
-::info::mc::FlagsDesign				"Miniaturflaggendesign"
-::info::mc::IconDesign				"Piktogrammdesign"
+::info::mc::InfoTitle			"Über %s"
+::info::mc::Info					"Information"
+::info::mc::About					"Über Scidb"
+::info::mc::Contributions		"Beteiligte"
+::info::mc::License				"Lizens"
+::info::mc::Localization		"Lokalisierung"
+::info::mc::Testing				"Tester"
+::info::mc::References			"Quellen"
+::info::mc::System				"System"
+::info::mc::FontDesign			"Schachzeichensatzdesign"
+::info::mc::ChessPieceDesign	"Schachfigurendesign"
+::info::mc::BoardThemeDesign	"Schachbrettthemendesign"
+::info::mc::FlagsDesign			"Miniaturflaggendesign"
+::info::mc::IconDesign			"Piktogrammdesign"
+::info::mc::Development			"Entwicklung"
+::info::mc::Programming			"Programmierung"
+::info::mc::Leader				"Leiter"
 
-::info::mc::Version					"Version"
-::info::mc::Distributed				"Dieses Program wurde unter den Bedingungen der GNU General Public License verbreitet."
-::info::mc::Inspired					"Scidb wurde inspiriert durch Scid 3.6.1, Copyright \u00A9 1999-2003 Shane Hudson."
-::info::mc::SpecialThanks			"Besonderen Dank an Shane Hudson für seine fantastische Arbeit. Seine Leistung ist Basis für diese Applikation."
+::info::mc::Version				"Version"
+::info::mc::Distributed			"Dieses Program wurde unter den Bedingungen der GNU General Public License verbreitet."
+::info::mc::Inspired				"Scidb wurde inspiriert durch Scid 3.6.1, Copyright \u00A9 1999-2003 Shane Hudson."
+::info::mc::SpecialThanks		"Besonderen Dank an Shane Hudson für seine fantastische Arbeit. Seine Leistung ist Basis für diese Applikation."
 
 ### comment ############################################################
 ::comment::mc::CommentBeforeMove		"Kommentar vor dem Zug"

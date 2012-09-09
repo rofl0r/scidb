@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 390 $
-// Date   : $Date: 2012-08-03 18:22:56 +0000 (Fri, 03 Aug 2012) $
+// Version: $Revision: 420 $
+// Date   : $Date: 2012-09-09 14:33:43 +0000 (Sun, 09 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1495,9 +1495,13 @@ cmdNext(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 		}
 
 		Tcl_Obj* objs[result.size()];
+		unsigned k = 0;
 
-		for (unsigned i = 0; i < result.size(); ++i)
-			objs[i] = Tcl_NewStringObj(result[i], -1);
+		Game::StringList::const_iterator i = result.begin();
+		Game::StringList::const_iterator e = result.end();
+
+		for ( ; i != e; ++i)
+			objs[k++] = Tcl_NewStringObj(*i, -1);
 
 		setResult(result.size(), objs);
 	}

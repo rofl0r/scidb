@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 419 $
-# Date   : $Date: 2012-09-07 18:15:59 +0000 (Fri, 07 Sep 2012) $
+# Version: $Revision: 420 $
+# Date   : $Date: 2012-09-09 14:33:43 +0000 (Sun, 09 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -2265,6 +2265,7 @@ proc Move {toolbar oldSide {before {}}} {
 	Repack $toolbar
 	PackToolbar $toolbar $before
 	event generate $toolbar <<ToolbarShow>>
+	after idle [namespace code [list Resize $Specs(frame:$toolbar)]]
 }
 
 

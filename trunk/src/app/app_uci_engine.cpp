@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 419 $
-// Date   : $Date: 2012-09-07 18:15:59 +0000 (Fri, 07 Sep 2012) $
+// Version: $Revision: 420 $
+// Date   : $Date: 2012-09-09 14:33:43 +0000 (Sun, 09 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -626,6 +626,8 @@ uci::Engine::parseInfo(char const* msg)
 void
 uci::Engine::parseOption(char const* msg)
 {
+	typedef mstl::list<mstl::string> Vars;
+
 	mstl::string	name;
 	mstl::string	type;
 	mstl::string	dflt;
@@ -634,7 +636,7 @@ uci::Engine::parseOption(char const* msg)
 	mstl::string	key;
 	mstl::string*	value = 0;
 
-	mstl::list<mstl::string> vars;
+	Vars vars;
 
 	while (::nextWord(key, msg))
 	{
@@ -643,7 +645,7 @@ uci::Engine::parseOption(char const* msg)
 		else if (key == "default")	value = &dflt;
 		else if (key == "min")		value = &min;
 		else if (key == "max")		value = &max;
-		else if (key == "var")		value = vars.insert(vars.end(), mstl::string());
+		else if (key == "var")		value = vars.insert(vars.end(), mstl::string()).operator->();
 		else if (value)				::append(*value,  key);
 	}
 
@@ -743,17 +745,22 @@ uci::Engine::parseOption(char const* msg)
 		mstl::string var;
 		bool found = false;
 
-		for (unsigned i = 0; i < vars.size(); ++i)
+		Vars::iterator i = vars.begin();
+		Vars::iterator e = vars.end();
+
+		for ( ; i != e; ++i)
 		{
-			if (!vars[i].empty())
+			mstl::string& v = *i;
+
+			if (!v.empty())
 			{
-				if (dflt == vars[i])
+				if (dflt == v)
 					found = true;
 
 				if (!var.empty())
 					var += ";";
-				::subst(vars[i], ';');
-				var += vars[i];
+				::subst(v, ';');
+				var += v;
 			}
 		}
 

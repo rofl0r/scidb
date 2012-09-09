@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 419 $
-# Date   : $Date: 2012-09-07 18:15:59 +0000 (Fri, 07 Sep 2012) $
+# Version: $Revision: 420 $
+# Date   : $Date: 2012-09-09 14:33:43 +0000 (Sun, 09 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -788,6 +788,7 @@
 ::engine::mc::DoesNotRespond			"This engine does not respond either to UCI nor to XBoard/WinBoard protocol." ;# NEW
 ::engine::mc::DiscardChanges			"The current item has changed.\n\nReally discard changes?" ;# NEW
 ::engine::mc::ReallyDelete				"Really delete engine '%s'?" ;# NEW
+::engine::mc::EntryAlreadyExists		"An entry with name '%s' already exists." ;# NEW
 
 ### gametable ##########################################################
 ::gametable::mc::DeleteGame				"Marcar partida como eliminada"
@@ -1649,6 +1650,9 @@
 ::info::mc::BoardThemeDesign	"Diseño de tema de tablero"
 ::info::mc::FlagsDesign			"Diseño de las banderas en miniatura"
 ::info::mc::IconDesign			"Diseño de iconos"
+::info::mc::Development			"Development" ;# NEW
+::info::mc::Programming			"Programming" ;# NEW
+::info::mc::Leader				"Leader" ;# NEW
 
 ::info::mc::Version				"Versión"
 ::info::mc::Distributed			"Este programa se distribuye bajo los términos de la Licencia Pública General GNU."

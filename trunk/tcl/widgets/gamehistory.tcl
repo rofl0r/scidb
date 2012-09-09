@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 385 $
-# Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
+# Version: $Revision: 420 $
+# Date   : $Date: 2012-09-09 14:33:43 +0000 (Sun, 09 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -57,7 +57,7 @@ proc Build {w args} {
 	set size [font configure $font -size]
 	set boldFont [list [list $family $size bold]]
 
-	::tk::frame $f -background white -borderwidth 0 {*}$args
+	::tk::frame $f -background white -borderwidth 0 {*}$args -takefocus 0
 	bind $f <Configure> [list $parent fit] ;# help the scrolled window
 	grid $f
 	grid anchor $parent center
@@ -75,7 +75,7 @@ proc Build {w args} {
 		-class GHist          \
 		-borderwidth 0        \
 		-highlightthickness 0 \
-		-takefocus 1          \
+		-takefocus 0          \
 		-showroot no          \
 		-showheader no        \
 		-showbuttons no       \

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 416 $
-# Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
+# Version: $Revision: 420 $
+# Date   : $Date: 2012-09-09 14:33:43 +0000 (Sun, 09 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -103,6 +103,7 @@ proc build {w width height} {
 	::board::stuff::bind $board all <Leave>				{ ::move::leaveSquare %q }
 	::board::stuff::bind $board all <ButtonPress-1>		{ ::move::pressSquare %q %s }
 	::board::stuff::bind $board all <ButtonPress-1>		{+focus %W }
+	::board::stuff::bind $board all <ButtonPress-2>		{ ::move::nextGuess %X %Y }
 	::board::stuff::bind $board all <ButtonRelease-1>	{ ::move::releaseSquare %X %Y %s }
 	::board::stuff::bind $board all <Button1-Motion>	{ ::move::dragPiece %X %Y }
 
@@ -199,6 +200,7 @@ if {[::process::testOption use-analysis]} {
 	bind <End>				[namespace code GoEnd]
 	bind <Down>				[namespace code GoDown]
 	bind <Up>				[namespace code GoUp]
+	bind <Key-period>		[namespace code NextGuess]
 	bind <Control-Down>	[namespace code LoadNext]
 	bind <Control-Up>		[namespace code LoadPrevious]
 	bind <<Undo>>			[namespace parent]::pgn::undo
@@ -343,6 +345,7 @@ proc GoEnd		{} { goto end }
 proc GoDown		{} { goto down }
 proc GoUp		{} { goto up }
 
+proc NextGuess	{} { ::move::nextGuess }
 
 proc LoadNext		{} { ;# TODO load next game from last used view }
 proc LoadPrevious	{} { ;# TODO }

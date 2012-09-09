@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 416 $
-# Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
+# Version: $Revision: 420 $
+# Date   : $Date: 2012-09-09 14:33:43 +0000 (Sun, 09 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -144,7 +144,7 @@ proc open {} {
 	::move::setup
 	set app .application
 	wm protocol $app WM_DELETE_WINDOW [namespace code shutdown]
-	set nb [::ttk::notebook $app.nb -takefocus 1]
+	set nb [::ttk::notebook $app.nb -takefocus 0] ;# otherwise board does not have focus
 	set Vars(control) [::widget::dialogFullscreenButtons $nb]
 	::theme::configureBackground $Vars(control).minimize
 	::theme::configureBackground $Vars(control).restore

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 420 $
+// Date   : $Date: 2012-09-09 14:33:43 +0000 (Sun, 09 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -49,6 +49,9 @@ public:
 
 	Move search(Square square, unsigned maxDepth = DefaultDepth);
 	Move bestMove(Square square, unsigned maxDepth = DefaultDepth);
+	Move bestMove(	Square square,
+						MoveList const& exclude,
+						unsigned maxDepth = DefaultDepth);
 	Square bestSquare(Square square, unsigned maxDepth = DefaultDepth);
 
 	struct Score

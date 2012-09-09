@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 373 $
-// Date   : $Date: 2012-07-02 10:25:19 +0000 (Mon, 02 Jul 2012) $
+// Version: $Revision: 420 $
+// Date   : $Date: 2012-09-09 14:33:43 +0000 (Sun, 09 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -32,7 +32,7 @@
 #include "db_log.h"
 #include "db_common.h"
 
-#include "m_list.h"
+#include "m_pvector.h"
 #include "m_vector.h"
 #include "m_pair.h"
 #include "m_bitfield.h"
@@ -63,7 +63,7 @@ public:
 	enum UpdateMode	{ AddNewGames, LeaveEmpty };
 	enum GameMode		{ AllGames, ExcludeIllegal };
 
-	typedef mstl::list<mstl::string>	StringList;
+	typedef mstl::pvector<mstl::string>	StringList;
 	typedef mstl::vector<unsigned>	LengthList;
 	typedef mstl::bitfield<uint64_t>	TagBits;
 	typedef db::Byte NagMap[db::nag::Scidb_Last];

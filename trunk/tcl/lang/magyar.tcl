@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 419 $
-# Date   : $Date: 2012-09-07 18:15:59 +0000 (Fri, 07 Sep 2012) $
+# Version: $Revision: 420 $
+# Date   : $Date: 2012-09-09 14:33:43 +0000 (Sun, 09 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -787,6 +787,7 @@
 ::engine::mc::DoesNotRespond		"This engine does not respond either to UCI nor to XBoard/WinBoard protocol." ;# NEW
 ::engine::mc::DiscardChanges		"The current item has changed.\n\nReally discard changes?"
 ::engine::mc::ReallyDelete		"Really delete engine '%s'?" ;# NEW
+::engine::mc::EntryAlreadyExists	"An entry with name '%s' already exists." ;# NEW
 
 ### gametable ##########################################################
 ::gametable::mc::DeleteGame				"Játszma megjelölése töröltként"
@@ -1633,25 +1634,28 @@
 ::crosstable::mc::CrosstableLimitDetail "'%s' is choosing another table mode."
 
 ### info ###############################################################
-::info::mc::InfoTitle			"Névjegy %s"
-::info::mc::Info			"Info"
-::info::mc::About			"Névjegy"
-::info::mc::Contributions		"Készítők" ;#Contributions
-::info::mc::License			"Liszenc"
-::info::mc::Localization		"Regionális beállítások" ;#"Localization"
-::info::mc::Testing			"Tesztelés"
-::info::mc::References			"Referenciák"
-::info::mc::System			"Rendszer"
-::info::mc::FontDesign			"sakk betűtípus terv" ;#chess font design
-::info::mc::ChessPieceDesign		"Figurakészlet terv" ;# "chess piece design"
-::info::mc::BoardThemeDesign		"Tábla terv" ;#"Board theme design"
-::info::mc::FlagsDesign			"Miniatűr zászló terv" ;#"Miniature flags design"
-::info::mc::IconDesign			"Ikon terv"
+::info::mc::InfoTitle		"Névjegy %s"
+::info::mc::Info		"Info"
+::info::mc::About		"Névjegy"
+::info::mc::Contributions	"Készítők" ;#Contributions
+::info::mc::License		"Liszenc"
+::info::mc::Localization	"Regionális beállítások" ;#"Localization"
+::info::mc::Testing		"Tesztelés"
+::info::mc::References		"Referenciák"
+::info::mc::System		"Rendszer"
+::info::mc::FontDesign		"sakk betűtípus terv" ;#chess font design
+::info::mc::ChessPieceDesign	"Figurakészlet terv" ;# "chess piece design"
+::info::mc::BoardThemeDesign	"Tábla terv" ;#"Board theme design"
+::info::mc::FlagsDesign		"Miniatűr zászló terv" ;#"Miniature flags design"
+::info::mc::IconDesign		"Ikon terv"
+::info::mc::Development		"Development" ;# NEW
+::info::mc::Programming		"Programming" ;# NEW
+::info::mc::Leader		"Leader" ;# NEW
 
-::info::mc::Version			"Verzió"
-::info::mc::Distributed			"This program is distributed under the terms of the GNU General Public License."
-::info::mc::Inspired				"Scidb is inspired by Scid 3.6.1, copyrighted \u00A9 1999-2003 by Shane Hudson."
-::info::mc::SpecialThanks		"Special thanks to Shane Hudson for his terrific work. His effort is the basis for this application."
+::info::mc::Version		"Verzió"
+::info::mc::Distributed		"This program is distributed under the terms of the GNU General Public License."
+::info::mc::Inspired		"Scidb is inspired by Scid 3.6.1, copyrighted \u00A9 1999-2003 by Shane Hudson."
+::info::mc::SpecialThanks	"Special thanks to Shane Hudson for his terrific work. His effort is the basis for this application."
 
 ### comment ############################################################
 ::comment::mc::CommentBeforeMove	"Megjegyzés lépés elé"
