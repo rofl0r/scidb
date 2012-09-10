@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 416 $
-// Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
+// Version: $Revision: 422 $
+// Date   : $Date: 2012-09-10 23:59:59 +0000 (Mon, 10 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -634,7 +634,7 @@ DatabaseCodec::produce(Producer& producer, Consumer& consumer, util::Progress& p
 
 
 void
-DatabaseCodec::getGameRecord(GameInfo const& info, util::BlockFileReader& reader, util::ByteStream& src)
+DatabaseCodec::getGameRecord(GameInfo const& info, util::BlockFile& reader, util::ByteStream& src)
 {
 	switch (reader.get(src, info.gameOffset(), info.gameRecordLength()))
 	{

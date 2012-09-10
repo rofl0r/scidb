@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 416 $
-// Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
+// Version: $Revision: 422 $
+// Date   : $Date: 2012-09-10 23:59:59 +0000 (Mon, 10 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -201,32 +201,31 @@ private:
 													mstl::string& result,
 													sys::utf8::Codec& codec);
 
-	unsigned						m_headerSize;
-	unsigned						m_indexEntrySize;
-	unsigned						m_fileVersion;
-	unsigned						m_autoLoad;
-	mstl::string				m_extIndex;
-	mstl::string				m_extGame;
-	mstl::string				m_extNamebase;
-	unsigned						m_blockSize;
-	mstl::fstream				m_gameStream;
-	mstl::fstream				m_gameStream2;
-	Lookup						m_roundLookup;
-	sys::utf8::Codec*			m_codec;
-	mstl::string				m_encoding;
-	CustomFlags*				m_customFlags;
-	util::BlockFile*			m_gameData;
-	util::BlockFileReader*	m_asyncReader;
-	mstl::string				m_magicGameFile;
-	bool							m_hasMagic;
-	NameList*					m_playerList;
-	NameList*					m_eventList;
-	NameList*					m_siteList;
-	NameList*					m_roundList;
-	NamebaseEntry*				m_roundEntry;
-	unsigned						m_progressFrequency;
-	unsigned						m_progressReportAfter;
-	unsigned						m_progressCount;
+	unsigned				m_headerSize;
+	unsigned				m_indexEntrySize;
+	unsigned				m_fileVersion;
+	unsigned				m_autoLoad;
+	mstl::string		m_extIndex;
+	mstl::string		m_extGame;
+	mstl::string		m_extNamebase;
+	unsigned				m_blockSize;
+	mstl::fstream		m_gameStream;
+	Lookup				m_roundLookup;
+	sys::utf8::Codec*	m_codec;
+	mstl::string		m_encoding;
+	CustomFlags*		m_customFlags;
+	util::BlockFile*	m_gameData;
+	util::BlockFile*	m_asyncReader;
+	mstl::string		m_magicGameFile;
+	bool					m_hasMagic;
+	NameList*			m_playerList;
+	NameList*			m_eventList;
+	NameList*			m_siteList;
+	NameList*			m_roundList;
+	NamebaseEntry*		m_roundEntry;
+	unsigned				m_progressFrequency;
+	unsigned				m_progressReportAfter;
+	unsigned				m_progressCount;
 };
 
 } // namespace si3

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 343 $
-// Date   : $Date: 2012-06-15 12:05:39 +0000 (Fri, 15 Jun 2012) $
+// Version: $Revision: 422 $
+// Date   : $Date: 2012-09-10 23:59:59 +0000 (Mon, 10 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -54,7 +54,6 @@ namespace util
 {
 	class Progress;
 	class BlockFile;
-	class BlockFileReader;
 	class ByteStream;
 }
 
@@ -256,7 +255,7 @@ protected:
 						mstl::string const& magic,
 						unsigned mode = 0);
 
-	static void getGameRecord(GameInfo const& info, util::BlockFileReader& reader, util::ByteStream& src);
+	static void getGameRecord(GameInfo const& info, util::BlockFile& reader, util::ByteStream& src);
 
 private:
 
