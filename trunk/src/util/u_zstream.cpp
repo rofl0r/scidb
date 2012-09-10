@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 385 $
-// Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
+// Version: $Revision: 421 $
+// Date   : $Date: 2012-09-10 19:17:11 +0000 (Mon, 10 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -401,7 +401,7 @@ uint64_t
 ZStream::goffset()
 {
 	if (m_type == GZip)
-		return gzoffset(m_handle.handle);
+		return gzoffset(gzFile(m_handle.handle));
 
 	return tellg();
 }
