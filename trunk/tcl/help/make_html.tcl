@@ -3,8 +3,8 @@
 exec tclsh "$0" "$@"
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 417 $
-# Date   : $Date: 2012-09-07 14:52:38 +0000 (Fri, 07 Sep 2012) $
+# Version: $Revision: 426 $
+# Date   : $Date: 2012-09-11 17:08:53 +0000 (Tue, 11 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -395,17 +395,18 @@ proc processContents {contents} {
 				puts stderr "Error([info script]): Cannot open file '$f'."
 				exit 1
 			}
-			set mainCharset $charset
-			chan configure $inc -encoding $charset
+			chan configure $inc -encoding utf-8
 			while {[gets $inc line] >= 0} {
 				if {[string match BEGIN* $line]} { break }
+				if {[string match CHARSET* $line]} {
+					chan configure $inc -encoding [getArg $line]
+				}
 			}
 			if {![string match BEGIN* $line]} {
 				puts stderr "Error($f): Missing mandatory END."
 				exit 1
 			}
 			processContents [readContents $inc $f]
-			set charset $mainCharset
 		} else {
 			while {[regexp {%(::)?[a-zA-Z_:]*([(].*[)])?%} $line pattern]} {
 				set var [string range $pattern 1 end-1]
