@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 416 $
-// Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
+// Version: $Revision: 427 $
+// Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -47,6 +47,7 @@ Tcl_Interp* interp();
 void init(Tcl_Interp* ti);
 
 bool equal(char const* lhs, char const* rhs);
+bool updateTreeIsBlocked();
 
 int uniqueMatch(char const* option, char const** options);
 int uniqueMatchObj(Tcl_Obj* obj, char const** options);

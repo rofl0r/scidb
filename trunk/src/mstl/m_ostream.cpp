@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 416 $
-// Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
+// Version: $Revision: 427 $
+// Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -93,13 +93,8 @@ ostream::operator<<(void const* p)
 ostream&
 ostream::write(char const* buffer, size_t size)
 {
-	if (fwrite(buffer, 1, size, m_fp) == 0)
-	{
-		if (ferror(m_fp))
-			setstate(badbit);
-		else if (feof(m_fp))
-			setstate(eofbit | failbit);
-	}
+	if (size > 0 && fwrite(buffer, 1, size, m_fp) < size)
+		setstate(ferror(m_fp) ? badbit : eofbit | failbit);
 
 	return *this;
 }
@@ -117,6 +112,30 @@ ostream::writenl(string const& str)
 {
 	if (write(str))
 		put('\n');
+	return *this;
+}
+
+
+ostream&
+ostream::seek_and_write(size_t pos, unsigned char const* buffer, size_t size)
+{
+	if (size > 0)
+	{
+		flockfile(m_fp);
+		size_t n = fseek(m_fp, pos, SEEK_SET) ? 0 : fwrite_unlocked(buffer, 1, size, m_fp);
+		funlockfile(m_fp);
+
+		if (n != size)
+		{
+			if (ferror(m_fp))
+				setstate(badbit);
+			else if (feof(m_fp))
+				setstate(eofbit | failbit);
+			else
+				setstate(failbit);
+		}
+	}
+
 	return *this;
 }
 

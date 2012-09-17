@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 326 $
-// Date   : $Date: 2012-05-20 20:27:50 +0000 (Sun, 20 May 2012) $
+// Version: $Revision: 427 $
+// Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -39,6 +39,7 @@ DatabaseContent::DatabaseContent(mstl::string const& encoding, Type type)
 	,m_readOnly(false)
 	,m_writeable(true)
 	,m_memoryOnly(false)
+	,m_temporary(false)
 	,m_encoding(encoding)
 	,m_allocator(32768)
 {

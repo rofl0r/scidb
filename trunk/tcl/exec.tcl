@@ -1,8 +1,8 @@
 #!/bin/sh
 #! ======================================================================
 #! $RCSfile: tk_init.h,v $
-#! $Revision: 416 $
-#! $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
+#! $Revision: 427 $
+#! $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
 #! $Author: gregor $
 #! ======================================================================
 
@@ -249,6 +249,11 @@ array set Vars {
 	after		{}
 	pending	{}
 	busy		0
+}
+
+
+proc blocked? {} {
+	return [set [namespace current]::blocked]
 }
 
 

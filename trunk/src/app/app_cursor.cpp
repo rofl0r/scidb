@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 373 $
-// Date   : $Date: 2012-07-02 10:25:19 +0000 (Mon, 02 Jul 2012) $
+// Version: $Revision: 427 $
+// Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -326,18 +326,6 @@ Cursor::close()
 
 
 void
-Cursor::save(util::Progress& progress, unsigned start)
-{
-	M_REQUIRE(isOpen());
-	M_REQUIRE(!isReadOnly());
-	M_REQUIRE(start <= countGames());
-
-	// TODO: handle return code!
-	m_db->save(progress, start);
-}
-
-
-void
 Cursor::updateCharacteristics(unsigned index, TagSet const& tags)
 {
 	M_REQUIRE(isOpen());
@@ -366,37 +354,43 @@ Cursor::updateViews()
 
 
 unsigned
-Cursor::importGame(Producer& producer, unsigned index)
-{
-	M_REQUIRE(isOpen());
-	M_REQUIRE(!isReadOnly());
-	M_REQUIRE(index < countGames());
-
-	if (m_isRefBase)
-		Application::cancelUpdateTree();
-
-	unsigned res = m_db->importGame(producer, index);
-
-	if (res > 0)
-		updateViews();	// XXX ok?
-
-	return res;
-}
-
-
-unsigned
 Cursor::importGames(Producer& producer, util::Progress& progress)
 {
 	M_REQUIRE(isOpen());
 	M_REQUIRE(!isReadOnly());
 
 	if (m_isRefBase)
-		Application::cancelUpdateTree();
+		Application::stopUpdateTree();
 
 	unsigned res = m_db->importGames(producer, progress);
 
 	if (res > 0)
 		updateViews();
+
+	if (m_isRefBase)
+		m_app.startUpdateTree(*this);	
+
+	return res;
+}
+
+
+
+unsigned
+Cursor::importGames(db::Database& src, Log& log, util::Progress& progress)
+{
+	M_REQUIRE(isOpen());
+	M_REQUIRE(!isReadOnly());
+
+	if (m_isRefBase)
+		Application::stopUpdateTree();
+
+	unsigned res = m_db->importGames(src, log, progress);
+
+	if (res > 0)
+		updateViews();
+
+	if (m_isRefBase)
+		m_app.startUpdateTree(*this);	
 
 	return res;
 }

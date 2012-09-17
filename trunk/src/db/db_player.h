@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 416 $
-// Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
+// Version: $Revision: 427 $
+// Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -133,6 +133,8 @@ public:
 	mstl::string const& asciiName() const;
 	/// Return region code of player name.
 	unsigned region() const;
+	//// Return URL of given player (chess engine).
+	mstl::string const& url() const;
 
 	void setSex(sex::ID id);
 	void setType(species::ID id);

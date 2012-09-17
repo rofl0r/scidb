@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 419 $
-// Date   : $Date: 2012-09-07 18:15:59 +0000 (Fri, 07 Sep 2012) $
+// Version: $Revision: 427 $
+// Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -42,8 +42,7 @@ public:
 
 	Engine();
 
-	bool startAnalysis(db::Board const& board) override;
-	bool startAnalysis(db::Game const& game, bool isNewGame) override;
+	bool startAnalysis(bool isNew) override;
 	bool stopAnalysis() override;
 	bool isReady() const override;
 
@@ -52,12 +51,16 @@ protected:
 	void protocolStart(bool isProbing) override;
 	void protocolEnd() override;
 	void sendNumberOfVariations() override;
+	void clearHash() override;
+	void sendHashSize() override;
+	void sendOptions() override;
 	void processMessage(mstl::string const& message) override;
-	void doMove(db::Game const& game, db::Move const& lastMove) override;
+	void doMove(db::Move const& lastMove) override;
 
 	Result probeResult() const override;
 	unsigned probeTimeout() const override;
 	unsigned maxVariations() const override;
+	db::Board const& currentBoard() const override;
 
 private:
 
@@ -68,6 +71,7 @@ private:
 	void parseOption(char const* msg);
 	bool prepareStartAnalysis(db::Board const& board);
 	void setupPosition(db::Board const& board);
+	void continueAnalysis();
 
 	db::Board		m_board;
 	mstl::string	m_position;
@@ -84,7 +88,9 @@ private:
 	bool				m_hasShowCurrLine;
 	bool				m_hasShowRefutations;
 	bool				m_hasPonder;
+	bool				m_hasHashSize;
 	bool				m_stopAnalyizeIsPending;
+	bool				m_continueAnalysis;
 };
 
 } // namespace uci

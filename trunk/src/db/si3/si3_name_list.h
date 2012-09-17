@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 377 $
-// Date   : $Date: 2012-07-02 20:45:56 +0000 (Mon, 02 Jul 2012) $
+// Version: $Revision: 427 $
+// Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -110,7 +110,7 @@ private:
 	List					m_lookup;
 	List					m_access;
 	unsigned				m_maxFrequency;
-	unsigned				m_size;
+	unsigned				m_maxId;
 	unsigned				m_nextId;
 	mutable Iterator	m_first;
 	mutable Iterator	m_last;

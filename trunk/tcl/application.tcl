@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 420 $
-# Date   : $Date: 2012-09-09 14:33:43 +0000 (Sun, 09 Sep 2012) $
+# Version: $Revision: 427 $
+# Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -336,7 +336,7 @@ proc shutdown {} {
 	if {[::util::photos::busy?]} {
 		append msg $::util::photos::mc::DownloadStillInProgress "\n\n"
 		append msg $mc::QuitAnyway
-		set reply [::dialog::question -parent .application -message $msg]
+		set reply [::dialog::question -parent .application -message $msg -default no]
 		if {$reply ne "yes"} { return }
 		::util::photos::terminateUpdate
 	}

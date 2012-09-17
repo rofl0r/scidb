@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 416 $
-# Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
+# Version: $Revision: 427 $
+# Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -163,7 +163,7 @@ proc GetUrl {url} {
 }
 
 proc ResetConnection {url} {
-	# is there a more convinient way to reset the connection?
+	# is there a more convenient way to reset the connection?
 	catch { ::http::geturl $url -binary 1 -keepalive 0 -timeout 1 }
 }
 
@@ -315,7 +315,7 @@ while {$loci < $locn && $srvi < $srvn} {
 					puts [list deleted $locFile]
 				}
 			}
-			incr srvi
+			incr loci
 		}
 		1 {
 			# It's a new file, but only overwrite if not user-written:
@@ -328,7 +328,7 @@ while {$loci < $locn && $srvi < $srvn} {
 			} elseif {[Checksum $srvFile] != $srvCrc} {
 				puts [list skipped $srvFile]
 			}
-			incr loci
+			incr srvi
 		}
 		0 {
 			# Newer file, but only overwrite if not user-written:

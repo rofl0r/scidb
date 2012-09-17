@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 416 $
-// Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
+// Version: $Revision: 427 $
+// Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -21,7 +21,7 @@
 
 #include "u_progress.h"
 
-#include "m_types.h" // for keyword 'override'
+#include "m_string.h"
 
 extern "C" { struct Tcl_Obj; }
 
@@ -50,13 +50,14 @@ private:
 
 	int sendFinish() throw();
 
-	Tcl_Obj*		m_cmd;
-	Tcl_Obj*		m_arg;
-	unsigned		m_maximum;
-	mutable int	m_numTicks;
-	bool			m_sendFinish;
-	bool			m_firstStart;
-	bool			m_checkInterruption;
+	Tcl_Obj*			m_cmd;
+	Tcl_Obj*			m_arg;
+	unsigned			m_maximum;
+	mutable int		m_numTicks;
+	bool				m_sendFinish;
+	bool				m_sendMessage;
+	bool				m_checkInterruption;
+	mstl::string	m_msg;
 
 	static Tcl_Obj* m_open;
 	static Tcl_Obj* m_close;

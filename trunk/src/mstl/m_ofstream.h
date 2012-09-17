@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 427 $
+// Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -33,32 +33,32 @@ public:
 	explicit ofstream(int fd, openmode mode = out);
 	explicit ofstream(struct _IO_FILE* fp, openmode mode = out);
 
-	bool is_open() const;
-	bool is_buffered() const;
-	bool is_unbuffered() const;
+	using file::is_open;
+	using file::is_buffered;
+	using file::is_unbuffered;
 
-	unsigned bufsize() const;
-	char* buffer() const;
-	uint64_t mtime();
-	mstl::string const& filename() const;
+	using file::bufsize;
+	using file::buffer;
+	using file::mtime;
+	using file::filename;
 
 	virtual void open(char const* filename);
 	virtual void open(char const* filename, openmode mode);
 	void open(int fd, openmode mode = out);
 	void open(struct _IO_FILE* fp, openmode mode = out);
-	void close();
+	using file::close;
 
-	void set_unbuffered();
-	void set_binary();
-	void set_text();
-	void set_bufsize(unsigned size);
+	using file::truncate;
+
+	using file::set_unbuffered;
+	using file::set_binary;
+	using file::set_text;
+	using file::set_bufsize;
 };
 
 extern ofstream cout, cerr;
 
 } // namespace mstl
-
-#include "m_ofstream.ipp"
 
 #endif // _mstl_ofstream_included
 

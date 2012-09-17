@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 422 $
-// Date   : $Date: 2012-09-10 23:59:59 +0000 (Mon, 10 Sep 2012) $
+// Version: $Revision: 427 $
+// Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -38,6 +38,7 @@ namespace util
 {
 	class ByteStream;
 	class BlockFile;
+	class BlockFileReader;
 	class Progress;
 }
 
@@ -153,14 +154,14 @@ private:
 	uint16_t readIndexHeader(mstl::fstream& fstrm);
 	void checkFileVersion(mstl::fstream& fstrm, mstl::string const& magic, uint16_t fileVersion);
 
-	mstl::fstream		m_gameStream;
-	util::BlockFile*	m_gameData;
-	util::BlockFile*	m_asyncReader;
-	mstl::string		m_magicGameFile;
-	Lookup				m_lookup[4];
-	unsigned				m_progressFrequency;
-	unsigned				m_progressReportAfter;
-	unsigned				m_progressCount;
+	mstl::fstream				m_gameStream;
+	util::BlockFile*			m_gameData;
+	util::BlockFileReader*	m_asyncReader;
+	mstl::string				m_magicGameFile;
+	Lookup						m_lookup[4];
+	unsigned						m_progressFrequency;
+	unsigned						m_progressReportAfter;
+	unsigned						m_progressCount;
 };
 
 } // namespace v91

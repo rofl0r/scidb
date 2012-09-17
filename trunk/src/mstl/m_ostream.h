@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 427 $
+// Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -50,6 +50,7 @@ public:
 	ostream& write(unsigned char const* buffer, size_t size);
 	ostream& write(string const& str);
 	ostream& writenl(string const& str);
+	ostream& seek_and_write(size_t pos, unsigned char const* buffer, size_t size);
 	ostream& flush() throw();
 
 	int vformat(char const* fmt, va_list args);

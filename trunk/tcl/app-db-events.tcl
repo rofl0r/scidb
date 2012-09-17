@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 416 $
-# Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
+# Version: $Revision: 427 $
+# Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -98,7 +98,7 @@ proc build {parent} {
 	$rt add $gl
 	$rt add $pl
 
-	$top paneconfigure $lt -sticky nsew -stretch middle -minsize 580	;# XXX
+	$top paneconfigure $lt -sticky nsew -stretch middle -minsize 380	;# XXX
 	$top paneconfigure $rt -sticky nsew -stretch always
 
 	$rt paneconfigure $gl -sticky nsew -stretch always

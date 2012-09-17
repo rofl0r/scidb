@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 385 $
-// Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
+// Version: $Revision: 427 $
+// Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -26,6 +26,7 @@
 
 namespace db {
 
+inline unsigned Game::id() const							{ return m_id; }
 inline Board const& Game::currentBoard() const		{ return m_currentBoard; }
 inline Board const& Game::startBoard() const			{ return m_startBoard; }
 inline Line const& Game::openingLine() const			{ return m_line; }

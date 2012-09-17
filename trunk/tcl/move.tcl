@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 420 $
-# Date   : $Date: 2012-09-09 14:33:43 +0000 (Sun, 09 Sep 2012) $
+# Version: $Revision: 427 $
+# Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -460,10 +460,10 @@ proc AddMove {sq1 sq2 allowIllegalMove} {
 			}
 		}
 		set Leave 0
-		variable _trigger 0
-		bind $board.popup_promotion <<MenuUnpost>> [list set [namespace current]::_trigger 1]
+		variable trigger_ 0
+		bind $board.popup_promotion <<MenuUnpost>> [list set [namespace current]::trigger_ 1]
 		tk_popup $board.popup_promotion {*}[winfo pointerxy $board]
-		vwait [namespace current]::_trigger
+		vwait [namespace current]::trigger_
 		if {$Leave < 0} { leaveSquare [expr {-($Leave - 1)}] }
 		set Leave 1
 		if {$_promoted == 0} { return [::board::stuff::setDragSquare $board] }

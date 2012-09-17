@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 416 $
-# Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
+# Version: $Revision: 427 $
+# Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -48,6 +48,7 @@ set OptimizeColumn			"Optimize column width"
 set OptimizeColumns			"Optimize all columns"
 set FitColumnWidth			"Fit column width"
 set FitColumns					"Fit all columns"
+set ExpandColumn				"Expand column width"
 set SqueezeColumns			"Squeeze all columns"
 
 set AccelFitColumns			"Ctrl+,"
@@ -1398,6 +1399,10 @@ proc PopupMenu {table x y X Y} {
 			$menu add command \
 				-label $mc::FitColumnWidth \
 				-command [list $table.t column fit $id] \
+				;
+			$menu add command \
+				-label $mc::ExpandColumn \
+				-command [list $table.t column expand $id yes] \
 				;
 		}
 		$menu add command \

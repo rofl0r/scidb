@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 385 $
-// Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
+// Version: $Revision: 427 $
+// Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -30,6 +30,8 @@ namespace app {
 
 inline unsigned Application::countBases() const			{ return m_cursorMap.size(); }
 inline unsigned Application::countGames() const			{ return m_gameMap.size(); }
+inline unsigned Application::countEngines() const		{ return m_numEngines; }
+inline unsigned Application::maxEngineId() const		{ return m_engineList.size(); }
 
 inline bool Application::haveCurrentGame() const		{ return m_position != InvalidPosition; }
 inline bool Application::haveCurrentBase() const		{ return m_current; }
@@ -47,6 +49,7 @@ inline mstl::string const& Application::clipbaseName()				{ return m_clipbaseNam
 inline mstl::string const& Application::scratchbaseName()			{ return m_scratchbaseName; }
 inline unsigned Application::currentPosition() const					{ return m_position; }
 inline db::Tree const* Application::currentTree() const				{ return m_currentTree.get(); }
+inline mstl::ostream* Application::engineLog() const					{ return m_engineLog; }
 
 inline void Application::setSwitchReferenceBase(bool flag)			{ m_switchReference = flag; }
 inline void Application::setReferenceBase(Cursor* cursor)			{ setReferenceBase(cursor, true); }
@@ -140,6 +143,17 @@ Application::cursor(char const* name)
 {
 	M_REQUIRE(name && *name ? contains(name) : haveCurrentBase());
 	return *(name == 0 || *name == '\0' ? m_current : findBase(name));
+}
+
+
+inline
+Engine*
+Application::engine(unsigned id) const
+{
+	M_REQUIRE(id < maxEngineId());
+	M_REQUIRE(engineExists(id));
+
+	return m_engineList[id];
 }
 
 } // namespace app

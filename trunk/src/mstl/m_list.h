@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 420 $
-// Date   : $Date: 2012-09-09 14:33:43 +0000 (Sun, 09 Sep 2012) $
+// Version: $Revision: 427 $
+// Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -173,7 +173,7 @@ private:
 	void init();
 
 	node* create_node(T const& x);
-	void erase(node* n);
+	void erase(bits::node_base* n);
 
 	node			m_node;
 	size_type	m_size;

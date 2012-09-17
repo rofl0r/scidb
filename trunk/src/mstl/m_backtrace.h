@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 358 $
-// Date   : $Date: 2012-06-25 12:25:25 +0000 (Mon, 25 Jun 2012) $
+// Version: $Revision: 427 $
+// Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -38,6 +38,7 @@ public:
 
 	backtrace const& operator=(backtrace const& v);
 	void text_write(ostringstream& os, unsigned skip = 0) const;
+	void clear();
 
 	static bool is_debug_mode();
 
@@ -56,8 +57,8 @@ private:
 	char*			m_symbols[64];		///< Symbols corresponding to each address.
 	unsigned		m_nframes;			///< Number of addresses in m_addresses.
 	allocator*	m_allocator;		///< Allocator for symbols.
+	unsigned		m_skip;				///< Skip first m_skip symbols.
 	unsigned*	m_refCount;			///< Reference counter.
-	unsigned		m_skip;
 #endif
 };
 

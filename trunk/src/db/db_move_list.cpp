@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 427 $
+// Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -108,6 +108,40 @@ MoveList::sort(unsigned startIndex, int scores[])
 	{
 		mstl::swap(scores[startIndex], scores[index]);
 		mstl::swap(m_buffer[startIndex], m_buffer[index]);
+	}
+}
+
+
+void
+MoveList::print(mstl::string& result, unsigned halfMoveNo) const
+{
+	if (isEmpty())
+		return;
+
+	Move const& move = m_buffer[0];
+
+	halfMoveNo += 2;
+	result.format("%u", mstl::div2(halfMoveNo));
+	result.append('.');
+
+	if (mstl::is_odd(halfMoveNo))
+		result.append("..", 2);
+
+	move.printSan(result);
+	++halfMoveNo;
+
+	for (unsigned i = 1; i < m_size; ++i, ++halfMoveNo)
+	{
+		Move const& move = m_buffer[i];
+
+		if (mstl::is_even(halfMoveNo))
+		{
+			result.format("%u", mstl::div2(halfMoveNo));
+			result.append('.');
+		}
+
+		result.append(' ');
+		move.printSan(result);
 	}
 }
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 416 $
-// Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
+// Version: $Revision: 427 $
+// Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -24,7 +24,6 @@
 #include <stdarg.h>
 
 using namespace mstl;
-
 
 basic_exception::basic_exception() throw() : m_msg(new string) {}
 basic_exception::basic_exception(string const& msg) : m_msg(new string(msg)) {}

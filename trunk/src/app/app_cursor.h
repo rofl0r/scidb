@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 373 $
-// Date   : $Date: 2012-07-02 10:25:19 +0000 (Mon, 02 Jul 2012) $
+// Version: $Revision: 427 $
+// Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -141,13 +141,10 @@ public:
 	/// Return tree view.
 	View& treeView();
 
-	/// Import one game.
-	unsigned importGame(db::Producer& producer, unsigned index);
 	/// Import whole database.
 	unsigned importGames(db::Producer& producer, util::Progress& progress);
-
-	/// Update underlying database.
-	void save(util::Progress& progress, unsigned start = 0);
+	/// Import whole database.
+	unsigned importGames(db::Database& src, db::Log& log, util::Progress& progress);
 	/// Close underlying database
 	void close();
 	/// Set whether this database is a reference database

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 318 $
-# Date   : $Date: 2012-05-08 23:06:35 +0000 (Tue, 08 May 2012) $
+# Version: $Revision: 427 $
+# Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -305,7 +305,9 @@ proc tooltip {w {args {}}} {
 
 		include {
 			set w [lindex $args 0]
-			if {[llength $args] > 1} {
+			if {$w eq "all"} {
+				set G(exclude) {}
+			} elseif {[llength $args] > 1} {
 				if {[info exists G(exclude,$w)]} {
 					set namedItem [lindex $args 1]
 					if {![catch { $w find withtag $namedItem } item]} {

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 427 $
+// Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -75,6 +75,7 @@ public:
 	void sort(int scores[]);
 	void sort(unsigned startIndex, int scores[]);
 
+	void print(mstl::string& result, unsigned halfMoveNo) const;
 	void dump();
 
 private:

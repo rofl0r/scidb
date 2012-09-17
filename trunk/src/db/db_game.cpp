@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 385 $
-// Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
+// Version: $Revision: 427 $
+// Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -78,6 +78,9 @@ struct UndoApplyWatcher
 } // namespace
 
 
+unsigned Game::m_gameId = 0;
+
+
 Game::Subscriber::~Subscriber() throw() {}
 bool Game::Subscriber::mainlineOnly() { return false; }
 
@@ -149,6 +152,7 @@ Game::Undo::clear()
 Game::Game()
 	:Provider(format::Scidb)
 	,GameData()
+	,m_id(m_gameId++)
 	,m_currentNode(m_startNode)
 	,m_editNode(0)
 	,m_currentBoard(m_startBoard)

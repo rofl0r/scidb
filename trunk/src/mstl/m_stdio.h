@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 266 $
-// Date   : $Date: 2012-03-02 14:22:55 +0000 (Fri, 02 Mar 2012) $
+// Version: $Revision: 427 $
+// Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -23,7 +23,7 @@
 #endif // __unix__
 
 
-#if defined(IO_NOT_MTSAFE)
+#if defined(IO_NO_THREADS)
 
 # ifdef getc
 #  undef getc

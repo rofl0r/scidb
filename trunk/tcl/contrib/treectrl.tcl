@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 385 $
-# Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
+# Version: $Revision: 427 $
+# Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1336,7 +1336,7 @@ proc ::TreeCtrl::ColumnDragScrollCheck {w x y} {
 		    $w column dragconfigure -indicatorcolumn ""
 		}
 	    }
-	    set Priv(autoscan,afterId,$w) [after 50 [list TreeCtrl::ColumnDragScrollCheckAux $w]]
+	    set Priv(autoscan,afterId,$w) [after 10 [list TreeCtrl::ColumnDragScrollCheckAux $w]]
 	}
 	return
     }

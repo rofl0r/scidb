@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 317 $
-// Date   : $Date: 2012-05-05 16:33:40 +0000 (Sat, 05 May 2012) $
+// Version: $Revision: 427 $
+// Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -87,6 +87,11 @@ public:
 
 	iostate rdstate() const;
 	openmode mode() const;
+
+	bool is_readonly() const;
+	bool is_readable() const;
+	bool is_writable() const;
+	bool is_binary() const;
 
 	void clear(iostate state = goodbit);
 	void setstate(iostate state);

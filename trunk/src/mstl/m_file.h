@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 358 $
-// Date   : $Date: 2012-06-25 12:25:25 +0000 (Mon, 25 Jun 2012) $
+// Version: $Revision: 427 $
+// Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -46,6 +46,8 @@ public:
 	void open(int fd, char const* mode);
 	void open(struct _IO_FILE* fp);
 	void close();
+
+	void truncate(unsigned length);
 
 	void set_unbuffered();
 	void set_binary();

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 416 $
-# Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
+# Version: $Revision: 427 $
+# Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -49,6 +49,9 @@ set Message(read-init)				"Loading initialization data"
 set Message(write-index)			"Writing index data"
 set Message(write-game)				"Writing game data"
 set Message(write-namebase)		"Writing namebase data"
+
+set Message(print-game)				"Print %s game(s)"
+set Message(copy-game)				"Copy %s game(s)"
 
 } ;# namespace mc
 
@@ -108,6 +111,7 @@ proc DoCmd {cmd parent {value 0}} {
 
 		message {
 			if {[info exists mc::Message($value)]} { set msg $mc::Message($value) } else { set msg $value }
+			set msg [format $msg [::locale::formatNumber [::dialog::progressbar::maximum .progress]]]
 			::dialog::progressbar::setInformation .progress ${msg}...
 			update
 		}

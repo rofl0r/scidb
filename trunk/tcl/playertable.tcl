@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 416 $
-# Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
+# Version: $Revision: 427 $
+# Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -77,7 +77,7 @@ set Columns {
 	{ rating1		center	 0		0		 6			0			1			1			darkblue		}
 	{ rating2		center	 0		0		 6			0			1			1			darkblue		}
 	{ ratingType	left      0    0      7       0        1        0        darkblue		}
-	{ federation	center	 0		0		 5			0			1			0			darkgreen	}
+	{ federation	center	 4		5		 5			0			1			0			darkgreen	}
 	{ title			left		 0		0		 5			0			1			1			darkred		}
 	{ playerInfo	center	 0		0		14px		0			1			0			red			}
 	{ frequency		right		 4		8		 5			0			0			1			{}				}

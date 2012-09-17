@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 373 $
-// Date   : $Date: 2012-07-02 10:25:19 +0000 (Mon, 02 Jul 2012) $
+// Version: $Revision: 427 $
+// Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -38,6 +38,8 @@ inline bool Database::isMemoryOnly() const					{ return m_memoryOnly; }
 inline bool Database::encodingIsBroken() const				{ return !m_encodingOk; }
 inline bool Database::encodingFailed() const					{ return m_encodingFailed; }
 inline bool Database::usingAsyncReader() const				{ return m_usingAsyncReader; }
+inline bool Database::hasTemporaryStorage() const			{ return m_temporary; }
+
 inline unsigned Database::id() const							{ return m_id; }
 inline unsigned Database::countGames() const					{ return m_gameInfoList.size(); }
 inline unsigned Database::countPlayers() const				{ return m_namebases(Namebase::Player).used(); }
@@ -54,6 +56,7 @@ inline TreeCache& Database::treeCache()						{ return m_treeCache; }
 inline Namebases& Database::namebases()						{ return m_namebases; }
 inline Time Database::created() const							{ return m_created; }
 inline uint32_t Database::creationTimestamp() const		{ return m_created; }
+inline unsigned Database::size() const							{ return m_size; }
 
 
 inline

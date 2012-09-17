@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 358 $
-// Date   : $Date: 2012-06-25 12:25:25 +0000 (Mon, 25 Jun 2012) $
+// Version: $Revision: 427 $
+// Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -24,6 +24,10 @@
 
 #ifdef __WIN32__
 # include <fcntl.h>
+# include <io.h>
+# define ftruncate _chsize
+#else
+# include <unistd.h>
 #endif
 
 using namespace mstl;
@@ -173,6 +177,16 @@ file::close()
 	m_bufsize = 0;
 
 	if (rc)
+		setstate(failbit);
+}
+
+
+void
+file::truncate(unsigned length)
+{
+	M_REQUIRE(is_open() && is_writable());
+
+	if (ftruncate(fildes(), length) == -1)
 		setstate(failbit);
 }
 

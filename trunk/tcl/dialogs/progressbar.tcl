@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 420 $
-# Date   : $Date: 2012-09-09 14:33:43 +0000 (Sun, 09 Sep 2012) $
+# Version: $Revision: 427 $
+# Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -99,6 +99,7 @@ proc open {w args} {
 		-text $opts(-message) \
 		-compound left \
 		-wraplength [expr {$ticks - 50}] \
+		-justify left \
 		;
 
 	set options {}
@@ -181,6 +182,11 @@ proc open {w args} {
 	ttk::releaseGrab $w
 	if {[llength $opts(-command)]} { busyCursor $w off }
 	update idletasks
+}
+
+
+proc maximum {w} {
+	return [$w.p cget -maximum]
 }
 
 
