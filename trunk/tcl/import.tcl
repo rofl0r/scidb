@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 427 $
-# Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
+# Version: $Revision: 428 $
+# Date   : $Date: 2012-09-17 14:52:56 +0000 (Mon, 17 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -123,8 +123,6 @@ variable HiliteBackground	linen
 
 
 proc open {parent base files msg {encoding {}} {type {}} {useLog 1}} {
-Open $parent $base $files $msg $encoding $type $useLog
-return
 	::remote::busyOperation { Open $parent $base $files $msg $encoding $type $useLog }
 }
 
