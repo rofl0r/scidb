@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 226 $
-// Date   : $Date: 2012-02-05 22:00:47 +0000 (Sun, 05 Feb 2012) $
+// Version: $Revision: 429 $
+// Date   : $Date: 2012-09-17 16:53:08 +0000 (Mon, 17 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -86,7 +86,7 @@ inline
 void
 string::set_size(size_type n)
 {
-	M_REQUIRE(capacity() == 0 || n < capacity());
+	M_REQUIRE(capacity() == 0 || n <= capacity());
 	// require: n < #m_data
 
 	m_data[m_size = n] = '\0';

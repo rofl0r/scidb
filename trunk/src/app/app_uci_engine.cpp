@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 427 $
-// Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
+// Version: $Revision: 429 $
+// Date   : $Date: 2012-09-17 16:53:08 +0000 (Mon, 17 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -466,9 +466,16 @@ uci::Engine::processMessage(mstl::string const& message)
 			{
 				case 'd':
 					if (::strncmp(message, "id name ", 8) == 0)
-						setIdentifier(message.c_str() + 8);
+					{
+						mstl::string identifier(message.c_str() + 8, message.size() - 8);
+						setIdentifier(identifier);
+						if (isProbing())
+							detectShortName(identifier);
+					}
 					else if (::strncmp(message, "id author ", 10) == 0)
+					{
 						setAuthor(message.c_str() + 10);
+					}
 					break;
 
 				case 'n':

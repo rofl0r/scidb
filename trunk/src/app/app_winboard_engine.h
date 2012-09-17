@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 427 $
-// Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
+// Version: $Revision: 429 $
+// Date   : $Date: 2012-09-17 16:53:08 +0000 (Mon, 17 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -88,14 +88,14 @@ private:
 	void parseOption(mstl::string const& option);
 	void parseFeatures(char const* msg);
 	void detectFeatures(char const* identifier);
-	void detectIdentifier(mstl::string const& s);
 
 	db::Board		m_board;
 	TimerP			m_timer;
 	mstl::string	m_variant;
 	bool				m_response;
 	bool				m_detected;
-	bool				m_hasIdentifier;
+	bool				m_identifierDetected;
+	bool				m_shortNameDetected;
 	bool				m_mustUseChess960;
 	bool				m_mustUseNoCastle;
 	bool				m_editSent;
