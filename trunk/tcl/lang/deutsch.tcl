@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 430 $
-# Date   : $Date: 2012-09-20 17:13:27 +0000 (Thu, 20 Sep 2012) $
+# Version: $Revision: 432 $
+# Date   : $Date: 2012-09-20 23:44:11 +0000 (Thu, 20 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -820,7 +820,7 @@
 ::engine::mc::FeatureDetail(eloRange)		"Die Schachprogramm kann auf eine bestimmte Elo-Zahl im Bereich %min-%max gesetzt werden."
 ::engine::mc::FeatureDetail(skillLevel)	"Der Spielniveau des Schachprogramms kann verringert werden um es leichter schlagen zu können."
 ::engine::mc::FeatureDetail(ponder)			"Pondering bedeutet, daß das Schachprogramm seinen nächsten Zug berechnet während der Anwender am Zug ist. Damit hat es einen gewissen Vorausberechnungsvorteil."
-::engine::mc::FeatureDetail(chess960)		"Schach-960 (oder \"Fischer Random Chess\") ist eine Schachvariante. Das Spiel startet mit dem gleichen Brett und den gleichen Figuren wie im Standardschach, aber die Startposition der Figuren auf der Grundreihe ist zufällig, mit ein paar Einschränkungen die die vollständige Rochaderechte garantieren. Diese Einschränkung resultiert zu 960 verschiedenen Startpositionen."
+::engine::mc::FeatureDetail(chess960)		"Schach-960 (oder \"Fischer Random Chess\") ist eine Schachvariante. Das Spiel startet mit dem gleichen Brett und den gleichen Figuren wie im Standardschach, aber die Startposition der Figuren auf der Grundreihe ist zufällig, mit ein paar Einschränkungen die die vollständigen Rochaderechte garantieren. Diese Einschränkung resultiert zu 960 verschiedenen Startpositionen."
 ::engine::mc::FeatureDetail(shuffle)		"Dies ist die übergeordenete Variante von Schach-960. Es exisitieren keine Einschränkungen bzgl. der Anordnung auf den Grundreihen. Die Rochade ist nur möglich wenn eine Schach-960-Position vorhanden ist."
 ::engine::mc::FeatureDetail(styles)			"Dieses Schachprogramm bietet verschiedene Spielweisen an, nämlich %s. Siehe im Handbuch für eine Erklärung der verschiedenen Weisen."
 

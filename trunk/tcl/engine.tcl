@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 431 $
-# Date   : $Date: 2012-09-20 17:48:16 +0000 (Thu, 20 Sep 2012) $
+# Version: $Revision: 432 $
+# Date   : $Date: 2012-09-20 23:44:11 +0000 (Thu, 20 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -971,9 +971,9 @@ proc FillInfo {list entry} {
 		switch $attr {
 			Protocol {
 				set Var(protocol) [lindex $engine(Protocol) 0]
-				$Priv(button:UCI) configure -state normal
-				$Priv(button:WB) configure -state normal
-				foreach prot $engine(Protocol) { $Priv(button:UCI) configure -state disabled }
+				$Priv(button:UCI) configure -state disabled
+				$Priv(button:WB) configure -state disabled
+				foreach prot $engine(Protocol) { $Priv(button:$prot) configure -state normal }
 			}
 			LastUsed {
 				set time $engine(LastUsed)

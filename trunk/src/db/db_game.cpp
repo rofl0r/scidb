@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 430 $
-// Date   : $Date: 2012-09-20 17:13:27 +0000 (Thu, 20 Sep 2012) $
+// Version: $Revision: 432 $
+// Date   : $Date: 2012-09-20 23:44:11 +0000 (Thu, 20 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2721,9 +2721,11 @@ Game::getHistory(History& result) const
 	result.clear();
 	result.reserve(100);
 
-	for (MoveNode* node = m_currentNode; node; node = node->prev())
+	MoveNode* succ = m_currentNode->next();
+
+	for (MoveNode* node = m_currentNode; node; succ = node, node = node->prev())
 	{
-		if (!node->atLineStart() && !node->atLineEnd())
+		if (!node->atLineStart() && !node->atLineEnd() && node->next() == succ)
 			result.push_back(node->move());
 	}
 }

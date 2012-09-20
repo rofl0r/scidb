@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 430 $
-// Date   : $Date: 2012-09-20 17:13:27 +0000 (Thu, 20 Sep 2012) $
+// Version: $Revision: 432 $
+// Date   : $Date: 2012-09-20 23:44:11 +0000 (Thu, 20 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -172,7 +172,7 @@ Process::Process(mstl::string const& command, mstl::string const& directory)
 	if (!m_chan)
 		TCL_RAISE("cannot create process: %s", Tcl_PosixError(::sys::tcl::interp()));
 
-	Tcl_SetChannelOption(::sys::tcl::interp(), m_chan, "-buffering", "line");
+	Tcl_SetChannelOption(::sys::tcl::interp(), m_chan, "-buffering", "none"); // XXX instead of "line"
 	Tcl_SetChannelOption(::sys::tcl::interp(), m_chan, "-blocking", "no");
 	Tcl_SetChannelOption(::sys::tcl::interp(), m_chan, "-encoding", "binary");
 	Tcl_SetChannelOption(::sys::tcl::interp(), m_chan, "-translation", "binary binary");

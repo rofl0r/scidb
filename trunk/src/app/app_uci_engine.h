@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 430 $
-// Date   : $Date: 2012-09-20 17:13:27 +0000 (Thu, 20 Sep 2012) $
+// Version: $Revision: 432 $
+// Date   : $Date: 2012-09-20 23:44:11 +0000 (Thu, 20 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -97,6 +97,9 @@ private:
 	bool				m_hasShowRefutations;
 	bool				m_stopAnalyizeIsPending;
 	bool				m_continueAnalysis;
+	bool				m_sendChess960;
+	bool				m_sendAnalyseMode;
+	bool				m_usedAnalyseModeBefore;
 };
 
 } // namespace uci
