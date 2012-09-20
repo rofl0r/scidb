@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 430 $
-# Date   : $Date: 2012-09-20 17:13:27 +0000 (Thu, 20 Sep 2012) $
+# Version: $Revision: 431 $
+# Date   : $Date: 2012-09-20 17:48:16 +0000 (Thu, 20 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -78,7 +78,7 @@ proc build {parent width height} {
 		if {[llength $engines] == 0} {
 			set Options(engine:current) ""
 		} else {
-			set Options(engine:current) [lindex $Options(engine:current) 0]
+			set Options(engine:current) [lindex $engines 0]
 		}
 	}
 

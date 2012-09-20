@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 430 $
-# Date   : $Date: 2012-09-20 17:13:27 +0000 (Thu, 20 Sep 2012) $
+# Version: $Revision: 431 $
+# Date   : $Date: 2012-09-20 17:48:16 +0000 (Thu, 20 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -898,7 +898,7 @@ proc ShowFeatures {list features} {
 	if {"shuffle" in $features} { lappend features chess960 true }
 
 	append html "<html>"
-	append html "<head><style type='text/css'>body { background-color: yellow; }</style></head>"
+	append html "<head><style type='text/css'>body { background-color: #ffdd76; }</style></head>"
 	append html "<body>"
 
 	if {[llength $features] == 0} {
