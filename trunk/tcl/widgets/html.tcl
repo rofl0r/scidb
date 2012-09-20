@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 390 $
-# Date   : $Date: 2012-08-03 18:22:56 +0000 (Fri, 03 Aug 2012) $
+# Version: $Revision: 430 $
+# Date   : $Date: 2012-09-20 17:13:27 +0000 (Thu, 20 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -166,11 +166,22 @@ proc Build {w args} {
 			-usehorzscroll - -usevertscroll - -keephorzscroll - -keepvertscroll {}
 
 			-imagecmd - -doublebuffer - -latinligatures - -exportselection -
-			-selectbackground - -selectforeground - -showhyphens -
-			-inactiveselectbackground - -inactiveselectforeground - 
-			-width - -height {
+			-selectbackground - -selectforeground - -inactiveselectbackground -
+			-inactiveselectforeground - -width - -height {
 				set value $opts($name)
 				if {[llength $value]} { lappend htmlOptions $name $value }
+			}
+
+			-showhyphens {
+				set value $opts($name)
+				if {[llength $value]} {
+					if {$value in {no false}} {
+						set value 0
+					} elseif {$value in {yes true}} {
+						set value 1
+					}
+					lappend htmlOptions $name $value
+				}
 			}
 
 			default {
@@ -338,6 +349,7 @@ proc WidgetProc {w command args} {
 			array unset [namespace current]::ActiveNodes2
 			array unset [namespace current]::ActiveNodes3
 			set Priv(nodeList) {}
+
 			$w.sub.html reset
 			$w.sub.html xview moveto 0
 			$w.sub.html yview moveto 0

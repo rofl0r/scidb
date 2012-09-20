@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 419 $
-# Date   : $Date: 2012-09-07 18:15:59 +0000 (Fri, 07 Sep 2012) $
+# Version: $Revision: 430 $
+# Date   : $Date: 2012-09-20 17:13:27 +0000 (Thu, 20 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -65,6 +65,7 @@ set data		[file join $share data]
 set help		[file join $share help]
 set hyphen	[file join $share hyphen]
 set photos	[file join $share photos]
+set images	[file join $share images]
 set log		[file join $user log]
 set backup	[file join $user backup]
 set config	[file join $user config]

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 419 $
-# Date   : $Date: 2012-09-07 18:15:59 +0000 (Fri, 07 Sep 2012) $
+# Version: $Revision: 430 $
+# Date   : $Date: 2012-09-20 17:13:27 +0000 (Thu, 20 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -35,7 +35,23 @@ array set Callbacks {}
 
 proc hookWriter {callback {file options}} {
 	variable Callbacks
-	lappend Callbacks($file) $callback
+
+	if {![info exists Callbacks($file)]} {
+		set i -1
+	} else {
+		set i [lsearch -exact $Callbacks($file) $callback]
+	}
+	if {$i == -1} { lappend Callbacks($file) $callback }
+}
+
+
+proc unhookWriter {callback {file options}} {
+	variable Callbacks
+
+	if {[info exists Callbacks($file)]} {
+		set i [lsearch -exact $Callbacks($file) $callback]
+		if {$i >= 0} { set Callbacks($file) [lreplace $Callbacks($file) $i $i] }
+	}
 }
 
 

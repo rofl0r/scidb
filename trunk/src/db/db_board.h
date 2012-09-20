@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 362 $
-// Date   : $Date: 2012-06-27 19:52:57 +0000 (Wed, 27 Jun 2012) $
+// Version: $Revision: 430 $
+// Date   : $Date: 2012-09-20 17:13:27 +0000 (Thu, 20 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -161,8 +161,7 @@ public:
 	/// Return a null move (side to move will be set)
 	Move makeNullMove() const;
 	/// Parse SAN or LAN representation of move, and return proper Move() object
-	Move parseMove(mstl::string const& algebraic,
-						move::Constraint flag = move::DontAllowIllegalMove) const;
+	Move parseMove(char const* algebraic, move::Constraint flag = move::DontAllowIllegalMove) const;
 	/// Parse SAN or LAN representation of move, and return position after move
 	char const* parseMove(	char const* algebraic,
 									Move& m,

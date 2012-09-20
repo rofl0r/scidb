@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 416 $
-# Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
+# Version: $Revision: 430 $
+# Date   : $Date: 2012-09-20 17:13:27 +0000 (Thu, 20 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -637,8 +637,6 @@ proc AutomaticSearch {table} {
 	variable Options
 	variable Vars
 
-	set Options(search:automatic) [expr {!$Options(search:automatic)}]
-
 	if {$Options(search:automatic)} {
 		Update $table [::scidb::tree::get]
 	}
@@ -1239,9 +1237,7 @@ proc LanguageChanged {} {
 
 proc LockBase {} {
 	variable Options
-
-	::scidb::tree::switch $Options(base:lock)
-	set Options(base:lock) [expr {!$Options(base:lock)}]
+	::scidb::tree::switch [expr {!$Options(base:lock)}]
 }
 
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 30 $
-// Date   : $Date: 2011-05-23 14:49:04 +0000 (Mon, 23 May 2011) $
+// Version: $Revision: 430 $
+// Date   : $Date: 2012-09-20 17:13:27 +0000 (Thu, 20 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -82,6 +82,7 @@ void dbwin_add_interp(Tcl_Interp *interp)
 	}
 }
 
+#if 0
 void dbwin(char *fmt, ...)
 {
 	struct dbwinterps *dbwinterps =
@@ -108,6 +109,7 @@ void dbwin(char *fmt, ...)
 			TCL_GLOBAL_ONLY);
 	}
 }
+#endif
 
 /*
  * Forward declarations for procedures defined later in this file:
@@ -3570,6 +3572,14 @@ PSDFontFree(
 PerStateType pstFont =
 {
 	"pstFont",
+	sizeof(PerStateDataFont),
+	(PerStateType_FromObjProc) PSDFontFromObj,
+	(PerStateType_FreeProc) PSDFontFree
+};
+
+PerStateType pstFont2 =
+{
+	"pstFont2",
 	sizeof(PerStateDataFont),
 	(PerStateType_FromObjProc) PSDFontFromObj,
 	(PerStateType_FreeProc) PSDFontFree

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 427 $
-// Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
+// Version: $Revision: 430 $
+// Date   : $Date: 2012-09-20 17:13:27 +0000 (Thu, 20 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -412,8 +412,6 @@ struct Subscriber : public Application::Subscriber
 	{
 		unsetCmd(Tree, updateCmd, closeCmd, arg);
 	}
-
-	void setBoard(string const& position) override {}
 
 	void closeDatabase(mstl::string const& filename) override
 	{

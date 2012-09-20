@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 318 $
-// Date   : $Date: 2012-05-08 23:06:35 +0000 (Tue, 08 May 2012) $
+// Version: $Revision: 430 $
+// Date   : $Date: 2012-09-20 17:13:27 +0000 (Thu, 20 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -41,9 +41,9 @@
 #undef WIN32
 #endif
 
-#define dbwin TreeCtrl_dbwin
+#define dbwin printf // TreeCtrl_dbwin
 #define dbwin_add_interp TreeCtrl_dbwin_add_interp
-MODULE_SCOPE void dbwin(char *fmt, ...);
+//MODULE_SCOPE void dbwin(char *fmt, ...);
 MODULE_SCOPE void dbwin_add_interp(Tcl_Interp *interp);
 
 #ifndef TRUE
@@ -1001,6 +1001,7 @@ MODULE_SCOPE int ObjectIsEmpty(Tcl_Obj *obj);
 #define pstBorder TreeCtrl_pstBorder
 #define pstColor TreeCtrl_pstColor
 #define pstFont TreeCtrl_pstFont
+#define pstFont2 TreeCtrl_pstFont2
 #define pstImage TreeCtrl_pstImage
 #define pstRelief TreeCtrl_pstRelief
 MODULE_SCOPE PerStateType pstBitmap;
@@ -1008,6 +1009,7 @@ MODULE_SCOPE PerStateType pstBoolean;
 MODULE_SCOPE PerStateType pstBorder;
 MODULE_SCOPE PerStateType pstColor;
 MODULE_SCOPE PerStateType pstFont;
+MODULE_SCOPE PerStateType pstFont2;
 MODULE_SCOPE PerStateType pstImage;
 MODULE_SCOPE PerStateType pstRelief;
 

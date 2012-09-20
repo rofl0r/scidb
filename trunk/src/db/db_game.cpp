@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 427 $
-// Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
+// Version: $Revision: 430 $
+// Date   : $Date: 2012-09-20 17:13:27 +0000 (Thu, 20 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2741,7 +2741,21 @@ Game::dumpHistory(mstl::string& result) const
 	{
 		if (!result.empty())
 			result.append(' ');
-		hist[i].printAlgebraic(result);
+
+		Move const& move = hist[i];
+
+		if (m_idn == chess960::StandardIdn && move.isCastling())
+		{
+			sq::Fyle fyle = move.isShortCastling() ? sq::FyleG : sq::FyleC;
+
+			// UCI requires "e1g1" instead of our notation "e1h1"
+			result += sq::printAlgebraic(move.from());
+			result += sq::printAlgebraic(sq::make(fyle, sq::rank(move.to())));
+		}
+		else
+		{
+			move.printAlgebraic(result);
+		}
 	}
 
 	return hist.size();

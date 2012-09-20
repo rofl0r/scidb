@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 362 $
-// Date   : $Date: 2012-06-27 19:52:57 +0000 (Wed, 27 Jun 2012) $
+// Version: $Revision: 430 $
+// Date   : $Date: 2012-09-20 17:13:27 +0000 (Thu, 20 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -395,10 +395,17 @@ containsFemaleTtile(unsigned titles)
 
 } // namespace title
 
+namespace variant {
+
+inline bool isStandardChess(unsigned idn)	{ return idn == 518; }
+inline bool isChess960(unsigned idn)		{ return 0 < idn && idn <= 960; }
+inline bool isShuffleChess(unsigned idn)	{ return 960 < idn; }
+
+} // namespace variant
+
 namespace country {
 
 inline unsigned count() { return LAST + 1; }
-
 
 inline
 bool

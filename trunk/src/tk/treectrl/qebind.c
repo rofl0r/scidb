@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 157 $
-// Date   : $Date: 2011-12-12 18:58:50 +0000 (Mon, 12 Dec 2011) $
+// Version: $Revision: 430 $
+// Date   : $Date: 2012-09-20 17:13:27 +0000 (Thu, 20 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -41,8 +41,8 @@
 #include <tk.h>
 #include "qebind.h"
 
-#define dbwin TreeCtrl_dbwin
-MODULE_SCOPE void dbwin(char *fmt, ...);
+#define dbwin printf // TreeCtrl_dbwin
+//MODULE_SCOPE void dbwin(char *fmt, ...);
 
 /*
  * The macro below is used to modify a "char" value (e.g. by casting

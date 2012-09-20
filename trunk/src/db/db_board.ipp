@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 430 $
+// Date   : $Date: 2012-09-20 17:13:27 +0000 (Thu, 20 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -225,7 +225,7 @@ Board::countPieces(color::ID color) const
 
 inline
 Move
-Board::parseMove(mstl::string const& algebraic, move::Constraint flag) const
+Board::parseMove(char const* algebraic, move::Constraint flag) const
 {
 	Move m;
 	return parseMove(algebraic, m, flag) ? m : Move::empty();

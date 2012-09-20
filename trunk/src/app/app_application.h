@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 427 $
-// Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
+// Version: $Revision: 430 $
+// Date   : $Date: 2012-09-20 17:13:27 +0000 (Thu, 20 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -73,8 +73,6 @@ public:
 	struct Subscriber : public mstl::ref_counter
 	{
 		virtual ~Subscriber() = 0;
-
-		virtual void setBoard(mstl::string const& position) = 0;
 
 		void updateList(unsigned id, mstl::string const& filename);
 		void updateList(unsigned id, mstl::string const& filename, unsigned view);

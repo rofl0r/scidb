@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 429 $
-// Date   : $Date: 2012-09-17 16:53:08 +0000 (Mon, 17 Sep 2012) $
+// Version: $Revision: 430 $
+// Date   : $Date: 2012-09-20 17:13:27 +0000 (Thu, 20 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -71,6 +71,9 @@ protected:
 	void sendOptions() override;
 	void processMessage(mstl::string const& message) override;
 	void doMove(db::Move const& lastMove) override;
+
+	void pause() override;
+	void resume() override;
 
 	Result probeResult() const override;
 	unsigned probeTimeout() const override;

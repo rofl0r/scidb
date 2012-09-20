@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 427 $
-// Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
+// Version: $Revision: 430 $
+// Date   : $Date: 2012-09-20 17:13:27 +0000 (Thu, 20 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -127,12 +127,14 @@ MoveList::print(mstl::string& result, unsigned halfMoveNo) const
 	if (mstl::is_odd(halfMoveNo))
 		result.append("..", 2);
 
-	move.printSan(result);
+	move.printSan(result, encoding::Utf8);
 	++halfMoveNo;
 
 	for (unsigned i = 1; i < m_size; ++i, ++halfMoveNo)
 	{
 		Move const& move = m_buffer[i];
+
+		result.append(' ');
 
 		if (mstl::is_even(halfMoveNo))
 		{
@@ -140,8 +142,7 @@ MoveList::print(mstl::string& result, unsigned halfMoveNo) const
 			result.append('.');
 		}
 
-		result.append(' ');
-		move.printSan(result);
+		move.printSan(result, encoding::Utf8);
 	}
 }
 

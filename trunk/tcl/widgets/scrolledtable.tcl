@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 407 $
-# Date   : $Date: 2012-08-08 21:52:05 +0000 (Wed, 08 Aug 2012) $
+# Version: $Revision: 430 $
+# Date   : $Date: 2012-09-20 17:13:27 +0000 (Thu, 20 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -792,6 +792,8 @@ proc ShiftScroll {table action} {
 
 proc Scroll {table action args} {
 	variable ${table}::Vars
+
+	if {![winfo exists $Vars(scrollbar)]} { return }
 
 	set force no
 
