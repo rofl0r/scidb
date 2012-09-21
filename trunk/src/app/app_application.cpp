@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 427 $
-// Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
+// Version: $Revision: 433 $
+// Date   : $Date: 2012-09-21 17:19:40 +0000 (Fri, 21 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1999,7 +1999,7 @@ Application::addEngine(Engine* engine)
 	if (m_engineLog)
 		engine->setLog(m_engineLog);
 
-	return mstl::distance(i, m_engineList.begin());
+	return mstl::distance(m_engineList.begin(), i);
 }
 
 

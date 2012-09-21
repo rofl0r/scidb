@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 430 $
-# Date   : $Date: 2012-09-20 17:13:27 +0000 (Thu, 20 Sep 2012) $
+# Version: $Revision: 433 $
+# Date   : $Date: 2012-09-21 17:19:40 +0000 (Fri, 21 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1778,23 +1778,23 @@ namespace eval 16x16 {
 		JI4AAAAASUVORK5CYII=
 	}]
 
-#	set folder [image create photo -data {
-#		iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAA
-#		CXBIWXMAAG6BAABugQGE0alBAAAAB3RJTUUH0wsDCgMTnx/NFQAAAqZJREFUeNqlks1rXVUU
-#		xX/7nHuT+/JekheSVhAUOlBKRB2oEwsSRCdKBqJ/gKIUB5aCDpyXShE6ctKJ4MBRUEcWBxJQ
-#		8IOCdmCloI3xqzEvfR/Ju++++3XOPec4eG3BYXGNNnvDWuy1liwvL/N/EAE89uqnoWkaRMcA
-#		BGd5640P9XoGG5vbHuDrz59T5xdfUWfPn3QAm9sbAUCePvNl+O6D5zmqa3wAjQDw4rvfzCSC
-#		J4oirKkRpUEUL792KXo2I2xsbvsIYFwZFuOYzDqGRU0/K3j79MMcpAWHmWFUWvJpCQacOC69
-#		/oQ9t/v+POAjRM2ECHjvCbi7/219dhMA1wgEP1uK4vipJ+X4qU/MzIPbh8tX9ri4dQMdCyrM
-#		SC+cfpT1E13wICI4H/5j4Ln3LhMF7/h7OObi1g3ueHEH13sp3/85ZFwbpqWhrC1F2XCUWepb
-#		Obu7QyJEcW1/wvqDHSa1ISst/bJiWnv2swqAcWaYFIaiNtQ20Btasus9fr7607eK4Lk5rnn8
-#		oZV7yj9Pc8r0hwtKlCY1lheeuh8tgiDMqYi6sajgGWUlk7Jh6jxWBOsCusxJB1llzc4VpeNZ
-#		7vettTgsDEe1pZflHBWWwbRmWjRMmwbnHKbypKOayW99/rj28ZuAKGfDPdf3r50BcbXzO4Cc
-#		eKB1TC+dOUB1lPcNGodDI8rdLuJsDl7fJfgn/eil1X4xyFvNL7KwdLIdS2+tSuxKUsWqSqwk
-#		VexLaSuApABp5SGpYgGkXp0wZxZ0QRhry69Ru/1IZYoeUnXjZq5YSIyeB6SdazqdA3VrreXX
-#		bEWzZPTkcLGMTLssW67QTqfaeqJnvjjrv3rnav/Yj51pd7lM9kYqdJeM7JskdKtVpFpknoxx
-#		6KJWB6yMWn4crxhV7OUA/wIOd2og81JiEgAAAABJRU5ErkJggg==
-#	}]
+	set folder [image create photo -data {
+		iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAA
+		CXBIWXMAAG6BAABugQGE0alBAAAAB3RJTUUH0wsDCgMTnx/NFQAAAqZJREFUeNqlks1rXVUU
+		xX/7nHuT+/JekheSVhAUOlBKRB2oEwsSRCdKBqJ/gKIUB5aCDpyXShE6ctKJ4MBRUEcWBxJQ
+		8IOCdmCloI3xqzEvfR/Ju++++3XOPec4eG3BYXGNNnvDWuy1liwvL/N/EAE89uqnoWkaRMcA
+		BGd5640P9XoGG5vbHuDrz59T5xdfUWfPn3QAm9sbAUCePvNl+O6D5zmqa3wAjQDw4rvfzCSC
+		J4oirKkRpUEUL792KXo2I2xsbvsIYFwZFuOYzDqGRU0/K3j79MMcpAWHmWFUWvJpCQacOC69
+		/oQ9t/v+POAjRM2ECHjvCbi7/219dhMA1wgEP1uK4vipJ+X4qU/MzIPbh8tX9ri4dQMdCyrM
+		SC+cfpT1E13wICI4H/5j4Ln3LhMF7/h7OObi1g3ueHEH13sp3/85ZFwbpqWhrC1F2XCUWepb
+		Obu7QyJEcW1/wvqDHSa1ISst/bJiWnv2swqAcWaYFIaiNtQ20Btasus9fr7607eK4Lk5rnn8
+		oZV7yj9Pc8r0hwtKlCY1lheeuh8tgiDMqYi6sajgGWUlk7Jh6jxWBOsCusxJB1llzc4VpeNZ
+		7vettTgsDEe1pZflHBWWwbRmWjRMmwbnHKbypKOayW99/rj28ZuAKGfDPdf3r50BcbXzO4Cc
+		eKB1TC+dOUB1lPcNGodDI8rdLuJsDl7fJfgn/eil1X4xyFvNL7KwdLIdS2+tSuxKUsWqSqwk
+		VexLaSuApABp5SGpYgGkXp0wZxZ0QRhry69Ru/1IZYoeUnXjZq5YSIyeB6SdazqdA3VrreXX
+		bEWzZPTkcLGMTLssW67QTqfaeqJnvjjrv3rnav/Yj51pd7lM9kYqdJeM7JskdKtVpFpknoxx
+		6KJWB6yMWn4crxhV7OUA/wIOd2og81JiEgAAAABJRU5ErkJggg==
+	}]
 
 #	set folderOpen [image create photo -data {
 #		iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAA

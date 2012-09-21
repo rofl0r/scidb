@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 432 $
-// Date   : $Date: 2012-09-20 23:44:11 +0000 (Thu, 20 Sep 2012) $
+// Version: $Revision: 433 $
+// Date   : $Date: 2012-09-21 17:19:40 +0000 (Fri, 21 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -83,7 +83,7 @@ public:
 
 		typedef app::Engine::Result Result;
 
-		virtual ~Concrete() throw();
+		virtual ~Concrete();
 
 		virtual bool isReady() const = 0;
 
@@ -203,7 +203,7 @@ public:
 	static unsigned const Feature_Playing_Styles	= 1 << 11;
 
 	Engine(Protocol protocol, mstl::string const& command, mstl::string const& directory);
-	virtual ~Engine() throw();
+	virtual ~Engine();
 
 	Concrete* concrete();
 
@@ -258,6 +258,7 @@ public:
 	Result probe(unsigned timeout);
 
 	virtual void engineIsReady() = 0;
+	virtual void engineTerminated(mstl::string const& msg) = 0;
 
 	bool startAnalysis(db::Game const* game);
 	bool stopAnalysis();
@@ -338,6 +339,7 @@ protected:
 
 	void log(mstl::string const& msg);
 	void error(mstl::string const& msg);
+	void fatal(mstl::string const& msg);
 
 private:
 

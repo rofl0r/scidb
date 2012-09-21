@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 431 $
-# Date   : $Date: 2012-09-20 17:48:16 +0000 (Thu, 20 Sep 2012) $
+# Version: $Revision: 433 $
+# Date   : $Date: 2012-09-21 17:19:40 +0000 (Fri, 21 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -283,11 +283,12 @@ proc startAnalysis {} {
 	variable Options
 
 	set isReadyCmd [namespace current]::IsReady
+	set terminatedCmd [namespace current]::Terminated
 	set updateCmd [namespace current]::UpdateInfo
 	set name $Options(engine:current)
 
 	if {[string length $name]} {
-		set Vars(engine:id) [::engine::startEngine $name $isReadyCmd $updateCmd] 
+		set Vars(engine:id) [::engine::startEngine $name $isReadyCmd $terminatedCmd $updateCmd] 
 	}
 }
 
@@ -448,6 +449,16 @@ proc Destroy {} {
 
 proc IsReady {id} {
 	after idle [list :::engine::startAnalysis $id]
+}
+
+
+proc Terminated {id msg} {
+	variable Vars
+
+	set parent [winfo toplevel $Vars(tree)]
+	after idle [list ::dialog::error -parent $parent -message $msg]
+	after idle [list ::engine::kill $Vars(engine:id)]
+	set Vars(engine:id) -1
 }
 
 

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 432 $
-# Date   : $Date: 2012-09-20 23:44:11 +0000 (Thu, 20 Sep 2012) $
+# Version: $Revision: 433 $
+# Date   : $Date: 2012-09-21 17:19:40 +0000 (Fri, 21 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -586,7 +586,7 @@ proc setup {} {
 			{
 				Name				Stockfish
 				ShortId			Stockfish
-				Identifier		"Stockfish 120903"
+				Identifier		"Stockfish 2.3"
 				Author			"Tord Romstad, Marco Costalba & Joona Kiiski"
 				Command			stockfish-120903
 				Protocol			UCI
@@ -715,7 +715,7 @@ proc setup {} {
 }
 
 
-proc startEngine {name isReadyCmd updateCmd} {
+proc startEngine {name isReadyCmd terminatedCmd updateCmd} {
 	variable EmptyEngine
 	variable Engines
 	variable Priv
@@ -737,7 +737,14 @@ proc startEngine {name isReadyCmd updateCmd} {
 			incr engine(Frequency)
 			lset Engines $index [array get engine]
 			::options::hookWriter [namespace current]::WriteOptions engines
-			set id [::scidb::engine::start $engine(Command) $dir $protocol $isReadyCmd $updateCmd]
+			set id [::scidb::engine::start \
+				$engine(Command) \
+				$dir \
+				$protocol \
+				$isReadyCmd \
+				$terminatedCmd \
+				$updateCmd \
+			]
 			return $id
 		}
 
@@ -812,12 +819,16 @@ proc Log {text msg} {
 			set tag in
 			set msg [string range $msg 2 end]
 		} 
+		">" {
+			set tag out
+		}
 		"!" {
 			set tag error
 			set msg [string range $msg 2 end]
 		} 
-		">" {
-			set tag out
+		"@ " {
+			set tag error
+			set msg "FATAL: [string range $msg 2 end]"
 		}
 		default {
 			set tag out

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 433 $
+// Date   : $Date: 2012-09-21 17:19:40 +0000 (Fri, 21 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -18,12 +18,13 @@
 
 namespace sys {
 
-inline
-long
-Process::pid() const
-{
-	return m_pid;
-}
+inline bool Process::isRunning() const			{ return m_running; }
+inline bool Process::isStopped() const			{ return m_stopped; }
+inline bool Process::wasCrashed() const		{ return m_signalCrashed; }
+inline bool Process::wasKilled() const			{ return m_signalKilled; }
+inline bool Process::pipeWasClosed() const	{ return m_pipeClosed; }
+inline int  Process::exitStatus() const		{ return m_exitStatus; }
+inline long Process::pid() const					{ return m_pid; }
 
 } // namespace sys
 
