@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 434 $
-// Date   : $Date: 2012-09-21 18:37:06 +0000 (Fri, 21 Sep 2012) $
+// Version: $Revision: 435 $
+// Date   : $Date: 2012-09-21 21:20:32 +0000 (Fri, 21 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -78,6 +78,7 @@ private:
 	static void closeHandler(void* clientData);
 	static void callStopped(void* clientData);
 	static void callResumed(void* clientData);
+	static void callClose(void* clientData);
 
 	Channel	m_chan;
 	long		m_pid;
