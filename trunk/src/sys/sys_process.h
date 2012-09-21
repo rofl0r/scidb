@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 433 $
-// Date   : $Date: 2012-09-21 17:19:40 +0000 (Fri, 21 Sep 2012) $
+// Version: $Revision: 434 $
+// Date   : $Date: 2012-09-21 18:37:06 +0000 (Fri, 21 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -60,6 +60,8 @@ public:
 
 	virtual void readyRead() = 0;
 	virtual void exited() = 0;
+	virtual void stopped() = 0;
+	virtual void resumed() = 0;
 
 	void signalExited(int status);
 	void signalKilled(char const* signal);
@@ -74,6 +76,8 @@ private:
 	int write(char const* msg, int size);
 
 	static void closeHandler(void* clientData);
+	static void callStopped(void* clientData);
+	static void callResumed(void* clientData);
 
 	Channel	m_chan;
 	long		m_pid;

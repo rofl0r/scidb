@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 433 $
-# Date   : $Date: 2012-09-21 17:19:40 +0000 (Fri, 21 Sep 2012) $
+# Version: $Revision: 434 $
+# Date   : $Date: 2012-09-21 18:37:06 +0000 (Fri, 21 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -44,6 +44,13 @@ set Lines					"Lines:"
 
 set LinesPerVariation	"Lines per variation"
 set Engine					"Engine"
+
+set Signal(stopped)		"Engine stopped by signal."
+set Signal(resumed)		"Engine resumed by signal."
+set Signal(killed)		"Engine killed by signal."
+set Signal(crashed)		"Engine crashed."
+set Signal(closed)		"Engine has closed connection."
+set Signal(terminated)	"Engine terminated with exit code %s."
 
 } ;# analysis mc
 
@@ -283,12 +290,12 @@ proc startAnalysis {} {
 	variable Options
 
 	set isReadyCmd [namespace current]::IsReady
-	set terminatedCmd [namespace current]::Terminated
+	set signalCmd [namespace current]::Signal
 	set updateCmd [namespace current]::UpdateInfo
 	set name $Options(engine:current)
 
 	if {[string length $name]} {
-		set Vars(engine:id) [::engine::startEngine $name $isReadyCmd $terminatedCmd $updateCmd] 
+		set Vars(engine:id) [::engine::startEngine $name $isReadyCmd $signalCmd $updateCmd] 
 	}
 }
 
@@ -452,12 +459,27 @@ proc IsReady {id} {
 }
 
 
-proc Terminated {id msg} {
+proc Signal {id code} {
 	variable Vars
 
 	set parent [winfo toplevel $Vars(tree)]
-	after idle [list ::dialog::error -parent $parent -message $msg]
-	after idle [list ::engine::kill $Vars(engine:id)]
+
+	if {[string is integer $code]} {
+		set msg [format $mc::Signal(terminated) $code]
+	} else {
+		set msg $mc::Signal($code)
+	}
+
+	switch $code {
+		stopped - resumed {
+			after idle [list ::dialog::info -parent $parent -message $msg]
+		}
+		default {
+			after idle [list ::engine::kill $Vars(engine:id)]
+			after idle [list ::dialog::error -parent $parent -message $msg]
+		}
+	}
+
 	set Vars(engine:id) -1
 }
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 432 $
-// Date   : $Date: 2012-09-20 23:44:11 +0000 (Thu, 20 Sep 2012) $
+// Version: $Revision: 434 $
+// Date   : $Date: 2012-09-21 18:37:06 +0000 (Fri, 21 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -289,7 +289,7 @@ inline db::Board const& Engine::currentBoard() const			{ return m_engine->curren
 inline db::Move const& Engine::bestMove() const					{ return m_bestMove; }
 inline unsigned Engine::currentMoveNumber() const				{ return m_currMoveNumber; }
 inline db::Move const& Engine::currentMove() const				{ return m_currMove; }
-
+inline int Engine::exitStatus() const								{ return m_exitStatus; }
 inline mstl::string const& Engine::identifier() const			{ return m_identifier; }
 inline mstl::string const& Engine::shortName() const			{ return m_shortName; }
 inline mstl::string const& Engine::author() const				{ return m_author; }

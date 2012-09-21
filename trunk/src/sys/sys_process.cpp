@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 433 $
-// Date   : $Date: 2012-09-21 17:19:40 +0000 (Fri, 21 Sep 2012) $
+// Version: $Revision: 434 $
+// Date   : $Date: 2012-09-21 18:37:06 +0000 (Fri, 21 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -497,6 +497,7 @@ Process::signalStopped()
 {
 	DEBUG(fprintf(stderr, "engine stopped\n"));
 	m_stopped = true;
+	Tcl_DoWhenIdle(callStopped, this);
 }
 
 
@@ -504,7 +505,22 @@ void
 Process::signalResumed()
 {
 	DEBUG(fprintf(stderr, "engine resumed\n"));
-	m_stopped = true;
+	m_stopped = false;
+	Tcl_DoWhenIdle(callResumed, this);
+}
+
+
+void
+Process::callStopped(void* clientData)
+{
+	static_cast<Process*>(clientData)->stopped();
+}
+
+
+void
+Process::callResumed(void* clientData)
+{
+	static_cast<Process*>(clientData)->resumed();
 }
 
 // vi:set ts=3 sw=3:

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 433 $
-# Date   : $Date: 2012-09-21 17:19:40 +0000 (Fri, 21 Sep 2012) $
+# Version: $Revision: 434 $
+# Date   : $Date: 2012-09-21 18:37:06 +0000 (Fri, 21 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -715,7 +715,7 @@ proc setup {} {
 }
 
 
-proc startEngine {name isReadyCmd terminatedCmd updateCmd} {
+proc startEngine {name isReadyCmd signalCmd updateCmd} {
 	variable EmptyEngine
 	variable Engines
 	variable Priv
@@ -742,7 +742,7 @@ proc startEngine {name isReadyCmd terminatedCmd updateCmd} {
 				$dir \
 				$protocol \
 				$isReadyCmd \
-				$terminatedCmd \
+				$signalCmd \
 				$updateCmd \
 			]
 			return $id
@@ -826,7 +826,7 @@ proc Log {text msg} {
 			set tag error
 			set msg [string range $msg 2 end]
 		} 
-		"@ " {
+		"@" {
 			set tag error
 			set msg "FATAL: [string range $msg 2 end]"
 		}
