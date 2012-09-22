@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 430 $
-// Date   : $Date: 2012-09-20 17:13:27 +0000 (Thu, 20 Sep 2012) $
+// Version: $Revision: 436 $
+// Date   : $Date: 2012-09-22 22:40:13 +0000 (Sat, 22 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -53,6 +53,7 @@ public:
 	bool startAnalysis(bool isNewGame) override;
 	bool stopAnalysis() override;
 	bool isReady() const override;
+	bool isAnalyzing() const override;
 
 	void timeout();
 
@@ -76,6 +77,7 @@ protected:
 	void resume() override;
 
 	Result probeResult() const override;
+	Result probeAnalyzeFeature() const override;
 	unsigned probeTimeout() const override;
 
 private:
@@ -95,8 +97,11 @@ private:
 	db::Board		m_board;
 	TimerP			m_timer;
 	mstl::string	m_variant;
+	uint64_t			m_startTime;
+	db::Move			m_firstMove;
+	bool				m_isAnalyzing;
 	bool				m_response;
-	bool				m_detected;
+	bool				m_analyzeResponse;
 	bool				m_identifierDetected;
 	bool				m_shortNameDetected;
 	bool				m_mustUseChess960;
@@ -104,16 +109,13 @@ private:
 	bool				m_editSent;
 	bool				m_dontInvertScore;
 	bool				m_wholeSeconds;
+	bool				m_wholeSecondsDetected;
 	bool				m_featureUsermove;
 	bool				m_featureColors;
 	bool				m_featureSetboard;
 	bool				m_featureSigint;
-	bool				m_featureAnalyze;
-	bool				m_featurePause;
-	bool				m_featurePlayOther;
 	bool				m_featureSan;
-	bool				m_variantChess960;
-	bool				m_variantNoCastle;
+	bool				m_isCrafty;
 };
 
 } // namespace winboard

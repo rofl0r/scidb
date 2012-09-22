@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 435 $
-// Date   : $Date: 2012-09-21 21:20:32 +0000 (Fri, 21 Sep 2012) $
+// Version: $Revision: 436 $
+// Date   : $Date: 2012-09-22 22:40:13 +0000 (Sat, 22 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -211,7 +211,12 @@ struct DString
 static void
 readHandler(ClientData clientData, int)
 {
-	reinterpret_cast<Process*>(clientData)->readyRead();
+	Process* process = reinterpret_cast<Process*>(clientData);
+
+	if (process->isRunning())
+		process->readyRead();
+	else
+		process->close();
 }
 
 
@@ -247,7 +252,7 @@ Process::Process(mstl::string const& command, mstl::string const& directory)
 
 	m_chan = Tcl_OpenCommandChannel(	::sys::tcl::interp(),
 												1, argv,
-												TCL_STDIN | TCL_STDOUT | TCL_ENFORCE_MODE);
+												TCL_STDIN | TCL_STDOUT | TCL_STDERR | TCL_ENFORCE_MODE);
 
 	if (cwd)
 		Tcl_Chdir(cwd);
@@ -461,7 +466,6 @@ Process::signalExited(int status)
 	DEBUG(fprintf(stderr, "engine exited with error status %d\n", status));
 	m_running = false;
 	m_exitStatus = status;
-	Tcl_DoWhenIdle(callClose, this);
 }
 
 
@@ -471,7 +475,6 @@ Process::signalCrashed()
 	DEBUG(fprintf(stderr, "engine core dumped\n"));
 	m_running = false;
 	m_signalCrashed = true;
-	Tcl_DoWhenIdle(callClose, this);
 }
 
 
@@ -481,7 +484,6 @@ Process::signalKilled(char const* signal)
 	DEBUG(fprintf(stderr, "engine is killed by signal %s\n", signal));
 	m_running = false;
 	m_signalKilled = true;
-	Tcl_DoWhenIdle(callClose, this);
 }
 
 
@@ -500,13 +502,6 @@ Process::signalResumed()
 	DEBUG(fprintf(stderr, "engine resumed\n"));
 	m_stopped = false;
 	Tcl_DoWhenIdle(callResumed, this);
-}
-
-
-void
-Process::callClose(void* clientData)
-{
-	static_cast<Process*>(clientData)->close();
 }
 
 

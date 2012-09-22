@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 432 $
-// Date   : $Date: 2012-09-20 23:44:11 +0000 (Thu, 20 Sep 2012) $
+// Version: $Revision: 436 $
+// Date   : $Date: 2012-09-22 22:40:13 +0000 (Sat, 22 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -48,6 +48,7 @@ public:
 	bool startAnalysis(bool isNew) override;
 	bool stopAnalysis() override;
 	bool isReady() const override;
+	bool isAnalyzing() const override;
 
 protected:
 
@@ -76,7 +77,7 @@ private:
 	void parseBestMove(char const* msg);
 	void parseInfo(char const* msg);
 	void parseOption(char const* msg);
-	bool parseMoveList(char const* s, db::MoveList& moves);
+	char const* parseMoveList(char const* s, db::MoveList& moves);
 	void setupPosition(db::Board const& board);
 	void continueAnalysis();
 
@@ -95,6 +96,7 @@ private:
 	bool				m_hasOwnBook;
 	bool				m_hasShowCurrLine;
 	bool				m_hasShowRefutations;
+	bool				m_isAnalyzing;
 	bool				m_stopAnalyizeIsPending;
 	bool				m_continueAnalysis;
 	bool				m_sendChess960;

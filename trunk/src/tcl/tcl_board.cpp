@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 362 $
-// Date   : $Date: 2012-06-27 19:52:57 +0000 (Wed, 27 Jun 2012) $
+// Version: $Revision: 436 $
+// Date   : $Date: 2012-09-22 22:40:13 +0000 (Sat, 22 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -82,6 +82,17 @@ toCastling(Board const& board)
 	result += sq::printAlgebraic(board.castlingRookSquare(castling::BlackQS));
 
 	return result;
+}
+
+
+Board::Format
+getFormat(int objc, Tcl_Obj* const* objv, int index)
+{
+	if (index >= objc)
+		return Board::XFen;
+
+	char const* format = stringFromObj(objc, objv, index);
+	return ::toupper(*format) == 'S' ? Board::Shredder : Board::XFen;
 }
 
 
@@ -239,7 +250,7 @@ cmdMakeFen(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 	if (epFyle >= 'a' && epFyle <= 'h')
 		pos.setEnPassantFyle(sq::Fyle(sq::FyleA + epFyle - 'a'));
 
-	setResult(pos.toFen());
+	setResult(pos.toFen(getFormat(objc, objv, 5)));
 	return TCL_OK;
 }
 
@@ -285,7 +296,7 @@ cmdIdnToFen(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 
 	Tcl_Obj* objs[2];
 
-	objs[0] = Tcl_NewStringObj(board.toFen(), -1);
+	objs[0] = Tcl_NewStringObj(board.toFen(getFormat(objc, objv, 2)), -1);
 	objs[1] = Tcl_NewStringObj(toCastling(board), -1);
 
 	setResult(U_NUMBER_OF(objs), objs);
@@ -299,7 +310,7 @@ cmdTransposeFen(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 	Board board;
 	board.setup(stringFromObj(objc, objv, 1));
 	board.transpose();
-	setResult(board.toFen());
+	setResult(board.toFen(getFormat(objc, objv, 2)));
 	return TCL_OK;
 }
 
@@ -308,8 +319,9 @@ static int
 cmdNormalizeFen(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 {
 	Board board;
-	board.setup(stringFromObj(objc, objv, 1));
-	setResult(board.toFen());
+	char const* fen = stringFromObj(objc, objv, 1);
+	board.setup(fen);
+	setResult(board.toFen(getFormat(objc, objv, 2)));
 	return TCL_OK;
 }
 
@@ -320,14 +332,14 @@ namespace board {
 void
 init(Tcl_Interp* ti)
 {
-	createCommand(ti, CmdAnalyseFen,		cmdAnalyseFen);
-	createCommand(ti, CmdFenToBoard,		cmdFenToBoard);
+	createCommand(ti, CmdAnalyseFen,			cmdAnalyseFen);
+	createCommand(ti, CmdFenToBoard,			cmdFenToBoard);
 	createCommand(ti, CmdIdnToFen,			cmdIdnToFen);
-	createCommand(ti, CmdIsValidFen,		cmdIsValidFen);
-	createCommand(ti, CmdMakeFen,			cmdMakeFen);
-	createCommand(ti, CmdNormalizeFen,	cmdNormalizeFen);
+	createCommand(ti, CmdIsValidFen,			cmdIsValidFen);
+	createCommand(ti, CmdMakeFen,				cmdMakeFen);
+	createCommand(ti, CmdNormalizeFen,		cmdNormalizeFen);
 	createCommand(ti, CmdPositionNumber,	cmdPositionNumber);
-	createCommand(ti, CmdTransposeFen,	cmdTransposeFen);
+	createCommand(ti, CmdTransposeFen,		cmdTransposeFen);
 }
 
 } // namespace board

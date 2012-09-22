@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 434 $
-# Date   : $Date: 2012-09-21 18:37:06 +0000 (Fri, 21 Sep 2012) $
+# Version: $Revision: 436 $
+# Date   : $Date: 2012-09-22 22:40:13 +0000 (Sat, 22 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -53,6 +53,8 @@ set Signal(closed)		"Engine has closed connection."
 set Signal(terminated)	"Engine terminated with exit code %s."
 
 } ;# analysis mc
+
+namespace import ::tcl::mathfunc::abs
 
 array set Options {
 	background			#ffffee
@@ -265,9 +267,10 @@ proc build {parent width height} {
 		-textvariable [namespace current]::Options(engine:current) \
 		-tooltipvar [namespace current]::mc::Engine \
 		-showcolumns {name} \
-		]
+	]
 	$switcher addcol text -id name
 	$switcher configure -postcommand [namespace code [list FillSwitcher $switcher]]
+	bind $switcher <<ComboboxSelected>> [namespace code startAnalysis]
 	::theme::configureSpinbox $lpv
 	set Vars(widget:linesPerPV) $lpv
 	$lpv set $Options(engine:nlines)
@@ -288,6 +291,8 @@ proc update {position} {
 proc startAnalysis {} {
 	variable Vars
 	variable Options
+
+	::engine::kill $Vars(engine:id)
 
 	set isReadyCmd [namespace current]::IsReady
 	set signalCmd [namespace current]::Signal
@@ -382,17 +387,30 @@ proc Layout {tree} {
 }
 
 
-proc DisplayPvLines {score mate depth time nodes vars} {
+proc DisplayPvLines {score mate depth seldepth time nodes vars} {
 	variable EngineOptions
 	variable Vars
 	variable Options
 
 	$Vars(score) configure -state normal
 	$Vars(score) delete 1.0 end
-	$Vars(score) insert end "(0.$score)" center
+	if {$mate} {
+		if {$mate < 0} { set txt w } else { set txt b }
+		append txt " mate in [abs $mate]"
+	} else {
+		set p [expr {$score/1000}]
+		set cp [expr {abs($score) % 100}]
+		set txt [format "%d.%02d" $p $cp]
+	}
+	$Vars(score) insert end $txt center
 	$Vars(score) configure -state disabled
 
-	if {$depth} { $Vars(depth) configure -text $depth }
+	set txt ""
+	if {$depth} {
+		set txt $depth
+		if {$seldepth} { append txt " (" $seldepth ")" }
+	}
+	$Vars(depth) configure -text $txt
 
 	if {$EngineOptions(multipv)} { set lines {0 1 2 3} } else { set lines 0 }
 
@@ -401,6 +419,26 @@ proc DisplayPvLines {score mate depth time nodes vars} {
 		$Vars(tree) item element configure Line$i Value elemText -text [lindex $line 0]
 		$Vars(tree) item element configure Line$i Moves elemText -text [lrange $line 1 end]
 	}
+}
+
+
+proc DisplayCheckMateInfo {color} {
+	variable Vars
+
+	$Vars(score) configure -state normal
+	$Vars(score) delete 1.0 end
+	$Vars(score) insert end "$color is mate" center
+	$Vars(score) configure -state disabled
+}
+
+
+proc DisplayStaleMateInfo {color} {
+	variable Vars
+
+	$Vars(score) configure -state normal
+	$Vars(score) delete 1.0 end
+	$Vars(score) insert end "$color is stalemate" center
+	$Vars(score) configure -state disabled
 }
 
 
@@ -414,20 +452,21 @@ proc DisplayCurrentMove {number move} {
 }
 
 
-proc DisplayTime {time depth nodes} {
+proc DisplayTime {time depth seldepth nodes} {
 	variable Vars
 }
 
 
 proc UpdateInfo {id type info} {
 	switch $type {
-		pv		{ DisplayPvLines {*}$info }
-		move	{ DisplayCurrentMove {*}$info }
-		line	{}
-		best	{}
-		depth	{ DisplayTime 0.0 {*}$info }
-		time	{ DisplayTime {*}$info }
-		hash	{}
+		pv				{ DisplayPvLines {*}$info }
+		checkmate	{ DisplayCheckMateInfo {*}$info }
+		stalemate	{ DisplayStaleMateInfo {*}$info }
+		move			{ DisplayCurrentMove {*}$info }
+		line			{}
+		depth			{ DisplayTime 0.0 {*}$info }
+		time			{ DisplayTime {*}$info }
+		hash			{}
 	}
 }
 
