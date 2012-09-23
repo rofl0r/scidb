@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 427 $
-// Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
+// Version: $Revision: 442 $
+// Date   : $Date: 2012-09-23 23:56:28 +0000 (Sun, 23 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -47,6 +47,7 @@ public:
 	using ofstream::truncate;
 
 	using ifstream::set_unbuffered;
+	using ifstream::set_line_buffered;
 	using ifstream::set_binary;
 	using ifstream::set_text;
 	using ifstream::set_bufsize;

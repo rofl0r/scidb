@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 427 $
-// Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
+// Version: $Revision: 442 $
+// Date   : $Date: 2012-09-23 23:56:28 +0000 (Sun, 23 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -50,16 +50,20 @@ public:
 	void truncate(unsigned length);
 
 	void set_unbuffered();
+	void set_line_buffered();
 	void set_binary();
 	void set_text();
 	void set_bufsize(unsigned size);
 
 private:
 
+	void init();
+
 	mstl::string m_filename;
 
 	bool		m_open;
-	bool		m_unbuffered;
+	bool		m_buffered;
+	bool		m_line_buffered;
 	bool		m_binary;
 	unsigned	m_bufsize;
 	char*		m_buffer;

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 436 $
-// Date   : $Date: 2012-09-22 22:40:13 +0000 (Sat, 22 Sep 2012) $
+// Version: $Revision: 442 $
+// Date   : $Date: 2012-09-23 23:56:28 +0000 (Sun, 23 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -20,6 +20,7 @@
 #define _sys_process_included
 
 extern "C" { struct Tcl_Channel_; }
+extern "C" { struct Tcl_DString; }
 
 namespace mstl { class string; }
 
@@ -79,15 +80,16 @@ private:
 	static void callStopped(void* clientData);
 	static void callResumed(void* clientData);
 
-	Channel	m_chan;
-	long		m_pid;
-	int		m_exitStatus;
-	bool		m_signalCrashed;
-	bool		m_signalKilled;
-	bool		m_pipeClosed;
-	bool		m_running;
-	bool		m_stopped;
-	bool		m_calledExited;
+	Channel			m_chan;
+	long				m_pid;
+	Tcl_DString*	m_buffer;
+	int				m_exitStatus;
+	bool				m_signalCrashed;
+	bool				m_signalKilled;
+	bool				m_pipeClosed;
+	bool				m_running;
+	bool				m_stopped;
+	bool				m_calledExited;
 };
 
 } // namespace sys

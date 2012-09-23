@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 441 $
-// Date   : $Date: 2012-09-23 15:58:06 +0000 (Sun, 23 Sep 2012) $
+// Version: $Revision: 442 $
+// Date   : $Date: 2012-09-23 23:56:28 +0000 (Sun, 23 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -221,28 +221,7 @@ winboard::Engine::probeTimeout() const
 
 
 void
-winboard::Engine::sendNumberOfVariations()
-{
-	// nothing to do
-}
-
-
-void
-winboard::Engine::sendHashSize()
-{
-	// nothing to do
-}
-
-
-void
 winboard::Engine::sendOptions()
-{
-	// TODO
-}
-
-
-void
-winboard::Engine::clearHash()
 {
 	// TODO
 }
@@ -995,7 +974,7 @@ winboard::Engine::parseInfo(mstl::string const& msg)
 
 		m_firstMove = moves[0];
 		setVariation(moves);
-		updatePvInfo();
+		updatePvInfo(0);
 		m_analyzeResponse = true;
 	}
 }

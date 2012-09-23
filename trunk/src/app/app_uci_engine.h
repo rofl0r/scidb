@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 436 $
-// Date   : $Date: 2012-09-22 22:40:13 +0000 (Sat, 22 Sep 2012) $
+// Version: $Revision: 442 $
+// Date   : $Date: 2012-09-23 23:56:28 +0000 (Sun, 23 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -57,6 +57,10 @@ protected:
 	void sendNumberOfVariations() override;
 	void clearHash() override;
 	void sendHashSize() override;
+	void sendThreads() override;
+	void sendSkillLevel() override;
+	void sendPondering() override;
+	void sendStrength() override;
 	void sendOptions() override;
 	void processMessage(mstl::string const& message) override;
 	void doMove(db::Move const& lastMove) override;
@@ -80,12 +84,15 @@ private:
 	char const* parseMoveList(char const* s, db::MoveList& moves);
 	void setupPosition(db::Board const& board);
 	void continueAnalysis();
+	void sendOption(mstl::string const& name, mstl::string const& value);
 
 	db::Move parseCurrentMove(char const* s);
 
 	db::Board		m_board;
 	mstl::string	m_position;
 	mstl::string	m_waitingOn;
+	mstl::string	m_name;
+	mstl::string	m_value;
 	unsigned			m_maxMultiPV;
 	bool				m_needChess960;
 	bool				m_needShuffleChess;

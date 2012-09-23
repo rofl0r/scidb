@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 442 $
+// Date   : $Date: 2012-09-23 23:56:28 +0000 (Sun, 23 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -20,8 +20,8 @@ namespace mstl {
 namespace bits {
 
 inline bool file::is_open() const						{ return m_open; }
-inline bool file::is_buffered() const					{ return !m_unbuffered; }
-inline bool file::is_unbuffered() const				{ return m_unbuffered; }
+inline bool file::is_buffered() const					{ return m_buffered; }
+inline bool file::is_unbuffered() const				{ return !m_buffered; }
 inline unsigned file::bufsize() const					{ return m_bufsize; }
 inline char* file::buffer() const						{ return m_buffer; }
 inline mstl::string const& file::filename() const	{ return m_filename; }
