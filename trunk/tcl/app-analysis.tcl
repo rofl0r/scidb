@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 436 $
-# Date   : $Date: 2012-09-22 22:40:13 +0000 (Sat, 22 Sep 2012) $
+# Version: $Revision: 440 $
+# Date   : $Date: 2012-09-23 13:43:08 +0000 (Sun, 23 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -398,7 +398,7 @@ proc DisplayPvLines {score mate depth seldepth time nodes vars} {
 		if {$mate < 0} { set txt w } else { set txt b }
 		append txt " mate in [abs $mate]"
 	} else {
-		set p [expr {$score/1000}]
+		set p [expr {$score/100}]
 		set cp [expr {abs($score) % 100}]
 		set txt [format "%d.%02d" $p $cp]
 	}
