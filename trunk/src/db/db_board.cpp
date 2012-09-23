@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 419 $
-// Date   : $Date: 2012-09-07 18:15:59 +0000 (Fri, 07 Sep 2012) $
+// Version: $Revision: 441 $
+// Date   : $Date: 2012-09-23 15:58:06 +0000 (Sun, 23 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -3408,6 +3408,59 @@ Board::parseMove(char const* algebraic, Move& move, move::Constraint flag) const
 
 	if (type == m_piece[fromSquare])
 		move = prepareMove(fromSquare, toSquare, flag);
+
+	return s;
+}
+
+
+char const*
+Board::parseLAN(char const* s, Move& move, move::Constraint flag) const
+{
+	M_REQUIRE(s);
+
+	if (*s == '0')
+	{
+		// "0000" null move used in UCI protocol
+		if (s[1] != '0' || s[2] != '0' || s[3] != '0')
+			return 0;
+		move = makeNullMove();
+		return s + 4;
+	}
+
+	if (!isFyle(*s))
+		return 0;
+
+	int fromFyle = ::toFyle(*s++);
+
+	if (!isRank(*s))
+		return 0;
+
+	int fromRank = ::toRank(*s++);
+
+	if (!isFyle(*s))
+		return 0;
+
+	int toFyle = ::toFyle(*s++);
+
+	if (!isRank(*s))
+		return 0;
+
+	int toRank = ::toRank(*s++);
+
+	if (!(move = prepareMove(sq::make(fromFyle, fromRank), sq::make(toFyle, toRank), flag)))
+		return 0;
+
+	if (move.isPromotion())
+	{
+		switch (*s++)
+		{
+			case 'Q': case 'q':	move.setPromoted(piece::Queen);  break;
+			case 'R': case 'r':	move.setPromoted(piece::Rook);   break;
+			case 'B': case 'b':	move.setPromoted(piece::Bishop); break;
+			case 'N': case 'n':	move.setPromoted(piece::Knight); break;
+			default:					return 0;
+		}
+	}
 
 	return s;
 }

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 430 $
-// Date   : $Date: 2012-09-20 17:13:27 +0000 (Thu, 20 Sep 2012) $
+// Version: $Revision: 441 $
+// Date   : $Date: 2012-09-23 15:58:06 +0000 (Sun, 23 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -229,6 +229,15 @@ Board::parseMove(char const* algebraic, move::Constraint flag) const
 {
 	Move m;
 	return parseMove(algebraic, m, flag) ? m : Move::empty();
+}
+
+
+inline
+Move
+Board::parseLAN(char const* algebraic, move::Constraint flag) const
+{
+	Move m;
+	return parseLAN(algebraic, m, flag) ? m : Move::empty();
 }
 
 

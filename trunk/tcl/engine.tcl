@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 436 $
-# Date   : $Date: 2012-09-22 22:40:13 +0000 (Sat, 22 Sep 2012) $
+# Version: $Revision: 441 $
+# Date   : $Date: 2012-09-23 15:58:06 +0000 (Sun, 23 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1394,7 +1394,6 @@ proc ProbeEngine {parent entry} {
 
 	foreach prot $protocols {
 		lassign $result($prot) ok info features options
-puts $features
 
 		# setup information
 		array set engine $info
