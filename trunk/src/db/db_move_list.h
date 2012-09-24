@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 427 $
-// Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
+// Version: $Revision: 443 $
+// Date   : $Date: 2012-09-24 20:04:54 +0000 (Mon, 24 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -59,6 +59,7 @@ public:
 
 	unsigned size() const;
 	int find(uint16_t move) const;
+	unsigned match(MoveList const& list) const;
 
 	Move const* begin() const;
 	Move const* end() const;

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 442 $
-// Date   : $Date: 2012-09-23 23:56:28 +0000 (Sun, 23 Sep 2012) $
+// Version: $Revision: 443 $
+// Date   : $Date: 2012-09-24 20:04:54 +0000 (Mon, 24 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -904,7 +904,7 @@ winboard::Engine::parseInfo(mstl::string const& msg)
 
 	resetInfo();
 	setDepth(depth);
-	setScore(m_dontInvertScore || m_board.whiteToMove() ? score : -score);
+	setScore(0, m_dontInvertScore || m_board.whiteToMove() ? score : -score);
 	setTime(m_wholeSeconds ? double(time) : time/100.0);
 	setNodes(nodes);
 
@@ -964,7 +964,7 @@ winboard::Engine::parseInfo(mstl::string const& msg)
 		if (board.checkState() & Board::CheckMate)
 		{
 			int n = board.moveNumber() - m_board.moveNumber();
-			setMate(board.whiteToMove() ? -n : +n);
+			setMate(0, board.whiteToMove() ? -n : +n);
 
 #if 0 // we cannot terminate, the engine might find a "better" pv
 			if (isAnalyzing())
@@ -973,7 +973,7 @@ winboard::Engine::parseInfo(mstl::string const& msg)
 		}
 
 		m_firstMove = moves[0];
-		setVariation(moves);
+		setVariation(0, moves);
 		updatePvInfo(0);
 		m_analyzeResponse = true;
 	}
@@ -1065,15 +1065,9 @@ winboard::Engine::parseOption(mstl::string const& option)
 		addOption(name, type, val, min, max);
 
 		if (name == "memory")
-		{
 			setHashRange(::atoi(min), ::atoi(max));
-			setHashSize(::atoi(val));
-		}
 		else if (name == "smp")
-		{
 			setThreadRange(::atoi(min), ::atoi(max));
-			setThreads(::atoi(val));
-		}
 	}
 	else if (type == "combo")
 	{

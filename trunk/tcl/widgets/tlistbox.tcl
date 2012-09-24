@@ -1,7 +1,7 @@
 # =====================================================================
 # Author : $Author$
-# Version: $Revision: 430 $
-# Date   : $Date: 2012-09-20 17:13:27 +0000 (Thu, 20 Sep 2012) $
+# Version: $Revision: 443 $
+# Date   : $Date: 2012-09-24 20:04:54 +0000 (Mon, 24 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -210,7 +210,7 @@ proc Build {w args} {
 		$opts(-highlightbackground) {highlight} \
 		$opts(-disabledbackground) {!enabled} \
 		;
-#		$opts(-background) {enabled !highlight}
+#	$opts(-background) {enabled !highlight}
 	$t element create sel.e  rect -fill $fill -open e  -showfocus $opts(-showfocus)
 	$t element create sel.w  rect -fill $fill -open w  -showfocus $opts(-showfocus)
 	$t element create sel.we rect -fill $fill -open we -showfocus $opts(-showfocus)

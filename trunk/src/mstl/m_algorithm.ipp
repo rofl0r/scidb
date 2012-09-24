@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 381 $
-// Date   : $Date: 2012-07-06 17:37:29 +0000 (Fri, 06 Jul 2012) $
+// Version: $Revision: 443 $
+// Date   : $Date: 2012-09-24 20:04:54 +0000 (Mon, 24 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -127,6 +127,86 @@ rotate(T* first, T* middle, T* last)
 {
     bits::rotate_fast(first, middle, last);
     return first;
+}
+
+
+template <typename ForwardIterator>
+inline
+ForwardIterator
+min_element(ForwardIterator first, ForwardIterator last)
+{
+	if (first == last)
+		return first;
+
+	ForwardIterator result(first);
+
+	while (++first != last)
+	{
+		if (*first < *result)
+			result = first;
+	}
+
+	return result;
+}
+
+
+template <typename ForwardIterator, typename LessThanCompare>
+inline
+ForwardIterator
+min_element(ForwardIterator first, ForwardIterator last, LessThanCompare comp)
+{
+	if (first == last)
+		return first;
+
+	ForwardIterator result(first);
+
+	while (++first != last)
+	{
+		if (comp(*first, *result))
+			result = first;
+	}
+
+	return result;
+}
+
+
+template <typename ForwardIterator>
+inline
+ForwardIterator
+max_element(ForwardIterator first, ForwardIterator last)
+{
+	if (first == last)
+		return first;
+
+	ForwardIterator result(first);
+
+	while (++first != last)
+	{
+		if (*result < *first)
+			result = first;
+	}
+
+	return result;
+}
+
+
+template <typename ForwardIterator, typename LessThanCompare>
+inline
+ForwardIterator
+max_element(ForwardIterator first, ForwardIterator last, LessThanCompare comp)
+{
+	if (first == last)
+		return first;
+
+	ForwardIterator result(first);
+
+	while (++first != last)
+	{
+		if (comp(*result, *first))
+			result = first;
+	}
+
+	return result;
 }
 
 } // namespace mstl

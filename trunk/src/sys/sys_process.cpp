@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 442 $
-// Date   : $Date: 2012-09-23 23:56:28 +0000 (Sun, 23 Sep 2012) $
+// Version: $Revision: 443 $
+// Date   : $Date: 2012-09-24 20:04:54 +0000 (Mon, 24 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -313,6 +313,7 @@ Process::Process(mstl::string const& command, mstl::string const& directory)
 Process::~Process()
 {
 	Tcl_DStringFree(m_buffer);
+	delete m_buffer;
 	m_processMap.erase(m_pid);
 	m_calledExited = true; // process is destroyed by user
 	close();

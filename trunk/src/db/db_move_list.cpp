@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 430 $
-// Date   : $Date: 2012-09-20 17:13:27 +0000 (Thu, 20 Sep 2012) $
+// Version: $Revision: 443 $
+// Date   : $Date: 2012-09-24 20:04:54 +0000 (Mon, 24 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -56,6 +56,21 @@ MoveList::find(uint16_t move) const
 	}
 
 	return -1;
+}
+
+
+unsigned
+MoveList::match(MoveList const& list) const
+{
+	unsigned n = mstl::min(list.size(), size());
+
+	for (unsigned i = 0; i < n; ++i)
+	{
+		if (m_buffer[i] != list.m_buffer[i])
+			return i;
+	}
+
+	return 0;
 }
 
 

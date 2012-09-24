@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 443 $
+// Date   : $Date: 2012-09-24 20:04:54 +0000 (Mon, 24 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -41,6 +41,18 @@ binary_search(ForwardIterator first, ForwardIterator last, LessThanComparable co
 
 template <typename ForwardIterator>
 ForwardIterator rotate(ForwardIterator first, ForwardIterator middle, ForwardIterator last);
+
+template <typename ForwardIterator>
+ForwardIterator min_element(ForwardIterator first, ForwardIterator last);
+
+template <typename ForwardIterator, typename LessThanCompare>
+ForwardIterator min_element(ForwardIterator first, ForwardIterator last, LessThanCompare comp);
+
+template <typename ForwardIterator>
+ForwardIterator max_element(ForwardIterator first, ForwardIterator last);
+
+template <typename ForwardIterator, typename LessThanCompare>
+ForwardIterator max_element(ForwardIterator first, ForwardIterator last, LessThanCompare comp);
 
 } // namespace mstl
 
