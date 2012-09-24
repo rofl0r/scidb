@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 445 $
-# Date   : $Date: 2012-09-24 20:29:46 +0000 (Mon, 24 Sep 2012) $
+# Version: $Revision: 446 $
+# Date   : $Date: 2012-09-24 20:44:33 +0000 (Mon, 24 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -714,6 +714,7 @@ proc setup {} {
 				set engine(FileTime) $st(mtime)
 				set engine(Timestamp) [clock seconds]
 				lappend Engines [array get engine]
+return
 			}
 		}
 	}
@@ -1407,6 +1408,7 @@ proc ProbeEngine {parent entry} {
 
 	foreach prot $protocols {
 		lassign $result($prot) ok info features options
+if {$prot == "WB"} { puts "$prot: $options" }
 
 		# setup information
 		array set engine $info
@@ -1536,7 +1538,7 @@ proc SaveEngineList {} {
 	set f [open $filename.tmp "w"]
 	fconfigure $f -encoding utf-8
 	::options::writeHeader $f engines
-	::options::writeItem $f [namespace current]::Engines
+	::options::writeList $f [namespace current]::Engines
 	close $f
 	file rename -force $filename.tmp $filename
 	::options::unhookWriter [namespace current]::WriteOptions engines
