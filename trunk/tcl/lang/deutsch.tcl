@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 442 $
-# Date   : $Date: 2012-09-23 23:56:28 +0000 (Sun, 23 Sep 2012) $
+# Version: $Revision: 449 $
+# Date   : $Date: 2012-09-24 23:23:55 +0000 (Mon, 24 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -311,10 +311,14 @@
 ::util::photos::mc::Log(started)					"Die Installation bzw. der Update der Photodateien wurde gestartet am %s."
 ::util::photos::mc::Log(finished)				"Die Installation bzw. der Update der Photodateien wurde abgeschlossen am %s."
 ::util::photos::mc::Log(destination)			"Das Zielverzeichnis für den Download ist '%s'."
-::util::photos::mc::Log(created)					"%s Datei(en) wurden angelegt."
-::util::photos::mc::Log(deleted)					"%s Datei(en) wurden entfernt."
-::util::photos::mc::Log(skipped)					"%s Datei(en) wurden übersprungen."
-::util::photos::mc::Log(updated)					"%s Datei(en) wurden erneuert."
+::util::photos::mc::Log(created:1)				"%s Datei wurde angelegt."
+::util::photos::mc::Log(created:N)				"%s Dateien wurden angelegt."
+::util::photos::mc::Log(deleted:1)				"%s Datei wurde entfernt."
+::util::photos::mc::Log(deleted:N)				"%s Dateien wurden entfernt."
+::util::photos::mc::Log(skipped:1)				"%s Datei wurde übersprungen."
+::util::photos::mc::Log(skipped:N)				"%s Dateien wurden übersprungen."
+::util::photos::mc::Log(updated:1)				"%s Datei wurde erneuert."
+::util::photos::mc::Log(updated:N)				"%s Dateien wurden erneuert."
 
 ### application ########################################################
 ::application::mc::Database				"Datenba&nk"

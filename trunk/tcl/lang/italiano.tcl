@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 442 $
-# Date   : $Date: 2012-09-23 23:56:28 +0000 (Sun, 23 Sep 2012) $
+# Version: $Revision: 449 $
+# Date   : $Date: 2012-09-24 23:23:55 +0000 (Mon, 24 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -312,10 +312,14 @@
 ::util::photos::mc::Log(started)					"L'installazione/aggiornamento delle foto è cominciato a %s."
 ::util::photos::mc::Log(finished)				"L'installazione/aggiornamneto delle foto è finito a %s."
 ::util::photos::mc::Log(destination)			"La cartella di destinazione del download è '%s'."
-::util::photos::mc::Log(created)					"%s file(s) creati."
-::util::photos::mc::Log(deleted)					"%s file(s) eliminati."
-::util::photos::mc::Log(skipped)					"%s file(s) saltati."
-::util::photos::mc::Log(updated)					"%s file(s) aggiornati."
+::util::photos::mc::Log(created:1)				"%s file creati."
+::util::photos::mc::Log(created:N)				"%s file(s) creati."
+::util::photos::mc::Log(deleted:1)				"%s file eliminati."
+::util::photos::mc::Log(deleted:N)				"%s file(s) eliminati."
+::util::photos::mc::Log(skipped:1)				"%s file saltati."
+::util::photos::mc::Log(skipped:N)				"%s file(s) saltati."
+::util::photos::mc::Log(updated:1)				"%s file aggiornati."
+::util::photos::mc::Log(updated:N)				"%s file(s) aggiornati."
 
 ### application ########################################################
 ::application::mc::Database				"&Database"

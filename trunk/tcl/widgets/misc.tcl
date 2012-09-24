@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 430 $
-# Date   : $Date: 2012-09-20 17:13:27 +0000 (Thu, 20 Sep 2012) $
+# Version: $Revision: 449 $
+# Date   : $Date: 2012-09-24 23:23:55 +0000 (Mon, 24 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -571,9 +571,11 @@ proc menuItemHighlightSecond {menu} {
 proc PackDialogButton {dlg btn side {position {}}} {
 	set slaves [pack slaves $dlg.__buttons]
 	set options {}
-	switch $position {
-		start	{ lappend options -before [lindex $slaves 0] }
-		end	{ lappend options -after [lindex $slaves end] }
+	if {[llength $slaves]} {
+		switch $position {
+			start	{ lappend options -before [lindex $slaves 0] }
+			end	{ lappend options -after [lindex $slaves end] }
+		}
 	}
 	pack $btn -in $dlg.__buttons -pady $::theme::pady -padx $::theme::padx -side $side {*}$options
 }
