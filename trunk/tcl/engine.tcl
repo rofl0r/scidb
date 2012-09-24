@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 443 $
-# Date   : $Date: 2012-09-24 20:04:54 +0000 (Mon, 24 Sep 2012) $
+# Version: $Revision: 445 $
+# Date   : $Date: 2012-09-24 20:29:46 +0000 (Mon, 24 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1893,7 +1893,7 @@ proc FindIndex {name} {
 
 
 proc WriteOptions {chan} {
-	::options::writeItem $chan [namespace current]::Engines
+	::options::writeList $chan [namespace current]::Engines
 }
 
 } ;# namespace engine
