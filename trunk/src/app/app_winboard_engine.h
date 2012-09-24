@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 442 $
-// Date   : $Date: 2012-09-23 23:56:28 +0000 (Sun, 23 Sep 2012) $
+// Version: $Revision: 448 $
+// Date   : $Date: 2012-09-24 23:02:07 +0000 (Mon, 24 Sep 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -98,6 +98,7 @@ private:
 	db::Move			m_firstMove;
 	bool				m_isAnalyzing;
 	bool				m_response;
+	bool				m_waitForDone;
 	bool				m_analyzeResponse;
 	bool				m_identifierDetected;
 	bool				m_shortNameDetected;
