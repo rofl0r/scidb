@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 446 $
-# Date   : $Date: 2012-09-24 20:44:33 +0000 (Mon, 24 Sep 2012) $
+# Version: $Revision: 447 $
+# Date   : $Date: 2012-09-24 20:46:00 +0000 (Mon, 24 Sep 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -714,7 +714,6 @@ proc setup {} {
 				set engine(FileTime) $st(mtime)
 				set engine(Timestamp) [clock seconds]
 				lappend Engines [array get engine]
-return
 			}
 		}
 	}
@@ -1408,7 +1407,6 @@ proc ProbeEngine {parent entry} {
 
 	foreach prot $protocols {
 		lassign $result($prot) ok info features options
-if {$prot == "WB"} { puts "$prot: $options" }
 
 		# setup information
 		array set engine $info
