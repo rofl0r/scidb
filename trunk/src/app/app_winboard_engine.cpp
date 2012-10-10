@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 450 $
-// Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
+// Version: $Revision: 451 $
+// Date   : $Date: 2012-10-10 22:55:35 +0000 (Wed, 10 Oct 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -213,6 +213,13 @@ unsigned
 winboard::Engine::probeTimeout() const
 {
 	return 2000;
+}
+
+
+void
+winboard::Engine::invokeOption(mstl::string const& name)
+{
+	send(name);
 }
 
 

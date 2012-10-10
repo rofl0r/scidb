@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 450 $
-// Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
+// Version: $Revision: 451 $
+// Date   : $Date: 2012-10-10 22:55:35 +0000 (Wed, 10 Oct 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -149,6 +149,7 @@ public:
 		virtual void sendPlayingStyle();
 		virtual void clearHash();
 		virtual void sendOptions() = 0;
+		virtual void invokeOption(mstl::string const& name) = 0;
 
 		virtual Result probeResult() const = 0;
 		virtual Result probeAnalyzeFeature() const;
@@ -367,6 +368,7 @@ public:
 	void clearHash();
 	void setOption(mstl::string const& name, mstl::string const& value);
 	void updateOptions();
+	void invokeOption(mstl::string const& name);
 	void updateConfiguration(mstl::string const& script);
 
 	void addFeature(unsigned feature);

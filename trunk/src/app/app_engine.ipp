@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 450 $
-// Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
+// Version: $Revision: 451 $
+// Date   : $Date: 2012-10-10 22:55:35 +0000 (Wed, 10 Oct 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -343,6 +343,7 @@ inline void Engine::setLog(mstl::ostream* stream)				{ m_logStream = stream; }
 inline void Engine::resetBestInfoHasChanged()					{ m_bestInfoHasChanged = false; }
 inline void Engine::addVariant(unsigned variant)				{ m_variants |= variant; }
 inline void Engine::removeVariant(unsigned variant)			{ m_variants &= ~variant; }
+inline void Engine::error(Error code)								{ m_engine->updateError(code); }
 
 
 
