@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 420 $
-// Date   : $Date: 2012-09-09 14:33:43 +0000 (Sun, 09 Sep 2012) $
+// Version: $Revision: 450 $
+// Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -145,7 +145,7 @@ public:
 private:
 
 	typedef bool (*ReachableFunc)(Signature const&, Signature const&, uint16_t);
-	typedef mstl::pvector<TreeInfo> List;
+	typedef mstl::pvector<TreeInfo> InfoList;
 
 	bool buildTree0(			unsigned myIdn,
 									Board const& startPosition,
@@ -212,14 +212,14 @@ private:
 	static bool isCached(TreeCache& cache, uint64_t hash, Position const& position);
 	static Tree* lookup(TreeCache& cache, uint64_t hash, Position const& position);
 
-	Database*	m_base;
-	Key			m_key;
-	unsigned		m_index;
-	unsigned		m_last;
-	bool			m_complete;
-	List			m_list;
-	TreeInfo		m_total;
-	Filter		m_filter;
+	Database*		m_base;
+	Key				m_key;
+	unsigned			m_index;
+	unsigned			m_last;
+	bool				m_complete;
+	InfoList			m_infoList;
+	TreeInfo			m_total;
+	Filter			m_filter;
 
 #ifdef SHOW_TREE_INFO
 	unsigned		m_numGamesParsed;

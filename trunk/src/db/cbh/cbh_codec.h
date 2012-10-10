@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 416 $
-// Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
+// Version: $Revision: 450 $
+// Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -106,16 +106,6 @@ public:
 										mstl::string* description);
 	static void getSuffixes(mstl::string const& filename, StringList& result);
 
-private:
-
-	class Source;
-
-	struct Team
-	{
-		mstl::string	title;
-		country::Code	nation;
-	};
-
 	struct Tournament
 	{
 		Tournament();
@@ -125,6 +115,16 @@ private:
 		Byte rounds;
 	}
 	__attribute__((packed));
+
+private:
+
+	class Source;
+
+	struct Team
+	{
+		mstl::string	title;
+		country::Code	nation;
+	};
 
 	typedef mstl::map<uint32_t,NamebaseEntry*>			BaseMap;
 	typedef mstl::map<uint32_t,uint32_t>					AnnotationMap;

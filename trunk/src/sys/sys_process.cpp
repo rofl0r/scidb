@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 443 $
-// Date   : $Date: 2012-09-24 20:04:54 +0000 (Mon, 24 Sep 2012) $
+// Version: $Revision: 450 $
+// Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -28,7 +28,7 @@
 #include <tcl.h>
 #include <stdlib.h>
 
-#define DEBUG
+//#define DEBUG
 
 #ifdef DEBUG
 # include <stdio.h>
@@ -340,6 +340,8 @@ Process::priority() const
 void
 Process::setPriority(Priority priority)
 {
+	M_REQUIRE(priority != Unknown);
+
 	if (isAlive())
 	{
 		if (!::setPriority(m_pid, priority))

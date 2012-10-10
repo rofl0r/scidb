@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 430 $
-# Date   : $Date: 2012-09-20 17:13:27 +0000 (Thu, 20 Sep 2012) $
+# Version: $Revision: 450 $
+# Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -493,6 +493,7 @@ proc updateColumn {path selection {see 0}} {
 	if {$see} {
 		SetStart $table [expr {max(0, $Vars(selection) - $Vars(height)/2)}]
 		ConfigureScale $table
+		SetHighlighting $table
 	} else {
 		TableFill $table
 	}

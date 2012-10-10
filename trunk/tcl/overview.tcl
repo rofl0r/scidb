@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 416 $
-# Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
+# Version: $Revision: 450 $
+# Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -54,8 +54,11 @@ proc open {parent base info view index {fen {}}} {
 	set name [file rootname [file tail $base]]
 
 	if {[info exists Priv($base:$number:$view)]} {
-		::widget::dialogRaise [lindex $Priv($base:$number:$view) 0]
-		return
+		set dlg [lindex $Priv($base:$number:$view) 0]
+		if {[winfo exists $dlg]} { ;# prevent raise conditions
+			::widget::dialogRaise $dlg
+			return
+		}
 	}
 
 	set position [incr Priv(count)]
@@ -505,7 +508,9 @@ proc TabChanged {nb} {
 
 proc LoadGame {nb} {
 	variable ${nb}::Vars
-	::widget::busyOperation { ::game::new $nb $Vars(base) [expr {$Vars(number) - 1}] $Vars(fen) }
+	::widget::busyOperation {
+		::game::new $nb $Vars(base) $Vars(view) [expr {$Vars(number) - 1}] $Vars(fen)
+	}
 }	
 
 

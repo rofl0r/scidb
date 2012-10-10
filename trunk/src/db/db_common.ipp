@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 430 $
-// Date   : $Date: 2012-09-20 17:13:27 +0000 (Thu, 20 Sep 2012) $
+// Version: $Revision: 450 $
+// Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -397,9 +397,14 @@ containsFemaleTtile(unsigned titles)
 
 namespace variant {
 
-inline bool isStandardChess(unsigned idn)	{ return idn == 518; }
-inline bool isChess960(unsigned idn)		{ return 0 < idn && idn <= 960; }
-inline bool isShuffleChess(unsigned idn)	{ return 960 < idn; }
+inline bool isStandardChess(unsigned idn)		{ return idn == 518; }
+inline bool isChess960(unsigned idn)			{ return 0 < idn && idn <= 960; }
+inline bool isShuffleChess(unsigned idn)		{ return 960 < idn && idn <= 3840; }
+inline bool isBughouseChess(unsigned idn)		{ return idn == BughouseIdn; }
+inline bool isCrazyhouseChess(unsigned idn)	{ return idn == CrazyhouseIdn; }
+inline bool isLosersChess(unsigned idn)		{ return idn == LosersIdn; }
+inline bool isSuicideChess(unsigned idn)		{ return idn == SuicideIdn; }
+inline bool isGiveawayChess(unsigned idn)		{ return idn == GiveawayIdn; }
 
 } // namespace variant
 

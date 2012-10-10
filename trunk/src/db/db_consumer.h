@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 416 $
-// Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
+// Version: $Revision: 450 $
+// Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -100,6 +100,7 @@ public:
 	bool startGame(TagSet const& tags);
 	bool startGame(TagSet const& tags, Board const& board);
 	save::State finishGame(TagSet const& tags);
+	virtual save::State skipGame(TagSet const& tags);
 
 	void putPrecedingComment(Comment const& comment, Annotation const& annotation, MarkSet const& marks);
 	void putTrailingComment(Comment const& comment);

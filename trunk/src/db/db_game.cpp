@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 432 $
-// Date   : $Date: 2012-09-20 23:44:11 +0000 (Thu, 20 Sep 2012) $
+// Version: $Revision: 450 $
+// Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2746,7 +2746,7 @@ Game::dumpHistory(mstl::string& result) const
 
 		Move const& move = hist[i];
 
-		if (m_idn == chess960::StandardIdn && move.isCastling())
+		if (m_idn == variant::StandardIdn && move.isCastling())
 		{
 			sq::Fyle fyle = move.isShortCastling() ? sq::FyleG : sq::FyleC;
 
@@ -2765,7 +2765,7 @@ Game::dumpHistory(mstl::string& result) const
 
 
 bool
-Game::finishLoad()
+Game::finishLoad(mstl::string const* fen)
 {
 	M_REQUIRE(atMainlineStart());
 
@@ -2778,6 +2778,11 @@ Game::finishLoad()
 
 	m_startNode->finish(m_startBoard);
 	m_currentBoard = m_startBoard;
+
+	if (fen)
+		goToPosition(*fen);
+	else
+		moveToMainlineStart();
 
 	updateLine();
 	updateLanguageSet();
@@ -2857,7 +2862,7 @@ Game::updateLine()
 
 		Line line(lineBuf, i);
 
-		if (idn == chess960::StandardIdn)
+		if (idn == variant::StandardIdn)
 		{
 			if (line != m_line || !m_eco)
 			{
@@ -2892,7 +2897,7 @@ Game::updateLine()
 Eco
 Game::computeEcoCode() const
 {
-	if (m_idn != chess960::StandardIdn)
+	if (m_idn != variant::StandardIdn)
 		return Eco();
 
 	uint16_t lineBuf[opening::Max_Line_Length];
@@ -3072,8 +3077,7 @@ Game::setFolded(bool flag)
 void
 Game::setSubscriber(SubscriberP subscriber)
 {
-	if ((m_subscriber = subscriber))
-		moveToMainlineStart();
+	m_subscriber = subscriber;
 }
 
 

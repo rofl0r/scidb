@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 326 $
-// Date   : $Date: 2012-05-20 20:27:50 +0000 (Sun, 20 May 2012) $
+// Version: $Revision: 450 $
+// Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -263,6 +263,30 @@ Filter::swap(Filter& filter)
 {
 	m_set.swap(filter.m_set);
 	mstl::swap(m_count, filter.m_count);
+}
+
+
+int
+Filter::minimize()
+{
+	unsigned firstIndex = m_set.find_first();
+
+	if (firstIndex == mstl::bitset::npos)
+	{
+		m_set = mstl::bitset();
+		return Invalid;
+	}
+
+	unsigned lastIndex = m_set.find_last();
+
+	m_set <<= firstIndex;
+	m_set.resize(lastIndex - firstIndex + 1);
+
+	mstl::bitset set(m_set.size());
+	set.assign(m_set.content(), m_set.count_words());
+	m_set.swap(set);
+
+	return firstIndex;
 }
 
 

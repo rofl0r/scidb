@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 416 $
-# Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
+# Version: $Revision: 450 $
+# Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -629,6 +629,19 @@ set Dot [image create photo -data {
 } ;# namespace theme
 
 
+bind Button <Map> {
+	variable ::tk::Priv
+
+	if {[info exists Priv(buttonWindow)] && $Priv(buttonWindow) eq "%W"} {
+		# Fix bug in Button widget:
+		# Reset this variable otherwise ::tk::ButtonEnter may
+		# set the relief to sunken if the mouse hovers the
+		# button during popup.
+		set Priv(buttonWindow) ""
+	}
+}
+
+
 # We fix a problem with tk::ButtonEnter; this function is not working
 # well if it is called twice (this may happen under some circumstances).
 
@@ -688,6 +701,14 @@ proc AltKeyInDialog {path key} {
 	} else {
 		event generate $target <<AltUnderlined>> -when head
 	}
+}
+
+
+# fix tk::spinbox::AutoScan
+rename tk::spinbox::AutoScan tk::spinbox::AutoScan_buggy_
+
+proc tk::spinbox::AutoScan {w} {
+	if {[winfo exists $w]} { return [AutoScan_buggy_ $w] }
 }
 
 } ;# namespace tk

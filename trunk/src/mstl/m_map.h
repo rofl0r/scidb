@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 416 $
-// Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
+// Version: $Revision: 450 $
+// Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -70,6 +70,7 @@ public:
 
 	size_type size() const;
 	size_type capacity() const;
+	container_type& container(); // Use with care!
 	container_type const& container() const;
 
 	iterator begin();

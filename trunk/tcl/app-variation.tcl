@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 385 $
-# Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
+# Version: $Revision: 450 $
+# Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -553,7 +553,7 @@ proc Activate {table} {
 	
 	if {$Vars(selected) == [::table::selection $table]} {
 		set move [::scidb::vars::move $Vars(selected)]
-		::move::addMove $move [list set [namespace current]::Vars(activated) 0]
+		::move::addMove $move [list set [namespace current]::Vars(activated)]
 	} else {
 		set Vars(activated) 0
 	}

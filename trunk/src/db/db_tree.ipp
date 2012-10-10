@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 450 $
+// Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -63,11 +63,11 @@ Tree::Key::match(tree::Mode mode, rating::Type ratingType, uint64_t hash, Positi
 }
 
 
-inline bool Tree::isEmpty() const							{ return m_list.empty(); }
+inline bool Tree::isEmpty() const							{ return m_infoList.empty(); }
 inline bool Tree::isComplete() const						{ return m_complete; }
 inline bool Tree::isCompressed() const						{ return m_filter.isCompressed(); }
 
-inline unsigned Tree::size() const							{ return m_list.size(); }
+inline unsigned Tree::size() const							{ return m_infoList.size(); }
 inline TreeInfo const& Tree::total() const				{ return m_total; }
 inline Database& Tree::database() const					{ return *m_base; }
 inline Filter const& Tree::filter() const					{ return m_filter; }
@@ -78,8 +78,10 @@ inline Tree::Position const& Tree::position() const	{ return m_key.position(); }
 inline tree::Mode Tree::mode() const						{ return m_key.mode(); }
 inline rating::Type Tree::ratingType() const				{ return m_key.ratingType(); }
 
+#ifndef SUPPORT_TREE_INFO_FILTER
 inline void Tree::compressFilter()		{ m_filter.compress(); }
 inline void Tree::uncompressFilter()	{ m_filter.uncompress(); }
+#endif
 
 
 inline
@@ -95,7 +97,7 @@ TreeInfo const&
 Tree::info(unsigned n) const
 {
 	M_REQUIRE(n < size());
-	return m_list[n];
+	return m_infoList[n];
 }
 
 

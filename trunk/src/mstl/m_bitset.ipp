@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 450 $
+// Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -585,6 +585,14 @@ bitset::word(size_type n) const
 	M_REQUIRE(n < count_words());
 
 	return m_bits[n];
+}
+
+
+inline
+bitset::bitfield const*
+bitset::content() const
+{
+	return m_bits;
 }
 
 

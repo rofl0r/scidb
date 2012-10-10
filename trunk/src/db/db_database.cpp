@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 427 $
-// Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
+// Version: $Revision: 450 $
+// Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -492,7 +492,7 @@ Database::computeChecksum(unsigned index) const
 
 
 load::State
-Database::loadGame(unsigned index, Game& game, mstl::string* encoding)
+Database::loadGame(unsigned index, Game& game, mstl::string* encoding, mstl::string const* fen)
 {
 	M_REQUIRE(isOpen());
 	M_REQUIRE(index < countGames());
@@ -519,7 +519,7 @@ Database::loadGame(unsigned index, Game& game, mstl::string* encoding)
 
 	setEncodingFailed(m_codec->encodingFailed());
 	game.moveToMainlineStart();
-	load::State state = game.finishLoad() ? load::Ok : load::Corrupted;
+	load::State state = game.finishLoad(fen) ? load::Ok : load::Corrupted;
 	setupTags(index, game.m_tags);
 
 	return state;
@@ -1352,7 +1352,7 @@ Database::playerStatistic(NamebasePlayer const& player, PlayerStats& stats) cons
 			stats.addRating(rating::Elo, info->elo(color));
 			stats.addDate(info->date());
 			stats.addScore(color, info->result());
-			if (info->idn() == chess960::StandardIdn)
+			if (info->idn() == variant::StandardIdn)
 				stats.addEco(color, info->ecoKey());
 		}
 	}

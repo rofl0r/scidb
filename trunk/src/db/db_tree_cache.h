@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 450 $
+// Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -43,6 +43,7 @@ public:
 	enum { CacheSize = 256 };
 
 	TreeCache();
+	~TreeCache();
 
 	bool isCached(Board const& position, tree::Mode mode, rating::Type ratingType) const;
 	bool isCached(	uint64_t hash,

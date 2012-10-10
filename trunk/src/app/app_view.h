@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 427 $
-// Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
+// Version: $Revision: 450 $
+// Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -141,6 +141,11 @@ public:
 	int findSite(mstl::string const& title) const;
 	/// Return index of first matching annotator.
 	int findAnnotator(mstl::string const& name) const;
+
+	/// Return current game filter.
+	db::Filter const& gameFilter() const;
+	/// Return current game selector.
+	db::Selector const& gameSelector() const;
 
 	/// Get PGN (without variations) of given game index.
 	Result dumpGame(unsigned index, mstl::string const& fen, mstl::string& result) const;

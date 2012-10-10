@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 427 $
-// Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
+// Version: $Revision: 450 $
+// Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -53,6 +53,7 @@ using namespace tcl::app;
 static char const* CmdFetch		= "::scidb::tree::fetch";
 static char const* CmdFinish		= "::scidb::tree::finish";
 static char const* CmdFreeze		= "::scidb::tree::freeze";
+static char const* CmdGameIndex	= "::scidb::tree::gameIndex";
 static char const* CmdGet			= "::scidb::tree::get";
 static char const* CmdInit			= "::scidb::tree::init";
 static char const* CmdIsRefBase	= "::scidb::tree::isRefBase?";
@@ -312,6 +313,27 @@ cmdFinish(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 
 
 static int
+cmdGameIndex(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
+{
+	Tree const* tree = Scidb->currentTree();
+	unsigned n = unsignedFromObj(objc, objv, 1);
+
+	if (tree == 0)
+		return error(CmdGameIndex, nullptr, nullptr, "no current tree");
+	if (n >= tree->size())
+		return error(CmdGameIndex, nullptr, nullptr, "index out of bounds");
+
+#ifdef SUPPORT_TREE_INFO_FILTER
+	setResult(tree->info(n).firstGameIndex(Scidb->referenceBase().treeView().gameSelector()));
+#else
+	setResult(tree->info(n).firstGameIndex());
+#endif
+
+	return TCL_OK;
+}
+
+
+static int
 cmdFetch(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 {
 	Tree const* tree = Scidb->currentTree();
@@ -468,8 +490,21 @@ cmdPosition(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 {
 	if (Tree const* tree = Scidb->currentTree())
 	{
+		char const* move = objc > 1 ? Tcl_GetString(objv[1]) : 0;
+
 		Board board;
 		board.setup(tree->position());
+
+		if (move)
+		{
+			Move m = board.parseMove(move, ::db::move::AllowIllegalMove);
+
+			if (!m)
+				return error(CmdPosition, nullptr, nullptr, "illegal move '%s'", move);
+
+			board.doMove(m);
+		}
+
 		setResult(board.toFen());
 	}
 
@@ -510,6 +545,7 @@ init(Tcl_Interp* ti)
 	createCommand(ti, CmdFetch,		cmdFetch);
 	createCommand(ti, CmdFinish,		cmdFinish);
 	createCommand(ti, CmdFreeze,		cmdFreeze);
+	createCommand(ti, CmdGameIndex,	cmdGameIndex);
 	createCommand(ti, CmdGet,			cmdGet);
 	createCommand(ti, CmdInit,			cmdInit);
 	createCommand(ti, CmdIsRefBase,	cmdIsRefBase);

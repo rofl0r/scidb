@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 367 $
-// Date   : $Date: 2012-06-29 17:33:57 +0000 (Fri, 29 Jun 2012) $
+// Version: $Revision: 450 $
+// Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -3996,11 +3996,12 @@ sex::toString(ID sex)
 variant::Type
 variant::fromIdn(unsigned idn)
 {
-	if (idn == 0)								return Unknown;
-	if (idn == chess960::StandardIdn)	return Standard;
-	if (idn <= 960)							return Chess960;
+	if (idn == 0)							return Unknown;
+	if (idn == variant::StandardIdn)	return Standard;
+	if (idn <= 960)						return Chess960;
+	if (idn <= 3840)						return Shuffle;
 
-	return Shuffle;
+	return Other;
 }
 
 // vi:set ts=3 sw=3:

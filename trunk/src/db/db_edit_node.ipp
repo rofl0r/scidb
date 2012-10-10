@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 385 $
-// Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
+// Version: $Revision: 450 $
+// Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -105,6 +105,7 @@ Opening::Opening(Board const& startBoard, uint16_t idn, Eco eco)
 }
 
 
+inline bool Annotation::isEmpty() const							{ return m_annotation.isEmpty(); }
 inline Key const& KeyNode::key() const								{ return m_key; }
 inline bool Variation::empty() const								{ return m_list.empty(); }
 inline Key const& Variation::successor() const					{ return m_succ; }

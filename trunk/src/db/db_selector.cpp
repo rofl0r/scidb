@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 373 $
-// Date   : $Date: 2012-07-02 10:25:19 +0000 (Mon, 02 Jul 2012) $
+// Version: $Revision: 450 $
+// Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -313,12 +313,12 @@ compUserEco(unsigned const* lhs, unsigned const* rhs)
 
 	switch (il.idn())
 	{
-		case chess960::StandardIdn:
+		case variant::StandardIdn:
 			switch (ir.idn())
 			{
-				case 0:								return -1;
-				case chess960::StandardIdn:	return compare(il.userEco(), ir.userEco());
-				default:								return int(chess960::StandardIdn) - int(ir.idn());
+				case 0:							return -1;
+				case variant::StandardIdn:	return compare(il.userEco(), ir.userEco());
+				default:							return int(variant::StandardIdn) - int(ir.idn());
 			}
 			// not reached
 
@@ -341,7 +341,7 @@ compOverview(unsigned const* lhs, unsigned const* rhs)
 	if (rc)
 		return rc;
 
-	if (il.idn() != chess960::StandardIdn)
+	if (il.idn() != variant::StandardIdn)
 		return 0;
 
 	return int(il.ecoKey()) - int(ir.ecoKey());

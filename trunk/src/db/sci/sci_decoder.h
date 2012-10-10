@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 450 $
+// Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -53,7 +53,7 @@ class Decoder
 public:
 
 	Decoder(util::ByteStream& strm);
-	Decoder(util::ByteStream& strm, unsigned ensuredStreamSize);
+	Decoder(util::ByteStream& strm, unsigned guaranteedStreamSize);
 
 	Move findExactPosition(Board const& position, bool skipVariations);
 
@@ -81,6 +81,7 @@ private:
 	Move decodeBishop(sq::ID from, Byte nybble);
 	Move decodeKnight(sq::ID from, Byte nybble);
 	Move decodePawn(sq::ID from, Byte nybble);
+	Move decodeDroppedPiece(sq::ID to, Byte nybble);
 
 	Move searchForPosition(Board const& position, bool skipVariations);
 
@@ -88,7 +89,7 @@ private:
 	Decoder& operator=(Decoder const&);
 
 	util::ByteStream&	m_strm;
-	unsigned				m_ensuredStreamSize;
+	unsigned				m_guaranteedStreamSize;
 	decoder::Position	m_position;
 	MoveNode*			m_currentNode;
 };

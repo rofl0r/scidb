@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 442 $
-// Date   : $Date: 2012-09-23 23:56:28 +0000 (Sun, 23 Sep 2012) $
+// Version: $Revision: 450 $
+// Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -32,10 +32,10 @@ public:
 
 	enum Priority
 	{
-		Unknown	= -1,
-		Idle		= 20,	// XXX OK?
+		Unknown	= -9999,
+		Idle		= 18,
 		Normal	= 0,
-		High		= 15,
+		High		= -15,
 	};
 
 	Process(mstl::string const& command, mstl::string const& directory);

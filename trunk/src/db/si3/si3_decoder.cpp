@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 385 $
-// Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
+// Version: $Revision: 450 $
+// Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1243,7 +1243,7 @@ Decoder::decodeType(unsigned type)
 		case  0: return type::Unspecific;				// Unspecific
 		case  1: return type::Temporary;					// Temporary Database
 		case  2: return type::Clipbase;					// Clipbase
-		case  3: return type::Unspecific;				// PGN format file
+		case  3: return type::PGNFile;					// PGN format file
 		case  4: return type::My_Games;					// My games
 		case  5: return type::Large_Database;			// Large database
 		case  6: return type::Correspondence_Chess;	// Correspondence chess

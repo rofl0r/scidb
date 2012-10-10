@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 298 $
-// Date   : $Date: 2012-04-18 20:09:25 +0000 (Wed, 18 Apr 2012) $
+// Version: $Revision: 450 $
+// Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -30,6 +30,7 @@ namespace app {
 
 inline bool Cursor::isOpen() const					{ return m_db; }
 inline bool Cursor::isClosed() const				{ return m_db == 0; }
+inline bool Cursor::isActive() const				{ return m_isActive; }
 inline bool Cursor::isReferenceBase() const		{ return m_isRefBase; }
 inline bool Cursor::isScratchBase() const			{ return m_isScratchBase; }
 inline bool Cursor::hasTreeView() const			{ return m_treeView != -1; }
@@ -42,6 +43,7 @@ inline Cursor::SubscriberP Cursor::subscriber() const	{ return m_subscriber; }
 
 inline void Cursor::setReferenceBase(bool flag)	{ m_isRefBase = flag; }
 inline void Cursor::setScratchBase(bool flag)	{ m_isScratchBase = flag; }
+inline void Cursor::setActive(bool flag)			{ m_isActive = flag; }
 
 
 inline

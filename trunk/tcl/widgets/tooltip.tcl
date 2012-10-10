@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 427 $
-# Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
+# Version: $Revision: 450 $
+# Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -590,7 +590,11 @@ proc Register {w arguments} {
 			} else {
 				set tooltip($w,$item) $key
 			}
-			EnableCanvas $w $item
+			if {[winfo class $w] eq "Listbox"} {
+				EnableListbox $w $item
+			} else {
+				EnableCanvas $w $item
+			}
 			return $w,$item
 		}
 
@@ -761,6 +765,38 @@ proc Fade {w step} {
 }
 
 
+proc ListItemTip {w x y} {
+	variable tooltip
+	variable G
+
+	set G(last) -1
+	set item [$w index @$x,$y]
+
+	if {$G(enabled) && [info exists tooltip($w,$item)]} {
+		set G(afterId) [after $G(delay) [namespace code [list show $w $tooltip($w,$item) cursor]]]
+	}
+}
+
+
+proc ListItemMotion {w x y} {
+	variable tooltip
+	variable G
+
+	if {!$G(enabled)} { return }
+
+	set item [$w index @$x,$y]
+	if {$item ne $G(last)} {
+		set G(last) $item
+		after cancel $G(afterId)
+		catch {wm withdraw $G(toplevel)}
+
+		if {[info exists tooltip($w,$item)]} {
+			set G(afterId) [after $G(delay) [namespace code [list show $w $tooltip($w,$item) cursor]]]
+		}
+	}
+}
+
+
 proc ItemTip {w args} {
 	variable tooltip
 	variable tooltipvar
@@ -777,6 +813,17 @@ proc ItemTip {w args} {
 	} elseif {[info exists tooltip($w,$item)]} {
 		show $w $tooltip($w,$item) "bbox [$w bbox $item] $item"
 	}
+}
+
+
+proc EnableListbox {w args} {
+	if {[string match *listitemTip* [bind $w <Enter>]]} { return }
+
+	bind $w <Enter> +[namespace code [list ListItemTip %W %x %y]]
+	bind $w <Motion> +[namespace code [list ListItemMotion %W %x %y]]
+	bind $w <Leave> +[namespace code [list hide 1]] ; # fade ok
+	bind $w <Any-KeyPress> +[namespace code hide]
+	bind $w <Any-Button> +[namespace code hide]
 }
 
 

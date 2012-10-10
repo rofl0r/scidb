@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 416 $
-# Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
+# Version: $Revision: 450 $
+# Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -860,11 +860,11 @@ proc Open {dlg which gameIndex} {
 
 	set base $Vars(base)
 	set path $Vars(html)
+	set viewId $Vars(viewId)
 
 	if {$which eq "pgn"} {
-		::widget::busyOperation { ::game::new $path $base $gameIndex }
+		::widget::busyOperation { ::game::new $path $base $viewId $gameIndex }
 	} else {
-		set viewId $Vars(viewId)
 		set index [::scidb::view::map game $base $viewId $gameIndex]
 		set info [::scidb::db::get gameInfo $index $viewId $base]
 		set Vars(${which}Id) [::widget::busyOperation \

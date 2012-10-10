@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 416 $
-# Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
+# Version: $Revision: 450 $
+# Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -365,7 +365,6 @@ proc popup {parent args} {
 		set sum [expr {$sum + [set $v]}]
 		set row [expr {2*(($sum + 5)/6) + 2}]
 		if {0 <= $row && $row < $lastrow} { grid rowconfigure $top.f $row -minsize 8 }
-if {0 <= $row && $row < $lastrow} { puts "--> $row" }
 	}
 	grid columnconfigure $top.f 6 -minsize 1
 

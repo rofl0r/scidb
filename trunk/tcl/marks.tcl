@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 385 $
-# Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
+# Version: $Revision: 450 $
+# Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -91,7 +91,7 @@ proc open {parent} {
 		pack $decor -fill x -expand yes
 		tk::button $decor.close \
 			-command [namespace code [list Close $dlg]] \
-			-image $::gamebar::icon::15x15::close(locked) \
+			-image $::icon::15x15::close \
 			;
 		Focus $dlg out
 		pack $decor.close -side right

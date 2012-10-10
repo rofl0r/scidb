@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 427 $
-# Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
+# Version: $Revision: 450 $
+# Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -243,6 +243,11 @@ proc columnIndex {name} {
 proc column {info name} {
 	variable columns
 	return [lindex $info [lsearch -exact $columns $name]]
+}
+
+
+proc base {path} {
+	return [::scrolledtable::base $path]
 }
 
 

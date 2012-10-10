@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 450 $
+// Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -38,6 +38,16 @@ static bool const useCache = getenv("SCIDB_NO_CACHE") == 0;
 #endif
 
 TreeCache::TreeCache() : m_inUse(0), m_mostRecentIndex(CacheSize - 1), m_lastIndex(0) {}
+
+
+TreeCache::~TreeCache()
+{
+	for (unsigned i = 0; i < m_inUse; ++i)
+	{
+		if (m_cache[i]->release())
+			delete m_cache[i];
+	}
+}
 
 
 Tree*

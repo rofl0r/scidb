@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 383 $
-// Date   : $Date: 2012-07-07 10:44:09 +0000 (Sat, 07 Jul 2012) $
+// Version: $Revision: 450 $
+// Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -62,6 +62,7 @@ private:
 
 	bool beginGame(TagSet const& tags) override;
 	save::State endGame(TagSet const& tags) override;
+	save::State skipGame(TagSet const& tags) override;
 
 	void sendPrecedingComment(	Comment const& comment,
 										Annotation const& annotation,

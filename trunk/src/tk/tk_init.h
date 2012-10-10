@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 292 $
-// Date   : $Date: 2012-04-13 09:41:37 +0000 (Fri, 13 Apr 2012) $
+// Version: $Revision: 450 $
+// Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -39,6 +39,8 @@ void x11_init(Tcl_Interp*);
 void busy_init(Tcl_Interp*);
 void multiwindow_init(Tcl_Interp*);
 void notebook_init(Tcl_Interp*);
+void clockInit(Tcl_Interp*);
+void miscInit(Tcl_Interp*);
 
 }
 

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 416 $
-# Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
+# Version: $Revision: 450 $
+# Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -39,7 +39,6 @@ set PieceStyleIsUndefined	"Piece style '%s' is undefined"
 set ThemeManagement			"Theme Management"
 set Setup						"Setup"
 
-set Default						"Default"
 set WorkingSet					"Working Set"
 
 } ;# namespace mc
@@ -406,7 +405,6 @@ proc setupPieces {{size all}} {
 	variable needRefresh
 	variable texture
 	variable piece::style
-	variable piece::Default
 
 	if {$size eq "all"} {
 		set size [dict keys $PieceSizeDict]
@@ -824,7 +822,7 @@ proc mapToName {identifier {which theme}} {
 proc mapToLongId {identifier {which theme}} {
 	variable ${which}::NameLookup
 
-	if {$identifier eq $mc::Default} {
+	if {$identifier eq $::mc::Default} {
 		set identifier $defaultId
 	} elseif {$identifier eq $mc::WorkingSet} {
 		set identifier $workingSetId
@@ -1053,7 +1051,6 @@ proc addStyle {which style} {
 
 	dict set StyleDict $arr(identifier) $var
 	set shortId [UpdateMaps $which $arr(identifier)]
-	BuildNameList $which
 
 	if {$which eq "theme"} {
 		variable Referees
@@ -1063,6 +1060,12 @@ proc addStyle {which style} {
 	}
 
 	return $shortId
+}
+
+
+proc setup {} {
+	prepareNameLists
+	setupTheme
 }
 
 
@@ -1190,7 +1193,7 @@ proc BuildNameList {which} {
 
 	foreach name $idList { lappend orderedList $order($name) }
 	set indices [lsort -dictionary -integer -indices $orderedList]
-	set styleNames [list $mc::WorkingSet $mc::Default]
+	set styleNames [list $mc::WorkingSet $::mc::Default]
 	foreach index $indices { lappend styleNames [lindex $nameList $index] }
 }
 

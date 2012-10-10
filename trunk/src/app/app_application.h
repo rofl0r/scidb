@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 430 $
-// Date   : $Date: 2012-09-20 17:13:27 +0000 (Thu, 20 Sep 2012) $
+// Version: $Revision: 450 $
+// Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -206,7 +206,10 @@ public:
 	checksum_t checksumMoves(unsigned position = InvalidPosition) const;
 
 	db::load::State loadGame(unsigned position);
-	db::load::State loadGame(unsigned position, Cursor& cursor, unsigned index);
+	db::load::State loadGame(	unsigned position,
+										Cursor& cursor,
+										unsigned index,
+										mstl::string const* fen = 0);
 
 	void newGame(unsigned position);
 	void deleteGame(Cursor& cursor, unsigned index, unsigned view = 0, bool flag = true);
@@ -325,6 +328,7 @@ private:
 	void moveGamesToScratchbase(Cursor& cursor);
 	EditGame* findGame(Cursor* cursor, unsigned index, unsigned* position = 0);
 	unsigned findUnusedPosition() const;
+	void setActiveBase(Cursor* cursor);
 
 	typedef mstl::map<unsigned,EditGame>		GameMap;
 	typedef mstl::map<unsigned,unsigned> 		IndexMap;

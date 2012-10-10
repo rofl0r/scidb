@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 373 $
-// Date   : $Date: 2012-07-02 10:25:19 +0000 (Mon, 02 Jul 2012) $
+// Version: $Revision: 450 $
+// Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -51,6 +51,8 @@ public:
 	Selector(Selector&& sel);
 	Selector& operator=(Selector&& sel);
 #endif
+
+	bool isUnsorted() const;
 
 	unsigned size() const;
 

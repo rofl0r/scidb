@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 427 $
-// Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
+// Version: $Revision: 450 $
+// Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -306,7 +306,7 @@ selEventProc(Tk_Window tkwin, XEvent* eventPtr)
 			{
 				Tcl_SetObjResult(Tk_Interp(tkwin), Tcl_NewStringObj(propInfo, numItems));
 			}
-			else if (type == xaPlainTextLatin1 || type == xaPlainTextLatin1 || type == xaQIconList)
+			else if (type == xaPlainTextLatin1 || type == xaHtmlLatin1 || type == xaQIconList)
 			{
 				Tcl_DString ds;
 				Tcl_Encoding encoding = Tcl_GetEncoding(Tk_Interp(tkwin), "iso8859-1");
@@ -468,7 +468,7 @@ selectionSend(	Tcl_Interp* ti,
 						srcLen = Tcl_DStringLength(&ds);
 					}
 
-					XChangeProperty(	
+					XChangeProperty(
 						Tk_Display(source),
 						target,
 						selection,
@@ -495,7 +495,7 @@ selectionSend(	Tcl_Interp* ti,
 						for (int i = 0; i< nfields; ++i)
 							props[i] = strtol(Tcl_GetString(field[i]), 0, 0);
 
-						XChangeProperty(	
+						XChangeProperty(
 							Tk_Display(source),
 							target,
 							selection,
@@ -522,7 +522,7 @@ selectionSend(	Tcl_Interp* ti,
 						for (int i = 0; i< nfields; ++i)
 							props[i] = strtol(Tcl_GetString(field[i]), 0, 0);
 
-						XChangeProperty(	
+						XChangeProperty(
 							Tk_Display(source),
 							target,
 							selection,
@@ -725,7 +725,7 @@ static int
 selCmd(ClientData, Tcl_Interp *ti, int objc, Tcl_Obj* const objv[])
 {
 	if (objc >= 2)
-	{ 
+	{
 		if (strcmp(Tcl_GetString(objv[1]), "get") == 0)
 			return selGet(ti, objc, objv);
 #ifdef __unix__

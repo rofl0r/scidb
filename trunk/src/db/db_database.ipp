@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 427 $
-// Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
+// Version: $Revision: 450 $
+// Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -239,15 +239,15 @@ inline
 load::State
 Database::loadGame(unsigned index, Game& game)
 {
-	return loadGame(index, game, 0);
+	return loadGame(index, game, 0, 0);
 }
 
 
 inline
 load::State
-Database::loadGame(unsigned index, Game& game, mstl::string& encoding)
+Database::loadGame(unsigned index, Game& game, mstl::string& encoding, mstl::string const* fen)
 {
-	return loadGame(index, game, &encoding);
+	return loadGame(index, game, &encoding, fen);
 }
 
 } // namespace db

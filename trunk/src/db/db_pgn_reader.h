@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 419 $
-// Date   : $Date: 2012-09-07 18:15:59 +0000 (Fri, 07 Sep 2012) $
+// Version: $Revision: 450 $
+// Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -62,6 +62,7 @@ public:
 		UnterminatedVariation,
 		InvalidMove,
 		UnsupportedVariant,
+		UnsupportedCrazyhouseVariant,
 		TooManyGames,
 		FileSizeExeeded,
 		GameTooLong,
@@ -257,7 +258,7 @@ private:
 	void putLastMove();
 	void setNullMove();
 	void handleError(Error code, mstl::string const& message);
-	void finishGame();
+	void finishGame(bool skip = false);
 	void checkSite();
 	void checkMode();
 	void convertToUtf(mstl::string& s);

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 427 $
-// Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
+// Version: $Revision: 450 $
+// Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -72,6 +72,7 @@ public:
 	bool isClosed() const;
 	bool isReadOnly() const;
 	bool isWriteable() const;
+	bool isActive() const;
 	bool isViewOpen(unsigned view) const;
 	bool isValidView(unsigned view) const;
 	bool isReferenceBase() const;
@@ -157,6 +158,8 @@ public:
 	void updateCharacteristics(unsigned index, db::TagSet const& tags);
 	/// Update the database description.
 	void setDescription(mstl::string const& description);
+	/// Set flag whether this cursor is the currently active cursor.
+	void setActive(bool flag);
 
 	// Compress the database.
 	bool compact(::util::Progress& progress);
@@ -182,6 +185,7 @@ private:
 	int				m_treeView;
 	bool				m_isRefBase;
 	bool				m_isScratchBase;
+	bool				m_isActive;
 	SubscriberP		m_subscriber;
 };
 

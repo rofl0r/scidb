@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 420 $
-// Date   : $Date: 2012-09-09 14:33:43 +0000 (Sun, 09 Sep 2012) $
+// Version: $Revision: 450 $
+// Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -42,7 +42,7 @@ class Guess : public Board
 public:
 
 	enum { MaxDepth = 7, DefaultDepth = 3 };
-	enum { IdnStandard = chess960::StandardIdn };
+	enum { IdnStandard = variant::StandardIdn };
 
 	Guess(Board const& board, unsigned idn);
 	~Guess() throw();

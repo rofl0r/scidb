@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 362 $
-// Date   : $Date: 2012-06-27 19:52:57 +0000 (Wed, 27 Jun 2012) $
+// Version: $Revision: 450 $
+// Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -116,6 +116,13 @@ Consumer::endGame(TagSet const& tags)
 	m_stream.provide();
 
 	return m_codec.addGame(m_stream, tags, *this);
+}
+
+
+save::State
+Consumer::skipGame(TagSet const&)
+{
+	return save::Ok;
 }
 
 

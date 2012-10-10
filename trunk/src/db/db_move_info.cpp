@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 430 $
-// Date   : $Date: 2012-09-20 17:13:27 +0000 (Thu, 20 Sep 2012) $
+// Version: $Revision: 450 $
+// Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -419,8 +419,8 @@ MoveInfo::encode(ByteStream& strm) const
 			break;
 
 		case CorrespondenceChessSent:
-			strm << uint8_t(	0x80
-								 | (uint8_t(m_content) << 4)									//  4 bit
+			strm << uint8_t(	0x80																//  1 bit
+								 | (uint8_t(m_content) << 4)									//  3 bit
 								 | (uint8_t(m_time.m_date.day() & 0x0f))					//  4 bit
 			);
 			strm << uint32_t(	(uint32_t(m_time.m_date.month() & 0x0fff))			//  4 bit
@@ -436,8 +436,8 @@ MoveInfo::encode(ByteStream& strm) const
 		case ElapsedMoveTime:
 		case MechanicalClockTime:
 		case DigitalClockTime:
-			strm << uint8_t(	0x80
-								 | (uint8_t(m_content) << 4)									//  4 bit
+			strm << uint8_t(	0x80																//  1 bit
+								 | (uint8_t(m_content) << 4)									//  3 bit
 								 | (uint8_t(m_engine & 0x0f))									//  4 bit
 			);
 			strm << uint16_t(	(uint32_t(m_time.m_clock.hour() & 0x000f))			//  4 bit
@@ -447,8 +447,8 @@ MoveInfo::encode(ByteStream& strm) const
 			break;
 
 		case Evaluation:
-			strm << uint8_t(	0x80
-								 | (uint8_t(m_content) << 4)									//  4 bit
+			strm << uint8_t(	0x80																//  1 bit
+								 | (uint8_t(m_content) << 4)									//  3 bit
 								 | (uint8_t(m_engine & 0x0f))									//  4 bit
 			);
 			strm << uint24_t(	(uint32_t(m_analysis.m_depth & 0x001f))				//  5 bit

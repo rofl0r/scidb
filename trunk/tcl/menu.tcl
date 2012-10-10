@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 427 $
-# Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
+# Version: $Revision: 450 $
+# Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -186,7 +186,7 @@ proc build {menu} {
 		-image $::icon::16x16::setup \
 		;
 	lassign [::tk::UnderlineAmpersand $mc::Engines] text ul
-	set cmd [namespace code [list ::engine::openSetup .application]]
+	set cmd [namespace code [list ::engine::openAdmininstration .application]]
 	$m add command -label " $text" -underline [incr ul] -command $cmd 
 
 	### toolbars #############################################################
@@ -515,18 +515,11 @@ proc dbImport {parent base fileTypes} {
 	if {[llength $result]} {
 		lassign $result files encoding
 		::import::open $parent $base $files $title $encoding
-		::application::database::refreshBase $base
+		if {$base eq [::scidb::db::get name]} {
+			::application::database::refreshBase $base
+		}
 	}
 }
-
-
-#proc dbImportOne {parent} {
-#	set pos [::game::new $parent]
-#	if {$pos >= 0} {
-#		::application::switchTab board
-#		::import::openEdit $parent $pos
-#	}
-#}
 
 
 proc dbClose {parent} {

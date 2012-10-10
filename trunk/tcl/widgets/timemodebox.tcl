@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 416 $
-# Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
+# Version: $Revision: 450 $
+# Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -192,7 +192,7 @@ proc Setup {w} {
 	variable ${w}::Width
 	variable modes
 
-	$w.__w__ configure -width [expr {max([minWidth], $Width)}]
+	$w.__w__ configure -minwidth [expr {max([minWidth], $Width)}]
 	$w.__w__ listinsert [list "" "\u2014"] -index 0
 	set index 0
 	foreach mode $modes {

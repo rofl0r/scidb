@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 358 $
-// Date   : $Date: 2012-06-25 12:25:25 +0000 (Mon, 25 Jun 2012) $
+// Version: $Revision: 450 $
+// Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -36,6 +36,9 @@
 
 using namespace db;
 using namespace db::nag;
+
+
+mstl::bitset Annotation::m_unusualNags(256);
 
 
 static void
@@ -159,6 +162,21 @@ Annotation::contains(nag::ID nag) const
 }
 
 
+unsigned
+Annotation::countUnusualNags() const
+{
+	unsigned n = 0;
+
+	for (unsigned i = 0; i < m_count; ++i)
+	{
+		if (m_unusualNags.test(m_annotation[i]))
+			++n;
+	}
+
+	return n;
+}
+
+
 bool
 Annotation::add(nag::ID nag)
 {
@@ -173,6 +191,36 @@ Annotation::add(nag::ID nag)
 
 	m_annotation[m_count++] = nag;
 	return true;
+}
+
+
+void
+Annotation::setUsualNags(Annotation const& set)
+{
+	clear();
+
+	for (unsigned i = 0; i < set.m_count; ++i)
+	{
+		nag::ID nag = nag::ID(set.m_annotation[i]);
+
+		if (!m_unusualNags.test(nag))
+			m_annotation[m_count++] = nag;
+	}
+}
+
+
+void
+Annotation::setUnusualNags(Annotation const& set)
+{
+	clear();
+
+	for (unsigned i = 0; i < set.m_count; ++i)
+	{
+		nag::ID nag = nag::ID(set.m_annotation[i]);
+
+		if (m_unusualNags.test(nag))
+			m_annotation[m_count++] = nag;
+	}
 }
 
 
@@ -203,6 +251,30 @@ Annotation::remove(nag::ID nag)
 			::memmove(&m_annotation[i], &m_annotation[i + 1], (Max_Nags - i - 1)*sizeof(m_annotation[0]));
 			--m_count;
 			return;
+		}
+	}
+}
+
+
+void
+Annotation::removeDiagramNags()
+{
+	M_REQUIRE(!isDefaultSet());
+
+	unsigned i = 0;
+
+	while (i < m_count)
+	{
+		nag::ID nag = nag::ID(m_annotation[i]);
+
+		if (nag == nag::Diagram || nag == nag::DiagramFromBlack)
+		{
+			::memmove(&m_annotation[i], &m_annotation[i + 1], (Max_Nags - i - 1)*sizeof(m_annotation[0]));
+			--m_count;
+		}
+		else
+		{
+			++i;
 		}
 	}
 }
@@ -382,12 +454,12 @@ Annotation::print(mstl::string& result, unsigned flags) const
 }
 
 
-mstl::string
+void
 Annotation::dump() const
 {
 	mstl::string s;
 	print(s);
-	return s;
+	printf("%s\n", s.c_str());
 }
 
 

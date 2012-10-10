@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 427 $
-# Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
+# Version: $Revision: 450 $
+# Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -317,13 +317,8 @@ proc BuildSystemFrame {w} {
 	global tcl_platform
 
 	set padding 40
-
-	set total ""
-	if {$tcl_platform(os) eq "Linux"} {
-		if {[file exists /proc/meminfo]} {
-			catch { scan [exec cat /proc/meminfo] "MemTotal: %d kb" total }
-		}
-	}
+	set total [::system::memTotal]
+	if {$total == -1} { set total "" }
 	
 	set xft ""
 	if {[tk windowingsystem] eq "x11"} {
@@ -342,7 +337,8 @@ proc BuildSystemFrame {w} {
 		-width 0 -height [expr {6 + [llength $total]}] \
 		-font TkFixedFont \
 		-padx $padding \
-		-borderwidth 0]
+		-borderwidth 0 \
+	]
 	set l1 [tk::label $f.l1 \
 		-image [set [namespace current]::icon::64x64::LinuxIcon] \
 		-background lightgray \
@@ -372,7 +368,7 @@ proc BuildSystemFrame {w} {
 	$t insert end "Vendor String:       [winfo server .]"
 	if {[llength $total]} {
 	$t insert end "\n"
-	$t insert end "Total Memory:        [format %0.1f [expr {$total/1024.0}]] MB"
+	$t insert end "Total Memory:        [format %0.1f [expr {$total/1048576.0}]] MB"
 	}
 
 	$t configure -state disabled

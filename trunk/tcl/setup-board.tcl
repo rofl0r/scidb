@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 436 $
-# Date   : $Date: 2012-09-22 22:40:13 +0000 (Sat, 22 Sep 2012) $
+# Version: $Revision: 450 $
+# Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -433,9 +433,11 @@ proc open {parent} {
 	# board ###################################################
 	update idletasks
 	set squareSize [expr {[winfo reqheight $right]/8}]
-	::board::registerSize $squareSize
-	if {[info exists Vars(BoardSize)]} { ::board::unregisterSize $Vars(BoardSize) }
-	set Vars(BoardSize) $squareSize
+	if {![info exists Vars(BoardSize)] || $Vars(BoardSize) != $squareSize} {
+		if {[info exists Vars(BoardSize)]} { ::board::unregisterSize $Vars(BoardSize) }
+		after idle [list ::board::registerSize $squareSize]
+		set Vars(BoardSize) $squareSize
+	}
 	set size [expr {$squareSize*8 + 2*$BorderThickness + $edge}]
 	set canv [tk::canvas $top.board -width $size -height $size -takefocus 0]
 	::theme::configureCanvas $canv

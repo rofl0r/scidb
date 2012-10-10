@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 326 $
-// Date   : $Date: 2012-05-20 20:27:50 +0000 (Sun, 20 May 2012) $
+// Version: $Revision: 450 $
+// Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -100,6 +100,8 @@ public:
 	void compress();
 	/// uncompress filter
 	void uncompress();
+	/// minimize filter - left shift to first non-zero - cut right after last non-zero
+	int minimize();
 
 	/// dump filter
 	void dump() const;

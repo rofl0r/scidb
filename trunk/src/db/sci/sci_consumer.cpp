@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 383 $
-// Date   : $Date: 2012-07-07 10:44:09 +0000 (Sat, 07 Jul 2012) $
+// Version: $Revision: 450 $
+// Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -167,6 +167,14 @@ Consumer::endGame(TagSet const& tags)
 }
 
 #endif
+
+
+save::State
+Consumer::skipGame(TagSet const&)
+{
+	return save::Ok;
+}
+
 
 void Consumer::start() {}
 void Consumer::finish() {}

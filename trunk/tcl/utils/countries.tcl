@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 193 $
-# Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+# Version: $Revision: 450 $
+# Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -6432,10 +6432,10 @@ if {[::scidb::misc::debug?]} {
 		foreach item [set region($r)] {
 			set code [lindex $item 0]
 			if {[lsearch -exact $countries $code] == -1} {
-				error "Invalid country code $code"
+				puts stderr "Invalid country code $code"
 			}
 			if {![info exists icon::flag($code)]} {
-				error "Missing flag for country code $code"
+				puts stderr "Missing tiny flag for country code $code"
 			}
 			set file [file join $::scidb::dir::share flags $code.png]
 			if {![file readable $file]} {
@@ -6446,7 +6446,7 @@ if {[::scidb::misc::debug?]} {
 	}
 	foreach code $countries {
 		if {![info exists exists($code)]} {
-			error "Country code $code is not yet known"
+			puts stderr "Country code $code is not yet known"
 		}
 	}
 }

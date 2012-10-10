@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 427 $
-// Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
+// Version: $Revision: 450 $
+// Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -99,6 +99,7 @@ NameList::Node const*
 NameList::first() const
 {
 	M_ASSERT(m_list.size() == size());
+	M_ASSERT(m_usedIdSet.count() == size());
 
 	m_first = m_list.begin();
 	m_last = m_list.end();
@@ -202,14 +203,14 @@ NameList::adjustListSize()
 {
 	unsigned count = m_usedIdSet.count();
 
+	M_ASSERT(count <= m_maxId);
+
 	if (m_list.size() == m_maxId && count == m_maxId)
 		return;
 
 	List::reverse_iterator e = m_list.rend();
 
 	unsigned id = mstl::bitset::npos;
-
-	// How can this happen: m_maxId > m_list.size()
 
 	for (List::reverse_iterator i = m_list.rbegin(); i != e; ++i)
 	{
@@ -234,7 +235,7 @@ NameList::adjustListSize()
 				(*i)->id = id;
 				m_usedIdSet.set(id);
 
-				if (++count == m_maxId)
+				if (++count == m_maxId && m_list.size() == m_maxId)
 					return;
 			}
 		}
