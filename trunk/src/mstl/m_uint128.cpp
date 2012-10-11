@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 450 $
-// Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
+// Version: $Revision: 452 $
+// Date   : $Date: 2012-10-11 09:15:41 +0000 (Thu, 11 Oct 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -18,6 +18,8 @@
 
 #include "m_uint128.h"
 #include "m_assert.h"
+
+#if __WORDSIZE == 32
 
 using namespace mstl;
 
@@ -172,5 +174,7 @@ uint128::operator>>=(unsigned n)
 
 	return *this;
 }
+
+#endif // _WORDSIZE == 32
 
 // vi:set ts=3 sw=3:

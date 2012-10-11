@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 420 $
-// Date   : $Date: 2012-09-09 14:33:43 +0000 (Sun, 09 Sep 2012) $
+// Version: $Revision: 452 $
+// Date   : $Date: 2012-10-11 09:15:41 +0000 (Thu, 11 Oct 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -44,10 +44,10 @@ node_base::node_base()
 
 inline
 void
-node_base::swap(node_base& lhs, node_base& rhs)
+node_base::swap(node_base& node)
 {
-	mstl::swap(lhs.m_prev, rhs.m_prev);
-	mstl::swap(lhs.m_next, rhs.m_next);
+	mstl::swap(m_prev, node.m_prev);
+	mstl::swap(m_next, node.m_next);
 }
 
 

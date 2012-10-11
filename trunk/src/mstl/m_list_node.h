@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 420 $
-// Date   : $Date: 2012-09-09 14:33:43 +0000 (Sun, 09 Sep 2012) $
+// Version: $Revision: 452 $
+// Date   : $Date: 2012-10-11 09:15:41 +0000 (Thu, 11 Oct 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -27,8 +27,8 @@ struct node_base
 	node_base();
 
 	void hook(node_base* succ);
+	void swap(node_base& node);
 	void unhook();
-	void swap(node_base& lhs, node_base& rhs);
 
 	node_base* m_next;
 	node_base* m_prev;

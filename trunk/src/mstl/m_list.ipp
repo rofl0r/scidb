@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 427 $
-// Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
+// Version: $Revision: 452 $
+// Date   : $Date: 2012-10-11 09:15:41 +0000 (Thu, 11 Oct 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -734,7 +734,7 @@ inline
 void
 list<T>::swap(list& v)
 {
-	bits::node_base::swap(m_node, v.m_node);
+	m_node.swap(v.m_node);
 }
 
 
