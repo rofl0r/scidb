@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 451 $
-# Date   : $Date: 2012-10-10 22:55:35 +0000 (Wed, 10 Oct 2012) $
+# Version: $Revision: 453 $
+# Date   : $Date: 2012-10-11 10:14:31 +0000 (Thu, 11 Oct 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1111,7 +1111,26 @@ proc UseEngine {list item profileList} {
 
 	array set engine $EmptyEngine
 	array set engine [lindex $Engines $i]
-	set protocol $Vars(current:protocol)
+
+	if {[llength $engine(Protocol)] < 2} {
+		set protocol [lindex $engine(Protocol) 0]
+		if {$protocol eq "WB"} {
+			set state(UCI) disabled
+			set state(WB) normal
+		} else {
+			set state(UCI) normal
+			set state(WB) disabled
+			set Vars(current:protocol) UCI
+		}
+	} else {
+		set state(UCI) normal
+		set state(WB) normal
+		set protocol UCI
+	}
+	$Vars(widget:uci) configure -state $state(UCI)
+	$Vars(widget:wb) configure -state $state(WB)
+	set Vars(current:protocol) $protocol
+
 	array set features $engine(Features:$protocol)
 	set Vars(current:name) $engine(Name)
 
@@ -1156,21 +1175,6 @@ proc UseEngine {list item profileList} {
 	} else {
 		$Vars(widget:cores) configure -state disabled
 	}
-
-	if {[llength $engine(Protocol)] < 2} {
-		if {$protocol eq "WB"} {
-			set state(UCI) disabled
-			set state(WB) normal
-		} else {
-			set state(UCI) normal
-			set state(WB) disabled
-		}
-	} else {
-		set state(UCI) normal
-		set state(WB) normal
-	}
-	$Vars(widget:uci) configure -state $state(UCI)
-	$Vars(widget:wb) configure -state $state(WB)
 
 	SetTitle $list
 	SetupClearHash $Vars(current:name)

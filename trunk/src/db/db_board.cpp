@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 450 $
-// Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
+// Version: $Revision: 453 $
+// Date   : $Date: 2012-10-11 10:14:31 +0000 (Thu, 11 Oct 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1678,7 +1678,9 @@ Board::setup(char const* fen)
 	{
 		if (*fen == '/')
 		{
-			s -= 16;
+			// Some guys are ending the first part with a superfluous '/'.
+			if (s != 8) // not finished
+				s -= 16;
 		}
 		else if (::isdigit(*fen))
 		{
