@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 453 $
-# Date   : $Date: 2012-10-11 10:14:31 +0000 (Thu, 11 Oct 2012) $
+# Version: $Revision: 456 $
+# Date   : $Date: 2012-10-11 11:23:43 +0000 (Thu, 11 Oct 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -2144,7 +2144,7 @@ proc OpenSetupDialog(Options) {parent} {
 		if {$vertical} { $lbl configure -wraplength $wrapLength }
 		bind $see <<TraverseIn>> [namespace code [list $scrolled see %W]]
 		if {!$vertical} {
-			if {type eq "button"} { set w $val } else { set w $btn }
+			if {$type eq "button"} { set w $val } else { set w $btn }
 			bind $see <<TraverseIn>> +[namespace code [list $scrolled see $w]]
 		}
 		bind $see <FocusIn> {+ ::tooltip::tooltip hide }
