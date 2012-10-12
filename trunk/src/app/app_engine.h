@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 451 $
-// Date   : $Date: 2012-10-10 22:55:35 +0000 (Wed, 10 Oct 2012) $
+// Version: $Revision: 458 $
+// Date   : $Date: 2012-10-12 08:34:07 +0000 (Fri, 12 Oct 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -287,6 +287,7 @@ public:
 
 	bool isAlive();
 	bool isActive() const;
+	bool isConnected() const;
 	bool isAnalyzing() const;
 	bool isProbing() const;
 	bool isProbingAnalyze() const;
@@ -397,8 +398,6 @@ protected:
 	virtual void updateDepthInfo();
 	virtual void updateTimeInfo();
 	virtual void updateHashFullInfo();
-
-	bool protocolAlreadyStarted() const;
 
 	long pid() const;
 	void kill();
@@ -525,7 +524,6 @@ private:
 	bool					m_active;
 	bool					m_probe;
 	bool					m_probeAnalyze;
-	bool					m_protocol;
 	bool					m_identifierSet;
 	bool					m_useLimitedStrength;
 	bool					m_bestInfoHasChanged;

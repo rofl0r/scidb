@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 451 $
-// Date   : $Date: 2012-10-10 22:55:35 +0000 (Wed, 10 Oct 2012) $
+// Version: $Revision: 458 $
+// Date   : $Date: 2012-10-12 08:34:07 +0000 (Fri, 12 Oct 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -157,7 +157,9 @@ struct winboard::Engine::Timer : public sys::Timer
 
 
 winboard::Engine::Engine()
-	:m_isAnalyzing(false)
+	:m_currentVariant("standard")
+	,m_startTime(0)
+	,m_isAnalyzing(false)
 	,m_response(false)
 	,m_waitForDone(false)
 	,m_analyzeResponse(false)
