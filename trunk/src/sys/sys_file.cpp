@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 407 $
-// Date   : $Date: 2012-08-08 21:52:05 +0000 (Wed, 08 Aug 2012) $
+// Version: $Revision: 462 $
+// Date   : $Date: 2012-10-13 09:13:42 +0000 (Sat, 13 Oct 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -49,7 +49,9 @@ sys::file::internalName(char const* externalName)
 	if (pathObj)
 	{
 		Tcl_IncrRefCount(pathObj);
-		result.assign(Tcl_FSGetNativePath(pathObj));
+		// Tcl version 8.6 is returning "void const*".
+		// Tcl version 8.5 is returning "char const*".
+		result.assign(static_cast<char const*>(Tcl_FSGetNativePath(pathObj)));
 		Tcl_DecrRefCount(pathObj);
 	}
 	else
