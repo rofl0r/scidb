@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 450 $
-# Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
+# Version: $Revision: 463 $
+# Date   : $Date: 2012-10-13 12:34:41 +0000 (Sat, 13 Oct 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -870,6 +870,7 @@
 ::engine::mc::FailedToCreateDir		"Failed to create directory '%s'." ;# NEW
 ::engine::mc::ScriptErrors				"Any errors while saving will be displayed here." ;# NEW
 ::engine::mc::CommandNotAllowed		"Usage of command '%s' is not allowed here." ;# NEW
+::engine::mc::ThrowAwayChanges		"Throw away all changes?" ;# NEW
 
 ::engine::mc::ProbeError(registration)			"This engine requires a registration." ;# NEW
 ::engine::mc::ProbeError(copyprotection)		"This engine is copy-protected." ;# NEW
@@ -912,7 +913,7 @@
 ::application::analysis::mc::SearchDepth					"Search depth in plies (Selective search depth)" ;# NEW
 
 ::application::analysis::mc::LinesPerVariation			"Lines per variation" ;# NEW
-::application::analysis::mc::BestFirstOrder				"Use \"best first\" order" ;# NEW
+::application::analysis::mc::BestFirstOrder				"Sort by evaluation" ;# NEW
 ::application::analysis::mc::Engine							"Engine" ;# NEW
 
 ::application::analysis::mc::Seconds						"s" ;# NEW

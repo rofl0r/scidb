@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 450 $
-# Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
+# Version: $Revision: 463 $
+# Date   : $Date: 2012-10-13 12:34:41 +0000 (Sat, 13 Oct 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -863,6 +863,7 @@
 ::engine::mc::FailedToCreateDir		"Das Anlegen des Verzeichnisses '%s' schlug fehl."
 ::engine::mc::ScriptErrors				"Alle Fehler beim Speichern werden hier angezeigt."
 ::engine::mc::CommandNotAllowed		"Der Gebrauch des Kommandos '%s' ist hier nicht erlaubt."
+::engine::mc::ThrowAwayChanges		"Alle Änderungen verwerfen?"
 
 ::engine::mc::ProbeError(registration)			"Dieses Programm benötight eine Registrierung."
 ::engine::mc::ProbeError(copyprotection)		"Dieses Programm hat eine Kopiersperre."
@@ -894,18 +895,18 @@
 ::application::analysis::mc::Pause					"Pause"
 ::application::analysis::mc::Resume					"Fortsetzen"
 ::application::analysis::mc::LockEngine			"Motor an aktuelle Position binden"
-::application::analysis::mc::MultipleVariations	"Mannigfaltige Varianten"
-::application::analysis::mc::HashFullness			"Hash gefüllt"
+::application::analysis::mc::MultipleVariations	"Mannigfaltige Varianten (Multi-PV)"
+::application::analysis::mc::HashFullness			"Hash-Auslastung"
 ::application::analysis::mc::Hash					"Hash:"
 ::application::analysis::mc::Lines					"Zeilen:"
 ::application::analysis::mc::MateIn					"%color matt in %n"
-::application::analysis::mc::BestScore				"Bestes Ergebnis (aktuell)"
+::application::analysis::mc::BestScore				"Aktuell bestes Ergebnis"
 ::application::analysis::mc::CurrentMove			"Momentan untersuchter Zug"
 ::application::analysis::mc::TimeSearched			"Berechnungszeit"
 ::application::analysis::mc::SearchDepth			"Berechnungstiefe in Halbzügen (Selektive Berechnungstiefe)"
 
 ::application::analysis::mc::LinesPerVariation	"Zeilen per Variante"
-::application::analysis::mc::BestFirstOrder		"Benutze \"Das beste zuerst\" Sortierung"
+::application::analysis::mc::BestFirstOrder		"Sortiere nach Bewertung"
 ::application::analysis::mc::Engine					"Motor"
 
 ::application::analysis::mc::Seconds				"s"

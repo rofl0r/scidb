@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 450 $
-# Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
+# Version: $Revision: 463 $
+# Date   : $Date: 2012-10-13 12:34:41 +0000 (Sat, 13 Oct 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -705,9 +705,9 @@ proc AltKeyInDialog {path key} {
 
 
 # fix tk::spinbox::AutoScan
-rename tk::spinbox::AutoScan tk::spinbox::AutoScan_buggy_
+rename ::tk::spinbox::AutoScan ::tk::spinbox::AutoScan_buggy_
 
-proc tk::spinbox::AutoScan {w} {
+proc spinbox::AutoScan {w} {
 	if {[winfo exists $w]} { return [AutoScan_buggy_ $w] }
 }
 

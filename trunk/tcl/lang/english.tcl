@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 450 $
-# Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
+# Version: $Revision: 463 $
+# Date   : $Date: 2012-10-13 12:34:41 +0000 (Sat, 13 Oct 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -862,6 +862,7 @@
 ::engine::mc::FailedToCreateDir		"Failed to create directory '%s'."
 ::engine::mc::ScriptErrors				"Any errors while saving will be displayed here."
 ::engine::mc::CommandNotAllowed		"Usage of command '%s' is not allowed here."
+::engine::mc::ThrowAwayChanges		"Throw away all changes?"
 
 ::engine::mc::ProbeError(registration)			"This engine requires a registration."
 ::engine::mc::ProbeError(copyprotection)		"This engine is copy-protected."
@@ -893,7 +894,7 @@
 ::application::analysis::mc::Pause							"Pause"
 ::application::analysis::mc::Resume							"Resume"
 ::application::analysis::mc::LockEngine					"Lock engine to current position"
-::application::analysis::mc::MultipleVariations			"Multiple variations"
+::application::analysis::mc::MultipleVariations			"Multiple variations (multi-pv)"
 ::application::analysis::mc::HashFullness					"Hash fullness"
 ::application::analysis::mc::Hash							"Hash:"
 ::application::analysis::mc::Lines							"Lines:"
@@ -904,7 +905,7 @@
 ::application::analysis::mc::SearchDepth					"Search depth in plies (Selective search depth)"
 
 ::application::analysis::mc::LinesPerVariation			"Lines per variation"
-::application::analysis::mc::BestFirstOrder				"Use \"best first\" order"
+::application::analysis::mc::BestFirstOrder				"Sort by evaluation"
 ::application::analysis::mc::Engine							"Engine"
 
 ::application::analysis::mc::Seconds						"s"

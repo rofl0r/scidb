@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 450 $
-# Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
+# Version: $Revision: 463 $
+# Date   : $Date: 2012-10-13 12:34:41 +0000 (Sat, 13 Oct 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -953,7 +953,9 @@ proc UpdatePGN {position data {w {}}} {
 						$w tag configure $Vars(next) -background $Colors(background)
 					}
 					set Vars(next:move) [::scidb::game::next keys $position]
-					if {$Options(style:column)} { set Vars(next) $Vars(next:move) }
+					if {$Options(style:column)} {
+						set Vars(next) $Vars(next:move)
+					}
 					if {$Vars(active) eq $key} { $w configure -cursor {} }
 					set previous $Vars(current)
 					if {[llength $previous]} {
