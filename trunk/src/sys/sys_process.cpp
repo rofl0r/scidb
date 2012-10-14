@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 450 $
-// Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
+// Version: $Revision: 466 $
+// Date   : $Date: 2012-10-14 23:03:57 +0000 (Sun, 14 Oct 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -265,7 +265,7 @@ Process::Process(mstl::string const& command, mstl::string const& directory)
 
 	Tcl_SetChannelOption(::sys::tcl::interp(), m_chan, "-buffering", "line");
 	Tcl_SetChannelOption(::sys::tcl::interp(), m_chan, "-blocking", "no");
-	Tcl_SetChannelOption(::sys::tcl::interp(), m_chan, "-translation", "binary");
+	Tcl_SetChannelOption(::sys::tcl::interp(), m_chan, "-translation", "auto");
 	Tcl_RegisterChannel(::sys::tcl::interp(), m_chan);
 
 #ifdef Tcl_PidObjCmd__is_not_hidden

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 450 $
-# Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
+# Version: $Revision: 466 $
+# Date   : $Date: 2012-10-14 23:03:57 +0000 (Sun, 14 Oct 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -670,10 +670,14 @@ proc Display(stalemate) {color} {
 }
 
 
-proc Display(move) {number move} {
+proc Display(move) {number count move} {
 	variable Vars
 
-	if {$Vars(maxMoves) < $number} { set Vars(maxMoves) $number }
+	if {$count > 0} {
+		set Vars(maxMoves) $count
+	} elseif {$Vars(maxMoves) < $number} {
+		set Vars(maxMoves) $number
+	}
 
 	$Vars(move) configure -state normal
 	$Vars(move) delete 1.0 end

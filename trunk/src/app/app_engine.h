@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 458 $
-// Date   : $Date: 2012-10-12 08:34:07 +0000 (Fri, 12 Oct 2012) $
+// Version: $Revision: 466 $
+// Date   : $Date: 2012-10-14 23:03:57 +0000 (Sun, 14 Oct 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -214,7 +214,7 @@ public:
 		void setTime(double time);
 		void setNodes(unsigned nodes);
 		void setVariation(unsigned no, db::MoveList const& moves);
-		void setCurrentMove(unsigned number, db::Move const& move);
+		void setCurrentMove(unsigned number, unsigned moveCount, db::Move const& move);
 		void setHashFullness(unsigned fullness);
 
 		void setIdentifier(mstl::string const& name);
@@ -315,6 +315,7 @@ public:
 	db::Board const& currentBoard() const;
 	db::Move const& bestMove() const;
 	unsigned currentMoveNumber() const;
+	unsigned currentMoveCount() const;
 	db::Move const& currentMove() const;
 	unsigned hashFullness() const;
 
@@ -427,7 +428,7 @@ protected:
 	void setTime(double time);						// search time in seconds (.e.g. 10.28 seconds)
 	void setNodes(unsigned nodes);				// nodes searched
 	void setVariation(unsigned no, db::MoveList const& moves);
-	void setCurrentMove(unsigned number, db::Move const& move);
+	void setCurrentMove(unsigned number, unsigned moveCount, db::Move const& move);
 	void setHashFullness(unsigned fullness);
 
 	void setIdentifier(mstl::string const& name);
@@ -510,6 +511,7 @@ private:
 	unsigned				m_features;
 	unsigned				m_variants;
 	unsigned				m_currMoveNumber;
+	unsigned				m_currMoveCount;
 	db::Move				m_currMove;
 	db::Move				m_bestMove;
 	db::Move				m_ponder;

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 463 $
-# Date   : $Date: 2012-10-13 12:34:41 +0000 (Sat, 13 Oct 2012) $
+# Version: $Revision: 466 $
+# Date   : $Date: 2012-10-14 23:03:57 +0000 (Sun, 14 Oct 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -2567,6 +2567,9 @@ proc ProbeEngine {parent entry} {
 		}
 		if {[llength $options]} {
 			set engine(Profiles:$prot) [list Default $options]
+		} else {
+			set engine(Profiles:$prot) [list Default {}]
+			if {$prot eq "WB"} { set engine(ProfileType) Script }
 		}
 		set engine(Variants) $variants
 		array set fts $features

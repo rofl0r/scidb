@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 451 $
-// Date   : $Date: 2012-10-10 22:55:35 +0000 (Wed, 10 Oct 2012) $
+// Version: $Revision: 466 $
+// Date   : $Date: 2012-10-14 23:03:57 +0000 (Sun, 14 Oct 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -94,6 +94,7 @@ private:
 	void featureDone(bool done);
 	void parseAnalysis(mstl::string const& msg);
 	void parseInfo(mstl::string const& msg);
+	void parseCurrentMove(char const* s);
 	void parseOption(mstl::string const& option);
 	void parseFeatures(char const* msg);
 	void detectFeatures(char const* identifier);
@@ -103,7 +104,6 @@ private:
 	mstl::string	m_chess960Variant;
 	mstl::string	m_currentVariant;
 	uint64_t			m_startTime;
-	db::Move			m_firstMove;
 	bool				m_isAnalyzing;
 	bool				m_response;
 	bool				m_waitForDone;
