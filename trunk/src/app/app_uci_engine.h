@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 451 $
-// Date   : $Date: 2012-10-10 22:55:35 +0000 (Wed, 10 Oct 2012) $
+// Version: $Revision: 468 $
+// Date   : $Date: 2012-10-15 21:54:54 +0000 (Mon, 15 Oct 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -71,7 +71,6 @@ protected:
 
 	Result probeResult() const override;
 	unsigned probeTimeout() const override;
-	unsigned maxVariations() const override;
 	db::Board const& currentBoard() const override;
 
 private:
@@ -81,7 +80,7 @@ private:
 	void parseBestMove(char const* msg);
 	void parseInfo(char const* msg);
 	void parseOption(char const* msg);
-	char const* parseMoveList(char const* s, db::MoveList& moves);
+	char const* parseMoveList(char const* s, db::Board& board, db::MoveList& moves);
 	void setupPosition(db::Board const& board);
 	void continueAnalysis();
 	void sendOption(mstl::string const& name, mstl::string const& value);
@@ -93,7 +92,6 @@ private:
 	mstl::string	m_waitingOn;
 	mstl::string	m_name;
 	mstl::string	m_value;
-	unsigned			m_maxMultiPV;
 	bool				m_needChess960;
 	bool				m_uciok;
 	bool				m_isReady;

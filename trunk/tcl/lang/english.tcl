@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 463 $
-# Date   : $Date: 2012-10-13 12:34:41 +0000 (Sat, 13 Oct 2012) $
+# Version: $Revision: 468 $
+# Date   : $Date: 2012-10-15 21:54:54 +0000 (Mon, 15 Oct 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -863,6 +863,7 @@
 ::engine::mc::ScriptErrors				"Any errors while saving will be displayed here."
 ::engine::mc::CommandNotAllowed		"Usage of command '%s' is not allowed here."
 ::engine::mc::ThrowAwayChanges		"Throw away all changes?"
+::engine::mc::ResetToDefaultContent	"Reset to default content"
 
 ::engine::mc::ProbeError(registration)			"This engine requires a registration."
 ::engine::mc::ProbeError(copyprotection)		"This engine is copy-protected."

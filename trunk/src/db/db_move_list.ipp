@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 468 $
+// Date   : $Date: 2012-10-15 21:54:54 +0000 (Mon, 15 Oct 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -78,19 +78,10 @@ MoveList::operator[](unsigned n)
 
 inline
 Move const&
-MoveList::back() const
+MoveList::front() const
 {
 	M_REQUIRE(!isEmpty());
-	return m_buffer[m_size - 1];
-}
-
-
-inline
-Move
-MoveList::back()
-{
-	M_REQUIRE(!isEmpty());
-	return m_buffer[m_size - 1];
+	return m_buffer[0];
 }
 
 

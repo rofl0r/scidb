@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 466 $
-// Date   : $Date: 2012-10-14 23:03:57 +0000 (Sun, 14 Oct 2012) $
+// Version: $Revision: 468 $
+// Date   : $Date: 2012-10-15 21:54:54 +0000 (Mon, 15 Oct 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -94,7 +94,7 @@ private:
 	void featureDone(bool done);
 	void parseAnalysis(mstl::string const& msg);
 	void parseInfo(mstl::string const& msg);
-	void parseCurrentMove(char const* s);
+	bool parseCurrentMove(char const* s);
 	void parseOption(mstl::string const& option);
 	void parseFeatures(char const* msg);
 	void detectFeatures(char const* identifier);

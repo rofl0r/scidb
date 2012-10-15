@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 443 $
-// Date   : $Date: 2012-09-24 20:04:54 +0000 (Mon, 24 Sep 2012) $
+// Version: $Revision: 468 $
+// Date   : $Date: 2012-10-15 21:54:54 +0000 (Mon, 15 Oct 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -50,8 +50,8 @@ public:
 	Move const& operator[](unsigned n) const;
 	Move& operator[](unsigned n);
 
+	Move const& front() const;
 	Move const& back() const;
-	Move back();
 
 	bool isEmpty() const;
 	bool isFull() const;

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 463 $
-# Date   : $Date: 2012-10-13 12:34:41 +0000 (Sat, 13 Oct 2012) $
+# Version: $Revision: 468 $
+# Date   : $Date: 2012-10-15 21:54:54 +0000 (Mon, 15 Oct 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -864,6 +864,7 @@
 ::engine::mc::ScriptErrors				"Alle Fehler beim Speichern werden hier angezeigt."
 ::engine::mc::CommandNotAllowed		"Der Gebrauch des Kommandos '%s' ist hier nicht erlaubt."
 ::engine::mc::ThrowAwayChanges		"Alle Änderungen verwerfen?"
+::engine::mc::ResetToDefaultContent	"Auf Standardinhalt zurücksetzen"
 
 ::engine::mc::ProbeError(registration)			"Dieses Programm benötight eine Registrierung."
 ::engine::mc::ProbeError(copyprotection)		"Dieses Programm hat eine Kopiersperre."
