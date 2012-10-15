@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 466 $
-# Date   : $Date: 2012-10-14 23:03:57 +0000 (Sun, 14 Oct 2012) $
+# Version: $Revision: 467 $
+# Date   : $Date: 2012-10-15 20:09:16 +0000 (Mon, 15 Oct 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -839,6 +839,9 @@ proc setup {} {
 									}
 									set newEngine(Profiles:$prot) $optionList
 								}
+							}
+							foreach {profile options} $engine(Profiles:WB) {
+								if {$profile eq "Default"} { set newEngine(Options:Default) $options }
 							}
 							set newEntry [array get newEngine]
 							lset Engines $index $newEntry
@@ -3128,6 +3131,11 @@ proc LoadSharedConfiguration {file} {
 				}
 			}
 			set engine(UserDefined) 0
+			if {[info exists engine(Profiles:WB)]} {
+				foreach {profile options} $engine(Profiles:WB) {
+					if {$profile eq "Default"} { set engine(Options:Default) $options }
+				}
+			}
 			lappend engines [array get engine]
 		}
 	}

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 463 $
-# Date   : $Date: 2012-10-13 12:34:41 +0000 (Sat, 13 Oct 2012) $
+# Version: $Revision: 467 $
+# Date   : $Date: 2012-10-15 20:09:16 +0000 (Mon, 15 Oct 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1976,9 +1976,9 @@
 ::dialog::fsbox::mc::Open						"Apri"
 
 ::dialog::fsbox::mc::FileType(exe)			"Executables" ;# NEW
-::dialog::fsbox::mc::FileType(txt)			"Textdateien" ;# NEW
+::dialog::fsbox::mc::FileType(txt)			"Text files" ;# NEW
 ::dialog::fsbox::mc::FileType(log)			"Log files" ;# NEW
-::dialog::fsbox::mc::FileType(bin)			"Binärdateien" ;# NEW
+::dialog::fsbox::mc::FileType(bin)			"Binary files" ;# NEW
 
 ### choosecolor ########################################################
 ::dialog::choosecolor::mc::Ok					"&OK"
