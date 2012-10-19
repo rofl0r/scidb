@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 450 $
-# Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
+# Version: $Revision: 472 $
+# Date   : $Date: 2012-10-19 12:34:02 +0000 (Fri, 19 Oct 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -251,10 +251,10 @@ proc DisplayContributions {t} {
 	$t insert end [Enc "[set [namespace current]::mc::Development]:\n"] caption
 	$t insert end [Enc "Gregor Cramer"]
 
-	$t insert end [Enc "\n\n"]
-	$t insert end [Enc "[set [namespace current]::mc::Programming]:\n"] caption
-	$t insert end [Enc "Gregor Cramer ([set [namespace current]::mc::Head]), "]
-	$t insert end [Enc "Giovanni Ornaghi"]
+#	$t insert end [Enc "\n\n"]
+#	$t insert end [Enc "[set [namespace current]::mc::Programming]:\n"] caption
+#	$t insert end [Enc "Gregor Cramer ([set [namespace current]::mc::Head]), "]
+#	$t insert end [Enc "Giovanni Ornaghi"]
 
 	$t insert end [Enc "\n\n"]
 	$t insert end [Enc "[set [namespace current]::mc::Localization]:\n"] caption

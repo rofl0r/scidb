@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 450 $
-# Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
+# Version: $Revision: 472 $
+# Date   : $Date: 2012-10-19 12:34:02 +0000 (Fri, 19 Oct 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -973,6 +973,13 @@ proc TableFill {path args} {
 	set codec [::scidb::db::get codec $base]
 	set used [::table::used $table acv]
 	set view [{*}$Vars(viewcmd) $base]
+
+	if {![::scidb::view::open? games $base $view]} {
+		# may happen due to pending updates
+		clear $path
+		return
+	}
+
 	set last [expr {min($last, [scidb::view::count games $base $view] - $start)}]
 	set ratings [list $Defaults(rating:1) $Defaults(rating:2)]
 	set gray [::scrolledtable::visible? $path deleted]

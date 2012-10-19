@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 416 $
-# Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
+# Version: $Revision: 472 $
+# Date   : $Date: 2012-10-19 12:34:02 +0000 (Fri, 19 Oct 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -53,6 +53,7 @@ proc build {parent width height} {
 
 	set Vars(after) {}
 	set Vars(button) 0
+	set Vars(base) ""
 
 	::scidb::db::subscribe gameList \
 		[namespace current]::TableUpdate \
