@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 427 $
-# Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
+# Version: $Revision: 473 $
+# Date   : $Date: 2012-10-19 14:15:42 +0000 (Fri, 19 Oct 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -274,6 +274,7 @@ while {$retry > 0} {
 			if {[incr retry] > $::MaxRetry} { Return timeout [MakeFile $url] }
 			ResetConnection $url.
 			after [expr {($retry - 1)*$::Wait}] ;# wait a bit
+			::http::cleanup $token
 		}
 	}
 }
