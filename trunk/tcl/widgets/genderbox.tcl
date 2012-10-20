@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 450 $
-# Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
+# Version: $Revision: 476 $
+# Date   : $Date: 2012-10-20 10:06:53 +0000 (Sat, 20 Oct 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -64,7 +64,6 @@ proc Build {w args} {
 	variable ${w}::Female
 	variable ${w}::Computer
 	variable ${w}::Content
-	variable ${w}::Width
 
 	array set opts {
 		-textvar			{}
@@ -83,6 +82,7 @@ proc Build {w args} {
 
 	ttk::frame $w -borderwidth 0 -takefocus 0
 	bind $w <FocusIn> { focus [tk_focusNext %W] }
+	set width [expr {max([minWidth], $opts(-width))}]
 	ttk::tcombobox $w.__w__ \
 		-textvariable $opts(-textvariable) \
 		-exportselection no \
@@ -90,6 +90,7 @@ proc Build {w args} {
 		-validate key \
 		-validatecommand { return [string is alpha %P] || [regexp {[-]*} %P] } \
 		-state $opts(-state) \
+		-width $width \
 		;
 	$w.__w__ addcol image -id icon -justify center
 	$w.__w__ addcol text -id sex
@@ -99,7 +100,6 @@ proc Build {w args} {
 	grid $w.keys -column 2 -row 0 -sticky ns
 	grid columnconfigure $w 1 -minsize $::theme::padding
 
-	set Width $opts(-width)
 	Setup $w
 
 	bind $w <Destroy> [list catch [list namespace delete [namespace current]::${w}]]
@@ -200,7 +200,6 @@ proc Setup {w} {
 	variable ${w}::Male
 	variable ${w}::Female
 	variable ${w}::Computer
-	variable ${w}::Width
 	variable ${w}::types
 	variable types
 
@@ -225,7 +224,6 @@ proc Setup {w} {
 		set Computer [string toupper [string index $mc::Computer [incr i]]]
 	}
 
-	$w.__w__ configure -minwidth [expr {max([minWidth], $Width)}]
 	$w.__w__ listinsert { "" "\u2014" } -index 0
 	set index 0
 	foreach type $types {
