@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 450 $
-# Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
+# Version: $Revision: 477 $
+# Date   : $Date: 2012-10-20 12:39:38 +0000 (Sat, 20 Oct 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -198,6 +198,7 @@ proc new {parent {base {}} {view -1} {number -1} {fen ""}} {
 
 	if {$lock} {
 		::application::pgn::lock $pos
+		lockChanged $pos $lock
 	}
 
 	if {$init} {
