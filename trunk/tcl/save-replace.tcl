@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 416 $
-# Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
+# Version: $Revision: 475 $
+# Date   : $Date: 2012-10-20 10:06:11 +0000 (Sat, 20 Oct 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -692,9 +692,13 @@ proc Build {dlg base position number} {
 		-maxYear $maxYear \
 		-tooltip [namespace current]::mc::SetToGameDate \
 		;
-	eventmodebox $top.event-eventMode -textvar ::${dlg}::Priv(event-eventMode) -state $state
-	eventtypebox $top.event-eventType -textvar ::${dlg}::Priv(event-eventType) -state $state
-	timemodebox $top.event-timeMode -textvar ::${dlg}::Priv(event-timeMode) -state $state
+	set width 0
+	foreach box {eventmodebox eventtypebox timemodebox} {
+		set width [expr {max($width, [::${box}::minWidth])}]
+	}
+	eventmodebox $top.event-eventMode -textvar ::${dlg}::Priv(event-eventMode) -state $state -width $width
+	eventtypebox $top.event-eventType -textvar ::${dlg}::Priv(event-eventType) -state $state -width $width
+	timemodebox $top.event-timeMode -textvar ::${dlg}::Priv(event-timeMode) -state $state -width $width
 
 	if {$state eq "disabled"} {
 		lappend disabled event-country event-eventMode event-eventType event-timeMode
@@ -715,7 +719,7 @@ proc Build {dlg base position number} {
 	foreach {attr tag} {	title Event site Site country EventCountry eventDate EventDate
 								eventMode Mode eventType EventType timeMode TimeMode} {
 		grid $top.event-$attr-l -row $ltrow -column 1 -sticky w
-		grid $top.event-$attr -row $ltrow -column 3 -sticky $sticky
+		grid $top.event-$attr -row $ltrow -column 3 -sticky ew
 		incr ltrow 2
 
 		switch $attr {
