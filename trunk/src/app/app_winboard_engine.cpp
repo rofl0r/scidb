@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 468 $
-// Date   : $Date: 2012-10-15 21:54:54 +0000 (Mon, 15 Oct 2012) $
+// Version: $Revision: 478 $
+// Date   : $Date: 2012-10-20 13:18:55 +0000 (Sat, 20 Oct 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -104,6 +104,15 @@ skipSpaces(char const* s)
 	while (isspace(*s))
 		++s;
 	return s;
+}
+
+
+static char const*
+skipDots(char const* s)
+{
+	while (*s == '.')
+		++s;
+	return skipSpaces(s);
 }
 
 
@@ -1220,10 +1229,10 @@ winboard::Engine::parseCurrentMove(char const* s)
 		s = ::skipMoveNumber(::skipWords(s, 3));
 
 		Move move;
-		char const* t = m_board.parseMove(s, move);
+		char const* t = m_board.parseMove(::skipDots(s), move);
 
 		if (t == 0)
-			return false;
+			return true; // skip it anayway
 
 		if (move.isLegal())
 		{
