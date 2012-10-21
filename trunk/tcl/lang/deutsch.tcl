@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 468 $
-# Date   : $Date: 2012-10-15 21:54:54 +0000 (Mon, 15 Oct 2012) $
+# Version: $Revision: 480 $
+# Date   : $Date: 2012-10-21 22:57:40 +0000 (Sun, 21 Oct 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -232,6 +232,7 @@
 ::load::mc::SevereError				"Schwerwiegender Fehler beim Laden der ECO-Datei"
 ::load::mc::FileIsCorrupt			"Die Datei %s ist beschädigt:"
 ::load::mc::ProgramAborting		"Das Programmausführung wird abgebrochen."
+::load::mc::EngineSetupFailed		"Das Laden der Motorenkonfiguration schlug fehl"
 
 ::load::mc::Loading					"Lade %s"
 ::load::mc::StartupFinished		"Programmstart beendet"

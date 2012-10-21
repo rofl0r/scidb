@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 468 $
-# Date   : $Date: 2012-10-15 21:54:54 +0000 (Mon, 15 Oct 2012) $
+# Version: $Revision: 480 $
+# Date   : $Date: 2012-10-21 22:57:40 +0000 (Sun, 21 Oct 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -234,6 +234,7 @@
 ::load::mc::SevereError				"Error severo al cargar archivo ECO" 
 ::load::mc::FileIsCorrupt			"El archivo %s está corrupto:"
 ::load::mc::ProgramAborting		"Abortando programa."
+::load::mc::EngineSetupFailed		"Loading engine configuration failed" ;# NEW
 
 ::load::mc::Loading					"Cargando %s"
 ::load::mc::StartupFinished		"Inicio del programa completado"

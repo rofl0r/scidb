@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 468 $
-# Date   : $Date: 2012-10-15 21:54:54 +0000 (Mon, 15 Oct 2012) $
+# Version: $Revision: 480 $
+# Date   : $Date: 2012-10-21 22:57:40 +0000 (Sun, 21 Oct 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -233,6 +233,7 @@
 ::load::mc::SevereError				"Allvarlig fel vid laddning av ECO-fil"
 ::load::mc::FileIsCorrupt			"Filen %s är skadad:"
 ::load::mc::ProgramAborting		"Programmet avbryter."
+::load::mc::EngineSetupFailed		"Loading engine configuration failed" ;# NEW
 
 ::load::mc::Loading					"Laddar %s"
 ::load::mc::StartupFinished		"Inläsning klar"

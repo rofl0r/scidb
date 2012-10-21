@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 450 $
-# Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
+# Version: $Revision: 480 $
+# Date   : $Date: 2012-10-21 22:57:40 +0000 (Sun, 21 Oct 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -237,7 +237,6 @@ set ::scidb::revision [::scidb::misc::revision]
 ::tooltip::init
 ::font::useLanguage $mc::langID
 ::font::setupChessFonts
-::engine::setup
 application::open
 
 # vi:set ts=3 sw=3:
