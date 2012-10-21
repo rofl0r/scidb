@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 427 $
-// Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
+// Version: $Revision: 479 $
+// Date   : $Date: 2012-10-21 22:25:24 +0000 (Sun, 21 Oct 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -345,8 +345,11 @@ union InotifyEvent
 
 	bool operator<=(InotifyEvent const& ev) { return p <= ev.p; }
 
-	struct inotify_event* e;
-	char* p;
+	union
+	{
+		struct inotify_event* e;
+		char* p;
+	};
 
 	InotifyEvent next() { return InotifyEvent(p + sizeof(struct inotify_event) + e->len); }
 };
