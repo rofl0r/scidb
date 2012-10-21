@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 480 $
-# Date   : $Date: 2012-10-21 22:57:40 +0000 (Sun, 21 Oct 2012) $
+# Version: $Revision: 481 $
+# Date   : $Date: 2012-10-21 22:59:23 +0000 (Sun, 21 Oct 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -3358,7 +3358,7 @@ bind Script <Control-h> {
 
 
 # --- Setup engines ----------------------------------------------------
-if {![catch {::engine::setup} err]} {
+if {[catch {::engine::setup} err]} {
 	set msg $::load::mc::EngineSetupFailed
 	lappend ::load::Log error "$msg: $err"
 	puts "$msg -- $err"
