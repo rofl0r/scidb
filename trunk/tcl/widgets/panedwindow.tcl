@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 268 $
-# Date   : $Date: 2012-03-13 16:47:20 +0000 (Tue, 13 Mar 2012) $
+# Version: $Revision: 485 $
+# Date   : $Date: 2012-10-24 10:55:58 +0000 (Wed, 24 Oct 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -405,6 +405,7 @@ proc SetCursor {childs cursor} {
 	foreach child $childs {
 		catch {
 			set cur [$child cget -cursor]
+			if {$cur eq "sb_h_double_arrow" || $cur eq "sb_v_double_arrow"} { set cur "" }
 			$child configure -cursor $cursor
 			lappend Priv(cursorList) $child $cur
 		}
