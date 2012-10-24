@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 450 $
-// Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
+// Version: $Revision: 487 $
+// Date   : $Date: 2012-10-24 22:43:05 +0000 (Wed, 24 Oct 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1027,13 +1027,11 @@ Application::releaseGame(unsigned position)
 
 	EditGame& game = m_gameMap[position];
 
-	if (game.cursor == m_scratchBase)
-		m_indexMap.erase(position);
-
 	delete game.game;
 	delete game.backup;
 
 	m_gameMap.erase(position);
+	m_indexMap.erase(position);
 
 	if (m_position == position)
 		m_position = m_fallbackPosition;
