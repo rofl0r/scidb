@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 450 $
-# Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
+# Version: $Revision: 486 $
+# Date   : $Date: 2012-10-24 22:08:51 +0000 (Wed, 24 Oct 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1145,6 +1145,7 @@ proc SetSelection {table args} {
 	if {[llength $args] == 3} {
 		lassign $args x y state
 		set id [$table.t identify $x $y]
+		if {[llength $id] == 0} { return }
 		if {[lindex $id 0] eq "header"} { return }
 		set row [$table.t item order [lindex $id 1] -visible]
 		if {$row >= $Vars(rows)} { return }
