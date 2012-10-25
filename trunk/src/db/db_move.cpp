@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 436 $
-// Date   : $Date: 2012-09-22 22:40:13 +0000 (Sat, 22 Sep 2012) $
+// Version: $Revision: 490 $
+// Date   : $Date: 2012-10-25 23:05:39 +0000 (Thu, 25 Oct 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -294,7 +294,7 @@ Move::printAlphabetic(mstl::string& s) const
 		s += sq::printAlphabetic(to());
 
 		if (isPromotion())
-			s += piece::print(promoted());
+			s += ::tolower(piece::print(promoted()));
 	}
 
 	return s;
