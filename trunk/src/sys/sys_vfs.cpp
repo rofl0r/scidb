@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 450 $
-// Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
+// Version: $Revision: 491 $
+// Date   : $Date: 2012-10-26 09:41:32 +0000 (Fri, 26 Oct 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -57,7 +57,7 @@ sys::vfs::freeSize(mstl::string const& path)
 
 # else
 
-long sys::vfs::freeSize(mstl::string const&) { return -1; }
+int64_t sys::vfs::freeSize(mstl::string const&) { return -1; }
 
 # endif
 #endif
