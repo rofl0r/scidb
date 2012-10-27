@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 490 $
-# Date   : $Date: 2012-10-25 23:05:39 +0000 (Thu, 25 Oct 2012) $
+# Version: $Revision: 493 $
+# Date   : $Date: 2012-10-27 21:53:30 +0000 (Sat, 27 Oct 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -499,15 +499,19 @@ proc AddMove {sq1 sq2 allowIllegalMove} {
 		}
 	}
 
-	if {!$nullmove && ![::scidb::pos::valid? $sq1 $sq2 $allowIllegalMove]} {
-		# illegal move, but if it is king takes king then treat it as entering a null move
-		set boardPos [::scidb::pos::board]
-		::board::stuff::setDragSquare $board
-		set k1 [string tolower [string index $boardPos $sq1]]
-		set k2 [string tolower [string index $boardPos $sq2]]
-		if {$k1 ne "k" || $k2 ne "k"} { return }
-		set sq1 null
-		set sq2 null
+	if {![::scidb::pos::valid? $sq1 $sq2 $allowIllegalMove]} {
+		if {$nullmove} {
+			# illegal move, but if it is king takes king then treat it as entering a null move
+			set boardPos [::scidb::pos::board]
+			::board::stuff::setDragSquare $board
+			set k1 [string tolower [string index $boardPos $sq1]]
+			set k2 [string tolower [string index $boardPos $sq2]]
+			if {$k1 ne "k" || $k2 ne "k"} { return [::board::stuff::setDragSquare $board] }
+			set sq1 null
+			set sq2 null
+		} else {
+			return [::board::stuff::setDragSquare $board]
+		}
 	}
 
 	variable _promoted 0
