@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 450 $
-# Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
+# Version: $Revision: 500 $
+# Date   : $Date: 2012-10-31 14:24:04 +0000 (Wed, 31 Oct 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1073,7 +1073,10 @@ proc GameSwitched {position} {
 	if {[lindex [::scidb::game::link?] 0] eq $scratchbaseName} {
 		set state disabled
 	} else {
-		set state normal
+		lassign [::scidb::game::sink? $position] base index
+		set name [lindex [scidb::db::fetch eventInfo $index $base] 0]
+		if {$name eq "?" || $name eq "-"} { set name "" }
+		if {[string length $name]} { set state normal } else { set state disabled }
 	}
 
 	::toolbar::childconfigure $Vars(crossTable) -state $state
