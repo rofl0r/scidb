@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 385 $
-# Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
+# Version: $Revision: 501 $
+# Date   : $Date: 2012-11-01 22:15:21 +0000 (Thu, 01 Nov 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -476,10 +476,6 @@ proc dragPiece {w x y} {
 	}
 
 	$w.c coords piece:$sq $x $y
-	$w.c raise piece:$sq
-	$w.c raise text
-	$w.c raise arrow
-	$w.c raise input
 }
 
 
