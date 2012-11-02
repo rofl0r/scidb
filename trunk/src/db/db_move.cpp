@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 502 $
-// Date   : $Date: 2012-11-02 23:02:24 +0000 (Fri, 02 Nov 2012) $
+// Version: $Revision: 503 $
+// Date   : $Date: 2012-11-02 23:34:27 +0000 (Fri, 02 Nov 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -203,7 +203,7 @@ Move::printLan(mstl::string& s, encoding::CharSet charSet) const
 
 
 mstl::string&
-Move::printDescriptive(mstl::string& s, encoding::CharSet charSet) const
+Move::printDescriptive(mstl::string& s) const
 {
 	if (isNull())
 	{
@@ -257,10 +257,7 @@ Move::printDescriptive(mstl::string& s, encoding::CharSet charSet) const
 		if (isPromotion())
 		{
 			s += '(';
-			if (charSet == encoding::Utf8)
-				s += piece::utf8::asString(promoted());
-			else
-				s += piece::print(promoted());
+			s += piece::print(promoted());
 			s += ')';
 		}
 
@@ -330,7 +327,7 @@ Move::print(mstl::string& s, move::Notation form, encoding::CharSet charSet) con
 		case move::Algebraic:		printAlgebraic(s, charSet); break;
 		case move::ShortAlgebraic:	printSan(s, charSet); break;
 		case move::LongAlgebraic:	printLan(s, charSet); break;
-		case move::Descriptive:		printDescriptive(s, charSet); break;
+		case move::Descriptive:		printDescriptive(s); break;
 		case move::Correspondence:	printNumeric(s); break;
 		case move::Telegraphic:		printAlphabetic(s, charSet); break;
 	}

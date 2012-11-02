@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 502 $
-// Date   : $Date: 2012-11-02 23:02:24 +0000 (Fri, 02 Nov 2012) $
+// Version: $Revision: 503 $
+// Date   : $Date: 2012-11-02 23:34:27 +0000 (Fri, 02 Nov 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -229,7 +229,7 @@ public:
 	/// Print SAN (short algebraic noatation).
 	mstl::string& printSan(mstl::string& s, encoding::CharSet charSet = encoding::Latin1) const;
 	/// Print descriptive (english) form.
-	mstl::string& printDescriptive(mstl::string& s, encoding::CharSet charSet = encoding::Latin1) const;
+	mstl::string& printDescriptive(mstl::string& s) const;
 	/// Print correspondence form.
 	mstl::string& printNumeric(mstl::string& s) const;
 	/// Print telegraphic form.
