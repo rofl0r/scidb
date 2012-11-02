@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 479 $
-# Date   : $Date: 2012-10-21 22:25:24 +0000 (Sun, 21 Oct 2012) $
+# Version: $Revision: 502 $
+# Date   : $Date: 2012-11-02 23:02:24 +0000 (Fri, 02 Nov 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -241,7 +241,7 @@ proc build {parent width height} {
 	$tree style layout styleSym elemTextSym -padx {4 4} -pady {2 2} -squeeze x -sticky ne
 
 	$tree column create -steady yes -tags Eval  -width [expr {5*$charwidth}] -itemjustify center
-	$tree column create -steady yes -tags Value -width [expr {7*$charwidth}] -itemjustify right
+	$tree column create -steady yes -tags Value -width [expr {8*$charwidth}] -itemjustify right
 	$tree column create -steady yes -tags Moves -expand yes -squeeze yes -weight 1 -itemjustify left
 
 	foreach i {0 1 2 3} {
