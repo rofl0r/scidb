@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 500 $
-# Date   : $Date: 2012-10-31 14:24:04 +0000 (Wed, 31 Oct 2012) $
+# Version: $Revision: 505 $
+# Date   : $Date: 2012-11-04 15:21:07 +0000 (Sun, 04 Nov 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -350,9 +350,11 @@ proc insert {gamebar at id tags} {
 
 		set tag ${side}CountryInput${id}
 
-		$gamebar bind $tag <Enter> [namespace code [list EnterFlag $gamebar $id $side]]
-		$gamebar bind $tag <Leave> [namespace code [list LeaveFlag $gamebar $id]]
-		$gamebar bind $tag <ButtonPress-3> [namespace code [list PopupMenu $gamebar]]
+		$gamebar bind $tag <Enter>					[namespace code [list EnterFlag $gamebar $id $side]]
+		$gamebar bind $tag <Leave>					[namespace code [list LeaveFlag $gamebar $id]]
+		$gamebar bind $tag <ButtonPress-2>		[namespace code [list ShowPlayerInfo $gamebar $id $side]]
+		$gamebar bind $tag <ButtonRelease-2>	[namespace code [list HidePlayerInfo $gamebar $id $side]]
+		$gamebar bind $tag <ButtonPress-3>		[namespace code [list PopupMenu $gamebar]]
 	}
 
 	set tag ${side}CountryInput${id}

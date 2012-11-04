@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 450 $
-# Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
+# Version: $Revision: 505 $
+# Date   : $Date: 2012-11-04 15:21:07 +0000 (Sun, 04 Nov 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -495,7 +495,7 @@ proc open {parent} {
 	grid rowconfigure $panel {2 4 6 8 10} -weight 1
 	grid rowconfigure $panel 12 -minsize [expr {$edge + $BorderThickness}]
 
-	bind $Vars(board) <Map> [namespace code [list SetupCursor $dlg $Vars(piece)]]
+	bind $Vars(board) <Map> [namespace code [list SetupCursor %W $Vars(piece)]]
 
 	###########################################################
 
