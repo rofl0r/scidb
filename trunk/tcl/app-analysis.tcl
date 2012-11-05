@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 507 $
-# Date   : $Date: 2012-11-05 17:03:15 +0000 (Mon, 05 Nov 2012) $
+# Version: $Revision: 508 $
+# Date   : $Date: 2012-11-05 17:16:04 +0000 (Mon, 05 Nov 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -789,6 +789,7 @@ proc Signal {id code} {
 	variable Vars
 
 	set parent [winfo toplevel $Vars(tree)]
+	SetState disabled
 
 	if {[string is integer $code]} {
 		set msg [format $mc::Signal(terminated) $code]
@@ -801,12 +802,11 @@ proc Signal {id code} {
 			after idle [list ::dialog::info -parent $parent -message $msg]
 		}
 		default {
-			after idle [list ::engine::kill $Vars(engine:id)]
 			after idle [list ::dialog::error -parent $parent -message $msg]
+			after idle [list ::engine::kill $Vars(engine:id)]
 		}
 	}
 
-	SetState disabled
 	set Vars(engine:id) -1
 }
 
