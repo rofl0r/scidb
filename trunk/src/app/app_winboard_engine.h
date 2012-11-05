@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 468 $
-// Date   : $Date: 2012-10-15 21:54:54 +0000 (Mon, 15 Oct 2012) $
+// Version: $Revision: 506 $
+// Date   : $Date: 2012-11-05 16:49:41 +0000 (Mon, 05 Nov 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -51,7 +51,7 @@ public:
 	~Engine() throw();	// gcc complains w/o explicit destructor
 
 	bool startAnalysis(bool isNewGame) override;
-	bool stopAnalysis() override;
+	bool stopAnalysis(bool restartIsPending) override;
 	bool isReady() const override;
 	bool isAnalyzing() const override;
 

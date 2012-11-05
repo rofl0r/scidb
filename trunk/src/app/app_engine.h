@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 468 $
-// Date   : $Date: 2012-10-15 21:54:54 +0000 (Mon, 15 Oct 2012) $
+// Version: $Revision: 506 $
+// Date   : $Date: 2012-11-05 16:49:41 +0000 (Mon, 05 Nov 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -127,7 +127,7 @@ public:
 		virtual bool isAnalyzing() const = 0;
 
 		virtual bool startAnalysis(bool isNewGame) = 0;
-		virtual bool stopAnalysis() = 0;
+		virtual bool stopAnalysis(bool restartIsPending) = 0;
 
 		virtual void protocolStart(bool isProbing) = 0;
 		virtual void protocolEnd() = 0;
@@ -353,6 +353,7 @@ public:
 
 	bool startAnalysis(db::Game const* game);
 	bool stopAnalysis();
+	void removeGame();
 
 	bool pause();
 	bool resume();
@@ -535,6 +536,8 @@ private:
 	bool					m_identifierSet;
 	bool					m_useLimitedStrength;
 	bool					m_bestInfoHasChanged;
+	bool					m_pause;
+	bool					m_restart;
 	Process*				m_process;
 	int					m_exitStatus;
 	mstl::ostream*		m_logStream;

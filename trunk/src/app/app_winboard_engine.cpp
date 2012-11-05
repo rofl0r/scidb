@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 478 $
-// Date   : $Date: 2012-10-20 13:18:55 +0000 (Sat, 20 Oct 2012) $
+// Version: $Revision: 506 $
+// Date   : $Date: 2012-11-05 16:49:41 +0000 (Mon, 05 Nov 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -437,8 +437,6 @@ winboard::Engine::startAnalysis(bool isNewGame)
 	History moves;
 	game->getHistory(moves);
 
-	stopAnalysis();
-
 	m_board = game->currentBoard();
 
 	unsigned state = m_board.checkState();
@@ -526,14 +524,16 @@ winboard::Engine::sendStartAnalysis()
 
 
 bool
-winboard::Engine::stopAnalysis()
+winboard::Engine::stopAnalysis(bool restartIsPending)
 {
 	if (isAnalyzing())
 	{
 		sendStopAnalysis();
 		reset();
 		m_isAnalyzing = false;
-		updateState(app::Engine::Stop);
+
+		if (!restartIsPending)
+			updateState(app::Engine::Stop);
 
 		// TODO: we should send now the best move so far
 		// because the UCI protocol is doing this
@@ -622,7 +622,7 @@ winboard::Engine::protocolStart(bool isProbing)
 void
 winboard::Engine::protocolEnd()
 {
-	stopAnalysis();
+	stopAnalysis(false);
 
 	if (m_featureSigint)
 		::sys::signal::sendInterrupt(pid());
@@ -1030,7 +1030,7 @@ winboard::Engine::parseAnalysis(mstl::string const& msg)
 				}
 				else if (isAnalyzing() && m_editSent && ::strstr(msg, "edit"))
 				{
-					stopAnalysis();
+					stopAnalysis(false);
 					error(app::Engine::No_Analyze_Mode);
 				}
 				else
@@ -1051,7 +1051,7 @@ winboard::Engine::parseAnalysis(mstl::string const& msg)
 			{
 				if (::strncmp(msg.c_str() + 8, "error ", 6) == 0)
 				{
-					stopAnalysis();
+					stopAnalysis(false);
 					error(msg.substr(15));
 					return;
 				}

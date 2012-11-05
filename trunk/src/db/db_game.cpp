@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 450 $
-// Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
+// Version: $Revision: 506 $
+// Date   : $Date: 2012-11-05 16:49:41 +0000 (Mon, 05 Nov 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1665,24 +1665,37 @@ Game::goIntoNextVariation()
 	}
 	else
 	{
-		forward();
+		unsigned n = 0;
 
-		MoveNode*	node	= m_currentNode;
-		unsigned		n		= 0;
-
-		if (node->variationCount() == 0)
+		if (m_currentNode->isOneBeforeLineEnd())
 		{
 			if (m_currentKey.level() > 0)
+			{
+				MoveNode* node = m_currentNode;
+
 				exitVariation();
 
-			node = node->getLineStart();
+				node = node->getLineStart();
 
-			if (node->prev() == m_currentNode)
+				if (node->getLineStart()->prev() == m_currentNode)
+					n = m_currentNode->variationNumber(node) + 1;
+			}
+		}
+		else
+		{
+			forward();
+
+			MoveNode* node = m_currentNode;
+
+			if (node->variationCount() == 0)
 			{
-				n = m_currentNode->variationNumber(node) + 1;
+				if (m_currentKey.level() > 0)
+					exitVariation();
 
-				while (n < m_currentNode->variationCount())
-					++n;
+				node = node->getLineStart();
+
+				if (node->prev() == m_currentNode)
+					n = m_currentNode->variationNumber(node) + 1;
 			}
 		}
 

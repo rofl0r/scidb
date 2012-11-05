@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 487 $
-// Date   : $Date: 2012-10-24 22:43:05 +0000 (Wed, 24 Oct 2012) $
+// Version: $Revision: 506 $
+// Date   : $Date: 2012-11-05 16:49:41 +0000 (Mon, 05 Nov 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1026,6 +1026,8 @@ Application::releaseGame(unsigned position)
 		return;
 
 	EditGame& game = m_gameMap[position];
+
+	stopAnalysis(game.game);
 
 	delete game.game;
 	delete game.backup;
@@ -2060,6 +2062,17 @@ Application::stopAnalysis(unsigned engineId)
 {
 	M_REQUIRE(engineExists(engineId));
 	return engine(engineId)->stopAnalysis();
+}
+
+
+void
+Application::stopAnalysis(Game const* game)
+{
+	for (unsigned i = 0; i < m_engineList.size(); ++i)
+	{
+		if (m_engineList[i] && m_engineList[i]->currentGame() == game)
+			m_engineList[i]->removeGame();
+	}
 }
 
 

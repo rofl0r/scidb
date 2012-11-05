@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 450 $
-// Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
+// Version: $Revision: 506 $
+// Date   : $Date: 2012-11-05 16:49:41 +0000 (Mon, 05 Nov 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -329,6 +329,7 @@ private:
 	EditGame* findGame(Cursor* cursor, unsigned index, unsigned* position = 0);
 	unsigned findUnusedPosition() const;
 	void setActiveBase(Cursor* cursor);
+	void stopAnalysis(db::Game const* game);
 
 	typedef mstl::map<unsigned,EditGame>		GameMap;
 	typedef mstl::map<unsigned,unsigned> 		IndexMap;
