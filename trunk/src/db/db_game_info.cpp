@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 450 $
-// Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
+// Version: $Revision: 511 $
+// Date   : $Date: 2012-11-06 14:46:50 +0000 (Tue, 06 Nov 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -594,6 +594,7 @@ GameInfo::setup(	uint32_t gameOffset,
 			m_eco = EcoTable::specimen().getEco(provider.openingLine()).toShort();
 	}
 
+#if 0
 	M_REQUIRE(
 			!tags.contains(tag::WhiteCountry)
 		|| playerEntry(color::White)->federation() == country::fromString(tags.value(tag::WhiteCountry)));
@@ -618,6 +619,7 @@ GameInfo::setup(	uint32_t gameOffset,
 	M_REQUIRE(
 			!tags.contains(tag::BlackSex)
 		|| playerEntry(color::Black)->sex() == sex::fromString(tags.value(tag::BlackSex)));
+#endif
 
 	if (tags.contains(tag::Date))
 	{

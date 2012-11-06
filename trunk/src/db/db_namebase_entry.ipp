@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 369 $
-// Date   : $Date: 2012-06-30 21:23:33 +0000 (Sat, 30 Jun 2012) $
+// Version: $Revision: 511 $
+// Date   : $Date: 2012-11-06 14:46:50 +0000 (Tue, 06 Nov 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -496,7 +496,10 @@ NamebasePlayer::operator<(NamebasePlayer const& player) const
 		M_ASSERT(m_player);
 		M_ASSERT(player.m_player);
 
-		return m_player->fideID() < player.m_player->fideID();
+		cmp = int(m_player->fideID()) - int(player.m_player->fideID());
+
+		if (cmp < 0) return true;
+		if (cmp > 0) return false;
 	}
 
 	return (m_value & SortMask) < (player.m_value & SortMask);
@@ -527,7 +530,11 @@ NamebasePlayer::operator<(Key const& key) const
 	if (m_fideIdFlag && key.fideID)
 	{
 		M_ASSERT(m_player);
-		return m_player->fideID() < key.fideID;
+
+		cmp = int(m_player->fideID()) - int(key.fideID);
+
+		if (cmp < 0) return true;
+		if (cmp > 0) return false;
 	}
 
 	return (m_value & SortMask) < (key.value.m_key & SortMask);

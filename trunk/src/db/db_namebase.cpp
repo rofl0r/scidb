@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 373 $
-// Date   : $Date: 2012-07-02 10:25:19 +0000 (Mon, 02 Jul 2012) $
+// Version: $Revision: 511 $
+// Date   : $Date: 2012-11-06 14:46:50 +0000 (Tue, 06 Nov 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -448,7 +448,19 @@ Namebase::insertPlayer(	mstl::string const& name,
 		p = Player::findPlayer(fideID);
 
 		if (p == 0)
+		{
 			p = Player::insertPlayer(fideID, name);
+		}
+		else
+		{
+			type = species::Unspecified;
+			sex = sex::Unspecified;
+
+			if (title == title::best(p->titles()))
+				title = title::None;
+			if (federation == p->federation())
+				federation = country::Unknown;
+		}
 	}
 	else
 	{
