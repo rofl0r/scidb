@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 385 $
-# Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
+# Version: $Revision: 514 $
+# Date   : $Date: 2012-11-07 16:20:41 +0000 (Wed, 07 Nov 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -242,7 +242,9 @@ proc WidgetProc {w command args} {
 			if {[llength $args] != 1} {
 				error "wrong # args: should be \"[namespace current] select <set>\""
 			}
-			set index [lsearch -exact -index 0 $Figurines [lindex $args 0]]
+			set lang [lindex $args 0]
+			if {[string length $lang] == 0} { set lang $::mc::langID }
+			set index [lsearch -exact -index 0 $Figurines $lang]
 			return [$w.list.selection select $index]
 		}
 

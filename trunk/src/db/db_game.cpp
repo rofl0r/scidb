@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 506 $
-// Date   : $Date: 2012-11-05 16:49:41 +0000 (Mon, 05 Nov 2012) $
+// Version: $Revision: 514 $
+// Date   : $Date: 2012-11-07 16:20:41 +0000 (Wed, 07 Nov 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2718,6 +2718,24 @@ Game::dumpMoves(mstl::string& result, unsigned length, unsigned flags)
 
 	result.rtrim();
 	return n;
+}
+
+
+bool
+Game::historyIsLegal() const
+{
+	MoveNode* succ = m_currentNode->next();
+
+	for (MoveNode* node = m_currentNode; node; succ = node, node = node->prev())
+	{
+		if (!node->atLineStart() && !node->atLineEnd() && node->next() == succ)
+		{
+			if (!node->move().isLegal())
+				return false;
+		}
+	}
+
+	return true;
 }
 
 

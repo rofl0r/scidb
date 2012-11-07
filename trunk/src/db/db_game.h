@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 450 $
-// Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
+// Version: $Revision: 514 $
+// Date   : $Date: 2012-11-07 16:20:41 +0000 (Wed, 07 Nov 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -218,6 +218,8 @@ public:
 	bool containsIllegalMoves() const;
 	/// Return whether the game contains illegal castlings.
 	bool containsIllegalCastlings() const;
+	/// Returns whether all preceding moves are legal.
+	bool historyIsLegal() const;
 
 	// Accessing game information
 

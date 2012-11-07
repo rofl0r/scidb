@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 506 $
-// Date   : $Date: 2012-11-05 16:49:41 +0000 (Mon, 05 Nov 2012) $
+// Version: $Revision: 514 $
+// Date   : $Date: 2012-11-07 16:20:41 +0000 (Wed, 07 Nov 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -91,6 +91,7 @@ public:
 		Standard_Chess_Not_Supported,
 		Chess_960_Not_Supported,
 		No_Analyze_Mode,
+		Illegal_Position,
 	};
 
 	enum Signal

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 506 $
-// Date   : $Date: 2012-11-05 16:49:41 +0000 (Mon, 05 Nov 2012) $
+// Version: $Revision: 514 $
+// Date   : $Date: 2012-11-07 16:20:41 +0000 (Wed, 07 Nov 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1111,6 +1111,12 @@ Engine::startAnalysis(db::Game const* game)
 		// clear currline
 
 		clearInfo();
+
+		if (game->currentBoard().givesCheck())
+		{
+			error(Illegal_Position);
+			return false;
+		}
 
 		if (!m_engine->startAnalysis(isNew))
 			return false;
