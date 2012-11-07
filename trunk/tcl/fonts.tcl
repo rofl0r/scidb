@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 416 $
-# Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
+# Version: $Revision: 513 $
+# Date   : $Date: 2012-11-07 14:58:57 +0000 (Wed, 07 Nov 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1118,13 +1118,15 @@ proc setupChessFonts {} {
 
 	registerTextFonts text {normal bold}
 	registerSymbolFonts text
-	set symbolEncoding $chessSymbolFontsMap([string tolower $Options(symbol:family)])
+
+	if {$UseSymbols} {
+		set symbolEncoding $chessSymbolFontsMap([string tolower $Options(symbol:family)])
+	}
 
 	if {$UseFigurines && [::tk windowingsystem] eq "x11"} {
 		set UseFigurines 0
 		catch { if {[::tk::pkgconfig get fontsystem] eq "xft"} { set UseFigurines 1 } }
 	}
-
 	useFigurines [expr {$UseFigurines && $Options(figurine:use)}] yes
 }
 
@@ -1163,8 +1165,12 @@ proc useFigurines {flag {force 0}} {
 	unregisterFigurineFonts text
 	registerFigurineFonts text
 
-	set figurineEncoding(normal) $chessFigurineFontsMap([string tolower $Options(figurine:family:normal)])
-	set figurineEncoding(bold) $chessFigurineFontsMap([string tolower $Options(figurine:family:bold)])
+	if {$UseFigurines} {
+		set figurineEncoding(normal) \
+			$chessFigurineFontsMap([string tolower $Options(figurine:family:normal)])
+		set figurineEncoding(bold) \
+			$chessFigurineFontsMap([string tolower $Options(figurine:family:bold)])
+	}
 }
 
 
