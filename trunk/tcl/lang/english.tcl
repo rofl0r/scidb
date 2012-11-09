@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 515 $
-# Date   : $Date: 2012-11-09 10:05:20 +0000 (Fri, 09 Nov 2012) $
+# Version: $Revision: 517 $
+# Date   : $Date: 2012-11-09 13:37:22 +0000 (Fri, 09 Nov 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -282,7 +282,7 @@
 ::util::photos::mc::LocalInstallation			"Private installation"
 ::util::photos::mc::RetryLater					"Please retry later."
 ::util::photos::mc::DownloadStillInProgress	"Download of photo files is still in progress."
-::util::photos::mc::PhotoFiles					"Photo Files"
+::util::photos::mc::PhotoFiles					"Player Photo Files"
 
 ::util::photos::mc::RequiresSuperuserRights	"The installation/update requires super-user rights.\n\nNote that the password will not be accepted if your user is not in the sudoers file."
 ::util::photos::mc::RequiresInternetAccess	"The installation/update of the player photo files requires an internet connection."
@@ -337,6 +337,8 @@
 ::application::mc::ChessInfoDatabase	"Chess Information Data Base"
 ::application::mc::Shutdown				"Shutdown..."
 ::application::mc::QuitAnyway				"Quit anyway?"
+
+::application::mc::UpdatesAvailable		"Updates available"
 
 ### application::board #################################################
 ::application::board::mc::ShowCrosstable	"Show tournament table for this game"

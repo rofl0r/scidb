@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 515 $
-# Date   : $Date: 2012-11-09 10:05:20 +0000 (Fri, 09 Nov 2012) $
+# Version: $Revision: 517 $
+# Date   : $Date: 2012-11-09 13:37:22 +0000 (Fri, 09 Nov 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1696,6 +1696,7 @@ proc LanguageChanged {} {
 
 	set ::util::clipbaseName [set [namespace current]::mc::T_Clipbase]
 	UpdateSwitcher $Vars(canvas) $clipbaseName
+	MakeUpdateInfo
 
 	set i [lsearch -integer -index 0 $Vars(bases) $Vars(selection)]
 
@@ -2862,7 +2863,7 @@ proc Undock {nb index {geometry {}}} {
 		}
 	}
 	::scidb::tk::twm release $w
-	::update idle ;# is reducing flickering
+	update idle ;# is reducing flickering
 	if {[string length $geometry] == 0} {
 		wm geometry $w ${wd}x${ht}
 	} else {
