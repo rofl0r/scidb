@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 514 $
-# Date   : $Date: 2012-11-07 16:20:41 +0000 (Wed, 07 Nov 2012) $
+# Version: $Revision: 519 $
+# Date   : $Date: 2012-11-09 21:02:16 +0000 (Fri, 09 Nov 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -53,6 +53,9 @@ set Engine						"Engine"
 
 set Seconds						"s"
 set Minutes						"m"
+
+set Status(mate)				"%s is mate"
+set Status(stalemate)		"%s is stalemate"
 
 set NotSupported(standard)	"This engine does not support standard chess."
 set NotSupported(chess960)	"This engine does not support chess 960."
@@ -671,7 +674,7 @@ proc Display(checkmate) {color} {
 
 	$Vars(score) configure -state normal
 	$Vars(score) delete 1.0 end
-	$Vars(score) insert end "$color is mate" center
+	$Vars(score) insert end [format $mc::Status(mate) [set ::mc::[string toupper $color 0 0]]] center
 	$Vars(score) configure -state disabled
 }
 
@@ -681,7 +684,7 @@ proc Display(stalemate) {color} {
 
 	$Vars(score) configure -state normal
 	$Vars(score) delete 1.0 end
-	$Vars(score) insert end "$color is stalemate" center
+	$Vars(score) insert end [format $mc::Status(stalemate) [set ::mc::[string toupper $color 0 0]] center
 	$Vars(score) configure -state disabled
 }
 

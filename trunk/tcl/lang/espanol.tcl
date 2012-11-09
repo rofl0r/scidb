@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 518 $
-# Date   : $Date: 2012-11-09 17:36:55 +0000 (Fri, 09 Nov 2012) $
+# Version: $Revision: 519 $
+# Date   : $Date: 2012-11-09 21:02:16 +0000 (Fri, 09 Nov 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -939,6 +939,9 @@
 
 ::application::analysis::mc::Seconds				"s"
 ::application::analysis::mc::Minutes				"m"
+
+::application::analysis::mc::Status(mate)			"%s is mate" ;# NEW
+::application::analysis::mc::Status(stalemate)	"%s is stalemate" ;# NEW
 
 ::application::analysis::mc::NotSupported(standard)	"Este motor de análisis no tiene soporte para ajedrez normal."
 ::application::analysis::mc::NotSupported(chess960)	"Este motor de análisis no tiene soporte para chess 960."

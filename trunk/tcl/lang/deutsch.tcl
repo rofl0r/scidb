@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 518 $
-# Date   : $Date: 2012-11-09 17:36:55 +0000 (Fri, 09 Nov 2012) $
+# Version: $Revision: 519 $
+# Date   : $Date: 2012-11-09 21:02:16 +0000 (Fri, 09 Nov 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -919,6 +919,9 @@
 
 ::application::analysis::mc::Seconds				"s"
 ::application::analysis::mc::Minutes				"m"
+
+::application::analysis::mc::Status(mate)			"%s ist matt"
+::application::analysis::mc::Status(stalemate)	"%s ist patt"
 
 ::application::analysis::mc::NotSupported(standard)	"Dieser Motor unterstützt kein Standardschach."
 ::application::analysis::mc::NotSupported(chess960)	"Dieser Motor unterstützt kein Schach-960."
