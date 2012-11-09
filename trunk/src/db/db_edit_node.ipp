@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 450 $
-// Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
+// Version: $Revision: 518 $
+// Date   : $Date: 2012-11-09 17:36:55 +0000 (Fri, 09 Nov 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -29,7 +29,6 @@
 namespace db {
 namespace edit {
 
-inline Root::Root() :m_opening(0), m_languages(0), m_variation(0) {}
 inline KeyNode::KeyNode(Key const& key) :m_key(key) {}
 inline KeyNode::KeyNode(Key const& key, char prefix) :m_key(key, prefix) {}
 inline Variation::Variation(Key const& key) :KeyNode(key) {}

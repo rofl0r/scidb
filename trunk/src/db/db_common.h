@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 450 $
-// Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
+// Version: $Revision: 518 $
+// Date   : $Date: 2012-11-09 17:36:55 +0000 (Fri, 09 Nov 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1108,7 +1108,6 @@ namespace save
 	bool isOk(State state);
 }
 
-
 namespace load
 {
 	enum State
@@ -1118,6 +1117,18 @@ namespace load
 		Failed,
 		Corrupted,
 	};
+};
+
+namespace board
+{
+	enum Status
+	{
+		None,
+		Mate,
+		Stalemate,
+	};
+
+	mstl::string toString(Status status);
 };
 
 namespace display

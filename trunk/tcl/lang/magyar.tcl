@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 517 $
-# Date   : $Date: 2012-11-09 13:37:22 +0000 (Fri, 09 Nov 2012) $
+# Version: $Revision: 518 $
+# Date   : $Date: 2012-11-09 17:36:55 +0000 (Fri, 09 Nov 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1662,15 +1662,33 @@
 ::genderbox::mc::Gender(c) "Számítógép"
 
 ### terminationbox #####################################################
-::terminationbox::mc::Normal		"Normál"
+::terminationbox::mc::Normal			"Normál"
 ::terminationbox::mc::Unplayed			"Unplayed"
-::terminationbox::mc::Abandoned		"Abandoned"
-::terminationbox::mc::Adjudication	"Adjudication"
-::terminationbox::mc::Death		"Death"
-::terminationbox::mc::Emergency		"Emergency"
-::terminationbox::mc::RulesInfraction	"Rules infraction"
-::terminationbox::mc::TimeForfeit	"Leesett"
-::terminationbox::mc::Unterminated	"Unterminated"
+::terminationbox::mc::Abandoned			"Abandoned"
+::terminationbox::mc::Adjudication		"Adjudication"
+::terminationbox::mc::Death			"Death"
+::terminationbox::mc::Emergency			"Emergency"
+::terminationbox::mc::RulesInfraction		"Rules infraction"
+::terminationbox::mc::TimeForfeit		"Leesett"
+::terminationbox::mc::Unterminated		"Unterminated"
+
+::terminationbox::mc::State(Mate)		"%s is checkmate" ;# NEW
+::terminationbox::mc::State(Stalemate)		"%s is stalemate" ;# NEW
+
+::terminationbox::mc::Result(1-0)		"White resigned" ;# NEW
+::terminationbox::mc::Result(0-1)		"Black resigned" ;# NEW
+::terminationbox::mc::Result(0-0)		"Declared lost for both players" ;# NEW
+::terminationbox::mc::Result(1/2-1/2)		"Draw agreed" ;# NEW
+
+::terminationbox::mc::Reason(Unplayed)		"Game is unplayed" ;# NEW
+::terminationbox::mc::Reason(Abandoned)		"Game is abandoned" ;# NEW
+::terminationbox::mc::Reason(Adjudication)	"Adjudication" ;# NEW
+::terminationbox::mc::Reason(Death)		"" ;# NEW
+::terminationbox::mc::Reason(Emergency)		"Abandoned due to an emergency" ;# NEW
+::terminationbox::mc::Reason(RulesInfraction)	"Decided due to a rules infraction" ;# NEW
+::terminationbox::mc::Reason(TimeForfeit)	"%s forfeits on time" ;# NEW
+::terminationbox::mc::Reason(TimeForfeit,both)	"Both players forfeits on time" ;# NEW
+::terminationbox::mc::Reason(Unterminated)	"Unterminated" ;# NEW
 
 ### eventmodebox #######################################################
 ::eventmodebox::mc::OTB				"Over the board"

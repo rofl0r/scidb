@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 450 $
-// Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
+// Version: $Revision: 518 $
+// Date   : $Date: 2012-11-09 17:36:55 +0000 (Fri, 09 Nov 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -4002,6 +4002,20 @@ variant::fromIdn(unsigned idn)
 	if (idn <= 3840)						return Shuffle;
 
 	return Other;
+}
+
+
+mstl::string
+board::toString(Status status)
+{
+	switch (status)
+	{
+		case None:			return mstl::string::empty_string;
+		case Mate:			return "Mate"; break;
+		case Stalemate:	return "Stalemate"; break;
+	}
+
+	return mstl::string::empty_string; // satisfies the compiler
 }
 
 // vi:set ts=3 sw=3:

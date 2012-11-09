@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 441 $
-// Date   : $Date: 2012-09-23 15:58:06 +0000 (Sun, 23 Sep 2012) $
+// Version: $Revision: 518 $
+// Date   : $Date: 2012-11-09 17:36:55 +0000 (Fri, 09 Nov 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -294,6 +294,8 @@ public:
 	Square kingSquare(color::ID color) const;
 	/// Return whether the move is valid
 	bool checkMove(Move const& move, move::Constraint flag = move::AllowIllegalMove) const;
+	/// Returns the current board status.
+	board::Status status() const;
 
 	// Query other formats
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 514 $
-// Date   : $Date: 2012-11-07 16:20:41 +0000 (Wed, 07 Nov 2012) $
+// Version: $Revision: 518 $
+// Date   : $Date: 2012-11-09 17:36:55 +0000 (Fri, 09 Nov 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -3187,6 +3187,7 @@ Game::updateSubscriber(unsigned action)
 															m_idn,
 															m_eco,
 															m_startBoard,
+															getFinalBoard(),
 															m_startNode,
 															m_linebreakThreshold,
 															m_linebreakMaxLineLengthMain,
@@ -3196,6 +3197,8 @@ Game::updateSubscriber(unsigned action)
 		}
 		else
 		{
+			Board const& finalBoard = getFinalBoard();
+
 			Root editNode(edit::Root::makeList(	m_tags,
 															m_idn,
 															m_eco,
@@ -3212,7 +3215,7 @@ Game::updateSubscriber(unsigned action)
 
 			edit::Node::List diff;
 			editNode->difference(m_editNode, diff);
-			m_subscriber->updateEditor(diff, m_tags, m_moveStyle);
+			m_subscriber->updateEditor(diff, m_tags, m_moveStyle, finalBoard.status(), finalBoard.sideToMove());
 			delete m_editNode;
 			m_editNode = editNode.release();
 		}

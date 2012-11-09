@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 453 $
-// Date   : $Date: 2012-10-11 10:14:31 +0000 (Thu, 11 Oct 2012) $
+// Version: $Revision: 518 $
+// Date   : $Date: 2012-11-09 17:36:55 +0000 (Fri, 09 Nov 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -458,6 +458,20 @@ Board::checkState() const
 	}
 
 	return (state & Check) ? state | CheckMate : state | StaleMate;
+}
+
+
+board::Status
+Board::status() const
+{
+	unsigned state = checkState();
+
+	if (state & CheckMate)
+		return board::Mate;
+	if (state & StaleMate)
+		return board::Stalemate;
+
+	return board::None;
 }
 
 

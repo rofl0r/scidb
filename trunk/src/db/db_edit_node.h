@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 450 $
-// Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
+// Version: $Revision: 518 $
+// Date   : $Date: 2012-11-09 17:36:55 +0000 (Fri, 09 Nov 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -81,12 +81,12 @@ public:
 
 	virtual void visit(Visitor& visitor) const = 0;
 
-	static void visit(Visitor& visitor, List const& nodes, TagSet const& tags);
+	static void visit(Visitor& visitor, List const& nodes, TagSet const& tags, board::Status status, color::ID toMove);
 
 protected:
 
-	struct Spacing;
 	struct Work;
+	struct Spacing;
 
 	static char const PrefixDiagram	= 'd';
 	static char const PrefixComment	= 'c';
@@ -160,6 +160,7 @@ public:
 									uint16_t idn,
 									Eco eco,
 									db::Board const& startBoard,
+									db::Board const& finalBoard,
 									MoveNode const* node,
 									unsigned linebreakThreshold,
 									unsigned linebreakMaxLineLength,
@@ -195,6 +196,8 @@ private:
 	Node* 			m_languages;
 	Variation*		m_variation;
 	result::ID		m_result;
+	board::Status	m_reason;
+	color::ID		m_toMove;
 	mutable List	m_nodes;
 };
 
@@ -459,7 +462,7 @@ public:
 	virtual void linebreak(unsigned level) = 0;
 
 	virtual void start(result::ID result) = 0;
-	virtual void finish(result::ID result) = 0;
+	virtual void finish(result::ID result, board::Status reason, color::ID toMove) = 0;
 
 	virtual void startVariation(Key const& key, Key const& startKey, Key const& endKey) = 0;
 	virtual void endVariation(Key const& key, Key const& startKey, Key const& endKey) = 0;
