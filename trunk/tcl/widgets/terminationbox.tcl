@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 519 $
-# Date   : $Date: 2012-11-09 21:02:16 +0000 (Fri, 09 Nov 2012) $
+# Version: $Revision: 520 $
+# Date   : $Date: 2012-11-09 22:02:14 +0000 (Fri, 09 Nov 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -91,8 +91,8 @@ proc buildText {reason state result toMove} {
 
 		TimeForfeit {
 			 switch $result {
-				 1-0		{ return [format $mc::Reason(TimeForfeit) $mc::White] }
-				 0-1		{ return [format $mc::Reason(TimeForfeit) $mc::Black] }
+				 1-0		{ return [format $mc::Reason(TimeForfeit) $mc::Black] }
+				 0-1		{ return [format $mc::Reason(TimeForfeit) $mc::White] }
 				 1/2-1/2	{ return $mc::Reason(TimeForfeit,both) }
 				 default	{ return "" }
 			 }
