@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 514 $
-# Date   : $Date: 2012-11-07 16:20:41 +0000 (Wed, 07 Nov 2012) $
+# Version: $Revision: 515 $
+# Date   : $Date: 2012-11-09 10:05:20 +0000 (Fri, 09 Nov 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -35,9 +35,12 @@
 ::mc::SortOrder		{A Á B C D E É F G H I Í J K L M N O Ó Ö Ő P Q R S T U Ú Ü Ű V W X Y Z a á b c d e é f g h i í j k l m n o ó ö ő p q r s t u ú ü ű v w x y z}
 
 ::mc::Key(Alt)		"Alt" ;# NEW
+::mc::Key(BS)		"\u232b"
 ::mc::Key(Ctrl)		"Ctrl" ;# NEW
+::mc::Key(Del)		"Delete" ;# NEW
 ::mc::Key(Down)		"\u2193"
 ::mc::Key(End)		"End" ;# NEW
+::mc::Key(Enter)	"\u23ce"
 ::mc::Key(Esc)		"Kilépés"
 ::mc::Key(Home)		"Home" ;# NEW
 ::mc::Key(Left)		"\u2190"

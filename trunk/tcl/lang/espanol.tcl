@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 514 $
-# Date   : $Date: 2012-11-07 16:20:41 +0000 (Wed, 07 Nov 2012) $
+# Version: $Revision: 515 $
+# Date   : $Date: 2012-11-09 10:05:20 +0000 (Fri, 09 Nov 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -36,14 +36,17 @@
 ::mc::SortOrder		{A Á B C D E É F G H I Í J K L M N Ñ O Ó P Q R S T U Ú V W X Y Z a á b c d e é f g h i í j k l m n ñ o ó p q r s t u ú v w x y z}
 
 ::mc::Key(Alt)			"Alt" 
+::mc::Key(BS)			"Retroceso"
 ::mc::Key(Ctrl)		"Ctrl" 
+::mc::Key(Del)			"Supr"
 ::mc::Key(Down)		"\u2193"
 ::mc::Key(End)			"Fin"
+::mc::Key(Enter)		"Intro"
 ::mc::Key(Esc)			"Esc"
 ::mc::Key(Home)		"Inicio"
 ::mc::Key(Left)		"\u2190"
-::mc::Key(Next)		"Página\u2193"
-::mc::Key(Prior)		"Página\u2191"
+::mc::Key(Next)		"Re Pag" ;# "Página\u2193"
+::mc::Key(Prior)		"Av Pag" ;# "Página\u2191"
 ::mc::Key(Right)		"\u2192"
 ::mc::Key(Shift)		"Mayúsculas" 
 ::mc::Key(Up)			"\u2191"

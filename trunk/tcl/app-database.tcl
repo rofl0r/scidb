@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 467 $
-# Date   : $Date: 2012-10-15 20:09:16 +0000 (Mon, 15 Oct 2012) $
+# Version: $Revision: 515 $
+# Date   : $Date: 2012-11-09 10:05:20 +0000 (Fri, 09 Nov 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -383,6 +383,10 @@ proc openBase {parent file byUser args} {
 	variable Defaults
 
 	set file [file normalize $file]
+	if {[string length [set ext [file extension $file]]]} {
+		set ext [::scidb::misc::mapExtension $ext]
+		set file "[file rootname $file].$ext"
+	}
 
 	if {![file readable $file]} {
 		set i [FindRecentFile $file]

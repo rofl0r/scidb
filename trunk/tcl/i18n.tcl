@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 450 $
-# Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
+# Version: $Revision: 515 $
+# Date   : $Date: 2012-11-09 10:05:20 +0000 (Fri, 09 Nov 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -29,9 +29,12 @@
 namespace eval mc {
 
 set Key(Alt)		"Alt"
+set Key(BS)			"\u232b"
 set Key(Ctrl)		"Ctrl"
+set Key(Del)		"Delete"
 set Key(Down)		"\u2193"
 set Key(End)		"End"
+set Key(Enter)		"Enter"
 set Key(Esc)		"Esc"
 set Key(Home)		"Home"
 set Key(Left)		"\u2190"

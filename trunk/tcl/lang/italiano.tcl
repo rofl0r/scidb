@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 514 $
-# Date   : $Date: 2012-11-07 16:20:41 +0000 (Wed, 07 Nov 2012) $
+# Version: $Revision: 515 $
+# Date   : $Date: 2012-11-09 10:05:20 +0000 (Fri, 09 Nov 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -35,11 +35,14 @@
 ::mc::SortOrder		{A À Å B C D E È É F G H I Ì J K L M N O Ò P Q R S T U Ù V W X Y Z a à å b c d e è é f g h i ì j k l m n o ò p q r s t u ù v w x y z}
 
 ::mc::Key(Alt)			"Alt"
+::mc::Key(BS)			"\u232b"
 ::mc::Key(Ctrl)		"Ctrl"
+::mc::Key(Del)			"Canc"
 ::mc::Key(Down)		"\u2193"
 ::mc::Key(End)			"Fine"
+::mc::Key(Enter)		"Invio"
 ::mc::Key(Esc)			"Esci"
-::mc::Key(Home)		"Home"
+::mc::Key(Home)		"Inizio" ;# "Home"
 ::mc::Key(Left)		"\u2190"
 ::mc::Key(Next)		"Page\u2193"
 ::mc::Key(Prior)		"Page\u2191"

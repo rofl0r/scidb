@@ -3,8 +3,8 @@
 exec tclsh "$0" "$@"
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 426 $
-# Date   : $Date: 2012-09-11 17:08:53 +0000 (Tue, 11 Sep 2012) $
+# Version: $Revision: 515 $
+# Date   : $Date: 2012-11-09 10:05:20 +0000 (Fri, 09 Nov 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -103,7 +103,7 @@ set HtmlMapping {
 }
 
 set KeyMapping {
-	<key>ESC</key>	{<kbd class="key">Esc</kbd>}
+	<key>ESC</key>	Esc
 }
 
 set f [open ../../../Makefile.in r]
@@ -293,7 +293,6 @@ proc formatUrl {url} {
 }
 
 proc readContents {chan file} {
-	variable KeyMapping
 	variable HtmlMapping
 	variable charset
 
@@ -332,8 +331,11 @@ proc readContents {chan file} {
 			set line $newline
 		}
 
-		set line [string map $KeyMapping $line]
 		set line [string map $HtmlMapping $line]
+
+		while {[regexp {<key>([a-zA-Z]*)</key>} $line _ key]} {
+			set line [regsub -all "<key>$key</key>" $line "<kbd class='key'>$::mc::Key($key)</kbd>"]
+		}
 
 		if {[string match CHARSET* $line]} {
 			set charset [getArg $line]

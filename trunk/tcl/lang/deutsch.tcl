@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 514 $
-# Date   : $Date: 2012-11-07 16:20:41 +0000 (Wed, 07 Nov 2012) $
+# Version: $Revision: 515 $
+# Date   : $Date: 2012-11-09 10:05:20 +0000 (Fri, 09 Nov 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -34,9 +34,12 @@
 ::mc::SortOrder		{}
 
 ::mc::Key(Alt)			"Alt"
+::mc::Key(BS)			"\u232b"
 ::mc::Key(Ctrl)		"Strg"
+::mc::Key(Del)			"Entf"
 ::mc::Key(Down)		"\u2193"
 ::mc::Key(End)			"Ende"
+::mc::Key(Enter)		"\u23ce"
 ::mc::Key(Esc)			"Esc"
 ::mc::Key(Home)		"Pos1"
 ::mc::Key(Left)		"\u2190"

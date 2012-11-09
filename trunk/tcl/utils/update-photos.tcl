@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 473 $
-# Date   : $Date: 2012-10-19 14:15:42 +0000 (Fri, 19 Oct 2012) $
+# Version: $Revision: 515 $
+# Date   : $Date: 2012-11-09 10:05:20 +0000 (Fri, 09 Nov 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -254,7 +254,6 @@ if {[string length locTimestamp] > 0} {
 		}
 	}
 	set code [::http::ncode $token]
-	set http [::http::code $token]
 	set srvTimestamp [string trim [::http::data $token]]
 	::http::cleanup $token
 	if {$code == 404} { Return maintenance }
@@ -279,7 +278,6 @@ while {$retry > 0} {
 	}
 }
 set code [::http::ncode $token]
-set http [::http::code $token]
 set content [::http::data $token]
 ::http::cleanup $token
 if {$code == 404} { Return maintenance }
