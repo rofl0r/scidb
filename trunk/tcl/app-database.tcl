@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 517 $
-# Date   : $Date: 2012-11-09 13:37:22 +0000 (Fri, 09 Nov 2012) $
+# Version: $Revision: 521 $
+# Date   : $Date: 2012-11-10 01:52:53 +0000 (Sat, 10 Nov 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1696,7 +1696,6 @@ proc LanguageChanged {} {
 
 	set ::util::clipbaseName [set [namespace current]::mc::T_Clipbase]
 	UpdateSwitcher $Vars(canvas) $clipbaseName
-	MakeUpdateInfo
 
 	set i [lsearch -integer -index 0 $Vars(bases) $Vars(selection)]
 
