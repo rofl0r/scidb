@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 495 $
-# Date   : $Date: 2012-10-29 13:49:44 +0000 (Mon, 29 Oct 2012) $
+# Version: $Revision: 522 $
+# Date   : $Date: 2012-11-11 11:05:52 +0000 (Sun, 11 Nov 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -306,6 +306,7 @@ proc releaseSquare {x y state} {
 			# else current square is the square user pressed the button on, so we do nothing
 		} else {
 			# user has dragged to another square, so try to add this as a move
+			set Square(current) -1
 			::board::stuff::hilite $board $selected off
 			set piece [::board::stuff::piece $board $square]
 			::board::stuff::animate $board 0

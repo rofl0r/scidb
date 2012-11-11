@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 477 $
-# Date   : $Date: 2012-10-20 12:39:38 +0000 (Sat, 20 Oct 2012) $
+# Version: $Revision: 522 $
+# Date   : $Date: 2012-11-11 11:05:52 +0000 (Sun, 11 Nov 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -849,6 +849,7 @@ proc EmbedCloseMessage {games w infoFont alertFont} {
 
 	grid columnconfigure $w 0 -minsize 10
 	grid columnconfigure $w {2 4} -minsize 5
+	grid columnconfigure $w {6} -weight 1
 
 	set prev ""
 	set row 0
@@ -875,7 +876,7 @@ proc EmbedCloseMessage {games w infoFont alertFont} {
 				set title $mc::NewGames
 			}
 			set text [tk::label $w.line-$row -text $title -font $alertFont]
-			grid $text -row $row -column 1 -columnspan 3 -sticky w
+			grid $text -row $row -column 1 -columnspan 5 -sticky w
 			incr row
 		}
 
