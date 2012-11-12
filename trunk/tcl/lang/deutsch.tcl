@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 519 $
-# Date   : $Date: 2012-11-09 21:02:16 +0000 (Fri, 09 Nov 2012) $
+# Version: $Revision: 524 $
+# Date   : $Date: 2012-11-12 23:08:27 +0000 (Mon, 12 Nov 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1671,8 +1671,8 @@
 ::terminationbox::mc::State(Mate)					"%s ist schachmatt"
 ::terminationbox::mc::State(Stalemate)				"%s ist patt"
 
-::terminationbox::mc::Result(1-0)					"Weiß gab auf"
-::terminationbox::mc::Result(0-1)					"Schwarz gab auf"
+::terminationbox::mc::Result(1-0)					"Schwarz gab auf"
+::terminationbox::mc::Result(0-1)					"Weiß gab auf"
 ::terminationbox::mc::Result(0-0)					"Für beide Spieler als verloren eklärt"
 ::terminationbox::mc::Result(1/2-1/2)				"Remis vereinbart"
 

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 416 $
-# Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
+# Version: $Revision: 524 $
+# Date   : $Date: 2012-11-12 23:08:27 +0000 (Mon, 12 Nov 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -162,7 +162,6 @@ proc WidgetProc {w command args} {
 
 
 proc Select {w key} {
-	if {[$w popdown?]} { return }
 	if {[string length [$w get]] != 1} { return }
 
 	set index -1

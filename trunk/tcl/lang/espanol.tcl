@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 519 $
-# Date   : $Date: 2012-11-09 21:02:16 +0000 (Fri, 09 Nov 2012) $
+# Version: $Revision: 524 $
+# Date   : $Date: 2012-11-12 23:08:27 +0000 (Mon, 12 Nov 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1690,8 +1690,8 @@
 ::terminationbox::mc::State(Mate)					"%s is checkmate" ;# NEW
 ::terminationbox::mc::State(Stalemate)				"%s is stalemate" ;# NEW
 
-::terminationbox::mc::Result(1-0)					"White resigned" ;# NEW
-::terminationbox::mc::Result(0-1)					"Black resigned" ;# NEW
+::terminationbox::mc::Result(1-0)					"Black resigned" ;# NEW
+::terminationbox::mc::Result(0-1)					"White resigned" ;# NEW
 ::terminationbox::mc::Result(0-0)					"Declared lost for both players" ;# NEW
 ::terminationbox::mc::Result(1/2-1/2)				"Draw agreed" ;# NEW
 

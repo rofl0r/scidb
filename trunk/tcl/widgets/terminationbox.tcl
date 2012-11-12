@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 520 $
-# Date   : $Date: 2012-11-09 22:02:14 +0000 (Fri, 09 Nov 2012) $
+# Version: $Revision: 524 $
+# Date   : $Date: 2012-11-12 23:08:27 +0000 (Mon, 12 Nov 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -47,8 +47,8 @@ set Unterminated					"Unterminated"
 set State(Mate)					"%s is checkmate"
 set State(Stalemate)				"%s is stalemate"
 
-set Result(1-0)					"White resigned"
-set Result(0-1)					"Black resigned"
+set Result(1-0)					"Black resigned"
+set Result(0-1)					"White resigned"
 set Result(0-0)					"Declared lost for both players"
 set Result(1/2-1/2)				"Draw agreed"
 
