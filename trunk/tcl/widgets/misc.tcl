@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 450 $
-# Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
+# Version: $Revision: 530 $
+# Date   : $Date: 2012-11-13 22:24:14 +0000 (Tue, 13 Nov 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -507,11 +507,15 @@ proc busyCursor {w {state on}} {
 
 	if {$action eq "hold"} { ::update }
 
-	::scidb::tk::busy $action .application
+	foreach toplevel {.application .setupEngine .help} {
+		if {[winfo exists $toplevel]} {
+			::scidb::tk::busy $action $toplevel
 
-	if {[tk windowingsystem] eq "x11"} {
-		foreach tlv [winfo children .application] {
-			BusyCursor $action $tlv $w
+			if {[tk windowingsystem] eq "x11"} {
+				foreach tlv [winfo children $toplevel] {
+					BusyCursor $action $tlv $w
+				}
+			}
 		}
 	}
 

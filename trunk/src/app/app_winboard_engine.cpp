@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 527 $
-// Date   : $Date: 2012-11-13 16:26:07 +0000 (Tue, 13 Nov 2012) $
+// Version: $Revision: 530 $
+// Date   : $Date: 2012-11-13 22:24:14 +0000 (Tue, 13 Nov 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1184,7 +1184,9 @@ winboard::Engine::parseInfo(mstl::string const& msg)
 	}
 	else
 	{
-		int varno;
+		int varno = -1;
+
+		m_analyzeResponse = true;
 
 		if (moves.size() == 1)
 		{
@@ -1192,32 +1194,28 @@ winboard::Engine::parseInfo(mstl::string const& msg)
 
 			setCurrentMove(0, 0, moves[0]);
 			updateCurrMove();
+
+			if (msg.back() == '!')
+			{
+				updateTimeInfo();
+				return;
+			}
 		}
-		else
-		{
+
+		if (varno == -1)
 			varno = setVariation(0, moves);
-		}
 
-		if (varno >= 0)
+		if (board.checkState() & Board::CheckMate)
 		{
-			if (board.checkState() & Board::CheckMate)
-			{
-				int n = board.moveNumber() - m_board.moveNumber();
-				setMate(varno, board.whiteToMove() ? -n : +n);
-			}
-			else
-			{
-				setScore(varno, m_dontInvertScore || m_board.whiteToMove() ? score : -score);
-			}
-
-			updatePvInfo(varno);
+			int n = mstl::div2(board.plyNumber() - m_board.plyNumber() + 1);
+			setMate(varno, board.whiteToMove() ? -n : +n);
 		}
 		else
 		{
-			updateTimeInfo();
+			setScore(varno, m_dontInvertScore || m_board.whiteToMove() ? score : -score);
 		}
 
-		m_analyzeResponse = true;
+		updatePvInfo(varno);
 	}
 }
 

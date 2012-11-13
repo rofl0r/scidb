@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 529 $
-# Date   : $Date: 2012-11-13 17:00:46 +0000 (Tue, 13 Nov 2012) $
+# Version: $Revision: 530 $
+# Date   : $Date: 2012-11-13 22:24:14 +0000 (Tue, 13 Nov 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -290,12 +290,13 @@ proc build {parent width height} {
 		-command [namespace code [list Pause $tree]] \
 	]
 	lappend Vars(toolbar:childs) $Vars(button:pause)
-	::toolbar::add $tbControl checkbutton \
+	set Vars(button:lock) [::toolbar::add $tbControl checkbutton \
 		-image $::icon::toolbarLock \
 		-variable [namespace current]::Vars(engine:locked) \
 		-tooltipvar [namespace current]::mc::LockEngine \
 		-command [namespace code EngineLock] \
-		;
+	]
+	lappend Vars(toolbar:childs) $Vars(button:lock)
 	set tbw [::toolbar::add $tbControl checkbutton \
 		-image $::icon::toolbarLines \
 		-variable [namespace current]::Options(engine:multiPV) \
