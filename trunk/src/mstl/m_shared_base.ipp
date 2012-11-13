@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 526 $
+// Date   : $Date: 2012-11-13 13:26:07 +0000 (Tue, 13 Nov 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -161,7 +161,7 @@ shared_base<T,Counter,Deleter>::class_invariant() const
 {
 #ifdef HAVE_WEAK_PTR
 	return m_count == 0 ?	m_p == 0
-							 :	m_p != 0 && m_count->m_shared > 0 && m_count->m_weak >= m_count->m_shared;
+							 	:	m_p != 0 && m_count->m_shared > 0 && m_count->m_weak >= m_count->m_shared;
 #else
 	return m_count == 0 ? m_p == 0 : m_p != 0 && m_count->m_shared > 0;
 #endif

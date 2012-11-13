@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 526 $
+// Date   : $Date: 2012-11-13 13:26:07 +0000 (Tue, 13 Nov 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -21,7 +21,7 @@
 
 namespace mstl {
 
-template <class T>
+template <typename T>
 class auto_ptr
 {
 public:
