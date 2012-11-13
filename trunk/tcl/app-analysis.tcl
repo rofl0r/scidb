@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 519 $
-# Date   : $Date: 2012-11-09 21:02:16 +0000 (Fri, 09 Nov 2012) $
+# Version: $Revision: 528 $
+# Date   : $Date: 2012-11-13 16:40:20 +0000 (Tue, 13 Nov 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -119,7 +119,7 @@ proc build {parent width height} {
 #	set Vars(font:bold) [list $fopt(-family) $fopt(-size) bold]
 	set Vars(linespace) [font metrics $Options(font) -linespace]
 	set charwidth [font measure $Options(font) "0"]
-	set minsize [expr {11*$charwidth}]
+	set minsize [expr {12*$charwidth}]
 
 	set w [ttk::frame $parent.f]
 
