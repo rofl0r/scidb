@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 531 $
+// Date   : $Date: 2012-11-14 12:28:55 +0000 (Wed, 14 Nov 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -111,6 +111,8 @@ public:
 	static bool checkDay(unsigned y, unsigned m, unsigned d);
 
 	static int compare(Date const& lhs, Date const& rhs);
+
+	static unsigned lastDayInMonth(unsigned y, unsigned m);
 
 	static unsigned decodeYearFrom10Bits(unsigned year);
 	static unsigned encodeYearTo10Bits(unsigned year);

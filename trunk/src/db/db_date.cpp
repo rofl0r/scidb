@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 531 $
+// Date   : $Date: 2012-11-14 12:28:55 +0000 (Wed, 14 Nov 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -42,14 +42,25 @@ isLeapYear(unsigned y)
 }
 
 
-bool
-Date::checkDay(unsigned y, unsigned m, unsigned d)
+unsigned
+Date::lastDayInMonth(unsigned y, unsigned m)
 {
 	static unsigned const MonthDays[13] = { 0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
-	M_ASSERT(m <= 12);
+	M_REQUIRE(m <= 12);
+	M_REQUIRE(m > 0);
 
-	return d <= MonthDays[m] || (d == 29 && m == 2 && isLeapYear(y));
+	return m == 2 && isLeapYear(y) ? 29 : MonthDays[m];
+}
+
+
+bool
+Date::checkDay(unsigned y, unsigned m, unsigned d)
+{
+	M_ASSERT(m <= 12);
+	M_ASSERT(m > 0);
+
+	return d <= lastDayInMonth(y, m);
 }
 
 

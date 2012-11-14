@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 373 $
-// Date   : $Date: 2012-07-02 10:25:19 +0000 (Mon, 02 Jul 2012) $
+// Version: $Revision: 531 $
+// Date   : $Date: 2012-11-14 12:28:55 +0000 (Wed, 14 Nov 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -26,6 +26,8 @@
 
 #ifndef _db_search_included
 #define _db_search_included
+
+#include "db_date.h"
 
 #include "m_string.h"
 #include "m_ref_counter.h"
@@ -108,6 +110,21 @@ public:
 private:
 
 	NamebaseEvent const* m_entry;
+};
+
+class SearchGameEvent : public Search
+{
+public:
+
+	SearchGameEvent(NamebaseEvent const* entry, Date const& gameDate);
+
+	bool match(GameInfo const& info) const override;
+
+private:
+
+	NamebaseEvent const* m_entry;
+	Date m_firstDate;
+	Date m_lastDate;
 };
 
 class SearchSite : public Search

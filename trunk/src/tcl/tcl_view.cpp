@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 472 $
-// Date   : $Date: 2012-10-19 12:34:02 +0000 (Fri, 19 Oct 2012) $
+// Version: $Revision: 531 $
+// Date   : $Date: 2012-11-14 12:28:55 +0000 (Wed, 14 Nov 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -205,13 +205,16 @@ buildSearch(Database const& db, Tcl_Interp* ti, Tcl_Obj* query)
 			break;
 
 		case GameEvent:
+		{
 			if (objc != 2)
 			{
 				error(CmdSearch, "gameevent", 0, "invalid query");
 				return search;
 			}
-			search = new SearchEvent(db.gameInfo(unsignedFromObj(2, objv, 1)).eventEntry());
+			GameInfo const& info = db.gameInfo(unsignedFromObj(2, objv, 1));
+			search = new SearchGameEvent(info.eventEntry(), info.date());
 			break;
+		}
 
 		case Site:
 			if (objc != 2)
