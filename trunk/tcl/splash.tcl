@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 298 $
-# Date   : $Date: 2012-04-18 20:09:25 +0000 (Wed, 18 Apr 2012) $
+# Version: $Revision: 535 $
+# Date   : $Date: 2012-11-21 23:34:20 +0000 (Wed, 21 Nov 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -51,7 +51,6 @@ proc open {} {
 		}
 
 		win32 {
-			wm attributes .splash -topmost
 			wm overrideredirect .splash
 			wm transparentcolor 0.7
 		}
@@ -91,8 +90,9 @@ proc Close {} {
 
 	if {[winfo exists .splash]} {
 		destroy .splash
-#		image delete $Picture
 	}
+
+	after 1000 [list image delete $Picture]
 }
 
 
