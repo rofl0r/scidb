@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 450 $
-// Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
+// Version: $Revision: 533 $
+// Date   : $Date: 2012-11-21 15:55:21 +0000 (Wed, 21 Nov 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2651,6 +2651,7 @@ PgnReader::doCastling(char const* castle)
 			msg.append(moves[0].asString());
 
 			m_move = moves[0];
+			m_move.setColor(side);
 			warning(CastlingCorrection, m_prevPos, msg);
 			return true;
 		}
