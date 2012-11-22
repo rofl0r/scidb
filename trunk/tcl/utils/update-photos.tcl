@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 515 $
-# Date   : $Date: 2012-11-09 10:05:20 +0000 (Fri, 09 Nov 2012) $
+# Version: $Revision: 537 $
+# Date   : $Date: 2012-11-22 21:53:14 +0000 (Thu, 22 Nov 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -164,7 +164,7 @@ proc GetUrl {url} {
 
 proc ResetConnection {url} {
 	# is there a more convenient way to reset the connection?
-	catch { ::http::geturl $url -binary 1 -keepalive 0 -timeout 1 }
+	catch { ::http::cleanup [::http::geturl $url -binary 1 -keepalive 0 -timeout 1] }
 }
 
 proc FetchFile {file srvCrc} {
