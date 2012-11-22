@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 450 $
-// Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
+// Version: $Revision: 536 $
+// Date   : $Date: 2012-11-22 13:35:23 +0000 (Thu, 22 Nov 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -291,7 +291,6 @@ Codec::~Codec() throw()
 		m_gameData->closeAsyncReader(m_asyncReader);
 
 	delete m_gameData;
-	delete m_asyncReader;
 	delete m_codec;
 	delete m_playerList;
 	delete m_eventList;

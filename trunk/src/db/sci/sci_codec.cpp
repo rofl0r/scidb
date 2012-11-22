@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 427 $
-// Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
+// Version: $Revision: 536 $
+// Date   : $Date: 2012-11-22 13:35:23 +0000 (Thu, 22 Nov 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -501,7 +501,6 @@ Codec::~Codec() throw()
 		m_gameData->closeAsyncReader(m_asyncReader);
 
 	delete m_gameData;
-	delete m_asyncReader;
 	delete m_progressiveStream;
 }
 
