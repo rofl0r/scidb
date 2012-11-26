@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 540 $
+// Date   : $Date: 2012-11-26 22:24:52 +0000 (Mon, 26 Nov 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -27,8 +27,10 @@ class ByteStream;
 
 struct Lzo
 {
-	static bool compress(ByteStream const& src, ByteStream& dst);
-	static void decompress(ByteStream const& src, ByteStream& dst);
+	Lzo();
+
+	bool compress(ByteStream const& src, ByteStream& dst);
+	void decompress(ByteStream const& src, ByteStream& dst);
 
 	static unsigned maxSizeAfterCompression(unsigned sizeBeforeCompression);
 };

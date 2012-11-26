@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 416 $
-# Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
+# Version: $Revision: 540 $
+# Date   : $Date: 2012-11-26 22:24:52 +0000 (Mon, 26 Nov 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -170,12 +170,15 @@ proc packFiles {arch baseDir sources progress procCompression
 				incr TotalSize $FileSize
 				set ext [string range [file extension $f] 1 end]
 				set Compression [$procCompression $ext]
-				if {$Compression ne "raw" && $Compression ne "zlib"} {
-					logError \
-						[format $mc::UnknownCompression $Compression] \
-						[format $mc::UsingRawInstead] \
-						;
-					set Compression raw
+				switch $Compression {
+					raw - zlib {}
+					default {
+						logError \
+							[format $mc::UnknownCompression $Compression] \
+							[format $mc::UsingRawInstead] \
+							;
+						set Compression raw
+					}
 				}
 				if {[llength $mapExtension]} { set ext [$mapExtension $ext] }
 				set formats($ext) 1
@@ -423,9 +426,11 @@ proc unpack {arch procGetName progress {destDir ""}} {
 							set data [read $fd [min $remaining 65536]]
 							set remaining [expr {$remaining - [string length $data]}]
 							tick $progress [string length $data]
-							if {$Compression eq "zlib"} {
-								set data [::zlib::inflate $data $buf]
-								set buf $data
+							switch $Compression {
+								zlib {
+									set data [::zlib::inflate $data $buf]
+									set buf $data
+								}
 							}
 							set crc [::zlib::crc $data $crc]
 							puts -nonewline $f $data
