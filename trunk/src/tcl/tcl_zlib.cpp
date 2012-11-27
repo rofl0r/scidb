@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 539 $
-// Date   : $Date: 2012-11-25 10:28:48 +0000 (Sun, 25 Nov 2012) $
+// Version: $Revision: 543 $
+// Date   : $Date: 2012-11-27 15:05:31 +0000 (Tue, 27 Nov 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -137,7 +137,7 @@ cmdZlibInflate(ClientData clientData, Tcl_Interp* ti, int objc, Tcl_Obj* const o
 		}
 		while (strm.avail_out == 0);
 
-		objs[2] = Tcl_NewLongObj(total);
+		objs[2] = Tcl_NewWideIntObj(total);
 		Tcl_IncrRefCount(objs[2]);
 		Tcl_EvalObjv(ti, 3, objs, TCL_EVAL_GLOBAL);
 		Tcl_DecrRefCount(objs[2]);
@@ -152,8 +152,8 @@ cmdZlibInflate(ClientData clientData, Tcl_Interp* ti, int objc, Tcl_Obj* const o
 		return TCL_ERROR;
 	}
 
-	objs[0] = Tcl_NewLongObj(strm.total_out);
-	objs[1] = Tcl_NewLongObj(crc);
+	objs[0] = Tcl_NewWideIntObj(strm.total_out);
+	objs[1] = Tcl_NewWideIntObj(crc);
 	Tcl_SetObjResult(ti, Tcl_NewListObj(2, objs));
 
 	return TCL_OK;
@@ -251,7 +251,7 @@ cmdZlibDeflate(ClientData clientData, Tcl_Interp* ti, int objc, Tcl_Obj* const o
 
 		M_ASSERT(strm.avail_in == 0);
 
-		objs[2] = Tcl_NewLongObj(avail);
+		objs[2] = Tcl_NewWideIntObj(avail);
 		Tcl_IncrRefCount(objs[2]);
 		Tcl_EvalObjv(ti, 3, objs, TCL_EVAL_GLOBAL);
 		Tcl_DecrRefCount(objs[2]);
@@ -260,8 +260,8 @@ cmdZlibDeflate(ClientData clientData, Tcl_Interp* ti, int objc, Tcl_Obj* const o
 
 	deflateEnd(&strm);
 
-	objs[0] = Tcl_NewLongObj(strm.total_out);
-	objs[1] = Tcl_NewLongObj(crc);
+	objs[0] = Tcl_NewWideIntObj(strm.total_out);
+	objs[1] = Tcl_NewWideIntObj(crc);
 	Tcl_SetObjResult(ti, Tcl_NewListObj(2, objs));
 
 	return TCL_OK;
