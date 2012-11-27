@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 521 $
-# Date   : $Date: 2012-11-10 01:52:53 +0000 (Sat, 10 Nov 2012) $
+# Version: $Revision: 544 $
+# Date   : $Date: 2012-11-27 15:13:09 +0000 (Tue, 27 Nov 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -401,7 +401,7 @@ proc openBase {parent file byUser args} {
 	if {[file type $file] eq "link"} { set file [file normalize [file readlink $file]] }
 
 	if {[file extension $file] eq ".scv"} {
-		return [::remote::busyOperation { OpenArchive $parent $file $byUser $args }]
+		return [::remote::busyOperation { OpenArchive $parent $file $byUser {*}$args }]
 	}
 
 	array set opts { -readonly -1 -encoding "" -switchToBase 1 }
