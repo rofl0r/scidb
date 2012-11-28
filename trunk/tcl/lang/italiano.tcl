@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 524 $
-# Date   : $Date: 2012-11-12 23:08:27 +0000 (Mon, 12 Nov 2012) $
+# Version: $Revision: 545 $
+# Date   : $Date: 2012-11-28 14:54:14 +0000 (Wed, 28 Nov 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -112,8 +112,8 @@
 ::mc::Knight			"Cavallo"
 ::mc::Pawn				"Pedone"
 
-### scidb ##############################################################
-::scidb::mc::CannotOverwriteTheme	"Impossibile sovrascrivere il tema %s."
+### themes #############################################################
+::scidb::themes::mc::CannotOverwriteTheme	"Impossibile sovrascrivere il tema %s."
 
 ### locale #############################################################
 ::locale::Pattern(decimalPoint)	"."
@@ -633,15 +633,18 @@
 ::application::tree::mc::T_FrequentPlayer					"Giocata frequentemente da"
 
 ### board ##############################################################
-::board::mc::CannotReadFile		"Impossibile leggere file '%s':"
-::board::mc::CannotFindFile		"Impossibile trovare file '%s'"
-::board::mc::FileWillBeIgnored	"'%s' sarà ignorato (ID doppio)"
-::board::mc::IsCorrupt				"'%s' è corrotto (stile %s sconosciuto '%s')"
+::board::mc::CannotReadFile			"Impossibile leggere file '%s':"
+::board::mc::CannotFindFile			"Impossibile trovare file '%s'"
+::board::mc::FileWillBeIgnored		"'%s' sarà ignorato (ID doppio)"
+::board::mc::IsCorrupt					"'%s' è corrotto (stile %s sconosciuto '%s')"
+::board::mc::SquareStyleIsUndefined	"Square style '%s' no longer exists" ;# NEW
+::board::mc::PieceStyleIsUndefined	"Piece style '%s' no longer exists" ;# NEW
+::board::mc::ThemeIsUndefined			"Board theme '%s' no longer exists" ;# NEW
 
-::board::mc::ThemeManagement		"Gestore Temi"
-::board::mc::Setup					"Setup"
+::board::mc::ThemeManagement			"Gestore Temi"
+::board::mc::Setup						"Setup"
 
-::board::mc::WorkingSet				"Selezione di lavoro"
+::board::mc::WorkingSet					"Selezione di lavoro"
 
 ### board::options #####################################################
 ::board::options::mc::Coordinates			"Coordinate"

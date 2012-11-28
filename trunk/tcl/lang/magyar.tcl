@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 538 $
-# Date   : $Date: 2012-11-25 09:17:09 +0000 (Sun, 25 Nov 2012) $
+# Version: $Revision: 545 $
+# Date   : $Date: 2012-11-28 14:54:14 +0000 (Wed, 28 Nov 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -112,8 +112,8 @@
 ::mc::Knight		"Huszár"
 ::mc::Pawn		"Gyalog"
 
-### scidb ##############################################################
-::scidb::mc::CannotOverwriteTheme	"A %s témát nem lehet felülírni."
+### themes #############################################################
+::scidb::themes::mc::CannotOverwriteTheme	"A %s témát nem lehet felülírni."
 
 ### locale #############################################################
 ::locale::Pattern(decimalPoint)	"."
@@ -634,13 +634,16 @@
 ### board ##############################################################
 ::board::mc::CannotReadFile		"Fájl '%s' nem olvasható"
 ::board::mc::CannotFindFile		"Fájl '%s' nem található"
-::board::mc::FileWillBeIgnored	"'%s' figyelmen kívül hagyva (duplicate ID)"
-::board::mc::IsCorrupt				"'%s' hibás (ismeretlen %s style '%s')"
+::board::mc::FileWillBeIgnored		"'%s' figyelmen kívül hagyva (duplicate ID)"
+::board::mc::IsCorrupt			"'%s' hibás (ismeretlen %s style '%s')"
+::board::mc::SquareStyleIsUndefined	"Square style '%s' no longer exists" ;# NEW
+::board::mc::PieceStyleIsUndefined	"Piece style '%s' no longer exists" ;# NEW
+::board::mc::ThemeIsUndefined		"Board theme '%s' no longer exists" ;# NEW
 
 ::board::mc::ThemeManagement		"Téma beállítások"
 ::board::mc::Setup			"Beállítás"
 
-::board::mc::WorkingSet				"Working Set"
+::board::mc::WorkingSet			"Working Set"
 
 ### board::options #####################################################
 ::board::options::mc::Coordinates			"Koordináták"

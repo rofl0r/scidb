@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 480 $
-# Date   : $Date: 2012-10-21 22:57:40 +0000 (Sun, 21 Oct 2012) $
+# Version: $Revision: 545 $
+# Date   : $Date: 2012-11-28 14:54:14 +0000 (Wed, 28 Nov 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -219,23 +219,45 @@ switch $::scidb::revision {
 			set crc [lindex $::game::History $i 2 1]
 			if {$crc < 0} { lset ::game::History $i 2 1 [expr {$crc + 4294967296}] }
 		}
+		switch $::board::currentTheme {
+			Blue|1262882648418|yellow.color|gregor {
+				set $::board::currentTheme Ocean|1262882648418|yellow.color|gregor
+			}
+			Marble|1243532376507|yellow.color|gregor {
+				set $::board::currentTheme {Marble - Brown|1243532376507|yellow.color|gregor}
+			}
+			{Marble - Classic|1296049694406|yellow.color|gregor} {
+				set $::board::currentTheme {Marble - Red|1296049745744|yellow.color|gregor}
+			}
+			Phoenix|1296049187980|yellow.color|gregor {
+				set $::board::currentTheme Phoenix|1354101318690|purple|gregor
+			}
+			{Stony Glass|1243792200845|yellow.color|gregor} {
+				set $::board::currentTheme Default
+			}
+		}
 	}
 }
 
 if {$::scidb::revision < [::scidb::misc::revision]} {
-	::scidb::updateThemes
+	::scidb::themes::update
 	set ::beta::WhatsNew 1
 }
 set ::scidb::revision [::scidb::misc::revision]
 
 # --- Initalization ----------------------------------------------------
 
-::theme::setTheme $menu::Theme
 ::mc::setup
+::font::useLanguage $mc::langID
+
+if {[::process::testOption first-time]} {
+	::scidb::themes::update
+}
+
+::theme::setTheme $menu::Theme
 ::menu::setup
 ::board::setup
 ::tooltip::init
-::font::useLanguage $mc::langID
 ::font::setupChessFonts
 application::open
 

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 524 $
-# Date   : $Date: 2012-11-12 23:08:27 +0000 (Mon, 12 Nov 2012) $
+# Version: $Revision: 545 $
+# Date   : $Date: 2012-11-28 14:54:14 +0000 (Wed, 28 Nov 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -111,8 +111,8 @@
 ::mc::Knight			"Springer"
 ::mc::Pawn				"Bauer"
 
-### scidb ##############################################################
-::scidb::mc::CannotOverwriteTheme	"Das Theme %s konnte nicht überschrieben werden."
+### themes #############################################################
+::scidb::themes::mc::CannotOverwriteTheme	"Das Theme %s konnte nicht überschrieben werden."
 
 ### locale #############################################################
 ::locale::Pattern(decimalPoint)	","
@@ -630,15 +630,18 @@
 ::application::tree::mc::T_FrequentPlayer					"Häufigster Spieler"
 
 ### board ##############################################################
-::board::mc::CannotReadFile		"Datei '%s' ist nicht lesbar:"
-::board::mc::CannotFindFile		"Datei '%s' kann nicht gefunden werden"
-::board::mc::FileWillBeIgnored	"'%s' wird ignoriert (doppelte ID)"	;# ???
-::board::mc::IsCorrupt				"'%s' ist beschädigt (unbekannter %s-Stil '%s')"
+::board::mc::CannotReadFile			"Datei '%s' ist nicht lesbar:"
+::board::mc::CannotFindFile			"Datei '%s' kann nicht gefunden werden"
+::board::mc::FileWillBeIgnored		"'%s' wird ignoriert (doppelte ID)"	;# ???
+::board::mc::IsCorrupt					"'%s' ist beschädigt (unbekannter %s-Stil '%s')"
+::board::mc::SquareStyleIsUndefined	"Die Feldergestaltung '%s' existiert nicht mehr"
+::board::mc::PieceStyleIsUndefined	"Die Figurengestaltung '%s' existiert nicht mehr"
+::board::mc::ThemeIsUndefined			"Das Schachbrettthema '%s' existiert nicht mehr"
 
-::board::mc::ThemeManagement		"Themenverwaltung"
-::board::mc::Setup					"Einstellungen"
+::board::mc::ThemeManagement			"Themenverwaltung"
+::board::mc::Setup						"Einstellungen"
 
-::board::mc::WorkingSet				"Arbeitssatz"
+::board::mc::WorkingSet					"Arbeitssatz"
 
 ### board::options #####################################################
 ::board::options::mc::Coordinates			"Koordinaten"

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 524 $
-# Date   : $Date: 2012-11-12 23:08:27 +0000 (Mon, 12 Nov 2012) $
+# Version: $Revision: 545 $
+# Date   : $Date: 2012-11-28 14:54:14 +0000 (Wed, 28 Nov 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -111,8 +111,8 @@
 ::mc::Knight			"Knight"
 ::mc::Pawn				"Pawn"
 
-### scidb ##############################################################
-::scidb::mc::CannotOverwriteTheme	"Cannot overwrite theme %s."
+### themes #############################################################
+::scidb::themes::mc::CannotOverwriteTheme	"Cannot overwrite theme %s."
 
 ### locale #############################################################
 ::locale::Pattern(decimalPoint)	"."
@@ -629,15 +629,18 @@
 ::application::tree::mc::T_FrequentPlayer					"Most Frequent Player"
 
 ### board ##############################################################
-::board::mc::CannotReadFile		"Cannot read file '%s':"
-::board::mc::CannotFindFile		"Cannot find file '%s'"
-::board::mc::FileWillBeIgnored	"'%s' will be ignored (duplicate ID)"
-::board::mc::IsCorrupt				"'%s' is corrupt (unknown %s style '%s')"
+::board::mc::CannotReadFile			"Cannot read file '%s':"
+::board::mc::CannotFindFile			"Cannot find file '%s'"
+::board::mc::FileWillBeIgnored		"'%s' will be ignored (duplicate ID)"
+::board::mc::IsCorrupt					"'%s' is corrupt (unknown %s style '%s')"
+::board::mc::SquareStyleIsUndefined	"Square style '%s' no longer exists"
+::board::mc::PieceStyleIsUndefined	"Piece style '%s' no longer exists"
+::board::mc::ThemeIsUndefined			"Board theme '%s' no longer exists"
 
-::board::mc::ThemeManagement		"Theme Management"
-::board::mc::Setup					"Setup"
+::board::mc::ThemeManagement			"Theme Management"
+::board::mc::Setup						"Setup"
 
-::board::mc::WorkingSet				"Working Set"
+::board::mc::WorkingSet					"Working Set"
 
 ### board::options #####################################################
 ::board::options::mc::Coordinates			"Coordinates"

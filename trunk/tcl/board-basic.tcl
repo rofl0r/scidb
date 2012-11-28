@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 450 $
-# Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
+# Version: $Revision: 545 $
+# Date   : $Date: 2012-11-28 14:54:14 +0000 (Wed, 28 Nov 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -33,8 +33,9 @@ set CannotReadFile			"Cannot read file '%s'"
 set CannotFindFile			"Cannot find file '%s'"
 set FileWillBeIgnored		"'%s' will be ignored (duplicate id)"
 set IsCorrupt					"'%s' is corrupt (unknown %s style '%s')"
-set SquareStyleIsUndefined	"Square style '%s' is undefined"
-set PieceStyleIsUndefined	"Piece style '%s' is undefined"
+set SquareStyleIsUndefined	"Square style '%s' no longer exists"
+set PieceStyleIsUndefined	"Piece style '%s' no longer exists"
+set ThemeIsUndefined			"Board theme '%s' no longer exists"
 
 set ThemeManagement			"Theme Management"
 set Setup						"Setup"
@@ -773,8 +774,13 @@ proc setupTheme {{identifier {}}} {
 	variable theme::NameLookup
 	variable theme::style
 	variable currentTheme
+	variable defaultId
 
 	if {[llength $identifier] == 0} {
+		if {![dict exists $StyleDict $currentTheme]} {
+			::log::error $mc::ThemeManagement [format $mc::ThemeIsUndefined $currentTheme]
+			set currentTheme $defaultId
+		}
 		set identifier $currentTheme
 	} else {
 		set currentTheme $identifier
@@ -821,6 +827,7 @@ proc mapToName {identifier {which theme}} {
 
 proc mapToLongId {identifier {which theme}} {
 	variable ${which}::NameLookup
+	variable defaultId
 
 	if {$identifier eq $::mc::Default} {
 		set identifier $defaultId
