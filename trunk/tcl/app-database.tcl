@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 544 $
-# Date   : $Date: 2012-11-27 15:13:09 +0000 (Tue, 27 Nov 2012) $
+# Version: $Revision: 548 $
+# Date   : $Date: 2012-11-29 12:33:37 +0000 (Thu, 29 Nov 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1453,11 +1453,6 @@ proc LogCopyDb {unused arguments} {
 
 	::log::$type $line
 	update idletasks
-}
-
-
-proc LogCopyDb {args} {
-	puts "LogCopyDb: $args"
 }
 
 
