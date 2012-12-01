@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 545 $
-# Date   : $Date: 2012-11-28 14:54:14 +0000 (Wed, 28 Nov 2012) $
+# Version: $Revision: 551 $
+# Date   : $Date: 2012-12-01 22:55:23 +0000 (Sat, 01 Dec 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -922,6 +922,7 @@
 ::application::analysis::mc::TimeSearched			"Söktid"
 ::application::analysis::mc::SearchDepth			"Sökdjup i plys (Selektivt sökdjup)"
 ::application::analysis::mc::IllegalPosition		"Ogiltig ställning - Kan inte analysera"
+::application::analysis::mc::DidNotReceivePong	"Engine is not responding to \"pong\" command - Analysis aborted" ;# NEW
 
 ::application::analysis::mc::LinesPerVariation	"Rader per variant"
 ::application::analysis::mc::BestFirstOrder		"Sortera på  värdering"

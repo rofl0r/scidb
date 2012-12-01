@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 514 $
-// Date   : $Date: 2012-11-07 16:20:41 +0000 (Wed, 07 Nov 2012) $
+// Version: $Revision: 551 $
+// Date   : $Date: 2012-12-01 22:55:23 +0000 (Sat, 01 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -576,7 +576,7 @@ uci::Engine::processMessage(mstl::string const& message)
 		case 'c':
 			if (::strcmp(message, "copyprotection checking") == 0)
 			{
-				error(app::Engine::Engins_Has_Copy_Protection);
+				error(app::Engine::Engine_Has_Copy_Protection);
 				deactivate();
 			}
 			break;

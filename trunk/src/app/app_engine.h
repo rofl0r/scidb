@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 550 $
-// Date   : $Date: 2012-12-01 18:24:50 +0000 (Sat, 01 Dec 2012) $
+// Version: $Revision: 551 $
+// Date   : $Date: 2012-12-01 22:55:23 +0000 (Sat, 01 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -87,11 +87,12 @@ public:
 	enum Error
 	{
 		Engine_Requires_Registration,
-		Engins_Has_Copy_Protection,
+		Engine_Has_Copy_Protection,
 		Standard_Chess_Not_Supported,
 		Chess_960_Not_Supported,
 		No_Analyze_Mode,
 		Illegal_Position,
+		Did_Not_Receive_Pong,
 	};
 
 	enum Signal

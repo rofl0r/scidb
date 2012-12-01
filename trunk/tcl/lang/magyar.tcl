@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 545 $
-# Date   : $Date: 2012-11-28 14:54:14 +0000 (Wed, 28 Nov 2012) $
+# Version: $Revision: 551 $
+# Date   : $Date: 2012-12-01 22:55:23 +0000 (Sat, 01 Dec 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -922,6 +922,7 @@
 ::application::analysis::mc::TimeSearched		"Time searched" ;# NEW
 ::application::analysis::mc::SearchDepth		"Search depth in plies (Selective search depth)" ;# NEW
 ::application::analysis::mc::IllegalPosition		"Illegal position - Cannot analyze" ;# NEW
+::application::analysis::mc::DidNotReceivePong		"Engine is not responding to \"pong\" command - Analysis aborted" ;# NEW
 
 ::application::analysis::mc::LinesPerVariation		"Lines per variation" ;# NEW
 ::application::analysis::mc::BestFirstOrder		"Sort by evaluation" ;# NEW

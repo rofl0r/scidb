@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 534 $
-# Date   : $Date: 2012-11-21 21:59:53 +0000 (Wed, 21 Nov 2012) $
+# Version: $Revision: 551 $
+# Date   : $Date: 2012-12-01 22:55:23 +0000 (Sat, 01 Dec 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -46,6 +46,7 @@ set CurrentMove				"Currently searching this move"
 set TimeSearched				"Time searched"
 set SearchDepth				"Search depth in plies (Selective search depth)"
 set IllegalPosition			"Illegal position - Cannot analyze"
+set DidNotReceivePong		"Engine is not responding to \"pong\" command - Analysis aborted"
 
 set LinesPerVariation		"Lines per variation"
 set BestFirstOrder			"Use \"best first\" order"
@@ -772,6 +773,9 @@ proc Display(error) {code} {
 		}
 		illegal {
 			set msg $mc::IllegalPosition
+		}
+		pong {
+			set msg $mc::DidNotReceivePong
 		}
 	}
 

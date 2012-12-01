@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 550 $
-// Date   : $Date: 2012-12-01 18:24:50 +0000 (Sat, 01 Dec 2012) $
+// Version: $Revision: 551 $
+// Date   : $Date: 2012-12-01 22:55:23 +0000 (Sat, 01 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -864,8 +864,12 @@ Engine::exited()
 	else
 	{
 		mstl::string msg;
-		msg.format("Engine terminated with exit status %d", m_exitStatus = m_process->exitStatus());
-		fatal(msg);
+		m_exitStatus = m_process->exitStatus();
+		msg.format("Engine terminated with exit status %d", m_exitStatus);
+		if (m_exitStatus)
+			fatal(msg);
+		else
+			log(msg);
 		engineSignal(Terminated);
 	}
 
