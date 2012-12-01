@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 518 $
-// Date   : $Date: 2012-11-09 17:36:55 +0000 (Fri, 09 Nov 2012) $
+// Version: $Revision: 550 $
+// Date   : $Date: 2012-12-01 18:24:50 +0000 (Sat, 01 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -199,7 +199,9 @@ public:
 	bool isEqualPosition(Board const& target) const;
 	/// Return true if side to move is in check
 	bool isInCheck() const;
-	/// Return true if side not to move is in check
+	/// Return true if side to move is in check
+	bool isMate() const;
+	/// Return true if side not to move is mate
 	bool givesCheck() const;
 	/// Return true if side not to move is mate
 	bool givesMate() const;
@@ -421,10 +423,8 @@ private:
 	/// Return move with castling details, return empty move if no castle is possible
 	Move prepareCastle(Square from, Square to, move::Constraint flag) const;
 
-   void filterCheckMovesTo(Move move, uint64_t& movers) const;
-   void filterCheckMateMovesTo(Move move, uint64_t& movers) const;
-   void filterCheckMovesFrom(Move move, uint64_t& movers) const;
-   void filterCheckMateMovesFrom(Move move, uint64_t& movers) const;
+   void filterCheckMoves(Move move, uint64_t& movers) const;
+   void filterCheckMateMoves(Move move, uint64_t& movers) const;
 
 	/// Swap the side to move
 	void swapToMove();

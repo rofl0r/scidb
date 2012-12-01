@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 514 $
-// Date   : $Date: 2012-11-07 16:20:41 +0000 (Wed, 07 Nov 2012) $
+// Version: $Revision: 550 $
+// Date   : $Date: 2012-12-01 18:24:50 +0000 (Sat, 01 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -319,6 +319,7 @@ public:
 	unsigned currentMoveCount() const;
 	db::Move const& currentMove() const;
 	unsigned hashFullness() const;
+	unsigned ordering(unsigned line) const;
 
 	mstl::string const& identifier() const;
 	mstl::string const& shortName() const;
@@ -537,6 +538,7 @@ private:
 	bool					m_identifierSet;
 	bool					m_useLimitedStrength;
 	bool					m_bestInfoHasChanged;
+	bool					m_useBestInfo;
 	bool					m_pause;
 	bool					m_restart;
 	Process*				m_process;

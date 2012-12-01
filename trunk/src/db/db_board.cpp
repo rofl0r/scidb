@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 532 $
-// Date   : $Date: 2012-11-20 21:47:04 +0000 (Tue, 20 Nov 2012) $
+// Version: $Revision: 550 $
+// Date   : $Date: 2012-12-01 18:24:50 +0000 (Sat, 01 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -619,9 +619,9 @@ Board::prepareForPrint(Move& move) const
 							{
 								// this is confusing if more than moving piece exists
 								if (state & CheckMate)
-									filterCheckMateMovesTo(move, others);
+									filterCheckMateMoves(move, others);
 								else
-									filterCheckMovesTo(move, others);
+									filterCheckMoves(move, others);
 							}
 						}
 
@@ -698,7 +698,7 @@ Board::prepareForPrint(Move& move) const
 
 						// this may be confusing if more than one of captured piece exists
 						if (state & (Check | CheckMate))
-							filterCheckMovesFrom(move, others[1]);
+							filterCheckMoves(move, others[0]);
 
 						if (others[0] | others[1])
 							move.setNeedsDestinationSquare();
@@ -2407,53 +2407,7 @@ Board::filterLegalMoves(MoveList& result) const
 
 
 void
-Board::filterCheckMovesTo(Move move, uint64_t& movers) const
-{
-	typedef mstl::bitfield<uint64_t> BitField;
-
-	Board peek(*this);
-	BitField squares(movers);
-
-	prepareUndo(move);
-
-	for (unsigned sq = squares.find_first(); sq != BitField::npos; sq = squares.find_next(sq))
-	{
-		move.setTo(sq);
-		peek.doMove(move);
-
-		if (!peek.givesCheck())
-			movers &= ~setBit(sq);
-
-		peek.undoMove(move);
-	}
-}
-
-
-void
-Board::filterCheckMateMovesTo(Move move, uint64_t& movers) const
-{
-	typedef mstl::bitfield<uint64_t> BitField;
-
-	Board peek(*this);
-	BitField squares(movers);
-
-	prepareUndo(move);
-
-	for (unsigned sq = squares.find_first(); sq != BitField::npos; sq = squares.find_next(sq))
-	{
-		move.setTo(sq);
-		peek.doMove(move);
-
-		if (!peek.givesMate())
-			movers &= ~setBit(sq);
-
-		peek.undoMove(move);
-	}
-}
-
-
-void
-Board::filterCheckMovesFrom(Move move, uint64_t& movers) const
+Board::filterCheckMoves(Move move, uint64_t& movers) const
 {
 	typedef mstl::bitfield<uint64_t> BitField;
 
@@ -2467,7 +2421,7 @@ Board::filterCheckMovesFrom(Move move, uint64_t& movers) const
 		move.setFrom(sq);
 		peek.doMove(move);
 
-		if (!peek.givesCheck())
+		if (!peek.isInCheck())
 			movers &= ~setBit(sq);
 
 		peek.undoMove(move);
@@ -2476,7 +2430,7 @@ Board::filterCheckMovesFrom(Move move, uint64_t& movers) const
 
 
 void
-Board::filterCheckMateMovesFrom(Move move, uint64_t& movers) const
+Board::filterCheckMateMoves(Move move, uint64_t& movers) const
 {
 	typedef mstl::bitfield<uint64_t> BitField;
 
@@ -2490,7 +2444,7 @@ Board::filterCheckMateMovesFrom(Move move, uint64_t& movers) const
 		move.setFrom(sq);
 		peek.doMove(move);
 
-		if (!peek.givesMate())
+		if (!peek.isMate())
 			movers &= ~setBit(sq);
 
 		peek.undoMove(move);

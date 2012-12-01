@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 466 $
-// Date   : $Date: 2012-10-14 23:03:57 +0000 (Sun, 14 Oct 2012) $
+// Version: $Revision: 550 $
+// Date   : $Date: 2012-12-01 18:24:50 +0000 (Sat, 01 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -211,12 +211,20 @@ struct DString
 static void
 readHandler(ClientData clientData, int)
 {
-	Process* process = reinterpret_cast<Process*>(clientData);
+	try
+	{
+		Process* process = reinterpret_cast<Process*>(clientData);
 
-	if (process->isRunning())
-		process->readyRead();
-	else
-		process->close();
+		if (process->isRunning())
+			process->readyRead();
+		else
+			process->close();
+	}
+	catch (mstl::exception const& exc)
+	{
+		Tcl_SetObjResult(::tcl::interp(), Tcl_NewStringObj(exc.what(),  -1));
+		Tcl_BackgroundError(::tcl::interp());
+	}
 }
 
 

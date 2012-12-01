@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 441 $
-// Date   : $Date: 2012-09-23 15:58:06 +0000 (Sun, 23 Sep 2012) $
+// Version: $Revision: 550 $
+// Date   : $Date: 2012-12-01 18:24:50 +0000 (Sat, 01 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -42,6 +42,7 @@ inline color::ID Board::notToMove() const			{ return color::ID(m_stm ^ 1); }
 inline bool Board::isEmpty() const					{ return m_hash == 0; }
 inline bool Board::isStandardPosition() const	{ return isEqualPosition(m_standardBoard); }
 inline bool Board::isInCheck() const				{ return isAttackedBy(m_stm ^ 1, m_ksq[m_stm]); }
+inline bool Board::isMate() const					{ return checkState() & CheckMate; }
 inline bool Board::givesCheck() const				{ return isAttackedBy(m_stm, m_ksq[m_stm ^ 1]); }
 inline bool Board::isLegal() const					{ return !isAttackedBy(m_stm, m_ksq[m_stm ^ 1]); }
 inline bool Board::whiteToMove() const				{ return color::isWhite(sideToMove()); }
