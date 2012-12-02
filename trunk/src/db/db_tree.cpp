@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 450 $
-// Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
+// Version: $Revision: 556 $
+// Date   : $Date: 2012-12-02 18:23:53 +0000 (Sun, 02 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -737,10 +737,7 @@ Tree::makeTree(TreeP tree,
 				myPosition.prepareForPrint(info.move());
 			}
 
-			if (	line.length <= opening::Max_Line_Length
-				&& !info.eco()
-				&& (	myIdn == variant::StandardIdn
-					|| (myIdn == 0 && !myPosition.notDerivableFromStandardChess())))
+			if (line.length <= opening::Max_Line_Length && !info.eco() && myIdn == variant::StandardIdn)
 			{
 				buf[line.length - 1] = ::index(info.move());
 				info.setEco(EcoTable::specimen().getEco(line));
