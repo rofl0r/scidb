@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 526 $
-# Date   : $Date: 2012-11-13 13:26:07 +0000 (Tue, 13 Nov 2012) $
+# Version: $Revision: 553 $
+# Date   : $Date: 2012-12-02 14:17:21 +0000 (Sun, 02 Dec 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1722,8 +1722,8 @@ proc SetState {toolbar v w state} {
 				set relief $Specs(relief:$v:$toolbar)
 				set activebackground $Specs(active:$v:$toolbar)
 				set command $Specs(command:$v:$toolbar)
-				bind $w <ButtonPress-1> $Specs(button1:$w:$toolbar)
-				bind $w <Enter> $Specs(entercmd:$w:$toolbar)
+				bind $w <ButtonPress-1> $Specs(button1:$v:$toolbar)
+				bind $w <Enter> $Specs(entercmd:$v:$toolbar)
 			} else {
 				set overrelief flat
 				set relief flat
