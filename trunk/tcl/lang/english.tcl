@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 551 $
-# Date   : $Date: 2012-12-01 22:55:23 +0000 (Sat, 01 Dec 2012) $
+# Version: $Revision: 552 $
+# Date   : $Date: 2012-12-02 13:23:52 +0000 (Sun, 02 Dec 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -923,7 +923,7 @@
 ::application::analysis::mc::Seconds				"s"
 ::application::analysis::mc::Minutes				"m"
 
-::application::analysis::mc::Status(mate)			"%s is mate"
+::application::analysis::mc::Status(checkmate)	"%s is checkmate"
 ::application::analysis::mc::Status(stalemate)	"%s is stalemate"
 
 ::application::analysis::mc::NotSupported(standard)	"This engine does not support standard chess."

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 317 $
-// Date   : $Date: 2012-05-05 16:33:40 +0000 (Sat, 05 May 2012) $
+// Version: $Revision: 552 $
+// Date   : $Date: 2012-12-02 13:23:52 +0000 (Sun, 02 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1411,7 +1411,7 @@ MultiWindowWidgetObjCmd(ClientData clientData,	// Information about square widge
 		MW_PANECONFIGURE, MW_PANES, MW_RAISE, MW_UNMAP,
 	};
 
-	MultiWindow*	mw			= (MultiWindow*)clientData;
+	MultiWindow*	mw				= (MultiWindow*)clientData;
 	int				result		= TCL_OK;
 	Tcl_Obj*			resultObj;
 	int				index;
@@ -1894,17 +1894,12 @@ MultiWindowReqProc(	ClientData clientData,	// Multi window's information about w
 	Slave*			slave	= (Slave*)clientData;
 	MultiWindow*	mw		= (MultiWindow*)slave->master;
 
-	if (Tk_IsMapped(mw->tkwin))
+	ComputeGeometry(mw);
+
+	if (Tk_IsMapped(mw->tkwin) && !(mw->flags & RESIZE_PENDING))
 	{
-		if (!(mw->flags & RESIZE_PENDING))
-		{
-			mw->flags |= RESIZE_PENDING;
-			Tcl_DoWhenIdle(ArrangePane, (ClientData)mw);
-		}
-	}
-	else
-	{
-		ComputeGeometry(mw);
+		mw->flags |= RESIZE_PENDING;
+		Tcl_DoWhenIdle(ArrangePane, (ClientData)mw);
 	}
 }
 
