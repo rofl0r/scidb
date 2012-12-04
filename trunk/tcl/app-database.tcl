@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 548 $
-# Date   : $Date: 2012-11-29 12:33:37 +0000 (Thu, 29 Nov 2012) $
+# Version: $Revision: 558 $
+# Date   : $Date: 2012-12-04 21:10:31 +0000 (Tue, 04 Dec 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1166,7 +1166,7 @@ proc ParseUriFiles {parent files allowedExtensions action} {
 		if {[string equal -length 6 $uri "trash:"]} {
 			lappend trashList $uri
 		} elseif {	[string equal -length 5 $uri "http:"]
-						[string equal -length 6 $uri "https:"]
+					|| [string equal -length 6 $uri "https:"]
 					|| [string equal -length 4 $uri "ftp:"]} {
 			lappend remoteList $uri
 		} elseif {[file exists $file]} {
