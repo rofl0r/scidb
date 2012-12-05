@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 553 $
-# Date   : $Date: 2012-12-02 14:17:21 +0000 (Sun, 02 Dec 2012) $
+# Version: $Revision: 559 $
+# Date   : $Date: 2012-12-05 22:44:51 +0000 (Wed, 05 Dec 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -702,7 +702,7 @@ proc Display(bestscore) {score mate bestLines} {
 
 
 proc Display(checkmate) {color} {
-	ShowMessage info [format $mc::Status(mate) [set ::mc::[string toupper $color 0 0]]]
+	ShowMessage info [format $mc::Status(checkmate) [set ::mc::[string toupper $color 0 0]]]
 }
 
 
