@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 560 $
-// Date   : $Date: 2012-12-07 21:28:38 +0000 (Fri, 07 Dec 2012) $
+// Version: $Revision: 561 $
+// Date   : $Date: 2012-12-07 21:35:15 +0000 (Fri, 07 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -180,6 +180,8 @@ CoordsToWindow(int rootX, int rootY, Tk_Window tkwin) {
                 && rootY < childY + height) {
               tkwin = child;
               mouse_tkwin = child;
+              baseX = rootX - childX;
+              baseY = rootY - childY;
               break;
             }
           } else {
@@ -238,7 +240,9 @@ CoordsToWindow(int rootX, int rootY, Tk_Window tkwin) {
                   && rootY < childY + height) {
                 tkwin = child;
                 mouse_tkwin = child;
-                break;
+                baseX = rootX - childX;
+                baseY = rootY - childY;
+					 break;
               }
             } else {
               int x = Tk_X(child);
