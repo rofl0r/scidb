@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 407 $
-# Date   : $Date: 2012-08-08 21:52:05 +0000 (Wed, 08 Aug 2012) $
+# Version: $Revision: 562 $
+# Date   : $Date: 2012-12-08 00:39:55 +0000 (Sat, 08 Dec 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -580,7 +580,7 @@
 "Lasker's"														"Laskers"
 "Levenfish"														"Löwenfisch"
 "Lipawski"														"Likavsky"
-"Mazukewitch"													"Mazukewitsch"
+"Mazukevich"													"Mazukewitsch"
 "Napoleon's"													"Napoleons"
 "Nimzovich"														"Nimzowitsch"
 "Osmolovsky"													"Osmolowski"
