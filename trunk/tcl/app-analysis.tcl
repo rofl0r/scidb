@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 559 $
-# Date   : $Date: 2012-12-05 22:44:51 +0000 (Wed, 05 Dec 2012) $
+# Version: $Revision: 563 $
+# Date   : $Date: 2012-12-09 10:18:03 +0000 (Sun, 09 Dec 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -778,8 +778,6 @@ proc Display(cpuload) {load} {
 
 proc Display(error) {code} {
 	variable Vars
-
-	Display(clear)
 
 	switch $code {
 		registration - copyprotection {

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 450 $
-# Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
+# Version: $Revision: 563 $
+# Date   : $Date: 2012-12-09 10:18:03 +0000 (Sun, 09 Dec 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -243,7 +243,7 @@ proc open {parent} {
 		wm attributes $dlg -toolwindow
 		wm title $dlg $title
 	} else {
-		::scidb::tk::wm noDecor $dlg
+		::scidb::tk::wm frameless $dlg
 	}
 	Init $dlg
 	wm deiconify $dlg

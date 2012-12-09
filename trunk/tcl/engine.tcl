@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 482 $
-# Date   : $Date: 2012-10-24 09:55:33 +0000 (Wed, 24 Oct 2012) $
+# Version: $Revision: 563 $
+# Date   : $Date: 2012-12-09 10:18:03 +0000 (Sun, 09 Dec 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -2627,7 +2627,7 @@ proc ProbeEngine {parent entry} {
 	wm transient $wait $parent
 	::util::place $wait center $parent
 	update idletasks
-	::scidb::tk::wm noDecor $wait
+	::scidb::tk::wm frameless $wait
 	wm deiconify $wait
 	::ttk::grabWindow $wait
 	::widget::busyCursor on
