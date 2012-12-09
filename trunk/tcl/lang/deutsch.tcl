@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 552 $
-# Date   : $Date: 2012-12-02 13:23:52 +0000 (Sun, 02 Dec 2012) $
+# Version: $Revision: 566 $
+# Date   : $Date: 2012-12-09 18:52:08 +0000 (Sun, 09 Dec 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -602,6 +602,9 @@
 ::application::tree::mc::LockReferenceBase				"Referenzdatenbank sperren"
 ::application::tree::mc::SwitchReferenceBase				"Referenzdatenbank wechseln"
 ::application::tree::mc::TransparentBar					"Transparente Balken"
+::application::tree::mc::NoGamesFound						"Keine Partien gefunden"
+::application::tree::mc::NoGamesAvailable					"Keine Partien verfügbar"
+::application::tree::mc::Searching							"Suche"
 
 ::application::tree::mc::FromWhitesPerspective			"Aus weißer Sicht"
 ::application::tree::mc::FromBlacksPerspective			"Aus schwarzer Sicht"

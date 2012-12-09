@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 552 $
-# Date   : $Date: 2012-12-02 13:23:52 +0000 (Sun, 02 Dec 2012) $
+# Version: $Revision: 566 $
+# Date   : $Date: 2012-12-09 18:52:08 +0000 (Sun, 09 Dec 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -604,6 +604,9 @@
 ::application::tree::mc::LockReferenceBase			"Referencia adatbázis zárolása"
 ::application::tree::mc::SwitchReferenceBase			"Switch reference database" ;# NEW
 ::application::tree::mc::TransparentBar				"Transparent bar"
+::application::tree::mc::NoGamesFound				"No games found" ;# NEW
+::application::tree::mc::NoGamesAvailable			"No games available" ;# NEW
+::application::tree::mc::Searching				"Searching" ;# NEW
 
 ::application::tree::mc::FromWhitesPerspective		"Világos nézőpontjából"
 ::application::tree::mc::FromBlacksPerspective		"Sötét nézőpontjából"
