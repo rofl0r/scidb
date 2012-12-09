@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 531 $
-// Date   : $Date: 2012-11-14 12:28:55 +0000 (Wed, 14 Nov 2012) $
+// Version: $Revision: 565 $
+// Date   : $Date: 2012-12-09 13:44:21 +0000 (Sun, 09 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -106,7 +106,7 @@ SearchGameEvent::SearchGameEvent(NamebaseEvent const* entry, Date const& date)
 		if (m2 > 12)
 		{
 			m2 -= 12;
-			--y2;
+			++y2;
 		}
 
 		int d1 = mstl::min(date.day(), Date::lastDayInMonth(y1, m1));
