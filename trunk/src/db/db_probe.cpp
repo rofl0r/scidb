@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 569 $
-// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
+// Version: $Revision: 570 $
+// Date   : $Date: 2012-12-16 22:59:26 +0000 (Sun, 16 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -184,8 +184,8 @@ namespace egtb
 	{
 		int pieceCounts[10] =
 		{
-			white.pawn, white.knight, white.bishop, white.rook, white.queen,
-			black.pawn, black.knight, black.bishop, black.rook, black.queen,
+			int(white.pawn), int(white.knight), int(white.bishop), int(white.rook), int(white.queen),
+			int(black.pawn), int(black.knight), int(black.bishop), int(black.rook), int(black.queen),
 		};
 
 		int index = IDescFindFromCounters(pieceCounts);

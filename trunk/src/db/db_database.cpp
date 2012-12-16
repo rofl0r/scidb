@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 569 $
-// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
+// Version: $Revision: 570 $
+// Date   : $Date: 2012-12-16 22:59:26 +0000 (Sun, 16 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -184,7 +184,7 @@ Database::Database(	mstl::string const& name,
 		case format::Scid4:		m_variant = variant::Normal; break;
 		case format::ChessBase:	m_variant = variant::Normal; break;
 
-		default: M_RAISE(!"unexpected format");
+		default: M_ASSERT(!"unexpected format");
 	}
 
 	if (!m_codec->isWriteable())

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 346 $
-// Date   : $Date: 2012-06-15 21:04:20 +0000 (Fri, 15 Jun 2012) $
+// Version: $Revision: 570 $
+// Date   : $Date: 2012-12-16 22:59:26 +0000 (Sun, 16 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -314,7 +314,7 @@ mul4(T x)
 
 template <typename T>
 inline
-constexpr unsigned
+unsigned
 log2_floor(T x)
 {
 	static_assert(numeric_limits<T>::is_integer, "template parameter not integer");

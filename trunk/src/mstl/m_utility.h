@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 343 $
-// Date   : $Date: 2012-06-15 12:05:39 +0000 (Fri, 15 Jun 2012) $
+// Version: $Revision: 570 $
+// Date   : $Date: 2012-12-16 22:59:26 +0000 (Sun, 16 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -70,7 +70,7 @@ template <typename T> constexpr T mod4(T x);
 template <typename T> constexpr T mul2(T x);
 template <typename T> constexpr T mul4(T x);
 
-template <typename T> constexpr unsigned log2_floor(T x);
+template <typename T> unsigned log2_floor(T x);
 template <typename T> unsigned log2_ceil(T x);
 
 template <typename T> constexpr bool is_between(T x, T a, T b);

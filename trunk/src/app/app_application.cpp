@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 569 $
-// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
+// Version: $Revision: 570 $
+// Date   : $Date: 2012-12-16 22:59:26 +0000 (Sun, 16 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -811,7 +811,7 @@ Application::closeAll(CloseMode mode)
 					{
 						stopUpdateTree();
 
-						if (mode != mode == Including_Clipbase)
+						if (mode != Including_Clipbase)
 							refBase = clipbase(variant::Normal);
 					}
 				}
