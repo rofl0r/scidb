@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 569 $
+// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -87,7 +87,6 @@ private:
 
 	static bool checkIfReachable(uint16_t currentSig, hp::Pawns targetData, unsigned count);
 
-	unsigned		m_used;
 	hp::Pawns	m_data;
 	uint16_t		m_signature;	// remember last signature
 	unsigned		m_shift;

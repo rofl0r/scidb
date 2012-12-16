@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 433 $
-# Date   : $Date: 2012-09-21 17:19:40 +0000 (Fri, 21 Sep 2012) $
+# Version: $Revision: 569 $
+# Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -117,18 +117,35 @@ proc formatUrl {url} {
 
 
 proc defaultCSS {monoFamilies textFamilies} {
-	set css "
-		:link    { color: blue2; text-decoration: none; }
-		:visited { color: purple; text-decoration: none; }
-		/*:user	{ color: red3; text-decoration: none; }*/
-		:user		{ color: blue2; text-decoration: underline; }	/* http link */
-		:user2	{ color: purple; text-decoration: underline; }	/* http visited */
-		:user3	{ color: black; text-decoration: underline; }	/* invalid link */
-		:hover   { text-decoration: underline; background: yellow; }
-		.match	{ background: yellow; color: black; }
-		html		{ font-family: [join $textFamilies ","]; }
-		pre, tt, code, kbd { font-family: [join $monoFamilies ","]; }
-	"
+	append css \n
+	append css ":link    { color: blue2; text-decoration: none; }" \n
+	append css ":visited { color: purple; text-decoration: none; }" \n
+	append css ":visited { color: purple; text-decoration: none; }" \n
+#	append css ":user  { color: red3; text-decoration: none; }" \n
+	append css ":user    { color: blue2; text-decoration: underline; }   /* http link */" \n
+	append css ":user2   { color: purple; text-decoration: underline; }  /* http visited */" \n
+	append css ":user3   { color: black; text-decoration: underline; }   /* invalid link */" \n
+	append css ":hover   { text-decoration: underline; background: yellow; }" \n
+	append css ".match   { background: yellow; color: black; }" \n
+	append css [monoStyle $monoFamilies] \n
+	append css [textStyle $textFamilies] \n
+	return $css
+}
+
+
+proc monoStyle {families} {
+	append result "pre, tt, code, kbd { font-family: "
+	append result [join $families ","]
+	append result "; }"
+	return $result
+}
+
+
+proc textStyle {families} {
+	append result "html { font-family: "
+	append result [join $families ","]
+	append result "; }"
+	return $result
 }
 
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 450 $
-// Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
+// Version: $Revision: 569 $
+// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -35,11 +35,13 @@ DatabaseContent::~DatabaseContent() throw() {}
 
 DatabaseContent::DatabaseContent(mstl::string const& encoding, Type type)
 	:m_type(type)
+	,m_variant(variant::Undetermined)
 	,m_created(0)
 	,m_readOnly(false)
 	,m_writeable(true)
 	,m_memoryOnly(false)
 	,m_temporary(false)
+	,m_shouldCompress(false)
 	,m_encoding(encoding)
 	,m_allocator(32768)
 {
@@ -48,11 +50,13 @@ DatabaseContent::DatabaseContent(mstl::string const& encoding, Type type)
 
 DatabaseContent::DatabaseContent(DatabaseContent const& content)
 	:m_type(content.m_type)
+	,m_variant(content.m_variant)
 	,m_created(content.m_created)
 	,m_readOnly(content.m_readOnly)
 	,m_writeable(content.m_writeable)
 	,m_memoryOnly(content.m_memoryOnly)
 	,m_temporary(content.m_temporary)
+	,m_shouldCompress(content.m_shouldCompress)
 	,m_description(content.m_description)
 	,m_encoding(content.m_encoding)
 	,m_allocator(32768)

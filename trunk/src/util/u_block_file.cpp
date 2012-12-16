@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 427 $
-// Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
+// Version: $Revision: 569 $
+// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -348,8 +348,8 @@ BlockFile::save(mstl::ostream& stream, Progress* progress)
 
 	if (!m_cache.empty())
 	{
-		unsigned size = m_cache.size();
-		unsigned progressFrequency;
+		unsigned size						= m_cache.size();
+		unsigned progressFrequency		= 0; // satisifies the compiler
 		unsigned progressReportAfter	= unsigned(-1);
 
 		if (progress)

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 450 $
-// Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
+// Version: $Revision: 569 $
+// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -38,6 +38,7 @@ class TreeCache
 {
 public:
 
+	// XXX possibly we should use ExactZHPosition
 	typedef board::ExactPosition Position;
 
 	enum { CacheSize = 256 };

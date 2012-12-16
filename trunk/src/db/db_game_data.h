@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 569 $
+// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -44,10 +44,12 @@ public:
 	GameData();
 	virtual ~GameData() throw();
 
-	MoveNode*	m_startNode;	///< Keeps the starting node of the game
-	Board			m_startBoard;	///< Keeps the start position of the game
-	TagSet		m_tags;
-	EngineList	m_engines;
+	MoveNode*		m_startNode;	///< Keeps the starting node of the game
+	Board				m_startBoard;	///< Keeps the start position of the game
+	TagSet			m_tags;
+	variant::Type	m_variant;
+	uint16_t			m_idn;
+	EngineList		m_engines;
 };
 
 } // namespace db

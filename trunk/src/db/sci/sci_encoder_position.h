@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 569 $
+// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -30,6 +30,7 @@
 #include "db_common.h"
 
 #include "m_stack.h"
+#include "m_bitfield.h"
 
 namespace db {
 
@@ -50,23 +51,28 @@ public:
 		friend class Position;
 
 		typedef Byte Numbers[64];
+		typedef mstl::bitfield<uint32_t> Used;
 
 		Byte operator[](unsigned i) const;
 		Byte& operator[](unsigned i);
 
-		Numbers numbers;
+		Numbers	numbers;
+		Used		used[2];
 	};
 
 	Position();
 
-	void setup(Board const& board);
-	void setup();
+	void setupShuffle(Board const& board);
+	void setupZero(Board const& board);
+	void setupStandard();
+	void setup(uint16_t idn);
 
 	void preparePush();
 	void push();
 	void pop();
 	void doMove(Move const& move);
 	void doMove(Lookup& lookup, Move const& move);
+	Byte dropPiece(Move const& move);
 
 	Lookup& lookup();
 	Lookup& previous();
@@ -91,6 +97,7 @@ template <typename> struct is_pod;
 template <> struct is_pod<db::sci::encoder::Position::Lookup> { enum { value = 1 }; };
 
 } // namespace mstl
+
 #include "sci_encoder_position.ipp"
 
 #endif // _sci_encoder_position_included

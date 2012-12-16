@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 569 $
+// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -25,10 +25,18 @@
 // ======================================================================
 
 #include "db_provider.h"
+#include "db_board.h"
 
 using namespace db;
 
 Provider::Provider(format::Type srcFormat) :m_format(srcFormat), m_index(-1) {}
 Provider::~Provider() throw() {}
+
+
+bool
+Provider::setupBoard() const
+{
+	return !getStartBoard().isStartPosition();
+}
 
 // vi:set ts=3 sw=3:

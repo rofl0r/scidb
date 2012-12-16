@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 430 $
-// Date   : $Date: 2012-09-20 17:13:27 +0000 (Thu, 20 Sep 2012) $
+// Version: $Revision: 569 $
+// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -346,7 +346,7 @@ Key::findPosition(MoveNode* node, unsigned plyNumber) const
 
 
 bool
-Key::setBoard(MoveNode const* root, Board& board) const
+Key::setBoard(MoveNode const* root, Board& board, variant::Type variant) const
 {
 	M_REQUIRE(root);
 
@@ -367,7 +367,7 @@ Key::setBoard(MoveNode const* root, Board& board) const
 			for ( ; num > 0; --num)
 			{
 				if (!node->atLineStart())
-					board.doMove(node->move());
+					board.doMove(node->move(), variant);
 
 				if ((node = node->next()) == 0)
 					return false;
@@ -391,7 +391,7 @@ Key::setBoard(MoveNode const* root, Board& board) const
 	}
 
 	if (!node->atLineStart())
-		board.doMove(node->move());
+		board.doMove(node->move(), variant);
 
 	return true;
 }

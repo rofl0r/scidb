@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 564 $
-# Date   : $Date: 2012-12-09 11:22:32 +0000 (Sun, 09 Dec 2012) $
+# Version: $Revision: 569 $
+# Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -54,7 +54,13 @@ proc open {} {
 			#
 			# NOTE: the "correct" way to implement a splash window
 			# is to use a sub-process, but our solution is light-weight.
-			wm overrideredirect .splash on
+			if {[::scidb::misc::debug?]} {
+				wm state .splash iconic
+				update idletasks
+				::scidb::tk::wm splash .splash
+			} else {
+				wm overrideredirect .splash on
+			}
 		}
 
 		win32 {
@@ -82,7 +88,7 @@ proc open {} {
 
 
 proc close {} {
-	after 500 [namespace code { Close }]
+	after 300 [namespace code { Close }]
 }
 
 

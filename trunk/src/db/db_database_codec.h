@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 427 $
-// Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
+// Version: $Revision: 569 $
+// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -35,7 +35,6 @@
 
 #include "m_string.h"
 #include "m_vector.h"
-#include "m_bitfield.h"
 
 namespace sys
 {
@@ -75,8 +74,8 @@ class DatabaseCodec
 {
 public:
 
-	typedef mstl::vector<mstl::string>	StringList;
-	typedef mstl::bitfield<uint64_t>		TagBits;
+	typedef mstl::vector<mstl::string> StringList;
+	typedef tag::TagSet TagBits;
 
 	class CustomFlags
 	{
@@ -111,6 +110,7 @@ public:
 	virtual bool isWriteable() const = 0;
 	virtual bool encodingFailed() const = 0;
 
+	variant::Type variant() const;
 	virtual Format format() const = 0;
 
 	CustomFlags const& customFlags() const;
@@ -128,7 +128,7 @@ public:
 	virtual unsigned maxDescriptionLength() const = 0;
 	virtual unsigned gameFlags() const = 0;
 
-	virtual void filterTag(TagSet& tags, tag::ID tag, Section section) const = 0;
+	virtual void filterTags(TagSet& tags, Section section) const = 0;
 	virtual mstl::string const& extension() const = 0;
 	virtual mstl::string const& encoding() const = 0;
 	virtual Time modified(mstl::string const& rootname) const;
@@ -241,6 +241,7 @@ protected:
 										unsigned prevRecordLength);
 
 	bool isReadOnly() const;
+	bool shouldCompress() const;
 	GameInfoList& gameInfoList();
 	GameInfo& gameInfo(unsigned index);
 	mstl::string const& description() const;
@@ -248,9 +249,11 @@ protected:
 	Namebase& namebase(Namebase::Type type);
 	Namebases& namebases();
 
+	void setVariant(variant::Type variant);
 	void setType(DatabaseContent::Type type);
 	void setCreated(uint32_t time);
 	void setDescription(char const* description);
+	void shouldCompress(bool flag);
 	void useEncoding(mstl::string const& encoding);
 
 	void checkPermissions(mstl::string const& filename);

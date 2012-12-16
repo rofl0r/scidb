@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 450 $
-// Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
+// Version: $Revision: 569 $
+// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -321,13 +321,16 @@ Consumer::checkMove(Move const& move)
 	board.tryCastleShort(board.sideToMove());
 	board.tryCastleLong(board.sideToMove());
 
-	if (board.isValidMove(move, move::AllowIllegalMove) && !board.isIntoCheck(move))
+	if (	board.isValidMove(move, variant::Normal, move::AllowIllegalMove)
+		&& !board.isIntoCheck(move, variant::Normal))
+	{
 		return true;
+	}
 
 	mstl::string msg("Invalid move: ");	// TODo: i18n
 	Move m(move);
 
-	board.prepareForPrint(m);
+	board.prepareForPrint(m, variant::Normal);
 	m.printSan(msg);
 	m_strm.put(token::Comment);
 	m_comments.push_back(Comment(msg, false, false)); // set english flag?

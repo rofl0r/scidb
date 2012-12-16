@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 569 $
+// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -37,11 +37,13 @@ inline
 bool
 HomePawns::isReachable(uint16_t currentSig, hp::Pawns targetData, unsigned count)
 {
+	// NOTE: only working if target is derived from start position
+
 	if (currentSig == Start)
 		return true;
 
 	if (count == 0)
-		return false;
+		return targetData.value == 0; // this means: we do not use home pawns
 
 	if (currentSig == 0)
 		return count == 16;

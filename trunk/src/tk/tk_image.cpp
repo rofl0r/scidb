@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 442 $
-// Date   : $Date: 2012-09-23 23:56:28 +0000 (Sun, 23 Sep 2012) $
+// Version: $Revision: 569 $
+// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1665,7 +1665,7 @@ tk_disable_image(	char const* subcmd,
 						char const* dstName,
 						int objc, Tcl_Obj* const objv[])
 {
-	enum { Disabled_Alpha = 100 };
+	enum { Disabled_Alpha = 130 };
 
 	int alpha = Disabled_Alpha;
 

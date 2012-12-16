@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 569 $
+// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -184,6 +184,8 @@ template <typename T> struct is_pod< ::mstl::bitfield<T> >		{ enum { value = 1 }
 } // namespace mstl
 
 #include "m_bitfield.ipp"
+
+#include "m_bitfield128.h"
 
 #endif // _mstl_bitfield_included
 

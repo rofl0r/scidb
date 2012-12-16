@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 472 $
-# Date   : $Date: 2012-10-19 12:34:02 +0000 (Fri, 19 Oct 2012) $
+# Version: $Revision: 569 $
+# Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -290,7 +290,9 @@ proc DisplayContributions {t} {
 	$t insert end [Enc "\n\n"]
 	$t insert end [Enc "SVG [set [namespace current]::mc::ChessPieceDesign]:\n"] caption
 	$t insert end [Enc "Colin M.L. Burnett, "]
-	$t insert end [Enc "Maurizio Monge"]
+	$t insert end [Enc "Eran Karu, "]
+	$t insert end [Enc "Maurizio Monge, "]
+	$t insert end [Enc "Peter Wong"]
 
 	$t insert end [Enc "\n\n"]
 	$t insert end [Enc "[set [namespace current]::mc::BoardThemeDesign]:\n"] caption

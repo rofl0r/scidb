@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 283 $
-// Date   : $Date: 2012-03-29 18:05:34 +0000 (Thu, 29 Mar 2012) $
+// Version: $Revision: 569 $
+// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -27,6 +27,8 @@
 #ifndef _tcl_position_included
 #define _tcl_position_included
 
+#include "db_common.h"
+
 extern "C" { struct Tcl_Interp; }
 
 namespace db	{ class Board; }
@@ -36,7 +38,7 @@ namespace tcl {
 namespace pos {
 
 void dumpBoard(::db::Board const& board, mstl::string& result);
-void dumpFen(mstl::string const& position, mstl::string& result);
+void dumpFen(mstl::string const& position, ::db::variant::Type variant, mstl::string& result);
 void resetMoveCache();
 
 } // namespace pos

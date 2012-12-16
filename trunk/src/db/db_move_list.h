@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 468 $
-// Date   : $Date: 2012-10-15 21:54:54 +0000 (Mon, 15 Oct 2012) $
+// Version: $Revision: 569 $
+// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -29,6 +29,8 @@
 
 #include "db_move.h"
 
+#include "m_iterator.h"
+
 namespace db {
 
 class MoveList
@@ -38,10 +40,17 @@ public:
 	// According to
 	// http://en.wikipedia.org/wiki/World_records_in_chess
 	// the maximum number of moves is possibly 218.
+	// We have to add maximal 304 for piece drops (Bughouse),
 	// The following (calculated) constant is safer and can
 	// never be exceeded.
 	// TODO: Make a sharper calculation.
-	enum { Maximum_Moves = 290 };
+	enum { Maximum_Moves = 490 };
+
+	typedef Move*			iterator;
+	typedef Move const*	const_iterator;
+
+	typedef mstl::reverse_iterator<Move>			reverse_iterator;
+	typedef mstl::const_reverse_iterator<Move>	const_reverse_iterator;
 
 	MoveList();
 
@@ -61,16 +70,20 @@ public:
 	int find(uint16_t move) const;
 	unsigned match(MoveList const& list) const;
 
-	Move const* begin() const;
-	Move const* end() const;
+	const_iterator begin() const;
+	const_iterator end() const;
+	iterator begin();
+	iterator end();
 
-	Move* begin();
-	Move* end();
+	const_reverse_iterator rbegin() const;
+	const_reverse_iterator rend() const;
+	reverse_iterator rbegin();
+	reverse_iterator rend();
 
 	void append(Move const& m);
 	void push(Move const& m);
+	Move& pop();
 	void cut(unsigned size);
-	void pop();
 	void clear();
 
 	void sort(int scores[]);

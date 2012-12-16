@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 569 $
+// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -56,9 +56,13 @@ public:
 	virtual unsigned countMoveInfo() const = 0;
 	virtual unsigned countMarks() const = 0;
 	virtual unsigned plyCount() const = 0;
+	virtual variant::Type variant() const = 0;
+	virtual uint16_t idn() const = 0;
 	virtual uint32_t flags() const = 0;
 	virtual bool commentEngFlag() const = 0;
 	virtual bool commentOthFlag() const = 0;
+
+	bool setupBoard() const;
 
 	// data for receiver
 

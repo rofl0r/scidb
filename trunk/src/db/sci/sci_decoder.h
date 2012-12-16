@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 450 $
-// Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
+// Version: $Revision: 569 $
+// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -52,8 +52,8 @@ class Decoder
 {
 public:
 
-	Decoder(util::ByteStream& strm);
-	Decoder(util::ByteStream& strm, unsigned guaranteedStreamSize);
+	Decoder(util::ByteStream& strm, variant::Type variant);
+	Decoder(util::ByteStream& strm, unsigned guaranteedStreamSize, variant::Type variant);
 
 	Move findExactPosition(Board const& position, bool skipVariations);
 
@@ -72,6 +72,7 @@ private:
 	void decodeMark();
 
 	unsigned decodeMove(Byte value, Move& move);
+	unsigned decodeZhouseMove(Move& move);
 	Move nextMove(unsigned runLength = 0);
 	void skipVariations();
 
@@ -81,7 +82,6 @@ private:
 	Move decodeBishop(sq::ID from, Byte nybble);
 	Move decodeKnight(sq::ID from, Byte nybble);
 	Move decodePawn(sq::ID from, Byte nybble);
-	Move decodeDroppedPiece(sq::ID to, Byte nybble);
 
 	Move searchForPosition(Board const& position, bool skipVariations);
 
@@ -92,6 +92,7 @@ private:
 	unsigned				m_guaranteedStreamSize;
 	decoder::Position	m_position;
 	MoveNode*			m_currentNode;
+	variant::Type		m_variant;
 };
 
 } // namespace sci

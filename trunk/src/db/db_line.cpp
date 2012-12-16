@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 362 $
-// Date   : $Date: 2012-06-27 19:52:57 +0000 (Wed, 27 Jun 2012) $
+// Version: $Revision: 569 $
+// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -53,7 +53,7 @@ Line::transpose(Line& dst) const
 
 
 mstl::string&
-Line::print(mstl::string& result, encoding::CharSet charSet) const
+Line::print(mstl::string& result, variant::Type variant, encoding::CharSet charSet) const
 {
 	Board board = Board::standardBoard();
 
@@ -67,9 +67,9 @@ Line::print(mstl::string& result, encoding::CharSet charSet) const
 		if ((i & 1) == 0)
 			result.format("%u.", mstl::div2(i) + 1);
 
-		board.prepareForPrint(m);
+		board.prepareForPrint(m, variant);
 		m.printSan(result, charSet);
-		board.doMove(m);
+		board.doMove(m, variant);
 	}
 
 	return result;
@@ -80,7 +80,7 @@ void
 Line::dump() const
 {
 	mstl::string result;
-	::printf("%s\n", print(result).c_str());
+	::printf("%s\n", print(result, variant::Normal).c_str());
 }
 
 // vi:set ts=3 sw=3:

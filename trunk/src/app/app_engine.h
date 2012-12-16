@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 551 $
-// Date   : $Date: 2012-12-01 22:55:23 +0000 (Sat, 01 Dec 2012) $
+// Version: $Revision: 569 $
+// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -90,8 +90,15 @@ public:
 		Engine_Has_Copy_Protection,
 		Standard_Chess_Not_Supported,
 		Chess_960_Not_Supported,
+		Losers_Not_Supported,
+		Suicide_Not_Supported,
+		Giveaway_Not_Supported,
+		Bughouse_Not_Supported,
+		Crazyhouse_Not_Supported,
+		Three_Check_Not_Supported,
 		No_Analyze_Mode,
 		Illegal_Position,
+		Illegal_Moves,
 		Did_Not_Receive_Pong,
 	};
 
@@ -234,8 +241,7 @@ public:
 		void setPlayingStyles(mstl::string const& styles);
 
 		void updatePvInfo(unsigned line);
-		void updateCheckMateInfo();
-		void updateStaleMateInfo();
+		void updateInfo(db::board::Status state);
 		void updateCurrMove();
 		void updateCurrLine();
 		void updateBestMove();
@@ -273,7 +279,7 @@ public:
 	static unsigned const Variant_Crazyhouse		= 1 << 3;
 	static unsigned const Variant_Losers			= 1 << 4;
 	static unsigned const Variant_Suicide			= 1 << 5;
-	static unsigned const Variant_Give_Away		= 1 << 6;
+	static unsigned const Variant_Giveaway			= 1 << 6;
 	static unsigned const Variant_Three_Check		= 1 << 7;
 
 	Engine(Protocol protocol, mstl::string const& command, mstl::string const& directory);
@@ -348,6 +354,7 @@ public:
 	db::Game const* currentGame() const;
 	Options const& options() const;
 	unsigned supportedVariants() const;
+	db::variant::Type variant() const;
 
 	Result probe(unsigned timeout);
 
@@ -395,8 +402,7 @@ protected:
 	virtual void updateState(State state) = 0;
 	virtual void updateError(Error code) = 0;
 	virtual void updatePvInfo(unsigned line) = 0;
-	virtual void updateCheckMateInfo() = 0;
-	virtual void updateStaleMateInfo() = 0;
+	virtual void updateInfo(db::board::Status state) = 0;
 	virtual void updateCurrMove();
 	virtual void updateCurrLine();
 	virtual void updateBestMove();

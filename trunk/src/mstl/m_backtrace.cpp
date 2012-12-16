@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 427 $
-// Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
+// Version: $Revision: 569 $
+// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -31,34 +31,6 @@
 /// actual function names instead of __gxx_personality0+0xF4800.
 
 using namespace mstl;
-
-
-#define M_HAVE_THREADS
-
-#ifndef M_HAVE_THREADS
-
-static bool isMainThread() { return true; }
-
-#elif defined(__WIN32__)
-
-static bool isMainThread() { return false; } // backtrace not needed under windows
-
-#elif defined(__MacOSX__)
-
-# include <pthread.h>
-static bool isMainThread() { return pthread_main_np(); }
-
-#elif defined(__linux__)
-
-# include <sys/syscall.h>
-# include <unistd.h>
-static bool isMainThread() { return syscall(SYS_gettid) == getpid(); }
-
-#else // don't know how this should be determined
-
-static bool isMainThread() { return true; }
-
-#endif
 
 
 #ifdef __OPTIMIZE__
@@ -94,6 +66,34 @@ void backtrace::text_write(ostringstream&, size_t) const {}
 #  include <sys/wait.h>
 
 #  define USE_GDB	// addr2line is not working properly (wrong line numbers)
+
+
+# define M_HAVE_THREADS
+
+# ifndef M_HAVE_THREADS
+
+static bool isMainThread() { return true; }
+
+# elif defined(__WIN32__)
+
+static bool isMainThread() { return false; } // backtrace not needed under windows
+
+# elif defined(__MacOSX__)
+
+#  include <pthread.h>
+static bool isMainThread() { return pthread_main_np(); }
+
+# elif defined(__linux__)
+
+#  include <sys/syscall.h>
+#  include <unistd.h>
+static bool isMainThread() { return syscall(SYS_gettid) == getpid(); }
+
+# else // don't know how this should be determined
+
+static bool isMainThread() { return true; }
+
+# endif
 
 
 #  ifdef USE_GDB
@@ -783,7 +783,9 @@ mstl::backtrace::text_write(ostringstream& os, unsigned skip) const
 void
 mstl::backtrace::clear()
 {
+#ifndef __OPTIMIZE__
 	m_allocator->clear();
+#endif
 }
 
 // vi:set ts=3 sw=3:

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 569 $
+// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -24,12 +24,28 @@
 // (at your option) any later version.
 // ======================================================================
 
+#include "m_assert.h"
+
 namespace db {
 
 inline EcoTable::Successors::Successor::Successor() : move(0) {}
 inline EcoTable::Successors::Successors() : length(0) {}
 
-inline EcoTable const& EcoTable::specimen() { return m_specimen; }
+
+inline
+EcoTable const&
+EcoTable::specimen(variant::Type variant)
+{
+	return m_specimen[variant::toIndex(variant)];
+}
+
+
+inline
+EcoTable const&
+EcoTable::specimen(variant::Index variant)
+{
+	return m_specimen[variant];
+}
 
 
 inline
@@ -37,6 +53,14 @@ Line const&
 EcoTable::getLine(Eco code) const
 {
 	return getEntry(code).line;
+}
+
+
+inline
+variant::Type
+EcoTable::variant() const
+{
+	return m_variant;
 }
 
 } // namespace db

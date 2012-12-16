@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 562 $
-// Date   : $Date: 2012-12-08 00:39:55 +0000 (Sat, 08 Dec 2012) $
+// Version: $Revision: 569 $
+// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -33,19 +33,53 @@ inline MoveList::MoveList() :m_size(0) {}
 inline bool MoveList::isEmpty()	const 		{ return m_size == 0; }
 inline bool MoveList::isFull() const			{ return m_size == Maximum_Moves; }
 inline bool MoveList::notFull() const			{ return m_size < Maximum_Moves; }
-inline Move const* MoveList::begin() const	{ return m_buffer; }
-inline Move const* MoveList::end() const		{ return m_buffer + m_size; }
-inline Move* MoveList::begin()					{ return m_buffer; }
-inline Move* MoveList::end()						{ return m_buffer + m_size; }
 inline unsigned MoveList::size()	const 		{ return m_size; }
 inline void MoveList::clear()						{ m_size = 0; }
+inline MoveList::iterator MoveList::begin()	{ return iterator(m_buffer); }
+inline MoveList::iterator MoveList::end()		{ return iterator(m_buffer + m_size); }
+
+inline MoveList::const_iterator MoveList::begin() const	{ return const_iterator(m_buffer); }
+inline MoveList::const_iterator MoveList::end() const		{ return const_iterator(m_buffer + m_size); }
 
 
-inline void
+inline
+MoveList::const_reverse_iterator
+MoveList::rbegin() const
+{
+	return const_reverse_iterator(end());
+}
+
+
+inline
+MoveList::const_reverse_iterator
+MoveList::rend() const
+{
+	return const_reverse_iterator(begin());
+}
+
+
+inline
+MoveList::reverse_iterator
+MoveList::rbegin()
+{
+	return reverse_iterator(end());
+}
+
+
+inline
+MoveList::reverse_iterator
+MoveList::rend()
+{
+	return reverse_iterator(begin());
+}
+
+
+inline
+Move&
 MoveList::pop()
 {
 	M_REQUIRE(!isEmpty());
-	--m_size;
+	return m_buffer[--m_size];
 }
 
 

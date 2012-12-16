@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 385 $
-// Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
+// Version: $Revision: 569 $
+// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1051,7 +1051,7 @@ Decoder::startDecoding(TagSet* tags)
 		if (tags)
 		{
 			tags->set(tag::SetUp, "1");	// bad PGN design
-			tags->set(tag::Fen, m_position.board().toFen(Board::Shredder));
+			tags->set(tag::Fen, m_position.board().toFen(variant::Normal, Board::Shredder));
 		}
 	}
 	else

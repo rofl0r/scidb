@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 569 $
+// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -50,13 +50,16 @@ public:
 	bool blackToMove() const;
 
 	format::Type format() const;
+	variant::Type variant() const;
 	Board const& board() const;
 	virtual mstl::string const& encoding() const = 0;
+	virtual uint16_t idn() const = 0;
 
 	Consumer& consumer();
 	Consumer const& consumer() const;
 
 	void setConsumer(Consumer* consumer);
+	void setVariant(variant::Type variant);
 
 	virtual unsigned process(util::Progress& progress) = 0;
 
@@ -67,6 +70,7 @@ protected:
 private:
 
 	format::Type	m_format;
+	variant::Type	m_variant;
 	Consumer*		m_consumer;
 };
 

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 416 $
-# Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
+# Version: $Revision: 569 $
+# Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -110,7 +110,7 @@ array set HilitePos {
 
 namespace import [namespace parent]::texture::openBrowser
 namespace import [namespace parent]::texture::forgetTextures
-namespace import [namespace parent]::stuff::drawBorderlines
+namespace import [namespace parent]::diagram::drawBorderlines
 namespace import [namespace parent]::setTile
 namespace import [namespace parent]::setTheme
 namespace import [namespace parent]::setSquareStyle
@@ -1243,7 +1243,7 @@ proc DeleteStyle {listbox which} {
 		::dialog::info \
 			-parent $listbox \
 			-message [format $mc::CannotDelete $identifier] \
-			-detail [format [set $mc::IsWriteProtected $filename]
+			-detail [format [set $mc::IsWriteProtected $filename]]
 		return
 	}
 	set reply [::dialog::warning \
@@ -1340,7 +1340,7 @@ proc MakeHiliteRect {canv tag} {
 	$canv delete $tag:h
 
 	if {$tag ne "suggested" || $hilite(show-suggested)} {
-		[namespace parent]::stuff::makeHiliteRect \
+		[namespace parent]::diagram::makeHiliteRect \
 			$canv \
 			$tag \
 			h \

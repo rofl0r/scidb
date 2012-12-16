@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 450 $
-# Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
+# Version: $Revision: 569 $
+# Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -130,22 +130,25 @@ variable tooltipvar
 variable G
 
 array set G {
-	font					TkTooltipFont
-	bold					{}
-	background			lightyellow
-	exposureTime		3500
-	delay					500
-	delayMenu			250
+	font				TkTooltipFont
+	bold				{}
+	background		lightyellow
+	exposureTime	3500
+	delay				500
+	delayMenu		250
 
-	allowed				{}
-	exclude				{}
-	init					1
-	enabled				1
-	fadeId				{}
-	exposureId			{}
-	afterId				{}
-	last					-1
-	toplevel				.__tooltip__
+	highExposureTimeThreshold 70
+	highExposureTime 8000
+
+	allowed			{}
+	exclude			{}
+	init				1
+	enabled			1
+	fadeId			{}
+	exposureId		{}
+	afterId			{}
+	last				-1
+	toplevel			.__tooltip__
 }
 # original background: lightyellow
 # alternative background: #ffffaa
@@ -685,10 +688,12 @@ proc Show {w var msg {i {}} {font {}}} {
 	set b $G(toplevel)
 
 	set labelFont $font
+	set txt ""
 	if {[llength $labelFont] == 0} { set labelFont $G(font) }
 	for {set k 1} {$k < 5} {incr k} { pack forget $b.top.label-$k }
 
 	if {[llength $var]} {
+		append txt [set $var]
 		$b.top.label-0 configure -textvar $var -justify left -font $labelFont
 	} elseif {[string match *<b>* $msg]} {
 		set k 0
@@ -696,6 +701,7 @@ proc Show {w var msg {i {}} {font {}}} {
 			if {[string match <b>* $line]} {
 				set f [bold $font]
 				set line [string range $line 3 end]
+				append txt [set $var]
 			} else {
 				set f $labelFont
 			}
@@ -704,13 +710,18 @@ proc Show {w var msg {i {}} {font {}}} {
 			incr k
 		}
 	} else {
+		append txt $msg
 		$b.top.label-0 configure -textvar {} -text $msg -justify left -font $labelFont
 	}
 
 	popup $w $b $i
 
 	if {$G(exposureTime)} {
-		set G(exposureId) [after $G(exposureTime) [namespace code { hide true }]]
+		set exposureTime $G(exposureTime)
+		if {[string length $txt] >= $G(highExposureTimeThreshold)} {
+			set exposureTime $G(highExposureTime)
+		}
+		set G(exposureId) [after $exposureTime [namespace code { hide true }]]
 	}
 }
 
@@ -743,10 +754,15 @@ proc MenuMotion {w} {
 		&& $w eq [winfo containing {*}[winfo pointerxy $w]]} {
 
 		set cmd {}
+		set lbl [$w entrycget $cur -label]
 		if {[info exists tooltipvar($w,$cur)]} {
 			set cmd [namespace code [list showvar $w $tooltipvar($w,$cur) $cur]]
 		} elseif {[info exists tooltip($w,$cur)]} {
 			set cmd [namespace code [list show $w $tooltip($w,$cur) $cur]]
+		} elseif {[info exists tooltipvar($w,$lbl)]} {
+			set cmd [namespace code [list showvar $w $tooltipvar($w,$lbl) $cur]]
+		} elseif {[info exists tooltip($w,$lbl)]} {
+			set cmd [namespace code [list show $w $tooltip($w,$lbl) $cur]]
 		}
 		if {[llength $cmd]} { set G(afterId) [after $G(delayMenu) $cmd] }
 	}

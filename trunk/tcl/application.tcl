@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 563 $
-# Date   : $Date: 2012-12-09 10:18:03 +0000 (Sun, 09 Dec 2012) $
+# Version: $Revision: 569 $
+# Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -288,7 +288,7 @@ if {[::process::testOption use-analysis]} {
 	database::build $db $Attr(board,width) $Attr(board,height)
 	board::build $top.board $Attr(board,width) $Attr(board,height)
 	pgn::build $right.pgn $Attr(pgn,width) $Attr(pgn,height)
-	tree::build $bottom.tree $Attr(tree,width) $Attr(tree,height)
+	tree::build $bottom.tree $Attr(tree,width) $Attr(tree,height) $bottom.games
 	tree::games::build $bottom.games $Attr(games,width) $Attr(games,height)
 if {[::process::testOption use-analysis]} {
 	analysis::build $right.analysis $Attr(analysis,width) $Attr(analysis,height)

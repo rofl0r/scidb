@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 550 $
-// Date   : $Date: 2012-12-01 18:24:50 +0000 (Sat, 01 Dec 2012) $
+// Version: $Revision: 569 $
+// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -71,8 +71,7 @@ inline void Engine::Concrete::setTime(double time)						{ m_engine->setTime(time
 inline void Engine::Concrete::setNodes(unsigned nodes)				{ m_engine->setNodes(nodes); }
 
 inline void Engine::Concrete::updatePvInfo(unsigned line)			{ m_engine->updatePvInfo(line); }
-inline void Engine::Concrete::updateCheckMateInfo()					{ m_engine->updateCheckMateInfo(); }
-inline void Engine::Concrete::updateStaleMateInfo()					{ m_engine->updateStaleMateInfo(); }
+inline void Engine::Concrete::updateInfo(db::board::Status state)	{ m_engine->updateInfo(state); }
 inline void Engine::Concrete::updateCurrMove()							{ m_engine->updateCurrMove(); }
 inline void Engine::Concrete::updateCurrLine()							{ m_engine->updateCurrLine(); }
 inline void Engine::Concrete::updateBestMove()							{ m_engine->updateBestMove(); }

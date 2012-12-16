@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 427 $
-# Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
+# Version: $Revision: 569 $
+# Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -263,7 +263,8 @@ proc Open {} {
 		-setgrid 1 \
 		-yscrollcommand [list $top.ybar set] \
 		-xscrollcommand [list $top.xbar set] \
-		]
+		-tabs {2c 15c} \
+	]
 	bind $log <Visibility> [namespace code { Visibility %s }]
 	ttk::scrollbar $top.ybar -command [list $log yview] -takefocus 0 -orient vertical
 	ttk::scrollbar $top.xbar -command [list $log xview] -takefocus 0 -orient horizontal

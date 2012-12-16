@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 569 $
+// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -27,12 +27,16 @@
 #ifndef _tcl_tree_included
 #define _tcl_tree_included
 
+#include "db_common.h"
+
 extern "C" { struct Tcl_Interp; }
+extern "C" { struct Tcl_Obj; }
 
 namespace tcl {
 namespace tree {
 
 void referenceBaseChanged();
+Tcl_Obj* variantToString(::db::variant::Type variant);
 
 } // namespace tree
 } // namespace tcl

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 450 $
-# Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
+# Version: $Revision: 569 $
+# Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -345,7 +345,7 @@ proc WidgetProc {w command args} {
 					set x1 [expr {$x + 12}]
 					set y1 [expr {$y + ($h - [image height $img])/2}]
 					set x2 [expr {$x1 + [image width $img] + 2}]
-					set y2 [expr {$y1 + [image height $img]}]
+					set y2 [expr {$y1 + [image height $img] - 2}]
 
 					if {$x2 <= [winfo width $w]} {
 						set area [$w identify $x2 $y2]

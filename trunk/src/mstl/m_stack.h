@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 569 $
+// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -20,6 +20,7 @@
 #define _mstl_stack_included
 
 #include "m_memblock.h"
+#include "m_iterator.h"
 
 namespace mstl {
 
@@ -36,6 +37,9 @@ public:
 	typedef value_type&			reference;
 	typedef value_type const&	const_reference;
 	typedef bits::size_t			size_type;
+
+	typedef mstl::reverse_iterator<T>			reverse_iterator;
+	typedef mstl::const_reverse_iterator<T>	const_reverse_iterator;
 
 	stack();
 	explicit stack(size_type n);
@@ -67,6 +71,11 @@ public:
 	const_iterator begin() const;
 	iterator end();
 	const_iterator end() const;
+
+	reverse_iterator rbegin();
+	reverse_iterator rend();
+	const_reverse_iterator rbegin() const;
+	const_reverse_iterator rend() const;
 
 	void push(const_reference value);
 	void dup();

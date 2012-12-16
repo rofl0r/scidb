@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 289 $
-// Date   : $Date: 2012-04-04 09:47:19 +0000 (Wed, 04 Apr 2012) $
+// Version: $Revision: 569 $
+// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -184,7 +184,7 @@ cmdX11(ClientData, Tcl_Interp *ti, int objc, Tcl_Obj* const objv[])
 static int
 handleXErrorMessage(Display* dpy, XErrorEvent* event)
 {
-	// A BadWindow due to X_SendEvent is likely due to XDND,
+	// A BadWindow due to X_SendEvent is likely while XDND is active,
 	// for example if the source application is crashing.
 	if (	event->error_code == BadWindow
 		&& (event->request_code == X_SendEvent || event->request_code == X_GetProperty))

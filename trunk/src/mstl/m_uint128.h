@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 450 $
-// Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
+// Version: $Revision: 569 $
+// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -19,9 +19,13 @@
 #ifndef _mstl_uint128_included
 #define _mstl_uint128_included
 
+#ifndef _mstl_uint128_t_included
+# error "m_uint128.h should not be used, use m_uint128_t.h instead"
+#endif
+
 #include "m_types.h"
 
-#if __WORDSIZE == 32
+#if __WORDSIZE == 32 || !__GNUC_PREREQ(4,4)
 
 namespace mstl {
 
@@ -31,10 +35,13 @@ public:
 
 	uint128();
 	uint128(uint64_t hi, uint64_t lo);
-	uint128(uint64_t value);
-	uint128(uint32_t value);
+	explicit uint128(uint64_t value);
+
+	uint128& operator=(uint128 const& i);
+	uint128& operator=(uint64_t value);
 
 	bool operator!() const;
+	operator bool () const;
 
 	uint64_t lo() const;
 	uint64_t hi() const;
@@ -51,9 +58,17 @@ public:
 	uint128 operator&(uint128 const& i) const;
 	uint128 operator^(uint128 const& i) const;
 
+	uint128 operator|(uint64_t i) const;
+	uint128 operator&(uint64_t i) const;
+	uint128 operator^(uint64_t i) const;
+
 	uint128& operator|=(uint128 const& i);
 	uint128& operator&=(uint128 const& i);
 	uint128& operator^=(uint128 const& i);
+
+	uint128& operator|=(uint64_t i);
+	uint128& operator&=(uint64_t i);
+	uint128& operator^=(uint64_t i);
 
 	uint128 operator+(uint128 const& i) const;
 	uint128 operator-(uint128 const& i) const;
@@ -61,11 +76,17 @@ public:
 	uint128 operator/(uint128 const& i) const;
 	uint128 operator%(uint128 const& i) const;
 
+	uint128 operator+(uint64_t i) const;
+	uint128 operator-(uint64_t i) const;
+
 	uint128& operator+=(uint128 const& i);
 	uint128& operator-=(uint128 const& i);
 	uint128& operator*=(uint128 const& i);
 	uint128& operator/=(uint128 const& i);
 	uint128& operator%=(uint128 const& i);
+
+	uint128& operator+=(uint64_t i);
+	uint128& operator-=(uint64_t i);
 
 	uint128 operator>>(unsigned n) const;
 	uint128 operator<<(unsigned n) const;
@@ -86,33 +107,17 @@ bool operator>=(uint128 const& lhs, uint128 const& rhs);
 bool operator< (uint128 const& lhs, uint128 const& rhs);
 bool operator> (uint128 const& lhs, uint128 const& rhs);
 
-bool operator==(uint128 const& lhs, unsigned rhs);
-bool operator!=(uint128 const& lhs, unsigned rhs);
+bool operator==(uint128 const& lhs, uint64_t rhs);
+bool operator!=(uint128 const& lhs, uint64_t rhs);
 
 bool operator==(unsigned lhs, uint128 const& rhs);
 bool operator!=(unsigned lhs, uint128 const& rhs);
-
-typedef uint128 uint128_t;
-
-template <typename T> struct numeric_limits;
-
-template <>
-struct numeric_limits<uint128_t>
-{
-	inline static uint128_t min() { return 0u; }
-	inline static uint128_t max() { return uint128_t(uint64_t(~0u), uint64_t(~0u)); }
-
-	static bool const is_signed	= false;
-	static bool const is_unsigned	= false;
-	static bool const is_integer	= true;
-	static bool const is_integral	= true;
-};
 
 } // namespace mstl
 
 #include "m_uint128.ipp"
 
-#endif // _WORDSIZE == 32
+#endif // _WORDSIZE
 #endif // _mstl_uint128_included
 
 // vi:set ts=3 sw=3:

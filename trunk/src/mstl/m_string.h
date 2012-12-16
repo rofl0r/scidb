@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 385 $
-// Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
+// Version: $Revision: 569 $
+// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -188,6 +188,9 @@ public:
 	size_type find(string const& s, size_type pos = 0) const;
 
 	size_type rfind(const_reference c, size_type pos = npos) const;
+
+	size_type find_ignore_case(const_pointer s, size_type pos = 0) const;
+	size_type find_ignore_case(string const& s, size_type pos = 0) const;
 
 	size_type find_first_of(const_reference c, size_type pos = 0) const;
 	size_type find_first_of(const_pointer s, size_type pos = 0) const;

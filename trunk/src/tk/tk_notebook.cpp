@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 331 $
-// Date   : $Date: 2012-05-29 20:31:47 +0000 (Tue, 29 May 2012) $
+// Version: $Revision: 569 $
+// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1069,7 +1069,7 @@ DrawTab(Slave* slave, Pixmap pixmap, int x, int y, int height, int selected)
 static void
 DrawTabs(Notebook* nb, Pixmap pixmap, int x, int y, int width, int height)
 {
-	int cx;
+	int cx = 0; // satisifies the compiler
 	int i;
 
 	for (i = 0; i < nb->numSlaves; ++i)

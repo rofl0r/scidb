@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 416 $
-# Date   : $Date: 2012-09-02 20:54:30 +0000 (Sun, 02 Sep 2012) $
+# Version: $Revision: 569 $
+# Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -244,7 +244,7 @@ proc HeaderMotion {twm top x y} {
 		::scidb::tk::twm release $top
 		$top configure -borderwidth 1
 		wm geometry $top ${wd}x${ht}+${x}+${y}
-		::scidb::tk::wm noDecor $top
+		::scidb::tk::wm frameless $top
 		wm state $top normal
 		ttk::globalGrab $top
 		bind $top <Button1-Motion> [namespace code [list HeaderMotion $twm $top %X %Y]]

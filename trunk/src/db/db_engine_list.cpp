@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 430 $
-// Date   : $Date: 2012-09-20 17:13:27 +0000 (Thu, 20 Sep 2012) $
+// Version: $Revision: 569 $
+// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -45,7 +45,7 @@ EngineList::engine(unsigned n) const
 unsigned
 EngineList::addEngine(mstl::string const& engine)
 {
-	if (engine.empty())
+	if (engine.empty() || count() == MaxEngines)
 		return 0;
 
 	return m_map.insert(Map::value_type(engine, m_map.size() + 1)).first->second;

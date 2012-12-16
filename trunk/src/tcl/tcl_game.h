@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 283 $
-// Date   : $Date: 2012-03-29 18:05:34 +0000 (Thu, 29 Mar 2012) $
+// Version: $Revision: 569 $
+// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -43,6 +43,9 @@ int convertTags(	::db::TagSet& tags,
 						::db::tag::ID wrt = ::db::tag::ExtraTag,
 						::db::tag::ID brt = ::db::tag::ExtraTag,
 						Ratings const* ratings = 0);
+
+::db::variant::Type variantFromObj(Tcl_Obj* obj);
+::db::variant::Type variantFromObj(unsigned objc, Tcl_Obj* const objv[], unsigned index);
 
 } // namespace game
 } // namespace tcl

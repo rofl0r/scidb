@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 380 $
-// Date   : $Date: 2012-07-05 20:29:07 +0000 (Thu, 05 Jul 2012) $
+// Version: $Revision: 569 $
+// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -43,12 +43,16 @@ class PgnReader : public ::db::PgnReader
 {
 public:
 
+	typedef unsigned GameCount[::db::variant::NumberOfVariants];
+
 	PgnReader(	mstl::istream& strm,
+					::db::variant::Type variant,
 					mstl::string const& encoding,
 					Tcl_Obj* cmd,
 					Tcl_Obj* arg,
 					Modification modification,
-					int firstGameNumber = 0,
+					ReadMode readMode,
+					GameCount const* firstGameNumber = 0,
 					unsigned lineOffset = 0,
 					bool trialMode = false);
 	~PgnReader() throw();
@@ -57,19 +61,28 @@ public:
 	unsigned countWarnings() const;
 	Error lastErrorCode() const;
 
+	void setResult(int n) const;
+
 	void warning(	Warning code,
 						unsigned lineNo,
 						unsigned column,
 						unsigned gameNo,
+						::db::variant::Type variant,
 						mstl::string const& info,
 						mstl::string const& item) override;
 	void error(		Error code,
 						unsigned lineNo,
 						unsigned column,
-						int gameNo,
+						unsigned gameNo,
+						::db::variant::Type variant,
 						mstl::string const& message,
 						mstl::string const& info,
 						mstl::string const& item) override;
+
+	static void setResult(	int n,
+									GameCount const& accepted,
+									GameCount const& rejected,
+									Variants const* unsupported = 0);
 
 private:
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 569 $
+// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -28,6 +28,28 @@
 
 using namespace db;
 
+
+Producer::Producer(format::Type srcFormat, Consumer* consumer)
+	:m_format(srcFormat)
+	,m_variant(variant::Normal)
+	,m_consumer(consumer)
+{
+	if (consumer)
+		m_consumer->setProducer(this);
+}
+
+
 Producer::~Producer() {}
+
+
+void
+Producer::setConsumer(Consumer* consumer)
+{
+	if (m_consumer)
+		m_consumer->setProducer(0);
+
+	if ((m_consumer = consumer))
+		m_consumer->setProducer(this);
+}
 
 // vi:set ts=3 sw=3:

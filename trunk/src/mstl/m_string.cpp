@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 385 $
-// Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
+// Version: $Revision: 569 $
+// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -880,6 +880,58 @@ string::find(string const& s, size_type pos) const
 
 	const_pointer p = ::strstr(m_data + pos, s);
 	return p ? p - m_data : npos;
+}
+
+
+string::size_type
+string::find_ignore_case(const_pointer s, size_type pos) const
+{
+	M_REQUIRE(pos <= size());
+
+	size_type		len	= ::strlen(s);
+
+	if (len > m_size)
+		return npos;
+
+	value_type		first	= ::toupper(*s);
+	const_pointer	p		= m_data + pos;
+	const_pointer	e		= m_data + m_size - len;
+
+	for ( ; p < e; ++p)
+	{
+		if (::toupper(*p) == first)
+		{
+			if (::strncasecmp(p, s, len) == 0)
+				return p - m_data;
+		}
+	}
+
+	return npos;
+}
+
+
+string::size_type
+string::find_ignore_case(string const& s, size_type pos) const
+{
+	M_REQUIRE(pos <= size());
+
+	if (s.m_size > m_size)
+		return npos;
+
+	value_type		first	= ::toupper(*s.m_data);
+	const_pointer	p		= m_data + pos;
+	const_pointer	e		= m_data + m_size - s.m_size;
+
+	for ( ; p < e; ++p)
+	{
+		if (::toupper(*p) == first)
+		{
+			if (::strncasecmp(p, s.m_data, s.m_size) == 0)
+				return p - m_data;
+		}
+	}
+
+	return npos;
 }
 
 

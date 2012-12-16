@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 569 $
+// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -86,6 +86,8 @@ public:
 	bool isLoaded() const;
 	bool isUsed(Eco code) const;
 
+	variant::Type variant() const;
+
 	Eco lookup(	Line const& line,
 					unsigned* length = 0,
 					Successors* successors = 0,
@@ -107,8 +109,9 @@ public:
 	void print() const;
 	void dump() const;
 
-	static EcoTable const& specimen();
-	static void load(mstl::istream& stream);
+	static EcoTable const& specimen(variant::Type variant);
+	static EcoTable const& specimen(variant::Index variant);
+	static void load(mstl::istream& stream, variant::Type variant);
 
 private:
 
@@ -134,16 +137,17 @@ private:
 	Entry const& getEntry(Eco code) const;
 	void parse(mstl::istream& strm);
 
-	Branch*		m_branchBuffer;
-	Node*			m_nodeBuffer;
-	char*			m_nameBuffer;
-	uint16_t*	m_moveBuffer;
-	Node*			m_root;
-	Lookup		m_lookup;
-	Map			m_map;
-	Allocator	m_allocator;
+	variant::Type	m_variant;
+	Branch*			m_branchBuffer;
+	Node*				m_nodeBuffer;
+	char*				m_nameBuffer;
+	uint16_t*		m_moveBuffer;
+	Node*				m_root;
+	Lookup			m_lookup;
+	Map				m_map;
+	Allocator		m_allocator;
 
-	static EcoTable m_specimen;
+	static EcoTable m_specimen[variant::NumberOfVariants];
 };
 
 } // namespace db

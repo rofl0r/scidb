@@ -1,7 +1,7 @@
 // ======================================================================
 // $RCSfile: tk_image.cpp,v $
-// $Revision: 420 $
-// $Date: 2012-09-09 14:33:43 +0000 (Sun, 09 Sep 2012) $
+// $Revision: 569 $
+// $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
 // $Author: gregor $
 // ======================================================================
 
@@ -163,7 +163,7 @@ loadEcoFile()
 		exit(1);
 	}
 
-	EcoTable::specimen().load(stream);
+	EcoTable::specimen(variant::Normal).load(stream, variant::Normal);
 }
 
 
@@ -307,16 +307,14 @@ printUsualTagsAndExit(int rc)
 static void
 printMandatoryTagsAndExit(int rc)
 {
-	mstl::string tagList;
+	mstl::string	tagList;
+	tag::TagSet		mandatoryTags(si3::Encoder::infoTags());
 
-	for (unsigned i = 0; i < tag::ExtraTag; ++i)
+	for (unsigned i = mandatoryTags.find_first(); i != tag::TagSet::npos; i = mandatoryTags.find_next(i))
 	{
-		if (si3::Encoder::skipTag(tag::ID(i)))
-		{
-			if (!tagList.empty())
-				tagList += ',';
-			tagList += tag::toName(tag::ID(i));
-		}
+		if (!tagList.empty())
+			tagList += ',';
+		tagList += tag::toName(tag::ID(i));
 	}
 
 	printf("%s\n", tagList.c_str());
@@ -594,8 +592,8 @@ main(int argc, char* argv[])
 
 		Progress	progress;
 
-		Database	src(cbhPath, convertfrom, Database::ReadOnly, progress);
-		Database	dst(si4Path, convertto, Database::OnDisk);
+		Database	src(cbhPath, convertfrom, permission::ReadOnly, progress);
+		Database	dst(si4Path, convertto, storage::OnDisk);
 		si3::Consumer consumer(	format::Scid4,
 										dynamic_cast<si3::Codec&>(dst.codec()),
 										convertto,

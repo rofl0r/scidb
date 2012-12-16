@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 450 $
-// Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
+// Version: $Revision: 569 $
+// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -168,6 +168,14 @@ MakeMinuteMarks::vertex(double* x, double* y)
 			sx *= ::max(1.5, m_radius/170.0);
 			sy *= 0.7 + m_radius/120.0;
 		}
+	}
+
+	if (m_radius < 80.0)
+	{
+		sx *= m_radius/80.0;
+
+		if (m_radius < 60.0)
+			sy *= m_radius/60.0;
 	}
 
 	agg::trans_affine minuteMarkerPos = agg::trans_affine_scaling(sx, sy);
@@ -355,6 +363,9 @@ ClockRenderer::resize(unsigned width, unsigned height, unsigned pitch)
 {
 	M_ASSERT(height <= pitch);
 
+	if (m_width == width && m_height == height && m_pitch == pitch)
+		return;
+
 	m_width = width; m_height = height; // record new window dimensions
 	m_pitch = pitch;
 
@@ -385,7 +396,6 @@ ClockRenderer::resize(ClockRenderer const& renderer)
 	m_pixels = new agg::int8u[m_pitch*m_height];
 
 	m_minuteMarks.remove_all(); // clear out the old
-
 	m_minuteMarks.concat_path(const_cast<agg::path_storage&>(renderer.m_minuteMarks));
 
 	m_hourHand = renderer.m_hourHand;
@@ -409,6 +419,12 @@ ClockRenderer::makeHand(agg::path_storage& path, double radius, double length)
 static int
 tkClock(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 {
+	// TODO:
+	// make a custom widget which provides single or double clock
+	// use resize(ClockRenderer const& renderer) for double clock
+	//
+	// current example: ~/scidb/src/Old_Version/agg/examples/clock.cpp
+
 	return TCL_OK;
 }
 

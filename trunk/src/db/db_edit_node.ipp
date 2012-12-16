@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 518 $
-// Date   : $Date: 2012-11-09 17:36:55 +0000 (Fri, 09 Nov 2012) $
+// Version: $Revision: 569 $
+// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -96,8 +96,9 @@ Comment::Comment(db::Comment const& comment, move::Position position, VarPos var
 
 
 inline
-Opening::Opening(Board const& startBoard, uint16_t idn, Eco eco)
+Opening::Opening(Board const& startBoard, variant::Type variant, uint16_t idn, Eco eco)
 	:m_board(startBoard)
+	,m_variant(variant)
 	,m_idn(idn)
 	,m_eco(eco)
 {

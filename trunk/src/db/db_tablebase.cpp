@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 362 $
-// Date   : $Date: 2012-06-27 19:52:57 +0000 (Wed, 27 Jun 2012) $
+// Version: $Revision: 569 $
+// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -80,8 +80,8 @@ Tablebase::useOnlineQuery(bool flag)
 int
 Tablebase::bestMove(Board const& board, Move& result) const
 {
-	int numWhitePieces = material::count(board.signature().material(color::White)) + 1;
-	int numBlackPieces = material::count(board.signature().material(color::Black)) + 1;
+	int numWhitePieces = board.materialCount(color::White).total();
+	int numBlackPieces = board.materialCount(color::Black).total();
 
 	if (	numWhitePieces + numBlackPieces > 6
 		|| numWhitePieces + numBlackPieces <= 2
@@ -135,7 +135,7 @@ Tablebase::getOnlineQuery(Board const& board, Move& result)
 	url += "&hook=";
 	url += char(board.whiteToMove() ? 'w' : 'b');
 	url += "&fen=";
-	board.toFen(url);
+	board.toFen(url, variant::Normal);
 
 	if (http.get(url, answer) <= 0)
 		return tb::Not_Found;
@@ -156,11 +156,11 @@ Tablebase::getOnlineQuery(Board const& board, Move& result)
 	{
 		case 'E':	// "Error"
 			{
-				unsigned state = board.checkState();
+				unsigned state = board.checkState(variant::Normal);
 
-				if (state & Board::CheckMate)
+				if (state & Board::Checkmate)
 					return tb::Is_Check_Mate;
-				if (state & Board::StaleMate)
+				if (state & Board::Stalemate)
 					return tb::Is_Stale_Mate;
 
 				return tb::Illegal_Position;
@@ -192,7 +192,7 @@ Tablebase::getOnlineQuery(Board const& board, Move& result)
 	if (score < 0 || from < 0 || to < 0)
 		return tb::Broken;
 
-	result = board.prepareMove(from, to);
+	result = board.prepareMove(from, to, variant::Normal);
 
 	if (!result.isLegal())
 		return tb::Broken;

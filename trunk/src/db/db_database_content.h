@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 427 $
-// Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
+// Version: $Revision: 569 $
+// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -61,11 +61,13 @@ public:
 	GameInfoList	m_gameInfoList;
 	Namebases		m_namebases;
 	Type				m_type;
+	variant::Type	m_variant;
 	uint32_t			m_created;
 	bool				m_readOnly;
 	bool				m_writeable;
 	bool				m_memoryOnly;
 	bool				m_temporary;
+	bool				m_shouldCompress;
 	mstl::string	m_description;
 	mstl::string	m_encoding;
 	Allocator 		m_allocator;

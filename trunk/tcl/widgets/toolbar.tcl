@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 563 $
-# Date   : $Date: 2012-12-09 10:18:03 +0000 (Sun, 09 Dec 2012) $
+# Version: $Revision: 569 $
+# Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1642,6 +1642,7 @@ proc Tracer3 {toolbar args} {
 proc Tracer4 {toolbar w var args} {
 	variable Specs
 
+	if {$Specs(state:$w:$toolbar) eq "disabled"} { return }
 	ConfigureCheckButton $toolbar $w $w $var
 
 	if {[winfo exists $toolbar.floating]} {

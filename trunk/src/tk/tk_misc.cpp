@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 450 $
-// Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
+// Version: $Revision: 569 $
+// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -29,8 +29,8 @@ using namespace tcl;
 static int
 tkMisc(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 {
-	static char const* Subcommands[] = { "setClass" };
-	enum { Cmd_SetClass };
+	static char const* Subcommands[] = { "setClass", "shiftMask?" };
+	enum { Cmd_SetClass, Cmd_ShiftMask };
 
 	int index;
 	int result = Tcl_GetIndexFromObj(ti, objv[1], Subcommands, "subcommand", TCL_EXACT, &index);
@@ -52,6 +52,10 @@ tkMisc(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 			Tk_SetClass(tkwin, cls);
 			break;
 		}
+
+		case Cmd_ShiftMask:
+			Tcl_SetObjResult(ti, Tcl_NewIntObj(ShiftMask));
+			break;
 	}
 
 	return TCL_OK;

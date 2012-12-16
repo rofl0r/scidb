@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 430 $
-// Date   : $Date: 2012-09-20 17:13:27 +0000 (Thu, 20 Sep 2012) $
+// Version: $Revision: 569 $
+// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -201,7 +201,7 @@ MoveInfoSet::extractFromComment(EngineList& engineList, mstl::string& comment)
 
 						case 't':
 							if ((q = ::match(p + 2, "ct", 2)))
-								q = info.parseDigitalClockTime(q);
+								q = info.parseClockTime(q);
 							break;
 					}
 					break;
@@ -228,7 +228,7 @@ MoveInfoSet::extractFromComment(EngineList& engineList, mstl::string& comment)
 
 				case 'm':
 					if ((q = ::match(p + 2, "mct", 3)))
-						q = info.parseMechanicalClockTime(q);
+						q = info.parseClockTime(q);
 					break;
 			}
 

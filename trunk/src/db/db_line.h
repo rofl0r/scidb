@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 334 $
-// Date   : $Date: 2012-06-13 09:36:59 +0000 (Wed, 13 Jun 2012) $
+// Version: $Revision: 569 $
+// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -57,7 +57,9 @@ struct Line
 
 	uint16_t operator[](unsigned n) const;
 
-	mstl::string& print(mstl::string& result, encoding::CharSet charSet = encoding::Latin1) const;
+	mstl::string& print(	mstl::string& result,
+								variant::Type variant,
+								encoding::CharSet charSet = encoding::Latin1) const;
 	void dump() const;
 
 	void copy(Line const& line);

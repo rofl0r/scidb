@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 450 $
-// Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
+// Version: $Revision: 569 $
+// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -65,7 +65,7 @@ public:
 
 	typedef mstl::pvector<mstl::string>	StringList;
 	typedef mstl::vector<unsigned> LengthList;
-	typedef db::Consumer::TagBits TagBits;
+	typedef ::db::tag::TagSet TagBits;
 	typedef db::Byte NagMap[db::nag::Scidb_Last];
 	typedef mstl::string Languages[4];
 
@@ -87,6 +87,12 @@ public:
 	Application const& application() const;
 	/// Return database.
 	db::Database const& database() const;
+
+	UpdateMode gameUpdateMode() const;
+	UpdateMode playerUpdateMode() const;
+	UpdateMode eventUpdateMode() const;
+	UpdateMode siteUpdateMode() const;
+	UpdateMode annotatorUpdateMode() const;
 
 	/// Return number of games in filter.
 	unsigned countGames() const;

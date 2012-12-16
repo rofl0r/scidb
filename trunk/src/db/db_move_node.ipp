@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 569 $
+// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -41,6 +41,7 @@ inline bool MoveNode::hasNote() const						{ return m_flags & HasNote; }
 inline bool MoveNode::hasSupplement() const				{ return m_flags & HasSupplement; }
 inline bool MoveNode::hasMoveInfo() const					{ return m_flags & HasMoveInfo; }
 inline bool MoveNode::isFolded() const						{ return m_flags & IsFolded; }
+inline bool MoveNode::threefoldRepetition() const		{ return m_flags & ThreefoldRepetition; }
 
 inline bool MoveNode::hasComment(move::Position position) const	 { return m_flags & (1 << position); }
 
@@ -75,6 +76,17 @@ MoveInfoSet const& MoveNode::moveInfo() const
 {
 	M_REQUIRE(hasMoveInfo());
 	return *m_moveInfo;
+}
+
+
+inline
+void
+MoveNode::setThreefoldRepetition(bool flag)
+{
+	if (flag)
+		m_flags |= ThreefoldRepetition;
+	else
+		m_flags &= ~ThreefoldRepetition;
 }
 
 

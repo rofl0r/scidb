@@ -1,7 +1,7 @@
 // ======================================================================
 // $RCSfile: db_eco_table.cpp,v $
-// $Revision: 193 $
-// $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// $Revision: 569 $
+// $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
 // $Author: gregor $
 // ======================================================================
 
@@ -18,7 +18,7 @@
 
 #include "db_eco_table.h"
 
-db::EcoTable db::EcoTable::m_specimen;
+db::EcoTable db::EcoTable::m_specimen[variant::NumberOfVariants];
 
 using namespace db;
 

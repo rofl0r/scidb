@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 569 $
+// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -30,14 +30,7 @@ namespace db {
 
 inline bool MoveInfo::isEmpty() const				{ return m_content == None; }
 inline MoveInfo::Type MoveInfo::content() const	{ return m_content; }
-
-
-inline
-bool
-MoveInfo::hasTimeInfo() const
-{
-	return m_content != Evaluation && m_content != None;
-}
+inline unsigned MoveInfo::centiSeconds() const	{ return m_centiSeconds; }
 
 
 inline
@@ -121,17 +114,9 @@ MoveInfo::parsePlayersClock(char const* s)
 
 inline
 char const*
-MoveInfo::parseDigitalClockTime(char const* s)
+MoveInfo::parseClockTime(char const* s)
 {
-	return parseTime(DigitalClockTime, s);
-}
-
-
-inline
-char const*
-MoveInfo::parseMechanicalClockTime(char const* s)
-{
-	return parseTime(MechanicalClockTime, s);
+	return parseTime(ClockTime, s);
 }
 
 
@@ -147,7 +132,15 @@ inline
 char const*
 MoveInfo::parseElapsedMoveTime(char const* s)
 {
-	return parseTime(ElapsedMoveTime, s);
+	return parseElapsedTime(s);
+}
+
+
+inline
+char const*
+MoveInfo::parseVideoTime(char const* s)
+{
+	return parseCentiSeconds(s);
 }
 
 

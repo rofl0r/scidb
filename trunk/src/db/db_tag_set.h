@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 569 $
+// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -33,7 +33,6 @@
 
 #include "m_string.h"
 #include "m_vector.h"
-#include "m_bitfield.h"
 
 namespace db {
 
@@ -89,6 +88,7 @@ public:
 	void setSignificance(tag::ID tag, Byte value);
 
 	void remove(tag::ID tag);
+	void remove(tag::TagSet const& set);
 	void clear();
 
 	tag::ID findFirst() const;
@@ -99,7 +99,7 @@ public:
 private:
 
 	typedef mstl::vector<Tag> ExtraTags;
-	typedef mstl::bitfield<uint64_t> BitSet;
+	typedef tag::TagSet BitSet;
 
 	int find(mstl::string const& tag) const;
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 362 $
-// Date   : $Date: 2012-06-27 19:52:57 +0000 (Wed, 27 Jun 2012) $
+// Version: $Revision: 569 $
+// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -245,7 +245,7 @@ Writer::beginGame(TagSet const& tags)
 					if (test(Flag_Use_Shredder_FEN))
 					{
 						mstl::string fen;
-						startBoard().toFen(fen, Board::Shredder);
+						startBoard().toFen(fen, variant(), Board::Shredder);
 						writeTag(tag::ID(i), fen);
 					}
 					else
@@ -258,11 +258,14 @@ Writer::beginGame(TagSet const& tags)
 			case tag::Idn:
 				if (!isEmpty && test(Flag_Include_Position_Tag))
 				{
-					mstl::string buf;
-					buf.format(	"%s %s",
-									value.c_str(),
-									shuffle::position(::strtoul(value.c_str(), nullptr, 10)).c_str());
-					writeTag(tag::ID(i), buf);
+					uint16_t idn = ::strtoul(value.c_str(), nullptr, 10);
+
+					if (variant::isShuffleChess(idn))
+					{
+						mstl::string buf;
+						buf.format(	"%s %s", value.c_str(), shuffle::position(idn).c_str());
+						writeTag(tag::ID(i), buf);
+					}
 				}
 				break;
 
@@ -420,7 +423,7 @@ Writer::writeMove(Move const& move,
 	if (!move.isPrintable())
 	{
 		Move m(move);
-		board().prepareForPrint(m);
+		board().prepareForPrint(m, variant());
 		writeMove(m, m_moveNumber, annotation, marks, preComment, comment);
 	}
 	else

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 450 $
-// Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
+// Version: $Revision: 569 $
+// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -213,6 +213,7 @@ private:
 	static Tree* lookup(TreeCache& cache, uint64_t hash, Position const& position);
 
 	Database*		m_base;
+	variant::Type	m_variant;
 	Key				m_key;
 	unsigned			m_index;
 	unsigned			m_last;

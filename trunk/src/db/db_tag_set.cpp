@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 569 $
+// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -46,7 +46,7 @@ trim(mstl::string& s)
 
 TagSet::TagSet()
 {
-	static_assert(tag::ExtraTag <= 8*sizeof(BitSet), "BitField size exceeded");
+	static_assert(int(tag::ExtraTag) <= int(tag::TagSetSize), "BitField size exceeded");
 	::memset(m_significance, 0, sizeof(m_significance));
 }
 
@@ -344,8 +344,17 @@ TagSet::remove(tag::ID tag)
 
 
 void
+TagSet::remove(tag::TagSet const& set)
+{
+	for (unsigned i = set.find_first(); i != tag::TagSet::npos; i = set.find_next(i))
+		remove(tag::ID(i));
+}
+
+
+void
 TagSet::clear()
 {
+	::memset(m_significance, 0, sizeof(m_significance));
 	m_isUserSupplied.reset();
 	m_extra.clear();
 	m_set.reset();

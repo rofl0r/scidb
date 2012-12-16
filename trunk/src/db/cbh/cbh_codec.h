@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 450 $
-// Date   : $Date: 2012-10-10 20:11:45 +0000 (Wed, 10 Oct 2012) $
+// Version: $Revision: 569 $
+// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -80,7 +80,7 @@ public:
 
 	mstl::string const& extension() const override;
 	mstl::string const& encoding() const override;
-	void filterTag(TagSet& tags, tag::ID tag, Section section) const override;
+	void filterTags(TagSet& tags, Section section) const override;
 
 	void doOpen(mstl::string const& rootname,
 					mstl::string const& encoding,

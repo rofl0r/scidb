@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 427 $
-// Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
+// Version: $Revision: 569 $
+// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -735,6 +735,7 @@ DatabaseCodec::importGames(Producer& producer, Progress& progress, int startInde
 
 	mstl::auto_ptr<Consumer> consumer(getConsumer(producer.format()));
 	M_ASSERT(consumer);
+	consumer->setupVariant(variant());
 	producer.setConsumer(consumer.get());
 	producer.consumer().setIndex(startIndex);
 	return producer.process(progress);

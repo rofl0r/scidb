@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 569 $
+// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -31,8 +31,8 @@ namespace db {
 inline bool Signature::hasPromotion() const			{ return m_promotions; }
 inline bool Signature::hasUnderPromotion() const	{ return m_underPromotions; }
 
-inline material::Signature Signature::material() const { return m_material; }
-inline material::SigPart Signature::material(color::ID color) const { return m_material.part[color]; }
+inline material::Signature Signature::material() const { return m_matSig; }
+inline material::SigPart Signature::material(color::ID color) const { return m_matSig.part[color]; }
 inline pawns::Side Signature::progress(color::ID color) const { return m_progress.side[color]; }
 inline castling::Rights Signature::castling() const { return castling::Rights(m_castling); }
 inline hp::Pawns Signature::homePawnsData() const { return m_homePawns; }
@@ -71,6 +71,21 @@ Signature::clearHomePawns()
 
 inline
 bool
+Signature::isReachableFinal(Signature const& target) const
+{
+	if (!isReachableFinalMaterial(target))
+		return false;
+
+	// check whether pawn structure is reachable
+	return	isReachablePawnStructure(	m_progress.side[color::White],
+													target.m_progress.side[color::White])
+			&& isReachablePawnStructure(	m_progress.side[color::Black],
+													target.m_progress.side[color::Black]);
+}
+
+
+inline
+bool
 Signature::isReachableFinal(Signature const& sig, uint16_t currentHpSig) const
 {
 	if (m_castling & ~sig.m_castling)
@@ -85,6 +100,14 @@ bool
 Signature::isReachable(Signature const& current, Signature const& sig, uint16_t currentHpSig)
 {
 	return current.isReachableFinal(sig, currentHpSig);
+}
+
+
+inline
+bool
+Signature::isReachable(Signature const& current, Signature const& sig)
+{
+	return current.isReachableFinal(sig);
 }
 
 

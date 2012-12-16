@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 515 $
-# Date   : $Date: 2012-11-09 10:05:20 +0000 (Fri, 09 Nov 2012) $
+# Version: $Revision: 569 $
+# Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -89,6 +89,7 @@ set Theme			"Theme"
 set To				"To"
 set Top				"Top"
 set Undo				"Undo"
+set Variant			"Variant"
 set Variation		"Variation"
 set White			"White"
 set Yes				"Yes"
@@ -104,6 +105,19 @@ set Rook				"Rook"
 set Bishop			"Bishop"
 set Knight			"Knight"
 set Pawn				"Pawn"
+
+set VariantName(Undetermined)	"Undetermined"
+set VariantName(Normal)			"Normal Chess"
+set VariantName(Bughouse)		"Bughouse Chess"
+set VariantName(Crazyhouse)	"Crazyhouse Chess"
+set VariantName(ThreeCheck)	"Three-check Chess"
+set VariantName(Antichess)		"Antichess"
+set VariantName(Suicide)		"Suicide"
+set VariantName(Giveaway)		"Giveaway"
+set VariantName(Losers)			"Losers"
+set VariantName(Chess960)		"Chess 960"
+set VariantName(Symm960)		"Chess 960 (symmetrical only)"
+set VariantName(Shuffle)		"Shuffle Chess"
 
 set NotAvailableSign "\u2298"
 #set NotAvailableSign "\u2370" ;# not available on some systems
