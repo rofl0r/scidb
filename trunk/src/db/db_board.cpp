@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 570 $
-// Date   : $Date: 2012-12-16 22:59:26 +0000 (Sun, 16 Dec 2012) $
+// Version: $Revision: 572 $
+// Date   : $Date: 2012-12-17 11:01:09 +0000 (Mon, 17 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -68,7 +68,7 @@ namespace bf = mstl::bf;
 #define KBNK_Hash					UINT64_C(0xa2f3dcd8a1b6ffed)
 #define KBBK_Hash					UINT64_C(0x51be7cba98acb392)
 #define Runaway_Hash				UINT64_C(0x548d1ba18e63df59)
-#define QueenVsRooks_Hash		UINT64_C(0xa4301a374bff9ae)
+#define QueenVsRooks_Hash		UINT64_C(0x0a4301a374bff9ae)
 
 static uint64_t const DarkSquares	= A1 | C1 | E1 | G1
 												| B2 | D2 | F2 | H2
@@ -131,7 +131,8 @@ static void __attribute__((constructor)) initialize() { Board::initialize(); }
 
 #if __GNUC_PREREQ(4,7)
 
-// prevent "internal compiler error: in expand_expr_addr_expr_1, at expr.c:7597"
+// prevent GCC bug:
+// "internal compiler error: in expand_expr_addr_expr_1, at expr.c:7597"
 
 #define HASH_HOLDING_ADD(piece, count) \
 	hashHoldingAdd(piece, count); \
@@ -140,7 +141,7 @@ static void __attribute__((constructor)) initialize() { Board::initialize(); }
 #else
 
 # define HASH_HOLDING_ADD(piece, count) \
-	hashHoldingAdd(piece, count)
+	hashHoldingAdd(piece, count++)
 
 #endif
 
