@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 569 $
-// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
+// Version: $Revision: 573 $
+// Date   : $Date: 2012-12-17 16:36:08 +0000 (Mon, 17 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -173,6 +173,8 @@ public:
 	void setup(unsigned idn);
 	/// Setup board from given position (only usable for standard chess).
 	void setup(ExactPosition const& position);
+	/// Setup board from given position
+	void setup(ExactZHPosition const& position);
 	/// Set En Passant fyle
 	void setEnPassantFyle(sq::Fyle fyle);
 	/// Set En Passant fyle

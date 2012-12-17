@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 334 $
-// Date   : $Date: 2012-06-13 09:36:59 +0000 (Wed, 13 Jun 2012) $
+// Version: $Revision: 573 $
+// Date   : $Date: 2012-12-17 16:36:08 +0000 (Mon, 17 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -48,7 +48,7 @@ namespace tcl
 								unsigned index,
 								Ratings const& ratings);
 		int getPlayerInfo(::db::NamebasePlayer const& player,
-								Ratings const& ratings,
+								Ratings& ratings,
 								bool info,
 								bool idCard);
 		int getPlayerStats(::db::Database const& db, ::db::NamebasePlayer const& player);

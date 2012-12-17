@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 569 $
-// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
+// Version: $Revision: 573 $
+// Date   : $Date: 2012-12-17 16:36:08 +0000 (Mon, 17 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -131,20 +131,18 @@ Signature::isReachablePawnStructure(pawns::Side lhs, pawns::Side rhs)
 	if (rhs.rankValue == 0)
 		return true;
 
-	return ::isReachablePawnStructure(hashL(lhs, rhs)) && ::isReachablePawnStructure(hashR(lhs, rhs));
+	return ::isReachablePawnStructure(::hashL(lhs, rhs)) && ::isReachablePawnStructure(::hashR(lhs, rhs));
 }
 
 
 template <typename T>
-inline static bool isGreaterOrEq(T start, T target) { return !(target & ~start); }
+inline
+static bool isGreaterOrEq(T start, T target) { return !(target & ~start); }
 
 
 bool
 Signature::isReachableFinalMaterial(Signature const& target) const
 {
-//	M_REQUIRE(!hasPromotion() || target.hasPromotion());
-//	M_REQUIRE(!hasUnderPromotion() || target.hasUnderPromotion());
-
 	if (target.hasPromotion())
 	{
 		if (target.hasUnderPromotion())
@@ -168,13 +166,6 @@ Signature::isReachableFinalMaterial(Signature const& target) const
 bool
 Signature::isReachableFinalPosition(Signature const& target, uint16_t currentHpSig) const
 {
-	if (hasPromotion() && !target.hasPromotion())
-		return false;
-
-	// cannot reach target position if we have more under-promotions than target
-	if (hasUnderPromotion() && !target.hasUnderPromotion())
-		return false;
-
 	if (!isReachableFinalMaterial(target))
 		return false;
 
@@ -242,17 +233,17 @@ Signature::initialize()
 
 	// 500.0/Load
 	// --------------------------------
-	// collisions: 8.326
+	// collisions: 8,326
 	// max. bucket length: 2
 	// average bucket length: 1.28
-	// storage size: 2.549.596 (~ 2.5 MB)
+	// storage size: 2,549,596 (~ 2.5 MB)
 
 	// 250.0/Load
 	// --------------------------------
-	// collisions: 15.001
+	// collisions: 15,001
 	// max. bucket length: 4
 	// average bucket length: 1.66
-	// storage size: 1.501.020 (~ 1.5 MB)
+	// storage size: 1,501,020 (~ 1.5 MB)
 
 	::pawnStructureHash.rebuild(unsigned((U_NUMBER_OF(PawnProgressTable))*(250.0/Hash::Load)));
 

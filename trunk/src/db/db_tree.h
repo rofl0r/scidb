@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 569 $
-// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
+// Version: $Revision: 573 $
+// Date   : $Date: 2012-12-17 16:36:08 +0000 (Mon, 17 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -53,7 +53,7 @@ class Tree : public mstl::ref_counter
 public:
 
 	typedef mstl::ref_counted_ptr<Tree> TreeP;
-	typedef board::ExactPosition Position;
+	typedef board::ExactZHPosition Position;
 
 	class Key
 	{

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 569 $
-# Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
+# Version: $Revision: 573 $
+# Date   : $Date: 2012-12-17 16:36:08 +0000 (Mon, 17 Dec 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -744,7 +744,7 @@ proc Find {path combo args} {
 	set value $Vars(find-current)
 	if {[string length $value] == 0} { return }
 	set base [::scrolledtable::base $path.table]
-	set variant [::scrolledtable::variant $table]
+	set variant [::scrolledtable::variant $path.table]
 	set view [{*}$Vars(viewcmd) $base $variant]
 	set i [::scidb::view::find player $base $variant $view $value]
 	if {[llength $args] == 0} {
@@ -786,7 +786,7 @@ proc ShowInfo {path x y} {
 	set base [::scrolledtable::base $table]
 	set variant [::scrolledtable::variant $table]
 	set view [{*}$Vars(viewcmd) $base $variant]
-	set info [scidb::db::get playerInfo $index $view $base $variant -card -ratings {Elo Elo}]
+	set info [scidb::db::get playerInfo $index $view $base $variant -card -ratings {Any Any}]
 	::playercard::popupInfo $path $info
 }
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 572 $
-// Date   : $Date: 2012-12-17 11:01:09 +0000 (Mon, 17 Dec 2012) $
+// Version: $Revision: 573 $
+// Date   : $Date: 2012-12-17 16:36:08 +0000 (Mon, 17 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2711,6 +2711,21 @@ Board::setup(ExactPosition const& position)
 
 	m_castle = position.m_castle;
 	m_epSquareFen = position.m_epSquare;
+}
+
+
+void
+Board::setup(ExactZHPosition const& position)
+{
+	// IMPORTANT NOTE: The information in 'position' is not sufficient
+	// to build a consistent board. The resulting board should not be
+	// used for playing or validation.
+
+	setup((ExactPosition const&)position);
+	m_holding[White] = position.m_holding[White];
+	m_holding[Black] = position.m_holding[Black];
+	m_promoted[White] = position.m_promoted[White];
+	m_promoted[Black] = position.m_promoted[Black];
 }
 
 

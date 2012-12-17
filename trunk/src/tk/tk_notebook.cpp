@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 569 $
-// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
+// Version: $Revision: 573 $
+// Date   : $Date: 2012-12-17 16:36:08 +0000 (Mon, 17 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -429,7 +429,7 @@ ComputeSlotAddress(	char* recordPtr,	// Pointer to the start of a record
 //
 //----------------------------------------------------------------------
 static int
-GetIndex(	Notebook* nb,		// Pointer to the notebook info
+GetIndex(Notebook* nb,		// Pointer to the notebook info
 			Tk_Window tkwin)	// Window to search for
 {
 	int i;
@@ -2507,17 +2507,12 @@ NotebookReqProc(	ClientData clientData,	// Notebook's information about window
 	Slave*		slave	= (Slave*)clientData;
 	Notebook*	nb		= (Notebook*)slave->master;
 
-	if (Tk_IsMapped(nb->tkwin))
+	ComputeGeometry(nb);
+
+	if (Tk_IsMapped(nb->tkwin) && !(nb->flags & RESIZE_PENDING))
 	{
-		if (!(nb->flags & RESIZE_PENDING))
-		{
-			nb->flags |= RESIZE_PENDING;
-			Tcl_DoWhenIdle(ArrangePane, (ClientData)nb);
-		}
-	}
-	else
-	{
-		ComputeGeometry(nb);
+		nb->flags |= RESIZE_PENDING;
+		Tcl_DoWhenIdle(ArrangePane, (ClientData)nb);
 	}
 }
 

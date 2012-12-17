@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 569 $
-# Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
+# Version: $Revision: 573 $
+# Date   : $Date: 2012-12-17 16:36:08 +0000 (Mon, 17 Dec 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -294,4 +294,4 @@ set truetype_Cheq(sample,24pt,200x34) {
   78cFOV44LeIy3QfQSun6C/wy0/L/IS0fW7dcEtd/Af5YDLXOnfKlAAAAAElFTkSuQmCC
 }
 
-# vi:set ts=2 sw=2 et:
+# vi:set ts=2 sw=2 et nowrap:

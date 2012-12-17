@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 573 $
+// Date   : $Date: 2012-12-17 16:36:08 +0000 (Mon, 17 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -34,7 +34,7 @@ inline
 Tree*
 TreeCache::lookup(Board const& position, tree::Mode mode, rating::Type ratingType) const
 {
-	return lookup(position.hash(), position.exactPosition(), mode, ratingType);
+	return lookup(position.hash(), position.exactZHPosition(), mode, ratingType);
 }
 
 
@@ -53,7 +53,7 @@ inline
 bool
 TreeCache::isCached(Board const& position, tree::Mode mode, rating::Type ratingType) const
 {
-	return isCached(position.hash(), position.exactPosition(), mode, ratingType);
+	return isCached(position.hash(), position.exactZHPosition(), mode, ratingType);
 }
 
 } // namespace db

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 569 $
-# Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
+# Version: $Revision: 573 $
+# Date   : $Date: 2012-12-17 16:36:08 +0000 (Mon, 17 Dec 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -925,7 +925,7 @@ proc ShowPlayerInfo {position side} {
 	set variant $Vars(variant)
 	set index [expr {$Vars(number) - 1}]
 
-	set info [scidb::db::fetch ${side}PlayerInfo $index $base $variant -card -ratings {Elo Elo}]
+	set info [scidb::db::fetch ${side}PlayerInfo $index $base $variant -card -ratings {Any Any}]
 	::playercard::popupInfo $Vars(header) $info
 }
 
@@ -1271,7 +1271,7 @@ proc PopupMenu {parent board position {what ""}} {
 		switch $what {
 			white - black {
 				set info [scidb::db::fetch \
-					${what}PlayerInfo $index $Vars(base) $Vars(variant) -card -ratings {Elo Elo}]
+					${what}PlayerInfo $index $Vars(base) $Vars(variant) -card -ratings {Any Any}]
 				::playertable::popupMenu \
 					$menu $Vars(base) $Vars(variant) $info [list [expr {$Vars(number) - 1}] $what]
 			}
