@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 569 $
-# Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
+# Version: $Revision: 575 $
+# Date   : $Date: 2012-12-17 22:36:30 +0000 (Mon, 17 Dec 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1916,7 +1916,7 @@
 ::info::mc::Version				"Versión"
 ::info::mc::Distributed			"Este programa se distribuye bajo los términos de la Licencia Pública General GNU."
 ::info::mc::Inspired				"Scidb está inspirado en Scid 3.6.1, registrado en \u00A9 1999-2003 por Shane Hudson."
-::info::mc::SpecialThanks		"Un especial agradecimiento a Shane Hudson por su estupendo trabajo. Su empeño constituye la base de esta aplicación."
+::info::mc::SpecialThanks		"Un especial agradecimiento a %s por su estupendo trabajo. Su empeño constituye la base de esta aplicación."
 
 ### comment ############################################################
 ::comment::mc::CommentBeforeMove		"Comentario antes de la jugada"
