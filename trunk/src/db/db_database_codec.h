@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 569 $
-// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
+// Version: $Revision: 574 $
+// Date   : $Date: 2012-12-17 18:47:09 +0000 (Mon, 17 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -73,6 +73,8 @@ class Time;
 class DatabaseCodec
 {
 public:
+
+	enum Mode { Existing, New };
 
 	typedef mstl::vector<mstl::string> StringList;
 	typedef tag::TagSet TagBits;
@@ -198,7 +200,7 @@ public:
 
 	static bool hasCodecFor(mstl::string const& suffix);
 	static bool upgradeIndexOnly();
-	static DatabaseCodec* makeCodec(mstl::string const& name);
+	static DatabaseCodec* makeCodec(mstl::string const& name, Mode mode);
 	static DatabaseCodec* makeCodec();
 
 	static int getNumberOfGames(mstl::string const& filename);
@@ -211,7 +213,7 @@ public:
 
 protected:
 
-	enum Mode { Readonly = 1, Truncate = 2 };
+	enum { Readonly = 1, Truncate = 2 };
 
 	class InfoData;
 

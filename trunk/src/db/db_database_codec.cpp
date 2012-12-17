@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 569 $
-// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
+// Version: $Revision: 574 $
+// Date   : $Date: 2012-12-17 18:47:09 +0000 (Mon, 17 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -222,7 +222,7 @@ DatabaseCodec::hasCodecFor(mstl::string const& suffix)
 
 
 DatabaseCodec*
-DatabaseCodec::makeCodec(mstl::string const& name)
+DatabaseCodec::makeCodec(mstl::string const& name, Mode mode)
 {
 	mstl::string ext(file::suffix(name));
 
@@ -235,12 +235,12 @@ DatabaseCodec::makeCodec(mstl::string const& name)
 	}
 
 	if (ext == "si3")
-		return new si3::Codec();
+		return new si3::Codec;
 
 	if (ext == "cbh")
-		return new cbh::Codec();
+		return new cbh::Codec;
 
-	if (ext == "sci")
+	if (ext == "sci" && mode == Existing)
 		return sci::Codec::makeCodec(name);
 
 	return new sci::Codec;
