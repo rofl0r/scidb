@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 569 $
-// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
+// Version: $Revision: 576 $
+// Date   : $Date: 2012-12-18 14:16:34 +0000 (Tue, 18 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -93,7 +93,7 @@ inline
 unsigned
 popcount(uint128_t const& x)
 {
-	return popcount(x.lo()) + popcount(x.hi());
+	return pc(x.lo()) + pc(x.hi());
 }
 
 # else // if __WORDSIZE == 64
@@ -173,9 +173,9 @@ reverse(uint128_t const& x)
 
 inline
 uint128_t
-mstl::bf::bits::reverse(uint128_t a)
+reverse(uint128_t a)
 {
-   return (reverse(uint64_t(a >> 64)) << 64) | reverse(uint64_t(a));
+	return uint128_t(reverse(uint64_t(x))) << 64 | uint128_t(reverse(uint64_t(x >> 64)));
 }
 
 # endif // __WORDSIZE
