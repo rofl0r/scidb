@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 576 $
-// Date   : $Date: 2012-12-18 14:16:34 +0000 (Tue, 18 Dec 2012) $
+// Version: $Revision: 578 $
+// Date   : $Date: 2012-12-18 19:12:13 +0000 (Tue, 18 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -173,7 +173,7 @@ reverse(uint128_t const& x)
 
 inline
 uint128_t
-reverse(uint128_t a)
+reverse(uint128_t x)
 {
 	return uint128_t(reverse(uint64_t(x))) << 64 | uint128_t(reverse(uint64_t(x >> 64)));
 }
