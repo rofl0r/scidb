@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 569 $
-// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
+// Version: $Revision: 577 $
+// Date   : $Date: 2012-12-18 18:27:57 +0000 (Tue, 18 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -51,6 +51,7 @@ namespace edit { class Root; }
 namespace edit { class Node; }
 
 class MoveNode;
+class MoveList;
 class Annotation;
 class MarkSet;
 class TagSet;
@@ -216,6 +217,8 @@ public:
 	bool hasRedo() const;
 	/// Returns whether given variation does not contain invalid moves.
 	bool isValidVariation(MoveNode const* node) const;
+	/// Returns whether given variation does not contain invalid moves.
+	bool isValidVariation(MoveList const& moves) const;
 	/// Return whether given key is valid.
 	bool isValidKey(edit::Key const& key) const;
 	/// Return whether variation is folded at given position
@@ -438,6 +441,8 @@ public:
 	unsigned addVariation(mstl::string const& san);
 	/// Adds a new variation at the current position
 	unsigned addVariation(MoveNodeP node);
+	/// Adds a new variation at the current position
+	unsigned addVariation(MoveList const& moves);
 	/// Adds a new variation and promotes this variation one line up
 	void newMainline(mstl::string const& san);
 	/// Adds a new variation and promotes this variation one line up

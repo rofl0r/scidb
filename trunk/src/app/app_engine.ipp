@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 569 $
-// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
+// Version: $Revision: 577 $
+// Date   : $Date: 2012-12-18 18:27:57 +0000 (Tue, 18 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -146,6 +146,14 @@ Engine::Concrete::currentGame() const
 inline
 db::Game const*
 Engine::currentGame() const
+{
+	return m_game;
+}
+
+
+inline
+db::Game*
+Engine::currentGame()
 {
 	return m_game;
 }
@@ -419,7 +427,15 @@ db::MoveList const&
 Engine::variation(unsigned no) const
 {
 	M_REQUIRE(no < numVariations());
-	return m_variations[no];
+	return m_lines[no];
+}
+
+
+inline
+bool
+Engine::lineIsEmpty(unsigned no) const
+{
+	return no < m_numVariations && m_lines[no].isEmpty();
 }
 
 

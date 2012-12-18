@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 569 $
-// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
+// Version: $Revision: 577 $
+// Date   : $Date: 2012-12-18 18:27:57 +0000 (Tue, 18 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -27,6 +27,7 @@
 #include "db_game.h"
 #include "db_game_info.h"
 #include "db_move_node.h"
+#include "db_move_list.h"
 #include "db_annotation.h"
 #include "db_mark_set.h"
 #include "db_eco_table.h"
@@ -2000,6 +2001,25 @@ Game::isValidVariation(MoveNode const* node) const
 }
 
 
+bool
+Game::isValidVariation(MoveList const& moves) const
+{
+	Board board(m_currentBoard);
+
+	for (unsigned i = 0; i < moves.size(); ++i)
+	{
+		Move move = moves[i];
+
+		if (!board.isValidMove(move, m_variant))
+			return false;
+
+		board.doMove(move, m_variant);
+	}
+
+	return true;
+}
+
+
 unsigned
 Game::addVariation(MoveNodeP node)
 {
@@ -2022,6 +2042,41 @@ Game::addVariation(MoveNodeP node)
 		board.prepareForPrint(n->move(), m_variant);
 		board.doMove(n->move(), m_variant);
 	}
+
+	MoveNode* varNode = node.release();
+	varNode->setFolded(false);
+	m_currentNode->next()->addVariation(varNode);
+	updateSubscriber(UpdatePgn | UpdateBoard);
+
+	return m_currentNode->next()->variationCount() - 1;
+}
+
+
+unsigned
+Game::addVariation(MoveList const& moves)
+{
+	M_REQUIRE(!moves.isEmpty());
+	M_REQUIRE(isBeforeLineEnd());
+	M_REQUIRE(isValidVariation(moves));
+
+	forward();
+	insertUndo(Remove_Variation, AddVariation, m_currentNode->variationCount());
+	backward();
+
+	Board			board(m_currentBoard);
+	MoveNodeP	node(new MoveNode);
+	MoveNode*	n(node.get());
+
+	for (unsigned i = 0; i < moves.size(); ++i)
+	{
+		Move move = moves[i];
+
+		n->setNext(new MoveNode(board, move, m_variant));
+		board.doMove(move, m_variant);
+		n = n->next();
+	}
+
+	n->setNext(new MoveNode);
 
 	MoveNode* varNode = node.release();
 	varNode->setFolded(false);

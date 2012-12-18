@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 569 $
-# Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
+# Version: $Revision: 577 $
+# Date   : $Date: 2012-12-18 18:27:57 +0000 (Tue, 18 Dec 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -724,6 +724,7 @@ proc SortColumn {table} {
 proc DoSelection {table} {
 	variable Vars
 
+	if {![winfo exists $table]} { return }
 	if {$Vars(hidden)} { return }
 
 	lassign [winfo pointerxy $table] x y

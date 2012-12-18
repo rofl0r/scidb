@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 575 $
-# Date   : $Date: 2012-12-17 22:36:30 +0000 (Mon, 17 Dec 2012) $
+# Version: $Revision: 577 $
+# Date   : $Date: 2012-12-18 18:27:57 +0000 (Tue, 18 Dec 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -960,6 +960,7 @@
 ::application::analysis::mc::IllegalPosition				"Posición ilegal - No puede analizarse"
 ::application::analysis::mc::IllegalMoves					"Illegal moves in game - Cannot analyze" ;# NEW
 ::application::analysis::mc::DidNotReceivePong			"Engine is not responding to \"ping\" command - Engine aborted" ;# NEW
+::application::analysis::mc::OperationFailed				"Operation '%s' failed due to raise conditions."
 
 ::application::analysis::mc::LinesPerVariation			"Líneas por variación"
 ::application::analysis::mc::BestFirstOrder				"Ordenar por evaluación"
@@ -984,6 +985,11 @@
 ::application::analysis::mc::Signal(crashed)				"El motor de análisis falló."
 ::application::analysis::mc::Signal(closed)				"El motor de análisis cerró la conexión."
 ::application::analysis::mc::Signal(terminated)			"El motor de análisis terminado con código %s."
+
+::application::analysis::mc::Add(move)						"Add move" ;# NEW
+::application::analysis::mc::Add(var)						"Add move as new variation" ;# NEW
+::application::analysis::mc::Add(line)						"Add variation" ;# NEW
+::application::analysis::mc::Add(all)						"Add all variations" ;# NEW
 
 ### gametable ##########################################################
 ::gametable::mc::DeleteGame				"Marcar partida como eliminada"
