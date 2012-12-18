@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 573 $
-// Date   : $Date: 2012-12-17 16:36:08 +0000 (Mon, 17 Dec 2012) $
+// Version: $Revision: 579 $
+// Date   : $Date: 2012-12-18 19:20:22 +0000 (Tue, 18 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -129,7 +129,7 @@ inline static Byte queenSideIndex(Byte color)	{ return castling::queenSideIndex(
 static void __attribute__((constructor)) initialize() { Board::initialize(); }
 
 
-#if __GNUC_PREREQ(4,7)
+#if __GNUC_PREREQ(4,5)
 
 // prevent GCC bug:
 // "internal compiler error: in expand_expr_addr_expr_1, at expr.c:7597"
