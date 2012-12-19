@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 582 $
-// Date   : $Date: 2012-12-19 12:49:11 +0000 (Wed, 19 Dec 2012) $
+// Version: $Revision: 584 $
+// Date   : $Date: 2012-12-19 14:13:39 +0000 (Wed, 19 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2434,16 +2434,28 @@ Game::truncateVariation(move::Position position)
 	if (atLineEnd())
 		return;
 
-	MoveNode* node = m_currentNode->removeNext();
-	insertUndo(Replace_Node, TruncateVariation, node);
-	m_currentNode->setNext(node->getLineEnd()->clone());
-
 	unsigned flags = UpdatePgn | UpdateIllegalMoves | UpdateLanguageSet;
 
 	if (isMainline())
 		flags |= UpdateOpening;
 	if (position == move::Ante)
 		flags |= UpdateBoard;
+
+	if (atLineStart() && !isMainline())
+	{
+		MoveNode*	prev	= m_currentNode->prev();
+		unsigned		n		= prev->variationNumber(m_currentNode);
+
+		exitVariation();
+		removeVariation(n);
+		flags |= UpdateBoard;
+	}
+	else
+	{
+		MoveNode* node = m_currentNode->removeNext();
+		insertUndo(Replace_Node, TruncateVariation, node);
+		m_currentNode->setNext(node->getLineEnd()->clone());
+	}
 
 	updateSubscriber(flags);
 }

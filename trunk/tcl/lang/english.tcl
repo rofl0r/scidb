@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 577 $
-# Date   : $Date: 2012-12-18 18:27:57 +0000 (Tue, 18 Dec 2012) $
+# Version: $Revision: 584 $
+# Date   : $Date: 2012-12-19 14:13:39 +0000 (Wed, 19 Dec 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -984,7 +984,8 @@
 ::application::analysis::mc::Signal(terminated)			"Engine terminated with exit code %s."
 
 ::application::analysis::mc::Add(move)						"Add move"
-::application::analysis::mc::Add(var)						"Add variation"
+::application::analysis::mc::Add(var)						"Add move as new variation"
+::application::analysis::mc::Add(line)						"Add variation"
 ::application::analysis::mc::Add(all)						"Add all variations"
 
 ### gametable ##########################################################
