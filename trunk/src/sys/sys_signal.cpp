@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 317 $
-// Date   : $Date: 2012-05-05 16:33:40 +0000 (Sat, 05 May 2012) $
+// Version: $Revision: 580 $
+// Date   : $Date: 2012-12-19 10:39:49 +0000 (Wed, 19 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -24,6 +24,8 @@ bool sys::signal::sendInterrupt(long pid) { return false; }
 
 #else
 
+// avoid warning "Attempt to use kernel headers from user space", what a nonsense!
+# define __KERNEL__
 # include <signal.h>
 
 bool

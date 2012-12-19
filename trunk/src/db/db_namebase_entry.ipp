@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 511 $
-// Date   : $Date: 2012-11-06 14:46:50 +0000 (Tue, 06 Nov 2012) $
+// Version: $Revision: 580 $
+// Date   : $Date: 2012-12-19 10:39:49 +0000 (Wed, 19 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -682,6 +682,15 @@ NamebasePlayer::setRating(rating::Type type, uint16_t value)
 		if (type != rating::Elo)
 			m_ratingType = mstl::min(rating::Type(m_ratingType), type);
 	}
+}
+
+
+inline
+void
+NamebasePlayer::copyRating(NamebasePlayer const& player)
+{
+	::memcpy(m_rating, player.m_rating, sizeof(m_rating));
+	m_ratingType = player.m_ratingType;
 }
 
 } // namespace db

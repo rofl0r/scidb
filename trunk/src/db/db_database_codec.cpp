@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 574 $
-// Date   : $Date: 2012-12-17 18:47:09 +0000 (Mon, 17 Dec 2012) $
+// Version: $Revision: 580 $
+// Date   : $Date: 2012-12-19 10:39:49 +0000 (Wed, 19 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1150,6 +1150,9 @@ DatabaseCodec::addGame(ByteStream const& gameData, GameInfo const& info, Allocat
 
 		return save::TooManyAnnotatorNames;
 	}
+
+	whiteEntry->copyRating(*info.playerEntry(color::White));
+	blackEntry->copyRating(*info.playerEntry(color::Black));
 
 	GameInfo* i = allocGameInfo();
 	*i = info;

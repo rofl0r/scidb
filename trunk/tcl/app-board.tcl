@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 569 $
-# Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
+# Version: $Revision: 580 $
+# Date   : $Date: 2012-12-19 10:39:49 +0000 (Wed, 19 Dec 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -388,8 +388,11 @@ proc deselectInHandPiece {} {
 }
 
 
-proc finishDrop {color} {
-	::board::holding::finishDrop [set [namespace current]::Vars(holding:[string index $color 0])]
+proc finishDrop {} {
+	variable Vars
+
+	set color [::scidb::game::query stm]
+	::board::holding::finishDrop $Vars(holding:[string index $color 0])
 }
 
 

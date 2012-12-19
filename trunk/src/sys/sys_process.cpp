@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 550 $
-// Date   : $Date: 2012-12-01 18:24:50 +0000 (Sat, 01 Dec 2012) $
+// Version: $Revision: 580 $
+// Date   : $Date: 2012-12-19 10:39:49 +0000 (Wed, 19 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -46,6 +46,9 @@ static ProcessMap m_processMap;
 
 
 #ifndef __WIN32__
+
+// avoid warning "Attempt to use kernel headers from user space", what a nonsense!
+#define __KERNEL__
 
 # include <signal.h>
 # include <sys/types.h>

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 430 $
-// Date   : $Date: 2012-09-20 17:13:27 +0000 (Thu, 20 Sep 2012) $
+// Version: $Revision: 580 $
+// Date   : $Date: 2012-12-19 10:39:49 +0000 (Wed, 19 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -17,6 +17,9 @@
  *
  * RCS: @(#) $Id: tkTreeCtrl.h,v 1.97 2009/05/17 18:39:54 treectrl Exp $
  */
+
+// avoid warning "Attempt to use kernel headers from user space", what a nonsense!
+#define __KERNEL__
 
 #include "tkPort.h"
 #include "default.h"

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 369 $
-// Date   : $Date: 2012-06-30 21:23:33 +0000 (Sat, 30 Jun 2012) $
+// Version: $Revision: 580 $
+// Date   : $Date: 2012-12-19 10:39:49 +0000 (Wed, 19 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -352,6 +352,7 @@ public:
 
 	void setElo(uint16_t value);
 	void setRating(rating::Type type, uint16_t value);
+	void copyRating(NamebasePlayer const& player);
 
 private:
 
