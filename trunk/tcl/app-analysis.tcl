@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 577 $
-# Date   : $Date: 2012-12-18 18:27:57 +0000 (Tue, 18 Dec 2012) $
+# Version: $Revision: 582 $
+# Date   : $Date: 2012-12-19 12:49:11 +0000 (Wed, 19 Dec 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -340,6 +340,12 @@ proc build {parent width height} {
 		-command [namespace code EngineLock] \
 	]
 	lappend Vars(toolbar:childs) $Vars(button:lock)
+	::toolbar::add $tbControl button \
+		-image $::icon::toolbarSetup \
+		-command [namespace code Setup] \
+		-tooltipvar [namespace current]::mc::Setup \
+		;
+	::toolbar::addSeparator $tbControl
 	set tbw [::toolbar::add $tbControl checkbutton \
 		-image $::icon::toolbarLines \
 		-variable [namespace current]::Options(engine:multiPV) \
@@ -356,11 +362,6 @@ proc build {parent width height} {
 		-command [namespace code [list SetOrdering $tree]] \
 	]
 	lappend Vars(toolbar:childs) $Vars(widget:ordering)
-	::toolbar::add $tbControl button \
-		-image $::icon::toolbarSetup \
-		-command [namespace code Setup] \
-		-tooltipvar [namespace current]::mc::Setup \
-		;
 	::toolbar::addSeparator $tbControl
 	::toolbar::add $tbControl label -textvar [namespace current]::mc::Lines
 	set lpv [::toolbar::add $tbControl ::ttk::spinbox \

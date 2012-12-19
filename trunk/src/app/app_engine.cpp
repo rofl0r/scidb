@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 577 $
-// Date   : $Date: 2012-12-18 18:27:57 +0000 (Tue, 18 Dec 2012) $
+// Version: $Revision: 582 $
+// Date   : $Date: 2012-12-19 12:49:11 +0000 (Wed, 19 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -813,7 +813,7 @@ MoveList const&
 Engine::snapshotLine(unsigned lineNo) const
 {
 	M_REQUIRE(snapshotExists(lineNo));
-	return m_snapshot.m_lines[lineNo];
+	return m_snapshot.m_lines[m_map[lineNo]];
 }
 
 

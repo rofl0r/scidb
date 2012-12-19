@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 577 $
-// Date   : $Date: 2012-12-18 18:27:57 +0000 (Tue, 18 Dec 2012) $
+// Version: $Revision: 582 $
+// Date   : $Date: 2012-12-19 12:49:11 +0000 (Wed, 19 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -3467,7 +3467,7 @@ Game::updateSubscriber(unsigned action)
 	if (m_isModified != m_wasModified)
 		m_subscriber->stateChanged(m_wasModified = m_isModified);
 
-	if (action & UpdateBoard)
+	if ((action & UpdateBoard) && m_undoCommand == None && m_redoCommand == None)
 		goToCurrentMove();
 }
 

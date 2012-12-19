@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 569 $
-# Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
+# Version: $Revision: 582 $
+# Date   : $Date: 2012-12-19 12:49:11 +0000 (Wed, 19 Dec 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -321,15 +321,16 @@ proc UpdateIconSize {w args} {
 	variable ${w}::Vars
 	variable Options
 
-	set canv $w.contains
+	set canv $w.content
 	set size $Options(iconsize)
 	if {$size <= 16} { set symFont TkTooltipFont } else { set symFont TkTextFont }
 
 	foreach entry $Vars(bases) {
-		set id [lindex $entry 0]
+		lassign $entry id type
 		set img [set ::application::database::icons::${type}(${size}x${size})]
 		$canv itemconfigure icon$id -image $img
 		$canv itemconfigure name$id -font $symFont
+		$canv itemconfigure suff$id -font $symFont
 		$canv itemconfigure size$id -font $symFont
 	}
 

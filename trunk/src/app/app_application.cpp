@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 570 $
-// Date   : $Date: 2012-12-16 22:59:26 +0000 (Sun, 16 Dec 2012) $
+// Version: $Revision: 582 $
+// Date   : $Date: 2012-12-19 12:49:11 +0000 (Wed, 19 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -296,7 +296,10 @@ Application::~Application() throw()
 	m_instance = 0;
 
 	for (EngineList::iterator i = m_engineList.begin(); i != m_engineList.end(); ++i)
+	{
+		(*i)->deactivate();
 		delete *i;
+	}
 
 	m_gameMap.clear();
 }
@@ -843,6 +846,7 @@ Application::closeAllGames(Cursor& cursor)
 			if (game.cursor->isScratchbase())
 				m_indexMap.erase(position);
 
+			stopAnalysis(game.game);
 			i = m_gameMap.erase(i);
 
 			if (m_position == position)
