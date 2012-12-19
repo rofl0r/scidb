@@ -59,64 +59,121 @@ CONTENT
   </div>
 
   <p>
-  Die zweite öffentliche Vorschau-Version wurde freigegeben
+  Die dritte öffentliche Vorschau-Version wurde freigegeben
   (siehe <a href="download.html" lang="en">Download</a>).
+  Sie enthält viele, viele Fehlerbereinigungen, aber auch wieder viele, viele
+  Neuerungen - mit möglichen neuen Fehlern. Bis zur ersten stabilen Version wird
+  noch etwas Zeit vergehen, aber es fehlt nicht mehr viel. Die zwei wichtigsten
+  Punkte sind:
   </p>
 
-  <p>
-  Scidb hat eine neu gestaltete <span lang="en">Homepage</span>. Sie ist mit allen modernen
-  Browsern getestet: Firefox 4+, Safari 4+, Chrome 6+, Opera 11+, Konqueror 4+ und
-  Internet-Explorer 9+.  Mit älteren Browsern entfalten diese Seiten nicht das vorgesehene
-  Aussehen.
-  </p>
+  <dir>
+    <li>Ein flexibles Fensterlayout (leider sehr aufwendig)</li>
+    <li>Suchfunktionen bzw. Filterfunktionen: Partiedatensuche, Positionssuche, etc.</li>
+  </dir>
+
+  Mit der Impementierung dieser beiden Punkte wird die erste Vollversion
+  erscheinen - möglicherweise schon bei der nächsten öffentlichen Version.
+
+  Selbstverständlich steht auch noch die Windows-Version aus. Diese erfordert:
+
+  <dir>
+    <li>
+      Eine (recht aufwendige) Bibliothek um die unter Windows fehlenden Funktionen
+      <code>fopencookie()</code> und <code>open_memstream()</code> nachzubilden.
+    </li>
+    <li>
+      Die Portierung aller systemspezifischen Funktionalitäten, die bisher nur unter
+      Unix vollständig implementiert sind - allerdings liegt bereits eine teliweise
+      Portierung vor.
+    </li>
+    <li>
+      Intensives Testen, denn das GUI verhält sich unter Windows anders als unter
+      Unix.
+    </li>
+  </dir>
 
 </div>
 
 <div class="block">
 
   <div class="header">
-    Was ist neu in der zweiten Version? <hr />
+    Was ist neu in der dritten Version? <hr />
   </div>
 
+  <p>
+  Die wichtigsten Neuerungen sind:
+
   <dir>
-    <li>Partienhistorie</li>
-    <li>Hilfedialog (mit ein paar Hilfeseiten)</li>
-    <li>Neuer Dateiauswahldialog mit Zusatzfunktionen:
-      <ul type="circle">
-        <li>Datenbank löschen</li>
-        <li>Datenbank umbenennen</li>
-        <li>Datenbank duplizieren</li>
-        <li>Neuen Ordner anlegen</li>
-        <li>Auswahl der Datenbankenkodierung</li>
-      </ul>
+    <li>
+      Die Unterstützung anderer Schachformen: Einsetzschach (Crazyhouse), Schlagschach
+      (Suicide, Giveaway, Losers), Drei-Schach (Three-Check), und Tandemschach (Bughouse).
+      In dieser Version ist diese Unterstützung noch etwas experimentell.
     </li>
-    <li>Automatische Erkennung der Datenbankenkodierung.</li>
-    <li>Modifiziertes Scidb-Datenbankformat; es exisitiert nun eine neue Kommentarvariante:
-    Zuginformationen. Dies erlaubt eine kompakte Speicherung sowie, in einer späteren Version,
-    eine erleichterte Eingabe.</li>
-    <li>Automatische Aktualisierung auf das neue Datenbankformat</li>
-    <li>Überarbeiteter Export-Dialog</li>
-    <li>Rückgängig/Wiederherstellen (Undo/Redo) im Kommentareditor</li>
-    <li>Verbessertes Verhalten des HTML-Fensters
-      <ul type="circle">
-        <li>Doppelpufferung für flickerfreie Darstellung</li>
-        <li>Automatische Silbentrennung</li>
-      </ul>
+    <li>
+      Ein Analyse-Fenster, daß externe Schachprogramme unterstützt. Aufgrund des noch
+      fehlenden Fensterlayouts wird ein neues Fenster für die Analyse geöffnet.
     </li>
-    <li>Beschleunigter Aufbau des Partiespeicherungsdialogs</li>
-    <li>Verbesserte Turniertabelle:
-      <ul type="circle">
-        <li>Neues Wertungssystem "Bilbao" (drei Gewinnpunkte für Sieg) hinzugefügt</li>
-        <li>Zusätzliche Feinwertungen</li>
-      </ul>
+    <li>
+      Ein Setup-Dialog zum Einrichten neuer Schachprogramme. Es sind bereits drei
+      Schachprogramme vorinstalliert:
+      <ul>
+        <li>Stockfish (unterstützt Schach-960)</li>
+        <li>Sjeng (unterstützt Einsetzschach, Schlagschach, und Tandemschach)</li>
+        <li>Crafty (unterstützt Drei-Schach - noch experimentell)</li>
     </li>
-    <li>Der Export nach .si3/.si4 erlaubt nun eine Auswahl der <acronym>PGN</acronym>-Tags (eine Einschränkung der Tags beschleunigt den Zugbaum)</li>
-    <li>Auswahldialog für Datenbanksymbole überarbeitet</li>
-    <li>Neue Funktion im Partien-Editor: Kopieren/Verschieben von Kommentaren zwischen verschiedenen Sprachen</li>
-    <li>Drop-Down-Schatten (experimentell)</li>
-    <li>Teilweise Übersetzung in die ungarische Sprache, die Übersetzung ist noch in Bearbeitung</li>
-    <li>Die spanische Übersetzung wurde aufgrund von Unvollständigkeit vorübergehend herausgenommen. Interessenten für die Übersetzung: bitte bei <a href="wanted.html">Gesucht</a> schauen</li>
-    <li><acronym>UNIX</acronym>-Hilfeseiten</li>
+    <li>
+      Automatisches Update von Ergänzungen über das Internet, z. Zt. sind dies die
+      Spielerphoto- und Spielerinformationsdateien.
+    </li>
+    <li>
+      Die Integrierung von formatunabhängigen Datenbankarchiven. Dies erlaubt unter
+      anderem eine leichtere Versendung von Datenbanken über das Internet.
+    </li>
+    <li>
+      Drag&apm;Drop von Datenbanken in andere Datenbanken.
+    </li>
+    <li>
+      Mausradunterstützung für alle Listen und das Schachbrett.
+    </li>
+    <li>
+      Ein schwerwiegendes Peformanceproblem beim Öffnen von ChessBase-Datenbanken wurde
+      bereinigt.
+    </li>
+    <li>
+      Der Partieneditor verfügt nun über vielfältige Einstellungsmöglichkeiten.
+    </li>
+  </dir>
+
+  <p>
+  Weitere Neuerungen sind:
+  </p>
+
+  <dir>
+    <li>Mehr Hilfeseiten</li>
+    <li>Zugeingabe: Mittlere Maustaste (oder Leertaste) wechselt zu einem alternativen Zugvorschlag</li>
+    <li>Neuer Datenbankreiter: Orte-Liste</li>
+    <li>Vollbild-Modus verbessert</li>
+    <li>Kommandozeilen-Hilfsprogramm cdb2sci zur Konvertierung von Datenbanken ins Scidb-Format (.sci)</li>
+    <li>HTML-Widget überarbeitet: es werden auf signifikante Weise Ressourcen geschont</li>
+    <li>Schwedische Lokalisierung integriert (Dank an Lars Ekman)</li>
+    <li>Spanische Lokalisierung reaktiviert (Dank an Juan Carlos Vásquez)</li>
+    <li>Spanische Hilfeseiten hinzugefügt (Dank an Carlos Fernando González)</li>
+    <li>Automatische Erkennung des Zeichensatzes beim Laden von Partien (betrifft si3/si4/cbh)</li>
+    <li>Partien-Browser: Vollbild-Modus, sowie Maximieren/Minimieren des Brettes, hinzugefügt</li>
+    <li>Dateiauswahldialog erweitert und verbessert, unter anderem Drag&apm;Drop</li>
+    <li>Partie-Speichern/Ersetzen-Dialog verbessert</li>
+    <li>Spieler-Karteikarten implementiert</li>
+    <li>Datenbankfenster: Andocken/Abkopplen der Listen-Reiter integriert</li>
+    <li>Zugeingabe mit der Maus überarbeitet (wenn Zugvorschlag abgeschaltet ist)</li>
+    <li>Menüleiste entfernt, stattdessen exisitiert ein simples Hauptmenü; dies ist zeitgemäß und verbessert das Layout</li>
+    <li>Kompaktieren von Datenbanken (nur .sci) integriert</li>
+    <li>Installation der ChessBase-Zeichensätze integriert</li>
+    <li>Turniertabelle: Optionale Anzeige von Gewinn/Remis/Verlust</li>
+    <li>Algebraische- (Normal-, Kurz- und Langform), Englische, Korrespondenz- und telegrafische Notation verfügbar</li>
+    <li>Es können nun ungeöffnete Datenbanken importiert werden</li>
+    <li>Ein schwerwiegendes Problem mit Tcl-Version 8.6 behoben</li>
+    <li>Einige Icons neu gestaltet</li>
   </dir>
 
 </div>

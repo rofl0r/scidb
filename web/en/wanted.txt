@@ -91,9 +91,9 @@ CONTENT
 
   <dir>
     <li><p>Windows porting. Although the development is platform independent,
-    Windows does not provide the functions fopencookie() and
-    open_memstream(). Unfortunately the effort will be high. The basis
-    for this task is the library 'newlib' (only the stdio part).
+    Windows does not provide the functions <code>fopencookie()</code> and
+    <code>open_memstream()</code>. Unfortunately the effort will be high. The
+    basis for this task is the library 'newlib' (only the stdio part).
     More programming effort for the porting shouldn't be neccessary.</p></li>
 
     <li><p>Embedding a drag&amp;drop library.</p></li>

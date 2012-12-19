@@ -105,7 +105,8 @@ CONTENT
     <li>
       Windows-Portierung: obwohl die Entwicklung plattformunabhängig
       durchgeführt wurde, bedarf es einiger Anpassungen und Erweiterungen.
-      Windows bietet nicht die C-Funktionen fopencookie() und open_memstream().
+      Windows bietet nicht die C-Funktionen <code>fopencookie()</code> und
+      <code>open_memstream()</code>.
       Der Aufwand zur Nachbildung dieser Funktionen ist relativ hoch.
       Als Basis dient die Bibliothek 'newlib' (nur der stdio-Teil).
       Weiterer Aufwand ausser dem Testen sollte nicht vonnöten sein.
