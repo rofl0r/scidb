@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 575 $
-# Date   : $Date: 2012-12-17 22:36:30 +0000 (Mon, 17 Dec 2012) $
+# Version: $Revision: 581 $
+# Date   : $Date: 2012-12-19 12:25:46 +0000 (Wed, 19 Dec 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -218,14 +218,12 @@ proc Mouse1Up {w node} {
 
 
 proc BuildContributionsFrame {w} {
-	set textFam {"Bitstream Vera Sans" "DejaVu Sans" Verdana "Lucida Grande" "Lucida Sans" Arial}
-#	set css [::html::defaultCSS [::font::htmlFixedFamilies] [::font::htmlTextFamilies]]
-	set css [::html::defaultCSS [::font::htmlFixedFamilies] $textFam]
+	set css [::html::defaultCSS [::font::htmlFixedFamilies] [::font::htmlTextFamilies]]
 
 	append css {
-		h1 { font-size: 110%; background-color: #e5eeff; }
-		p  { padding-bottom: 0.3cm }
-		table  { padding-bottom: 0.3cm }
+		h1		{ font-size: 120%; background-color: #e5eeff; }
+		p		{ padding-bottom: 0.3cm }
+		table	{ padding-bottom: 0.3cm }
 	}
 
 	::html $w.t \

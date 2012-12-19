@@ -1,7 +1,7 @@
 ## ======================================================================
 # Author : $Author$
-# Version: $Revision: 483 $
-# Date   : $Date: 2012-10-24 10:27:49 +0000 (Wed, 24 Oct 2012) $
+# Version: $Revision: 581 $
+# Date   : $Date: 2012-12-19 12:25:46 +0000 (Wed, 19 Dec 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -223,6 +223,16 @@ proc open {parent {file {}} args} {
 	$pw add $html -sticky nswe -stretch always -minsize 500
 
 	bind $dlg <Configure> [namespace code [list RecordGeometry $pw]]
+
+#	switch [tk windowingsystem] {
+#		win32 - aqua {
+#			bind $dlg <MouseWheel> [list event generate $html <MouseWheel> -delta %D]
+#		}
+#		x11 {
+#			bind $dlg <ButtonPress-4> [list event generate $html <ButtonPress-4>]
+#			bind $dlg <ButtonPress-5> [list event generate $html <ButtonPress-5>]
+#		}
+#	}
 
 	if {$opts(-transient)} {
 		wm transient $dlg [winfo toplevel $parent]
@@ -1036,15 +1046,7 @@ proc BuildHtmlFrame {dlg w} {
 	bind $dlg <FocusIn>	[list $w focusin]
 	bind $dlg <FocusOut>	[list $w focusout]
 
-	switch [tk windowingsystem] {
-		win32 - aqua {
-			bind $dlg <MouseWheel> [list event generate [$w drawable] <MouseWheel> -delta %D]
-		}
-		x11 {
-			bind $dlg <ButtonPress-4> [list event generate [$w drawable] <ButtonPress-4>]
-			bind $dlg <ButtonPress-5> [list event generate [$w drawable] <ButtonPress-5>]
-		}
-	}
+	return [$w drawable]
 }
 
 
