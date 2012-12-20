@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 193 $
-// Date   : $Date: 2012-01-16 09:55:54 +0000 (Mon, 16 Jan 2012) $
+// Version: $Revision: 585 $
+// Date   : $Date: 2012-12-20 16:42:55 +0000 (Thu, 20 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -104,6 +104,15 @@ kingPawnSquare(sq::ID pawn, sq::ID king, sq::ID queen, bool toMove)
 void
 board::base::initialize()
 {
+#ifdef BROKEN_LINKER_HACK
+	static bool initialized = false;
+
+	if (initialized)
+		return;
+
+	initialized = true;
+#endif
+
 	static Byte const RotateL90[64] =
 	{
 		h1, h2, h3, h4, h5, h6, h7, h8,

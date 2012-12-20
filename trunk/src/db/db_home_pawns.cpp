@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 569 $
-// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
+// Version: $Revision: 585 $
+// Date   : $Date: 2012-12-20 16:42:55 +0000 (Thu, 20 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -177,6 +177,15 @@ HomePawns::debug() const
 void
 HomePawns::initialize()
 {
+#ifdef BROKEN_LINKER_HACK
+	static bool initialized = false;
+
+	if (initialized)
+		return;
+
+	initialized = true;
+#endif
+
 	::memset(::HomePawnMask, 0, sizeof(::HomePawnMask));
 
 	::HomePawnMask[color::White][sq::a2] = a2;

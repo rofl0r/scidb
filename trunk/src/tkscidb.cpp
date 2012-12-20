@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 355 $
-// Date   : $Date: 2012-06-20 20:51:25 +0000 (Wed, 20 Jun 2012) $
+// Version: $Revision: 585 $
+// Date   : $Date: 2012-12-20 16:42:55 +0000 (Thu, 20 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -45,7 +45,6 @@
 
 #ifdef BROKEN_LINKER_HACK
 # include "db_board.h"
-# include "db_board_base.h"
 # include "db_home_pawns.h"
 # include "db_signature.h"
 # include "db_probe.h"
@@ -76,7 +75,6 @@ init(Tcl_Interp* ti)
 		// properly working on these systems (among other problems).
 		db::tag::initialize();
 		db::castling::initialize();
-		db::board::base::initialize();
 		db::Board::initialize();
 		db::HomePawns::initialize();
 		db::Signature::initialize();

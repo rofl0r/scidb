@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 569 $
-// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
+// Version: $Revision: 585 $
+// Date   : $Date: 2012-12-20 16:42:55 +0000 (Thu, 20 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -109,6 +109,7 @@ public:
 	bool hasSupplement() const;
 	bool hasMoveInfo() const;
 	bool threefoldRepetition() const;
+	bool fiftyMoveRule() const;
 	bool containsIllegalCastlings() const;
 	bool containsIllegalMoves() const;
 	bool containsEnglishLang() const;
@@ -170,6 +171,7 @@ public:
 	void setInfoFlag(bool flag = true);
 	void swapVariations(unsigned varNo1, unsigned varNo2);
 	void setThreefoldRepetition(bool flag);
+	void setFiftyMoveRule(bool flag);
 	void prepareForPrint(Board const& board, variant::Type variant);
 	void transpose();
 	void finish(Board const& board, variant::Type variant);
@@ -213,6 +215,7 @@ private:
 		HasSupplement			= HasNote | HasVariation | IsPrepared,
 		IsFolded					= 1 << 7,
 		ThreefoldRepetition	= 1 << 8,
+		FiftyMoveRule			= 1 << 9,
 	};
 
 	MoveNode(MoveNode const&);

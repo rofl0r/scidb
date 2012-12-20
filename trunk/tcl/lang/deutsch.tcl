@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 577 $
-# Date   : $Date: 2012-12-18 18:27:57 +0000 (Tue, 18 Dec 2012) $
+# Version: $Revision: 585 $
+# Date   : $Date: 2012-12-20 16:42:55 +0000 (Thu, 20 Dec 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -779,6 +779,8 @@
 ::pgn::setup::mc::RevertSettings					"Auf Anfangswerte zurücksetzen"
 ::pgn::setup::mc::ResetSettings					"Auf Werkseinstellung zurücksetzen"
 ::pgn::setup::mc::DiscardAllChanges				"Alle bereits angewendeten Änderungen verwerfen?"
+::pgn::setup::mc::ThreefoldRepetition			"Dreifache Zugwiederholung"
+::pgn::setup::mc::FiftyMoveRule					"50-Züge-Regel"
 
 ::pgn::setup::mc::Setup(Appearance)				"Aussehen"
 ::pgn::setup::mc::Setup(Layout)					"Layout"

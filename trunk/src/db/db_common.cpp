@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 569 $
-// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
+// Version: $Revision: 585 $
+// Date   : $Date: 2012-12-20 16:42:55 +0000 (Thu, 20 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1192,6 +1192,15 @@ namespace castling
 	void
 	initialize()
 	{
+#ifdef BROKEN_LINKER_HACK
+		static bool initialized = false;
+
+		if (initialized)
+			return;
+
+		initialized = true;
+#endif
+
 		::memset(Transpose, 0, sizeof(Transpose));
 
 		for (unsigned i = 1; i <= AllRights; ++i)
@@ -1215,6 +1224,15 @@ namespace tag
 	void
 	initialize()
 	{
+#ifdef BROKEN_LINKER_HACK
+	static bool initialized = false;
+
+	if (initialized)
+		return;
+
+	initialized = true;
+#endif
+
 		// NOTE: White/blackECF has two entries:
 		static_assert(U_NUMBER_OF(NameMap) - 2 == ExtraTag, "NameMap expired");
 		static_assert(int(ExtraTag) <= int(TagSetSize), "BitField size exceeded");

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 577 $
-# Date   : $Date: 2012-12-18 18:27:57 +0000 (Tue, 18 Dec 2012) $
+# Version: $Revision: 585 $
+# Date   : $Date: 2012-12-20 16:42:55 +0000 (Thu, 20 Dec 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -783,6 +783,8 @@
 ::pgn::setup::mc::RevertSettings					"Torna alla configurazione iniziale"
 ::pgn::setup::mc::ResetSettings					"Torna alla configurazione di produzione"
 ::pgn::setup::mc::DiscardAllChanges				"Annulla tutte le modifiche applicate?"
+::pgn::setup::mc::ThreefoldRepetition			"Threefold move repetition" ;# NEW
+::pgn::setup::mc::FiftyMoveRule					"50 move rule" ;# NEW
 
 ::pgn::setup::mc::Setup(Appearance)				"Aspetto"
 ::pgn::setup::mc::Setup(Layout)					"Layout"
