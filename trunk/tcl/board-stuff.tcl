@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 569 $
-# Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
+# Version: $Revision: 587 $
+# Date   : $Date: 2012-12-20 19:30:26 +0000 (Thu, 20 Dec 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -766,7 +766,7 @@ proc Build {w} {
 		set x [expr {$col*$size}]
 		set y [expr {(7 - $row)*$size}]
 		set k [expr {$flip ? 63 - $i : $i}]
-		set color [expr {($row + $col) % 2 ? "lite" : "dark"}]
+		set color [expr {($row + $col) % 2 ? "dark" : "lite"}]
 		$w.c delete square:$k
 		$w.c delete selected:$k
 		$w.c delete suggested:$k
