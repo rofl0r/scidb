@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 580 $
-// Date   : $Date: 2012-12-19 10:39:49 +0000 (Wed, 19 Dec 2012) $
+// Version: $Revision: 589 $
+// Date   : $Date: 2012-12-20 21:54:50 +0000 (Thu, 20 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -63,9 +63,6 @@ void backtrace::text_write(ostringstream&, size_t) const {}
 #  include <fcntl.h>
 #  include <errno.h>
 #  include <sys/socket.h>
-
-// avoid warning "Attempt to use kernel headers from user space", what a nonsense!
-#  define __KERNEL__
 #  include <sys/wait.h>
 
 #  define USE_GDB	// addr2line is not working properly (wrong line numbers)
