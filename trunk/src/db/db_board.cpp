@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 581 $
-// Date   : $Date: 2012-12-19 12:25:46 +0000 (Wed, 19 Dec 2012) $
+// Version: $Revision: 586 $
+// Date   : $Date: 2012-12-20 16:45:28 +0000 (Thu, 20 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2556,46 +2556,46 @@ Board::setup(char const* fen, variant::Type variant)
 			switch (*p)
 			{
 				case 'A' ... 'H':
+				{
+					if (m_ksq[White] == Null)
+						return 0;
+
+					Byte fyle	= ::toFYLE(*p);
+					Byte square	= sq::make(fyle, Rank1);
+
+					if (fyle < ::fyle(m_ksq[White]))
 					{
-						if (m_ksq[White] == Null)
-							return 0;
-
-						Byte fyle	= ::toFYLE(*p);
-						Byte square	= sq::make(fyle, Rank1);
-
-						if (fyle < ::fyle(m_ksq[White]))
-						{
-							setCastleLong(White, square);
-							m_unambiguous[WhiteQS] = true;
-						}
-						else
-						{
-							setCastleShort(White, square);
-							m_unambiguous[WhiteKS] = true;
-						}
+						setCastleLong(White, square);
+						m_unambiguous[WhiteQS] = true;
+					}
+					else
+					{
+						setCastleShort(White, square);
+						m_unambiguous[WhiteKS] = true;
 					}
 					break;
+				}
 
 				case 'a' ... 'h':
+				{
+					if (m_ksq[Black] == Null)
+						return 0;
+
+					Byte fyle	= ::toFyle(*p);
+					Byte square	= sq::make(fyle, Rank8);
+
+					if (fyle < ::fyle(m_ksq[Black]))
 					{
-						if (m_ksq[Black] == Null)
-							return 0;
-
-						Byte fyle	= ::toFyle(*p);
-						Byte square	= sq::make(fyle, Rank8);
-
-						if (fyle < ::fyle(m_ksq[Black]))
-						{
-							setCastleLong(Black, square);
-							m_unambiguous[BlackQS] = true;
-						}
-						else
-						{
-							setCastleShort(Black, square);
-							m_unambiguous[BlackKS] = true;
-						}
+						setCastleLong(Black, square);
+						m_unambiguous[BlackQS] = true;
+					}
+					else
+					{
+						setCastleShort(Black, square);
+						m_unambiguous[BlackKS] = true;
 					}
 					break;
+				}
 
 				case 'K': setCastleShort(White); break;
 				case 'k': setCastleShort(Black); break;
@@ -6610,6 +6610,16 @@ Board::dump() const
 void
 Board::initialize()
 {
+#ifdef BROKEN_LINKER_HACK
+	static bool initialized = false;
+
+	if (initialized)
+		return;
+
+	initialized = true;
+	base::initialize();
+#endif
+
 	// Empty board
 	::memset(&m_emptyBoard, 0, sizeof(m_emptyBoard));
 	::memset(m_emptyBoard.m_destroyCastle, 0xff, sizeof(m_emptyBoard.m_destroyCastle));
