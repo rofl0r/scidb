@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 577 $
-// Date   : $Date: 2012-12-18 18:27:57 +0000 (Tue, 18 Dec 2012) $
+// Version: $Revision: 591 $
+// Date   : $Date: 2012-12-21 09:43:40 +0000 (Fri, 21 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -435,7 +435,7 @@ inline
 bool
 Engine::lineIsEmpty(unsigned no) const
 {
-	return no < m_numVariations && m_lines[no].isEmpty();
+	return no < m_wantedMultiPV && m_lines[no].isEmpty();
 }
 
 

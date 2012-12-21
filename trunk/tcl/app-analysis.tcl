@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 582 $
-# Date   : $Date: 2012-12-19 12:49:11 +0000 (Wed, 19 Dec 2012) $
+# Version: $Revision: 591 $
+# Date   : $Date: 2012-12-21 09:43:40 +0000 (Fri, 21 Dec 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -120,7 +120,7 @@ proc build {parent width height} {
 	variable Vars
 
 	set Vars(best:0) black
-	if {$Options(engine:bestFirst)} {
+	if {$Options(engine:bestFirst) || $Options(engine:multiPV) == 1} {
 		set Vars(best:1) black
 	} else {
 		set Vars(best:1) $Defaults(best:foreground)
@@ -491,13 +491,18 @@ proc SetOrdering {tree} {
 	variable Defaults
 	variable Options
 
-	if {$Options(engine:bestFirst)} {
+	if {$Options(engine:bestFirst) || $Options(engine:multiPV) == 1} {
 		set Vars(best:1) black
-		set order bestFirst
 	} else {
 		set Vars(best:1) $Defaults(best:foreground)
+	}
+
+	if {$Options(engine:bestFirst)} {
+		set order bestFirst
+	} else {
 		set order unordered
 	}
+
 	::scidb::engine::ordering $Vars(engine:id) $order
 
 	if {$Options(engine:bestFirst)} {
@@ -520,9 +525,15 @@ proc EngineLock {args} {
 
 proc SetMultiPV {tree} {
 	variable Vars
+	variable Defaults
 	variable Options
 
 	::scidb::engine::multiPV $Vars(engine:id) $Options(engine:multiPV)
+	if {$Options(engine:bestFirst) || $Options(engine:multiPV) == 1} {
+		set Vars(best:1) black
+	} else {
+		set Vars(best:1) $Defaults(best:foreground)
+	}
 	Layout $tree
 }
 

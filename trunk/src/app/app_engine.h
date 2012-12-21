@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 577 $
-// Date   : $Date: 2012-12-18 18:27:57 +0000 (Tue, 18 Dec 2012) $
+// Version: $Revision: 591 $
+// Date   : $Date: 2012-12-21 09:43:40 +0000 (Fri, 21 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -519,9 +519,9 @@ private:
 	unsigned				m_maxSkillLevel;
 	unsigned				m_maxMultiPV;
 	unsigned				m_wantedMultiPV;
+	unsigned				m_usedMultiPV;
 	Map					m_map;
 	Variations			m_lines;
-	unsigned				m_numVariations;
 	Scores				m_scores;
 	Scores				m_mates;
 	Scores				m_sortScores;
