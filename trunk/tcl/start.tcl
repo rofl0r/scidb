@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 588 $
-# Date   : $Date: 2012-12-20 21:33:36 +0000 (Thu, 20 Dec 2012) $
+# Version: $Revision: 592 $
+# Date   : $Date: 2012-12-21 09:51:14 +0000 (Fri, 21 Dec 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -73,7 +73,7 @@ if {![file isdirectory $user]} {
 	file mkdir [file join $user log]
 	file mkdir [file join $user photos]
 	file mkdir [file join $user backup]
-	file mkdir [file join $user engines sjeng]
+	file mkdir [file join $user engines]
 	file copy  [file join $share themes] $user
 } else {
 	set setup 0
