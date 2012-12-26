@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 569 $
-# Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
+# Version: $Revision: 593 $
+# Date   : $Date: 2012-12-26 18:40:30 +0000 (Wed, 26 Dec 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -70,6 +70,8 @@ proc open {parent base variant info view index {fen {}}} {
 #	foreach type {close previous next help} { $dlg.$type configure -width 15 }
 	$dlg.close configure -command [list destroy $dlg]
 	$dlg.help configure -command [list ::help::open .application Game-Overview -parent $dlg]
+	::tooltip::tooltip $dlg.previous ::browser::mc::LoadPrevGame
+	::tooltip::tooltip $dlg.next ::browser::mc::LoadNextGame
 
 	set sw [expr {[winfo screenwidth $dlg] - 30}]
 	set sh [expr {[winfo screenheight $dlg] - 140}]

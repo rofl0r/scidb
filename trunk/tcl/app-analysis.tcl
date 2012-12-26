@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 591 $
-# Date   : $Date: 2012-12-21 09:43:40 +0000 (Fri, 21 Dec 2012) $
+# Version: $Revision: 593 $
+# Date   : $Date: 2012-12-26 18:40:30 +0000 (Wed, 26 Dec 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -69,7 +69,7 @@ set NotSupported(analyze)	"This engine does not have an analysis mode."
 
 set Signal(stopped)			"Engine stopped by signal."
 set Signal(resumed)			"Engine resumed by signal."
-set Signal(killed)			"Engine killed by signal."
+set Signal(killed)			"Engine crashed or killed by signal."
 set Signal(crashed)			"Engine crashed."
 set Signal(closed)			"Engine has closed connection."
 set Signal(terminated)		"Engine terminated with exit code %s."

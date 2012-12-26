@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 591 $
-# Date   : $Date: 2012-12-21 09:43:40 +0000 (Fri, 21 Dec 2012) $
+# Version: $Revision: 593 $
+# Date   : $Date: 2012-12-26 18:40:30 +0000 (Wed, 26 Dec 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -816,7 +816,7 @@ proc Add {toolbar widgetCommand args} {
 
 	array set Specs [list                                       \
 		float:$w:$toolbar				1                             \
-		padx:$w:$toolbar				0                             \
+		padx:$w:$toolbar				1                             \
 		onvalue:$w:$toolbar			1                             \
 		offvalue:$w:$toolbar			0                             \
 		tooltip:$w:$toolbar			{}                            \
@@ -1643,7 +1643,6 @@ proc Tracer3 {toolbar args} {
 proc Tracer4 {toolbar w var args} {
 	variable Specs
 
-	if {$Specs(state:$w:$toolbar) eq "disabled"} { return }
 	ConfigureCheckButton $toolbar $w $w $var
 
 	if {[winfo exists $toolbar.floating]} {
@@ -1652,6 +1651,8 @@ proc Tracer4 {toolbar w var args} {
 	} else {
 		set v $w
 	}
+
+	if {$Specs(state:$w:$toolbar) eq "disabled"} { return }
 
 	if {[winfo containing {*}[winfo pointerxy .]] eq $v} {
 		EnterButton $toolbar $w

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 569 $
-# Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
+# Version: $Revision: 593 $
+# Date   : $Date: 2012-12-26 18:40:30 +0000 (Wed, 26 Dec 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -279,7 +279,7 @@ proc Open {type args} {
 		-geometry		""
 		-embed			0
 		-needencoding	0
-		-rows				10
+		-rows				11
 		-class			{}
 		-databases		1
 		-filetypes		{}

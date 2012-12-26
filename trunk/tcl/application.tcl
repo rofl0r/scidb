@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 569 $
-# Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
+# Version: $Revision: 593 $
+# Date   : $Date: 2012-12-26 18:40:30 +0000 (Wed, 26 Dec 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -302,7 +302,6 @@ if {[::process::testOption use-analysis]} {
 	::widget::dialogSetTitle $app [namespace code Title]
 	wm deiconify $app
 	database::finish $app
-	raise $app
 	::splash::close
 	ChooseLanguage $app
 	focus $nb

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 569 $
-# Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
+# Version: $Revision: 593 $
+# Date   : $Date: 2012-12-26 18:40:30 +0000 (Wed, 26 Dec 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -64,6 +64,7 @@ set Default			"Default"
 set Delete			"Delete"
 set Edit				"Edit"
 set File				"File"
+set Filter			"Filter"
 set From				"From"
 set Game				"Game"
 set Layout			"Layout"

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 585 $
-# Date   : $Date: 2012-12-20 16:42:55 +0000 (Thu, 20 Dec 2012) $
+# Version: $Revision: 593 $
+# Date   : $Date: 2012-12-26 18:40:30 +0000 (Wed, 26 Dec 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1487,7 +1487,8 @@ proc PrintComment {position w level key pos data} {
 			switch -- $code {
 				sym {
 					if {[llength $startPos] == 0} { set startPos [$w index current] }
-					$w insert current [string map $::figurines::pieceMap $text] [list figurine $langTag]
+					if {$flags & 1} { set fig figurineb } else { set fig figurine }
+					$w insert current [string map $::figurines::pieceMap $text] [list $fig $langTag]
 				}
 				nag {
 					if {[llength $startPos] == 0} { set startPos [$w index current] }

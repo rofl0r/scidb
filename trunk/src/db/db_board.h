@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 573 $
-// Date   : $Date: 2012-12-17 16:36:08 +0000 (Mon, 17 Dec 2012) $
+// Version: $Revision: 593 $
+// Date   : $Date: 2012-12-26 18:40:30 +0000 (Wed, 26 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -187,6 +187,8 @@ public:
 	void setPlyNumber(unsigned number);
 	/// Set the move number (NOTE: side to move must be set before).
 	void setMoveNumber(unsigned number);
+	/// Set the half move clock,
+	void setHalfMoveClock(unsigned number);
 	/// Set the number of checks given for both sides.
 	void setChecksGiven(unsigned white, unsigned black);
 	/// Transpose board position.

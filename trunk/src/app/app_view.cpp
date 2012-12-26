@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 569 $
-// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
+// Version: $Revision: 593 $
+// Date   : $Date: 2012-12-26 18:40:30 +0000 (Wed, 26 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -530,7 +530,12 @@ View::dumpGame(unsigned index,
 		lengths[0] = 0;
 
 		for (unsigned i = 1; i < size; ++i)
-			count += (lengths[i] = game.dumpMoves(result[i], unsigned(i*delta + 0.5) - count));
+		{
+			count += (lengths[i] = game.dumpMoves(
+												result[i],
+												unsigned(i*delta + 0.5) - count,
+												Game::SuppressSpace | Game::WhiteNumbers));
+		}
 	}
 
 	if (fen.empty())
