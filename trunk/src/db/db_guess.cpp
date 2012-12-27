@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 569 $
-// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
+// Version: $Revision: 596 $
+// Date   : $Date: 2012-12-27 23:09:05 +0000 (Thu, 27 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -617,9 +617,6 @@ db::Guess::search(MoveList& moves, unsigned maxDepth)
 	int bestScore = scores[0];
 
 	TRACE(::printf("1: search() = %d (best move: %s)\n", bestScore, moves[0].asString().c_str()));
-
-	if (moves.isEmpty() || bestScore <= -Infinity)
-		return Move::empty();
 
 	if (bestScore >= Infinity || maxDepth == 1)
 		return moves[0];

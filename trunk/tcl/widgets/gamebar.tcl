@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 593 $
-# Date   : $Date: 2012-12-26 18:40:30 +0000 (Wed, 26 Dec 2012) $
+# Version: $Revision: 596 $
+# Date   : $Date: 2012-12-27 23:09:05 +0000 (Thu, 27 Dec 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1307,7 +1307,7 @@ proc AddGameMenuEntries {m addSaveMenu addGameHistory clearHistory remove} {
 				-label " [format $mc::ReplaceMoves $name]" \
 				-image $::icon::16x16::save \
 				-compound left \
-				-command [namespace code [list replaceMoves $parent]] \
+				-command [list ::application::pgn::replaceMoves $parent] \
 				-state $state \
 				-accel "$::mc::Key(Ctrl)-$::application::board::mc::Accel(replace-moves)" \
 				;

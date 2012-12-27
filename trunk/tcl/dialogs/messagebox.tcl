@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 569 $
-# Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
+# Version: $Revision: 596 $
+# Date   : $Date: 2012-12-27 23:09:05 +0000 (Thu, 27 Dec 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -487,17 +487,17 @@ proc alert {args} {
 	if {$opts(-topmost)} {
 		wm attributes $w -topmost true
 	}
+	if {[llength $opts(-buttons)] == 0} {
+		wm protocol $w WM_DELETE_WINDOW [list destroy $w]
+	}
 	wm resizable $w false false
 	wm deiconify $w
+	raise $w
 #	tkwait visibility $w
 	set focus [expr {[llength $defaultButton] ? $defaultButton : $w}]
 	focus $focus
 
-	if {[llength $opts(-buttons)] == 0} {
-		wm protocol $w WM_DELETE_WINDOW [list destroy $w]
-		wm deiconify $w
-		return $w
-	}
+	if {[llength $opts(-buttons)] == 0} { return $w }
 
 	::ttk::grabWindow $w
 	vwait ::dialog::Reply

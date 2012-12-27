@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 594 $
-# Date   : $Date: 2012-12-26 22:34:33 +0000 (Wed, 26 Dec 2012) $
+# Version: $Revision: 596 $
+# Date   : $Date: 2012-12-27 23:09:05 +0000 (Thu, 27 Dec 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -217,7 +217,6 @@ proc openAdmininstration {parent} {
 	pack $top -fill both -expand yes
 
 	set Priv(state) edit
-	set Priv(engines) {}
 	set Priv(selection) -1
 	set Priv(initialise) 1
 	set Priv(rows) {0}

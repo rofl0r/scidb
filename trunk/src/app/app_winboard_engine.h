@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 569 $
-// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
+// Version: $Revision: 596 $
+// Date   : $Date: 2012-12-27 23:09:05 +0000 (Thu, 27 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -60,8 +60,6 @@ public:
 
 protected:
 
-	db::Board const& currentBoard() const override;
-
 	void setupBoard(db::Board const& board);
 	void reset();
 
@@ -102,7 +100,6 @@ private:
 	void detectFeatures(char const* identifier);
 	void pongReceived();
 
-	db::Board			m_board;
 	TimerP				m_timer;
 	State					m_state;
 	mstl::string		m_chess960Variant;
