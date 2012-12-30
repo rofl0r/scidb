@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 596 $
-// Date   : $Date: 2012-12-27 23:09:05 +0000 (Thu, 27 Dec 2012) $
+// Version: $Revision: 601 $
+// Date   : $Date: 2012-12-30 21:29:33 +0000 (Sun, 30 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -481,7 +481,6 @@ winboard::Engine::startAnalysis(bool)
 		::sys::signal::sendInterrupt(pid());
 
 	send("new");
-	send("force");
 
 	if (m_featureVariant)
 	{
@@ -493,7 +492,7 @@ winboard::Engine::startAnalysis(bool)
 		{
 			switch (m_variant)
 			{
-				case variant::Normal:		v = "standard"; break;
+				case variant::Normal:		v = "normal"; break;
 				case variant::Losers:		v = "losers"; break;
 				case variant::Suicide:		v = "suicide"; break;
 				case variant::Giveaway:		v = "giveaway"; break;
@@ -507,39 +506,41 @@ winboard::Engine::startAnalysis(bool)
 		}
 
 		send("variant " + v);
-
-		if (moves.empty())
-		{
-			if (!currentBoard().isStandardPosition())
-				setupBoard(currentBoard());
-		}
-		else if (game->historyIsLegal())
-		{
-			if (!startBoard.isStandardPosition())
-				setupBoard(startBoard);
-
-			for (int i = moves.size() - 1; i >= 0; --i)
-				doMove(moves[i]);
-		}
-		else if (m_featureSetboard)
-		{
-			setupBoard(game->currentBoard());
-		}
-		else
-		{
-			error(app::Engine::Illegal_Moves);
-			return false;
-		}
-
-		send("post");	// turn on thinking output
-		sendStartAnalysis();
-
-		if (!m_wholeSecondsDetected)
-			m_startTime = ::sys::time::timestamp();
-
-		m_isAnalyzing = true;
-		updateState(app::Engine::Start);
 	}
+
+	send("force");
+
+	if (moves.empty())
+	{
+		if (!currentBoard().isStandardPosition())
+			setupBoard(currentBoard());
+	}
+	else if (game->historyIsLegal())
+	{
+		if (!startBoard.isStandardPosition())
+			setupBoard(startBoard);
+
+		for (int i = moves.size() - 1; i >= 0; --i)
+			doMove(moves[i]);
+	}
+	else if (m_featureSetboard)
+	{
+		setupBoard(game->currentBoard());
+	}
+	else
+	{
+		error(app::Engine::Illegal_Moves);
+		return false;
+	}
+
+	send("post");	// turn on thinking output
+	sendStartAnalysis();
+
+	if (!m_wholeSecondsDetected)
+		m_startTime = ::sys::time::timestamp();
+
+	m_isAnalyzing = true;
+	updateState(app::Engine::Start);
 
 	return true;
 }
@@ -1171,6 +1172,15 @@ winboard::Engine::parseAnalysis(mstl::string const& msg)
 			if (::strncmp(msg, "analyze mode", 12) == 0)
 				addFeature(app::Engine::Feature_Analyze);
 			break;
+
+		case 'm':
+			if (::strncmp(msg, "move ", 5) == 0)
+			{
+				// some engines - for example TJchess - do exit
+				// analyze mode with sending a move
+				stopAnalysis(false);
+			}
+			return;
 
 		case 't':
 			if (::strncmp(msg, "telluser", 8) == 0)

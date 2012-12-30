@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 596 $
-// Date   : $Date: 2012-12-27 23:09:05 +0000 (Thu, 27 Dec 2012) $
+// Version: $Revision: 601 $
+// Date   : $Date: 2012-12-30 21:29:33 +0000 (Sun, 30 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1105,7 +1105,6 @@ Engine::probe(unsigned timeout)
 }
 
 
-#include <stdio.h>
 bool
 Engine::startAnalysis(db::Game* game)
 {
@@ -1128,6 +1127,7 @@ Engine::startAnalysis(db::Game* game)
 
 	bool isNew = m_game ? game->id() != m_gameId : true;
 
+	m_usedMultiPV = 0;
 	m_restart = false;
 	m_gameId = game->id();
 
@@ -1189,7 +1189,6 @@ Engine::startAnalysis(db::Game* game)
 		}
 
 		resetInfo();
-		m_usedMultiPV = 0;
 		m_bestIndex = 0;
 		m_bestInfoHasChanged = false;
 		m_selection.reset();

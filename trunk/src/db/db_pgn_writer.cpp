@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 385 $
-// Date   : $Date: 2012-07-27 19:44:01 +0000 (Fri, 27 Jul 2012) $
+// Version: $Revision: 601 $
+// Date   : $Date: 2012-12-30 21:29:33 +0000 (Sun, 30 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -254,7 +254,7 @@ PgnWriter::putTokens(mstl::string const& s)
 void
 PgnWriter::writeBeginGame(unsigned number)
 {
-	if (number > 1 || test(Flag_Append_Games))
+	if (number == 1 && test(Flag_Append_Games))
 		m_strm.put('\n');
 
 	m_pendingSpace = 0;

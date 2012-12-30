@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 585 $
-// Date   : $Date: 2012-12-20 16:42:55 +0000 (Thu, 20 Dec 2012) $
+// Version: $Revision: 601 $
+// Date   : $Date: 2012-12-30 21:29:33 +0000 (Sun, 30 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -102,7 +102,7 @@ static Pair const NameMap[] =
 	{ "BlackType",				BlackType },
 	{ "BlackUSCF",				BlackUSCF },
 	{ "Board",					Board },
-	{ "BughouseDBNumber",	BughouseDBNumber },
+	{ "BughouseDBGameNo",	BughouseDBGameNo },
 	{ "Date",					Date },
 	{ "ECO",						Eco },
 	{ "Event",					Event },

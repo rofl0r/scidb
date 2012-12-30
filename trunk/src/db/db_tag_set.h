@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 569 $
-// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
+// Version: $Revision: 601 $
+// Date   : $Date: 2012-12-30 21:29:33 +0000 (Sun, 30 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -60,6 +60,7 @@ public:
 	bool contains(mstl::string const& tag) const;
 	bool isUserSupplied(tag::ID tag) const;
 
+	unsigned size() const;
 	unsigned countExtra() const;
 	util::crc::checksum_t computeChecksum(util::crc::checksum_t crc = 0) const;
 

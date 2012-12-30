@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 593 $
-// Date   : $Date: 2012-12-26 18:40:30 +0000 (Wed, 26 Dec 2012) $
+// Version: $Revision: 601 $
+// Date   : $Date: 2012-12-30 21:29:33 +0000 (Sun, 30 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -34,6 +34,7 @@
 #include "db_comment.h"
 #include "db_database_codec.h"
 #include "db_eco_table.h"
+#include "db_date.h"
 
 #include "si3_codec.h"
 #include "sci_codec.h"
@@ -71,6 +72,8 @@ static char const* CmdIsAscii					= "::scidb::misc::isAscii?";
 static char const* CmdLookup					= "::scidb::misc::lookup";
 static char const* CmdMapExtension			= "::scidb::misc::mapExtension";
 static char const* CmdMapWindow				= "::scidb::misc::mapWindow";
+static char const* CmdMaxYear					= "::scidb::misc::maxYear";
+static char const* CmdMinYear					= "::scidb::misc::minYear";
 static char const* CmdNumberOfProcessors	= "::scidb::misc::numberOfProcessors";
 static char const* CmdPredPow2				= "::scidb::misc::predPow2";
 static char const* CmdRevision				= "::scidb::misc::revision";
@@ -1077,6 +1080,22 @@ cmdNumberOfProcessors(ClientData clientData, Tcl_Interp* ti, int objc, Tcl_Obj* 
 }
 
 
+static int
+cmdMinYear(ClientData clientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
+{
+	setResult(::db::Date::MinYear);
+	return TCL_OK;
+}
+
+
+static int
+cmdMaxYear(ClientData clientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
+{
+	setResult(::db::Date::MaxYear);
+	return TCL_OK;
+}
+
+
 namespace tcl {
 namespace misc {
 
@@ -1096,6 +1115,8 @@ init(Tcl_Interp* ti)
 	createCommand(ti, CmdLookup,					cmdLookup);
 	createCommand(ti, CmdMapExtension,			cmdMapExtension);
 	createCommand(ti, CmdMapWindow,				cmdMapWindow);
+	createCommand(ti, CmdMaxYear,					cmdMaxYear);
+	createCommand(ti, CmdMinYear,					cmdMinYear);
 	createCommand(ti, CmdNumberOfProcessors,	cmdNumberOfProcessors);
 	createCommand(ti, CmdPredPow2,				cmdPredPow2);
 	createCommand(ti, CmdRevision,				cmdRevision);

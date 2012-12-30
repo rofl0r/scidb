@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 593 $
-// Date   : $Date: 2012-12-26 18:40:30 +0000 (Wed, 26 Dec 2012) $
+// Version: $Revision: 601 $
+// Date   : $Date: 2012-12-30 21:29:33 +0000 (Sun, 30 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -751,5 +751,50 @@ Encoder::doEncoding(	Signature const&,
 	encodeMainline(data.m_startNode);
 	encodeDataSection(data.m_tags, allowedTags, allowExtraTags, data.m_engines);
 }
+
+
+#ifdef TODO
+void
+Encoder::writeTags(TagSet const& tags)
+{
+	uint16_t flags = ByteStream::uint16(m_strm.base());
+
+	if (m_strm.tellp() >= (1 << 24))
+		IO_RAISE(Game, Encoding_Failed, "move data section is too large");
+
+	ByteStream::set(m_strm.base() + m_offset, uint24_t(m_strm.tellp()));
+	ByteStream::set(m_strm.base() + m_offset + 3, uint16_t(m_runLength));
+
+	flags |= encodeTextSection();
+	flags |= encodeTagSection(tags, allowedTags, allowExtraTags);
+	flags |= encodeEngineSection(engines);
+
+	ByteStream::set(m_strm.base(), flags);
+	m_strm.put(m_data.base(), m_data.tellp());
+	m_strm.provide();
+
+////////////////////////////////////////////////////////////////
+
+	uint16_t flags = m_strm.uint16();
+
+	if (!(flags & flags::TagSection))
+		return;
+
+	uint16_t idn = flags & 0x0fff;
+
+	if (idn == 0)
+		m_strm.skipString();
+
+	Byte* dataSection = m_strm.base() + m_strm.uint24();
+
+	if (flags & flags::TextSection)
+		dataSection += ByteStream::uint24(dataSection) + 3;
+
+	ByteStream data(dataSection, m_strm.end() - dataSection);
+	TagSet myTags;
+
+	Decoder::decodeTags(data, myTags);
+}
+#endif
 
 // vi:set ts=3 sw=3:

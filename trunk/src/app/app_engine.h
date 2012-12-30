@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 596 $
-// Date   : $Date: 2012-12-27 23:09:05 +0000 (Thu, 27 Dec 2012) $
+// Version: $Revision: 601 $
+// Date   : $Date: 2012-12-30 21:29:33 +0000 (Sun, 30 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -332,6 +332,7 @@ public:
 	db::Move const& currentMove() const;
 	unsigned hashFullness() const;
 	unsigned ordering(unsigned line) const;
+	unsigned countLines() const;
 
 	mstl::string const& identifier() const;
 	mstl::string const& shortName() const;

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 569 $
-// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
+// Version: $Revision: 601 $
+// Date   : $Date: 2012-12-30 21:29:33 +0000 (Sun, 30 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -40,11 +40,9 @@ public:
 	// According to
 	// http://en.wikipedia.org/wiki/World_records_in_chess
 	// the maximum number of moves is possibly 218.
-	// We have to add maximal 304 for piece drops (Bughouse),
-	// The following (calculated) constant is safer and can
-	// never be exceeded.
+	// We have to add maximal 304 for piece drops (Zhouse),
 	// TODO: Make a sharper calculation.
-	enum { Maximum_Moves = 490 };
+	enum { Maximum_Moves = 522 };
 
 	typedef Move*			iterator;
 	typedef Move const*	const_iterator;

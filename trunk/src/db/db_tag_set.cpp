@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 569 $
-// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
+// Version: $Revision: 601 $
+// Date   : $Date: 2012-12-30 21:29:33 +0000 (Sun, 30 Dec 2012) $
 // Url    : $URL$
 // ======================================================================
 
@@ -108,6 +108,13 @@ TagSet::operator=(TagSet&& set)
 }
 
 #endif
+
+
+unsigned
+TagSet::size() const
+{
+	return m_set.count() + countExtra();
+}
 
 
 int

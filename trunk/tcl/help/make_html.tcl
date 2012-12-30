@@ -3,8 +3,8 @@
 exec tclsh "$0" "$@"
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 585 $
-# Date   : $Date: 2012-12-20 16:42:55 +0000 (Thu, 20 Dec 2012) $
+# Version: $Revision: 601 $
+# Date   : $Date: 2012-12-30 21:29:33 +0000 (Sun, 30 Dec 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -412,7 +412,7 @@ proc processContents {contents} {
 			}
 			processContents [readContents $inc $f]
 		} else {
-			while {[regexp {%(::)?[a-zA-Z_:]*([(].*[)])?%} $line pattern]} {
+			while {[regexp {%(::)?[a-zA-Z_:]*(\([^)]*\))?%} $line pattern]} {
 				set var [string range $pattern 1 end-1]
 				if {[info exists $var]} {
 					set line [string map [list $pattern [set $var]] $line]

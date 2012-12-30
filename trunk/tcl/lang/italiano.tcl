@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 593 $
-# Date   : $Date: 2012-12-26 18:40:30 +0000 (Wed, 26 Dec 2012) $
+# Version: $Revision: 601 $
+# Date   : $Date: 2012-12-30 21:29:33 +0000 (Sun, 30 Dec 2012) $
 # Url    : $URL$
 # ======================================================================
 
@@ -243,6 +243,7 @@
 ::menu::mc::InstallChessBaseFonts	"Installa Caratteri ChessBase"
 ::menu::mc::OpenEngineLog				"Apri Console &Motori"
 ::menu::mc::OpenEngineDictionary		"Open Engine &Dictionary" ;# NEW
+::menu::mc::PrivatePlayerCard			"&Private Player Card" ;# NEW
 
 ::menu::mc::OpenFile						"Apri un file Scidb"
 ::menu::mc::NewFile						"Crea un file Scidb"
@@ -1319,7 +1320,7 @@
 ::setup::board::mc::Castling						"Arrocco"
 ::setup::board::mc::MoveNumber					"Numero mossa"
 ::setup::board::mc::EnPassantFile				"En passant"
-::setup::board::mc::HalfMoves						"Half moves" ;# NEW
+::setup::board::mc::HalfMoves						"Half move clock" ;# NEW
 ::setup::board::mc::StartPosition				"Posizione iniziale"
 ::setup::board::mc::Fen								"FEN"
 ::setup::board::mc::Promoted						"Promoted" ;# NEW
@@ -1745,11 +1746,11 @@
 ::languagebox::mc::None				"Nessuno"
 
 ### datebox ############################################################
-::widget::datebox::mc::Today		"Oggi"
-::widget::datebox::mc::Calendar	"Calendario..."
-::widget::datebox::mc::Year		"Anno"
-::widget::datebox::mc::Month		"Mese"
-::widget::datebox::mc::Day			"Giorno"
+::datebox::mc::Today		"Oggi"
+::datebox::mc::Calendar	"Calendario..."
+::datebox::mc::Year		"Anno"
+::datebox::mc::Month		"Mese"
+::datebox::mc::Day		"Giorno"
 
 ### genderbox ##########################################################
 ::genderbox::mc::Gender(m) "Maschio"
