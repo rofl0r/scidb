@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 602 $
-// Date   : $Date: 2013-01-01 16:53:57 +0000 (Tue, 01 Jan 2013) $
+// Version: $Revision: 605 $
+// Date   : $Date: 2013-01-01 22:18:11 +0000 (Tue, 01 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -142,7 +142,7 @@ Position::undoMove(Move const& move)
 
  		unsigned	pieceNum	= lookup.numbers[move.to()];
 
-	 	if (move.captured() != piece::None)
+	 	if (move.isCapture())
  		{
  			M_ASSERT(lookup.capturedNum);
 

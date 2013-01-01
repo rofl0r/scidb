@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 593 $
-# Date   : $Date: 2012-12-26 18:40:30 +0000 (Wed, 26 Dec 2012) $
+# Version: $Revision: 605 $
+# Date   : $Date: 2013-01-01 22:18:11 +0000 (Tue, 01 Jan 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -263,7 +263,7 @@ proc build {w width height} {
 	bind <Control-Up>		[namespace code LoadPrevious]
 	bind <Control-Home>	[namespace code LoadFirst]
 	bind <Control-End>	[namespace code LoadLast]
-	bind <Control-0>		{ ::move::addMove -- }
+	bind <Control-0>		[namespace code InsertNullMove]
 	bind <<Undo>>			[namespace parent]::pgn::undo
 	bind <<Redo>>			[namespace parent]::pgn::redo
 	bind <BackSpace>		[namespace parent]::pgn::undoLastMove
@@ -599,12 +599,12 @@ proc PopupMenu {w} {
 		-state $state \
 		;
 	
-	if {![::application::pgn::empty?]} {
+	if {![::application::pgn::empty?] && ![::scidb::game::query over]} {
 		$m add separator
 
 		$m add command \
 			-label " $mc::InsertNullMove" \
-			-command { ::move::addMove -- } \
+			-command { ::move::addMove dialog -- } \
 			-accelerator "$::mc::Key(Ctrl)-0" \
 			;
 	}
@@ -643,6 +643,13 @@ proc PopupMenu {w} {
 		-command [namespace code Apply] \
 		;
 	tk_popup $m {*}[winfo pointerxy $w]
+}
+
+
+proc InsertNullMove {} {
+	if {![::application::pgn::empty?] && ![::scidb::game::query over]} {
+		::move::addMove dialog --
+	}
 }
 
 

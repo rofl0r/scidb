@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 577 $
-# Date   : $Date: 2012-12-18 18:27:57 +0000 (Tue, 18 Dec 2012) $
+# Version: $Revision: 605 $
+# Date   : $Date: 2013-01-01 22:18:11 +0000 (Tue, 01 Jan 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1288,7 +1288,7 @@ proc Activate {table} {
 	if {$Vars(selected) == [::table::selection $table]} {
 		set move [::scidb::tree::move $Vars(selected)]
 		if {[string length $move]} {
-			set action [::move::addMove $move [list set [namespace current]::Vars(activated) 0] {load}]
+			set action [::move::addMove menu $move [list set [namespace current]::Vars(activated) 0] {load}]
 			if {$action eq "load"} { LoadFirstGame $table $Vars(selected) $move }
 		}
 	} else {
