@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 602 $
-// Date   : $Date: 2013-01-01 16:53:57 +0000 (Tue, 01 Jan 2013) $
+// Version: $Revision: 604 $
+// Date   : $Date: 2013-01-01 18:35:53 +0000 (Tue, 01 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -97,7 +97,7 @@ Consumer::supportsVariant(variant::Type) const
 void
 Consumer::setVariant(variant::Type variant)
 {
-	M_REQUIRE(supportsVariant(variant));
+	M_REQUIRE(variant == variant::Undetermined || supportsVariant(variant));
 
 	m_useVariant = m_variant = variant;
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 602 $
-// Date   : $Date: 2013-01-01 16:53:57 +0000 (Tue, 01 Jan 2013) $
+// Version: $Revision: 604 $
+// Date   : $Date: 2013-01-01 18:35:53 +0000 (Tue, 01 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -658,6 +658,7 @@ PgnReader::error(Error code, Pos pos, mstl::string const& item)
 		else
 			++m_rejected[variant::toIndex(variant::toMainVariant(m_thisVariant))];
 
+		m_move.clear();
 		throw Interruption(code, mstl::string::empty_string);
 	}
 
@@ -924,11 +925,8 @@ PgnReader::process(Progress& progress)
 				token = nextToken(kTag);
 				consumer().setVariant(m_variant);
 
-				if (	(m_variant == variant::Undetermined || m_variant == variant::Normal)
-					&& consumer().supportsVariant(variant::Crazyhouse))
-				{
+				if (m_variant == variant::Undetermined || m_variant == variant::Normal)
 					consumer().useVariant(variant::Crazyhouse);
-				}
 
 				consumer().startMoveSection();
 

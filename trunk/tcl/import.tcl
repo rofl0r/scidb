@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 602 $
-# Date   : $Date: 2013-01-01 16:53:57 +0000 (Tue, 01 Jan 2013) $
+# Version: $Revision: 604 $
+# Date   : $Date: 2013-01-01 18:35:53 +0000 (Tue, 01 Jan 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -134,7 +134,6 @@ variable Variants {Undetermined Normal ThreeCheck Crazyhouse Suicide Giveaway Lo
 
 
 proc import {parent base files msg {encoding {}}} {
-puts "import $base"
 	if {[llength $files] == 0} { return 0 }
 	::remote::busyOperation { Import $parent $base $files $msg $encoding }
 }
