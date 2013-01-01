@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 601 $
-# Date   : $Date: 2012-12-30 21:29:33 +0000 (Sun, 30 Dec 2012) $
+# Version: $Revision: 602 $
+# Date   : $Date: 2013-01-01 16:53:57 +0000 (Tue, 01 Jan 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -237,13 +237,21 @@
 ::menu::mc::Tools							"&Tools" ;# NEW
 ::menu::mc::Extras						"E&xtras" 
 ::menu::mc::Setup							"Configu&rar"
-::menu::mc::Engines						"Motor&es"
 
+# Contact
 ::menu::mc::ContactBugReport			"&Reporte de errores"
 ::menu::mc::ContactFeatureRequest	"&Solicitud de característica"
+
+# Extras
 ::menu::mc::InstallChessBaseFonts	"Instalar Fuentes de ChessBase" 
 ::menu::mc::OpenEngineLog				"Abrir bitácora d&el Motor"
+
+# Tools
 ::menu::mc::OpenEngineDictionary		"Open Engine &Dictionary" ;# NEW
+::menu::mc::OpenPlayerDictionary		"Open &Player Dictionary" ;# NEW
+
+# Setup
+::menu::mc::Engines						"Motor&es"
 ::menu::mc::PrivatePlayerCard			"&Private Player Card" ;# NEW
 
 ::menu::mc::OpenFile						"Abrir un archivo Scidb"
@@ -786,7 +794,7 @@
 ::pgn::setup::mc::RevertSettings					"Volver a la configuración inicial"
 ::pgn::setup::mc::ResetSettings					"Volver a la configuración original"
 ::pgn::setup::mc::DiscardAllChanges				"¿Desea descartar todos los cambios realizados?"
-::pgn::setup::mc::ThreefoldRepetition			"Threefold move repetition" ;# NEW
+::pgn::setup::mc::ThreefoldRepetition			"Threefold repetition" ;# NEW
 ::pgn::setup::mc::FiftyMoveRule					"50 move rule" ;# NEW
 
 ::pgn::setup::mc::Setup(Appearance)				"Apariencia"
@@ -1787,7 +1795,7 @@
 ::terminationbox::mc::Termination(less-material)	"%s wins by having less material (stalemate)"
 ::terminationbox::mc::Termination(bishops)			"Game drawn by stalemate (opposite color bishops)" ;# NEW
 ::terminationbox::mc::Termination(fifty)				"Game drawn by the 50 move rule" ;# NEW
-::terminationbox::mc::Termination(threefold)			"Game drawn by threefold move repetition" ;# NEW
+::terminationbox::mc::Termination(threefold)			"Game drawn by threefold repetition" ;# NEW
 ::terminationbox::mc::Termination(mating)				"Neither player has mating material" ;# NEW
 
 ### eventmodebox #######################################################

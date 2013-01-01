@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 601 $
-// Date   : $Date: 2012-12-30 21:29:33 +0000 (Sun, 30 Dec 2012) $
+// Version: $Revision: 602 $
+// Date   : $Date: 2013-01-01 16:53:57 +0000 (Tue, 01 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -523,10 +523,10 @@ Board::addToHolding<piece::Pawn>(variant::Type variant, unsigned color)
 // catch GCC bug:
 // "internal compiler error: in expand_expr_addr_expr_1, at expr.c:7597"
 #if __GNUC_PREREQ(4,5)
-	hashHoldingAdd(::toPiece(piece::Pawn, color), m_holding[color].pawn++);
-#else
 	hashHoldingAdd(::toPiece(piece::Pawn, color), m_holding[color].pawn);
 	++m_holding[color].pawn;
+#else
+	hashHoldingAdd(::toPiece(piece::Pawn, color), m_holding[color].pawn++);
 #endif
 }
 
@@ -542,10 +542,10 @@ Board::addToHolding<piece::Knight>(variant::Type variant, unsigned color)
 // catch GCC bug:
 // "internal compiler error: in expand_expr_addr_expr_1, at expr.c:7597"
 #if __GNUC_PREREQ(4,5)
-	hashHoldingAdd(::toPiece(piece::Knight, color), m_holding[color].knight++);
-#else
 	hashHoldingAdd(::toPiece(piece::Knight, color), m_holding[color].knight);
 	++m_holding[color].knight;
+#else
+	hashHoldingAdd(::toPiece(piece::Knight, color), m_holding[color].knight++);
 #endif
 }
 
@@ -561,10 +561,10 @@ Board::addToHolding<piece::Bishop>(variant::Type variant, unsigned color)
 // catch GCC bug:
 // "internal compiler error: in expand_expr_addr_expr_1, at expr.c:7597"
 #if __GNUC_PREREQ(4,5)
-	hashHoldingAdd(::toPiece(piece::Bishop, color), m_holding[color].bishop++);
-#else
 	hashHoldingAdd(::toPiece(piece::Bishop, color), m_holding[color].bishop);
 	++m_holding[color].bishop;
+#else
+	hashHoldingAdd(::toPiece(piece::Bishop, color), m_holding[color].bishop++);
 #endif
 }
 
@@ -580,10 +580,10 @@ Board::addToHolding<piece::Rook>(variant::Type variant, unsigned color)
 // catch GCC bug:
 // "internal compiler error: in expand_expr_addr_expr_1, at expr.c:7597"
 #if __GNUC_PREREQ(4,5)
-	hashHoldingAdd(::toPiece(piece::Rook, color), m_holding[color].rook++);
-#else
 	hashHoldingAdd(::toPiece(piece::Rook, color), m_holding[color].rook);
 	++m_holding[color].rook;
+#else
+	hashHoldingAdd(::toPiece(piece::Rook, color), m_holding[color].rook++);
 #endif
 }
 
@@ -599,10 +599,10 @@ Board::addToHolding<piece::Queen>(variant::Type variant, unsigned color)
 // catch GCC bug:
 // "internal compiler error: in expand_expr_addr_expr_1, at expr.c:7597"
 #if __GNUC_PREREQ(4,5)
-	hashHoldingAdd(::toPiece(piece::Queen, color), m_holding[color].queen++);
-#else
 	hashHoldingAdd(::toPiece(piece::Queen, color), m_holding[color].queen);
 	++m_holding[color].queen;
+#else
+	hashHoldingAdd(::toPiece(piece::Queen, color), m_holding[color].queen++);
 #endif
 }
 

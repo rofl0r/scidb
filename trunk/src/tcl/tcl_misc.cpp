@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 601 $
-// Date   : $Date: 2012-12-30 21:29:33 +0000 (Sun, 30 Dec 2012) $
+// Version: $Revision: 602 $
+// Date   : $Date: 2013-01-01 16:53:57 +0000 (Tue, 01 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -668,7 +668,7 @@ cmdLookup(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 
 	if (::strcmp(which, "player") == 0)
 	{
-		::db::Player const* player = ::db::Player::findPlayer(unsignedFromObj(objc, objv, 2));
+		::db::Player const* player = ::db::Player::findFidePlayer(unsignedFromObj(objc, objv, 2));
 		bool unicodeFlag = false;
 
 		if (objc > 3)

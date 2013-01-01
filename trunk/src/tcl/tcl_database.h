@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 573 $
-// Date   : $Date: 2012-12-17 16:36:08 +0000 (Mon, 17 Dec 2012) $
+// Version: $Revision: 602 $
+// Date   : $Date: 2013-01-01 16:53:57 +0000 (Tue, 01 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -47,10 +47,6 @@ namespace tcl
 		int getGameInfo(	::db::Database const& db,
 								unsigned index,
 								Ratings const& ratings);
-		int getPlayerInfo(::db::NamebasePlayer const& player,
-								Ratings& ratings,
-								bool info,
-								bool idCard);
 		int getPlayerStats(::db::Database const& db, ::db::NamebasePlayer const& player);
 		int getTags(::db::TagSet const& tags, bool userSuppliedOnly);
 

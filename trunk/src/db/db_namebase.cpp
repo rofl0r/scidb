@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 511 $
-// Date   : $Date: 2012-11-06 14:46:50 +0000 (Tue, 06 Nov 2012) $
+// Version: $Revision: 602 $
+// Date   : $Date: 2013-01-01 16:53:57 +0000 (Tue, 01 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -445,7 +445,7 @@ Namebase::insertPlayer(	mstl::string const& name,
 
 	if (fideIdFlag)
 	{
-		p = Player::findPlayer(fideID);
+		p = Player::findFidePlayer(fideID);
 
 		if (p == 0)
 		{

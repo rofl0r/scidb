@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 585 $
-// Date   : $Date: 2012-12-20 16:42:55 +0000 (Thu, 20 Dec 2012) $
+// Version: $Revision: 602 $
+// Date   : $Date: 2013-01-01 16:53:57 +0000 (Tue, 01 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2989,6 +2989,7 @@ Game::finishLoad(variant::Type variant, mstl::string const* fen)
 	updateLine();
 	updateLanguageSet();
 	m_wantedLanguages = m_languageSet;
+	m_startNode->updateFromTimeTable(m_timeTable);
 
 	return ok;
 }
@@ -3054,6 +3055,11 @@ Game::updateLine()
 {
 	if (!isMainline())
 		return false;
+
+	unsigned length = m_startNode->countHalfMoves();
+
+	if (m_timeTable.size() > length)
+		m_timeTable.cut(length);
 
 	unsigned idn = m_startBoard.computeIdn();
 
@@ -3307,7 +3313,6 @@ bool
 Game::isFolded(edit::Key const& key) const
 {
 	M_REQUIRE(isValidKey(key));
-
 	return key.findPosition(m_startNode, m_startBoard.plyNumber())->getLineStart()->isFolded();
 }
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 569 $
-// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
+// Version: $Revision: 602 $
+// Date   : $Date: 2013-01-01 16:53:57 +0000 (Tue, 01 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -50,6 +50,8 @@ inline uint32_t Consumer::flags() const								{ return m_flags; }
 inline Consumer* Consumer::consumer() const							{ return m_consumer; }
 inline MoveInfoSet const& Consumer::moveInfo() const				{ return m_moveInfoSet; }
 inline EngineList const& Consumer::engines() const					{ return m_engines; }
+inline TimeTable& Consumer::timeTable()								{ return m_timeTable; }
+inline TimeTable const& Consumer::timeTable() const				{ return m_timeTable; }
 inline Consumer::TagBits const& Consumer::allowedTags() const	{ return m_allowedTags; }
 
 inline void Consumer::setFlags(uint32_t flags)						{ m_flags = flags; }

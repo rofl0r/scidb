@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 569 $
-// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
+// Version: $Revision: 602 $
+// Date   : $Date: 2013-01-01 16:53:57 +0000 (Tue, 01 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -385,6 +385,27 @@ MoveInfoSet::computeChecksum(EngineList const& engines, util::crc::checksum_t cr
 		crc = m_row[i].computeChecksum(engines, crc);
 
 	return crc;
+}
+
+
+int
+MoveInfoSet::findElapsedMilliSeconds() const
+{
+	for (unsigned i = 0; i < m_row.size(); ++i)
+	{
+		if (m_row[i].content() == MoveInfo::ElapsedMilliSeconds)
+			return i;
+	}
+
+	return -1;
+}
+
+
+void
+MoveInfoSet::remove(unsigned n)
+{
+	M_REQUIRE(n < count());
+	m_row.erase(m_row.begin() + n);
 }
 
 // vi:set ts=3 sw=3:

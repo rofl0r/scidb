@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 569 $
-// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
+// Version: $Revision: 602 $
+// Date   : $Date: 2013-01-01 16:53:57 +0000 (Tue, 01 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -27,7 +27,7 @@
 #include "tcl_tree.h"
 #include "tcl_base.h"
 #include "tcl_application.h"
-#include "tcl_database.h"
+#include "tcl_player.h"
 
 #include "app_application.h"
 #include "app_cursor.h"
@@ -509,8 +509,8 @@ cmdPlayer(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 								"unknown rating type %s",
 								stringFromObj(objc, objv, 3));
 
-		::tcl::db::Ratings ratings(ratingType, rating::Elo);
-		::tcl::db::getPlayerInfo(*player, ratings, true, true);
+		::tcl::player::Ratings ratings(ratingType, rating::Elo);
+		::tcl::player::getInfo(*player, ratings, true, true);
 	}
 	else
 	{

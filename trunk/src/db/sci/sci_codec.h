@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 569 $
-// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
+// Version: $Revision: 602 $
+// Date   : $Date: 2013-01-01 16:53:57 +0000 (Tue, 01 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -109,7 +109,7 @@ public:
 	void readIndexProgressive(unsigned index);
 
 	save::State doDecoding(db::Consumer& consumer, TagSet& tags, GameInfo const& info) override;
-	save::State doDecoding(db::Consumer& consumer, util::ByteStream& strm, TagSet& tags) override;
+	save::State doDecoding(	db::Consumer& consumer, util::ByteStream& strm, TagSet& tags) override;
 	void doDecoding(GameData& data, GameInfo& info, mstl::string*) override;
 
 	void doEncoding(	util::ByteStream& strm,

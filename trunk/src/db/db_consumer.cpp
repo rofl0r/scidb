@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 569 $
-// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
+// Version: $Revision: 602 $
+// Date   : $Date: 2013-01-01 16:53:57 +0000 (Tue, 01 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -87,9 +87,18 @@ Consumer::variantHasChanged(variant::Type)
 }
 
 
+bool
+Consumer::supportsVariant(variant::Type) const
+{
+	return true;
+}
+
+
 void
 Consumer::setVariant(variant::Type variant)
 {
+	M_REQUIRE(supportsVariant(variant));
+
 	m_useVariant = m_variant = variant;
 
 	if (m_producer && m_producer->variant() == variant::Undetermined)

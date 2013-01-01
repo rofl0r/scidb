@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 601 $
-# Date   : $Date: 2012-12-30 21:29:33 +0000 (Sun, 30 Dec 2012) $
+# Version: $Revision: 602 $
+# Date   : $Date: 2013-01-01 16:53:57 +0000 (Tue, 01 Jan 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -238,11 +238,20 @@
 ::menu::mc::Setup							"&Inställningar"
 ::menu::mc::Engines						"&Motorer"
 
+# Contact
 ::menu::mc::ContactBugReport			"&Felrapport"
 ::menu::mc::ContactFeatureRequest	"Ö&nskemål"
+
+# Extras
 ::menu::mc::InstallChessBaseFonts	"Installera ChessBase fonter"
 ::menu::mc::OpenEngineLog				"Öppna &motor konsol"
+
+# Tools
 ::menu::mc::OpenEngineDictionary		"Open Engine &Dictionary" ;# NEW
+::menu::mc::OpenPlayerDictionary		"Open &Player Dictionary" ;# NEW
+
+# Setup
+::menu::mc::Engines						"&Motorer"
 ::menu::mc::PrivatePlayerCard			"&Private Player Card" ;# NEW
 
 ::menu::mc::OpenFile						"Öppna Scidb fil"
@@ -786,7 +795,7 @@
 ::pgn::setup::mc::RevertSettings					"Återgå till starttillstånd"
 ::pgn::setup::mc::ResetSettings					"Återställ till fabriksinställningar"
 ::pgn::setup::mc::DiscardAllChanges				"Kasta bort alla ändringar?"
-::pgn::setup::mc::ThreefoldRepetition			"Threefold move repetition" ;# NEW
+::pgn::setup::mc::ThreefoldRepetition			"Threefold repetition" ;# NEW
 ::pgn::setup::mc::FiftyMoveRule					"50 move rule" ;# NEW
 
 ::pgn::setup::mc::Setup(Appearance)				"Utseende"
@@ -1793,7 +1802,7 @@
 ::terminationbox::mc::Termination(less-material)	"%s wins by having less material (stalemate)"
 ::terminationbox::mc::Termination(bishops)			"Game drawn by stalemate (opposite color bishops)" ;# NEW
 ::terminationbox::mc::Termination(fifty)				"Game drawn by the 50 move rule" ;# NEW
-::terminationbox::mc::Termination(threefold)			"Game drawn by threefold move repetition" ;# NEW
+::terminationbox::mc::Termination(threefold)			"Game drawn by threefold repetition" ;# NEW
 ::terminationbox::mc::Termination(mating)				"Neither player has mating material" ;# NEW
 
 ### eventmodebox #######################################################

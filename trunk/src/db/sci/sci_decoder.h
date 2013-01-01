@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 601 $
-// Date   : $Date: 2012-12-30 21:29:33 +0000 (Sun, 30 Dec 2012) $
+// Version: $Revision: 602 $
+// Date   : $Date: 2013-01-01 16:53:57 +0000 (Tue, 01 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -45,6 +45,7 @@ class MoveNode;
 class Consumer;
 class TagSet;
 class EngineList;
+class TimeTable;
 
 namespace sci {
 
@@ -86,6 +87,7 @@ private:
 
 	static void decodeEngines(util::ByteStream& strm, EngineList& engines);
 	static void decodeTags(util::ByteStream& strm, TagSet& tags);
+	static void decodeTimeTable(util::ByteStream& strm, TimeTable& timeTable);
 
 	Decoder(Decoder const&);
 	Decoder& operator=(Decoder const&);

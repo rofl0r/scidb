@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 569 $
-// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
+// Version: $Revision: 602 $
+// Date   : $Date: 2013-01-01 16:53:57 +0000 (Tue, 01 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -28,6 +28,7 @@
 #include "db_annotation.h"
 #include "db_mark_set.h"
 #include "db_move_info_set.h"
+#include "db_time_table.h"
 #include "db_board.h"
 
 #include "u_crc.h"
@@ -1030,6 +1031,24 @@ MoveNode::getOneBeforeLineEnd()
 		node = node->m_next;
 
 	return node->m_prev;
+}
+
+
+void
+MoveNode::updateFromTimeTable(TimeTable const& timeTable)
+{
+	M_REQUIRE(atLineStart());
+
+	unsigned i = 0;
+
+	for (MoveNode* p = m_next; p; p = p->m_next, ++i)
+	{
+		if (i == timeTable.size())
+			return;
+
+		if (!timeTable[i].isEmpty())
+			p->addMoveInfo(timeTable[i]);
+	}
 }
 
 

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 601 $
-# Date   : $Date: 2012-12-30 21:29:33 +0000 (Sun, 30 Dec 2012) $
+# Version: $Revision: 602 $
+# Date   : $Date: 2013-01-01 16:53:57 +0000 (Tue, 01 Jan 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -356,6 +356,7 @@ proc logResult {total emptyText importText accepted rejected {unsupported {}}} {
 
 		set detailed yes
 		foreach acc $accepted { if {$acc == $total} { set detailed no } }
+		foreach rej $rejected { if {$rej} { set detailed yes } }
 
 		if {$detailed || $total == 0} {
 			set variants {normal bughouse crazyhouse threeCheck antichess losers}

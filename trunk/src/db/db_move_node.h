@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 585 $
-// Date   : $Date: 2012-12-20 16:42:55 +0000 (Thu, 20 Dec 2012) $
+// Version: $Revision: 602 $
+// Date   : $Date: 2013-01-01 16:53:57 +0000 (Tue, 01 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -29,7 +29,6 @@
 
 #include "db_comment.h"
 #include "db_move.h"
-#include "db_common.h"
 
 #include "u_crc.h"
 
@@ -80,6 +79,7 @@ class Mark;
 class MoveInfo;
 class MoveInfoSet;
 class EngineList;
+class TimeTable;
 
 class MoveNode
 {
@@ -190,6 +190,7 @@ public:
 	void stripComments(mstl::string const& lang);
 	void stripVariations();
 	void copyComments(mstl::string const& fromLang, mstl::string const& toLang, bool stripOriginal);
+	void updateFromTimeTable(TimeTable const& timeTable);
 
 	util::crc::checksum_t computeChecksum(EngineList const& engines, util::crc::checksum_t crc = 0) const;
 	void collectLanguages(LanguageSet& langSet) const;

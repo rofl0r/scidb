@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 430 $
-// Date   : $Date: 2012-09-20 17:13:27 +0000 (Thu, 20 Sep 2012) $
+// Version: $Revision: 602 $
+// Date   : $Date: 2013-01-01 16:53:57 +0000 (Tue, 01 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -49,6 +49,7 @@ public:
 
 	unsigned count() const;
 	::util::crc::checksum_t computeChecksum(EngineList const& engines, util::crc::checksum_t crc) const;
+	int findElapsedMilliSeconds() const;
 
 	MoveInfo const& operator[](unsigned n) const;
 	MoveInfo& operator[](unsigned n);
@@ -56,6 +57,7 @@ public:
 	MoveInfo& add();
 	MoveInfo& add(MoveInfo const& info);
 
+	void remove(unsigned n);
 	void resize(unsigned n);
 	void reserve(unsigned n);
 	void swap(MoveInfoSet& row);

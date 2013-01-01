@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 573 $
-// Date   : $Date: 2012-12-17 16:36:08 +0000 (Mon, 17 Dec 2012) $
+// Version: $Revision: 602 $
+// Date   : $Date: 2013-01-01 16:53:57 +0000 (Tue, 01 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -25,7 +25,7 @@
 // ======================================================================
 
 #include "tcl_application.h"
-#include "tcl_database.h"
+#include "tcl_player.h"
 #include "tcl_game.h"
 #include "tcl_base.h"
 
@@ -188,11 +188,11 @@ cmdGet(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 		case Cmd_PlayerInfo:
 			{
 				unsigned ranking = unsignedFromObj(objc, objv, 4);
-				tcl::db::Ratings ratings(rating::Any, rating::Any);
+				tcl::player::Ratings ratings(rating::Any, rating::Any);
 				NamebasePlayer const* player = table->getPlayer(ranking - 1);
 				if (!player)
 					return error(CmdGet, nullptr, nullptr, "invalid ranking number %u", ranking);
-				return tcl::db::getPlayerInfo(*player, ratings, true, true);
+				return tcl::player::getInfo(*player, ratings, true, true);
 			}
 			break;
 
