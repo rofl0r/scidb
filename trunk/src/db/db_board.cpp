@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 602 $
-// Date   : $Date: 2013-01-01 16:53:57 +0000 (Tue, 01 Jan 2013) $
+// Version: $Revision: 606 $
+// Date   : $Date: 2013-01-01 22:51:44 +0000 (Tue, 01 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -615,6 +615,7 @@ Board::removeFromHolding<piece::Pawn>(variant::Type variant, unsigned color)
 	if (variant == variant::Crazyhouse)
 		color = color ^ 1;
 
+	M_ASSERT(m_holding[color].pawn > 0);
 	hashHoldingRemove(::toPiece(piece::Pawn, color), --m_holding[color].pawn);
 }
 
@@ -627,6 +628,7 @@ Board::removeFromHolding<piece::Knight>(variant::Type variant, unsigned color)
 	if (variant == variant::Crazyhouse)
 		color = color ^ 1;
 
+	M_ASSERT(m_holding[color].knight > 0);
 	hashHoldingRemove(::toPiece(piece::Knight, color), --m_holding[color].knight);
 }
 
@@ -639,6 +641,7 @@ Board::removeFromHolding<piece::Bishop>(variant::Type variant, unsigned color)
 	if (variant == variant::Crazyhouse)
 		color = color ^ 1;
 
+	M_ASSERT(m_holding[color].bishop > 0);
 	hashHoldingRemove(::toPiece(piece::Bishop, color), --m_holding[color].bishop);
 }
 
@@ -651,6 +654,7 @@ Board::removeFromHolding<piece::Rook>(variant::Type variant, unsigned color)
 	if (variant == variant::Crazyhouse)
 		color = color ^ 1;
 
+	M_ASSERT(m_holding[color].rook > 0);
 	hashHoldingRemove(::toPiece(piece::Rook, color), --m_holding[color].rook);
 }
 
@@ -663,6 +667,7 @@ Board::removeFromHolding<piece::Queen>(variant::Type variant, unsigned color)
 	if (variant == variant::Crazyhouse)
 		color = color ^ 1;
 
+	M_ASSERT(m_holding[color].queen > 0);
 	hashHoldingRemove(::toPiece(piece::Queen, color), --m_holding[color].queen);
 }
 

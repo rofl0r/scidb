@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 569 $
-# Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
+# Version: $Revision: 606 $
+# Date   : $Date: 2013-01-01 22:51:44 +0000 (Tue, 01 Jan 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -896,6 +896,7 @@ proc PopupMenu {table y} {
 	variable ${table}::Vars
 
 	::tooltip::hide
+	if {![info exists Vars(variant)]} { return }
 	set row [::table::at $table $y]
 
 	switch $row {

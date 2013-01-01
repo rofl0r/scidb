@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 605 $
-# Date   : $Date: 2013-01-01 22:18:11 +0000 (Tue, 01 Jan 2013) $
+# Version: $Revision: 606 $
+# Date   : $Date: 2013-01-01 22:51:44 +0000 (Tue, 01 Jan 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -126,6 +126,10 @@ proc disable {} {
 proc reset {} {
 	variable ::application::board::board
 	variable Square
+	variable Drop
+
+	::application::board::deselectInHandPiece
+	set Drop(piece) " "
 
 	if {$Square(selected) != -1} {
 		::board::diagram::hilite $board $Square(selected) off
