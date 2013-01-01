@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 602 $
-# Date   : $Date: 2013-01-01 16:53:57 +0000 (Tue, 01 Jan 2013) $
+# Version: $Revision: 603 $
+# Date   : $Date: 2013-01-01 17:16:30 +0000 (Tue, 01 Jan 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -242,13 +242,13 @@ if {0} {
 		-underline [incr ul] \
 		-image $::icon::16x16::none \
 		;
-	lassign [::tk::UnderlineAmpersand $mc::OpenPlayerDictionary] text ul
-	set cmd [namespace code [list ::playerdict::open .application]]
-	$m add command \
-		-label " $text..." \
-		-underline [incr ul] \
-		-command $cmd \
-		;
+#	lassign [::tk::UnderlineAmpersand $mc::OpenPlayerDictionary] text ul
+#	set cmd [namespace code [list ::playerdict::open .application]]
+#	$m add command \
+#		-label " $text..." \
+#		-underline [incr ul] \
+#		-command $cmd \
+#		;
 	lassign [::tk::UnderlineAmpersand $mc::OpenEngineDictionary] text ul
 	set cmd [namespace code [list ::engine::showEngineDictionary .application]]
 	$m add command \

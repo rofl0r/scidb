@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 601 $
-// Date   : $Date: 2012-12-30 21:29:33 +0000 (Sun, 30 Dec 2012) $
+// Version: $Revision: 603 $
+// Date   : $Date: 2013-01-01 17:16:30 +0000 (Tue, 01 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -123,6 +123,16 @@ static char const* CmdVariation		= "::scidb::game::variation";
 static char const*
 searchTag(char const* s)
 {
+	while (*s == ';')
+	{
+		do
+			++s;
+		while (*s && *s != '\n');
+
+		while (isspace(*s))
+			++s;
+	}
+
 	while (isspace(*s))
 		++s;
 
