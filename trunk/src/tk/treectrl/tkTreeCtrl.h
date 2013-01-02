@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 589 $
-// Date   : $Date: 2012-12-20 21:54:50 +0000 (Thu, 20 Dec 2012) $
+// Version: $Revision: 609 $
+// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -10,7 +10,7 @@
  *
  *		This module is the header for treectrl widgets for the Tk toolkit.
  *
- * Copyright (c) 2009-2012 Gregor Cramer
+ * Copyright (c) 2009-2013 Gregor Cramer
  * Copyright (c) 2002-2008 Tim Baker
  * Copyright (c) 2002-2003 Christian Krone
  * Copyright (c) 2003 ActiveState Corporation

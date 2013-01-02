@@ -1,12 +1,12 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 317 $
-// Date   : $Date: 2012-05-05 16:33:40 +0000 (Sat, 05 May 2012) $
+// Version: $Revision: 609 $
+// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
 // ======================================================================
-// Copyright: (C) 2009-2012 Gregor Cramer
+// Copyright: (C) 2009-2013 Gregor Cramer
 // ======================================================================
 
 // ======================================================================
@@ -618,7 +618,7 @@ void
 Http::makeRequest(char const* command, mstl::string const& url, mstl::string& result)
 {
 	static mstl::string const HttpVersion("HTTP/1.0");
-	static mstl::string const DefaultUserAgent("HTTP/Scidb ($Date: 2012-05-05 16:33:40 +0000 (Sat, 05 May 2012) $)");
+	static mstl::string const DefaultUserAgent("HTTP/Scidb ($Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $)");
 
 	result += command;
 	result += " ";

@@ -1,12 +1,12 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 569 $
-// Date   : $Date: 2012-12-16 21:41:55 +0000 (Sun, 16 Dec 2012) $
+// Version: $Revision: 609 $
+// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
 // ======================================================================
-// Copyright: (C) 2009-2012 Gregor Cramer
+// Copyright: (C) 2009-2013 Gregor Cramer
 // ======================================================================
 
 // ======================================================================
@@ -442,6 +442,23 @@ bitfield<Bits>::test_and_set(unsigned n)
 
 	m_bits |= m;
 	return false;
+}
+
+
+template <class Bits>
+inline
+bool
+bitfield<Bits>::test_and_reset(unsigned n)
+{
+	M_REQUIRE(n < nbits);
+
+	value_type m = mask(n);
+
+	if ((m_bits & m) == 0)
+		return false;
+
+	m_bits &= ~m;
+	return true;
 }
 
 

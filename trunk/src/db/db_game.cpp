@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 602 $
-// Date   : $Date: 2013-01-01 16:53:57 +0000 (Tue, 01 Jan 2013) $
+// Version: $Revision: 609 $
+// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -14,7 +14,7 @@
 // ======================================================================
 
 // ======================================================================
-// Copyright: (C) 2009-2012 Gregor Cramer
+// Copyright: (C) 2009-2013 Gregor Cramer
 // ======================================================================
 
 // ======================================================================
@@ -2921,7 +2921,7 @@ Game::getHistory(History& result) const
 
 
 unsigned
-Game::dumpHistory(mstl::string& result) const
+Game::dumpHistory(mstl::string& result, Style style) const
 {
 	History hist;
 	getHistory(hist);
@@ -2935,7 +2935,7 @@ Game::dumpHistory(mstl::string& result) const
 
 		Move const& move = hist[i];
 
-		if (m_idn == variant::Standard && move.isCastling())
+		if (style == UCI && m_idn == variant::Standard && move.isCastling())
 		{
 			sq::Fyle fyle = move.isShortCastling() ? sq::FyleG : sq::FyleC;
 

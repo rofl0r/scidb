@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 577 $
-// Date   : $Date: 2012-12-18 18:27:57 +0000 (Tue, 18 Dec 2012) $
+// Version: $Revision: 609 $
+// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -14,7 +14,7 @@
 // ======================================================================
 
 // ======================================================================
-// Copyright: (C) 2009-2012 Gregor Cramer
+// Copyright: (C) 2009-2013 Gregor Cramer
 // ======================================================================
 
 // ======================================================================
@@ -128,6 +128,12 @@ public:
 		MoveComments,
 		Clear,
 		Transpose,
+	};
+
+	enum Style
+	{
+		Standard,
+		UCI,
 	};
 
 	typedef mstl::list<mstl::string> StringList;
@@ -547,7 +553,7 @@ public:
 
 	unsigned dumpMoves(mstl::string& result, unsigned flags);
 	unsigned dumpMoves(mstl::string& result, unsigned length, unsigned flags);
-	unsigned dumpHistory(mstl::string& result) const;
+	unsigned dumpHistory(mstl::string& result, Style style = Standard) const;
 	void getHistory(History& result) const;
 
 	bool finishLoad(variant::Type variant, mstl::string const* fen = 0);
