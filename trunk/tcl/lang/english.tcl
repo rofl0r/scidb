@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 602 $
-# Date   : $Date: 2013-01-01 16:53:57 +0000 (Tue, 01 Jan 2013) $
+# Version: $Revision: 607 $
+# Date   : $Date: 2013-01-02 12:17:13 +0000 (Wed, 02 Jan 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -433,6 +433,13 @@
 ::application::database::mc::ClipbaseDescription			"Temporary database, not kept on disk."
 ::application::database::mc::HardLinkDetected				"Cannot load file '%file1' because it is already loaded as file '%file2'. This can only happen if hard links are involved."
 ::application::database::mc::HardLinkDetectedDetail		"If we load this database twice the application may crash due to the usage of threads."
+::application::database::mc::OverwriteExistingFiles		"Overwrite exisiting files in directory '%s'?"
+::application::database::mc::SelectDatabases					"Select the databases to be opened"
+::application::database::mc::ExtractArchive					"Extract archive %s"
+::application::database::mc::CompactDetail					"All games must been closed before a compaction can be done."
+::application::database::mc::ReallyCompact					"Really compact database '%s'?"
+::application::database::mc::ReallyCompactDetail(1)		"Only one game will be deleted."
+::application::database::mc::ReallyCompactDetail(N)		"%s games will be deleted."
 ::application::database::mc::SelectVariant					"Select Variant"
 
 ::application::database::mc::RecodingDatabase				"Recoding %base from %from to %to"
@@ -637,13 +644,6 @@
 ::database::switcher::mc::UriRejectedDetail(open)		"Only Scidb databases can be opened:"
 ::database::switcher::mc::UriRejectedDetail(import)	"Only Scidb databases can be imported:"
 ::database::switcher::mc::EmptyUriList						"Drop content is empty."
-::database::switcher::mc::OverwriteExistingFiles		"Overwrite exisiting files in directory '%s'?"
-::database::switcher::mc::SelectDatabases					"Select the databases to be opened"
-::database::switcher::mc::ExtractArchive					"Extract archive %s"
-::database::switcher::mc::CompactDetail					"All games must been closed before a compaction can be done."
-::database::switcher::mc::ReallyCompact					"Really compact database '%s'?"
-::database::switcher::mc::ReallyCompactDetail(1)		"Only one game will be deleted."
-::database::switcher::mc::ReallyCompactDetail(N)		"%s games will be deleted."
 ::database::switcher::mc::CopyGames							"Copy games"
 ::database::switcher::mc::CopyGamesFromTo					"Copy games from '%src' to '%dst'" ;# NEW
 ::database::switcher::mc::CopiedGames						"%s game(s) copied"

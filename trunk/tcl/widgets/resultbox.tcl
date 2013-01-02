@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 524 $
-# Date   : $Date: 2012-11-12 23:08:27 +0000 (Mon, 12 Nov 2012) $
+# Version: $Revision: 607 $
+# Date   : $Date: 2013-01-02 12:17:13 +0000 (Wed, 02 Jan 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -140,7 +140,8 @@ proc WidgetProc {w command args} {
 			variable results
 			set index [lsearch -exact $results $result]
 			if {$index == -1} {
-				error "wrong arg '$result'; should be one of [join $results \", \"]"
+				set args [join $results ", "]
+				error "wrong arg '$result'; should be one of \{$args\}"
 			}
 			return [$w.__w__ current $index]
 		}
