@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 609 $
-# Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+# Version: $Revision: 612 $
+# Date   : $Date: 2013-01-03 01:15:26 +0000 (Thu, 03 Jan 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1523,7 +1523,7 @@
 ::export::mc::NoGamesForExport			"Keine Partie zum exportieren."
 ::export::mc::ResetDefaults				"Auf Standardwerte zurücksetzen"
 ::export::mc::UnsupportedEncoding		"Die Enkodierung %s kann nicht für PDF-Dokumente benutzt werden. Wählen sie bitte eine alternative Enkodierung."
-::export::mc::DatabaseIsOpen				"Die Zieldatenbank '%s' ist geöffnet, das bedeutet das die Zieldatanbank geleert wird bevor der Export startet. Trotzdem den Exportvorgang fortsetzen?"
+::export::mc::DatabaseIsOpen				"Die Zieldatenbank '%s' ist geöffnet, das bedeutet das die Zieldatenbank geleert wird bevor der Export startet. Trotzdem den Exportvorgang fortsetzen?"
 ::export::mc::DatabaseIsOpenDetail		"Sollen die Partien stattdessen angehängt werden dann kann eine Drag&Drop-Operation im Datenbankumschalter verwendet werden."
 ::export::mc::ExportGamesFromTo			"Partien exportieren von '%src' nach '%dst'"
 
@@ -1669,9 +1669,9 @@
 ::dialog::save::mc::Label(frequency)			"Häufigkeit"
 ::dialog::save::mc::Label(score)					"Zweite Wertungszahl"
 
-::dialog::save::mc::GameBase						"Partiedatenbank"
+::dialog::save::mc::GameBase						"Partiendatenbank"
 ::dialog::save::mc::PlayerBase					"Spielerdatenbank"
-::dialog::save::mc::EventBase						"Turnierdatanbank"
+::dialog::save::mc::EventBase						"Turnierdatenbank"
 ::dialog::save::mc::SiteBase						"Orte-Datenbank"
 ::dialog::save::mc::AnnotatorBase				"Kommentatorendatenbank"
 ::dialog::save::mc::History						"Historie"
