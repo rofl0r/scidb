@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 609 $
-# Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+# Version: $Revision: 614 $
+# Date   : $Date: 2013-01-04 10:24:32 +0000 (Fri, 04 Jan 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -444,7 +444,7 @@ proc saveGame {mode} {
 	variable Vars
 
 	set position [::gamebar::selected $Vars(gamebar)]
-	lassign [::scidb::game::link? $position] base variant_
+	lassign [::scidb::game::link? $position] base variant _
 
 	if {$base eq $clipbaseName} { return }
 	if {[::scidb::db::get readonly? $base $variant]} { return }
