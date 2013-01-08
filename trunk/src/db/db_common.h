@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 622 $
-// Date   : $Date: 2013-01-08 16:56:28 +0000 (Tue, 08 Jan 2013) $
+// Version: $Revision: 623 $
+// Date   : $Date: 2013-01-08 19:48:58 +0000 (Tue, 08 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -561,6 +561,7 @@ namespace title
 
 	ID toID(unsigned title);
 	unsigned fromID(ID title);
+	unsigned add(unsigned titles, ID title);
 
 	mstl::string const& toString(ID title);
 	ID fromString(char const* title);

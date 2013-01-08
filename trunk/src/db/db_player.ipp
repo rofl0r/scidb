@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 617 $
-// Date   : $Date: 2013-01-08 11:41:26 +0000 (Tue, 08 Jan 2013) $
+// Version: $Revision: 623 $
+// Date   : $Date: 2013-01-08 19:48:58 +0000 (Tue, 08 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -91,7 +91,7 @@ Player::addTitle(title::ID title)
 
 	if (title != title::None)
 	{
-		m_titles |= fromID(title);
+		m_titles = title::add(m_titles, title);
 		m_titles &= ~title::Mask_None;
 	}
 }
