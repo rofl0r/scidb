@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 621 $
-// Date   : $Date: 2013-01-08 16:19:00 +0000 (Tue, 08 Jan 2013) $
+// Version: $Revision: 622 $
+// Date   : $Date: 2013-01-08 16:56:28 +0000 (Tue, 08 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -425,7 +425,7 @@ cmdInfo(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 
 	for (unsigned i = 0; i < title::Last; ++i)
 	{
-		if (title::contains(player.titles(), title::ID(i)))
+		if (i != title::None && title::contains(player.titles(), title::ID(i)))
 			titles[numTitles++] = Tcl_NewStringObj(title::toString(title::ID(i)), -1);
 	}
 

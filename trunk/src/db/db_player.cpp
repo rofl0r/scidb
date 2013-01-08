@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 617 $
-// Date   : $Date: 2013-01-08 11:41:26 +0000 (Tue, 08 Jan 2013) $
+// Version: $Revision: 622 $
+// Date   : $Date: 2013-01-08 16:56:28 +0000 (Tue, 08 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -397,7 +397,7 @@ getTitles(mstl::string const& str, sex::ID& sex)
 									case 'g': titles |= title::Mask_CGM; break;
 									case 'i': titles |= title::Mask_CIM; break;
 									case 's': titles |= title::Mask_CSIM; break;
-									case 'l': titles |= title::Mask_CLIM; break;
+									case 'l': titles |= title::Mask_CILM; break;
 								}
 								break;
 
@@ -2553,7 +2553,7 @@ Player::parseIccfRating(mstl::istream& stream)
 					switch (line[11])
 					{
 						case 'I': player->addTitle(title::CIM); break;
-						case 'L': player->addTitle(line[12] == 'I' ? title::CLIM : title::CLGM); break;
+						case 'L': player->addTitle(line[12] == 'L' ? title::CILM : title::CLGM); break;
 						case 'S': player->addTitle(title::CSIM); break;
 						case 'G': player->addTitle(title::CGM); break;
 					}
