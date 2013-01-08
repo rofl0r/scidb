@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 617 $
-// Date   : $Date: 2013-01-08 11:41:26 +0000 (Tue, 08 Jan 2013) $
+// Version: $Revision: 624 $
+// Date   : $Date: 2013-01-08 21:46:21 +0000 (Tue, 08 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -304,7 +304,7 @@ private:
 	Ratings m_highestRating;
 	Ratings m_latestRating;
 
-	uint32_t m_titles			:15;
+	uint32_t m_titles			:14;
 	uint32_t m_birthYear		:11;
 	uint32_t m_deathMonth	:4;
 	uint32_t m_sex				:2;

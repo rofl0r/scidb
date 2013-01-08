@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 617 $
-// Date   : $Date: 2013-01-08 11:41:26 +0000 (Tue, 08 Jan 2013) $
+// Version: $Revision: 624 $
+// Date   : $Date: 2013-01-08 21:46:21 +0000 (Tue, 08 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -353,7 +353,7 @@ PlayerDictionary::prepareForOp(Operator op, Setter& setter)
 			return false;
 
 		case Null:
-			m_attrFilter = m_attrFilter;
+			m_attrFilter = m_baseFilter;
 			// fallthru
 
 		case Remove:

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 623 $
-// Date   : $Date: 2013-01-08 19:48:58 +0000 (Tue, 08 Jan 2013) $
+// Version: $Revision: 624 $
+// Date   : $Date: 2013-01-08 21:46:21 +0000 (Tue, 08 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -783,7 +783,7 @@ Player::PlayerCallback::~PlayerCallback() {}
 
 
 Player::Player()
-	:m_titles(title::Mask_None)
+	:m_titles(0)
 	,m_birthYear(0)
 	,m_deathMonth(0)
 	,m_sex(sex::Unspecified)

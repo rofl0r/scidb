@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 622 $
-// Date   : $Date: 2013-01-08 16:56:28 +0000 (Tue, 08 Jan 2013) $
+// Version: $Revision: 624 $
+// Date   : $Date: 2013-01-08 21:46:21 +0000 (Tue, 08 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -572,7 +572,7 @@ cmdFilter(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 					{
 						char const* s = Tcl_GetString(objs[i]);
 						title::ID title = title::fromString(s);
-						if (title == title::None && *s != '\0')
+						if (title == title::None)
 							return error(CmdFilter, nullptr, nullptr, "invalid title '%s'", s);
 						titles |= title::fromID(title);
 					}

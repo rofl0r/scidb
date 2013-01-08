@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 620 $
-# Date   : $Date: 2013-01-08 14:59:46 +0000 (Tue, 08 Jan 2013) $
+# Version: $Revision: 624 $
+# Date   : $Date: 2013-01-08 21:46:21 +0000 (Tue, 08 Jan 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -111,15 +111,15 @@
 ::mc::Logical(or)			"Or"
 ::mc::Logical(and)		"And"
 ::mc::Logical(null)		"None"
-::mc::Logical(not)		"Not"
 ::mc::Logical(remove)	"Remove"
+::mc::Logical(not)		"Not"
 
-::mc::LogicalDetail(reset)			"Reset filter"
-::mc::LogicalDetail(or)				"Add to filter"
-::mc::LogicalDetail(and)			"Restrict filter"
-::mc::LogicalDetail(null)			"Clear filter"
-::mc::LogicalDetail(not)			"Exlude from filter"
-::mc::LogicalDetail(remove)		"Remove from filter"
+::mc::LogicalDetail(reset)			"Clear filter / Reset display"
+::mc::LogicalDetail(or)				"Remove from filter / Add to display"
+::mc::LogicalDetail(and)			"Extend filter / Restrict display"
+::mc::LogicalDetail(null)			"Fill filter / Clear display"
+::mc::LogicalDetail(remove)		"Add to filter / Remove from display"
+::mc::LogicalDetail(not)			"Restrict filter / Extent display"
 
 ::mc::VariantName(Undetermined)	"Undetermined"
 ::mc::VariantName(Normal)			"Normal Chess"

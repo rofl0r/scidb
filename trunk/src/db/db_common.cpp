@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 623 $
-// Date   : $Date: 2013-01-08 19:48:58 +0000 (Tue, 08 Jan 2013) $
+// Version: $Revision: 624 $
+// Date   : $Date: 2013-01-08 21:46:21 +0000 (Tue, 08 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1500,7 +1500,7 @@ title::toString(ID title)
 title::ID
 title::best(unsigned titles)
 {
-	return title::ID(mstl::bf::lsb_index(titles));
+	return titles ? title::ID(mstl::bf::lsb_index(titles)) : title::None;
 }
 
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 623 $
-// Date   : $Date: 2013-01-08 19:48:58 +0000 (Tue, 08 Jan 2013) $
+// Version: $Revision: 624 $
+// Date   : $Date: 2013-01-08 21:46:21 +0000 (Tue, 08 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -555,8 +555,6 @@ namespace title
 		Mask_CLGM	= 1 << CLGM,
 		Mask_CILM	= 1 << CILM,
 		Mask_CSIM	= 1 << CSIM,
-
-		Mask_Any		= ((1 << Last) - 1) & ~Mask_None,
 	};
 
 	ID toID(unsigned title);

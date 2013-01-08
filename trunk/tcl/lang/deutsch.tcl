@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 620 $
-# Date   : $Date: 2013-01-08 14:59:46 +0000 (Tue, 08 Jan 2013) $
+# Version: $Revision: 624 $
+# Date   : $Date: 2013-01-08 21:46:21 +0000 (Tue, 08 Jan 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -107,19 +107,19 @@
 ::mc::Knight				"Springer"
 ::mc::Pawn					"Bauer"
 
-::mc::Logical(reset)		"Löschen"
+::mc::Logical(reset)		"Zurücksetzen"
 ::mc::Logical(or)			"Oder"
 ::mc::Logical(and)		"Und"
 ::mc::Logical(null)		"Leeren"
-::mc::Logical(not)		"Nicht"
 ::mc::Logical(remove)	"Streichen"
+::mc::Logical(not)		"Nicht"
 
-::mc::LogicalDetail(reset)			"Filter zurücksetzen"
-::mc::LogicalDetail(or)				"Zum Filter hinzufügen"
-::mc::LogicalDetail(and)			"Filter einschränken"
-::mc::LogicalDetail(null)			"Filter leeren"
-::mc::LogicalDetail(not)			"Vom Filter ausnehmen"
-::mc::LogicalDetail(remove)		"Aus dem Filter entfernen"
+::mc::LogicalDetail(reset)			"Filter leeren / Anzeige füllen"
+::mc::LogicalDetail(or)				"Aus dem Filter entfernen / Zur Anzeige hinzufügen"
+::mc::LogicalDetail(and)			"Filter erweitern / Anzeige einschränken"
+::mc::LogicalDetail(null)			"Filter voll belegen / Anzeige leeren"
+::mc::LogicalDetail(remove)		"Zum Filter hinzufügen / Aus der Anzeige entfernen"
+::mc::LogicalDetail(not)			"Filter einschränken / Anzeige erweitern"
 
 ::mc::VariantName(Undetermined)	"Unbestimmt"
 ::mc::VariantName(Normal)			"Normalschach"

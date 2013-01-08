@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 620 $
-# Date   : $Date: 2013-01-08 14:59:46 +0000 (Tue, 08 Jan 2013) $
+# Version: $Revision: 624 $
+# Date   : $Date: 2013-01-08 21:46:21 +0000 (Tue, 08 Jan 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -113,15 +113,15 @@
 ::mc::Logical(or)			"O"
 ::mc::Logical(and)		"Y"
 ::mc::Logical(null)		"None" ;# NEW
-::mc::Logical(not)		"No"
 ::mc::Logical(remove)	"Remove" ;# NEW
+::mc::Logical(not)		"No"
 
-::mc::LogicalDetail(reset)			"Reset filter" ;# NEW
-::mc::LogicalDetail(or)				"Add to filter" ;# NEW
-::mc::LogicalDetail(and)			"Restrict filter" ;# NEW
-::mc::LogicalDetail(null)			"Clear filter" ;# NEW
-::mc::LogicalDetail(not)			"Exlude from filter" ;# NEW
-::mc::LogicalDetail(remove)		"Remove from filter" ;# NEW
+::mc::LogicalDetail(reset)			"Clear filter / Reset display" ;# NEW
+::mc::LogicalDetail(or)				"Remove from filter / Add to display" ;# NEW
+::mc::LogicalDetail(and)			"Extend filter / Restrict display" ;# NEW
+::mc::LogicalDetail(null)			"Fill filter / Clear display" ;# NEW
+::mc::LogicalDetail(remove)		"Add to filter / Remove from display" ;# NEW
+::mc::LogicalDetail(not)			"Restrict filter / Extent display" ;# NEW
 
 ::mc::VariantName(Undetermined)	"Indeterminado"
 ::mc::VariantName(Normal)			"Ajedrez Normal"
