@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 617 $
-# Date   : $Date: 2013-01-08 11:41:26 +0000 (Tue, 08 Jan 2013) $
+# Version: $Revision: 620 $
+# Date   : $Date: 2013-01-08 14:59:46 +0000 (Tue, 08 Jan 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1673,6 +1673,7 @@
 ::dialog::save::mc::SavingGameLogInfo			"Sparar partiet (%vit - %svart, %tävling) i databasen '%base'"
 ::dialog::save::mc::CurrentBaseIsReadonly		"Aktuell databas '%s' är skrivskyddad."
 ::dialog::save::mc::CurrentGameHasTrialMode	"Aktuellt parti befinner sig i teststadiet och kan inte sparas."
+::dialog::save::mc::OpenPlayerDictionary		"Open Player Dictionary" ;# NEW
 
 ::dialog::save::mc::LocalName						"&Lokalt namn"
 ::dialog::save::mc::EnglishName					"E&ngelskt namn"

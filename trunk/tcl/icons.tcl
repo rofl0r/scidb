@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 609 $
-# Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+# Version: $Revision: 620 $
+# Date   : $Date: 2013-01-08 14:59:46 +0000 (Tue, 08 Jan 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -603,6 +603,17 @@ namespace eval 12x12 {
 		vNoGImUAoDweT9dms80wDHPGarUyhmGYtVptUKlUezT9++Xe3rMXW1u3v1Wrd/5OKhaLyOfz
 		9kQicSsQCNzQNG0siuK7Uqn0tdFovCcIQun1ev+uDQaD4DiOjEaj88lk0g6AxH/8AdBczMaU
 		K4aPAAAAAElFTkSuQmCC
+	}]
+
+	set dictionary [image create photo -data {
+		iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAABmJLR0QA/wD/AP+gvaeTAAAA
+		CXBIWXMAAABIAAAASABGyWs+AAABN0lEQVQoz12Rz2rVUBDGf9/kpE3xesFSrAVXFXfufAVB
+		1I3P6bsU3OmmghTrolSv0hvSJpnPRZJe6lnNzPn+nTn68O7923WjT456ffT6I82TZ9gQgjTY
+		Zru5vvzx9fMbFF/KXdc+HspeUzX75KMjvD6hH5KQGEeDRAzVqirlAEQByzZOM2bSD8kwJBjS
+		RhJgBDIQzMeYTIPn3ksBoAVGWQqh+dJIEFVgG3sSm+k7BzBpkwkx0cmcerzzKDuCqEJIC3CK
+		FwHeJfrPIY09g+foy1MeEEJ6MBTTP+BJgFkIoIz9LTdtcnL4lFfHFfXBFu4FhBT8csfPeRml
+		T10O2/Zss9msLr6dE3UDUVBVE6VGUdTe/L3o77qrqtTo9MXLuvbt4bbtSq6eo2pvWst9eJPj
+		2P25+v5bivwHhm2mrCjNfI4AAAAASUVORK5CYII=
 	}]
 
 } ;# namespace 12x12

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 617 $
-# Date   : $Date: 2013-01-08 11:41:26 +0000 (Tue, 08 Jan 2013) $
+# Version: $Revision: 620 $
+# Date   : $Date: 2013-01-08 14:59:46 +0000 (Tue, 08 Jan 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1674,6 +1674,7 @@
 ::dialog::save::mc::SavingGameLogInfo		"(%white - %black, %event) játszma mentése a(z) '%base' adatbázisba"
 ::dialog::save::mc::CurrentBaseIsReadonly	"A jelenlegi '%s' adatbázis csak olvasható."
 ::dialog::save::mc::CurrentGameHasTrialMode	"Current game is in trial mode and cannot be saved." ;' NEW
+::dialog::save::mc::OpenPlayerDictionary	"Open Player Dictionary" ;# NEW
 
 ::dialog::save::mc::LocalName			"He&lyi Név"
 ::dialog::save::mc::EnglishName			"A&ngol Név"
