@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 620 $
-# Date   : $Date: 2013-01-08 14:59:46 +0000 (Tue, 08 Jan 2013) $
+# Version: $Revision: 621 $
+# Date   : $Date: 2013-01-08 16:19:00 +0000 (Tue, 08 Jan 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -947,11 +947,9 @@ proc Refresh {table} {
 
 
 proc PopupMenu {table menu _ _ index} {
-	variable Priv
-
-	if {![string is digit $index]} { return }
-
-#	set info [scidb::player::info $index]
+	if {![string is digit -strict $index]} { return }
+	set info [scidb::player::info $index -web 1]
+	::playercard::buildWebMenu $table $menu $info
 }
 
 } ;# namespace playerdict
