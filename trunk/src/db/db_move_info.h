@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 617 $
+// Date   : $Date: 2013-01-08 11:41:26 +0000 (Tue, 08 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -117,10 +117,10 @@ private:
 	{
 		AnalysisInfo();
 
-		uint8_t m_depth;
-		uint8_t m_sign;
-		uint8_t m_pawns;
-		uint8_t m_centipawns;
+		uint8_t	m_depth;
+		uint8_t	m_sign;
+		uint16_t	m_pawns;
+		uint8_t	m_centipawns;
 	};
 
 	struct ElapsedTime

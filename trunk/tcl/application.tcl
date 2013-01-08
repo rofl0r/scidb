@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 609 $
-# Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+# Version: $Revision: 617 $
+# Date   : $Date: 2013-01-08 11:41:26 +0000 (Tue, 08 Jan 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -336,7 +336,7 @@ proc shutdown {} {
 	if {[winfo exists $dlg]} { return }
 
 	if {[::dialog::messagebox::open?] eq "question"} { bell; return }
-	if {[llength [grab current]]} { bell; return }
+	if {[string match .application* [grab current]]} { bell; return }
 
 	if {[::util::photos::busy?]} {
 		append msg $::util::photos::mc::DownloadStillInProgress "\n\n"

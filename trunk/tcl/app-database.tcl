@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 609 $
-# Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+# Version: $Revision: 617 $
+# Date   : $Date: 2013-01-08 11:41:26 +0000 (Tue, 08 Jan 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -451,14 +451,12 @@ proc openBase {parent file byUser args} {
 		switch $ext {
 			sci - si3 - si4 - cbh {
 				set args {}
-				if {$opts(-readonly) == -1} {
-					switch $ext {
-						cbh			{ set opts(-readonly) 1 }
-						si3 - si4	{ set opts(-readonly) $Defaults(si4-readonly) }
-						default		{ set opts(-readonly) 0 }
-					}
+				if {$ext ne "sci"} {
+					set opts(-readonly) 1
+				} elseif {$opts(-readonly) == -1} {
+					set opts(-readonly) 0
 				}
-				set args {}
+				set args [list -readonly $opts(-readonly)]
 				if {[llength $opts(-encoding)]} { lappend args -encoding $opts(-encoding) }
 				set cmd [list ::scidb::db::load $file]
 				set options [list -message $msg -interrupt yes]
@@ -956,8 +954,8 @@ proc Switch {filename {variant Undetermined}} {
 		set roState disabled
 	} else {
 		switch [file extension $filename] {
-			.sci - .si3 - .si4	{ set roState normal }
-			default					{ set roState disabled }
+			.sci 		{ set roState normal }
+			default	{ set roState disabled }
 		}
 
 		::toolbar::childconfigure $Vars(button:readonly) -tooltip $roState
@@ -1271,21 +1269,17 @@ proc PopupMenu {parent x y {base ""}} {
 
 		$menu add separator
 
-		if {!$isClipbase} {
-			switch $ext {
-				sci - si3 - si4 {
-					if {![::scidb::db::get writeable? $base]} { set state disabled } else { set state normal }
-					$menu add checkbutton \
-						-label " $::database::switcher::mc::ReadOnly" \
-						-image $::icon::16x16::lock \
-						-compound left \
-						-command [namespace code ToggleReadOnly] \
-						-variable [namespace current]::Vars(flag:readonly) \
-						-state $state \
-						;
-					$menu add separator
-				}
-			}
+		if {!$isClipbase && $ext eq "sci"} {
+			if {![::scidb::db::get writeable? $base]} { set state disabled } else { set state normal }
+			$menu add checkbutton \
+				-label " $::database::switcher::mc::ReadOnly" \
+				-image $::icon::16x16::lock \
+				-compound left \
+				-command [namespace code ToggleReadOnly] \
+				-variable [namespace current]::Vars(flag:readonly) \
+				-state $state \
+				;
+			$menu add separator
 		}
 	}
 

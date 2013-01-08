@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 617 $
+// Date   : $Date: 2013-01-08 11:41:26 +0000 (Tue, 08 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -510,6 +510,8 @@ GameInfo::setup(	uint32_t gameOffset,
 						NamebasePlayer* blackPlayer,
 						NamebaseEvent* event,
 						NamebaseEntry* annotator,
+						uint16_t whiteElo,
+						uint16_t blackElo,
 						TagSet const& tags,
 						Provider const& provider,
 						Namebases& namebases)
@@ -556,9 +558,12 @@ GameInfo::setup(	uint32_t gameOffset,
 	}
 
 	if (tags.contains(tag::WhiteElo))
-		whitePlayer->setElo(m_pd[White].elo = tags.asInt(tag::WhiteElo));
+		whiteElo = tags.asInt(tag::WhiteElo);
+	whitePlayer->setElo(m_pd[White].elo = whiteElo);
+
 	if (tags.contains(tag::BlackElo))
-		blackPlayer->setElo(m_pd[Black].elo = tags.asInt(tag::BlackElo));
+		blackElo = tags.asInt(tag::BlackElo);
+	blackPlayer->setElo(m_pd[Black].elo = blackElo);
 
 	static_assert(rating::Last == 8, "reimplementation required");
 

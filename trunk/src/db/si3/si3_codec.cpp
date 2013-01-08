@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 617 $
+// Date   : $Date: 2013-01-08 11:41:26 +0000 (Tue, 08 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1982,8 +1982,12 @@ Codec::writeNamebases(mstl::ostream& stream, util::Progress* progress)
 	for (unsigned i = 0; i < m_eventList->size(); ++i)
 	{
 		NameList::Node const* event = (*m_eventList)[i];
-		unsigned siteId = static_cast<NamebaseEvent*>(event->entry)->site()->id();
-		m_siteList->updateMaxFrequency(m_siteList->lookup(siteId)->frequency += event->frequency);
+
+		if (event->entry)
+		{
+			unsigned siteId = static_cast<NamebaseEvent*>(event->entry)->site()->id();
+			m_siteList->updateMaxFrequency(m_siteList->lookup(siteId)->frequency += event->frequency);
+		}
 	}
 
 	// ensure that the frequencies do not overflow (but this should be impossible)

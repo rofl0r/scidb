@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 617 $
+// Date   : $Date: 2013-01-08 11:41:26 +0000 (Tue, 08 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1451,7 +1451,7 @@ Application::setupGame(Board const& startPosition)
 	EditGame& game = *m_gameMap[m_position];
 
 	game.game->setup(startPosition);
-	game.game->updateSubscriber(Game::UpdateBoard);
+	game.game->updateSubscriber(Game::UpdateBoard | Game::UpdatePgn);
 
 	if (m_subscriber && m_referenceBase && !m_treeIsFrozen)
 		m_subscriber->updateTree(m_referenceBase->name(), m_referenceBase->variant());

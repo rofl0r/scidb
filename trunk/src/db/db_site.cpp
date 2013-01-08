@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 617 $
+// Date   : $Date: 2013-01-08 11:41:26 +0000 (Tue, 08 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -540,7 +540,7 @@ Site::parseFile(mstl::istream& stream)
 	mstl::string	str;
 	country::Code	country	= country::Unknown;
 	Site*				site		= 0;
-	bool				first		= false;
+	unsigned			count		= 0;
 
 	siteList.reserve(12000);
 
@@ -556,7 +556,8 @@ Site::parseFile(mstl::istream& stream)
 			{
 				line.set_size(3);
 				country = country::fromString(line);
-				first = true;
+				site = newSite(line, 0, country, true);
+				count = 0;
 			}
 			else if (::isspace(*s))
 			{
@@ -595,12 +596,12 @@ Site::parseFile(mstl::istream& stream)
 							{
 								char* p = ::skipSpace(s + 1);
 								str.hook(p, t - p);
-								newAlias(str, region, *s == '!', country, first, site);
+								newAlias(str, region, *s == '!', country, count <= 1, site);
 							}
 						}
 						else if (*s)
 						{
-							site = newSite(str, region, country, first);
+							site = newSite(str, region, country, count++ == 0);
 						}
 					}
 					else

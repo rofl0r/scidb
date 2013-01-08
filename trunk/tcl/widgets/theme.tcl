@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 609 $
-# Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+# Version: $Revision: 617 $
+# Date   : $Date: 2013-01-08 11:41:26 +0000 (Tue, 08 Jan 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -89,6 +89,11 @@ proc getToplevelBackground {} {
 }
 
 
+proc getForegroundColor {} {
+	return [ttk::style lookup [currentTheme] -foreground]
+}
+
+
 proc getBackgroundColor {} {
 	return [ttk::style lookup [currentTheme] -background]
 }
@@ -110,6 +115,16 @@ proc getActiveBackgroundColor {} {
 	}
 
 	return $activebg
+}
+
+
+proc getSelectForegroundColor {} {
+	return [ttk::style lookup [currentTheme] -selectforeground]
+}
+
+
+proc getSelectBackgroundColor {} {
+	return [ttk::style lookup [currentTheme] -selectbackground]
 }
 
 

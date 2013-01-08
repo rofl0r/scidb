@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 617 $
+// Date   : $Date: 2013-01-08 11:41:26 +0000 (Tue, 08 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -410,7 +410,19 @@ inline ID fromString(char const* sex) { return fromChar(*sex); }
 
 namespace title {
 
-inline bool contains(unsigned titles, title::ID title) { return titles & (1 << (title - 1)); }
+inline bool contains(unsigned titles, title::ID title) { return titles & (1 << title); }
+
+inline unsigned fromID(ID title) { return 1u << title; }
+
+inline
+ID
+toID(unsigned title)
+{
+	M_REQUIRE(title <= (1 << (Last - 1)));
+	M_REQUIRE(title);
+
+	return title::ID(mstl::bf::lsb_index(title));
+}
 
 inline
 bool

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 617 $
+// Date   : $Date: 2013-01-08 11:41:26 +0000 (Tue, 08 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -48,6 +48,8 @@
 # include "db_home_pawns.h"
 # include "db_signature.h"
 # include "db_probe.h"
+# include "sci_encoder.h"
+# include "si3_encoder.h"
 # include "tcl_progress.h"
 #endif
 
@@ -79,6 +81,8 @@ init(Tcl_Interp* ti)
 		db::HomePawns::initialize();
 		db::Signature::initialize();
 		db::Probe::initialize();
+		db::sci::Encoder::initialize();
+		db::si3::Encoder::initialize();
 		tcl::Progress::initialize();
 
 #endif

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 609 $
-# Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+# Version: $Revision: 617 $
+# Date   : $Date: 2013-01-08 11:41:26 +0000 (Tue, 08 Jan 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -784,6 +784,7 @@ proc showEngineDictionary {parent} {
 	SetDialogHeader $dlg
 	wm resizable $dlg yes yes
 	wm protocol $dlg WM_DELETE_WINDOW [list destroy $dlg]
+	wm transient $dlg [winfo toplevel $parent]
 	::util::place $dlg center [winfo toplevel $parent]
 	wm deiconify $dlg
 
@@ -1317,6 +1318,7 @@ proc SetFilter {lb} {
 
 	array set Filter_ [array get Filter]
 	set Reply_ ""
+
 	::widget::dialogButtons $dlg {ok revert} -default ok
 	$dlg.ok configure -command [list set [namespace current]::Reply_ ok]
 	$dlg.revert configure -command [namespace code [list ResetFilter $lb]]

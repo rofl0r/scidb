@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 610 $
-// Date   : $Date: 2013-01-02 22:57:17 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 617 $
+// Date   : $Date: 2013-01-08 11:41:26 +0000 (Tue, 08 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -26,7 +26,7 @@
 
 namespace app {
 
-unsigned PlayerDictionary::count() const { return m_count; }
+inline unsigned PlayerDictionary::count() const { return m_count; }
 
 } // namespace app
 
