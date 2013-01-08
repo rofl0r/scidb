@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 617 $
-// Date   : $Date: 2013-01-08 11:41:26 +0000 (Tue, 08 Jan 2013) $
+// Version: $Revision: 618 $
+// Date   : $Date: 2013-01-08 13:05:45 +0000 (Tue, 08 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -423,8 +423,8 @@ cmdFilter(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 		case 'n':
 			switch (tolower(opStr[1]))
 			{
-				case 'u': op = op = app::PlayerDictionary::Null; break;
-				case 'o': op = op = app::PlayerDictionary::Not; break;
+				case 'u': op = app::PlayerDictionary::Null; break;
+				case 'o': op = app::PlayerDictionary::Not; break;
 			}
 			break;
 
@@ -433,8 +433,8 @@ cmdFilter(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 			{
 				switch (tolower(opStr[2]))
 				{
-					case 's': op = op = app::PlayerDictionary::Reset; break;
-					case 'm': op = op = app::PlayerDictionary::Remove; break;
+					case 's': op = app::PlayerDictionary::Reset; break;
+					case 'm': op = app::PlayerDictionary::Remove; break;
 				}
 			}
 			break;
