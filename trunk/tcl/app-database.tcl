@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 617 $
-# Date   : $Date: 2013-01-08 11:41:26 +0000 (Tue, 08 Jan 2013) $
+# Version: $Revision: 625 $
+# Date   : $Date: 2013-01-09 16:39:57 +0000 (Wed, 09 Jan 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1539,7 +1539,7 @@ proc ChangeIcon {parent file} {
 
 	set dlg [tk::toplevel $parent.changeIcon -class Dialog]
 	set ext [$Vars(switcher) extension $file]
-	set rows 10
+	if {[winfo screenheight $parent] >= 650} { set rows 10 } else { set rows 9 }
 	set cols [expr {([llength $Types($ext)] + $rows - 1)/$rows}]
 	set list [::tlistbox $dlg.list \
 		-visible $Options(visible) \

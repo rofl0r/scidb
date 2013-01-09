@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 625 $
+// Date   : $Date: 2013-01-09 16:39:57 +0000 (Wed, 09 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -510,7 +510,7 @@ cmdPlayer(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 								stringFromObj(objc, objv, 3));
 
 		::tcl::player::Ratings ratings(ratingType, rating::Elo);
-		::tcl::player::getInfo(*player, ratings, true, true);
+		::tcl::player::getInfo(*player, ratings, federation::Fide, true, true);
 	}
 	else
 	{

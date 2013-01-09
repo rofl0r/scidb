@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 625 $
+// Date   : $Date: 2013-01-09 16:39:57 +0000 (Wed, 09 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -40,7 +40,12 @@ namespace tcl
 	namespace player
 	{
 		typedef mstl::pair< ::db::rating::Type, ::db::rating::Type> Ratings;
-		int getInfo(::db::NamebasePlayer const& player, Ratings& ratings, bool info, bool idCard);
+
+		int getInfo(::db::NamebasePlayer const& player,
+						Ratings& ratings,
+						::db::federation::ID federation,
+						bool info,
+						bool idCard);
 	}
 }
 
