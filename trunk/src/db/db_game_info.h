@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 617 $
-// Date   : $Date: 2013-01-08 11:41:26 +0000 (Tue, 08 Jan 2013) $
+// Version: $Revision: 629 $
+// Date   : $Date: 2013-01-10 18:59:39 +0000 (Thu, 10 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -167,6 +167,7 @@ public:
 	Player const* player(color::ID color) const;
 	NamebasePlayer const* playerEntry(color::ID color) const;
 	NamebaseEvent const* eventEntry() const;
+	NamebaseEntry const* annotatorEntry() const;
 	material::si3::Signature material() const;
 	Signature signature() const;							// ChessBase: n/a; Scid: roughly
 	bool isGiveaway() const;

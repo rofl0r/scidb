@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 624 $
-// Date   : $Date: 2013-01-08 21:46:21 +0000 (Tue, 08 Jan 2013) $
+// Version: $Revision: 629 $
+// Date   : $Date: 2013-01-10 18:59:39 +0000 (Thu, 10 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1316,6 +1316,23 @@ namespace type
 		Crazyhouse,					///< Crazyhouse Chess
 
 		LAST = Crazyhouse,
+	};
+}
+
+namespace table
+{
+	enum Type
+	{
+		Players,
+		Sites,
+		Events,
+		Annotators,
+		Games,
+	};
+
+	enum
+	{
+		LAST = Games + 1,
 	};
 }
 

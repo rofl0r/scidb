@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 629 $
+// Date   : $Date: 2013-01-10 18:59:39 +0000 (Thu, 10 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -522,9 +522,14 @@ Decoder::decodeVariation(Consumer& consumer, util::ByteStream& data, ByteStream&
 
 				case token::Mark:
 					if (data.peek() & 0x80)
-						moveInfo.add().decode(data);
+					{
+						moveInfo.add().decodeVersion92(data);
+					}
 					else
+					{
 						marks.add().decode(data);
+						M_ASSERT(!marks[marks.count() - 1].isEmpty());
+					}
 					hasNote = true;
 					break;
 

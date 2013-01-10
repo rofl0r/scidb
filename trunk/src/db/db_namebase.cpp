@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 629 $
+// Date   : $Date: 2013-01-10 18:59:39 +0000 (Thu, 10 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -111,6 +111,11 @@ Namebase::Namebase(Type type)
 	,m_isReadonly(false)
 	,m_stringAllocator(32768)
 {
+	static_assert(int(Player)		== int(table::Players),		"invalid enum");
+	static_assert(int(Event)		== int(table::Events),		"invalid enum");
+	static_assert(int(Site)			== int(table::Sites),		"invalid enum");
+	static_assert(int(Annotator)	== int(table::Annotators),	"invalid enum");
+
 	switch (type)
 	{
 		case Site:		m_siteAllocator = new SiteAllocator(1000*sizeof(SiteEntry)); break;
@@ -569,6 +574,8 @@ Namebase::insertPlayer(	mstl::string const& name,
 #ifdef SCI_NAMEBASE_FIX
 	{
 		unsigned i = size() - 1;
+
+		// TODO: fix case playerAt(i) == *playerAt(i - 1)
 
 		while (i > 0 && *playerAt(i) < *playerAt(i - 1))
 		{

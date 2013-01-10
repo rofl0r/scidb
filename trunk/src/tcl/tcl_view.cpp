@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 617 $
-// Date   : $Date: 2013-01-08 11:41:26 +0000 (Tue, 08 Jan 2013) $
+// Version: $Revision: 629 $
+// Date   : $Date: 2013-01-10 18:59:39 +0000 (Thu, 10 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -396,30 +396,20 @@ cmdCount(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 	int index	= tcl::uniqueMatchObj(objv[1], subcommands);
 	int view		= intFromObj(objc, objv, 4);
 
+	table::Type type;
+
 	switch (index)
 	{
-		case Cmd_Games:
-			setResult(Scidb->cursor(database, variant).view(view).countGames());
-			return TCL_OK;
-
-		case Cmd_Players:
-			setResult(Scidb->cursor(database, variant).view(view).countPlayers());
-			return TCL_OK;
-
-		case Cmd_Annotators:
-			setResult(Scidb->cursor(database, variant).view(view).countAnnotators());
-			return TCL_OK;
-
-		case Cmd_Events:
-			setResult(Scidb->cursor(database, variant).view(view).countEvents());
-			return TCL_OK;
-
-		case Cmd_Sites:
-			setResult(Scidb->cursor(database, variant).view(view).countSites());
-			return TCL_OK;
+		case Cmd_Games:		type = table::Games; break;
+		case Cmd_Players:		type = table::Players; break;
+		case Cmd_Annotators:	type = table::Annotators; break;
+		case Cmd_Events:		type = table::Events; break;
+		case Cmd_Sites:		type = table::Sites; break;
+		default:					return usage(CmdCount, nullptr, nullptr, subcommands, args);
 	}
 
-	return usage(CmdCount, nullptr, nullptr, subcommands, args);
+	setResult(Scidb->cursor(database, variant).view(view).count(type));
+	return TCL_OK;
 }
 
 
@@ -587,7 +577,7 @@ cmdCopy(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 
 	n = view.copyGames(dst, tagBits, extraTags, log, progress);
 	accepted[variantIndex] = n;
-	rejected[variantIndex] = dst.countGames() - n;
+	rejected[variantIndex] = dst.count(table::Games) - n;
 
 	if (progress.interrupted())
 		n = -n - 1;

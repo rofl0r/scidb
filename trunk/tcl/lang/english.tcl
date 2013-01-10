@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 627 $
-# Date   : $Date: 2013-01-10 11:27:11 +0000 (Thu, 10 Jan 2013) $
+# Version: $Revision: 629 $
+# Date   : $Date: 2013-01-10 18:59:39 +0000 (Thu, 10 Jan 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1037,6 +1037,7 @@
 ::gametable::mc::SortOnDate				"Sort on date (descending)"
 ::gametable::mc::SortOnNumber				"Sort on game number (asscending)"
 ::gametable::mc::ReverseOrder				"Reverse order"
+::gametable::mc::CancelSort				"Cancel sort"
 ::gametable::mc::NoMoves					"No moves"
 ::gametable::mc::NoMoreMoves				"No more moves"
 ::gametable::mc::WhiteRating				"White Rating"
@@ -1209,7 +1210,6 @@
 ::playerdict::mc::Titles				"Titles"
 ::playerdict::mc::None					"None"
 ::playerdict::mc::Operation			"Operation"
-::playerdict::mc::CancelSort			"Cancel sort"
 
 ### player-card ########################################################
 ::playercard::mc::PlayerCard					"Player Card"

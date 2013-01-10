@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 629 $
+// Date   : $Date: 2013-01-10 18:59:39 +0000 (Thu, 10 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -114,6 +114,8 @@ public:
 
 	/// Returns an unique database id.
 	unsigned id() const;
+	/// Count the number of items in table.
+	unsigned count(table::Type type) const;
 	/// Counts the number of games in the database.
 	unsigned countGames() const;
 	/// Count the number of players in the database.

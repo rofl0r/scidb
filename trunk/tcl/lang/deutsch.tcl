@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 627 $
-# Date   : $Date: 2013-01-10 11:27:11 +0000 (Thu, 10 Jan 2013) $
+# Version: $Revision: 629 $
+# Date   : $Date: 2013-01-10 18:59:39 +0000 (Thu, 10 Jan 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1038,6 +1038,7 @@
 ::gametable::mc::SortOnDate				"Sortieren nach Datum (absteigend)"
 ::gametable::mc::SortOnNumber				"Sortieren nach Partiennummer (aufsteigend)"
 ::gametable::mc::ReverseOrder				"Sortierung umdrehen"
+::gametable::mc::CancelSort				"Sortierung aufheben"
 ::gametable::mc::NoMoves					"Keine Züge"
 ::gametable::mc::NoMoreMoves				"Keine weiteren Züge"
 ::gametable::mc::WhiteRating				"Wertungszahl Weiß"
@@ -1210,7 +1211,6 @@
 ::playerdict::mc::Titles				"Titel"
 ::playerdict::mc::None					"Keine"
 ::playerdict::mc::Operation			"Verfahren"
-::playerdict::mc::CancelSort			"Sortierung aufheben"
 
 ### player-card ########################################################
 ::playercard::mc::PlayerCard					"Spielerkarteikarte"

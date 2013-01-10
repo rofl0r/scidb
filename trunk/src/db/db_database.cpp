@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 617 $
-// Date   : $Date: 2013-01-08 11:41:26 +0000 (Tue, 08 Jan 2013) $
+// Version: $Revision: 629 $
+// Date   : $Date: 2013-01-10 18:59:39 +0000 (Thu, 10 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -275,6 +275,22 @@ Database::Database(mstl::string const& name, Producer& producer, util::Progress&
 Database::~Database() throw()
 {
 	delete m_codec;
+}
+
+
+unsigned
+Database::count(table::Type type) const
+{
+	switch (type)
+	{
+		case table::Games:		return countGames();
+		case table::Players:		return m_namebases(Namebase::Player).used();
+		case table::Events:		return m_namebases(Namebase::Event).used();
+		case table::Sites:		return m_namebases(Namebase::Site).used();
+		case table::Annotators:	return m_namebases(Namebase::Annotator).used();
+	}
+
+	return 0; // satisifes the compiler
 }
 
 

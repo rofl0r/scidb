@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 629 $
+// Date   : $Date: 2013-01-10 18:59:39 +0000 (Thu, 10 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -86,70 +86,21 @@ public:
 								db::variant::Type variant,
 								unsigned view);
 
-		virtual void updateGameList(	unsigned id,
-												mstl::string const& name,
-												db::variant::Type variant) = 0;
-		virtual void updateGameList(	unsigned id,
-												mstl::string const& name,
-												db::variant::Type variant,
-												unsigned view) = 0;
-		virtual void updateGameList(	unsigned id,
-												mstl::string const& name,
-												db::variant::Type variant,
-												unsigned view,
-												unsigned index) = 0;
-
-		virtual void updatePlayerList(unsigned id,
-												mstl::string const& name,
-												db::variant::Type variant) = 0;
-		virtual void updatePlayerList(unsigned id,
-												mstl::string const& name,
-												db::variant::Type variant,
-												unsigned view) = 0;
-		virtual void updatePlayerList(unsigned id,
-												mstl::string const& name,
-												db::variant::Type variant,
-												unsigned view,
-												unsigned index) = 0;
-
-		virtual void updateEventList(	unsigned id,
-												mstl::string const& name,
-												db::variant::Type variant) = 0;
-		virtual void updateEventList(	unsigned id,
-												mstl::string const& name,
-												db::variant::Type variant,
-												unsigned view) = 0;
-		virtual void updateEventList(	unsigned id,
-												mstl::string const& name,
-												db::variant::Type variant,
-												unsigned view,
-												unsigned index) = 0;
-
-		virtual void updateSiteList(	unsigned id,
-												mstl::string const& name,
-												db::variant::Type variant) = 0;
-		virtual void updateSiteList(	unsigned id,
-												mstl::string const& name,
-												db::variant::Type variant,
-												unsigned view) = 0;
-		virtual void updateSiteList(	unsigned id,
-												mstl::string const& name,
-												db::variant::Type variant,
-												unsigned view,
-												unsigned index) = 0;
-
-		virtual void updateAnnotatorList(unsigned id,
-													mstl::string const& name,
-													db::variant::Type variant) = 0;
-		virtual void updateAnnotatorList(unsigned id,
-													mstl::string const& name,
-													db::variant::Type variant,
-													unsigned view) = 0;
-		virtual void updateAnnotatorList(unsigned id,
-													mstl::string const& name,
-													db::variant::Type variant,
-													unsigned view,
-													unsigned index) = 0;
+		virtual void updateList(db::table::Type type,
+										unsigned id,
+										mstl::string const& name,
+										db::variant::Type variant) = 0;
+		virtual void updateList(db::table::Type type,
+										unsigned id,
+										mstl::string const& name,
+										db::variant::Type variant,
+										unsigned view) = 0;
+		virtual void updateList(db::table::Type type,
+										unsigned id,
+										mstl::string const& name,
+										db::variant::Type variant,
+										unsigned view,
+										unsigned index) = 0;
 
 		virtual void updateDatabaseInfo(mstl::string const& name, db::variant::Type variant) = 0;
 
@@ -350,11 +301,8 @@ public:
 					unsigned view,
 					db::attribute::annotator::ID attr,
 					db::order::ID order);
-	void reverse(Cursor& cursor, unsigned view, db::attribute::game::ID attr);
-	void reverse(Cursor& cursor, unsigned view, db::attribute::player::ID attr);
-	void reverse(Cursor& cursor, unsigned view, db::attribute::event::ID attr);
-	void reverse(Cursor& cursor, unsigned view, db::attribute::site::ID attr);
-	void reverse(Cursor& cursor, unsigned view, db::attribute::annotator::ID attr);
+	void reverseOrder(Cursor& cursor, unsigned view, db::table::Type type);
+	void resetOrder(Cursor& cursor, unsigned view, db::table::Type type);
 
 	void setSubscriber(SubscriberP subscriber);
 

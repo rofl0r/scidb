@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 629 $
+// Date   : $Date: 2013-01-10 18:59:39 +0000 (Thu, 10 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -911,6 +911,13 @@ Selector::reverse(Database const& db)
 		for (unsigned i = 0; i < middle; ++i)
 			mstl::swap(m_map[i], m_map[n - i - 1]);
 	}
+}
+
+
+void
+Selector::reset(Database const&)
+{
+	m_map.release();
 }
 
 

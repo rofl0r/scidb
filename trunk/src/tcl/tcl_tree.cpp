@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 625 $
-// Date   : $Date: 2013-01-09 16:39:57 +0000 (Wed, 09 Jan 2013) $
+// Version: $Revision: 629 $
+// Date   : $Date: 2013-01-10 18:59:39 +0000 (Thu, 10 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -367,7 +367,7 @@ cmdGameIndex(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 		return error(CmdGameIndex, nullptr, nullptr, "index out of bounds");
 
 #ifdef SUPPORT_TREE_INFO_FILTER
-	setResult(tree->info(n).firstGameIndex(Scidb->referenceBase().treeView().gameSelector()));
+	setResult(tree->info(n).firstGameIndex(Scidb->referenceBase().treeView().selector(table::Games)));
 #else
 	setResult(tree->info(n).firstGameIndex());
 #endif

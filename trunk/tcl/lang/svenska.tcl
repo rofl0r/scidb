@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 627 $
-# Date   : $Date: 2013-01-10 11:27:11 +0000 (Thu, 10 Jan 2013) $
+# Version: $Revision: 629 $
+# Date   : $Date: 2013-01-10 18:59:39 +0000 (Thu, 10 Jan 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1044,6 +1044,7 @@
 ::gametable::mc::SortOnDate				"Sortera på datum (fallande)"
 ::gametable::mc::SortOnNumber				"Sortera på partinummer (stigande)"
 ::gametable::mc::ReverseOrder				"Omvänd ordning"
+::gametable::mc::CancelSort				"Cancel sort" ;# NEW
 ::gametable::mc::NoMoves					"Inga drag"
 ::gametable::mc::NoMoreMoves				"Inga mer drag"
 ::gametable::mc::WhiteRating				"Vit rating"
@@ -1216,7 +1217,6 @@
 ::playerdict::mc::Titles				"Titles" ;# NEW
 ::playerdict::mc::None					"None" ;# NEW
 ::playerdict::mc::Operation			"Operation" ;# NEW
-::playerdict::mc::CancelSort			"Cancel sort" ;# NEW
 
 ### player-card ########################################################
 ::playercard::mc::PlayerCard					"Spelarkort"

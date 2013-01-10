@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 625 $
-# Date   : $Date: 2013-01-09 16:39:57 +0000 (Wed, 09 Jan 2013) $
+# Version: $Revision: 629 $
+# Date   : $Date: 2013-01-10 18:59:39 +0000 (Thu, 10 Jan 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -40,7 +40,6 @@ set Ratings				"Ratings"
 set Titles				"Titles"
 set None					"None"
 set Operation			"Operation"
-set CancelSort			"Cancel sort"
 
 # don't translate
 set F_Rating1			Elo
@@ -192,7 +191,7 @@ proc open {parent args} {
 				-labelvar ::gametable::mc::ReverseOrder]
 			lappend menu [list command \
 				-command [namespace code [list SortColumn $table $id cancel]] \
-				-labelvar [namespace current]::mc::CancelSort]
+				-labelvar ::gametable::mc::CancelSort]
 			lappend menu { separator }
 		}
 
