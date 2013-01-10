@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 627 $
-// Date   : $Date: 2013-01-10 11:27:11 +0000 (Thu, 10 Jan 2013) $
+// Version: $Revision: 628 $
+// Date   : $Date: 2013-01-10 12:24:25 +0000 (Thu, 10 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -115,13 +115,23 @@ wikiLinkList(Player const* player)
 
 
 static void
-playerRatings(NamebasePlayer const& player, rating::Type& type, int16_t* ratings)
+playerRatings(NamebasePlayer const& player, rating::Type& type, int16_t* ratings, bool idCard)
 {
 	if (type == rating::Any)
 		type = player.findRatingType();
 
 	ratings[0] = player.playerHighestRating(type);
 	ratings[1] = player.playerLatestRating(type);
+
+	if (idCard && player.isPlayerRating(type))
+	{
+		if (uint16_t elo = player.findElo())
+		{
+			type = rating::Elo;
+			ratings[0] = elo;
+			ratings[1] = player.playerLatestRating(type);
+		}
+	}
 
 	if (!player.isPlayerRating(type))
 	{
@@ -224,8 +234,8 @@ getInfo(	NamebasePlayer const* player,
 		if (!*federationCode)
 			federationCode = country::toString(player->federation());
 
-		::playerRatings(*player, ratings.first,  rating1);
-		::playerRatings(*player, ratings.second, rating2);
+		::playerRatings(*player, ratings.first,  rating1, idCard);
+		::playerRatings(*player, ratings.second, rating2, idCard);
 
 		ratingType = rating::toString(player->playerRatingType());
 	}
