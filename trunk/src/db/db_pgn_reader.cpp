@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 617 $
-// Date   : $Date: 2013-01-08 11:41:26 +0000 (Tue, 08 Jan 2013) $
+// Version: $Revision: 627 $
+// Date   : $Date: 2013-01-10 11:27:11 +0000 (Thu, 10 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -3726,7 +3726,7 @@ PgnReader::parseComment(Token prevToken, int c)
 
 		while (c && c != '\n' && c != '\r')
 		{
-			content += c;
+//			content += c;
 			c = get();
 		}
 
@@ -3735,6 +3735,8 @@ PgnReader::parseComment(Token prevToken, int c)
 
 		if (c != '\n')
 			putback(c);
+
+		return prevToken; // skip comment
 	}
 
 	if (m_marks.extractFromComment(content))

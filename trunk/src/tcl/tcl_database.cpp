@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 625 $
-// Date   : $Date: 2013-01-09 16:39:57 +0000 (Wed, 09 Jan 2013) $
+// Version: $Revision: 627 $
+// Date   : $Date: 2013-01-10 11:27:11 +0000 (Thu, 10 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1091,8 +1091,6 @@ cmdImport(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 										&count);
 
 		n = destination.importGames(reader, progress);
-		if (description && destination.isSingleBase())
-			destination.database()->setDescription(reader.description());
 		stream.close();
 
 		if (progress.interrupted())

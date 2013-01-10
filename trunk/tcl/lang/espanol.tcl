@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 624 $
-# Date   : $Date: 2013-01-08 21:46:21 +0000 (Tue, 08 Jan 2013) $
+# Version: $Revision: 627 $
+# Date   : $Date: 2013-01-10 11:27:11 +0000 (Thu, 10 Jan 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1769,6 +1769,7 @@
 ::game::mc::GameDecodingChangedDetail	"Probablemente se abriá la base de datos con el juego de caracteres equivocado. Note que la detección automática del juego de caracteres es limitada."
 ::game::mc::VariantHasChanged				"Game cannot be opened because the variant of the database has changed and is now different from the game variant." ;# NEW
 ::game::mc::RemoveGameFromHistory		"Remove game from history?" ;# NEW
+::game::mc::GameNumberDoesNotExist		"Game %number does not exist in '%base'."
 
 ### languagebox ########################################################
 ::languagebox::mc::AllLanguages	"Todos los idiomas"

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 625 $
-# Date   : $Date: 2013-01-09 16:39:57 +0000 (Wed, 09 Jan 2013) $
+# Version: $Revision: 627 $
+# Date   : $Date: 2013-01-10 11:27:11 +0000 (Thu, 10 Jan 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1399,7 +1399,10 @@ proc EmptyClipbase {parent} {
 proc EditDescription {parent file} {
 	variable Vars
 
-	set Vars(description) [::scidb::db::get description $file]
+	set s [::scidb::db::get description $file]
+	set s [string map {"\r\n" "\\n"} $s]
+	set s [string map {"\t" "\\t" "\n" "\\n" "\r" ""} $s]
+	set Vars(description) $s
 	set dlg [tk::toplevel $parent.descr -class Dialog]
 	set top [ttk::frame $dlg.top -borderwidth 0 -takefocus 0]
 	pack $top -fill both
@@ -1428,7 +1431,8 @@ proc SetDescription {dlg file} {
 	variable Vars
 
 	set Vars(description) [string trim $Vars(description)]
-	set length [::scidb::db::set description $file $Vars(description)]
+	set s [string map {"\\t" "\t" "\\n" "\n"} $Vars(description)]
+	set length [::scidb::db::set description $file $s]
 
 	if {$length == 0} {
 		destroy $dlg

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 625 $
-// Date   : $Date: 2013-01-09 16:39:57 +0000 (Wed, 09 Jan 2013) $
+// Version: $Revision: 627 $
+// Date   : $Date: 2013-01-10 11:27:11 +0000 (Thu, 10 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -208,7 +208,7 @@ getInfo(	NamebasePlayer const* player,
 			fideID = p->federationID(federation);
 
 			if (!fideID.empty() && federation == federation::Fide && !idCard)
-				fideID.replace(0u, 0u, "*", 1u);
+				fideID.replace(size_t(0), size_t(0), "*", size_t(1));
 		}
 	}
 

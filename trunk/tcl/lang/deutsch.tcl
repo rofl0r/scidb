@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 624 $
-# Date   : $Date: 2013-01-08 21:46:21 +0000 (Tue, 08 Jan 2013) $
+# Version: $Revision: 627 $
+# Date   : $Date: 2013-01-10 11:27:11 +0000 (Thu, 10 Jan 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1765,6 +1765,7 @@
 ::game::mc::GameDecodingChangedDetail	"Möglicherweise wurde diese Datenbank mit dem falschem Zeichensatz geöffnet. Es ist zu beachten das die automatische Ermittlung des Zeichensatzes nur eingeschränkt funktioniert."
 ::game::mc::VariantHasChanged				"Die Partie kann nicht geöffnet werden weil sich die Schachform der Datenbank geändert hat und nicht mit der Schachform der Partie übereinstimmt."
 ::game::mc::RemoveGameFromHistory		"Die Partie aus der Historie entfernen?"
+::game::mc::GameNumberDoesNotExist		"Die Partie %number existiert nicht in '%base'."
 
 ### languagebox ########################################################
 ::languagebox::mc::AllLanguages	"Alle Sprachen"
