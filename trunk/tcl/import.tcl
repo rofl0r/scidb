@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 627 $
-# Date   : $Date: 2013-01-10 11:27:11 +0000 (Thu, 10 Jan 2013) $
+# Version: $Revision: 630 $
+# Date   : $Date: 2013-01-10 21:52:01 +0000 (Thu, 10 Jan 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -476,7 +476,7 @@ proc Import {parent base files msg encoding} {
 	}
 
 	foreach file $files {
-		::log::info [format $mc::ImportingPgnFile [file tail $file]]
+		::log::info [format $mc::ImportingDatabase [file tail $file]]
 		set info "$::mc::File: [file tail $file]"
 		set options [list -message $msg -log yes -interrupt yes -information $info]
 		set cmd [list ::scidb::db::import $base $file [namespace current]::Log log]
