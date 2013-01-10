@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 626 $
+// Date   : $Date: 2013-01-10 00:42:32 +0000 (Thu, 10 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -689,8 +689,11 @@ inline
 void
 NamebasePlayer::copyRating(NamebasePlayer const& player)
 {
-	::memcpy(m_rating, player.m_rating, sizeof(m_rating));
-	m_ratingType = player.m_ratingType;
+	if (this != &player)
+	{
+		::memcpy(m_rating, player.m_rating, sizeof(m_rating));
+		m_ratingType = player.m_ratingType;
+	}
 }
 
 } // namespace db

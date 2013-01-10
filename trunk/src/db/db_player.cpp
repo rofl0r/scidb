@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 624 $
-// Date   : $Date: 2013-01-08 21:46:21 +0000 (Tue, 08 Jan 2013) $
+// Version: $Revision: 626 $
+// Date   : $Date: 2013-01-10 00:42:32 +0000 (Thu, 10 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -716,8 +716,8 @@ findPlayer(mstl::string const& name, Players const& players, country::Code feder
 }
 
 
-Player::EcfID::EcfID() : prefix(0), suffix(0) {}
-Player::EcfID::EcfID(char const* id) { setup(id); }
+Player::EcfID::EcfID() : value(0) {}
+Player::EcfID::EcfID(char const* id) :value(0) { setup(id); }
 
 
 void

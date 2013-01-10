@@ -1,7 +1,7 @@
 // ======================================================================
 // $RCSfile: tk_image.cpp,v $
-// $Revision: 617 $
-// $Date: 2013-01-08 11:41:26 +0000 (Tue, 08 Jan 2013) $
+// $Revision: 626 $
+// $Date: 2013-01-10 00:42:32 +0000 (Thu, 10 Jan 2013) $
 // $Author: gregor $
 // ======================================================================
 
@@ -335,7 +335,7 @@ printDefaultTagsAndExit(int rc)
 static void
 printUsualTagsAndExit(int rc)
 {
-	for (unsigned i = 0; i < tag::ExtraTag; ++i)
+	for (unsigned i = 0; i < tag::BughouseTag; ++i)
 	{
 		if (i > 0)
 			printf(",");
