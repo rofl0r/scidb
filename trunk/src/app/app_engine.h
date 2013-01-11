@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 631 $
+// Date   : $Date: 2013-01-11 16:16:29 +0000 (Fri, 11 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -485,6 +485,7 @@ private:
 	{
 		::db::Board	m_board;
 		Variations	m_lines;
+		Map			m_map;
 	};
 
 	class Process;

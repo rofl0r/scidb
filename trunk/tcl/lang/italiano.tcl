@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 629 $
-# Date   : $Date: 2013-01-10 18:59:39 +0000 (Thu, 10 Jan 2013) $
+# Version: $Revision: 631 $
+# Date   : $Date: 2013-01-11 16:16:29 +0000 (Fri, 11 Jan 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1361,7 +1361,7 @@
 ::setup::board::mc::Clear							"Pulisci"
 ::setup::board::mc::CopyFen						"Copia FEN a clipboard"
 ::setup::board::mc::Shuffle						"Mischia..."
-::setup::board::mc::FICSPosition					"FICS Start Position (and more)..."
+::setup::board::mc::FICSPosition					"FICS Start Position..." ;# NEW
 ::setup::board::mc::StandardPosition			"Posizione Standard"
 ::setup::board::mc::Chess960Castling			"Arrocco da Scacchi 960"
 

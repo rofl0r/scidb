@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 617 $
-// Date   : $Date: 2013-01-08 11:41:26 +0000 (Tue, 08 Jan 2013) $
+// Version: $Revision: 631 $
+// Date   : $Date: 2013-01-11 16:16:29 +0000 (Fri, 11 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -353,6 +353,9 @@ public:
 	void setElo(uint16_t value);
 	void setRating(rating::Type type, uint16_t value);
 	void copyRating(NamebasePlayer const& player);
+#ifdef SCI_NAMEBASE_FIX
+	void clearFideID();
+#endif
 
 private:
 

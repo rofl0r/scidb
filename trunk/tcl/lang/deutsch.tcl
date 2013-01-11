@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 629 $
-# Date   : $Date: 2013-01-10 18:59:39 +0000 (Thu, 10 Jan 2013) $
+# Version: $Revision: 631 $
+# Date   : $Date: 2013-01-11 16:16:29 +0000 (Fri, 11 Jan 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1353,7 +1353,7 @@
 ::setup::board::mc::Clear							"Leeren"
 ::setup::board::mc::CopyFen						"FEN in die Ablage kopieren"
 ::setup::board::mc::Shuffle						"Mischen..."
-::setup::board::mc::FICSPosition					"FICS-Startposition (und weitere)..."
+::setup::board::mc::FICSPosition					"FICS-Startposition..."
 ::setup::board::mc::StandardPosition			"Standardposition"
 ::setup::board::mc::Chess960Castling			"Schach-960-Rochade"
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 629 $
-// Date   : $Date: 2013-01-10 18:59:39 +0000 (Thu, 10 Jan 2013) $
+// Version: $Revision: 631 $
+// Date   : $Date: 2013-01-11 16:16:29 +0000 (Fri, 11 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -575,7 +575,15 @@ Namebase::insertPlayer(	mstl::string const& name,
 	{
 		unsigned i = size() - 1;
 
-		// TODO: fix case playerAt(i) == *playerAt(i - 1)
+		if (i > 0 && *playerAt(i) == *playerAt(i - 1))
+		{
+			if (playerAt(i)->fideID())
+				playerAt(i)->clearFideID();
+			else
+				playerAt(i - 1)->clearFideID();
+
+			M_ASSERT(!(*playerAt(i) == *playerAt(i - 1)));
+		}
 
 		while (i > 0 && *playerAt(i) < *playerAt(i - 1))
 		{

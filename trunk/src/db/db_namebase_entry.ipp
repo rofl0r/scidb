@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 626 $
-// Date   : $Date: 2013-01-10 00:42:32 +0000 (Thu, 10 Jan 2013) $
+// Version: $Revision: 631 $
+// Date   : $Date: 2013-01-11 16:16:29 +0000 (Fri, 11 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -539,6 +539,16 @@ NamebasePlayer::operator<(Key const& key) const
 
 	return (m_value & SortMask) < (key.value.m_key & SortMask);
 }
+
+
+#ifdef SCI_NAMEBASE_FIX
+inline
+void
+NamebasePlayer::clearFideID()
+{
+	m_fideIdFlag = false;
+}
+#endif
 
 
 inline

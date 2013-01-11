@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 631 $
+// Date   : $Date: 2013-01-11 16:16:29 +0000 (Fri, 11 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -170,6 +170,7 @@ Consumer::beginGame(TagSet const& tags)
 	m_danglingEndMarker = 1;
 	m_lastCommentPos = 0;
 	m_plyCount = 0;
+	m_timeTable.clear();
 
 	return true;
 }
