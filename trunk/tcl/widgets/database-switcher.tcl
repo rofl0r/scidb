@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 609 $
-# Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+# Version: $Revision: 632 $
+# Date   : $Date: 2013-01-12 23:18:00 +0000 (Sat, 12 Jan 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -625,7 +625,7 @@ proc SetType {w id type} {
 
 
 proc GetFileType {file} {
-	switch [set ext [file extension $file]] {
+	switch [set ext [string tolower [file extension $file]]] {
 		.zip		{ set ext .pgn }
 		.pgn.gz	{ set ext .pgn }
 		.bpgn.gz	{ set ext .bpgn }

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 632 $
+// Date   : $Date: 2013-01-12 23:18:00 +0000 (Sat, 12 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1268,6 +1268,30 @@ string::toArabic(size_type pos, size_type len) const
 	}
 
 	return s == e ? arabic : -1;
+}
+
+
+string&
+string::tolower()
+{
+	char *s = m_data;
+
+	for ( ; *s; ++s)
+		*s = ::tolower(*s);
+
+	return *this;
+}
+
+
+string&
+string::toupper()
+{
+	char *s = m_data;
+
+	for ( ; *s; ++s)
+		*s = ::toupper(*s);
+
+	return *this;
 }
 
 // vi:set ts=3 sw=3:

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 617 $
-// Date   : $Date: 2013-01-08 11:41:26 +0000 (Tue, 08 Jan 2013) $
+// Version: $Revision: 632 $
+// Date   : $Date: 2013-01-12 23:18:00 +0000 (Sat, 12 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1381,7 +1381,7 @@ Game::goToPosition(mstl::string const& fen)
 
 	moveToMainlineStart();
 
-	while (!atMainlineEnd() && !position.isEqualPosition(m_currentBoard))
+	while (!atMainlineEnd() && !position.isEqualZHPosition(m_currentBoard))
 		forward();
 
 	goToCurrentMove();
@@ -3558,7 +3558,7 @@ Game::setIsModified(bool flag)
 	if (flag)
 		m_isIrreversible = false;
 	else
-		m_undoIndex = 0;
+		clearUndo();
 
 	if (m_subscriber && m_isModified != m_wasModified)
 		m_subscriber->stateChanged(m_wasModified = m_isModified);

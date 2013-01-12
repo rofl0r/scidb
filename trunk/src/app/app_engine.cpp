@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 631 $
-// Date   : $Date: 2013-01-11 16:16:29 +0000 (Fri, 11 Jan 2013) $
+// Version: $Revision: 632 $
+// Date   : $Date: 2013-01-12 23:18:00 +0000 (Sat, 12 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -839,7 +839,7 @@ bool
 Engine::snapshotExists(unsigned lineNo) const
 {
 	return	m_game
-			&& m_snapshot.m_board.isEqualPosition(m_game->currentBoard())
+			&& m_snapshot.m_board.isEqualZHPosition(m_game->currentBoard())
 			&& lineNo < m_snapshot.m_lines.size();
 }
 
@@ -1199,7 +1199,7 @@ Engine::startAnalysis(db::Game* game)
 	}
 	else if (isAnalyzing())
 	{
-		if (m_engine->m_board.isEqualPosition(game->currentBoard()))
+		if (m_engine->m_board.isEqualZHPosition(game->currentBoard()))
 			return true;
 	}
 

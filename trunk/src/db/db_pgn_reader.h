@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 632 $
+// Date   : $Date: 2013-01-12 23:18:00 +0000 (Sat, 12 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -287,7 +287,7 @@ private:
 	bool checkTag(tag::ID tag, mstl::string& value);
 	void addTag(tag::ID tag, mstl::string const& value);
 	void checkVariant();
-	void checkResult();
+	bool checkResult();
 
 	void readTags();
 	bool readTagName(mstl::string& s);

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 627 $
-# Date   : $Date: 2013-01-10 11:27:11 +0000 (Thu, 10 Jan 2013) $
+# Version: $Revision: 632 $
+# Date   : $Date: 2013-01-12 23:18:00 +0000 (Sat, 12 Jan 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -392,7 +392,10 @@ proc openBase {parent file byUser args} {
 	if {[string length [set ext [file extension $file]]]} {
 		set ext [::scidb::misc::mapExtension $ext]
 		set file "[file rootname $file].$ext"
+	} else {
+		set ext [string range $ext 1 end]
 	}
+	set ext [string tolower $ext]
 
 	if {![file readable $file]} {
 		set i [FindRecentFile $file]
@@ -417,7 +420,6 @@ proc openBase {parent file byUser args} {
 		set opts(-encoding) $::encoding::autoEncoding
 	}
 	if {![$Vars(switcher) contains? $file]} {
-		set ext [string range [file extension $file] 1 end]
 		foreach base [$Vars(switcher) bases] {
 			if {$ext eq [$Vars(switcher) extension $base]} {
 				if {[::scidb::misc::hardLinked? $file $base]} {
