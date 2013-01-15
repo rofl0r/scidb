@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 631 $
-// Date   : $Date: 2013-01-11 16:16:29 +0000 (Fri, 11 Jan 2013) $
+// Version: $Revision: 633 $
+// Date   : $Date: 2013-01-15 21:44:24 +0000 (Tue, 15 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1027,7 +1027,6 @@ Namebase::nextFreeId()
 	if (id == IdSet::npos)
 	{
 		m_freeSetIsEmpty = true;
-		M_ASSERT(m_nextId + 1 == m_list.size());
 		return m_nextId++;
 	}
 	else

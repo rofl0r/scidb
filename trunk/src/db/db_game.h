@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 633 $
+// Date   : $Date: 2013-01-15 21:44:24 +0000 (Tue, 15 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -532,6 +532,8 @@ public:
 	void setLanguages(LanguageSet const& set);
 	/// Set whether game is modified anymore.
 	void setIsModified(bool flag);
+	/// Set whether game is irreversible modified.
+	void setIsIrreversible(bool flag);
 	/// Clear undo stack.
 	void clearUndo();
 

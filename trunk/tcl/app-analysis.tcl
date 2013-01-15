@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 609 $
-# Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+# Version: $Revision: 633 $
+# Date   : $Date: 2013-01-15 21:44:24 +0000 (Tue, 15 Jan 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -345,7 +345,7 @@ proc build {parent width height} {
 	::toolbar::add $tbControl button \
 		-image $::icon::toolbarSetup \
 		-command [namespace code Setup] \
-		-tooltipvar [namespace current]::mc::Setup \
+		-tooltipvar [::mc::var [namespace current]::mc::Setup "..."] \
 		;
 	::toolbar::addSeparator $tbControl
 	set tbw [::toolbar::add $tbControl checkbutton \

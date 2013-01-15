@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 633 $
+// Date   : $Date: 2013-01-15 21:44:24 +0000 (Tue, 15 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -159,7 +159,7 @@ protected:
 	virtual void sendTrailingComment(Comment const& comment, bool variationIsEmpty) = 0;
 	virtual void sendComment(Comment const& comment) = 0;
 	virtual void sendMoveInfo(MoveInfoSet const& moveInfo);
-	virtual bool sendMove(	Move const& move) = 0;
+	virtual bool sendMove(Move const& move) = 0;
 	virtual bool sendMove(	Move const& move,
 									Annotation const& annotation,
 									MarkSet const& marks,

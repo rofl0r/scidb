@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 629 $
-// Date   : $Date: 2013-01-10 18:59:39 +0000 (Thu, 10 Jan 2013) $
+// Version: $Revision: 633 $
+// Date   : $Date: 2013-01-15 21:44:24 +0000 (Tue, 15 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -220,6 +220,7 @@ public:
 
 	void newGame(unsigned position, db::variant::Type variant = db::variant::Normal);
 	void deleteGame(Cursor& cursor, unsigned index, unsigned view = 0, bool flag = true);
+	void changeVariant(unsigned position, db::variant::Type variant);
 	void swapGames(unsigned position1, unsigned position2);
 	void setGameFlags(Cursor& cursor, unsigned index, unsigned view, unsigned flags);
 	void releaseGame(unsigned position);

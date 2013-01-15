@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 631 $
-# Date   : $Date: 2013-01-11 16:16:29 +0000 (Fri, 11 Jan 2013) $
+# Version: $Revision: 633 $
+# Date   : $Date: 2013-01-15 21:44:24 +0000 (Tue, 15 Jan 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -156,7 +156,7 @@
 ::widget::mc::Ok			"&OK"
 ::widget::mc::Reset		"&Zurücksetzen"
 ::widget::mc::Update		"Akt&ualisieren"
-::widget::mc::Import		"&Importien"
+::widget::mc::Import		"&Importieren"
 ::widget::mc::Revert		"Zurück&kehren"
 ::widget::mc::Previous	"&Vorherige"
 ::widget::mc::Next		"&Nächste"

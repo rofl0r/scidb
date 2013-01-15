@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 627 $
-# Date   : $Date: 2013-01-10 11:27:11 +0000 (Thu, 10 Jan 2013) $
+# Version: $Revision: 633 $
+# Date   : $Date: 2013-01-15 21:44:24 +0000 (Tue, 15 Jan 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -223,13 +223,13 @@ proc new {parent args} {
 
 		set tags [::scidb::game::tags $pos]
 		lappend entry $crc $tags
-		::scidb::game::switch $pos
 		if {$pos == [llength $List]} {
 			lappend List $entry
 		}  else {
 			lset List $pos $entry
 		}
 		::application::pgn::$cmd $pos $base $variant $tags
+		::scidb::game::switch $pos
 		if {$cmd eq "replace"} { stateChanged $pos 0 }
 	}
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 632 $
-// Date   : $Date: 2013-01-12 23:18:00 +0000 (Sat, 12 Jan 2013) $
+// Version: $Revision: 633 $
+// Date   : $Date: 2013-01-15 21:44:24 +0000 (Tue, 15 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -3562,6 +3562,25 @@ Game::setIsModified(bool flag)
 
 	if (m_subscriber && m_isModified != m_wasModified)
 		m_subscriber->stateChanged(m_wasModified = m_isModified);
+}
+
+
+void
+Game::setIsIrreversible(bool flag)
+{
+	if (flag)
+	{
+		m_isModified = true;
+		m_isIrreversible = true;
+		clearUndo();
+
+		if (m_subscriber && m_isModified != m_wasModified)
+			m_subscriber->stateChanged(m_wasModified = m_isModified);
+	}
+	else
+	{
+		m_isIrreversible = false;
+	}
 }
 
 // vi:set ts=3 sw=3:

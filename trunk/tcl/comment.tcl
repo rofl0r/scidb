@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 609 $
-# Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+# Version: $Revision: 633 $
+# Date   : $Date: 2013-01-15 21:44:24 +0000 (Tue, 15 Jan 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -137,6 +137,7 @@ proc open {parent pos lang} {
 	set Vars(key) [::scidb::game::position key]
 	set Vars(pos) $pos
 	set Vars(lang) xx
+	set Vars(mc) $::mc::langID
 
 	# Currently the undo/redo mechanism of the text widget is not working properly
 	# (and quite useless). The Tk team does not like to handle this problem (see
@@ -792,9 +793,19 @@ proc TooltipHide {w key} {
 
 
 proc LanguageChanged {dlg w} {
+	variable ::figurines::langSet
 	variable Vars
 
 	if {$dlg ne $w} { return }
+
+	set t $Vars(widget:text)
+	foreach fig $langSet($Vars(mc)) {
+		bind $t <Control-Shift-$fig> {#}
+	}
+	foreach fig $langSet($::mc::langID) eng $langSet(en) {
+		bind $t <Control-Shift-$fig> [namespace code [list InsertFigurine $t $eng]]
+	}
+	set Vars(mc) $::mc::langID
 
 	switch $Vars(pos) {
 		a { set titleVar CommentBeforeMove }

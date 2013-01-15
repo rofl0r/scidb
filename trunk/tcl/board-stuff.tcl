@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 609 $
-# Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+# Version: $Revision: 633 $
+# Date   : $Date: 2013-01-15 21:44:24 +0000 (Tue, 15 Jan 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1062,7 +1062,7 @@ proc MakeDisk {squareSize color} {
 	}
 	set img [image create photo -width $size -height $size]
 	::scidb::tk::image copy $Marks(disk,$color) $img
-	::scidb::tk::image 0.8 $alpha $img -composite overlay
+	::scidb::tk::image alpha 0.8 $img -composite overlay
 	return $img
 }
 

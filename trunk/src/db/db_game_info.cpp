@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 617 $
-// Date   : $Date: 2013-01-08 11:41:26 +0000 (Tue, 08 Jan 2013) $
+// Version: $Revision: 633 $
+// Date   : $Date: 2013-01-15 21:44:24 +0000 (Tue, 15 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -742,7 +742,7 @@ GameInfo::restore(GameInfo& oldInfo, Namebases& namebases)
 
 
 void
-GameInfo::reallocate(Namebases& namebases)
+GameInfo::reallocate(Namebases& namebases) const
 {
 	static unsigned const Limit = mstl::numeric_limits<unsigned>::max();
 

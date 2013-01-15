@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 632 $
-// Date   : $Date: 2013-01-12 23:18:00 +0000 (Sat, 12 Jan 2013) $
+// Version: $Revision: 633 $
+// Date   : $Date: 2013-01-15 21:44:24 +0000 (Tue, 15 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -174,6 +174,7 @@ public:
 	unsigned accepted(unsigned variant) const;
 	unsigned rejected(unsigned variant) const;
 	Variants const& unsupportedVariants() const;
+	variant::Type detectedVariant() const;
 
 	unsigned process(util::Progress& progress) override;
 

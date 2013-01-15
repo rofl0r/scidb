@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 629 $
-// Date   : $Date: 2013-01-10 18:59:39 +0000 (Thu, 10 Jan 2013) $
+// Version: $Revision: 633 $
+// Date   : $Date: 2013-01-15 21:44:24 +0000 (Tue, 15 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -243,7 +243,7 @@ public:
 	void reset(Namebases& namebases);
 	void resetCharacteristics(Namebases& namebases);
 	void restore(GameInfo& oldInfo, Namebases& namebases);
-	void reallocate(Namebases& namebases);
+	void reallocate(Namebases& namebases) const;
 
 	void debug() const;
 

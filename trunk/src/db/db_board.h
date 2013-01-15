@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 632 $
-// Date   : $Date: 2013-01-12 23:18:00 +0000 (Sat, 12 Jan 2013) $
+// Version: $Revision: 633 $
+// Date   : $Date: 2013-01-15 21:44:24 +0000 (Tue, 15 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -603,6 +603,8 @@ private:
 	void removeFromHolding(variant::Type variant, unsigned color);
 	template <piece::Type Piece>
 	void removeFromHolding(uint64_t fromMask, variant::Type variant, unsigned color);
+	template <piece::Type Piece> void incrMaterial(unsigned color);
+	template <piece::Type Piece> void decrMaterial(unsigned color);
 
 	// Additional board data
 	uint64_t	m_occupied;						// square is empty or holds a piece
