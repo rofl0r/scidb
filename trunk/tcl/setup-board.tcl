@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 631 $
-# Date   : $Date: 2013-01-11 16:16:29 +0000 (Fri, 11 Jan 2013) $
+# Version: $Revision: 634 $
+# Date   : $Date: 2013-01-16 09:35:47 +0000 (Wed, 16 Jan 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -516,6 +516,7 @@ proc open {parent} {
 				;
 			::validate::spinboxInt $spb
 			::theme::configureSpinbox $spb
+			bind $spb <FocusOut> +[namespace code Update]
 			grid $lbl -column $col -row 1
 			grid $spb -column [expr {$col + 2}] -row 1
 			incr col 4

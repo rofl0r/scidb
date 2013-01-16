@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 632 $
-// Date   : $Date: 2013-01-12 23:18:00 +0000 (Sat, 12 Jan 2013) $
+// Version: $Revision: 634 $
+// Date   : $Date: 2013-01-16 09:35:47 +0000 (Wed, 16 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -67,19 +67,19 @@ static char const* Roman[] =
 
 static unsigned const Arabic[] =
 {
-	1000,		// M
-	900,		// CM
-	500,		// D
-	400,		// CD
-	100,		// C
-	90,		// XC
-	50,		// L
-	40,		// XL
-	10,		// X
-	9,			// IX
-	5,			// V
-	4,			// IV
-	1,			// I
+	1000, // M
+	 900, // CM
+	 500, // D
+	 400, // CD
+	 100, // C
+	  90, // XC
+	  50, // L
+	  40, // XL
+	  10, // X
+	   9, // IX
+	   5, // V
+	   4, // IV
+	   1, // I
 };
 
 
@@ -358,8 +358,11 @@ string::append(const_reference c)
 string&
 string::append(size_type n, const_reference c)
 {
-	resize(m_size + n);
-	::fill(m_data + m_size - n, n, c);
+	if (n)
+	{
+		resize(m_size + n);
+		::fill(m_data + m_size - n, n, c);
+	}
 	return *this;
 }
 
