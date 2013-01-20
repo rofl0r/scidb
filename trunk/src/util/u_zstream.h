@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 635 $
+// Date   : $Date: 2013-01-20 22:09:56 +0000 (Sun, 20 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -57,6 +57,7 @@ public:
 	void close();
 
 	static bool size(char const* filename, int64_t& size, Type* type = 0);
+	static bool containsSuffix(char const* filename, char const* suffix);
 	static void setZipFileSuffixes(Strings const& suffixes);
 	static Strings const& zipFileSuffixes();
 

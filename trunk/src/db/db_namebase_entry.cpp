@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 635 $
+// Date   : $Date: 2013-01-20 22:09:56 +0000 (Sun, 20 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -89,7 +89,7 @@ NamebasePlayer::findRating(rating::Type type) const
 	if (m_player)
 		return mstl::abs(m_player->highestRating(type));
 
-	return 0;
+	return m_rating[rating::Elo];
 }
 
 
@@ -102,7 +102,7 @@ NamebasePlayer::findRatingType() const
 	if (m_player)
 		return m_player->ratingType();
 
-	return rating::Last;
+	return m_rating[rating::Elo] ? rating::Elo : rating::Last;
 }
 
 

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 632 $
-# Date   : $Date: 2013-01-12 23:18:00 +0000 (Sat, 12 Jan 2013) $
+# Version: $Revision: 635 $
+# Date   : $Date: 2013-01-20 22:09:56 +0000 (Sun, 20 Jan 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1526,13 +1526,13 @@ proc Properties {w id popup} {
 	} else {
 		set created [::scidb::db::get created? $file]
 		if {[string length $created] == 0} {
-			$f.tcreated configure -text $::mc::NotAvailable
+			$f.tcreated configure -text $::mc::NotAvailableSign
 		} else {
 			$f.tcreated configure -text [::locale::formatTime $created]
 		}
 		set lastModified [::scidb::db::get modified? $file]
 		if {[string length $lastModified] == 0} {
-			$f.tlastModified configure -text $::mc::NotAvailable
+			$f.tlastModified configure -text $::mc::NotAvailableSign
 		} else {
 			$f.tlastModified configure -text [::locale::formatTime $lastModified]
 		}

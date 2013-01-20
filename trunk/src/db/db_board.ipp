@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 617 $
-// Date   : $Date: 2013-01-08 11:41:26 +0000 (Tue, 08 Jan 2013) $
+// Version: $Revision: 635 $
+// Date   : $Date: 2013-01-20 22:09:56 +0000 (Sun, 20 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -37,7 +37,8 @@ namespace db {
 
 inline Board::Board() :m_partner(this) {}
 
-inline void Board::Board::clear() { *this = m_emptyBoard; }
+inline void Board::Board::clear()			{ *this = m_emptyBoard; }
+inline void Board::Board::clearHolding()	{ m_holding[0].value = m_holding[1].value = 0; }
 
 inline bool Board::isAttackedBy(unsigned color, Square square) const { return attacks(color, square);}
 

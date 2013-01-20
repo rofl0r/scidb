@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 635 $
+// Date   : $Date: 2013-01-20 22:09:56 +0000 (Sun, 20 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -380,8 +380,16 @@ cmdNormalizeFen(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 	char const* fen = stringFromObj(objc, objv, 1);
 
 	board.setup(fen, variant);
-	setResult(board.toFen(variant, getFormat(objc, objv, 2)));
 
+	if (objc > 3)
+	{
+		if (::strcmp(Tcl_GetString(objv[3]), "-clearholding") != 0)
+			return error(CmdNormalizeFen, nullptr, nullptr, "invalid option '%s'", Tcl_GetString(objv[3]));
+
+		board.clearHolding();
+	}
+
+	setResult(board.toFen(variant, getFormat(objc, objv, 2)));
 	return TCL_OK;
 }
 

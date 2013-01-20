@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 633 $
-// Date   : $Date: 2013-01-15 21:44:24 +0000 (Tue, 15 Jan 2013) $
+// Version: $Revision: 635 $
+// Date   : $Date: 2013-01-20 22:09:56 +0000 (Sun, 20 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -3048,7 +3048,7 @@ cmdImport(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 											encoding,
 											nullptr,
 											nullptr,
-											::db::PgnReader::Raw,
+											::db::Reader::Raw,
 											mode,
 											nullptr,
 											lineOffset,
@@ -3056,6 +3056,8 @@ cmdImport(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 			util::Progress	progress;
 			NullConsumer	consumer(encoding);
 
+			if (figurine)
+				reader.setFigurine(figurine);
 			reader.setConsumer(&consumer);
 			reader.process(progress);
 

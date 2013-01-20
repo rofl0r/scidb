@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 633 $
-// Date   : $Date: 2013-01-15 21:44:24 +0000 (Tue, 15 Jan 2013) $
+// Version: $Revision: 635 $
+// Date   : $Date: 2013-01-20 22:09:56 +0000 (Sun, 20 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -160,6 +160,8 @@ public:
 
 	/// Remove all pieces and state from board
 	void clear();
+	/// Clear holding.
+	void clearHolding();
 	/// Set the given piece on the board at the given square
 	bool setAt(Square s, piece::ID p, variant::Type variant);
 	/// Remove any piece sitting on given square
@@ -434,6 +436,8 @@ public:
 								move::Constraint flag = move::AllowIllegalMove) const;
 	/// Set given castling rights (do not use except for generating FEN's)
 	void setCastlingRights(castling::Rights rights);
+	/// Check (and possibly correct) pieces in holding.
+	void checkHolding();
 
 	/// Dump board, useful for debugging
 	void dump() const;
@@ -603,6 +607,8 @@ private:
 	void removeFromHolding(variant::Type variant, unsigned color);
 	template <piece::Type Piece>
 	void removeFromHolding(uint64_t fromMask, variant::Type variant, unsigned color);
+	template <piece::Type Piece>
+	void possiblyRemoveFromHolding(variant::Type variant, unsigned color);
 	template <piece::Type Piece> void incrMaterial(unsigned color);
 	template <piece::Type Piece> void decrMaterial(unsigned color);
 

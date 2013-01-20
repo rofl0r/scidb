@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 626 $
-// Date   : $Date: 2013-01-10 00:42:32 +0000 (Thu, 10 Jan 2013) $
+// Version: $Revision: 635 $
+// Date   : $Date: 2013-01-20 22:09:56 +0000 (Sun, 20 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -251,19 +251,6 @@ skipSpaces(char const* s)
 {
 	while (isspace(*s))
 		++s;
-
-	return s;
-}
-
-
-static mstl::string&
-toupper(mstl::string& s)
-{
-	for (mstl::string::iterator i = s.begin() + 1; i != s.end(); ++i)
-	{
-		if (::islower(*i))
-			*i = ::toupper(*i);
-	}
 
 	return s;
 }
@@ -1100,6 +1087,10 @@ Player::newPlayer(mstl::string const& name,
 	M_ASSERT(sys::utf8::validate(name));
 	M_ASSERT(sys::utf8::Codec::is7BitAscii(ascii));
 
+if (name == "Skripchenko, Almira")
+{
+	mstl::string s(name);
+}
 	mstl::string key, key2;
 	normalize(ascii, key);
 	::alloc(key2, key);
@@ -2008,7 +1999,7 @@ Player::parseSpellcheckFile(mstl::istream& stream)
 			default:
 				if (section == Player)
 				{
-					sex::ID sex = sex::Male;
+					sex::ID sex = sex::Unspecified;
 					::extractPlayerData(line, sex, titles, federations, elo, birthDate, deathDate);
 					line.trim();
 
@@ -2042,6 +2033,9 @@ Player::parseSpellcheckFile(mstl::istream& stream)
 							int score = ::getElo(elo);
 
 							player->setType(species::Human);
+
+							if (player->sex() == sex::Unspecified)
+								player->setSex(sex::Male);
 
 							if (nativeCountry != country::Unknown)
 								player->setNativeCountry(nativeCountry);
@@ -2164,7 +2158,7 @@ Player::parseFideRating(mstl::istream& stream)
 			if (name.size() > 4 && ::islower(name[1]))
 			{
 				federation.assign(s + 48, 3);
-				::toupper(federation);
+				federation.toupper();
 
 				unsigned			fideID	= ::strtoul(s, nullptr, 10);
 				country::Code	country	= country::fromString(federation);

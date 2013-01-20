@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 628 $
-// Date   : $Date: 2013-01-10 12:24:25 +0000 (Thu, 10 Jan 2013) $
+// Version: $Revision: 635 $
+// Date   : $Date: 2013-01-20 22:09:56 +0000 (Sun, 20 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -123,17 +123,19 @@ playerRatings(NamebasePlayer const& player, rating::Type& type, int16_t* ratings
 	ratings[0] = player.playerHighestRating(type);
 	ratings[1] = player.playerLatestRating(type);
 
-	if (idCard && player.isPlayerRating(type))
+	if (player.isPlayerRating(type))
 	{
-		if (uint16_t elo = player.findElo())
+		if (idCard)
 		{
-			type = rating::Elo;
-			ratings[0] = elo;
-			ratings[1] = player.playerLatestRating(type);
+			if (uint16_t elo = player.findElo())
+			{
+				type = rating::Elo;
+				ratings[0] = elo;
+				ratings[1] = player.playerLatestRating(type);
+			}
 		}
 	}
-
-	if (!player.isPlayerRating(type))
+	else
 	{
 		ratings[0] = -ratings[0];
 		ratings[1] = -ratings[1];

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 629 $
-// Date   : $Date: 2013-01-10 18:59:39 +0000 (Thu, 10 Jan 2013) $
+// Version: $Revision: 635 $
+// Date   : $Date: 2013-01-20 22:09:56 +0000 (Sun, 20 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1547,7 +1547,7 @@ Database::playerStatistic(NamebasePlayer const& player, PlayerStats& stats) cons
 			stats.addScore(color, info->result());
 if (m_variant == variant::Normal) { // XXX
 			if (info->idn() == variant::Standard)
-				stats.addEco(color, info->ecoKey());
+				stats.addEco(color, info->eco());
 }
 		}
 	}

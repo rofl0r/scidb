@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 609 $
-# Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+# Version: $Revision: 635 $
+# Date   : $Date: 2013-01-20 22:09:56 +0000 (Sun, 20 Jan 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -488,11 +488,10 @@ proc update {position} {
 	variable Vars
 	variable Options
 
-	if {	$Options(search:automatic)
-		&& ![::scidb::tree::isUpToDate?]
-		&& [llength [::scidb::tree::get]]} {
+	if {[::scidb::tree::isUpToDate?]} { return }
 
-	set variant [::scidb::game::query $position mainvariant?]
+	if {$Options(search:automatic) && [llength [::scidb::tree::get]]} {
+		set variant [::scidb::game::query $position mainvariant?]
 ### VARIANTS ####################################
 if {$variant eq "Normal"} {
 ::toolbar::childconfigure $Vars(switcher) -state readonly
@@ -583,7 +582,10 @@ proc Update {table base variant} {
 ### VARIANTS ####################################
 if {[::scidb::game::query variant?] eq "Normal"} {
 ::toolbar::childconfigure $Vars(switcher) -state readonly
+$Vars(mw) raise $Vars(info)
 #################################################
+	if {[::scidb::tree::isUpToDate?]} { return }
+
 	if {[string length $base]} {
 		if {$base ne $Vars(current:base) || $variant ne $Vars(current:variant)} {
 			SetSwitcher $base $variant
@@ -596,6 +598,8 @@ if {[::scidb::game::query variant?] eq "Normal"} {
 	} else {
 		ShowMessage NoGamesAvailable
 	}
+
+	Enabled false
 ### VARIANTS ####################################
 } else {
 ShowMessage VariantsNotYetSupported
@@ -604,8 +608,6 @@ set Vars(force) 1
 ::toolbar::childconfigure $Vars(switcher) -state disabled
 }
 #################################################
-
-	Enabled false
 }
 
 
