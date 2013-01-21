@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 635 $
-// Date   : $Date: 2013-01-20 22:09:56 +0000 (Sun, 20 Jan 2013) $
+// Version: $Revision: 636 $
+// Date   : $Date: 2013-01-21 13:37:50 +0000 (Mon, 21 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2683,7 +2683,7 @@ Board::setup(char const* fen, variant::Type variant)
 		{
 			if (s == 8)
 			{
-				if (isalpha(*p))
+				if (isalpha(p[1]))
 				{
 					if (!variant::isZhouse(variant))
 						return 0;
@@ -2699,6 +2699,10 @@ Board::setup(char const* fen, variant::Type variant)
 				}
 				// else:
 				// Some guys are ending the first part with a superfluous '/'.
+			}
+			else if (s < 16)
+			{
+				return 0;
 			}
 			else
 			{

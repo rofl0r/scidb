@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 617 $
-// Date   : $Date: 2013-01-08 11:41:26 +0000 (Tue, 08 Jan 2013) $
+// Version: $Revision: 636 $
+// Date   : $Date: 2013-01-21 13:37:50 +0000 (Mon, 21 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -256,6 +256,7 @@ Encoder::encodeQueen(Move const& move)
 		putMoveByte(from, sq::fyle(from));
 
 #ifdef CORRECTION
+		M_ASSERT(to < 64);
 		// Now we put the to-square in the next byte. We make sure that it
 		// cannot clash with the special tokens.
 		m_strm.put(to | 64);

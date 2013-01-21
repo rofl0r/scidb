@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 635 $
-// Date   : $Date: 2013-01-20 22:09:56 +0000 (Sun, 20 Jan 2013) $
+// Version: $Revision: 636 $
+// Date   : $Date: 2013-01-21 13:37:50 +0000 (Mon, 21 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2059,7 +2059,7 @@ PgnReader::parseVariant()
 				break;
 
 			case '5':
-				if (::equal(v, "7")) // Upside down
+				if (::equal(v, "5")) // Upside down
 				{
 					setupVariant(variant::Normal);
 					m_idn = variant::UpsideDown;
@@ -2092,6 +2092,13 @@ PgnReader::parseVariant()
 				{
 					return false;
 				}
+				break;
+
+			case 'f':
+				if (::equal(v, "fr")) // Chess 960
+					setupVariant(variant::Normal);
+				else
+					return false;
 				break;
 
 			default:
@@ -2267,6 +2274,8 @@ PgnReader::checkTags()
 
 		m_tags.add(WhiteType, species::Human);
 		m_tags.add(BlackType, species::Human);
+
+		m_tags.add(EventCountry, country::toString(country::The_Internet));
 	}
 }
 
@@ -2388,15 +2397,15 @@ PgnReader::checkTag(ID tag, mstl::string& value)
 				{
 					setupVariant(variant::Losers);
 				}
-				else if (	(pos = value.find("uwild/")) != mstl::string::npos
-							|| (pos = value.find("wild/")) != mstl::string::npos
-							|| (pos = value.find("pawns/")) != mstl::string::npos
-							|| (pos = value.find("atomic/")) != mstl::string::npos
-							|| (pos = value.find("misc/")) != mstl::string::npos
-							|| (pos = value.find("odds/")) != mstl::string::npos
-							|| (pos = value.find("endings/")) != mstl::string::npos)
+				else if (	(pos = value.find(" uwild/")) != mstl::string::npos
+							|| (pos = value.find(" wild/")) != mstl::string::npos
+							|| (pos = value.find(" pawns/")) != mstl::string::npos
+							|| (pos = value.find(" atomic ")) != mstl::string::npos
+							|| (pos = value.find(" misc/")) != mstl::string::npos
+							|| (pos = value.find(" odds/")) != mstl::string::npos
+							|| (pos = value.find(" endings/")) != mstl::string::npos)
 				{
-					char const *v = value.c_str() + pos;
+					char const *v = value.c_str() + pos + 1;
 
 					m_variantValue.assign(v, ::skipWord(v));
 
