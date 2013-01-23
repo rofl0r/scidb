@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 637 $
-# Date   : $Date: 2013-01-23 13:22:07 +0000 (Wed, 23 Jan 2013) $
+# Version: $Revision: 639 $
+# Date   : $Date: 2013-01-23 20:50:00 +0000 (Wed, 23 Jan 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -177,6 +177,7 @@ variable Vars
 
 array set History {
 	Normal		{}
+	ThreeCheck	{}
 	Crazyhouse	{}
 	Antichess	{}
 }
@@ -752,9 +753,8 @@ proc FitBottom {dst src cols} {
 proc Variant? {} {
 	set variant [::scidb::game::query Variant?]
 
-	switch [::scidb::game::query Variant?] {
-		Crazyhouse	{ return "Crazyhouse" }
-		Antichess	{ return "Antichess" }
+	switch $variant {
+		Crazyhouse - Antichess - ThreeCheck { return $variant }
 	}
 
 	return "Normal"

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 638 $
-# Date   : $Date: 2013-01-23 17:26:55 +0000 (Wed, 23 Jan 2013) $
+# Version: $Revision: 639 $
+# Date   : $Date: 2013-01-23 20:50:00 +0000 (Wed, 23 Jan 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -450,6 +450,7 @@
 ::application::database::mc::ReallyCompact					"Soll die Datenbank '%s' wirklich kompaktiert werden?"
 ::application::database::mc::ReallyCompactDetail(1)		"Nur eine Partie wird dabei entfernt."
 ::application::database::mc::ReallyCompactDetail(N)		"%s Partien werden dabei entfernt."
+::application::database::mc::RemoveSpace						"Einige Leerräume werden entfernt."
 ::application::database::mc::SelectVariant					"Schachform wählen"
 
 ::application::database::mc::RecodingDatabase				"Umkodierung %base von %from nach %to"

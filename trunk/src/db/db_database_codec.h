@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 639 $
+// Date   : $Date: 2013-01-23 20:50:00 +0000 (Wed, 23 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -242,7 +242,7 @@ protected:
 										unsigned prevOffset,
 										unsigned prevRecordLength);
 
-	bool isReadOnly() const;
+	bool isReadonly() const;
 	bool shouldCompress() const;
 	GameInfoList& gameInfoList();
 	GameInfo& gameInfo(unsigned index);

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 639 $
+// Date   : $Date: 2013-01-23 20:50:00 +0000 (Wed, 23 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -106,7 +106,7 @@ public:
 	void writeNamebases(mstl::ostream& stream, util::Progress& progress) override;
 	void writeIndex(mstl::ostream& strm, util::Progress& progress);
 	void writeGames(mstl::ostream& strm, util::Progress& progress);
-	void readIndexProgressive(unsigned index);
+	void readIndexProgressive(unsigned index) override;
 
 	save::State doDecoding(db::Consumer& consumer, TagSet& tags, GameInfo const& info) override;
 	save::State doDecoding(	db::Consumer& consumer, util::ByteStream& strm, TagSet& tags) override;

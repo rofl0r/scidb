@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 638 $
-# Date   : $Date: 2013-01-23 17:26:55 +0000 (Wed, 23 Jan 2013) $
+# Version: $Revision: 639 $
+# Date   : $Date: 2013-01-23 20:50:00 +0000 (Wed, 23 Jan 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -450,6 +450,7 @@
 ::application::database::mc::ReallyCompact					"Vuoi davvero comprimere il database '%s'?"
 ::application::database::mc::ReallyCompactDetail(1)		"Solo una partita sar√|  eliminata."
 ::application::database::mc::ReallyCompactDetail(N)		"%s partite saranno eliminate."
+::application::database::mc::RemoveSpace						"Some empty spaces will be removed." ;# NEW
 ::application::database::mc::SelectVariant					"Select Variant" ;# NEW
 
 ::application::database::mc::RecodingDatabase				"Registro %base da %from a %to"

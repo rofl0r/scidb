@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 617 $
-// Date   : $Date: 2013-01-08 11:41:26 +0000 (Tue, 08 Jan 2013) $
+// Version: $Revision: 639 $
+// Date   : $Date: 2013-01-23 20:50:00 +0000 (Wed, 23 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -612,14 +612,14 @@ Codec::save(mstl::string const& rootname, unsigned start, util::Progress& progre
 	if (!attach)
 		checkPermissions(indexFilename);
 
-	if (isReadOnly())
+	if (isReadonly())
 		IO_RAISE(Index, Read_Only, "index file '%s' is read-only", indexFilename.c_str());
 
 	mstl::string namebaseFilename(rootname + ".scn");
 	if (!attach)
 		checkPermissions(namebaseFilename);
 
-	if (isReadOnly())
+	if (isReadonly())
 		IO_RAISE(Index, Read_Only, "name-base file '%s' is read-only", namebaseFilename.c_str());
 
 	m_gameData->sync();
@@ -666,13 +666,13 @@ Codec::update(mstl::string const& rootname)
 	mstl::string indexFilename(rootname + ".sci");
 	checkPermissions(indexFilename);
 
-	if (isReadOnly())
+	if (isReadonly())
 		IO_RAISE(Index, Read_Only, "index file '%s' is read-only", indexFilename.c_str());
 
 	mstl::string namebaseFilename(rootname + ".scn");
 	checkPermissions(namebaseFilename);
 
-	if (isReadOnly())
+	if (isReadonly())
 		IO_RAISE(Namebase, Read_Only, "name-base file '%s' is read-only", namebaseFilename.c_str());
 
 	mstl::fstream indexStream;
@@ -696,7 +696,7 @@ Codec::update(mstl::string const& rootname, unsigned index, bool updateNamebase)
 	mstl::string indexFilename(rootname + ".sci");
 	checkPermissions(indexFilename);
 
-	if (isReadOnly())
+	if (isReadonly())
 		IO_RAISE(Index, Read_Only, "index file '%s' is read-only", indexFilename.c_str());
 
 	m_gameData->sync();
@@ -733,7 +733,7 @@ Codec::updateHeader(mstl::string const& rootname)
 	mstl::string indexFilename(rootname + ".sci");
 	checkPermissions(indexFilename);
 
-	if (isReadOnly())
+	if (isReadonly())
 		IO_RAISE(Index, Read_Only, "index file '%s' is read-only", indexFilename.c_str());
 
 	mstl::fstream indexStream;

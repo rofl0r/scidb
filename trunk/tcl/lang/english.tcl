@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 638 $
-# Date   : $Date: 2013-01-23 17:26:55 +0000 (Wed, 23 Jan 2013) $
+# Version: $Revision: 639 $
+# Date   : $Date: 2013-01-23 20:50:00 +0000 (Wed, 23 Jan 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -449,6 +449,7 @@
 ::application::database::mc::ReallyCompact					"Really compact database '%s'?"
 ::application::database::mc::ReallyCompactDetail(1)		"Only one game will be deleted."
 ::application::database::mc::ReallyCompactDetail(N)		"%s games will be deleted."
+::application::database::mc::RemoveSpace						"Some empty spaces will be removed."
 ::application::database::mc::SelectVariant					"Select Variant"
 
 ::application::database::mc::RecodingDatabase				"Recoding %base from %from to %to"

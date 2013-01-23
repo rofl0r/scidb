@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 639 $
+// Date   : $Date: 2013-01-23 20:50:00 +0000 (Wed, 23 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -32,7 +32,7 @@ namespace app {
 
 inline bool MultiCursor::isOpen() const			{ return m_leader->isOpen(); }
 inline bool MultiCursor::isClosed() const			{ return m_leader->isClosed(); }
-inline bool MultiCursor::isReadOnly() const		{ return m_leader->isReadOnly(); }
+inline bool MultiCursor::isReadonly() const		{ return m_leader->isReadonly(); }
 inline bool MultiCursor::isWriteable() const		{ return m_leader->isWriteable(); }
 inline bool MultiCursor::isClipbase() const		{ return m_isClipbase; }
 inline bool MultiCursor::isScratchbase() const	{ return m_isScratchbase; }

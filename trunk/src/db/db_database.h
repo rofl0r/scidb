@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 638 $
-// Date   : $Date: 2013-01-23 17:26:55 +0000 (Wed, 23 Jan 2013) $
+// Version: $Revision: 639 $
+// Date   : $Date: 2013-01-23 20:50:00 +0000 (Wed, 23 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -92,7 +92,7 @@ public:
 	/// Returns whether current database is empty.
 	bool isEmpty() const;
 	/// Returns whether the database is set read-only or not.
-	bool isReadOnly() const;
+	bool isReadonly() const;
 	/// Returns whether the database is potentially writeable or not.
 	bool isWriteable() const;
 	/// Returns whether the database is memory-only or not.
@@ -277,7 +277,7 @@ public:
 	/// Set description of database.
 	void setDescription(mstl::string const& description);
 	/// Set/unset read-only flag.
-	void setReadOnly(bool flag = true);
+	void setReadonly(bool flag = true);
 
 	/// Search for givee position and return following move.
 	Move findExactPositionAsync(unsigned index, Board const& position, bool skipVariations) const;

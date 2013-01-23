@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 633 $
-// Date   : $Date: 2013-01-15 21:44:24 +0000 (Tue, 15 Jan 2013) $
+// Version: $Revision: 639 $
+// Date   : $Date: 2013-01-23 20:50:00 +0000 (Wed, 23 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -228,6 +228,7 @@ public:
 	void clearGame(db::Board const* startPosition = 0);
 	void setupGame(db::Board const& startPosition);
 	void setSource(unsigned position, mstl::string const& name, unsigned index);
+	void setReadonly(Cursor& cursor, bool flag);
 	db::save::State writeGame(	unsigned position,
 										mstl::string const& name,
 										mstl::string const& encoding,

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 639 $
+// Date   : $Date: 2013-01-23 20:50:00 +0000 (Wed, 23 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -56,7 +56,7 @@ DatabaseContent::DatabaseContent(DatabaseContent const& content)
 	,m_writeable(content.m_writeable)
 	,m_memoryOnly(content.m_memoryOnly)
 	,m_temporary(content.m_temporary)
-	,m_shouldCompress(content.m_shouldCompress)
+	,m_shouldCompress(false)
 	,m_description(content.m_description)
 	,m_encoding(content.m_encoding)
 	,m_allocator(32768)

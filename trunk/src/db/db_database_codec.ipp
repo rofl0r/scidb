@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 639 $
+// Date   : $Date: 2013-01-23 20:50:00 +0000 (Wed, 23 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -29,7 +29,7 @@
 namespace db {
 
 inline bool DatabaseCodec::isOpen() const								{ return m_db; }
-inline bool DatabaseCodec::isReadOnly() const						{ return m_db->m_readOnly; }
+inline bool DatabaseCodec::isReadonly() const						{ return m_db->m_readOnly; }
 inline bool DatabaseCodec::shouldCompress() const					{ return m_db->m_shouldCompress; }
 inline void DatabaseCodec::setType(DatabaseContent::Type type) { m_db->m_type = type; }
 inline void DatabaseCodec::setVariant(variant::Type variant)	{ m_db->m_variant = variant; }
