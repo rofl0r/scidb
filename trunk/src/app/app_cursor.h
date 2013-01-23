@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 629 $
-// Date   : $Date: 2013-01-10 18:59:39 +0000 (Thu, 10 Jan 2013) $
+// Version: $Revision: 638 $
+// Date   : $Date: 2013-01-23 17:26:55 +0000 (Wed, 23 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -136,7 +136,10 @@ public:
 	/// Import whole database.
 	unsigned importGames(db::Producer& producer, util::Progress& progress);
 	/// Import whole database.
-	unsigned importGames(db::Database const& src, db::Log& log, util::Progress& progress);
+	unsigned importGames(db::Database const& src,
+								unsigned& illegalRejected,
+								db::Log& log,
+								util::Progress& progress);
 	/// Close underlying database
 	void close();
 	/// Set whether this database is a reference database

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 637 $
-# Date   : $Date: 2013-01-23 13:22:07 +0000 (Wed, 23 Jan 2013) $
+# Version: $Revision: 638 $
+# Date   : $Date: 2013-01-23 17:26:55 +0000 (Wed, 23 Jan 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1556,6 +1556,7 @@
 ::export::mc::DatabaseIsOpen				"Die Zieldatenbank '%s' ist geöffnet, das bedeutet das die Zieldatenbank geleert wird bevor der Export startet. Trotzdem den Exportvorgang fortsetzen?"
 ::export::mc::DatabaseIsOpenDetail		"Sollen die Partien stattdessen angehängt werden dann kann eine Drag&Drop-Operation im Datenbankumschalter verwendet werden."
 ::export::mc::ExportGamesFromTo			"Partien exportieren von '%src' nach '%dst'"
+::export::mc::IllegalRejected				"%s Partie(n) zurückgewiesen aufgrund illegaler Züge"
 
 ::export::mc::BasicStyle					"Grundstil"
 ::export::mc::GameInfo						"Partieinformation"

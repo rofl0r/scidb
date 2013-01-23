@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 638 $
+// Date   : $Date: 2013-01-23 17:26:55 +0000 (Wed, 23 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -61,7 +61,7 @@ public:
 	unsigned countWarnings() const;
 	Error lastErrorCode() const;
 
-	void setResult(int n) const;
+	void setResult(int n, int illegal) const;
 
 	void warning(	Warning code,
 						unsigned lineNo,
@@ -80,6 +80,7 @@ public:
 						mstl::string const& item) override;
 
 	static void setResult(	int n,
+									int illegal,
 									GameCount const& accepted,
 									GameCount const& rejected,
 									Variants const* unsupported = 0);

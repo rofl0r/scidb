@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 637 $
-// Date   : $Date: 2013-01-23 13:22:07 +0000 (Wed, 23 Jan 2013) $
+// Version: $Revision: 638 $
+// Date   : $Date: 2013-01-23 17:26:55 +0000 (Wed, 23 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -3294,7 +3294,7 @@ PgnReader::doCastling(char const* castle)
 //		}
 
 		m_move.setIllegalMove();
-		sendWarning(IllegalCastling, castle);
+		sendWarning(this->board().isInCheck() ? IllegalMove : IllegalCastling, castle);
 	}
 	else if (!m_move.isLegal())
 	{

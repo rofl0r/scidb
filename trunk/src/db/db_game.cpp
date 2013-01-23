@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 633 $
-// Date   : $Date: 2013-01-15 21:44:24 +0000 (Tue, 15 Jan 2013) $
+// Version: $Revision: 638 $
+// Date   : $Date: 2013-01-23 17:26:55 +0000 (Wed, 23 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -3430,12 +3430,14 @@ Game::updateSubscriber(unsigned action)
 
 	if (action & UpdateIllegalMoves)
 	{
-		if (m_startNode->containsIllegalMoves())
+		bool inCheck = m_startBoard.isInCheck();
+
+		if (m_startNode->containsIllegalMoves(inCheck))
 			m_flags |= GameInfo::Flag_Illegal_Move;
 		else
 			m_flags &= ~GameInfo::Flag_Illegal_Move;
 
-		if (m_startNode->containsIllegalCastlings())
+		if (m_startNode->containsIllegalCastlings(inCheck))
 			m_flags |= GameInfo::Flag_Illegal_Castling;
 		else
 			m_flags &= ~GameInfo::Flag_Illegal_Castling;

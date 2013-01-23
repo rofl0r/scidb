@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 636 $
-# Date   : $Date: 2013-01-21 13:37:50 +0000 (Mon, 21 Jan 2013) $
+# Version: $Revision: 638 $
+# Date   : $Date: 2013-01-23 17:26:55 +0000 (Wed, 23 Jan 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1565,6 +1565,7 @@
 ::export::mc::DatabaseIsOpen				"Il database di destinazione '%s' è aperto, questo vuol dire che il database di destinazione sarà svuotato prima dell'inizio dell'esportazione. Esportare comunque?"
 ::export::mc::DatabaseIsOpenDetail		"Se invece vuoi aggiungere devi fare un Drag&Drop dentro il selezionatore di database."
 ::export::mc::ExportGamesFromTo			"Esporta partite da '%src' a '%dst'"
+::export::mc::IllegalRejected				"%s game(s) rejected due to illegal moves" ;# NEW
 
 ::export::mc::BasicStyle					"Stile base"
 ::export::mc::GameInfo						"Informazioni della partita"

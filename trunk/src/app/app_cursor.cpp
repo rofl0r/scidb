@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 637 $
-// Date   : $Date: 2013-01-23 13:22:07 +0000 (Wed, 23 Jan 2013) $
+// Version: $Revision: 638 $
+// Date   : $Date: 2013-01-23 17:26:55 +0000 (Wed, 23 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -337,7 +337,10 @@ Cursor::importGames(Producer& producer, util::Progress& progress)
 
 
 unsigned
-Cursor::importGames(db::Database const& src, Log& log, util::Progress& progress)
+Cursor::importGames(	db::Database const& src,
+							unsigned& illegalRejected,
+							Log& log,
+							util::Progress& progress)
 {
 	M_REQUIRE(isOpen());
 	M_REQUIRE(!isReadOnly());
@@ -345,7 +348,7 @@ Cursor::importGames(db::Database const& src, Log& log, util::Progress& progress)
 	if (m_isRefBase)
 		Application::stopUpdateTree();
 
-	unsigned res = m_db->importGames(src, log, progress);
+	unsigned res = m_db->importGames(src, illegalRejected, log, progress);
 
 	if (res > 0)
 		updateViews();

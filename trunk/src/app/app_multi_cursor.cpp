@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 637 $
-// Date   : $Date: 2013-01-23 13:22:07 +0000 (Wed, 23 Jan 2013) $
+// Version: $Revision: 638 $
+// Date   : $Date: 2013-01-23 17:26:55 +0000 (Wed, 23 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -187,6 +187,7 @@ MultiCursor::copyGames(	MultiCursor& destination,
 								GameCount& rejected,
 								TagBits const& allowedTags,
 								bool allowExtraTags,
+								unsigned& illegalRejected,
 								db::Log& log,
 								util::Progress& progress) const
 {
@@ -208,6 +209,7 @@ MultiCursor::copyGames(	MultiCursor& destination,
 					cursor.view(0).selector(table::Games),
 					allowedTags,
 					allowExtraTags,
+					illegalRejected,
 					log,
 					progress);
 

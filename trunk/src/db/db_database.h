@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 629 $
-// Date   : $Date: 2013-01-10 18:59:39 +0000 (Thu, 10 Jan 2013) $
+// Version: $Revision: 638 $
+// Date   : $Date: 2013-01-23 17:26:55 +0000 (Wed, 23 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -210,6 +210,7 @@ public:
 								Filter const& gameFilter,
 								Selector const& gameSelector,
 								copy::Mode copyMode,
+								unsigned& illegalRejected,
 								Log& log,
 								util::Progress& progress) const;
 	// Copy games from this database to the destination database.
@@ -218,6 +219,7 @@ public:
 								Selector const& gameSelector,
 								TagBits const& allowedTags,
 								bool allowExtraTags,
+								unsigned& illegalRejected,
 								Log& log,
 								util::Progress& progress) const;
 	/// Add new game to database.
@@ -285,7 +287,10 @@ public:
 	/// Import whole database.
 	unsigned importGames(Producer& producer, util::Progress& progress);
 	/// Import whole database.
-	unsigned importGames(Database const& src, Log& log, util::Progress& progress);
+	unsigned importGames(Database const& src,
+								unsigned& illegalRejected,
+								Log& log,
+								util::Progress& progress);
 	/// Called from MultiBase after game import.
 	void finishImport(unsigned oldSize, bool encodingFailed);
 

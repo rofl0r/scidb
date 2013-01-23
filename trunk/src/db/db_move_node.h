@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 638 $
+// Date   : $Date: 2013-01-23 17:26:55 +0000 (Wed, 23 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -110,8 +110,8 @@ public:
 	bool hasMoveInfo() const;
 	bool threefoldRepetition() const;
 	bool fiftyMoveRule() const;
-	bool containsIllegalCastlings() const;
-	bool containsIllegalMoves() const;
+	bool containsIllegalCastlings(bool inCheck) const;
+	bool containsIllegalMoves(bool inCheck) const;
 	bool containsEnglishLang() const;
 	bool containsOtherLang() const;
 	bool contains(MoveNode const* node) const;

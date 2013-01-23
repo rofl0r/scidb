@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 636 $
-# Date   : $Date: 2013-01-21 13:37:50 +0000 (Mon, 21 Jan 2013) $
+# Version: $Revision: 638 $
+# Date   : $Date: 2013-01-23 17:26:55 +0000 (Wed, 23 Jan 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1564,6 +1564,7 @@
 ::export::mc::DatabaseIsOpen				"Destinations databasen '%s' är öppen, this means that the destination database will be emptied before the export is starting. Export anyway?" ;# NEW
 ::export::mc::DatabaseIsOpenDetail		"If you want to append instead you should use a Drag&Drop operation inside the database switcher." ;# NEW
 ::export::mc::ExportGamesFromTo			"Exporta partier från '%src' till '%dst'"
+::export::mc::IllegalRejected				"%s game(s) rejected due to illegal moves" ;# NEW
 
 ::export::mc::BasicStyle					"Grundstil"
 ::export::mc::GameInfo						"Partiinfo"

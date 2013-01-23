@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 629 $
-// Date   : $Date: 2013-01-10 18:59:39 +0000 (Thu, 10 Jan 2013) $
+// Version: $Revision: 638 $
+// Date   : $Date: 2013-01-23 17:26:55 +0000 (Wed, 23 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -173,6 +173,7 @@ public:
 	unsigned copyGames(	Cursor& destination,
 								TagBits const& allowedTags,
 								bool allowExtraTags,
+								unsigned& illegalRejected,
 								db::Log& log,
 								util::Progress& progress);
 
@@ -185,6 +186,7 @@ public:
 									db::copy::Mode copyMode,
 									TagBits const& allowedTags,
 									bool allowExtraTags,
+									unsigned& illegalRejected,
 									db::Log& log,
 									util::Progress& progress,
 									FileMode fmode = Create) const;
@@ -204,10 +206,12 @@ private:
 
 	unsigned exportGames(db::Consumer& destination,
 								db::copy::Mode copyMode,
+								unsigned& illegalRejected,
 								db::Log& log,
 								util::Progress& progress) const;
 	unsigned exportGames(db::Database& destination,
 								db::copy::Mode copyMode,
+								unsigned& illegalRejected,
 								db::Log& log,
 								util::Progress& progress) const;
 
