@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 628 $
-# Date   : $Date: 2013-01-10 12:24:25 +0000 (Thu, 10 Jan 2013) $
+# Version: $Revision: 637 $
+# Date   : $Date: 2013-01-23 13:22:07 +0000 (Wed, 23 Jan 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1289,7 +1289,7 @@ proc AddGameMenuEntries {m addSaveMenu addGameHistory clearHistory remove} {
 		-label " $::import::mc::ImportPgnGame" \
 		-image $::icon::16x16::filetypePGN \
 		-compound left \
-		-command [list ::menu::importGame $parent] \
+		-command [list ::application::pgn::importGame $parent] \
 		;
 	
 	if {$addSaveMenu && ![::game::trialMode?]} {
@@ -1398,6 +1398,12 @@ proc AddGameMenuEntries {m addSaveMenu addGameHistory clearHistory remove} {
 			-command ::game::clearHistory \
 			;
 	}
+}
+
+
+proc ImportGame {parent} {
+	set pos [::game::new $parent]
+	if {$pos >= 0} { ::import::openEdit $parent $pos }
 }
 
 

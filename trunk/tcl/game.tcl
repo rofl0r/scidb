@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 633 $
-# Date   : $Date: 2013-01-15 21:44:24 +0000 (Tue, 15 Jan 2013) $
+# Version: $Revision: 637 $
+# Date   : $Date: 2013-01-23 13:22:07 +0000 (Wed, 23 Jan 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -771,6 +771,7 @@ proc recover {} {
 			}
 		}
 		::dialog::info -parent .application -message $msg
+		::scidb::game::switch 0
 		::application::pgn::select 0
 		::process::setOption "show-board"
 	}

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 633 $
-// Date   : $Date: 2013-01-15 21:44:24 +0000 (Tue, 15 Jan 2013) $
+// Version: $Revision: 637 $
+// Date   : $Date: 2013-01-23 13:22:07 +0000 (Wed, 23 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1534,7 +1534,7 @@ Application::writeGame(	unsigned position,
 
 	game.game->setIndex(m_indexMap[position]);
 	Cursor* scratch = scratchbase(variant::toMainVariant(game.game->variant()));
-	save::State state = scratch->base().updateMoves(*game.game);
+	save::State state = scratch->base().updateGame(*game.game);
 	if (!save::isOk(state))
 		return state;
 

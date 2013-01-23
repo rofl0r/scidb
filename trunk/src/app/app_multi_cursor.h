@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 637 $
+// Date   : $Date: 2013-01-23 13:22:07 +0000 (Wed, 23 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -34,6 +34,7 @@
 
 namespace db { class MultiBase; }
 namespace db { class Producer; }
+namespace db { class Database; }
 namespace db { class Log; }
 
 namespace util { class Progress; }
@@ -101,6 +102,8 @@ public:
 	void close();
 	/// Change the variant; requires an empty database.
 	void changeVariant(::db::variant::Type variant);
+	/// Replace database object.
+	void replace(db::Database* database);
 
 	static mstl::string const& clipbaseName();
 	static mstl::string const& scratchbaseName();

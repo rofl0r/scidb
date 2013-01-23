@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 635 $
-// Date   : $Date: 2013-01-20 22:09:56 +0000 (Sun, 20 Jan 2013) $
+// Version: $Revision: 637 $
+// Date   : $Date: 2013-01-23 13:22:07 +0000 (Wed, 23 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -793,7 +793,7 @@ Database::exportGame(unsigned index, Consumer& consumer) const
 	M_REQUIRE(index < countGames());
 	M_REQUIRE(consumer.variant() == variant());
 
-	GameInfo const*	info		= m_gameInfoList[index];
+	GameInfo const*	info = m_gameInfoList[index];
 	TagSet				tags;
 
 	setupTags(index, tags);

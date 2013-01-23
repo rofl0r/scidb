@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 637 $
+// Date   : $Date: 2013-01-23 13:22:07 +0000 (Wed, 23 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -309,6 +309,7 @@ SetWmFrameAware(Tk_Window path) {
 
 #endif
 
+#if 0
 Window TkDND_GetVirtualRootWindowOfScreen(Tk_Window tkwin) {
   static Screen *screen, *save_screen = (Screen *)0;
   static Window root = (Window)0;
@@ -361,6 +362,7 @@ Window TkDND_GetVirtualRootWindowOfScreen(Tk_Window tkwin) {
   }
   return root;
 }; /* TkDND_GetVirtualRootWindowOfScreen */
+#endif
 
 Tk_Window TkDND_GetToplevelFromWrapper(Tk_Window tkwin) {
 #if 0

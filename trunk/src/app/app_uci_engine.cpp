@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 637 $
+// Date   : $Date: 2013-01-23 13:22:07 +0000 (Wed, 23 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -578,7 +578,7 @@ uci::Engine::parseBestMove(char const* msg)
 		currentBoard().prepareForPrint(move, variant::Normal);
 		setBestMove(move);
 	}
-	else
+	else if (::strncmp(s, "(none)", 6) != 0)
 	{
 		mstl::string msg("Illegal best move: ");
 		msg.append(s, ::skipNonSpaces(s));
@@ -600,7 +600,7 @@ uci::Engine::parseBestMove(char const* msg)
 			setPonder(ponder);
 			updateBestMove();
 		}
-		else
+		else if (::strncmp(s, "(none)", 6) != 0)
 		{
 			mstl::string msg("Illegal ponder move: ");
 			msg.append(s, ::skipNonSpaces(s));

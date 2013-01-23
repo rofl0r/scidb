@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 626 $
-// Date   : $Date: 2013-01-10 00:42:32 +0000 (Thu, 10 Jan 2013) $
+// Version: $Revision: 637 $
+// Date   : $Date: 2013-01-23 13:22:07 +0000 (Wed, 23 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -199,6 +199,24 @@ MultiBase::changeVariant(variant::Type variant)
 
 	if (isSingleBase())
 		m_leader->setVariant(variant);
+}
+
+
+void
+MultiBase::replace(Database* database)
+{
+	M_REQUIRE(database);
+	M_REQUIRE(exists(database->variant()));
+
+	unsigned variantIndex = variant::toIndex(database->variant());
+
+	if (m_leader == m_bases[variantIndex])
+		m_leader = database;
+
+	m_bases[variantIndex]->close();
+	delete m_bases[variantIndex];
+
+	m_bases[variantIndex] = database;
 }
 
 

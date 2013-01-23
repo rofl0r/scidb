@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 635 $
-# Date   : $Date: 2013-01-20 22:09:56 +0000 (Sun, 20 Jan 2013) $
+# Version: $Revision: 637 $
+# Date   : $Date: 2013-01-23 13:22:07 +0000 (Wed, 23 Jan 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -287,5 +287,8 @@ if {[file readable $file]} { load::source $file }
 
 # Load time with empty cache: 6.76 s
 # Load time with full cache:  2.68 s
+
+# Load time of ECO file with empty cache: 0.51 s
+# Load time of ECO file with full cache:  0.36 s
 
 # vi:set ts=3 sw=3:

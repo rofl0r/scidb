@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 635 $
-// Date   : $Date: 2013-01-20 22:09:56 +0000 (Sun, 20 Jan 2013) $
+// Version: $Revision: 637 $
+// Date   : $Date: 2013-01-23 13:22:07 +0000 (Wed, 23 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -3088,9 +3088,22 @@ cmdImport(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 			scidb->bindGameToDatabase(position, database, index);
 
 		if (trialMode)
+		{
 			setResult(reader.lastErrorCode() == tcl::PgnReader::LastError);
+		}
 		else
+		{
 			setResult(::stateToInt(state));
+
+			if (state == load::None)
+			{
+				for (unsigned i = 0; i < variant::NumberOfVariants; ++i)
+				{
+					if (reader.rejected(i))
+						setResult(variant::identifier(variant::fromIndex(i)));
+				}
+			}
+		}
 	}
 
 	return TCL_OK;

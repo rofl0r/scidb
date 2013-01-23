@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 629 $
-// Date   : $Date: 2013-01-10 18:59:39 +0000 (Thu, 10 Jan 2013) $
+// Version: $Revision: 637 $
+// Date   : $Date: 2013-01-23 13:22:07 +0000 (Wed, 23 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -454,11 +454,9 @@ Cursor::compact(::util::Progress& progress)
 		throw;
 	}
 
-	m_db->close();
-	delete m_db;
-
 	m_db = compacted.release();
 	m_db->rename(orig);
+	m_cursor.replace(m_db);
 
 	ViewList viewList;
 
