@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 629 $
-// Date   : $Date: 2013-01-10 18:59:39 +0000 (Thu, 10 Jan 2013) $
+// Version: $Revision: 640 $
+// Date   : $Date: 2013-01-23 23:55:14 +0000 (Wed, 23 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -187,14 +187,21 @@ cmdList(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 
 	Application::CursorList cursors;
 	Scidb->enumCursors(cursors, variant::toMainVariant(Scidb->game().variant()));
-	objc = cursors.size();
 
-	Tcl_Obj* objs[objc];
+	Tcl_Obj* objs[cursors.size()];
+	objc = 0;
 
 	for (unsigned i = 0; i < cursors.size(); ++i)
 	{
-		mstl::string const& name = cursors[i]->database().name();
-		objs[i] = Tcl_NewStringObj(name, name.size());
+		switch (int(cursors[i]->database().format()))
+		{
+			case format::Scid3:
+			case format::Scid4:
+			case format::Scidb:
+				mstl::string const& name = cursors[i]->database().name();
+				objs[objc++] = Tcl_NewStringObj(name, name.size());
+				break;
+		}
 	}
 
 	setResult(objc, objs);

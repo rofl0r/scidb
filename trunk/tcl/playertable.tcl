@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 629 $
-# Date   : $Date: 2013-01-10 18:59:39 +0000 (Thu, 10 Jan 2013) $
+# Version: $Revision: 640 $
+# Date   : $Date: 2013-01-23 23:55:14 +0000 (Wed, 23 Jan 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -39,8 +39,6 @@ set HighestRating				"Highest rating"
 set MostRecentRating			"Most recent rating"
 set DateOfBirth				"Date of birth"
 set DateOfDeath				"Date of death"
-
-set TooltipRating				"Rating: %s"
 
 set ShowPlayerCard			"Show Player Card..."
 
@@ -499,8 +497,9 @@ proc popupMenu {menu base variant info {playerCard {}}} {
 proc RefreshHeader {number} {
 	variable Options
 
+	set tip $::application::database::players::mc::TooltipRating
 	set mc::F_Rating$number $Options(rating$number:type)
-	set mc::T_Rating$number [format $mc::TooltipRating $Options(rating$number:type)]
+	set mc::T_Rating$number [format $tip $Options(rating$number:type)]
 }
 
 
