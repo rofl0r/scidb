@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 642 $
+// Date   : $Date: 2013-01-26 15:34:14 +0000 (Sat, 26 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -57,7 +57,13 @@ save::State VarConsumer::endGame(TagSet const&) { return save::Ok; }
 void VarConsumer::start() {}
 void VarConsumer::finish() {}
 void VarConsumer::beginMoveSection() {}
-void VarConsumer::endMoveSection(result::ID) {}
+
+
+void
+VarConsumer::endMoveSection(result::ID)
+{
+	m_current->setNext(new MoveNode);
+}
 
 
 void
@@ -173,6 +179,7 @@ VarConsumer::endVariation(bool isEmpty)
 		sendMove(Move::null());
 #endif
 
+	m_current->setNext(new MoveNode);
 	m_current = m_current->getLineStart();
 	M_ASSERT(m_current->prev());
 	m_current = m_current->prev();

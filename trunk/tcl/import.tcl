@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 638 $
-# Date   : $Date: 2013-01-23 17:26:55 +0000 (Wed, 23 Jan 2013) $
+# Version: $Revision: 642 $
+# Date   : $Date: 2013-01-26 15:34:14 +0000 (Sat, 26 Jan 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -901,9 +901,11 @@ proc DoImport {position dlg} {
 				-varno $Priv($position:varno) \
 				-trial 1 \
 			]
-			if {$state == 0 || $state == 1} { set successfull 1 }
-			if {$state <= 1 && $code eq "en"} { break }
-			lappend found $code
+			if {$state == 0 || $state == 1} {
+				set successfull 1
+				if {$code eq "en"} { break }
+				lappend found $code
+			}
 		}
 
 		if {!$successfull} {
@@ -911,18 +913,20 @@ proc DoImport {position dlg} {
 		}
 
 		if {[llength $found] >= 1} {
-			::dialog::warning \
-				-parent $dlg \
-				-message $mc::CheckImportResult \
-				-detail $mc::CheckImportResultDetail \
-				;
-			set code [lindex $found 0]
+			if {[llength $found] > 1} {
+				::dialog::warning \
+					-parent $dlg \
+					-message $mc::CheckImportResult \
+					-detail $mc::CheckImportResultDetail \
+					;
+			}
+			set currentCode [lindex $found 0]
 		} else {
-			set code en
+			set currentCode en
 		}
 
-		set index [lsearch -exact -index 0 $Priv($position:sets) $code]
-#		$Priv($position:figurines) current [incr index]
+		set i [lsearch -exact -index 0 $Priv($position:sets) $currentCode]
+		set figurine [lindex $Priv($position:sets) $i 2]
 	}
 
 	set state [::scidb::game::import \

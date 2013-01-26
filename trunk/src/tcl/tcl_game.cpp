@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 639 $
-// Date   : $Date: 2013-01-23 20:50:00 +0000 (Wed, 23 Jan 2013) $
+// Version: $Revision: 642 $
+// Date   : $Date: 2013-01-26 15:34:14 +0000 (Sat, 26 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2960,22 +2960,29 @@ cmdImport(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 		{
 			setResult(scidb->game().isValidVariation(consumer.result()));
 		}
-		else if (varno < 0)
+		else if (consumer.result()->countHalfMoves() > 0)
 		{
-			if (scidb->game().isEmpty())
+			if (varno < 0)
 			{
-				scidb->game().addMoves(Game::MoveNodeP(consumer.release()));
-				setResult(0);
+				if (scidb->game().isEmpty())
+				{
+					scidb->game().addMoves(Game::MoveNodeP(consumer.release()));
+					setResult(0);
+				}
+				else
+				{
+					setResult(scidb->game().addVariation(Game::MoveNodeP(consumer.release())));
+				}
 			}
 			else
 			{
-				setResult(scidb->game().addVariation(Game::MoveNodeP(consumer.release())));
+				scidb->game().changeVariation(Game::MoveNodeP(consumer.release()), varno);
+				setResult(varno);
 			}
 		}
 		else
 		{
-			scidb->game().changeVariation(Game::MoveNodeP(consumer.release()), varno);
-			setResult(varno);
+			setResult(-1);
 		}
 	}
 	else
