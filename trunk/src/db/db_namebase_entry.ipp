@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 631 $
-// Date   : $Date: 2013-01-11 16:16:29 +0000 (Fri, 11 Jan 2013) $
+// Version: $Revision: 644 $
+// Date   : $Date: 2013-01-29 13:39:29 +0000 (Tue, 29 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -433,6 +433,7 @@ inline bool NamebasePlayer::Value::operator<(Value value) const { return m_key <
 inline
 NamebasePlayer::Key::Key(NamebasePlayer const& player)
 	:name(player.name())
+	,fideID(player.fideID())
 	,value(player.m_value)
 {
 }

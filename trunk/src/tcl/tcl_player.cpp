@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 635 $
-// Date   : $Date: 2013-01-20 22:09:56 +0000 (Sun, 20 Jan 2013) $
+// Version: $Revision: 644 $
+// Date   : $Date: 2013-01-29 13:39:29 +0000 (Tue, 29 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -664,9 +664,9 @@ cmdSort(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 	}
 	else
 	{
-		char const* attr	= stringFromObj(objc, objv, 2);
+		char const* attr = stringFromObj(objc, objv, 2);
 
-		app::PlayerDictionary::Attribute attribute;
+		app::PlayerDictionary::Attribute attribute = app::PlayerDictionary::Name; // g++ complains w/o initialization
 		order::ID ordering = order::Ascending;
 
 		switch (*attr)
