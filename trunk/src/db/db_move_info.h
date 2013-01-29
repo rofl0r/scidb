@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 617 $
-// Date   : $Date: 2013-01-08 11:41:26 +0000 (Tue, 08 Jan 2013) $
+// Version: $Revision: 643 $
+// Date   : $Date: 2013-01-29 13:15:54 +0000 (Tue, 29 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -104,6 +104,11 @@ public:
 	char const* parseElapsedMoveTime(char const* s);
 	char const* parseEvaluation(char const* s);
 	char const* parseVideoTime(char const* s);
+
+	static bool isMoveInfo(unsigned char firstByte);
+	static Type type(unsigned char const firstByte);
+	static void skip(util::ByteStream& strm);
+	static unsigned char const* skip(unsigned char const* strm);
 
 private:
 

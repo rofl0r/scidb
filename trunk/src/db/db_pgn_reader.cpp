@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 642 $
-// Date   : $Date: 2013-01-26 15:34:14 +0000 (Sat, 26 Jan 2013) $
+// Version: $Revision: 643 $
+// Date   : $Date: 2013-01-29 13:15:54 +0000 (Tue, 29 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -4165,9 +4165,12 @@ PgnReader::parseMinusSign(Token prevToken, int)
 					putNag(nag::BlackHasACrushingAdvantage);
 					return kNag;
 				}
-				advanceLinePos(2);
-				putNag(nag::BlackHasADecisiveAdvantage);
-				return kNag;
+				else if (::equal(m_linePos, "-+", 2))
+				{
+					advanceLinePos(2);
+					putNag(nag::BlackHasADecisiveAdvantage);
+					return kNag;
+				}
 			}
 			advanceLinePos(1);
 			setNullMove();

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 643 $
+// Date   : $Date: 2013-01-29 13:15:54 +0000 (Tue, 29 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -82,6 +82,10 @@ public:
 
 	void decode(util::ByteStream& strm);
 	void encode(util::ByteStream& strm) const;
+
+	static void skip(util::ByteStream& strm);
+	static unsigned char const* skip(unsigned char const* stream);
+	static bool isMark(Byte firstByte);
 
 	void dump();
 

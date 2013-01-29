@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 617 $
-// Date   : $Date: 2013-01-08 11:41:26 +0000 (Tue, 08 Jan 2013) $
+// Version: $Revision: 643 $
+// Date   : $Date: 2013-01-29 13:15:54 +0000 (Tue, 29 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -156,6 +156,7 @@ MoveInfoSet::sort()
 // Players Clock:				[%clk 1:05:23]
 // Elapsed Game Time:		[%egt 1:25:42]
 // Elapsed Move Time:		[%emt 0:05:42]
+// Elapsed Milliseconds		[%emt 102.34]
 // Mechanical Clock Time:	[%mct 17:10:42]
 // (Digital) Clock Time:	[%ct 17:10:42]
 // Corres. Chess Sent:		[%ccsnt 2011.06.16]
@@ -173,6 +174,7 @@ MoveInfoSet::sort()
 // 								"(1:40:25)"
 // 								"Crafty: 1:40:25"
 // 								"Rybka Aquarium (0:00:45)"
+// Video Time:					"[vt 122.44]"
 //
 // NOTE:
 // Evaluation information may be followed by a time value; e.g. " 4s".
@@ -241,6 +243,11 @@ MoveInfoSet::extractFromComment(EngineList& engineList, mstl::string& comment)
 				case 'm':
 					if ((q = ::match(p + 2, "mct", 3)))
 						q = info.parseClockTime(q);
+					break;
+
+				case 'v':
+					if ((q = ::match(p + 2, "vt", 2)))
+						q = info.parseVideoTime(q);
 					break;
 			}
 

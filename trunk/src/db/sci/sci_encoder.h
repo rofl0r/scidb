@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 617 $
-// Date   : $Date: 2013-01-08 11:41:26 +0000 (Tue, 08 Jan 2013) $
+// Version: $Revision: 643 $
+// Date   : $Date: 2013-01-29 13:15:54 +0000 (Tue, 29 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -109,7 +109,7 @@ private:
 
 	void encodeMainline(MoveNode const* node);
 	void encodeVariation(MoveNode const* node);
-	void encodeNote(MoveNode const* node);
+	void encodeNote(MoveNode const* node, bool isMainline);
 	void encodeComment(MoveNode const* node);
 
 	uint16_t encodeTextSection();

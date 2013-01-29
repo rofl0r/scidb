@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 638 $
-// Date   : $Date: 2013-01-23 17:26:55 +0000 (Wed, 23 Jan 2013) $
+// Version: $Revision: 643 $
+// Date   : $Date: 2013-01-29 13:15:54 +0000 (Tue, 29 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -314,7 +314,7 @@ uci::Engine::startAnalysis(bool isNewGame)
 
 	setBoard(game->currentBoard());
 
-	if (game->historyIsLegal())
+	if (game->historyIsLegal(Game::DontAllowNullMoves))
 	{
 		// We prefer to use the "position moves" setup because (due to Steve):
 		// The problem is that lots engines will reset their analysis with "position fen".
@@ -324,7 +324,7 @@ uci::Engine::startAnalysis(bool isNewGame)
 		if (game->startBoard().plyNumber() != currentBoard().plyNumber())
 		{
 			m_position.append(" moves", 6);
-			game->dumpHistory(m_position, Game::UCI);
+			game->dumpHistory(m_position, m_needChess960 ? Game::Standard : Game::UCI);
 		}
 	}
 	else

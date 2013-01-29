@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 643 $
+// Date   : $Date: 2013-01-29 13:15:54 +0000 (Tue, 29 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -184,6 +184,20 @@ ByteStream::reserve(unsigned size)
 	m_putp = m_base + ppos;
 	m_getp = m_base + gpos;
 	m_endp = m_base + size;
+}
+
+
+void
+ByteStream::strip(unsigned offset, unsigned size)
+{
+	M_REQUIRE(offset < capacity());
+	M_REQUIRE(offset + size <= capacity());
+
+	Byte* dst = m_base + offset;
+	Byte* src = dst + size;
+
+	::memmove(dst, src, m_endp - src);
+	m_endp -= size;
 }
 
 

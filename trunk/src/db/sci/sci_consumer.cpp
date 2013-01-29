@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 631 $
-// Date   : $Date: 2013-01-11 16:16:29 +0000 (Fri, 11 Jan 2013) $
+// Version: $Revision: 643 $
+// Date   : $Date: 2013-01-29 13:15:54 +0000 (Tue, 29 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -364,13 +364,16 @@ Consumer::preparseComment(mstl::string& comment)
 			return;
 	}
 
-	InfoConsumer::preparseComment(comment);
-	int i = m_moveInfoSet.findElapsedMilliSeconds();
-
-	if (i >= 0 && (!m_timeTable.isEmpty() || m_plyCount == 0))
+	if (isMainline())
 	{
-		m_timeTable.set(m_plyCount, m_moveInfoSet[i]);
-		m_moveInfoSet.remove(i);
+		InfoConsumer::preparseComment(comment);
+		int i = m_moveInfoSet.findElapsedMilliSeconds();
+
+		if (i >= 0 && (!m_timeTable.isEmpty() || m_plyCount == 0))
+		{
+			m_timeTable.set(m_plyCount, m_moveInfoSet[i]);
+			m_moveInfoSet.remove(i);
+		}
 	}
 }
 

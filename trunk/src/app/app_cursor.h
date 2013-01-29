@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 639 $
-// Date   : $Date: 2013-01-23 20:50:00 +0000 (Wed, 23 Jan 2013) $
+// Version: $Revision: 643 $
+// Date   : $Date: 2013-01-29 13:15:54 +0000 (Tue, 29 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -163,6 +163,7 @@ private:
 
 	friend class Application;
 	friend class MultiCursor;
+	friend class View;
 
 	typedef mstl::vector<View*>	ViewList;
 	typedef mstl::bitset				IndexSet;

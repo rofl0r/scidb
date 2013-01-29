@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 635 $
-// Date   : $Date: 2013-01-20 22:09:56 +0000 (Sun, 20 Jan 2013) $
+// Version: $Revision: 643 $
+// Date   : $Date: 2013-01-29 13:15:54 +0000 (Tue, 29 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -545,6 +545,29 @@ DatabaseCodec::getConsumer(format::Type)
 {
 	M_RAISE("should not be used");
 	return 0;
+}
+
+
+bool
+DatabaseCodec::stripMoveInformation(GameInfo const&, unsigned)
+{
+	M_RAISE("should not be used");
+	return false;
+}
+
+
+bool
+DatabaseCodec::stripTags(GameInfo const&, TagMap const&)
+{
+	M_RAISE("should not be used");
+	return false;
+}
+
+
+void
+DatabaseCodec::findTags(GameInfo const&, TagMap&) const
+{
+	M_RAISE("should not be used");
 }
 
 

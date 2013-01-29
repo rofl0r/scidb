@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 629 $
-// Date   : $Date: 2013-01-10 18:59:39 +0000 (Thu, 10 Jan 2013) $
+// Version: $Revision: 643 $
+// Date   : $Date: 2013-01-29 13:15:54 +0000 (Tue, 29 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -24,13 +24,15 @@
 // (at your option) any later version.
 // ======================================================================
 
+#include "app_cursor.h"
+
 namespace app {
 
 inline View::UpdateMode View::updateMode(db::table::Type type) const		{ return m_updateMode[type]; }
 inline db::Filter const& View::filter(db::table::Type type) const			{ return m_filter[type]; }
 inline db::Selector const& View::selector(db::table::Type type) const	{ return m_selector[type]; }
 inline Application const& View::application() const							{ return m_app; }
-inline db::Database const& View::database() const								{ return m_db; }
+inline Cursor const& View::cursor() const											{ return m_cursor; }
 
 } // namespace db
 

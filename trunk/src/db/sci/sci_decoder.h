@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 643 $
+// Date   : $Date: 2013-01-29 13:15:54 +0000 (Tue, 29 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -33,6 +33,8 @@
 #include "db_move.h"
 #include "db_eco.h"
 
+namespace mstl { template <typename T, typename U> class map; }
+
 namespace sys { namespace utf8 { class Codec; } }
 
 namespace util { class ByteStream; }
@@ -53,14 +55,19 @@ class Decoder
 {
 public:
 
+	typedef mstl::map<mstl::string,unsigned> TagMap;
+
 	Decoder(util::ByteStream& strm, variant::Type variant);
 	Decoder(util::ByteStream& strm, unsigned guaranteedStreamSize, variant::Type variant);
 
 	Move findExactPosition(Board const& position, bool skipVariations);
-	unsigned findTags(TagSet& tags);
+	void findTags(TagMap& tags);
 
 	void doDecoding(GameData& data);
 	save::State doDecoding(db::Consumer& consumer, TagSet& tags);
+
+	bool stripMoveInformation(unsigned halfMoveCount, unsigned types);
+	bool stripTags(TagMap const& tags);
 
 private:
 
@@ -71,10 +78,15 @@ private:
 	void decodeTextSection(MoveNode* node, util::ByteStream& text);
 	void decodeMark();
 
+	Byte const* skipTags(Byte const* p);
+	Byte const* skipEngines(Byte const* p);
+	Byte const* skipMoveInfo(Byte const* p);
+
+	void skipVariations();
+
 	unsigned decodeMove(Byte value, Move& move);
 	unsigned decodeZhouseMove(Move& move);
 	Move nextMove(unsigned runLength = 0);
-	void skipVariations();
 
 	Move decodeKing(sq::ID from, Byte nybble);
 	Move decodeQueen(sq::ID from, Byte nybble);

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 643 $
+// Date   : $Date: 2013-01-29 13:15:54 +0000 (Tue, 29 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -515,7 +515,7 @@ winboard::Engine::startAnalysis(bool)
 		if (!currentBoard().isStandardPosition())
 			setupBoard(currentBoard());
 	}
-	else if (game->historyIsLegal())
+	else if (game->historyIsLegal(Game::DontAllowNullMoves))
 	{
 		if (!startBoard.isStandardPosition())
 			setupBoard(startBoard);

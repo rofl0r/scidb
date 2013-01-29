@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 639 $
-// Date   : $Date: 2013-01-23 20:50:00 +0000 (Wed, 23 Jan 2013) $
+// Version: $Revision: 643 $
+// Date   : $Date: 2013-01-29 13:15:54 +0000 (Tue, 29 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -592,6 +592,17 @@ Application::countModifiedGames() const
 	}
 
 	return n;
+}
+
+
+bool
+Application::isSingleBase(mstl::string const& name) const
+{
+	M_REQUIRE(contains(name));
+
+	CursorMap::const_iterator i = m_cursorMap.find(name);
+	M_ASSERT(i != m_cursorMap.end());
+	return i->second->isSingleBase();
 }
 
 
@@ -2594,6 +2605,99 @@ Application::changeVariant(mstl::string const& name, ::db::variant::Type variant
 			}
 
 			++m_updateCount;
+		}
+	}
+}
+
+
+unsigned
+Application::stripMoveInformation(View& view, unsigned types, Progress& progress, Update updateMode)
+{
+	if (types == 0)
+		return 0;
+
+	Cursor const& cursor = view.cursor();
+
+	if (cursor.isReferenceBase())
+		stopUpdateTree();
+
+	unsigned numGames = view.stripMoveInformation(types, progress);
+
+	if (numGames > 0 && updateMode == UpdateGameInfo)
+		updateGameInfo(cursor, view.database());
+
+	if (m_subscriber)
+	{
+		m_subscriber->updateList(m_updateCount++, cursor.name(), cursor.variant());
+		m_subscriber->updateDatabaseInfo(cursor.name(), cursor.variant());
+
+		if (cursor.isReferenceBase() && !m_treeIsFrozen)
+			m_subscriber->updateTree(m_referenceBase->name(), m_referenceBase->variant());
+	}
+
+	return numGames;
+}
+
+
+unsigned
+Application::stripTags(View& view, TagMap const& tags, util::Progress& progress, Update updateMode)
+{
+	if (tags.size() == 0)
+		return 0;
+
+	Cursor const& cursor = view.cursor();
+
+	if (cursor.isReferenceBase())
+		stopUpdateTree();
+
+	unsigned numGames = view.stripTags(tags, progress);
+
+	if (numGames > 0 && updateMode == UpdateGameInfo)
+		updateGameInfo(cursor, view.database());
+
+	if (m_subscriber)
+	{
+		m_subscriber->updateList(m_updateCount++, cursor.name(), cursor.variant());
+		m_subscriber->updateDatabaseInfo(cursor.name(), cursor.variant());
+
+		if (cursor.isReferenceBase() && !m_treeIsFrozen)
+			m_subscriber->updateTree(m_referenceBase->name(), m_referenceBase->variant());
+	}
+
+	return numGames;
+}
+
+
+void
+Application::findTags(View const& view, TagMap& tags, util::Progress& progress) const
+{
+	if (view.cursor().isReferenceBase())
+		stopUpdateTree();
+
+	view.findTags(tags, progress);
+}
+
+
+void
+Application::updateGameInfo(Cursor const& cursor, Database& database)
+{
+	for (GameMap::iterator i = m_gameMap.begin(); i != m_gameMap.end(); ++i)
+	{
+		EditGame& game = *i->second;
+
+		if (game.cursor == &cursor)
+		{
+			TagSet	tags;
+			Game		newGame;
+
+			if (database.loadGame(game.index, newGame) == load::Ok)
+			{
+				database.getGameTags(game.index, tags);
+				i->second->crcMoves = tags.computeChecksum(newGame.computeChecksum());
+
+				if (m_subscriber)
+					m_subscriber->updateGameInfo(i->first);
+			}
 		}
 	}
 }
