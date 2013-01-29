@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 430 $
-// Date   : $Date: 2012-09-20 17:13:27 +0000 (Thu, 20 Sep 2012) $
+// Version: $Revision: 645 $
+// Date   : $Date: 2013-01-29 13:51:12 +0000 (Tue, 29 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -6032,7 +6032,8 @@ dbwin("DynamicCO_Get id=%d opt=%p objOffset=%d\n", cd->id, opt, cd->objOffset);
 Tcl_Obj *objPtr = *(Tcl_Obj **) (opt->data + cd->objOffset);
 if (objPtr && objPtr->refCount == 0) panic("DynamicCO_Get refCount=0");
 #endif
-		return *(Tcl_Obj **) (opt->data + cd->objOffset);
+		Tcl_Obj** data = (Tcl_Obj**)(opt->data + cd->objOffset);
+		return *(Tcl_Obj **) data;
 	}
 
 	if (cd->custom->getProc != NULL)

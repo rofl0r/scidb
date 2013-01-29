@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 355 $
-// Date   : $Date: 2012-06-20 20:51:25 +0000 (Wed, 20 Jun 2012) $
+// Version: $Revision: 645 $
+// Date   : $Date: 2013-01-29 13:51:12 +0000 (Tue, 29 Jan 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -511,6 +511,7 @@ tableColWidthMultiSpan(
          * 'border-spacing' regions that this cell spans and the borders and
          * padding on the cell itself.
          */
+        req.x.iVal = 0; // fixing an obscure compiler warning
         getReqWidth(pNode, &req);
         blockMinMaxWidth(pData->pLayout, pNode, &min, &max);
         min = min - pData->border_spacing * (colspan - 1);
