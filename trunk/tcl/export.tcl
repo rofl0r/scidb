@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 638 $
-# Date   : $Date: 2013-01-23 17:26:55 +0000 (Wed, 23 Jan 2013) $
+# Version: $Revision: 646 $
+# Date   : $Date: 2013-01-29 18:41:39 +0000 (Tue, 29 Jan 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -3243,9 +3243,9 @@ if {[pwd] ne "/home/gregor/development/c++/scidb/tcl"} {
 		return 0
 	}
 
-	if {$rc < 0} {
+	if {$count < 0} {
 		::log::warning $::import::mc::UserHasInterrupted
-		set count [expr {-$rc - 2}]
+		set count [expr {-$count - 2}]
 		set rc -1
 	}
 

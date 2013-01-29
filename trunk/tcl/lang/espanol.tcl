@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 643 $
-# Date   : $Date: 2013-01-29 13:15:54 +0000 (Tue, 29 Jan 2013) $
+# Version: $Revision: 646 $
+# Date   : $Date: 2013-01-29 18:41:39 +0000 (Tue, 29 Jan 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1437,7 +1437,7 @@
 ::import::mc::ImportAborted						"Importación abortada."
 ::import::mc::TextIsEmpty							"El texto PGN está vacío."
 ::import::mc::AbortImport							"¿Abortar importación de PGN?"
-::import::mc::UnsupportedVariant					"Unsuported variant '%s' rejected" ;# NEW
+::import::mc::UnsupportedVariantRejected		"Unsuported variant '%s' rejected" ;# NEW
 ::import::mc::Accepted								"accepted" ;# NEW
 ::import::mc::Rejected								"rejected" ;# NEW
 
@@ -1451,6 +1451,7 @@
 ::import::mc::EnterOrPaste-Game					"partida"
 ::import::mc::EnterOrPaste-Variation			"variante"
 
+::import::mc::UnsupportedVariant					"Unsuported variant rejected" ;# NEW
 ::import::mc::MissingWhitePlayerTag				"Jugador de las Blancas desconocido"
 ::import::mc::MissingBlackPlayerTag				"Jugador de las Negras desconocido"
 ::import::mc::MissingPlayerTags					"Jugadores desconocidos"

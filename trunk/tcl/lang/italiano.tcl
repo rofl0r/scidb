@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 643 $
-# Date   : $Date: 2013-01-29 13:15:54 +0000 (Tue, 29 Jan 2013) $
+# Version: $Revision: 646 $
+# Date   : $Date: 2013-01-29 18:41:39 +0000 (Tue, 29 Jan 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1441,7 +1441,7 @@
 ::import::mc::ImportAborted						"Importazione interrotta."
 ::import::mc::TextIsEmpty							"Testo PGN vuoto."
 ::import::mc::AbortImport							"Annulla importazione PGN?"
-::import::mc::UnsupportedVariant					"Unsuported variant '%s' rejected" ;# NEW
+::import::mc::UnsupportedVariantRejected		"Unsuported variant '%s' rejected" ;# NEW
 ::import::mc::Accepted								"accepted" ;# NEW
 ::import::mc::Rejected								"rejected" ;# NEW
 
@@ -1455,6 +1455,7 @@
 ::import::mc::EnterOrPaste-Game					"partita"
 ::import::mc::EnterOrPaste-Variation			"variante"
 
+::import::mc::UnsupportedVariant					"Unsuported variant rejected" ;# NEW
 ::import::mc::MissingWhitePlayerTag				"Manca giocatore bianco"
 ::import::mc::MissingBlackPlayerTag				"Manca giocatore nero"
 ::import::mc::MissingPlayerTags					"Mancano i giocatori"

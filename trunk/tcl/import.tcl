@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 642 $
-# Date   : $Date: 2013-01-26 15:34:14 +0000 (Sat, 26 Jan 2013) $
+# Version: $Revision: 646 $
+# Date   : $Date: 2013-01-29 18:41:39 +0000 (Tue, 29 Jan 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -44,7 +44,7 @@ set ImportOK								"PGN text imported with no errors or warnings."
 set ImportAborted							"Import aborted."
 set TextIsEmpty							"PGN text is empty."
 set AbortImport							"Abort PGN import?"
-set UnsupportedVariant					"Unsuported variant '%s' rejected"
+set UnsupportedVariantRejected		"Unsuported variant '%s' rejected"
 set Accepted								"accepted"
 set Rejected								"rejected"
 
@@ -58,6 +58,7 @@ set EnterOrPaste							"Enter or paste a PGN-format %s in the frame above.\nAny 
 set EnterOrPaste-Game					"game"
 set EnterOrPaste-Variation				"variation"
 
+set UnsupportedVariant					"Unsuported variant rejected"
 set MissingWhitePlayerTag				"Missing white player"
 set MissingBlackPlayerTag				"Missing black player"
 set MissingPlayerTags					"Missing players"
@@ -403,7 +404,7 @@ proc logResult {total illegal emptyText importText accepted rejected {unsupporte
 		}
 
 		foreach {variant n} $unsupported {
-			::log::info "- [format $mc::UnsupportedVariant $variant]: [::locale::formatNumber $n]"
+			::log::info "- [format $mc::UnsupportedVariantRejected $variant]: [::locale::formatNumber $n]"
 		}
 
 		::log::info $lastMsg
@@ -971,7 +972,7 @@ proc DoImport {position dlg} {
 			::scidb::game::switch $position ;# because the variant may have changed
 		}
 	} else {
-		Show info [format $mc::UnsupportedVariant $state]
+		Show info [format $mc::UnsupportedVariantRejected $state]
 		$log configure -state disabled -takefocus 0
 	}
 }

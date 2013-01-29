@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 635 $
-# Date   : $Date: 2013-01-20 22:09:56 +0000 (Sun, 20 Jan 2013) $
+# Version: $Revision: 646 $
+# Date   : $Date: 2013-01-29 18:41:39 +0000 (Tue, 29 Jan 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1424,7 +1424,7 @@ proc CopyDatabase {parent src dst variant x y} {
 		return 0
 	}
 
-	lassign $result total accepted rejected
+	lassign $result total illegal accepted rejected
 
 	if {$total < 0} {
 		::log::warning $::import::mc::UserHasInterrupted
@@ -1434,7 +1434,7 @@ proc CopyDatabase {parent src dst variant x y} {
 
 	update idletasks	;# be sure the following will be appended
 
-	::import::logResult $total $mc::NoGamesCopied $mc::CopiedGames $accepted $rejected
+	::import::logResult $total $illegal $mc::NoGamesCopied $mc::CopiedGames $accepted $rejected
 	set cmd [list ::scidb::db::save $dst]
 	set rc [::util::catchException { ::progress::start $parent $cmd {} {} 1 } count]
 	if {$rc == 1} { ::log::error $::import::mc::AbortedDueToIoError }
