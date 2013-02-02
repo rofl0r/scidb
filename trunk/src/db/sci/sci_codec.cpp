@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 643 $
-// Date   : $Date: 2013-01-29 13:15:54 +0000 (Tue, 29 Jan 2013) $
+// Version: $Revision: 647 $
+// Date   : $Date: 2013-02-02 01:02:13 +0000 (Sat, 02 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -33,6 +33,7 @@
 #ifndef CODEBLOCKS
 # include "sci_v91_codec.h"
 # include "sci_v92_codec.h"
+# include "sci_v93_codec.h"
 #endif
 
 #include "db_game_info.h"
@@ -287,7 +288,7 @@ static mstl::string const MagicGameFile  ("Scidb.g\0", 8);
 static mstl::string const MagicNamebase  ("Scidb.n\0", 8);
 static mstl::string const Extension("sci");
 
-static uint16_t const FileVersion	= 93;
+static uint16_t const FileVersion	= 94;
 static unsigned const HeaderSize		= 128;
 
 static char const* NamebaseTags[Namebase::Round];
@@ -842,6 +843,7 @@ Codec::makeCodec(mstl::string const& name)
 		{
 			case 91: return new v91::Codec;
 			case 92: return new v92::Codec;
+			case 93: return new v93::Codec;
 		}
 
 #endif
