@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 648 $
-// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
+// Version: $Revision: 650 $
+// Date   : $Date: 2013-02-05 22:08:18 +0000 (Tue, 05 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -266,6 +266,14 @@ Decoder::decodeVariation(Consumer& consumer, ByteStream& moves, ByteStream& text
 
 	for ( ; remaining; --remaining)
 	{
+		if (moves.remaining() == 0)
+		{
+			if (m_position.variationLevel() > 0)
+				throwCorruptData();
+
+			return; // end of game (bug in ChessBase?)
+		}
+
 		Byte b = moves.get();
 
 		switch (b)
@@ -288,7 +296,7 @@ Decoder::decodeVariation(Consumer& consumer, ByteStream& moves, ByteStream& text
 				return;
 
 			default:
-				if (b & 0x7f == 0)
+				if ((b & 0x7f) == 0)
 					return; // unexpected end of game (error)
 
 				move = m_position.doMove(b & 0x7f);

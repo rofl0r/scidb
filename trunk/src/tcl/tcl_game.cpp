@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 648 $
-// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
+// Version: $Revision: 650 $
+// Date   : $Date: 2013-02-05 22:08:18 +0000 (Tue, 05 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -230,7 +230,7 @@ tcl::game::objFromVariant(::db::variant::Type variant)
 
 	if (size_t(variant) >= m_variants.size() || m_variants[variant] == 0)
 	{
-		char const* s;
+		char const* s = 0;
 
 		switch (variant)
 		{
