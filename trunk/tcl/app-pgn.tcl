@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 641 $
-# Date   : $Date: 2013-01-24 23:07:55 +0000 (Thu, 24 Jan 2013) $
+# Version: $Revision: 648 $
+# Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -549,17 +549,18 @@ proc ensureScratchGame {} {
 	variable ::scidb::scratchbaseName
 	variable Vars
 
-	if {[::gamebar::empty? $Vars(gamebar)]} {
-		::scidb::game::switch 9
-		set fen [::scidb::pos::fen]
-		::scidb::game::new 0
-		::scidb::game::switch 0
-		::scidb::pos::setup $fen
-		set tags [::scidb::game::tags 0]
-		::game::setFirst $scratchbaseName Normal $tags
-		add 0 $scratchbaseName Normal $tags
-		select 0
-	}
+	if {![::gamebar::empty? $Vars(gamebar)]} { return 0 }
+
+	::scidb::game::switch 9
+	set fen [::scidb::pos::fen]
+	::scidb::game::new 0
+	::scidb::game::switch 0
+	::scidb::pos::setup $fen
+	set tags [::scidb::game::tags 0]
+	::game::setFirst $scratchbaseName Normal $tags
+	add 0 $scratchbaseName Normal $tags
+	select 0
+	return 1
 }
 
 

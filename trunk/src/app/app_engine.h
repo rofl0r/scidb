@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 631 $
-// Date   : $Date: 2013-01-11 16:16:29 +0000 (Fri, 11 Jan 2013) $
+// Version: $Revision: 648 $
+// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -390,6 +390,7 @@ public:
 	void updateOptions();
 	void invokeOption(mstl::string const& name);
 	void updateConfiguration(mstl::string const& script);
+	void bind(db::Game* game);
 
 	void addFeature(unsigned feature);
 	void removeFeature(unsigned feature);

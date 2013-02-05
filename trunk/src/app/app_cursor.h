@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 643 $
-// Date   : $Date: 2013-01-29 13:15:54 +0000 (Tue, 29 Jan 2013) $
+// Version: $Revision: 648 $
+// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -61,7 +61,7 @@ public:
 	struct Subscriber : public mstl::ref_counter
 	{
 		virtual ~Subscriber() throw();
-		virtual void close(unsigned view) = 0;
+		virtual void close(mstl::string const& name, ::db::variant::Type variant, unsigned view) = 0;
 	};
 
 	typedef mstl::ref_counted_ptr<Subscriber> SubscriberP;

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 648 $
+// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -24,17 +24,18 @@
 
 namespace mstl {
 
-template <typename T0, typename T1 = null_type, typename T2 = null_type>
+template <typename T0, typename T1 = null_type, typename T2 = null_type, typename T3 = null_type>
 class tuple
 {
 public:
 
-	typedef typename make_type_list<T0,T1,T2>::result type_list;
+	typedef typename make_type_list<T0,T1,T2,T3>::result type_list;
 
 	tuple();
 	tuple(T0 const& t0);
 	tuple(T0 const& t0, T1 const& t1);
 	tuple(T0 const& t0, T1 const& t1, T2 const& t2);
+	tuple(T0 const& t0, T1 const& t1, T2 const& t2, T3 const& t3);
 
 #if HAVE_OX_EXPLICITLY_DEFAULTED_AND_DELETED_SPECIAL_MEMBER_FUNCTIONS
 	tuple(tuple const&) = default;

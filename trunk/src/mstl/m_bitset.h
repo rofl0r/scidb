@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 648 $
+// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -192,7 +192,7 @@ public:
 
 	void push(bool b);
 	void pop();
-	void resize(size_type nbits);
+	void resize(size_type nbits, bool set = false);
 	void swap(bitset& bset);
 	void clear();
 

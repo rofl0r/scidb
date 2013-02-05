@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 635 $
-# Date   : $Date: 2013-01-20 22:09:56 +0000 (Sun, 20 Jan 2013) $
+# Version: $Revision: 648 $
+# Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -582,7 +582,6 @@ proc Update {table base variant} {
 ### VARIANTS ####################################
 if {[::scidb::game::query variant?] eq "Normal"} {
 ::toolbar::childconfigure $Vars(switcher) -state readonly
-$Vars(mw) raise $Vars(info)
 #################################################
 	if {[::scidb::tree::isUpToDate?]} { return }
 
@@ -1312,8 +1311,7 @@ proc LoadFirstGame {table row move} {
 	set variant [::scidb::app::variant]
 	set view [::scidb::tree::view]
 
-	set position [::game::new $table -base $base -variant $variant -view -1 -number $index -fen $fen]
-	[namespace parent]::board::bindGameControls $position $base $variant $view $index
+	set position [::game::new $table -base $base -variant $variant -view $view -number $index -fen $fen]
 }
 
 

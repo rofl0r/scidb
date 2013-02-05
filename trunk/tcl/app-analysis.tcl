@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 636 $
-# Date   : $Date: 2013-01-21 13:37:50 +0000 (Mon, 21 Jan 2013) $
+# Version: $Revision: 648 $
+# Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -420,7 +420,7 @@ proc update {args} {
 	}
 
 	if {$Vars(engine:id) != -1 && !$Vars(engine:locked)} {
-		set Vars(after) [after $Options(engine:delay) [list :::engine::startAnalysis $Vars(engine:id)]]
+		set Vars(after) [after $Options(engine:delay) [list ::engine::startAnalysis $Vars(engine:id)]]
 	}
 }
 
@@ -957,7 +957,9 @@ proc AddMoves {w x y} {
 proc InsertMoves {parent what line operation} {
 	variable Vars
 
-	application::pgn::ensureScratchGame
+	if {[application::pgn::ensureScratchGame]} {
+		::scidb::engine::bind $Vars(engine:id)
+	}
 
 	if {![::scidb::engine::snapshot $Vars(engine:id) $what $line]} {
 		# in seldom cases (raise conditions) the operation may fail

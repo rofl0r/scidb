@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 648 $
+// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -500,7 +500,7 @@ inline
 util::crc::checksum_t
 Move::computeChecksum(util::crc::checksum_t crc) const
 {
-	return ::util::crc::compute(crc, reinterpret_cast<char const*>(&m), sizeof(m));
+	return ::util::crc::compute(crc, index());
 }
 
 } // namespace db

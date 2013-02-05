@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 648 $
+// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -46,6 +46,7 @@ int convertTags(	::db::TagSet& tags,
 
 ::db::variant::Type variantFromObj(Tcl_Obj* obj);
 ::db::variant::Type variantFromObj(unsigned objc, Tcl_Obj* const objv[], unsigned index);
+Tcl_Obj* objFromVariant(::db::variant::Type variant);
 
 } // namespace game
 } // namespace tcl

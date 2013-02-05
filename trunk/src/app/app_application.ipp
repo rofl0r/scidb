@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 648 $
+// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -53,6 +53,9 @@ inline mstl::ostream* Application::engineLog() const					{ return m_engineLog; }
 inline void Application::setSwitchReferenceBase(bool flag)			{ m_switchReference = flag; }
 inline void Application::setReferenceBase(Cursor* cursor)			{ setReferenceBase(cursor, true); }
 inline void Application::freezeTree(bool flag)							{ m_treeIsFrozen = flag; }
+
+inline uint32_t Application::rand32() const				{ return m_rand.rand32(); }
+inline uint32_t Application::rand32(uint32_t n) const	{ return m_rand.rand32(n); }
 
 
 inline

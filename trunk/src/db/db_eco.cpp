@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 648 $
+// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -98,6 +98,16 @@ Eco::setup(char const* s)
 	}
 
 	m_code = code + 1;
+}
+
+
+void
+Eco::setup(char letter, uint16_t number)
+{
+	M_REQUIRE('A' <= letter && letter <= 'E');
+	M_REQUIRE(number <= 99);
+
+	m_code = (100*(letter - 'A') + number) << Sub_Code_Bits;
 }
 
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 648 $
+// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -23,18 +23,18 @@
 using namespace util;
 
 
-path::path(mstl::string const& name)
+Path::Path(mstl::string const& name)
 	:m_name(name)
 {
 }
 
 #if HAVE_0X_MOVE_CONSTRCUTOR_AND_ASSIGMENT_OPERATOR
 
-path::path(path&& p) : m_name(mstl::move(m_name)) {}
+Path::Path(Path&& p) : m_name(mstl::move(m_name)) {}
 
 
-path&
-path::operator=(path&& p)
+Path&
+Path::operator=(Path&& p)
 {
 	m_name = mstl::move(p.m_name);
 	return *this;

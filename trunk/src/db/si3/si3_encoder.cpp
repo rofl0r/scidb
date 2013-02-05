@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 617 $
-// Date   : $Date: 2013-01-08 11:41:26 +0000 (Tue, 08 Jan 2013) $
+// Version: $Revision: 648 $
+// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -517,7 +517,6 @@ void
 Encoder::putComment(mstl::string& buf)
 {
 	m_codec.fromUtf8(buf);
-//	PgnWriter::convertExtensions(buf, PgnWriter::Mode_Extended);
 	m_strm.put(buf, buf.size() + 1);
 	buf.clear();
 }

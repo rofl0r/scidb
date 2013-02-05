@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 648 $
+// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -111,7 +111,7 @@ struct TeXt::MemoryBlock
 	size_t		numFree;
 	Object		freeNode;
 	ChunkList	chunkList;
-#if !defined(NDEBUG) || !defined(NREQ)
+#ifdef M_CHECK
 	bool			destroyed;
 #endif
 
@@ -124,7 +124,7 @@ struct TeXt::MemoryBlock
 
 MemoryBlock::MemoryBlock()
 	:numFree(0)
-#if !defined(NDEBUG) || !defined(NREQ)
+#ifdef M_CHECK
 	,destroyed(false)
 #endif
 {

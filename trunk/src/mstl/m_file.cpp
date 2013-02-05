@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 648 $
+// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -151,6 +151,21 @@ file::open(FILE* fp)
 	m_fp = fp;
 	m_open = true;
 
+	init();
+}
+
+
+void
+file::reopen(char const* mode)
+{
+	M_REQUIRE(!m_filename.empty());
+	M_REQUIRE(is_open());
+
+	if (fileno(m_fp) > 2)
+		::fclose(m_fp);
+
+	m_open = false;
+	m_fp = ::fopen(m_filename, mode);
 	init();
 }
 

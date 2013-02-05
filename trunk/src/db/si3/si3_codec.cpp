@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 639 $
-// Date   : $Date: 2013-01-23 20:50:00 +0000 (Wed, 23 Jan 2013) $
+// Version: $Revision: 648 $
+// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -430,6 +430,14 @@ Codec::setEncoding(mstl::string const& encoding)
 
 
 void
+Codec::setWriteable()
+{
+	if (!m_gameStream.is_writable())
+		m_gameStream.reopen(mstl::ios_base::in | mstl::ios_base::out | mstl::ios_base::binary);
+}
+
+
+void
 Codec::close()
 {
 	m_gameData->close();
@@ -471,7 +479,7 @@ Codec::putGame(ByteStream const& strm, unsigned prevOffset, unsigned prevRecordL
 
 
 save::State
-Codec::doDecoding(db::Consumer& consumer, TagSet& tags, GameInfo const& info)
+Codec::doDecoding(db::Consumer& consumer, TagSet& tags, GameInfo const& info, unsigned gameIndex)
 {
 	M_ASSERT(m_codec && m_codec->hasEncoding());
 
@@ -493,7 +501,7 @@ Codec::doDecoding(db::Consumer& consumer, ByteStream& strm, TagSet& tags)
 
 
 void
-Codec::doDecoding(GameData& data, GameInfo& info, mstl::string* encoding)
+Codec::doDecoding(GameData& data, GameInfo& info, unsigned gameIndex, mstl::string* encoding)
 {
 	M_ASSERT(m_codec && m_codec->hasEncoding());
 

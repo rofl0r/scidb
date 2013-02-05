@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 633 $
-// Date   : $Date: 2013-01-15 21:44:24 +0000 (Tue, 15 Jan 2013) $
+// Version: $Revision: 648 $
+// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -969,7 +969,7 @@ GameInfo::setupTags(TagSet& tags, variant::Type variant) const
 
 #ifdef GAME_INFO_PLYCOUNT
 	// IMPORTANT NOTE:
-	// The ply count may be slightly incorrect if the source is .cbh!
+	// The ply count may be slightly incorrect if the source is .cbh or .cbf!
 	// The tag value will be corrected afterwards (after loading).
 	tags.set(tag::PlyCount, m_plyCount);
 #endif

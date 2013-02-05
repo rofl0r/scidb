@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 648 $
+// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -74,7 +74,9 @@ public:
 	static unsigned const Flag_Use_ChessBase_Format						= 1 << 26;
 	static unsigned const Flag_Use_Scidb_Import_Format					= 1 << 27;
 	static unsigned const Flag_Write_UTF8_BOM								= 1 << 28;
-	static unsigned const Flag_LAST											= Flag_Write_UTF8_BOM;
+	static unsigned const Flag_Strict_PGN_Standard						= 1 << 29;
+	static unsigned const Flag_Write_Any_Rating_As_ELO					= 1 << 30;
+	static unsigned const Flag_LAST											= Flag_Write_Any_Rating_As_ELO;
 
 	Writer(format::Type srcFormat, unsigned flags, mstl::string const& encoding);
 

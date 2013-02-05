@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 643 $
-// Date   : $Date: 2013-01-29 13:15:54 +0000 (Tue, 29 Jan 2013) $
+// Version: $Revision: 648 $
+// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -111,9 +111,12 @@ public:
 	bool stripTags(GameInfo const& info, TagMap const& tags) override;
 	void findTags(GameInfo const& info, TagMap& tags) const override;
 
-	save::State doDecoding(db::Consumer& consumer, TagSet& tags, GameInfo const& info) override;
+	save::State doDecoding(	db::Consumer& consumer,
+									TagSet& tags,
+									GameInfo const& info,
+									unsigned gameIndex) override;
 	save::State doDecoding(	db::Consumer& consumer, util::ByteStream& strm, TagSet& tags) override;
-	void doDecoding(GameData& data, GameInfo& info, mstl::string*) override;
+	void doDecoding(GameData& data, GameInfo& info, unsigned gameIndex, mstl::string*) override;
 
 	void doEncoding(	util::ByteStream& strm,
 							GameData const& data,
@@ -124,6 +127,7 @@ public:
 
 	void reset() override;
 	void setEncoding(mstl::string const& encoding) override;
+	void setWriteable() override;
 
 	void useAsyncReader(bool flag) override;
 	Move findExactPositionAsync(	GameInfo const& info,

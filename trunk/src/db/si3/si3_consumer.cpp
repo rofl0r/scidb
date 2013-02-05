@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 648 $
+// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -337,7 +337,7 @@ Consumer::checkMove(Move const& move)
 	mstl::string msg("Invalid move: ");	// TODo: i18n
 	Move m(move);
 
-	board.prepareForPrint(m, variant::Normal);
+	board.prepareForPrint(m, variant::Normal, Board::ExternalRepresentation);
 	m.printSan(msg);
 	m_strm.put(token::Comment);
 	m_comments.push_back(Comment(msg, false, false)); // set english flag?

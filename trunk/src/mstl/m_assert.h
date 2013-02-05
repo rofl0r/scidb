@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 648 $
+// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -38,14 +38,16 @@ struct assertion_failure_exception : public exception
 # define M_REQUIRE(expr)
 # define M_ASSERT(expr)
 # define M_DEBUG(expr)
+# define M_TEST(expr)
 
 #else
 
-#define __M_CHECK(Exc,expr) ({ if (__builtin_expect(!(expr), 0)) M_THROW(Exc(#expr)); })
+#define M_CHECK(Exc,expr) ({ if (__builtin_expect(!(expr), 0)) M_THROW(Exc(#expr)); })
 
-# define M_REQUIRE(expr)	__M_CHECK(::mstl::precondition_violation_exception, expr)
-# define M_ASSERT(expr)		__M_CHECK(::mstl::assertion_failure_exception, expr)
-# define M_DEBUG(expr)		__M_CHECK(::mstl::assertion_failure_exception, expr)
+# define M_REQUIRE(expr)	M_CHECK(::mstl::precondition_violation_exception, expr)
+# define M_ASSERT(expr)		M_CHECK(::mstl::assertion_failure_exception, expr)
+# define M_DEBUG(expr)		M_CHECK(::mstl::assertion_failure_exception, expr)
+# define M_TEST(expr)		expr;
 
 #endif
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 632 $
-// Date   : $Date: 2013-01-12 23:18:00 +0000 (Sat, 12 Jan 2013) $
+// Version: $Revision: 648 $
+// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -49,7 +49,7 @@ using namespace db;
 using namespace util::misc::file;
 
 
-#ifndef NREQ
+#ifdef M_CHECK
 static bool
 checkOrdering(unsigned* map, unsigned n)
 {
@@ -1137,7 +1137,7 @@ Engine::probe(unsigned timeout)
 
 
 bool
-Engine::startAnalysis(db::Game* game)
+Engine::startAnalysis(Game* game)
 {
 	M_REQUIRE(game);
 	M_REQUIRE(isActive());
@@ -1286,6 +1286,18 @@ Engine::stopAnalysis()
 
 	m_game = 0;
 	return rc;
+}
+
+
+void
+Engine::bind(Game* game)
+{
+	M_REQUIRE(game);
+	M_REQUIRE(	!currentGame()
+				|| currentGame()->currentBoard().exactZHPosition()
+						== game->currentBoard().exactZHPosition());
+
+	m_game = game;
 }
 
 

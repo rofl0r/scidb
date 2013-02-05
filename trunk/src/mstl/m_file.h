@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 648 $
+// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -45,6 +45,7 @@ public:
 	void open(char const* filename, char const* mode);
 	void open(int fd, char const* mode);
 	void open(struct _IO_FILE* fp);
+	void reopen(char const* mode);
 	void close();
 
 	void truncate(unsigned length);

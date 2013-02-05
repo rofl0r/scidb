@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 648 $
+// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -315,7 +315,7 @@ EcoTable::Node::dump(Codec& codec, Board& board, variant::Type variant, unsigned
 
 		Move move = board.makeMove(b.move);
 
-		board.prepareForPrint(move, variant);
+		board.prepareForPrint(move, variant, Board::ExternalRepresentation);
 		board.prepareUndo(move);
 		board.doMove(move, variant);
 
@@ -378,7 +378,7 @@ EcoTable::Node::print(	Board& board,
 		Branch const&	b		= branches[i];
 		Move				move	= board.makeMove(b.move);
 
-		board.prepareForPrint(move, variant);
+		board.prepareForPrint(move, variant, Board::ExternalRepresentation);
 		board.prepareUndo(move);
 		board.doMove(move, variant);
 		moves.push(move);

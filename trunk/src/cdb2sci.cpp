@@ -1,7 +1,7 @@
 // ======================================================================
 // $RCSfile: tk_image.cpp,v $
-// $Revision: 626 $
-// $Date: 2013-01-10 00:42:32 +0000 (Thu, 10 Jan 2013) $
+// $Revision: 648 $
+// $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
 // $Author: gregor $
 // ======================================================================
 
@@ -165,8 +165,12 @@ getFormat(mstl::string& path)
 		else if	(strcmp(s, ".si3") == 0) fmt = format::Scid3;
 		else if	(strcmp(s, ".sci") == 0) fmt = format::Scidb;
 		else if	(strcmp(s, ".cbh") == 0) fmt = format::ChessBase;
+		else if	(strcmp(s, ".cbf") == 0) fmt = format::ChessBaseDOS;
+		else if	(strcmp(s, ".CBF") == 0) fmt = format::ChessBaseDOS;
 		else if	(strcmp(s, ".pgn") == 0) fmt = format::Pgn;
+		else if	(strcmp(s, ".PGN") == 0) fmt = format::Pgn;
 		else if	(strcmp(s, ".zip") == 0) fmt = format::Pgn;
+		else if	(strcmp(s, ".ZIP") == 0) fmt = format::Pgn;
 	}
 
 	return fmt;
@@ -188,8 +192,12 @@ stripSuffix(mstl::string& path)
 			|| strcmp(s, ".si3") == 0
 			|| strcmp(s, ".sci") == 0
 			|| strcmp(s, ".cbh") == 0
+			|| strcmp(s, ".cbf") == 0
+			|| strcmp(s, ".CBF") == 0
 			|| strcmp(s, ".pgn") == 0
-			|| strcmp(s, ".zip") == 0)
+			|| strcmp(s, ".PGN") == 0
+			|| strcmp(s, ".zip") == 0
+			|| strcmp(s, ".ZIP") == 0)
 		{
 			path.erase(path.size() - 4);
 		}

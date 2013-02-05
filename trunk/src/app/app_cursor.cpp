@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 643 $
-// Date   : $Date: 2013-01-29 13:15:54 +0000 (Tue, 29 Jan 2013) $
+// Version: $Revision: 648 $
+// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -172,6 +172,8 @@ Cursor::closeView(unsigned view, bool informUser)
 
 	if (view != 0 && m_viewList[view + 1])
 	{
+		m_cursor.app().viewClosed(*this, view);
+
 		m_freeSet.set(view);
 		delete m_viewList[view + 1];
 		m_viewList[view + 1] = 0;
@@ -180,7 +182,7 @@ Cursor::closeView(unsigned view, bool informUser)
 			m_treeView = -1;
 
 		if (informUser && m_subscriber)
-			m_subscriber->close(view);
+			m_subscriber->close(m_db->name(), m_db->variant(), view);
 	}
 }
 
@@ -259,6 +261,8 @@ Cursor::closeAllViews()
 
 		if (m_viewList[view + 1])
 		{
+			m_cursor.app().viewClosed(*this, view);
+
 			m_freeSet.set(view);
 			delete m_viewList[view + 1];
 			m_viewList[view + 1] = 0;
@@ -267,7 +271,7 @@ Cursor::closeAllViews()
 				m_treeView = -1;
 
 			if (m_subscriber)
-				m_subscriber->close(view);
+				m_subscriber->close(m_db->name(), m_db->variant(), view);
 		}
 	}
 }

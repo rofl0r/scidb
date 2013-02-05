@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 632 $
-// Date   : $Date: 2013-01-12 23:18:00 +0000 (Sat, 12 Jan 2013) $
+// Version: $Revision: 648 $
+// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -35,9 +35,11 @@ class GameInfo;
 
 namespace sci { namespace v91  { class Codec; } }
 namespace sci { namespace v92  { class Codec; } }
+namespace sci { namespace v93  { class Codec; } }
 namespace sci { class Codec; }
 namespace si3 { class Codec; }
 namespace cbh { class Codec; }
+namespace cbf { class Codec; }
 
 class Signature
 {
@@ -86,9 +88,11 @@ public:
 
 	friend class sci::v91::Codec;
 	friend class sci::v92::Codec;
+	friend class sci::v93::Codec;
 	friend class sci::Codec;
 	friend class si3::Codec;
 	friend class cbh::Codec;
+	friend class cbf::Codec;
 
 protected:
 

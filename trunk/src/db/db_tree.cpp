@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 648 $
+// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -595,7 +595,7 @@ Tree::makeTree(TreeP tree,
 					rating::Type ratingType,
 					util::Progress& progress)
 {
-	M_REQUIRE(base.format() != format::ChessBase);
+	M_REQUIRE(!format::isChessBaseFormat(base.format()));
 	M_REQUIRE(base.variant() == variant::Normal);
 
 	typedef bool (Tree::*BuildMeth)(	unsigned,
@@ -694,7 +694,7 @@ Tree::makeTree(TreeP tree,
 			if (info.move())
 			{
 				info.move().setColor(myPosition.sideToMove());
-				myPosition.prepareForPrint(info.move(), base.variant());
+				myPosition.prepareForPrint(info.move(), base.variant(), Board::InternalRepresentation);
 			}
 
 			if (line.length <= opening::Max_Line_Length && !info.eco() && myIdn == variant::Standard)

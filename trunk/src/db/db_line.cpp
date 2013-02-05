@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 648 $
+// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -67,7 +67,7 @@ Line::print(mstl::string& result, variant::Type variant, encoding::CharSet charS
 		if ((i & 1) == 0)
 			result.format("%u.", mstl::div2(i) + 1);
 
-		board.prepareForPrint(m, variant);
+		board.prepareForPrint(m, variant, Board::ExternalRepresentation);
 		m.printSan(result, charSet);
 		board.doMove(m, variant);
 	}

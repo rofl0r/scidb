@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 648 $
+// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -66,6 +66,7 @@ public:
 
 	void convert(char* buf, bool shortForm = false) const;
 	void setup(char const* buf);
+	void setup(char letter, uint16_t number);
 	mstl::string asString() const;
 	mstl::string asShortString() const;
 

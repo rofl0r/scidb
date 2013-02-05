@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 609 $
-# Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+# Version: $Revision: 648 $
+# Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -65,6 +65,7 @@ set Lang(hr)	"Croatian"				;# scr
 set Lang(hu)	"Hungarian"				;# hun
 set Lang(hy)	"Armenian"				;# hye
 set Lang(ia)	"Interlingua"			;# ina
+set Lang(id)	"Indonesian"			;# ind
 set Lang(is)	"Icelandic"				;# ice
 set Lang(it)	"Italian"				;# ita
 set Lang(iu)	"Inuktitut"				;# iku
@@ -213,6 +214,7 @@ variable Encodings {
 variable autoEncoding auto
 variable defaultEncoding iso8859-1
 variable windowsEncoding cp1252
+variable dosEncoding cp850
 variable macEncoding macRoman
 variable systemEncoding [encoding system]
 

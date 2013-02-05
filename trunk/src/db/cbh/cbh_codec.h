@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 648 $
+// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -35,7 +35,6 @@
 #include "m_fstream.h"
 #include "m_map.h"
 #include "m_vector.h"
-#include "m_hash.h"
 #include "m_chunk_allocator.h"
 
 namespace sys  { namespace utf8 { class Codec; }; };
@@ -80,7 +79,7 @@ public:
 
 	mstl::string const& extension() const override;
 	mstl::string const& encoding() const override;
-	void filterTags(TagSet& tags, Section section) const override;
+	void filterTags(db::TagSet& tags, Section section) const override;
 
 	void doOpen(mstl::string const& rootname,
 					mstl::string const& encoding,
@@ -90,8 +89,11 @@ public:
 
 	void close() override;
 
-	void doDecoding(GameData& data, GameInfo& info, mstl::string*) override;
-	save::State doDecoding(Consumer& consumer, TagSet& tags, GameInfo const& info) override;
+	void doDecoding(GameData& data, GameInfo& info, unsigned gameIndex, mstl::string*) override;
+	save::State doDecoding(	Consumer& consumer,
+									TagSet& tags,
+									GameInfo const& info,
+									unsigned gameIndex) override;
 
 	void reset() override;
 	void setEncoding(mstl::string const& encoding) override;
@@ -128,7 +130,7 @@ private:
 
 	typedef mstl::map<uint32_t,NamebaseEntry*>			BaseMap;
 	typedef mstl::map<uint32_t,uint32_t>					AnnotationMap;
-	typedef mstl::hash<GameInfo const*,Source*>			SourceMap;
+	typedef mstl::vector<Source*>								SourceMap;
 	typedef mstl::map<NamebaseEvent const*,Tournament>	TournamentMap;
 	typedef mstl::chunk_allocator<NamebaseEvent>			Allocator;
 	typedef mstl::vector<Team*>								TeamBase;
@@ -160,7 +162,7 @@ private:
 	void preloadTournamentData(mstl::string const& rootname, util::Progress& progress);
 	void preloadAnnotatorData(mstl::string const& rootname, util::Progress& progress);
 
-	void addSourceTags(TagSet& tags, GameInfo const& info);
+	void addSourceTags(TagSet& tags, unsigned index);
 	void addEventTags(TagSet& tags, GameInfo const& info);
 
 	NamebasePlayer* getPlayer(uint32_t ref);

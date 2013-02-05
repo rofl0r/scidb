@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 646 $
-# Date   : $Date: 2013-01-29 18:41:39 +0000 (Tue, 29 Jan 2013) $
+# Version: $Revision: 648 $
+# Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -498,7 +498,10 @@ proc Import {parent base files msg encoding} {
 		}
 	}
 
+	set logCount 0
+
 	foreach file $files {
+		if {[incr logCount] > 1} { ::log::newline }
 		::log::info [format $mc::ImportingDatabase [file tail $file]]
 		set info "$::mc::File: [file tail $file]"
 		set options [list -message $msg -log yes -interrupt yes -information $info]

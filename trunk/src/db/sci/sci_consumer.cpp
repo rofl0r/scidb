@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 643 $
-// Date   : $Date: 2013-01-29 13:15:54 +0000 (Tue, 29 Jan 2013) $
+// Version: $Revision: 648 $
+// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -41,10 +41,10 @@
 #include <ctype.h>
 #include <string.h>
 
-#ifdef NREQ
-# define DEBUG(x)
-#else
+#ifdef M_CHECK
 # define DEBUG(x) x
+#else
+# define DEBUG(x)
 #endif
 
 
@@ -245,7 +245,7 @@ Consumer::writeComment(	Comment const& preComment,
 		for (unsigned i = 0; i < annotation.count(); ++i)
 		{
 			m_strm.put(token::Nag);
-			m_strm.put(annotation[i]);
+			m_data.put(annotation[i]);
 		}
 
 		m_endOfRun = true;

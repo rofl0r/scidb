@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 648 $
+// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -62,6 +62,7 @@ public:
 	static mstl::string const& utf8();
 	static mstl::string const& latin1();
 	static mstl::string const& windows();
+	static mstl::string const& dos();
 	static mstl::string const& ascii();
 
 	static bool is7BitAscii(mstl::string const& s);

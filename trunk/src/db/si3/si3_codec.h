@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 648 $
+// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -119,9 +119,12 @@ public:
 	void removeAllFiles(mstl::string const& rootname) override;
 	void writeNamebases(mstl::ostream& stream, util::Progress& progress) override;
 
-	save::State doDecoding(db::Consumer& consumer, TagSet& tags, GameInfo const& info) override;
+	save::State doDecoding(	db::Consumer& consumer,
+									TagSet& tags,
+									GameInfo const& info,
+									unsigned gameIndex) override;
 	save::State doDecoding(db::Consumer& consumer, util::ByteStream& strm, TagSet& tags) override;
-	void doDecoding(GameData& data, GameInfo& info, mstl::string* encoding) override;
+	void doDecoding(GameData& data, GameInfo& info, unsigned gameIndex, mstl::string* encoding) override;
 
 	void doEncoding(	util::ByteStream& strm,
 							GameData const& data,
@@ -132,6 +135,7 @@ public:
 
 	void reset() override;
 	void setEncoding(mstl::string const& encoding) override;
+	void setWriteable() override;
 
 	void releaseRoundEntry(unsigned index);
 	bool saveRoundEntry(unsigned index, mstl::string const& value);

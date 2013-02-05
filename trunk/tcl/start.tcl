@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 609 $
-# Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+# Version: $Revision: 648 $
+# Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -349,7 +349,7 @@ set SelectionOwnerDidntRespond   "Timeout during drop action: selection owner di
 
 }
 
-set Extensions		{.sci .si4 .si3 .cbh .pgn .zip}
+set Extensions		{.sci .si4 .si3 .cbh .cbf .pgn .zip}
 set clipbaseName	Clipbase
 
 switch [tk windowingsystem] {

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 648 $
+// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -645,7 +645,7 @@ inline
 unsigned
 bitfield<Bits>::find_last() const
 {
-	return m_bits == 0u ? npos : bf::msb_index(m_bits);
+	return none() ? npos : bf::msb_index(m_bits);
 }
 
 
@@ -654,7 +654,7 @@ inline
 unsigned
 bitfield<Bits>::find_first() const
 {
-	return m_bits == 0u ? npos : bf::lsb_index(m_bits);
+	return none() ? npos : bf::lsb_index(m_bits);
 }
 
 
@@ -683,7 +683,7 @@ inline
 unsigned
 bitfield<Bits>::find_last_not() const
 {
-	return m_bits == value_type(~0) ? npos : bf::msb_index(~m_bits);
+	return complete() ? npos : bf::msb_index(~m_bits);
 }
 
 
@@ -692,7 +692,7 @@ inline
 unsigned
 bitfield<Bits>::find_first_not() const
 {
-	return m_bits == value_type(~0) ? npos : bf::lsb_index(~m_bits);
+	return complete() ? npos : bf::lsb_index(~m_bits);
 }
 
 

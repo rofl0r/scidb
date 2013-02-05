@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 609 $
-# Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+# Version: $Revision: 648 $
+# Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -49,6 +49,19 @@ variable Log .application.log
 proc warning {args}	{ Print Warning 1 {*}$args }
 proc error {args}		{ Print Error 1 {*}$args }
 proc info {args}		{ Print Information 0 {*}$args }
+
+
+proc newline {} {
+	variable Log
+
+	if {[winfo exists $Log]} {
+		set t $Log.top.text
+		$t configure -state normal
+		$t insert end \n
+		$t configure -state disabled
+		$t yview moveto 1.0
+	}
+}
 
 
 proc open {callee {show 1}} {

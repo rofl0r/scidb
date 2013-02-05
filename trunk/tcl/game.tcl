@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 637 $
-# Date   : $Date: 2013-01-23 13:22:07 +0000 (Wed, 23 Jan 2013) $
+# Version: $Revision: 648 $
+# Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -204,7 +204,15 @@ proc new {parent args} {
 		}
 
 		if {$loadPos == -1} {
-			::scidb::game::release $pos ;# release scratch game
+			set backupPos -1
+			if {[::scidb::game::query $pos open?]} {
+				set backupPos [expr {$MaxPosition + 1}]
+				if {![::scidb::game::query $backupPos open?]} {
+					::scidb::game::new $backupPos $opts(-variant)
+				}
+				::scidb::game::swap $pos $backupPos
+				::scidb::game::release $pos ;# release scratch game
+			}
 			if {![load $parent $pos $base \
 				-view $view \
 				-number $number \
@@ -212,7 +220,16 @@ proc new {parent args} {
 				-fen $opts(-fen) \
 				-variant $opts(-variant) \
 			]} {
+				if {$backupPos >= 0} {
+					if {![::scidb::game::query $pos open?]} {
+						::scidb::game::new $pos $opts(-variant)
+					}
+					::scidb::game::swap $pos $backupPos
+				}
 				return -1
+			}
+			if {$backupPos >= 0} {
+				::scidb::game::release $backupPos
 			}
 			set crc [::scidb::game::query $pos checksum]
 		} else {
@@ -334,8 +351,11 @@ proc load {parent position base args} {
 	} else {
 		set variant $opts(-variant)
 		set parent [winfo toplevel $parent]
+		set options {}
+		if {$opts(-view) >= 0} { lappend options -view $opts(-view) }
 
-		if {[catch { ::scidb::game::load $position $base $variant $opts(-number) $opts(-fen) } \
+		if {[catch \
+				{ ::scidb::game::load $position $base $variant $opts(-number) $opts(-fen) {*}$options } \
 				result options]} {
 			array set opts $options
 			::dialog::error \

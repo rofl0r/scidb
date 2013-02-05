@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 638 $
-// Date   : $Date: 2013-01-23 17:26:55 +0000 (Wed, 23 Jan 2013) $
+// Version: $Revision: 648 $
+// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -193,6 +193,7 @@ public:
 	void updateFromTimeTable(TimeTable const& timeTable);
 
 	util::crc::checksum_t computeChecksum(EngineList const& engines, util::crc::checksum_t crc = 0) const;
+	util::crc::checksum_t computeChecksumOfMainline(util::crc::checksum_t crc = 0) const;
 	void collectLanguages(LanguageSet& langSet) const;
 
 	MoveNode* removeNext();

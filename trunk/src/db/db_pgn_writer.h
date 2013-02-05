@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 648 $
+// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -36,10 +36,6 @@ namespace db {
 class PgnWriter : public Writer
 {
 public:
-
-	static unsigned const Mode_PGN_Standard	= 0;
-	static unsigned const Mode_PGN_Extended	= 1;
-	static unsigned const Mode_Extended			= 3;
 
 	static unsigned const Default_Flags =	Flag_Include_Variations
 													 | Flag_Include_Comments

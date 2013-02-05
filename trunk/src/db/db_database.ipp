@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 639 $
-// Date   : $Date: 2013-01-23 20:50:00 +0000 (Wed, 23 Jan 2013) $
+// Version: $Revision: 648 $
+// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -101,7 +101,7 @@ Time
 Database::modified() const
 {
 	M_REQUIRE(isOpen());
-	return m_codec->modified(m_rootname);
+	return m_codec->modified();
 }
 
 
@@ -111,17 +111,6 @@ Database::maxDescriptionLength() const
 {
 	M_REQUIRE(isOpen());
 	return m_codec->maxDescriptionLength();
-}
-
-
-inline
-void
-Database::setReadonly(bool flag)
-{
-	M_REQUIRE(isOpen());
-	M_REQUIRE(flag || isWriteable());
-
-	m_readOnly = flag;
 }
 
 

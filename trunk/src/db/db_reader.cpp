@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 635 $
-// Date   : $Date: 2013-01-20 22:09:56 +0000 (Sun, 20 Jan 2013) $
+// Version: $Revision: 648 $
+// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -359,6 +359,9 @@ Reader::extractCountryFromSite(mstl::string& data)
 event::Mode
 Reader::getEventMode(char const* event, char const* site)
 {
+	M_REQUIRE(event);
+	M_REQUIRE(site);
+
 	event::Mode mode = event::Undetermined;
 
 	switch (event[0])

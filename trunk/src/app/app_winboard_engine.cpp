@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 643 $
-// Date   : $Date: 2013-01-29 13:15:54 +0000 (Tue, 29 Jan 2013) $
+// Version: $Revision: 648 $
+// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1271,7 +1271,7 @@ winboard::Engine::parseInfo(mstl::string const& msg)
 		{
 			if (move.isLegal())
 			{
-				board.prepareForPrint(move, m_variant);
+				board.prepareForPrint(move, m_variant, Board::InternalRepresentation);
 				board.doMove(move, m_variant);
 				moves.append(move);
 				illegal = 0;
@@ -1378,7 +1378,7 @@ winboard::Engine::parseCurrentMove(char const* s)
 
 		if (move.isLegal())
 		{
-			currentBoard().prepareForPrint(move, m_variant);
+			currentBoard().prepareForPrint(move, m_variant, Board::InternalRepresentation);
 			setCurrentMove(moveNo, moveCount, move);
 			updateCurrMove();
 			setTime((hours*60 + minutes)*60 + seconds);

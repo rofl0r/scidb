@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 643 $
-// Date   : $Date: 2013-01-29 13:15:54 +0000 (Tue, 29 Jan 2013) $
+// Version: $Revision: 648 $
+// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -575,7 +575,7 @@ uci::Engine::parseBestMove(char const* msg)
 
 	if (move.isLegal())
 	{
-		currentBoard().prepareForPrint(move, m_variant);
+		currentBoard().prepareForPrint(move, m_variant, Board::InternalRepresentation);
 		setBestMove(move);
 	}
 	else if (::strncmp(s, "(none)", 6) != 0)
@@ -851,7 +851,7 @@ uci::Engine::parseCurrentMove(char const* s)
 		return Move();
 	}
 
-	currentBoard().prepareForPrint(move, m_variant);
+	currentBoard().prepareForPrint(move, m_variant, Board::InternalRepresentation);
 	return move;
 }
 
@@ -873,7 +873,7 @@ uci::Engine::parseMoveList(char const* s, db::Board& board, db::MoveList& moves)
 			return 0;
 		}
 
-		board.prepareForPrint(move, m_variant);
+		board.prepareForPrint(move, m_variant, Board::InternalRepresentation);
 		board.doMove(move, m_variant);
 		moves.append(move);
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 648 $
+// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -71,6 +71,9 @@ Obj::operator==(Obj const& obj) const
 
 	if (obj.m_obj == 0)
 		return false;
+
+	if (m_obj == obj.m_obj)
+		return true;
 
 	return ::strcmp(Tcl_GetStringFromObj(m_obj, 0), Tcl_GetStringFromObj(obj.m_obj, 0)) == 0;
 }

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 648 $
+// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -58,6 +58,7 @@ public:
 	Namebase& namebase(Namebase::Type type);
 	Namebase const& namebase(Namebase::Type type) const;
 
+	mstl::string	m_rootname;
 	GameInfoList	m_gameInfoList;
 	Namebases		m_namebases;
 	Type				m_type;

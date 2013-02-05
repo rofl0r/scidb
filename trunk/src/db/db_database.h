@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 643 $
-// Date   : $Date: 2013-01-29 13:15:54 +0000 (Tue, 29 Jan 2013) $
+// Version: $Revision: 648 $
+// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -323,7 +323,6 @@ private:
 
 	DatabaseCodec*	m_codec;
 	mstl::string	m_name;
-	mstl::string	m_rootname;
 	unsigned			m_id;
 	unsigned			m_size;
 	uint64_t			m_lastChange;

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 635 $
-// Date   : $Date: 2013-01-20 22:09:56 +0000 (Sun, 20 Jan 2013) $
+// Version: $Revision: 648 $
+// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -354,50 +354,53 @@ Decoder::decodeVariation(unsigned level)
 					return;
 
 				case token::Start_Marker:
+				{
+					if (!m_currentNode->move())
+						throwCorruptData();
+
+					MoveNode* current = m_currentNode;
+
+					m_position.push();
+					m_position.undoMove(current->move());
+					current->addVariation(m_currentNode = new MoveNode);
+					decodeVariation(level + 1);
+
+					if (m_currentNode->atLineStart())
 					{
-						MoveNode* current = m_currentNode;
+						// Scidb does not support empty variations...
 
-						m_position.push();
-						m_position.undoMove(current->move());
-						current->addVariation(m_currentNode = new MoveNode);
-						decodeVariation(level + 1);
-
-						if (m_currentNode->atLineStart())
+						if (m_currentNode->hasNote() || m_currentNode->next()->hasNote())
 						{
-							// Scidb does not support empty variations...
+							// ...but we cannot delete the variation if an annotation/comment exists.
 
-							if (m_currentNode->hasNote() || m_currentNode->next()->hasNote())
+							if (	!m_currentNode->annotation().isEmpty()
+								|| m_strm.peek() == token::Start_Marker)
 							{
-								// ...but we cannot delete the variation if an annotation/comment exists.
-
-								if (	!m_currentNode->annotation().isEmpty()
-									|| m_strm.peek() == token::Start_Marker)
-								{
 #ifndef ALLOW_EMPTY_VARS
-									// As a workaround we insert a null move.
+								// As a workaround we insert a null move.
 
-									MoveNode* node = new MoveNode(m_position.board().makeNullMove());
-									node->setNext(m_currentNode->removeNext());
-									m_currentNode->setNext(node);
+								MoveNode* node = new MoveNode(m_position.board().makeNullMove());
+								node->setNext(m_currentNode->removeNext());
+								m_currentNode->setNext(node);
 #endif
-								}
-								else
-								{
-									// This is the last variation. Handle this comment as a pre-comment.
-									current->deleteVariation(current->countVariations() - 1);
-									preComment = true;
-								}
 							}
 							else
 							{
+								// This is the last variation. Handle this comment as a pre-comment.
 								current->deleteVariation(current->countVariations() - 1);
+								preComment = true;
 							}
 						}
-
-						m_currentNode = current;
-						m_position.pop();
+						else
+						{
+							current->deleteVariation(current->countVariations() - 1);
+						}
 					}
+
+					m_currentNode = current;
+					m_position.pop();
 					break;
+				}
 
 				case token::Nag:
 					static_assert(Annotation::Max_Nags >= 7, "Scid needs at least seven entries");
@@ -1181,7 +1184,7 @@ Decoder::findExactPosition(Board const& position, bool skipVariations)
 					{
 						this->skipVariation();
 					}
-					else
+					else if (m_move)
 					{
 						m_position.push();
 						m_position.undoMove(m_move);
@@ -1190,6 +1193,10 @@ Decoder::findExactPosition(Board const& position, bool skipVariations)
 
 						if (m_move)
 							return m_move;
+					}
+					else
+					{
+						throwCorruptData();
 					}
 					break;
 
