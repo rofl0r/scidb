@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 648 $
-// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
+// Version: $Revision: 651 $
+// Date   : $Date: 2013-02-06 15:25:49 +0000 (Wed, 06 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -77,6 +77,7 @@ public:
 					mstl::string const& encoding,
 					util::Progress& progress) override;
 	void reloadNamebases(mstl::string const& rootname, util::Progress& progress) override;
+	void reloadDescription(mstl::string const& rootname) override;
 
 	void close() override;
 

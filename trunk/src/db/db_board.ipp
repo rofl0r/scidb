@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 648 $
-// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
+// Version: $Revision: 651 $
+// Date   : $Date: 2013-02-06 15:25:49 +0000 (Wed, 06 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -89,6 +89,14 @@ inline void Board::setPlyNumber(unsigned number)		{ m_plyNumber = number; }
 inline void Board::setEnPassantSquare(Square sq)		{ setEnPassantSquare(sideToMove(), sq); }
 inline void Board::setEnPassantFyle(sq::Fyle fyle)		{ setEnPassantFyle(sideToMove(), fyle); }
 inline void Board::setHalfMoveClock(unsigned number)	{ m_halfMoveClock = number; }
+
+
+inline
+bool
+Board::anyOccupied(uint64_t squares) const
+{
+	return m_occupied & squares;
+}
 
 
 inline

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 648 $
-// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
+// Version: $Revision: 651 $
+// Date   : $Date: 2013-02-06 15:25:49 +0000 (Wed, 06 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -481,11 +481,15 @@ winboard::Engine::startAnalysis(bool)
 		::sys::signal::sendInterrupt(pid());
 
 	send("new");
+	send("force");
 
 	if (m_featureVariant)
 	{
 		if (isChess960Position())
 		{
+			if (m_variant != variant::Normal)
+				error(app::Engine::Chess_960_Not_Supported);
+
 			v = m_chess960Variant;
 		}
 		else
@@ -507,8 +511,6 @@ winboard::Engine::startAnalysis(bool)
 
 		send("variant " + v);
 	}
-
-	send("force");
 
 	if (moves.empty())
 	{

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 648 $
-// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
+// Version: $Revision: 651 $
+// Date   : $Date: 2013-02-06 15:25:49 +0000 (Wed, 06 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -6369,13 +6369,13 @@ Board::makeMove(Square from, Square to, piece::Type promotedOrDrop) const
 			// (handicap game; only allowed in standard chess)
 			switch (int(from) - int(to))
 			{
-				case -2:
-					return setMoveColor(
-						Move::genCastling(from, m_castleRookCurrent[::queenSideIndex(m_stm)]));
-
-				case +2:
+				case -2: // short castling
 					return setMoveColor(
 						Move::genCastling(from, m_castleRookCurrent[::kingSideIndex(m_stm)]));
+
+				case +2: // long castling
+					return setMoveColor(
+						Move::genCastling(from, m_castleRookCurrent[::queenSideIndex(m_stm)]));
 			}
 
 			return setMoveColor(Move::genKingMove(from, to, captured));

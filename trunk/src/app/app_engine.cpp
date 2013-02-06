@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 648 $
-// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
+// Version: $Revision: 651 $
+// Date   : $Date: 2013-02-06 15:25:49 +0000 (Wed, 06 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1639,9 +1639,7 @@ Engine::findVariation(db::Move const& move) const
 	{
 		MoveList const& moves = m_lines[i];
 
-		M_ASSERT(!moves.isEmpty());
-
-		if (moves.front() == move)
+		if (!moves.isEmpty() && moves.front() == move)
 			return i;
 	}
 

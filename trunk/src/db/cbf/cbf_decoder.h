@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 648 $
-// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
+// Version: $Revision: 651 $
+// Date   : $Date: 2013-02-06 15:25:49 +0000 (Wed, 06 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -58,14 +58,11 @@ private:
 	Decoder(Decoder const&);
 	Decoder& operator=(Decoder const&);
 
-	unsigned prepareDecoding(util::ByteStream& moveArea, util::ByteStream& textArea);
+	void prepareDecoding(util::ByteStream& moveArea, util::ByteStream& textArea);
 
 	void decodeAnnotation(util::ByteStream& strm);
-	void decodeVariation(util::ByteStream& moves, util::ByteStream& text, unsigned& remaining);
-	void decodeVariation(db::Consumer& consumer,
-								util::ByteStream& moves,
-								util::ByteStream& text,
-								unsigned& remaining);
+	void decodeVariation(util::ByteStream& moves, util::ByteStream& text);
+	void decodeVariation(db::Consumer& consumer, util::ByteStream& moves, util::ByteStream& text);
 
 	::db::MoveNode*	m_currentNode;
 	util::ByteStream&	m_strm;

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 648 $
-# Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
+# Version: $Revision: 651 $
+# Date   : $Date: 2013-02-06 15:25:49 +0000 (Wed, 06 Feb 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1027,13 +1027,11 @@
 ::application::analysis::mc::LinesPerVariation			"Rader per variant"
 ::application::analysis::mc::BestFirstOrder				"Sortera på  värdering"
 ::application::analysis::mc::Engine							"Motor" ;# NEW
+
 # Note for translators: don't use more than 4 characters
 ::application::analysis::mc::Ply								"ply" ;# NEW
-
-::application::analysis::mc::Seconds(short)				"s" ;# NEW
-::application::analysis::mc::Seconds(long)				"secs" ;# NEW
-::application::analysis::mc::Minutes(short)				"m" ;# NEW
-::application::analysis::mc::Minutes(long)				"mins" ;# NEW
+::application::analysis::mc::Seconds						"sec" ;# NEW
+::application::analysis::mc::Minutes						"min" ;# NEW
 
 ::application::analysis::mc::Status(checkmate)			"%s är matt"
 ::application::analysis::mc::Status(stalemate)			"%s är patt"

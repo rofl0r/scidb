@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 648 $
-// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
+// Version: $Revision: 651 $
+// Date   : $Date: 2013-02-06 15:25:49 +0000 (Wed, 06 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -75,9 +75,9 @@ PgnWriter::PgnWriter(format::Type srcFormat,
 	,m_needPostComment(false)
 	,m_hasPrecedingComment(false)
 {
-	M_REQUIRE(test(Flag_Use_Scidb_Import_Format) != test(Flag_Use_ChessBase_Format));
-	M_REQUIRE(test(Flag_Use_Scidb_Import_Format) != test(Flag_Strict_PGN_Standard));
-	M_REQUIRE(test(Flag_Use_ChessBase_Format) != test(Flag_Strict_PGN_Standard));
+	M_REQUIRE(!test(Flag_Use_Scidb_Import_Format) || !test(Flag_Use_ChessBase_Format));
+	M_REQUIRE(!test(Flag_Use_Scidb_Import_Format) || !test(Flag_Strict_PGN_Standard));
+	M_REQUIRE(!test(Flag_Use_ChessBase_Format) || !test(Flag_Strict_PGN_Standard));
 
 	if (test(Flag_Use_Scidb_Import_Format))
 	{

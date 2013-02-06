@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 648 $
-# Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
+# Version: $Revision: 651 $
+# Date   : $Date: 2013-02-06 15:25:49 +0000 (Wed, 06 Feb 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1020,12 +1020,10 @@
 ::application::analysis::mc::LinesPerVariation			"Lines per variation"
 ::application::analysis::mc::BestFirstOrder				"Sort by evaluation"
 ::application::analysis::mc::Engine							"Engine"
-::application::analysis::mc::Ply								"ply"
 
-::application::analysis::mc::Seconds(short)				"s"
-::application::analysis::mc::Seconds(long)				"secs"
-::application::analysis::mc::Minutes(short)				"m"
-::application::analysis::mc::Minutes(long)				"mins"
+::application::analysis::mc::Ply								"ply"
+::application::analysis::mc::Seconds						"sec"
+::application::analysis::mc::Minutes						"min"
 
 ::application::analysis::mc::Status(checkmate)			"%s is checkmate"
 ::application::analysis::mc::Status(stalemate)			"%s is stalemate"

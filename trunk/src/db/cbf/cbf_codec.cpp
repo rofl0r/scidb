@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 650 $
-// Date   : $Date: 2013-02-05 22:08:18 +0000 (Tue, 05 Feb 2013) $
+// Version: $Revision: 651 $
+// Date   : $Date: 2013-02-06 15:25:49 +0000 (Wed, 06 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -795,6 +795,13 @@ Codec::getSuffixes(mstl::string const&, StringList& result)
 	result.push_back("cbi");
 	result.push_back("cko");
 	result.push_back("cpo");
+}
+
+
+void
+Codec::reloadDescription(mstl::string const& rootname)
+{
+	// no action
 }
 
 // vi:set ts=3 sw=3:
