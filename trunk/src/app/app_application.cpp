@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 648 $
-// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
+// Version: $Revision: 652 $
+// Date   : $Date: 2013-02-06 18:13:10 +0000 (Wed, 06 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1086,6 +1086,9 @@ Application::switchBase(Cursor& cursor)
 	M_REQUIRE(contains(cursor));
 	M_REQUIRE(!cursor.isScratchbase());
 
+	if (m_current == &cursor)
+		return;
+
 	setActiveBase(&cursor);
 
 	if (	(m_switchReference || (!m_isUserSet && m_referenceBase->isClipbase()))
@@ -1388,6 +1391,9 @@ Application::releaseGame(unsigned position)
 
 	if (m_position == position)
 		m_position = m_fallbackPosition;
+
+	if (m_subscriber)
+		m_subscriber->gameClosed(position);
 }
 
 

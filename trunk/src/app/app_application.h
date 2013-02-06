@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 648 $
-// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
+// Version: $Revision: 652 $
+// Date   : $Date: 2013-02-06 18:13:10 +0000 (Wed, 06 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -120,6 +120,7 @@ public:
 		virtual void updateGameData(unsigned position, bool evenMainline) = 0;
 
 		virtual void gameSwitched(unsigned position) = 0;
+		virtual void gameClosed(unsigned position) = 0;
 		virtual void databaseSwitched(mstl::string const& name, db::variant::Type variant) = 0;
 		virtual void updateTree(mstl::string const& name, db::variant::Type variant) = 0;
 		virtual void closeDatabase(mstl::string const& name, db::variant::Type variant) = 0;

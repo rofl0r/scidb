@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 648 $
-# Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
+# Version: $Revision: 652 $
+# Date   : $Date: 2013-02-06 18:13:10 +0000 (Wed, 06 Feb 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -333,6 +333,7 @@ proc build {w width height} {
 	ConfigureBoard $canv
 
 	::scidb::db::subscribe gameSwitch [namespace current]::GameSwitched
+	::scidb::db::subscribe gameClose [namespace current]::GameClosed
 	::scidb::db::subscribe databaseSwitch [namespace current]::DatabaseSwitched
 	::scidb::db::subscribe dbInfo [namespace current]::UpdateInfo
 }
@@ -1350,6 +1351,13 @@ proc GameSwitched {position} {
 	if {$layout ne $Vars(layout)} {
 		set Vars(layout) $layout
 		Apply
+	}
+}
+
+
+proc GameClosed {position} {
+	if {$position < 9} {
+		Unsubscribe $position
 	}
 }
 
