@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 651 $
-// Date   : $Date: 2013-02-06 15:25:49 +0000 (Wed, 06 Feb 2013) $
+// Version: $Revision: 653 $
+// Date   : $Date: 2013-02-07 17:17:24 +0000 (Thu, 07 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -133,7 +133,7 @@ Decoder::decodeAnnotation(ByteStream& strm)
 			nag::EquivalentMove,
 			nag::BetterMove,
 			nag::WorseMove,
-			// we will ignore "Break"
+			nag::Null,	// ignore "Break"
 		};
 
 		if (remark <= U_NUMBER_OF(Lookup))

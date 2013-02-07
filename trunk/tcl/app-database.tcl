@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 651 $
-# Date   : $Date: 2013-02-06 15:25:49 +0000 (Wed, 06 Feb 2013) $
+# Version: $Revision: 653 $
+# Date   : $Date: 2013-02-07 17:17:24 +0000 (Thu, 07 Feb 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1262,15 +1262,17 @@ proc PopupMenu {parent x y {base ""}} {
 					-state $state \
 					;
 
-				if {!$isClipbase} {
-					if {[::scidb::db::get compact? $base]} { set state normal } else { set state disabled }
-					$maint add command \
-						-label " $mc::FileCompact..." \
-						-image $::icon::16x16::none \
-						-compound left \
-						-command [namespace code [list Compact $top $base]] \
-						-state $state \
+				if {[::scidb::db::get compact? $base $Vars(variant)]} {
+					set state normal
+				} else {
+					set state disabled
 				}
+				$maint add command \
+					-label " $mc::FileCompact..." \
+					-image $::icon::16x16::none \
+					-compound left \
+					-command [namespace code [list Compact $top $base]] \
+					-state $state \
 			}
 		}
 

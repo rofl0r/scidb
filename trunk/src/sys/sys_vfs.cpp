@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 653 $
+// Date   : $Date: 2013-02-07 17:17:24 +0000 (Thu, 07 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -35,7 +35,7 @@ sys::vfs::freeSize(mstl::string const& path)
 	return result ? availableForUser : int64_t(-1);
 }
 
-#elif defined(__unix__)
+#elif defined(__unix__) || defined(__MacOSX__)
 
 # if defined(HAVE_STATVFS)
 

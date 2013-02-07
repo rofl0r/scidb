@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 617 $
-# Date   : $Date: 2013-01-08 11:41:26 +0000 (Tue, 08 Jan 2013) $
+# Version: $Revision: 653 $
+# Date   : $Date: 2013-02-07 17:17:24 +0000 (Thu, 07 Feb 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -365,9 +365,9 @@ proc clear {path {first -1} {last -1}} {
 	set table $path.top.table
 	variable ${table}::Vars
 
+	::table::clear $table $first $last
 	ConfigureScrollbar $table
 	ConfigureScale $table
-	::table::clear $table $first $last
 }
 
 

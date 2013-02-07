@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 653 $
+// Date   : $Date: 2013-02-07 17:17:24 +0000 (Thu, 07 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -202,7 +202,10 @@ size_t
 istream::readsome(char* buf, size_t size)
 {
 	if (eof())
+	{
+		setstate(failbit);
 		return 0;
+	}
 
 	size_t bytes_read = fread(buf, 1, size, m_fp);
 

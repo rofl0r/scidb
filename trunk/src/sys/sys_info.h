@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 653 $
+// Date   : $Date: 2013-02-07 17:17:24 +0000 (Thu, 07 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -19,10 +19,15 @@
 #ifndef _sys_info_included
 #define _sys_info_included
 
+#include "m_types.h"
+
 namespace sys {
 namespace info {
 
 unsigned numberOfProcessors();
+
+int64_t memFree();
+int64_t memTotal();
 
 } // namespace info
 } // namespace sys

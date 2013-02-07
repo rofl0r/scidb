@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 652 $
-// Date   : $Date: 2013-02-06 18:13:10 +0000 (Wed, 06 Feb 2013) $
+// Version: $Revision: 653 $
+// Date   : $Date: 2013-02-07 17:17:24 +0000 (Thu, 07 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2752,7 +2752,7 @@ cmdGet(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 		Cmd_Deleted, Cmd_Open, Cmd_LastChange, Cmd_CustomFlags, Cmd_GameFlags, Cmd_GameNumber,
 		Cmd_MinYear, Cmd_MaxYear, Cmd_MaxUsage, Cmd_Tags, Cmd_Checksum, Cmd_Idn, Cmd_Eco, Cmd_RatingTypes,
 		Cmd_LookupPlayer, Cmd_LookupEvent, Cmd_LookupSite, Cmd_Writeable, Cmd_Upgrade, Cmd_MemoryOnly,
-		Cmd_Compress, Cmd_PlayerKey, Cmd_EventKey, Cmd_SiteKey, Cmd_Variants,
+		Cmd_Compact, Cmd_PlayerKey, Cmd_EventKey, Cmd_SiteKey, Cmd_Variants,
 	};
 
 	if (objc < 2)
@@ -3185,9 +3185,14 @@ cmdGet(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 			return TCL_OK;
 		}
 
-		case Cmd_Compress:
-			setResult(Scidb->cursor(stringFromObj(objc, objv, 2)).database().shouldCompress());
+		case Cmd_Compact:
+		{
+			char const*		database(stringFromObj(objc, objv, 2));
+			variant::Type	variant(tcl::game::variantFromObj(objc, objv, 3));
+
+			setResult(Scidb->cursor(database, variant).database().shouldCompress());
 			return TCL_OK;
+		}
 
 		case Cmd_PlayerKey:
 		{

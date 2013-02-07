@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 609 $
-# Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+# Version: $Revision: 653 $
+# Date   : $Date: 2013-02-07 17:17:24 +0000 (Thu, 07 Feb 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -455,7 +455,7 @@ proc BuildSystemFrame {w} {
 	global tcl_platform
 
 	set padding 40
-	set total [::system::memTotal]
+	set total [::scidb::misc::memTotal]
 	if {$total == -1} { set total "" }
 	
 	set xft ""

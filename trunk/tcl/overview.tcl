@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 648 $
-# Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
+# Version: $Revision: 653 $
+# Date   : $Date: 2013-02-07 17:17:24 +0000 (Thu, 07 Feb 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -225,7 +225,9 @@ proc UpdateData {nb id evenMainline} {
 	variable Options
 
 	if {$evenMainline} {
-		if {$Vars(link) eq [::scidb::game::link? $id]} {
+		lassign [::scidb::game::link? $id] base variant index
+		set link [list $base [::util::toMainVariant $variant] $index]
+		if {$Vars(link) eq $link} {
 			set Vars(modified) 1
 			set background $Options(background:modified)
 			foreach text $Vars(text) {

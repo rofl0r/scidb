@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 652 $
-// Date   : $Date: 2013-02-06 18:13:10 +0000 (Wed, 06 Feb 2013) $
+// Version: $Revision: 653 $
+// Date   : $Date: 2013-02-07 17:17:24 +0000 (Thu, 07 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1085,9 +1085,6 @@ Application::switchBase(Cursor& cursor)
 {
 	M_REQUIRE(contains(cursor));
 	M_REQUIRE(!cursor.isScratchbase());
-
-	if (m_current == &cursor)
-		return;
 
 	setActiveBase(&cursor);
 

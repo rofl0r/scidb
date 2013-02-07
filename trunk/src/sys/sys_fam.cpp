@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 653 $
+// Date   : $Date: 2013-02-07 17:17:24 +0000 (Thu, 07 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -154,6 +154,8 @@ Monitor::isSupported()
 # error "Mac support not yet implemented"
 
 #elif !defined(HAVE_INOTIFY) && defined(HAVE_LIBFAM) ////////////////////
+
+// IMPORTANT NOTE: FAM should not be used because some FAM libraries are broken.
 
 #include <fam.h>
 #include <errno.h>

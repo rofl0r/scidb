@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 650 $
-// Date   : $Date: 2013-02-05 22:08:18 +0000 (Tue, 05 Feb 2013) $
+// Version: $Revision: 653 $
+// Date   : $Date: 2013-02-07 17:17:24 +0000 (Thu, 07 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1372,6 +1372,9 @@ cmdNew(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 
 	if (objc > 2)
 		type = tcl::game::variantFromObj(objv[2]);
+
+	if (type == variant::Antichess)
+		type = variant::Suicide;
 
 	scidb->newGame(view, type);
 	return TCL_OK;
