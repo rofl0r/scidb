@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 653 $
-// Date   : $Date: 2013-02-07 17:17:24 +0000 (Thu, 07 Feb 2013) $
+// Version: $Revision: 657 $
+// Date   : $Date: 2013-02-08 22:07:00 +0000 (Fri, 08 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -75,6 +75,9 @@ Decoder::Decoder(util::ByteStream& strm, sys::utf8::Codec& codec)
 void
 Decoder::decodeAnnotation(ByteStream& strm)
 {
+	if (!strm.remaining())
+		return; // Cb3.exe: "Formaterror in annotations"
+
 	if (Byte evaluation = strm.get())
 	{
 		static nag::ID Lookup[] =
@@ -114,7 +117,7 @@ Decoder::decodeAnnotation(ByteStream& strm)
 			nag::Initiative,
 			nag::Attack,
 			nag::Zeitnot,
-			nag::ForcedMove,
+			nag::SingularMove,
 		};
 
 		if (estimation <= U_NUMBER_OF(Lookup))

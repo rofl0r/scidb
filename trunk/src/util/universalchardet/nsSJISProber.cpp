@@ -1,7 +1,7 @@
 /* ======================================================================
  * Author : $Author$
- * Version: $Revision: 102 $
- * Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
+ * Version: $Revision: 657 $
+ * Date   : $Date: 2013-02-08 22:07:00 +0000 (Fri, 08 Feb 2013) $
  * Url    : $URL$
  * ====================================================================== */
 /* ***** BEGIN LICENSE BLOCK *****
@@ -50,7 +50,7 @@
 
 void  nsSJISProber::Reset(void)
 {
-  mCodingSM->Reset(); 
+  mCodingSM->Reset();
   mState = eDetecting;
   mContextAnalyser.Reset(mIsPreferredLanguage);
   mDistributionAnalyser.Reset(mIsPreferredLanguage);
@@ -97,6 +97,12 @@ nsProbingState nsSJISProber::HandleData(const char* aBuf, PRUint32 aLen)
 
 float nsSJISProber::GetConfidence(void)
 {
+  // XXX Grgor Cramer
+  // Sometimes this prober is detecting incorrectly.
+  // Does this hack solve the problem?
+  if (mState != eFoundIt)
+    return 0.0;
+
   float contxtCf = mContextAnalyser.GetConfidence();
   float distribCf = mDistributionAnalyser.GetConfidence();
 

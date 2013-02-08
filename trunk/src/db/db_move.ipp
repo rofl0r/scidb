@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 648 $
-// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
+// Version: $Revision: 657 $
+// Date   : $Date: 2013-02-08 22:07:00 +0000 (Fri, 08 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -106,6 +106,7 @@ inline void Move::setNeedsFyle()					{ u |= Bit_Fyle; }
 inline void Move::setNeedsRank()					{ u |= Bit_Rank; }
 inline void Move::setNeedsDestinationSquare(){ m |= Bit_Destination; }
 inline void Move::setPrintable()					{ u |= Bit_Printable; }
+inline void Move::unsetEnPassant()				{ m &= ~Bit_EnPassant; }
 
 
 inline

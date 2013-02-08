@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 653 $
-// Date   : $Date: 2013-02-07 17:17:24 +0000 (Thu, 07 Feb 2013) $
+// Version: $Revision: 657 $
+// Date   : $Date: 2013-02-08 22:07:00 +0000 (Fri, 08 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -463,6 +463,7 @@ Application::insertScratchGame(unsigned position, db::variant::Type variant)
 	}
 	else
 	{
+		game.game->finishLoad(variant);
 		index = i->second;
 	}
 

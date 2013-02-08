@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 657 $
+// Date   : $Date: 2013-02-08 22:07:00 +0000 (Fri, 08 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -296,6 +296,8 @@ public:
 	void setSquares(uint32_t from, uint32_t to);
 	/// Transpose fyle.
 	void transpose();
+	/// Reset en passant marker.
+	void unsetEnPassant();
 
 	/// Returns an empty move.
 	static Move const& empty();

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 648 $
-// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
+// Version: $Revision: 657 $
+// Date   : $Date: 2013-02-08 22:07:00 +0000 (Fri, 08 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -150,8 +150,8 @@ Database::Database(mstl::string const& name, mstl::string const& encoding)
 Database::Database(	mstl::string const& name,
 							mstl::string const& encoding,
 							storage::Type storage,
-							Type type,
-							variant::Type variant)
+							variant::Type variant,
+							Type type)
 	:DatabaseContent(encoding, type)
 	,m_codec(DatabaseCodec::makeCodec(name, DatabaseCodec::New))
 	,m_name(name)

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 648 $
-// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
+// Version: $Revision: 657 $
+// Date   : $Date: 2013-02-08 22:07:00 +0000 (Fri, 08 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -33,8 +33,8 @@ inline unsigned Position::variationLevel() const { return m_stack.size() - 1; }
 inline void Position::push()						{ m_stack.dup(); }
 inline void Position::pop()						{ m_stack.pop(); }
 
-inline Board const& Position::board() const	{ return m_stack.top(); }
-inline Board& Position::board()					{ return m_stack.top(); }
+inline Board const& Position::board() const	{ return m_stack.top().board; }
+inline Board& Position::board()					{ return m_stack.top().board; }
 
 } // namespace decoder
 } // namespace cbf

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 648 $
-// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
+// Version: $Revision: 657 $
+// Date   : $Date: 2013-02-08 22:07:00 +0000 (Fri, 08 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -673,8 +673,8 @@ View::exportGames(mstl::string const& filename,
 		Database destination(filename,
 									sys::utf8::Codec::utf8(),
 									storage::OnDisk,
-									type,
-									m_cursor.m_db->variant());
+									m_cursor.m_db->variant(),
+									type);
 		destination.setDescription(description);
 		progress.message("write-game");
 
@@ -701,8 +701,8 @@ View::exportGames(mstl::string const& filename,
 		Database destination(filename,
 									sys::utf8::Codec::utf8(),
 									storage::OnDisk,
-									type,
-									m_cursor.m_db->variant());
+									m_cursor.m_db->variant(),
+									type);
 		destination.setDescription(description);
 
 //		We do not use speed up because the scid bases created with the Scid application
