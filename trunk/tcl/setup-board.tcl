@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 639 $
-# Date   : $Date: 2013-01-23 20:50:00 +0000 (Wed, 23 Jan 2013) $
+# Version: $Revision: 658 $
+# Date   : $Date: 2013-02-15 07:42:46 +0000 (Fri, 15 Feb 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -603,6 +603,9 @@ proc open {parent} {
 
 		set Vars(widget:checks:w) $checks.valw
 		set Vars(widget:checks:b) $checks.valb
+	} else {
+		set Vars(checks:w) 0
+		set Vars(checks:b) 0
 	}
 
 	# layout controls #########################################
