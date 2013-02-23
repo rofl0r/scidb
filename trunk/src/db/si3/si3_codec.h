@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 648 $
-// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
+// Version: $Revision: 661 $
+// Date   : $Date: 2013-02-23 23:03:04 +0000 (Sat, 23 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -98,6 +98,7 @@ public:
 	void doOpen(mstl::string const& encoding) override;
 	void doOpen(mstl::string const& rootname, mstl::string const& encoding) override;
 	void doOpen(mstl::string const& rootname,
+					mstl::string const& originalSuffix,
 					mstl::string const& encoding,
 					util::Progress& progress) override;
 	void doClear(mstl::string const& rootname) override;
@@ -113,7 +114,9 @@ public:
 	void update(mstl::string const& rootname, unsigned index, bool updateNamebase) override;
 	void updateHeader(mstl::string const& rootname) override;
 	void reloadDescription(mstl::string const& rootname) override;
-	void reloadNamebases(mstl::string const& rootname, util::Progress& progress) override;
+	void reloadNamebases(mstl::string const& rootname,
+								mstl::string const& originalSuffix,
+								util::Progress& progress) override;
 	void close() override;
 	void sync() override;
 	void removeAllFiles(mstl::string const& rootname) override;

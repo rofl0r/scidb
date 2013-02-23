@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 635 $
-// Date   : $Date: 2013-01-20 22:09:56 +0000 (Sun, 20 Jan 2013) $
+// Version: $Revision: 661 $
+// Date   : $Date: 2013-02-23 23:03:04 +0000 (Sat, 23 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -3087,7 +3087,7 @@ Player::emitPlayerCard(	TeXt::Receptacle& receptacle,
 		List ecoLine(new ListToken);
 		mstl::string line;
 		Eco code(stats.ecoLine(color::White, i));
-		ecoTable.getLine(code).print(line, variant::Normal);
+		ecoTable.getLine(code).print(line, variant::Normal, protocol::Standard);
 		ecoLine->append(code.asString());
 		ecoLine->append(Value(stats.ecoCount(color::White, i)));
 		ecoLine->append(line);
@@ -3100,7 +3100,7 @@ Player::emitPlayerCard(	TeXt::Receptacle& receptacle,
 		List ecoLine(new ListToken);
 		mstl::string line;
 		Eco code(stats.ecoLine(color::Black, i));
-		ecoTable.getLine(code).print(line, variant::Normal);
+		ecoTable.getLine(code).print(line, variant::Normal, protocol::Standard);
 		ecoLine->append(code.asString());
 		ecoLine->append(Value(stats.ecoCount(color::Black, i)));
 		ecoLine->append(line);

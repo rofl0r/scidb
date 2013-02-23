@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 657 $
-// Date   : $Date: 2013-02-08 22:07:00 +0000 (Fri, 08 Feb 2013) $
+// Version: $Revision: 661 $
+// Date   : $Date: 2013-02-23 23:03:04 +0000 (Sat, 23 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -140,6 +140,8 @@ public:
 	Type type() const;
 	/// Return the variant of this database (may be undetermined if database is empty)
 	variant::Type variant() const;
+	/// Return the variant of specified game number
+	variant::Type variant(unsigned index) const;
 	/// Returns the (decoding) format of database
 	Format format() const;
 	/// Returns the encoding of database

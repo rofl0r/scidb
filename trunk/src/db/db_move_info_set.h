@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 661 $
+// Date   : $Date: 2013-02-23 23:03:04 +0000 (Sat, 23 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -43,13 +43,11 @@ class MoveInfoSet
 {
 public:
 
-	MoveInfoSet();
-
 	bool isEmpty() const;
 
 	unsigned count() const;
+
 	::util::crc::checksum_t computeChecksum(EngineList const& engines, util::crc::checksum_t crc) const;
-	int findElapsedMilliSeconds() const;
 
 	MoveInfo const& operator[](unsigned n) const;
 	MoveInfo& operator[](unsigned n);
@@ -57,7 +55,6 @@ public:
 	MoveInfo& add();
 	MoveInfo& add(MoveInfo const& info);
 
-	void remove(unsigned n);
 	void resize(unsigned n);
 	void reserve(unsigned n);
 	void swap(MoveInfoSet& row);

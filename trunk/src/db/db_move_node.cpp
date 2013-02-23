@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 648 $
-// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
+// Version: $Revision: 661 $
+// Date   : $Date: 2013-02-23 23:03:04 +0000 (Sat, 23 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1065,13 +1065,17 @@ MoveNode::updateFromTimeTable(TimeTable const& timeTable)
 
 	unsigned i = 0;
 
-	for (MoveNode* p = m_next; p; p = p->m_next, ++i)
+	for (MoveNode* p = m_next; p && i < timeTable.size(); p = p->m_next, ++i)
 	{
-		if (i == timeTable.size())
-			return;
+		MoveInfoSet const& moveInfoSet = timeTable[i];
 
-		if (!timeTable[i].isEmpty())
-			p->addMoveInfo(timeTable[i]);
+		for (unsigned i = 0; i < MoveInfo::LAST; ++i)
+		{
+			MoveInfo const& moveInfo = moveInfoSet[i];
+
+			if (!moveInfo.isEmpty())
+				p->addMoveInfo(moveInfo);
+		}
 	}
 }
 

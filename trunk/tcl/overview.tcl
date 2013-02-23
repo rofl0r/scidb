@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 653 $
-# Date   : $Date: 2013-02-07 17:17:24 +0000 (Thu, 07 Feb 2013) $
+# Version: $Revision: 661 $
+# Date   : $Date: 2013-02-23 23:03:04 +0000 (Sat, 23 Feb 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -221,6 +221,8 @@ proc Update2 {nb} {
 
 
 proc UpdateData {nb id evenMainline} {
+	if {![info exists ${nb}::Vars]} { return }
+
 	variable ${nb}::Vars
 	variable Options
 

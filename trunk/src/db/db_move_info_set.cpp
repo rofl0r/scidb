@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 643 $
-// Date   : $Date: 2013-01-29 13:15:54 +0000 (Tue, 29 Jan 2013) $
+// Version: $Revision: 661 $
+// Date   : $Date: 2013-02-23 23:03:04 +0000 (Sat, 23 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -339,7 +339,6 @@ MoveInfoSet::extractFromComment(EngineList& engineList, mstl::string& comment)
 
 			if (e && ::isDelim(::skipSpaces(e)))
 			{
-				add(info);
 				s = e;
 				rc = true;
 			}
@@ -445,27 +444,6 @@ MoveInfoSet::computeChecksum(EngineList const& engines, util::crc::checksum_t cr
 		crc = m_row[i].computeChecksum(engines, crc);
 
 	return crc;
-}
-
-
-int
-MoveInfoSet::findElapsedMilliSeconds() const
-{
-	for (unsigned i = 0; i < m_row.size(); ++i)
-	{
-		if (m_row[i].content() == MoveInfo::ElapsedMilliSeconds)
-			return i;
-	}
-
-	return -1;
-}
-
-
-void
-MoveInfoSet::remove(unsigned n)
-{
-	M_REQUIRE(n < count());
-	m_row.erase(m_row.begin() + n);
 }
 
 // vi:set ts=3 sw=3:

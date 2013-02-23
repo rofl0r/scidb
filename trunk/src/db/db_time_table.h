@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 631 $
-// Date   : $Date: 2013-01-11 16:16:29 +0000 (Fri, 11 Jan 2013) $
+// Version: $Revision: 661 $
+// Date   : $Date: 2013-02-23 23:03:04 +0000 (Sat, 23 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -27,7 +27,7 @@
 #ifndef _db_time_table_included
 #define _db_time_table_included
 
-#include "db_move_info.h"
+#include "db_move_info_set.h"
 
 #include "m_vector.h"
 
@@ -37,23 +37,34 @@ class TimeTable
 {
 public:
 
-	MoveInfo const& operator[](unsigned index) const;
+	TimeTable();
+
+	MoveInfoSet const& operator[](unsigned index) const;
 
 	bool isEmpty() const;
 
 	unsigned size() const;
+	unsigned size(unsigned col) const;
+	unsigned columns() const;
+	unsigned types() const;
+
+	MoveInfo const& get(unsigned index, MoveInfo::Type type) const;
 
 	void clear();
 	void cut(unsigned newSize);
 	void reserve(unsigned capacity);
-	void add(MoveInfo const& moveInfo);
+	void ensure(unsigned size);
 	void set(unsigned index, MoveInfo const& moveInfo);
+	void set(unsigned index, MoveInfoSet const& moveInfoSet);
+	void swap(TimeTable& table);
 
 private:
 
-	typedef mstl::vector<MoveInfo> Table;
+	typedef mstl::vector<MoveInfoSet> Table;
 
-	Table m_table;
+	Table		m_table;
+	unsigned	m_types;
+	unsigned	m_size[MoveInfo::LAST];
 };
 
 } // namespace db

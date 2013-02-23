@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 649 $
-// Date   : $Date: 2013-02-05 21:57:09 +0000 (Tue, 05 Feb 2013) $
+// Version: $Revision: 661 $
+// Date   : $Date: 2013-02-23 23:03:04 +0000 (Sat, 23 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -924,7 +924,10 @@ Codec::makeCodec(mstl::string const& name)
 
 
 void
-Codec::doOpen(mstl::string const& rootname, mstl::string const& encoding, util::Progress& progress)
+Codec::doOpen(	mstl::string const& rootname,
+					mstl::string const& originalSuffix,
+					mstl::string const& encoding,
+					util::Progress& progress)
 {
 //	M_REQUIRE(encoding == sys::utf8::Codec::utf8());
 	M_ASSERT(m_gameData == 0);

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 632 $
-// Date   : $Date: 2013-01-12 23:18:00 +0000 (Sat, 12 Jan 2013) $
+// Version: $Revision: 661 $
+// Date   : $Date: 2013-02-23 23:03:04 +0000 (Sat, 23 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -162,8 +162,8 @@ public:
 	void set_size(size_type n);
 	void make_writable();
 
-	string& tolower();
-	string& toupper();
+	string& tolower(size_type pos = 0, size_type len = npos);
+	string& toupper(size_type pos = 0, size_type len = npos);
 
 	iterator erase(const_iterator start, size_type n = 1);
 	iterator erase(const_iterator first, const_iterator last);

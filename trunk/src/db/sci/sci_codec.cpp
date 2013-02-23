@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 648 $
-// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
+// Version: $Revision: 661 $
+// Date   : $Date: 2013-02-23 23:03:04 +0000 (Sat, 23 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -862,10 +862,14 @@ Codec::makeCodec(mstl::string const& name)
 
 
 void
-Codec::doOpen(mstl::string const& rootname, mstl::string const& encoding, util::Progress& progress)
+Codec::doOpen(	mstl::string const& rootname,
+					mstl::string const& originalSuffix,
+					mstl::string const& encoding,
+					util::Progress& progress)
 {
 //	M_REQUIRE(encoding == sys::utf8::Codec::utf8());
 	M_ASSERT(m_gameData == 0);
+	M_ASSERT(originalSuffix == "sci");
 
 	mstl::string indexFilename(rootname + ".sci");
 	mstl::string gameFilename(rootname + ".scg");
@@ -2382,6 +2386,8 @@ Codec::getAttributes(mstl::string const& filename,
 							uint32_t& creationTime,
 							mstl::string* description)
 {
+	M_REQUIRE(util::misc::file::suffix(filename) == "sci");
+
 	mstl::fstream strm(sys::file::internalName(filename), mstl::ios_base::in | mstl::ios_base::binary);
 
 	if (!strm)

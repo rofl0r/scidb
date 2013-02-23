@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 634 $
-// Date   : $Date: 2013-01-16 09:35:47 +0000 (Wed, 16 Jan 2013) $
+// Version: $Revision: 661 $
+// Date   : $Date: 2013-02-23 23:03:04 +0000 (Sat, 23 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1275,11 +1275,15 @@ string::toArabic(size_type pos, size_type len) const
 
 
 string&
-string::tolower()
+string::tolower(size_type pos, size_type len)
 {
-	char *s = m_data;
+	M_REQUIRE(pos <= m_size);
+	M_REQUIRE(len == npos || pos + len <= m_size);
 
-	for ( ; *s; ++s)
+	char* s = m_data + pos;
+	char* e = (len == npos) ? m_data + m_size : s + len;
+
+	for ( ; s < e; ++s)
 		*s = ::tolower(*s);
 
 	return *this;
@@ -1287,11 +1291,15 @@ string::tolower()
 
 
 string&
-string::toupper()
+string::toupper(size_type pos, size_type len)
 {
-	char *s = m_data;
+	M_REQUIRE(pos <= m_size);
+	M_REQUIRE(len == npos || pos + len <= m_size);
 
-	for ( ; *s; ++s)
+	char* s = m_data + pos;
+	char* e = (len == npos) ? m_data + m_size : s + len;
+
+	for ( ; s < e; ++s)
 		*s = ::toupper(*s);
 
 	return *this;

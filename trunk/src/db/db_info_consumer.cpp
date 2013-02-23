@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 661 $
+// Date   : $Date: 2013-02-23 23:03:04 +0000 (Sat, 23 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -47,10 +47,10 @@ InfoConsumer::sendComment(Comment const&)
 }
 
 
-void
+bool
 InfoConsumer::preparseComment(mstl::string& comment)
 {
-	m_moveInfoSet.extractFromComment(m_engines, comment);
+	return m_moveInfoSet.extractFromComment(m_engines, comment);
 }
 
 // vi:set ts=3 sw=3:

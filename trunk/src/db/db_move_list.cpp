@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 661 $
+// Date   : $Date: 2013-02-23 23:03:04 +0000 (Sat, 23 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -142,7 +142,7 @@ MoveList::print(mstl::string& result, unsigned halfMoveNo) const
 	if (mstl::is_odd(halfMoveNo))
 		result.append("..", 2);
 
-	move.printSan(result, encoding::Utf8);
+	move.printSan(result, protocol::Scidb, encoding::Utf8);
 	++halfMoveNo;
 
 	for (unsigned i = 1; i < m_size; ++i, ++halfMoveNo)
@@ -157,7 +157,7 @@ MoveList::print(mstl::string& result, unsigned halfMoveNo) const
 			result.append('.');
 		}
 
-		move.printSan(result, encoding::Utf8);
+		move.printSan(result, protocol::Scidb, encoding::Utf8);
 	}
 }
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 657 $
-// Date   : $Date: 2013-02-08 22:07:00 +0000 (Fri, 08 Feb 2013) $
+// Version: $Revision: 661 $
+// Date   : $Date: 2013-02-23 23:03:04 +0000 (Sat, 23 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -264,21 +264,22 @@ public:
 	bool needsDestinationSquare() const;
 
 	/// Print algebraic form.
-	mstl::string& printAlgebraic(mstl::string& s, encoding::CharSet charSet = encoding::Latin1) const;
+	mstl::string& printAlgebraic(mstl::string& s, protocol::ID protocol, encoding::CharSet charSet) const;
 	/// Print LAN (long algebraic noatation).
-	mstl::string& printLan(mstl::string& s, encoding::CharSet charSet = encoding::Latin1) const;
+	mstl::string& printLan(mstl::string& s, protocol::ID protocol, encoding::CharSet charSet) const;
 	/// Print SAN (short algebraic noatation).
-	mstl::string& printSan(mstl::string& s, encoding::CharSet charSet = encoding::Latin1) const;
+	mstl::string& printSan(mstl::string& s, protocol::ID protocol, encoding::CharSet charSet) const;
 	/// Print descriptive (english) form.
 	mstl::string& printDescriptive(mstl::string& s) const;
 	/// Print correspondence form.
 	mstl::string& printNumeric(mstl::string& s) const;
 	/// Print telegraphic form.
-	mstl::string& printAlphabetic(mstl::string& s, encoding::CharSet charSet = encoding::Latin1) const;
+	mstl::string& printAlphabetic(mstl::string& s, encoding::CharSet charSet) const;
 	/// Print in given notation style.
 	mstl::string& print(	mstl::string& s,
 								move::Notation style,
-								encoding::CharSet charSet = encoding::Latin1) const;
+								protocol::ID protocol,
+								encoding::CharSet charSet) const;
 	/// Print in given notation style.
 	mstl::string& printForDisplay(mstl::string& s, move::Notation style) const;
 

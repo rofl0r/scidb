@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 651 $
-// Date   : $Date: 2013-02-06 15:25:49 +0000 (Wed, 06 Feb 2013) $
+// Version: $Revision: 661 $
+// Date   : $Date: 2013-02-23 23:03:04 +0000 (Sat, 23 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -641,7 +641,7 @@ PgnWriter::writeMove(Move const& move,
 		m_move += moveNumber;
 	}
 
-	move.printSan(m_move);
+	move.printSan(m_move, protocol::Standard, encoding::Latin1);
 
 	if (!annotation.isEmpty())
 	{

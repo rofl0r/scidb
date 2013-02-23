@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 643 $
-// Date   : $Date: 2013-01-29 13:15:54 +0000 (Tue, 29 Jan 2013) $
+// Version: $Revision: 661 $
+// Date   : $Date: 2013-02-23 23:03:04 +0000 (Sat, 23 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -151,6 +151,7 @@ private:
 	unsigned blockNumber(unsigned fileOffset) const;
 	unsigned blockOffset(unsigned fileOffset) const;
 	unsigned fileOffset(unsigned blockNumber) const;
+	unsigned computeCapacity(unsigned span) const;
 
 	void computeBlockCount();
 	unsigned fetch(View& view, unsigned blockNumber, unsigned span = 1);

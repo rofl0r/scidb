@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 648 $
-# Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
+# Version: $Revision: 661 $
+# Date   : $Date: 2013-02-23 23:03:04 +0000 (Sat, 23 Feb 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -484,7 +484,7 @@ proc Import {parent base files msg encoding} {
 	::log::open $mc::DatabaseImport
 	switch $codec {
 		si3 - si4 {
-			set fileEncoding [::scidb::db::get encoding]
+			set fileEncoding [::scidb::db::get encoding $base]
 			if {$encoding ne $::encoding::autoEncoding && $encoding ne $fileEncoding} {
 				set ask [string map [list %src $encoding %dst $fileEncoding] $mc::DifferentEncoding]
 				set reply [::dialog::warning \

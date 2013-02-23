@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 643 $
-// Date   : $Date: 2013-01-29 13:15:54 +0000 (Tue, 29 Jan 2013) $
+// Version: $Revision: 661 $
+// Date   : $Date: 2013-02-23 23:03:04 +0000 (Sat, 23 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -58,6 +58,8 @@ public:
 		ClockTime,
 		CorrespondenceChessSent,
 		VideoTime,
+
+		LAST = VideoTime,
 	};
 
 	enum Format
@@ -106,7 +108,8 @@ public:
 	char const* parseVideoTime(char const* s);
 
 	static bool isMoveInfo(unsigned char firstByte);
-	static Type type(unsigned char const firstByte);
+	static Type type(unsigned char firstByte);
+	static unsigned length(unsigned char firstByte);
 	static void skip(util::ByteStream& strm);
 	static unsigned char const* skip(unsigned char const* strm);
 

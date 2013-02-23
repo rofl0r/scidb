@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 651 $
-// Date   : $Date: 2013-02-06 15:25:49 +0000 (Wed, 06 Feb 2013) $
+// Version: $Revision: 661 $
+// Date   : $Date: 2013-02-23 23:03:04 +0000 (Sat, 23 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1160,13 +1160,11 @@ Engine::startAnalysis(Game* game)
 
 	m_usedMultiPV = 0;
 	m_restart = false;
-	m_gameId = game->id();
 
 	if (isNew)
 	{
 		if (!(supportedVariants() & ::toVariant(game->variant())))
 		{
-			m_gameId = unsigned(-1);
 			error(::toError(game->variant()));
 			return false;
 		}
@@ -1181,7 +1179,6 @@ Engine::startAnalysis(Game* game)
 			{
 				if (!hasVariant(Variant_Chess_960))
 				{
-					m_gameId = unsigned(-1);
 					error(Chess_960_Not_Supported);
 					return false;
 				}
@@ -1192,7 +1189,6 @@ Engine::startAnalysis(Game* game)
 
 		if (m_currentVariant == Variant_Standard && !hasVariant(Variant_Standard))
 		{
-			m_gameId = unsigned(-1);
 			error(Standard_Chess_Not_Supported);
 			return false;
 		}
@@ -1202,6 +1198,8 @@ Engine::startAnalysis(Game* game)
 		if (m_engine->m_board.isEqualZHPosition(game->currentBoard()))
 			return true;
 	}
+
+	m_gameId = game->id();
 
 	if (m_engine->isReady())
 	{

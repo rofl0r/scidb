@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 661 $
+// Date   : $Date: 2013-02-23 23:03:04 +0000 (Sat, 23 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -161,7 +161,7 @@ PdfWriter::writeMove(Move const& move,
 
 	if (m_font[Move_Figurine_MainLine])
 	{
-		move.printSan(str, encoding::Utf8);
+		move.printSan(str, protocol::Standard, encoding::Utf8);
 		char const* s = str;
 
 		while (*s)
@@ -189,7 +189,7 @@ PdfWriter::writeMove(Move const& move,
 	}
 	else
 	{
-		move.printSan(str, encoding::Latin1);
+		move.printSan(str, protocol::Standard, encoding::Latin1);
 		setFont(Move_Text_Variation);
 		HPDF_Page_ShowText(m_page, str, str.size());
 	}

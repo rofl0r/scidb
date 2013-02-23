@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 649 $
-// Date   : $Date: 2013-02-05 21:57:09 +0000 (Tue, 05 Feb 2013) $
+// Version: $Revision: 661 $
+// Date   : $Date: 2013-02-23 23:03:04 +0000 (Sat, 23 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -755,11 +755,11 @@ Decoder::decodeTimeTable(util::ByteStream& strm, TimeTable& timeTable)
 
 	timeTable.reserve(length);
 
-	for ( ; length; length--)
+	for (unsigned i = 0; i < length; ++i)
 	{
 		MoveInfo info;
 		info.decode(strm);
-		timeTable.add(info);
+		timeTable.set(i, info);
 	}
 }
 
