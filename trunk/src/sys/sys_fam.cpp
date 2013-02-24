@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 659 $
-// Date   : $Date: 2013-02-19 09:52:03 +0000 (Tue, 19 Feb 2013) $
+// Version: $Revision: 662 $
+// Date   : $Date: 2013-02-24 22:35:15 +0000 (Sun, 24 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -711,7 +711,7 @@ initFAM(mstl::string& error)
 {
 	if (fcntlSignal == -1)
 	{
-		fcntlSignal = SIGRTMIN + 1;
+		fcntlSignal = SIGRTMIN + 4; // LinuxThreads is using the first three
 
 		if (fcntlSignal > SIGRTMAX)
 		{

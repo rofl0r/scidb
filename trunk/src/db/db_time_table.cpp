@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 661 $
-// Date   : $Date: 2013-02-23 23:03:04 +0000 (Sat, 23 Feb 2013) $
+// Version: $Revision: 662 $
+// Date   : $Date: 2013-02-24 22:35:15 +0000 (Sun, 24 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -92,10 +92,10 @@ TimeTable::set(unsigned index, MoveInfoSet const& moveInfoSet)
 {
 	unsigned size = index + 1;
 
-	if (index <= m_table.size())
-		m_table.resize(size);
+	if (m_table.size() < size)
+		ensure(size);
 
-	MoveInfoSet& set = m_table.back();
+	MoveInfoSet& set = m_table[index];
 
 	set.resize(MoveInfo::LAST);
 

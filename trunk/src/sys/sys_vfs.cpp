@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 653 $
-// Date   : $Date: 2013-02-07 17:17:24 +0000 (Thu, 07 Feb 2013) $
+// Version: $Revision: 662 $
+// Date   : $Date: 2013-02-24 22:35:15 +0000 (Sun, 24 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -45,8 +45,6 @@ sys::vfs::freeSize(mstl::string const& path)
 int64_t
 sys::vfs::freeSize(mstl::string const& path)
 {
-	M_REQUIRE(path);
-
 	struct ::statvfs vfs;
 
 	if (::statvfs(path, &vfs) == -1)

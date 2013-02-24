@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 609 $
-# Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+# Version: $Revision: 662 $
+# Date   : $Date: 2013-02-24 22:35:15 +0000 (Sun, 24 Feb 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -67,7 +67,7 @@
  36 "Weiﬂ hat die Initiative"
  37 "Schwarz hat die Initiative"
  38 "Weiﬂ hat anhaltende Initiative"
- 39 "Schwart hat anhaltende Initiative"
+ 39 "Schwarz hat anhaltende Initiative"
  40 "Weiﬂer Angriff"
  41 "Schwarzer Angriff"
  42 "Weiﬂ hat keine ausreichende Kompensation"

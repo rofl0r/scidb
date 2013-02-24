@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 661 $
-# Date   : $Date: 2013-02-23 23:03:04 +0000 (Sat, 23 Feb 2013) $
+# Version: $Revision: 662 $
+# Date   : $Date: 2013-02-24 22:35:15 +0000 (Sun, 24 Feb 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -2191,7 +2191,7 @@ proc PopupMenu {parent position} {
 
 					set nags {}
 					for {set nag $from} {$nag <= $to} {incr nag} {
-						if {!$isStmNag($nag)} {
+						if {(14 <= $nag && $nag <= 21) || !$isStmNag($nag)} {
 							set symbol [::font::mapNagToUtfSymbol $nag]
 							if {$symbol ne $nag} {
 								$sub add command -label $symbol -command "$cmd $type $nag"
