@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 663 $
+// Date   : $Date: 2013-02-24 23:16:49 +0000 (Sun, 24 Feb 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -456,7 +456,7 @@ startRoutine(void* arg)
 {
 	startRoutine(static_cast<Runnable*>(arg));
 	atomic_cmpxchg(&m_cancel, 0, 1);
-	return 0;
+	pthread_exit(0); // never returns
 }
 
 
