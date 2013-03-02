@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 648 $
-// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
+// Version: $Revision: 664 $
+// Date   : $Date: 2013-03-02 16:11:40 +0000 (Sat, 02 Mar 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -360,7 +360,7 @@ Writer::beginGame(TagSet const& tags)
 						}
 					}
 				}
-				else if (!isEmpty && !test(Flag_Exclude_Extra_Tags))
+				else if (!tag::isMandatory(tag) && !isEmpty && !test(Flag_Exclude_Extra_Tags))
 				{
 					writeTag(tag, value);
 				}

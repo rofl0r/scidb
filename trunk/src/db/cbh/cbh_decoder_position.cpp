@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 664 $
+// Date   : $Date: 2013-03-02 16:11:40 +0000 (Sat, 02 Mar 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -408,16 +408,20 @@ Position::setup(BitStream& strm)
 	// have a decoding for the castling rooks.
 
 	if (strm.bitsLeft() == 0)
-	{
 		board.fixBadCastlingRights();
 
-		if (board.validate(variant::Normal) != Board::Valid)
-			IO_RAISE(Game, Corrupted, "illegal start position");
-	}
-	else
+	Board::SetupStatus status = board.validate(variant::Normal);
+
+	if (status == Board::InvalidEnPassant)
 	{
-		if (board.validate(variant::Normal) != Board::Valid)
-			IO_RAISE(Game, Corrupted, "unsupported start position");
+		// ChessBase allows invalid e.p. squares: we will fix this silently.
+		board.setEnPassantSquare(sq::Null);
+	}
+	else if (status != Board::Valid)
+	{
+		IO_RAISE(Game,
+					Corrupted,
+					strm.bitsLeft() == 0 ? "illegal start position" : "unsupported start position");
 	}
 }
 

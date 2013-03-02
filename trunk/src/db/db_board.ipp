@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 651 $
-// Date   : $Date: 2013-02-06 15:25:49 +0000 (Wed, 06 Feb 2013) $
+// Version: $Revision: 664 $
+// Date   : $Date: 2013-03-02 16:11:40 +0000 (Sat, 02 Mar 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -86,7 +86,6 @@ inline Board const& Board::emptyBoard()					{ return m_emptyBoard; }
 inline void Board::destroyCastle(color::ID color)		{ m_castle &= ~castling::bothSides(color); }
 inline void Board::setToMove(color::ID color)			{ m_stm = color; }
 inline void Board::setPlyNumber(unsigned number)		{ m_plyNumber = number; }
-inline void Board::setEnPassantSquare(Square sq)		{ setEnPassantSquare(sideToMove(), sq); }
 inline void Board::setEnPassantFyle(sq::Fyle fyle)		{ setEnPassantFyle(sideToMove(), fyle); }
 inline void Board::setHalfMoveClock(unsigned number)	{ m_halfMoveClock = number; }
 
