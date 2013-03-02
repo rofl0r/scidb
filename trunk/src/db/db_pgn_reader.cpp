@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 661 $
-// Date   : $Date: 2013-02-23 23:03:04 +0000 (Sat, 23 Feb 2013) $
+// Version: $Revision: 665 $
+// Date   : $Date: 2013-03-02 18:06:29 +0000 (Sat, 02 Mar 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -4265,8 +4265,14 @@ PgnReader::parseMoveNumber(Token prevToken, int)
 {
 	// Move number: [0-9]+[.]*
 
-	while (::isdigit(*m_linePos) || *m_linePos == '.')
-		advanceLinePos();
+	if (m_linePos[0] != '0' || m_linePos[1] != '-')
+	{
+		while (::isdigit(*m_linePos))
+			advanceLinePos();
+
+		if (*m_linePos == '.')
+			advanceLinePos();
+	}
 
 	return prevToken;
 }

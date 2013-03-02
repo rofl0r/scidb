@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 661 $
-# Date   : $Date: 2013-02-23 23:03:04 +0000 (Sat, 23 Feb 2013) $
+# Version: $Revision: 665 $
+# Date   : $Date: 2013-03-02 18:06:29 +0000 (Sat, 02 Mar 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1458,7 +1458,7 @@
 ::import::mc::DifferentEncoding			"A kiválasztott %src kódolás nem illeszkedik %dst fájl kódoláshoz."
 ::import::mc::DifferentEncodingDetails		"Az adatbázis kódolásának megváltoztatása ez után a művelet után már nem lesz lehetséges." ;#?
 ::import::mc::CannotDetectFigurineSet		"Nem sikerült felismerni egyetlen megfelelő bábukészletet sem."
-::import::mc::CheckImportResult			"Kérlek ellenőrizd, hogy a megfelelő bábukészlet lett-e felismerve."
+::import::mc::CheckImportResult			"Kérlek ellenőrizd, hogy a megfelelő bábukészlet lett-e felismerve: %s."
 ::import::mc::CheckImportResultDetail		"Néhány esetben előfordulhat, hogy kétértelmű bejegyzések miatt az automatikus felismerés nem sikeres."
 
 ::import::mc::UnsupportedVariant		"Unsuported variant rejected" ;# NEW

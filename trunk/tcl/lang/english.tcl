@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 661 $
-# Date   : $Date: 2013-02-23 23:03:04 +0000 (Sat, 23 Feb 2013) $
+# Version: $Revision: 665 $
+# Date   : $Date: 2013-03-02 18:06:29 +0000 (Sat, 02 Mar 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1450,7 +1450,7 @@
 ::import::mc::DifferentEncoding					"Selected encoding %src does not match file encoding %dst."
 ::import::mc::DifferentEncodingDetails			"Recoding of the database will not be successful anymore after this action."
 ::import::mc::CannotDetectFigurineSet			"Cannot auto-detect a suitable figurine set."
-::import::mc::CheckImportResult					"Please check whether the right figurine set is detected."
+::import::mc::CheckImportResult					"Please check whether the right figurine set is detected: %s."
 ::import::mc::CheckImportResultDetail			"In seldom cases the auto-detection fails due to ambiguities."
 
 ::import::mc::EnterOrPaste							"Enter or paste a PGN-format %s in the frame above.\nAny errors importing the %s will be displayed here."

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 661 $
-# Date   : $Date: 2013-02-23 23:03:04 +0000 (Sat, 23 Feb 2013) $
+# Version: $Revision: 665 $
+# Date   : $Date: 2013-03-02 18:06:29 +0000 (Sat, 02 Mar 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1451,7 +1451,7 @@
 ::import::mc::DifferentEncoding					"Die ausgewählte Enkodierung %src stimmt nicht mit der Dateienkodierung %dst überein."
 ::import::mc::DifferentEncodingDetails			"Eine Umkodierung wird danach nicht mehr erfolgreich sein."
 ::import::mc::CannotDetectFigurineSet			"Es konnte kein geeigneter Figurensatz ermittelt werden."
-::import::mc::CheckImportResult					"Bitte prüfen ob der richtige Figurensatz ermittelt wurde."
+::import::mc::CheckImportResult					"Bitte prüfen ob der richtige Figurensatz ermittelt wurde: %s."
 ::import::mc::CheckImportResultDetail			"In seltenen Fällen scheitert die automatische Ermittlung aufgrund von Mehrdeutigkeiten."
 
 ::import::mc::EnterOrPaste							"Eingabe oder Kopieren einer %s im PGN-Format in das obige Textfenster.\nHier werden die Fehler beim Importieren der %s angezeigt."
