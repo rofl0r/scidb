@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 642 $
-# Date   : $Date: 2013-01-26 15:34:14 +0000 (Sat, 26 Jan 2013) $
+# Version: $Revision: 666 $
+# Date   : $Date: 2013-03-03 07:24:18 +0000 (Sun, 03 Mar 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -287,9 +287,9 @@ proc configureText {path {fontContext ""}} {
 
 	if {$context eq "editor"} {
 		$w tag configure main -font $::font::text($fontContext:$bold)
-		$w tag configure bold -font $::font::text($fontContext:bold)
 		$w tag configure italic -font $::font::text($fontContext:italic)
 		$w tag configure bold-italic -font $::font::text($fontContext:bold-italic)
+		$w tag configure bold -font $::font::text($fontContext:bold)
 
 		$w tag configure figurineb -font $::font::figurine($fontContext:bold)
 		$w tag configure symbol -font $::font::symbol($fontContext:normal)

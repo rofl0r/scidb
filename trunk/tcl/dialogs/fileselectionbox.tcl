@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 661 $
-# Date   : $Date: 2013-02-23 23:03:04 +0000 (Sat, 23 Feb 2013) $
+# Version: $Revision: 666 $
+# Date   : $Date: 2013-03-03 07:24:18 +0000 (Sun, 03 Mar 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -751,6 +751,7 @@ proc Inspect {parent {folder ""} {filename ""}} {
 						tk::label $f.ldescr -text "$::database::switcher::mc::Description:"
 						tk::label $f.tdescr -text $descr -wraplength 200 -justify left
 					}
+
 					.scv {
 						lassign [::archive::inspect $filename] header files
 						foreach pair $header {
@@ -779,6 +780,17 @@ proc Inspect {parent {folder ""} {filename ""}} {
 							tk::label $f.ldescr -text "$mc::Content:"
 							tk::label $f.tdescr -text $bases -wraplength 250 -justify left
 						}
+					}
+
+					.zip - .ZIP {
+						set content [::scidb::misc::zipContent $filename]
+						set subcontent [lrange $content 0 9]
+						set descr [join $subcontent "\n"]
+						if {[llength $content] > [llength $subcontent]} {
+							append descr "\n\u2026"
+						}
+						tk::label $f.ldescr -text "$mc::Content:"
+						tk::label $f.tdescr -text $descr -justify left
 					}
 				}
 			}

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 635 $
-// Date   : $Date: 2013-01-20 22:09:56 +0000 (Sun, 20 Jan 2013) $
+// Version: $Revision: 666 $
+// Date   : $Date: 2013-03-03 07:24:18 +0000 (Sun, 03 Mar 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -60,6 +60,7 @@ public:
 	static bool containsSuffix(char const* filename, char const* suffix);
 	static void setZipFileSuffixes(Strings const& suffixes);
 	static Strings const& zipFileSuffixes();
+	static Strings zipContent(char const* filename);
 
 	// is public due to technical reasons
 	struct Handle

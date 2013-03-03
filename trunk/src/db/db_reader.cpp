@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 661 $
-// Date   : $Date: 2013-02-23 23:03:04 +0000 (Sat, 23 Feb 2013) $
+// Version: $Revision: 666 $
+// Date   : $Date: 2013-03-03 07:24:18 +0000 (Sun, 03 Mar 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -555,15 +555,25 @@ Reader::getAttributes(mstl::string const& filename, int& numGames, mstl::string*
 	{
 		mstl::string ext(util::misc::file::suffix(filename));
 
-		if (ext == "gz")
+		if (ext == "zip" || ext == "ZIP")
+		{
+			if (util::ZStream::containsSuffix(filename, "pgn"))
+				numGames = PgnReader::estimateNumberOfGames(numGames);
+			else
+				numGames = -1;
+		}
+		else if (ext == "gz")
+		{
 			ext = util::misc::file::suffix(util::misc::file::rootname(filename));
-		else if ((ext == "zip" || ext == "ZIP") && util::ZStream::containsSuffix(filename, "pgn"))
-			ext = "pgn";
-
-		if (ext == "bpgn")
-			numGames = BpgnReader::estimateNumberOfGames(numGames);
-		else // if (ext == "pgn" || ext == "zip" || ext == "PGN" || ext == "ZIP")
+		}
+		else if (ext == "pgn" || ext == "PGN")
+		{
 			numGames = PgnReader::estimateNumberOfGames(numGames);
+		}
+		else if (ext == "bpgn")
+		{
+			numGames = BpgnReader::estimateNumberOfGames(numGames);
+		}
 	}
 
 	return true;

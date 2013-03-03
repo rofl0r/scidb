@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 664 $
-// Date   : $Date: 2013-03-02 16:11:40 +0000 (Sat, 02 Mar 2013) $
+// Version: $Revision: 666 $
+// Date   : $Date: 2013-03-03 07:24:18 +0000 (Sun, 03 Mar 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -416,8 +416,10 @@ Position::setup(BitStream& strm)
 	{
 		// ChessBase allows invalid e.p. squares: we will fix this silently.
 		board.setEnPassantSquare(sq::Null);
+		status = board.validate(variant::Normal);
 	}
-	else if (status != Board::Valid)
+
+	if (status != Board::Valid)
 	{
 		IO_RAISE(Game,
 					Corrupted,
