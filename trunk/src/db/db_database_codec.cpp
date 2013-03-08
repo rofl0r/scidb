@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 661 $
-// Date   : $Date: 2013-02-23 23:03:04 +0000 (Sat, 23 Feb 2013) $
+// Version: $Revision: 667 $
+// Date   : $Date: 2013-03-08 23:38:44 +0000 (Fri, 08 Mar 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -517,7 +517,7 @@ DatabaseCodec::attach(mstl::string const&, Progress&)
 
 
 void
-DatabaseCodec::reloadNamebases(mstl::string const&, util::Progress&)
+DatabaseCodec::reloadNamebases(mstl::string const&, mstl::string const&, util::Progress&)
 {
 	M_RAISE("should not be used");
 }

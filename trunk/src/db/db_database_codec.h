@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 661 $
-// Date   : $Date: 2013-02-23 23:03:04 +0000 (Sat, 23 Feb 2013) $
+// Version: $Revision: 667 $
+// Date   : $Date: 2013-03-08 23:38:44 +0000 (Fri, 08 Mar 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -227,7 +227,9 @@ protected:
 	virtual void update(mstl::string const& rootname, unsigned index, bool updateNamebase);
 	virtual void attach(mstl::string const& rootname, util::Progress& progress);
 	virtual void reloadDescription(mstl::string const& rootname);
-	virtual void reloadNamebases(mstl::string const& rootname, util::Progress& progress);
+	virtual void reloadNamebases(	mstl::string const& rootname,
+											mstl::string const& originalSuffix,
+											util::Progress& progress);
 	virtual void removeAllFiles(mstl::string const& rootname);
 
 	virtual void doOpen(mstl::string const& encoding);

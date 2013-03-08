@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 648 $
-// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
+// Version: $Revision: 667 $
+// Date   : $Date: 2013-03-08 23:38:44 +0000 (Fri, 08 Mar 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -75,7 +75,7 @@ inline
 void
 DatabaseCodec::reloadNamebases(util::Progress& progress)
 {
-	reloadNamebases(m_db->m_rootname, progress);
+	reloadNamebases(m_db->m_rootname, m_db->m_suffix, progress);
 }
 
 
