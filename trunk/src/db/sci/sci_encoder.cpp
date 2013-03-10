@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 661 $
-// Date   : $Date: 2013-02-23 23:03:04 +0000 (Sat, 23 Feb 2013) $
+// Version: $Revision: 668 $
+// Date   : $Date: 2013-03-10 18:15:28 +0000 (Sun, 10 Mar 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -691,7 +691,6 @@ Encoder::encodeTimeTableSection(TimeTable const& timeTable)
 			}
 
 			m_strm << uint8_t(size);
-
 			size = timeTable.size(col);
 
 			for (unsigned i = 0; i < size; ++i)

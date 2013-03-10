@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 668 $
+// Date   : $Date: 2013-03-10 18:15:28 +0000 (Sun, 10 Mar 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -34,6 +34,7 @@ inline Eco const& Game::ecoCode() const				{ return m_eco; }
 inline uint32_t Game::flags() const						{ return m_flags; }
 inline edit::Key const& Game::currentKey() const	{ return m_currentKey; }
 inline move::Notation Game::moveStyle() const		{ return m_moveStyle; }
+inline Game::Command Game::rollbackCommand() const	{ return m_rollbackCommand; }
 
 inline bool Game::isMainline() const					{ return m_currentKey.level() == 0; }
 inline bool Game::isVariation() const					{ return m_currentKey.level() > 0; }

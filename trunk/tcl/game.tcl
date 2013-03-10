@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 661 $
-# Date   : $Date: 2013-02-23 23:03:04 +0000 (Sat, 23 Feb 2013) $
+# Version: $Revision: 668 $
+# Date   : $Date: 2013-03-10 18:15:28 +0000 (Sun, 10 Mar 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -316,6 +316,26 @@ proc stateChanged {position modified} {
 			}
 		}
 	}
+}
+
+
+proc lock {position} {
+	variable List
+	variable MaxPosition
+
+	set rc [::application::pgn::lock $position]
+	if {$rc && $position < $MaxPosition} { lset List $position 2 1 }
+	return $rc
+}
+
+
+proc unlock {position} {
+	variable List
+	variable MaxPosition
+
+	set rc [::application::pgn::unlock $position]
+	if {$rc && $position < $MaxPosition} { lset List $position 2 0 }
+	return $rc
 }
 
 

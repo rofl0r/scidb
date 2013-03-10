@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 648 $
-# Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
+# Version: $Revision: 668 $
+# Date   : $Date: 2013-03-10 18:15:28 +0000 (Sun, 10 Mar 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1425,7 +1425,7 @@ proc MakeSymbolMenu {w menu} {
 			set nags {}
 			for {set nag $from} {$nag <= $to} {incr nag} {
 				if {$nag in $nagSet} {
-					set symbol [::font::mapNagToSymbol $nag]
+					set symbol [::font::mapNagToUtfSymbol $nag]
 					$sub add command -label $symbol -command [namespace code [list InsertNag $w $nag]]
 					lappend nags $nag
 				}

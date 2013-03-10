@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 653 $
-// Date   : $Date: 2013-02-07 17:17:24 +0000 (Thu, 07 Feb 2013) $
+// Version: $Revision: 668 $
+// Date   : $Date: 2013-03-10 18:15:28 +0000 (Sun, 10 Mar 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -218,5 +218,16 @@ sys::info::memTotal()
 }
 
 #endif
+
+
+bool
+sys::info::isWindows()
+{
+#if defined(WIN32) || defined(WIN64)
+	return true;
+#else
+	return false;
+#endif
+}
 
 // vi:set ts=3 sw=3:
