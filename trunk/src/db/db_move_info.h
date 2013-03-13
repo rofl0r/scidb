@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 661 $
-// Date   : $Date: 2013-02-23 23:03:04 +0000 (Sat, 23 Feb 2013) $
+// Version: $Revision: 671 $
+// Date   : $Date: 2013-03-13 09:49:26 +0000 (Wed, 13 Mar 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -69,6 +69,9 @@ public:
 	};
 
 	MoveInfo();
+
+	bool operator==(MoveInfo const& info) const;
+	bool operator!=(MoveInfo const& info) const;
 
 	bool isEmpty() const;
 	bool hasTimeInfo() const;

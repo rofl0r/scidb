@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 668 $
-// Date   : $Date: 2013-03-10 18:15:28 +0000 (Sun, 10 Mar 2013) $
+// Version: $Revision: 671 $
+// Date   : $Date: 2013-03-13 09:49:26 +0000 (Wed, 13 Mar 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -290,13 +290,13 @@ public:
 										db::position::ID startPosition,
 										db::move::Order moveOrder,
 										unsigned variationDepth);
-	bool mergeGame(unsigned from,
-						unsigned to,
+	bool mergeGame(unsigned primary,
+						unsigned secondary,
 						db::position::ID startPosition,
 						db::move::Order moveOrder,
 						unsigned variationDepth);
-	bool mergeGame(unsigned source1,
-						unsigned source2,
+	bool mergeGame(unsigned primary,
+						unsigned secondary,
 						unsigned destination,
 						db::position::ID startPosition,
 						db::move::Order moveOrder,
@@ -438,7 +438,7 @@ private:
 	Cursor*			m_referenceBase;
 	bool				m_switchReference;
 	bool				m_isUserSet;
-	unsigned			m_position;
+	unsigned			m_currentPosition;
 	unsigned			m_fallbackPosition;
 	unsigned			m_updateCount;
 	GameMap			m_gameMap;

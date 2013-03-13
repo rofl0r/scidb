@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 661 $
-// Date   : $Date: 2013-02-23 23:03:04 +0000 (Sat, 23 Feb 2013) $
+// Version: $Revision: 671 $
+// Date   : $Date: 2013-03-13 09:49:26 +0000 (Wed, 13 Mar 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -118,7 +118,7 @@ MoveInfo::compare(MoveInfo const& mi) const
 			break;
 
 		case ElapsedMilliSeconds:
-			if (int cmp = int(m_elapsed.m_seconds)      - int(mi.m_elapsed.m_seconds)    ) return cmp;
+			if (int cmp = int(m_elapsed.m_seconds)      - int(mi.m_elapsed.m_seconds     )) return cmp;
 			if (int cmp = int(m_elapsed.m_milliSeconds) - int(mi.m_elapsed.m_milliSeconds)) return cmp;
 			break;
 
@@ -126,9 +126,9 @@ MoveInfo::compare(MoveInfo const& mi) const
 			return int(m_centiSeconds) - int(mi.m_centiSeconds);
 
 		case Evaluation:
-			if (int cmp = int(m_analysis.m_depth)      - int(mi.m_analysis.m_depth)     ) return cmp;
-			if (int cmp = int(m_analysis.m_sign)       - int(mi.m_analysis.m_sign)      ) return cmp;
-			if (int cmp = int(m_analysis.m_pawns)      - int(mi.m_analysis.m_pawns)     ) return cmp;
+			if (int cmp = int(m_analysis.m_depth)      - int(mi.m_analysis.m_depth     )) return cmp;
+			if (int cmp = int(m_analysis.m_sign)       - int(mi.m_analysis.m_sign      )) return cmp;
+			if (int cmp = int(m_analysis.m_pawns)      - int(mi.m_analysis.m_pawns     )) return cmp;
 			if (int cmp = int(m_analysis.m_centipawns) - int(mi.m_analysis.m_centipawns)) return cmp;
 			break;
 	}

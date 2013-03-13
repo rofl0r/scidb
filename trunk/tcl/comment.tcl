@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 668 $
-# Date   : $Date: 2013-03-10 18:15:28 +0000 (Sun, 10 Mar 2013) $
+# Version: $Revision: 671 $
+# Date   : $Date: 2013-03-13 09:49:26 +0000 (Wed, 13 Mar 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1691,22 +1691,25 @@ proc CopyText {fromLang toLang} {
 
 	SetUndoPoint $Vars(widget:text) $toLang
 
-	if {[llength $Vars(content:$toLang)]} {
-		set reply [::dialog::question \
-			-parent [winfo toplevel $Vars(widget:text)] \
-			-title $::scidb::app \
-			-message $mc::OverwriteContent \
-			-detail $mc::AppendContent \
-			-default no \
-		]
-		if {$reply eq "yes"} {
-			set Vars(content:$toLang) {}
+	if {[info exists Vars(content:$toLang)]} {
+		if {[string length $Vars(content:$toLang)]} {
+			set reply [::dialog::question \
+				-parent [winfo toplevel $Vars(widget:text)] \
+				-title $::scidb::app \
+				-message $mc::OverwriteContent \
+				-detail $mc::AppendContent \
+				-default no \
+			]
+			if {$reply eq "yes"} {
+				set Vars(content:$toLang) {}
+			}
+		}
+
+		if {[string length $Vars(content:$toLang)]} {
+			lappend Vars(content:$toLang) {str \n}
 		}
 	}
 
-	if {[llength $Vars(content:$toLang)]} {
-		lappend Vars(content:$toLang) {str \n}
-	}
 	lappend Vars(content:$toLang) {*}$Vars(content:$fromLang)
 }
 

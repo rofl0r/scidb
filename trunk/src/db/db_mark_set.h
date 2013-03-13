@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 671 $
+// Date   : $Date: 2013-03-13 09:49:26 +0000 (Wed, 13 Mar 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -60,8 +60,8 @@ public:
 	bool contains(Mark const& mark) const;
 
 	unsigned count() const;
-	int find(Mark const& mark)const;
-	int match(Mark const& mark)const;
+	int find(Mark const& mark) const;
+	int match(Mark const& mark) const;
 	::util::crc::checksum_t computeChecksum(util::crc::checksum_t crc) const;
 
 	Mark const& operator[](unsigned index) const;

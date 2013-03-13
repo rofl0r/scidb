@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 648 $
-# Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
+# Version: $Revision: 671 $
+# Date   : $Date: 2013-03-13 09:49:26 +0000 (Wed, 13 Mar 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1133,7 +1133,12 @@ proc Mouse3Down {dlg node} {
 			-label " $::browser::mc::LoadGame" \
 			-command [namespace code [list Open $dlg pgn $gameIndex]] \
 			;
-		# TODO: add Merge Game
+#		if {[::scidb::game::current] == -1} { sert state disabled } else { set state normal }
+#		$menu add command \
+#			-label " $::browser::mc::MergeGame" \
+#			-command [list gamebar::mergeGame $dlg $position] \
+#			-state $state \
+#			;
 	}
 
 	if {[info exists m]} {

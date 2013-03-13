@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 666 $
-# Date   : $Date: 2013-03-03 07:24:18 +0000 (Sun, 03 Mar 2013) $
+# Version: $Revision: 671 $
+# Date   : $Date: 2013-03-13 09:49:26 +0000 (Wed, 13 Mar 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1372,11 +1372,12 @@ proc PopupMenu {parent board position {what ""}} {
 			-command [namespace code [list LoadGame $dlg $position [::scidb::game::fen $position]]] \
 			-state $state \
 			;
-#	$menu add command \
-#		-label $mc::MergeGame \
-#		-command [namespace code [list MergeGame $dlg $position]] \
-#		-state $state \
-#		;
+		if {[::scidb::game::current] < 9} { set state normal } else { set state disabled }
+		$menu add command \
+			-label " $mc::MergeGame" \
+			-command [list gamebar::mergeGame $dlg $position] \
+			-state $state \
+			;
 		if {!$Vars(modified)} { set state disabled }
 		$menu add command \
 			-label " $mc::ReloadGame" \

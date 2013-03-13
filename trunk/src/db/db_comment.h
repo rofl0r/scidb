@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 671 $
+// Date   : $Date: 2013-03-13 09:49:26 +0000 (Wed, 13 Mar 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -99,7 +99,9 @@ public:
 	util::crc::checksum_t computeChecksum(util::crc::checksum_t crc) const;
 
 	void append(Comment const& comment, char delim = '\0');
+	void merge(Comment const& comment, LanguageSet const& leadingLanguageSet);
 	void remove(mstl::string const& lang);
+	void remove(LanguageSet const& languageSet);
 	void strip(LanguageSet const& set);
 	bool fromHtml(mstl::string const& s);
 	void swap(Comment& comment);

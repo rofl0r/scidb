@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 671 $
+// Date   : $Date: 2013-03-13 09:49:26 +0000 (Wed, 13 Mar 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -61,6 +61,14 @@ inline Comment const& MoveNode::comment(move::Position position) const { return 
 
 inline void MoveNode::setComment(move::Position position)		{ m_flags |= (1 << position); }
 inline void MoveNode::unsetComment(move::Position position)	{ m_flags &= ~(1 << position); }
+
+
+inline
+bool
+MoveNode::operator!=(MoveNode const& node) const
+{
+	return !operator==(node);
+}
 
 
 inline

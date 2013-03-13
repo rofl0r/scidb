@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 668 $
-# Date   : $Date: 2013-03-10 18:15:28 +0000 (Sun, 10 Mar 2013) $
+# Version: $Revision: 671 $
+# Date   : $Date: 2013-03-13 09:49:26 +0000 (Wed, 13 Mar 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -777,7 +777,7 @@ proc recover {} {
 						::scidb::game::sink $count $base $index
 						::application::pgn::add $count $base $variant $tags
 						::application::pgn::setModified $count
-						::scidb::game::modified $count
+						::scidb::game::modified $count -irreversible yes
 						incr count
 					}
 				}

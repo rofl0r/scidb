@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 671 $
+// Date   : $Date: 2013-03-13 09:49:26 +0000 (Wed, 13 Mar 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -579,10 +579,10 @@ dumpAscii(	Board& board,
 		mstl::string s;
 
 		board.prepareUndo(move);
-		board.prepareForPrint(move, variant::Normal);
+		board.prepareForPrint(move, variant::Normal, Board::InternalRepresentation);
 		board.doMove(move, variant::Normal);
 		for (unsigned k = 0; k < level; ++k) printf("| ");
-		printf("%s: ", move.printSan(s).c_str());
+		printf("%s: ", move.printSan(s, protocol::Scidb, encoding::Latin1).c_str());
 		dumpAscii(board, done, i->node, level + 1, i->transposition, ply + 1);
 		board.undoMove(move, variant::Normal);
 	}

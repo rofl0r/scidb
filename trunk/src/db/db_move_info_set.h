@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 661 $
-// Date   : $Date: 2013-02-23 23:03:04 +0000 (Sat, 23 Feb 2013) $
+// Version: $Revision: 671 $
+// Date   : $Date: 2013-03-13 09:49:26 +0000 (Wed, 13 Mar 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -43,9 +43,14 @@ class MoveInfoSet
 {
 public:
 
+	bool operator==(MoveInfoSet const& info) const;
+	bool operator!=(MoveInfoSet const& info) const;
+
 	bool isEmpty() const;
+	bool contains(MoveInfo const& info) const;
 
 	unsigned count() const;
+	int find(MoveInfo const& info) const;
 
 	::util::crc::checksum_t computeChecksum(EngineList const& engines, util::crc::checksum_t crc) const;
 

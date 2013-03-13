@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 671 $
+// Date   : $Date: 2013-03-13 09:49:26 +0000 (Wed, 13 Mar 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -92,6 +92,16 @@ Sync(Display *display)
 }
 
 # endif // __unix__ && !__MacOSX__
+
+
+#define GRAB_GLOBAL        1
+#define GRAB_TEMP_GLOBAL   4
+
+
+typedef struct {
+    Display *display;      /* Display from which to discard events. */
+    unsigned int serial;   /* Serial number with which to compare. */
+} GrabInfo;
 
 
 static Tk_RestrictAction

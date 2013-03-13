@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 668 $
-// Date   : $Date: 2013-03-10 18:15:28 +0000 (Sun, 10 Mar 2013) $
+// Version: $Revision: 671 $
+// Date   : $Date: 2013-03-13 09:49:26 +0000 (Wed, 13 Mar 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -94,6 +94,9 @@ public:
 	explicit MoveNode(Annotation* set = 0);
 	~MoveNode();
 
+	bool operator==(MoveNode const& node) const;
+	bool operator!=(MoveNode const& node) const;
+
 	bool atLineStart() const;
 	bool atLineEnd() const;
 	bool isBeforeLineEnd() const;
@@ -182,6 +185,7 @@ public:
 	void clearAnnotation();
 	void clearMarks();
 	void swapData(MoveNode* node);
+	void copyData(MoveNode const* node);
 
 	void stripAnnotations();
 	void stripMoveInfo();

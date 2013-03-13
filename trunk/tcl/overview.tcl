@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 661 $
-# Date   : $Date: 2013-02-23 23:03:04 +0000 (Sat, 23 Feb 2013) $
+# Version: $Revision: 671 $
+# Date   : $Date: 2013-03-13 09:49:26 +0000 (Wed, 13 Mar 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -533,9 +533,10 @@ proc PopupMenu {nb} {
 		-command [namespace code [list LoadGame $nb]] \
 		-state $state \
 		;
+#	if {[::scidb::game::current] == -1} { sert state disabled } else { set state normal }
 #	$menu add command \
 #		-label $::browser::mc::MergeGame \
-#		-command [namespace code [list MergeGame $nb]] \
+#		-command [list gamebar::mergeGame $nb $position] \
 #		-state $state \
 #		;
 	if {!$Vars(modified)} { set state disabled }

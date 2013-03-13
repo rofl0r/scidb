@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 661 $
-// Date   : $Date: 2013-02-23 23:03:04 +0000 (Sat, 23 Feb 2013) $
+// Version: $Revision: 671 $
+// Date   : $Date: 2013-03-13 09:49:26 +0000 (Wed, 13 Mar 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -28,9 +28,10 @@
 
 namespace db {
 
-inline bool MoveInfoSet::isEmpty() const		{ return m_row.empty(); }
+inline bool MoveInfoSet::isEmpty() const									{ return m_row.empty(); }
+inline bool MoveInfoSet::contains(MoveInfo const& info) const		{ return find(info) >= 0; }
 
-inline unsigned MoveInfoSet::count() const	{ return m_row.size(); }
+inline unsigned MoveInfoSet::count() const								{ return m_row.size(); }
 
 inline MoveInfo const& MoveInfoSet::operator[](unsigned n) const	{ return m_row[n]; }
 inline MoveInfo& MoveInfoSet::operator[](unsigned n)					{ return m_row[n]; }
@@ -39,6 +40,14 @@ inline void MoveInfoSet::resize(unsigned n)		{ m_row.resize(n); }
 inline void MoveInfoSet::reserve(unsigned n)		{ m_row.reserve(n); }
 inline void MoveInfoSet::swap(MoveInfoSet& row)	{ m_row.swap(row.m_row); }
 inline void MoveInfoSet::clear()						{ m_row.clear(); }
+
+
+inline
+bool
+MoveInfoSet::operator!=(MoveInfoSet const& info) const
+{
+	return !operator==(info);
+}
 
 
 inline

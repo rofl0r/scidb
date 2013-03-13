@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 661 $
-// Date   : $Date: 2013-02-23 23:03:04 +0000 (Sat, 23 Feb 2013) $
+// Version: $Revision: 671 $
+// Date   : $Date: 2013-03-13 09:49:26 +0000 (Wed, 13 Mar 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -31,6 +31,23 @@ namespace db {
 inline bool MoveInfo::isEmpty() const				{ return m_content == None; }
 inline MoveInfo::Type MoveInfo::content() const	{ return m_content; }
 inline unsigned MoveInfo::centiSeconds() const	{ return m_centiSeconds; }
+
+
+inline
+bool
+MoveInfo::operator==(MoveInfo const& info) const
+{
+	return compare(info) == 0;
+}
+
+
+inline
+bool
+MoveInfo::operator!=(MoveInfo const& info) const
+{
+	return compare(info) != 0;
+}
+
 
 
 inline

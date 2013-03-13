@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 668 $
-# Date   : $Date: 2013-03-10 18:15:28 +0000 (Sun, 10 Mar 2013) $
+# Version: $Revision: 671 $
+# Date   : $Date: 2013-03-13 09:49:26 +0000 (Wed, 13 Mar 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -690,6 +690,11 @@ proc addVariantsToMenu {parent m} {
 		append tip $mc::Tip($variant)
 		::tooltip::tooltip $m -index $lbl $tip
 	}
+}
+
+
+proc mergeGame {parent position} {
+	MergeGame $parent $mc::MergeGameFrom [::scidb::game::current] $position
 }
 
 
@@ -1460,7 +1465,7 @@ proc AddGameMenuEntries {gamebar m addSaveMenu addGameHistory clearHistory remov
 			-command [namespace code [list PasteFromClipbase $gamebar $position]] \
 			-state $state \
 			;
-		set cmd [namespace code [list MergeGame $parent $mc::MergeLastClipbaseGame clipbase $position]]
+		set cmd [namespace code [list MergeGame $parent $mc::MergeLastClipbaseGame $position clipbase]]
 		$m add command \
 			-label " $mc::MergeLastClipbaseGame..." \
 			-image $::icon::16x16::none \
@@ -1494,7 +1499,7 @@ proc AddGameMenuEntries {gamebar m addSaveMenu addGameHistory clearHistory remov
 					-label " $players($id)" \
 					-image $digit([expr {$id + 1}]) \
 					-compound left \
-					-command [namespace code [list MergeGame $parent $mc::MergeGameFrom $id $position]] 
+					-command [namespace code [list MergeGame $parent $mc::MergeGameFrom $position $id]] 
 					;
 			}
 		}
@@ -1544,7 +1549,7 @@ proc PasteGameFrom {parent from to} {
 }
 
 
-proc MergeGame {parent title from to} {
+proc MergeGame {parent title primary secondary} {
 	variable Merge_
 	variable Position_
 	variable Transposition_
@@ -1638,19 +1643,19 @@ proc MergeGame {parent title from to} {
 
 	if {$Action_ eq "ok"} {
 		if {$Merge_ eq "new"} {
-			set unlockedFrom [::game::lock $from]
-			set unlockedTo [::game::lock $to]
+			set unlockedPrimary [::game::lock $primary]
+			set unlockedSecondary [::game::lock $secondary]
 			set newpos [::game::new [winfo parent $dlg] -variant [::scidb::db::get variant?]]
 			set rc 0
 			if {$newpos >= 0} {
-				set rc [::scidb::game::merge $from $to $Position_ $Transposition_ $Depth_ $newpos]
+				set rc [::scidb::game::merge $primary $secondary $Position_ $Transposition_ $Depth_ $newpos]
 			}
 			if {!$rc} {
-				if {$unlockedFrom} { ::game::unlock $from }
-				if {$unlockedTo }  { ::game::unlock $to }
+				if {$unlockedPrimary} { ::game::unlock $primary }
+				if {$unlockedSecondary }  { ::game::unlock $secondary }
 			}
 		} else {
-			::scidb::game::merge $from $to $Position_ $Transposition_ $Depth_
+			::scidb::game::merge $primary $secondary $Position_ $Transposition_ $Depth_
 		}
 	}
 
