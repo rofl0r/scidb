@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 617 $
-# Date   : $Date: 2013-01-08 11:41:26 +0000 (Tue, 08 Jan 2013) $
+# Version: $Revision: 674 $
+# Date   : $Date: 2013-03-14 11:45:09 +0000 (Thu, 14 Mar 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -146,6 +146,7 @@ proc open {} {
 
 	# setup
 	::move::setup
+	::tcl::mathfunc::srand [clock milliseconds]
 	set app .application
 	wm protocol $app WM_DELETE_WINDOW [namespace code shutdown]
 	set nb [::ttk::notebook $app.nb -takefocus 0] ;# otherwise board does not have focus

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 671 $
-# Date   : $Date: 2013-03-13 09:49:26 +0000 (Wed, 13 Mar 2013) $
+# Version: $Revision: 674 $
+# Date   : $Date: 2013-03-14 11:45:09 +0000 (Thu, 14 Mar 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -984,6 +984,14 @@ proc DoLayout {position data {w {}}} {
 
 					clear {
 						$w delete m-start m-0
+						# delete superfluous tags, this will speed up the text widget
+						set tags {}
+						foreach tag [$w tag names] {
+							if {[string match {m-[0-9]*} $tag]} { lappend tags $tag }
+						}
+						if {[llength $tags]} {
+							$w tag delete {*}$tags
+						}
 						$w insert m-0 "\u200b"
 					}
 
