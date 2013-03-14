@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 671 $
-// Date   : $Date: 2013-03-13 09:49:26 +0000 (Wed, 13 Mar 2013) $
+// Version: $Revision: 673 $
+// Date   : $Date: 2013-03-14 09:06:54 +0000 (Thu, 14 Mar 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -356,7 +356,7 @@ merge(MoveNode* node,
 					prev->setNext(variation->removeNext());
 					prev = prev->getLineEnd()->prev();
 
-					if ( leadingLanguageSet && mergeComments(end, prev->next(), *leadingLanguageSet))
+					if (leadingLanguageSet && mergeComments(end, prev->next(), *leadingLanguageSet))
 						changed = true;
 
 					prev->deleteNext();
@@ -393,7 +393,6 @@ merge(MoveNode* node,
 		if (node->atLineEnd())
 		{
 			MoveNode* prev = node->prev();
-
 			prev->deleteNext();
 			prev->setNext(variation->removeNext());
 			delete variation;
