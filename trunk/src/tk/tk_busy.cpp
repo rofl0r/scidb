@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 317 $
-// Date   : $Date: 2012-05-05 16:33:40 +0000 (Sat, 05 May 2012) $
+// Version: $Revision: 676 $
+// Date   : $Date: 2013-03-19 08:31:51 +0000 (Tue, 19 Mar 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -88,6 +88,7 @@ ScCreateBusy(Tk_FakeWin *winPtr, Tk_Window tkRef, Window *parentPtr, Tk_Window t
 {
     Busy *busyPtr = (Busy *) busy;
 
+#if 0
     if (winPtr->flags & TK_REPARENTED) {
 	/*
 	 * This works around a bug in the implementation of menubars for
@@ -105,9 +106,12 @@ ScCreateBusy(Tk_FakeWin *winPtr, Tk_Window tkRef, Window *parentPtr, Tk_Window t
 	    busyPtr->height = rect.bottom - rect.top;
 	}
     } else {
+#endif
 	*parentPtr = Tk_WindowId(tkParent);
 	*parentPtr = (Window) Tk_GetHWND(*parentPtr);
+#if 0
     }
+#endif
 }
 
 static void
@@ -212,6 +216,7 @@ ScMakeTransparentWindowExist(Tk_Window tkwin, Window parent)
 static void
 ScCreateBusy(Tk_FakeWin *winPtr, Tk_Window tkRef, Window *parentPtr, Tk_Window tkParent, Busy* busy)
 {
+#if 0
     if (winPtr->flags & TK_REPARENTED) {
 	/*
 	 * This works around a bug in the implementation of menubars for
@@ -223,8 +228,11 @@ ScCreateBusy(Tk_FakeWin *winPtr, Tk_Window tkRef, Window *parentPtr, Tk_Window t
 
 	*parentPtr = GetParent(Tk_Display(tkRef), Tk_WindowId(tkRef));
     } else {
+#endif
 	*parentPtr = Tk_WindowId(tkParent);
+#if 0
     }
+#endif
 }
 
 static void
