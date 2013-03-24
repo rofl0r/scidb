@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 657 $
-# Date   : $Date: 2013-02-08 22:07:00 +0000 (Fri, 08 Feb 2013) $
+# Version: $Revision: 682 $
+# Date   : $Date: 2013-03-24 19:46:42 +0000 (Sun, 24 Mar 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -865,7 +865,6 @@ proc setup {} {
 							foreach {profile options} $newEngine(Profiles:WB) {
 								if {$profile eq "Default"} { set newEngine(Script:Default) $options }
 							}
-							set newEngine(Profiles:WB) $oldEngine(Profiles:WB)
 						}
 						set newEntry [array get newEngine]
 						lset Engines $index $newEntry
@@ -3619,7 +3618,17 @@ proc LoadSharedConfiguration {file} {
 
 
 proc WriteEngineOptions {chan} {
+	variable Engines
+
+	set engines $Engines
+	set Engines {}
+	foreach entry $engines {
+		array set arr $entry
+		array unset arr Script:Default
+		lappend Engines [array get arr]
+	}
 	::options::writeList $chan [namespace current]::Engines
+	set Engines $engines
 }
 
 
