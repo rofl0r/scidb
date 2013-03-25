@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 609 $
-# Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+# Version: $Revision: 684 $
+# Date   : $Date: 2013-03-25 00:26:29 +0000 (Mon, 25 Mar 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -468,8 +468,14 @@ proc WidgetProc {w command args} {
 			}
 			variable Margin
 			set height [lindex [$w.sub.html bbox [$w.sub.html node]] 3]
-			set y [expr {max(0, [lindex $args 0] - $Margin)}]
-			set fraction [expr {double($y)/double($height)}]
+			if {$height > 0 } {
+				set y [expr {max(0, [lindex $args 0] - $Margin)}]
+				# Adjust the position because we like to see a small margin at top
+				if {$y > 2} { set y [expr {$y - 2}] }
+				set fraction [expr {double($y)/double($height)}]
+			} else {
+				set fraction 0
+			}
 			return [$w.sub.html yview moveto $fraction]
 		}
 
