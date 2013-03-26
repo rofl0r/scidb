@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 639 $
-# Date   : $Date: 2013-01-23 20:50:00 +0000 (Wed, 23 Jan 2013) $
+# Version: $Revision: 687 $
+# Date   : $Date: 2013-03-26 22:44:54 +0000 (Tue, 26 Mar 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -306,6 +306,8 @@ proc open {parent base variant position {number 0}} {
 	set Priv(codec) $codec
 	set Priv(white-score) 0
 	set Priv(black-score) 0
+	set Priv(white-elo) 0
+	set Priv(black-elo) 0
 	set Priv(white-rating) Elo
 	set Priv(black-rating) Elo
 	set Priv(base) $base
