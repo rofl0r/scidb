@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 668 $
-# Date   : $Date: 2013-03-10 18:15:28 +0000 (Sun, 10 Mar 2013) $
+# Version: $Revision: 688 $
+# Date   : $Date: 2013-03-29 16:55:41 +0000 (Fri, 29 Mar 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -566,7 +566,6 @@
 ::application::database::annotators::mc::Find				"Suchen"
 ::application::database::annotators::mc::FindAnnotator	"Suche Kommentator"
 ::application::database::annotators::mc::ClearEntries		"Einträge löschen"
-::application::database::annotators::mc::NotFound			"Nicht gefunden."
 
 ### application::pgn ###################################################
 ::application::pgn::mc::Command(move:comment)			"Kommentar setzen"
@@ -1019,7 +1018,6 @@
 ::application::analysis::mc::IllegalPosition				"Illegale Stellung - keine Analyse möglich"
 ::application::analysis::mc::IllegalMoves					"Illegale Züge in der Partie - keine Analyse möglich"
 ::application::analysis::mc::DidNotReceivePong			"Der Motor antwortet nicht auf das \"ping\"-Kommando - Motor beendet"
-::application::analysis::mc::OperationFailed				"Die Operation '%s' schlug fehl aufgrund einer Zustandswechsels."
 
 ::application::analysis::mc::LinesPerVariation			"Zeilen per Variante"
 ::application::analysis::mc::BestFirstOrder				"Sortiere nach Bewertung"

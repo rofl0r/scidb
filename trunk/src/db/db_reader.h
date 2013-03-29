@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 635 $
-// Date   : $Date: 2013-01-20 22:09:56 +0000 (Sun, 20 Jan 2013) $
+// Version: $Revision: 688 $
+// Date   : $Date: 2013-03-29 16:55:41 +0000 (Fri, 29 Mar 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -162,6 +162,7 @@ public:
 								mstl::string const& item) = 0;
 
 	static bool validateTagName(char* tag, unsigned len);
+	static bool validateTagName(char const* s, char const* e);
 	static void checkSite(TagSet& tags, country::Code eventCountry, bool sourceIsPossiblyChessBase);
 
 	static event::Mode getEventMode(char const* event, char const* site);

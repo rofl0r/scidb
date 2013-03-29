@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 661 $
-// Date   : $Date: 2013-02-23 23:03:04 +0000 (Sat, 23 Feb 2013) $
+// Version: $Revision: 688 $
+// Date   : $Date: 2013-03-29 16:55:41 +0000 (Fri, 29 Mar 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -859,13 +859,13 @@ Decoder::checkVariant(TagSet& tags)
 {
 	Board const& startBoard = m_position.startBoard();
 
-	if (!startBoard.isStandardPosition())
+	if (!startBoard.isStandardPosition(variant::Normal))
 	{
-		if (startBoard.isChess960Position())
+		if (startBoard.isChess960Position(variant::Normal))
 		{
 			tags.set(tag::Variant, chess960::identifier());
 		}
-		else if (startBoard.isShuffleChessPosition())
+		else if (startBoard.isShuffleChessPosition(variant::Normal))
 		{
 			tags.set(tag::Variant, shuffle::identifier());
 		}
@@ -935,7 +935,7 @@ Decoder::doDecoding(db::Consumer& consumer, TagSet& tags)
 		m_givenCodec->setFailed();
 
 #ifdef DEBUG_SI4
-	if (	m_position.startBoard().isStandardPosition()
+	if (	m_position.startBoard().isStandardPosition(variant::Normal)
 		&& m_homePawns.used() != m_position.board().signature().hpCount())
 	{
 		::fprintf(	stderr,

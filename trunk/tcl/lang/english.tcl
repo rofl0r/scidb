@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 668 $
-# Date   : $Date: 2013-03-10 18:15:28 +0000 (Sun, 10 Mar 2013) $
+# Version: $Revision: 688 $
+# Date   : $Date: 2013-03-29 16:55:41 +0000 (Fri, 29 Mar 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -564,7 +564,6 @@
 ::application::database::annotators::mc::Find				"Find"
 ::application::database::annotators::mc::FindAnnotator	"Find annotator"
 ::application::database::annotators::mc::ClearEntries		"Clear entries"
-::application::database::annotators::mc::NotFound			"Not found."
 
 ### application::pgn ###################################################
 ::application::pgn::mc::Command(move:comment)			"Set Comment"
@@ -1017,7 +1016,6 @@
 ::application::analysis::mc::IllegalPosition				"Illegal position - Cannot analyze"
 ::application::analysis::mc::IllegalMoves					"Illegal moves in game - Cannot analyze"
 ::application::analysis::mc::DidNotReceivePong			"Engine is not responding to \"ping\" command - Engine aborted"
-::application::analysis::mc::OperationFailed				"Operation '%s' failed due to raise conditions."
 
 ::application::analysis::mc::LinesPerVariation			"Lines per variation"
 ::application::analysis::mc::BestFirstOrder				"Sort by evaluation"

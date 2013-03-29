@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 668 $
-# Date   : $Date: 2013-03-10 18:15:28 +0000 (Sun, 10 Mar 2013) $
+# Version: $Revision: 688 $
+# Date   : $Date: 2013-03-29 16:55:41 +0000 (Fri, 29 Mar 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -567,7 +567,6 @@
 ::application::database::annotators::mc::Find				"Cerca"
 ::application::database::annotators::mc::FindAnnotator	"Cerca Commentatore"
 ::application::database::annotators::mc::ClearEntries		"Pulisci Form"
-::application::database::annotators::mc::NotFound			"Nessun risultato."
 
 ### application::pgn ###################################################
 ::application::pgn::mc::Command(move:comment)			"Imposta commento"
@@ -1025,7 +1024,6 @@
 ::application::analysis::mc::IllegalPosition				"Posizione illegale - Impossibile analizzare"
 ::application::analysis::mc::IllegalMoves					"Mosse illegali nella partita - Impossibile analizzare"
 ::application::analysis::mc::DidNotReceivePong			"Il motore non sta rispondendo al comando \"ping\" - Motore terminato"
-::application::analysis::mc::OperationFailed				"L'operazione '%s' è fallita per un'eccezione"
 
 ::application::analysis::mc::LinesPerVariation			"Varianti per valutazione"
 ::application::analysis::mc::BestFirstOrder				"Ordina per valutazione"

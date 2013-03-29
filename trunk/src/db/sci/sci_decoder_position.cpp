@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 617 $
-// Date   : $Date: 2013-01-08 11:41:26 +0000 (Tue, 08 Jan 2013) $
+// Version: $Revision: 688 $
+// Date   : $Date: 2013-03-29 16:55:41 +0000 (Fri, 29 Mar 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -240,9 +240,9 @@ Position::setup(char const* fen, variant::Type variant)
 
 
 void
-Position::setupBoard(Board const& board)
+Position::setupBoard(Board const& board, variant::Type variant)
 {
-	M_ASSERT(board.isShuffleChessPosition());
+	M_ASSERT(board.isShuffleChessPosition(variant));
 
 	static Squares const StandardSquares =
 	{
@@ -298,7 +298,7 @@ Position::setupBoard(Board const& board)
 
 
 void
-Position::setupBoard(uint16_t idn)
+Position::setupBoard(uint16_t idn, variant::Type variant)
 {
 	reset();
 
@@ -597,12 +597,12 @@ Position::setupBoard(uint16_t idn)
 		default: IO_RAISE(Game, Corrupted, "error while decoding game data (invalid position number)");
 	}
 
-	board().setup(idn);
+	board().setup(idn, variant);
 }
 
 
 void
-Position::setup(uint16_t idn)
+Position::setup(uint16_t idn, variant::Type variant)
 {
 	M_ASSERT(idn);
 
@@ -634,12 +634,12 @@ Position::setup(uint16_t idn)
 	}
 	else if (variant::isShuffleChess(idn))
 	{
-		board().setup(idn);
-		setupBoard(board());
+		board().setup(idn, variant);
+		setupBoard(board(), variant);
 	}
 	else
 	{
-		setupBoard(idn);
+		setupBoard(idn, variant);
 	}
 }
 

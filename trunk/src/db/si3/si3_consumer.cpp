@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 661 $
-// Date   : $Date: 2013-02-23 23:03:04 +0000 (Sat, 23 Feb 2013) $
+// Version: $Revision: 688 $
+// Date   : $Date: 2013-03-29 16:55:41 +0000 (Fri, 29 Mar 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -112,7 +112,7 @@ Consumer::endGame(TagSet const& tags)
 		str.clear();
 	}
 
-	if (!startBoard().isStandardPosition())
+	if (!startBoard().isStandardPosition(variant::Normal))
 		m_stream[m_flagPos] |= flags::Non_Standard_Start;
 
 	if (board().signature().hasPromotion())

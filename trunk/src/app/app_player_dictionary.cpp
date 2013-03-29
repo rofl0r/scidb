@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 644 $
-// Date   : $Date: 2013-01-29 13:39:29 +0000 (Tue, 29 Jan 2013) $
+// Version: $Revision: 688 $
+// Date   : $Date: 2013-03-29 16:55:41 +0000 (Fri, 29 Mar 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -331,7 +331,7 @@ void
 PlayerDictionary::negateFilter()
 {
 	m_attrFilter.flip();
-	m_attrFilter & m_baseFilter;
+	m_attrFilter &= m_baseFilter;
 }
 
 

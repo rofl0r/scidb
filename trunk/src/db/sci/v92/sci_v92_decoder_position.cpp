@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 688 $
+// Date   : $Date: 2013-03-29 16:55:41 +0000 (Fri, 29 Mar 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -224,7 +224,7 @@ Position::setup(char const* fen)
 void
 Position::setup(Board const& board)
 {
-	M_ASSERT(board.isShuffleChessPosition());
+	M_ASSERT(board.isShuffleChessPosition(variant::Normal));
 
 	static Square const Rank2[8] = { sq::a2, sq::b2, sq::c2, sq::d2, sq::e2, sq::f2, sq::g2, sq::h2 };
 	static Square const Rank7[8] = { sq::a7, sq::b7, sq::c7, sq::d7, sq::e7, sq::f7, sq::g7, sq::h7 };
@@ -319,7 +319,7 @@ Position::setup(uint16_t idn)
 	}
 	else
 	{
-		board().setup(idn);
+		board().setup(idn, variant::Normal);
 		setup(board());
 	}
 }

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 688 $
+// Date   : $Date: 2013-03-29 16:55:41 +0000 (Fri, 29 Mar 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -716,7 +716,7 @@ db::Guess::SEARCH(MoveList& moves, unsigned depth, int alpha, int beta, bool all
 			}
 			else if (move.isPieceDrop())
 			{
-				if (isCheckEvasion || isContactCheck(move, m_variant))
+				if (isCheckEvasion || isUnblockableCheck(move, m_variant))
 				{
 					scores[k] = 200;
 				}

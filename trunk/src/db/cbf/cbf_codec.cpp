@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 661 $
-// Date   : $Date: 2013-02-23 23:03:04 +0000 (Sat, 23 Feb 2013) $
+// Version: $Revision: 688 $
+// Date   : $Date: 2013-03-29 16:55:41 +0000 (Fri, 29 Mar 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -641,7 +641,7 @@ Codec::decodeIndexData(GameInfo& info, unsigned offset, NamebaseSite* site)
 
 	toUtf8(source);
 
-	if (::extractRoundNumber(players, round, subround) || ::extractRoundNumber(source, round, subround))
+	if (::extractRoundNumber(source, round, subround))
 	{
 		info.m_round = round;
 		info.m_subround = subround;

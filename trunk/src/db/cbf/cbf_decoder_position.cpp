@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 666 $
-// Date   : $Date: 2013-03-03 07:24:18 +0000 (Sun, 03 Mar 2013) $
+// Version: $Revision: 688 $
+// Date   : $Date: 2013-03-29 16:55:41 +0000 (Fri, 29 Mar 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -245,7 +245,7 @@ Position::doMove(unsigned moveNumber)
 
 							if (!move)
 							{
-								if (moveGen->epIndex && to == board.enPassantSquare() && top.epFake)
+								if (moveGen->epIndex && top.epFake && to == board.enPassantSquare())
 								{
 									// Imitating the strange behaviour of ChessBase:
 									// ---------------------------------------------------

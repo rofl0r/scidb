@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 688 $
+// Date   : $Date: 2013-03-29 16:55:41 +0000 (Fri, 29 Mar 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -62,8 +62,8 @@ public:
 
 	Position();
 
-	void setupShuffle(Board const& board);
-	void setupZero(Board const& board);
+	void setupShuffle(Board const& board, ::db::variant::Type variant);
+	void setupZero(Board const& board, ::db::variant::Type variant);
 	void setupStandard();
 	void setup(uint16_t idn);
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 648 $
-// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
+// Version: $Revision: 688 $
+// Date   : $Date: 2013-03-29 16:55:41 +0000 (Fri, 29 Mar 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -252,6 +252,7 @@ public:
 	static void setupTags(TagSet& tags, Provider const& provider);
 	static mstl::string& flagsToString(uint32_t flags, mstl::string& result);
 	static unsigned stringToFlags(char const* str);
+	static unsigned charToFlag(char c);
 	static char mapFlag(uint32_t flag);
 
 private:

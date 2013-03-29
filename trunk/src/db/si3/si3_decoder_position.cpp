@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 688 $
+// Date   : $Date: 2013-03-29 16:55:41 +0000 (Fri, 29 Mar 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -188,7 +188,7 @@ Position::setup(char const* fen)
 		IO_RAISE(Game, Invalid_Data, "invalid FEN (%s)", fen);
 
 // WARNING: flags::Non_Standard_Start is possibly set wrong (Scid bug)
-//	M_ASSERT(!board().isStandardPosition());
+//	M_ASSERT(!board().isStandardPosition(variant::Normal));
 
 	unsigned whitePieceNum = 0;
 	unsigned blackPieceNum = 0x10;

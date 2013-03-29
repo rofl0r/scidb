@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 661 $
-// Date   : $Date: 2013-02-23 23:03:04 +0000 (Sat, 23 Feb 2013) $
+// Version: $Revision: 688 $
+// Date   : $Date: 2013-03-29 16:55:41 +0000 (Fri, 29 Mar 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -157,7 +157,7 @@ Consumer::setup(Board const& startPosition)
 void
 Consumer::setup(unsigned idn)
 {
-	m_stack.bottom().board.setup(idn);
+	m_stack.bottom().board.setup(idn, m_useVariant);
 }
 
 
@@ -209,8 +209,7 @@ Consumer::startGame(TagSet const& tags, Board const* board)
 			return false;
 
 		m_stack.bottom().board = *board;
-
-		m_idn = startBoard().computeIdn();
+		m_idn = startBoard().computeIdn(m_useVariant);
 	}
 	else if (tags.contains(tag::Fen))
 	{
@@ -219,7 +218,7 @@ Consumer::startGame(TagSet const& tags, Board const* board)
 		if (startBoard().notDerivableFromChess960())
 			return false;
 
-		m_idn = startBoard().computeIdn();
+		m_idn = startBoard().computeIdn(m_useVariant);
 	}
 	else if (tags.contains(tag::Idn))
 	{

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 649 $
-// Date   : $Date: 2013-02-05 21:57:09 +0000 (Tue, 05 Feb 2013) $
+// Version: $Revision: 688 $
+// Date   : $Date: 2013-03-29 16:55:41 +0000 (Fri, 29 Mar 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -44,7 +44,7 @@ public:
 	Position();
 
 	void setup(char const* fen, db::variant::Type variant);
-	void setup(uint16_t idn);
+	void setup(uint16_t idn, variant::Type variant);
 
 	void push();
 	void pop();
@@ -82,8 +82,8 @@ private:
 
 	typedef mstl::stack<Lookup> Stack;
 
-	void setupBoard(Board const& board);
-	void setupBoard(uint16_t idn);
+	void setupBoard(Board const& board, ::db:: variant::Type variant);
+	void setupBoard(uint16_t idn,  ::db::variant::Type variant);
 	void reset();
 
 	Stack	m_stack;

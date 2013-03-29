@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 668 $
-// Date   : $Date: 2013-03-10 18:15:28 +0000 (Sun, 10 Mar 2013) $
+// Version: $Revision: 688 $
+// Date   : $Date: 2013-03-29 16:55:41 +0000 (Fri, 29 Mar 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -574,7 +574,7 @@ Encoder::setup(Board const& board, uint16_t idn, variant::Type variant)
 	switch (flags)
 	{
 		case 0:
-			m_position.setupZero(board);
+			m_position.setupZero(board, variant);
 			break;
 
 		case variant::Standard:
@@ -584,7 +584,7 @@ Encoder::setup(Board const& board, uint16_t idn, variant::Type variant)
 
 		default:
 			if (flags <= 4*960)
-				m_position.setupShuffle(board);
+				m_position.setupShuffle(board, variant);
 			else
 				m_position.setup(flags);
 			break;
@@ -604,14 +604,14 @@ Encoder::setup(Board const& board, uint16_t idn, variant::Type variant)
 void
 Encoder::setup(Board const& board, variant::Type variant)
 {
-	setup(board, board.computeIdn(), variant);
+	setup(board, board.computeIdn(variant), variant);
 }
 
 
 void
 Encoder::setup(GameData const& data)
 {
-	M_ASSERT(data.m_idn == data.m_startBoard.computeIdn());
+	M_ASSERT(data.m_idn == data.m_startBoard.computeIdn(data.m_variant));
 	setup(data.m_startBoard, data.m_idn, data.m_variant);
 }
 

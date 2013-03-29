@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 661 $
-// Date   : $Date: 2013-02-23 23:03:04 +0000 (Sat, 23 Feb 2013) $
+// Version: $Revision: 688 $
+// Date   : $Date: 2013-03-29 16:55:41 +0000 (Fri, 29 Mar 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -279,7 +279,7 @@ cmdSetup(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 static int
 cmdIdn(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 {
-	setResult(Scidb->game().currentBoard().computeIdn());
+	setResult(Scidb->game().currentBoard().computeIdn(Scidb->game().variant()));
 	return TCL_OK;
 }
 

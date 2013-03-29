@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 617 $
-// Date   : $Date: 2013-01-08 11:41:26 +0000 (Tue, 08 Jan 2013) $
+// Version: $Revision: 688 $
+// Date   : $Date: 2013-03-29 16:55:41 +0000 (Fri, 29 Mar 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -276,8 +276,8 @@ NameList::newNode(NamebaseEntry* entry, mstl::string const* str, unsigned id)
 }
 
 
-NameList::Node*
-NameList::makeNode(NamebaseEntry* entry, mstl::string const* str)
+unsigned
+NameList::nextId()
 {
 	unsigned id = m_nextId;
 
@@ -288,11 +288,23 @@ NameList::makeNode(NamebaseEntry* entry, mstl::string const* str)
 		id = n;
 		m_usedIdSet.resize(n + mstl::max(50u, (n*9)/10));
 		m_access.resize(m_usedIdSet.size());
+		m_nextId = id + 1;
+	}
+	else
+	{
+		m_nextId = m_usedIdSet.find_next_not(m_nextId);
 	}
 
 	m_usedIdSet.set(id);
-	m_nextId = m_usedIdSet.find_next_not(m_nextId);
-	return newNode(entry, str, id);
+
+	return id;
+}
+
+
+NameList::Node*
+NameList::makeNode(NamebaseEntry* entry, mstl::string const* str)
+{
+	return newNode(entry, str, nextId());
 }
 
 

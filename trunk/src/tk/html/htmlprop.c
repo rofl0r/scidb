@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 343 $
-// Date   : $Date: 2012-06-15 12:05:39 +0000 (Fri, 15 Jun 2012) $
+// Version: $Revision: 688 $
+// Date   : $Date: 2013-03-29 16:55:41 +0000 (Fri, 29 Mar 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -999,10 +999,17 @@ dumpColorTable(HtmlTree *pTree)
         pEntry = Tcl_NextHashEntry(&search)
     ) {
         HtmlColor *pColor = Tcl_GetHashValue(pEntry);
+#if TCL_MAJOR_VERSION > 8 || (TCL_MAJOR_VERSION == 8 && TCL_MINOR_VERSION >= 6)
+        printf("%p -> {%s (%d) %p}\n",
+            Tcl_GetHashKey(&pTree->aColor, pEntry),
+            pColor->zColor, pColor->nRef, pColor->xcolor
+        );
+#else
         printf("%s -> {%s (%d) %p}\n",
             Tcl_GetHashKey(&pTree->aColor, pEntry),
             pColor->zColor, pColor->nRef, pColor->xcolor
         );
+#endif
         iRet++;
     }
     return iRet;

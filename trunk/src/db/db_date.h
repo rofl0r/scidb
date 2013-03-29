@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 688 $
+// Date   : $Date: 2013-03-29 16:55:41 +0000 (Fri, 29 Mar 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -106,6 +106,13 @@ public:
 	char const* parseCorrespondenceDate(char const* s);
 	/// Reset to empty date,
 	void clear();
+
+	/// Add given years to date; returns whether resulting date is valid.
+	bool addYears(int n);
+	/// Add given months to date; returns whether resulting date is valid.
+	bool addMonths(int n);
+	/// Add given days to date; returns whether resulting date is valid.
+	bool addDays(int n);
 
 	static bool isValid(char const* s, unsigned len = 0);
 	static bool isValid(mstl::string const& s);
