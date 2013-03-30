@@ -63,64 +63,136 @@ CONTENT
   </div>
 
   <p>
-  <!-- google_ad_section_start -->
-  The second public preview version is released
-  <!-- google_ad_section_end -->
+  The third public preview version is released
   (see <a href="download.html">Download</a>).
+  This version contains many, many bug-fixes, and also many novelties.
+  Some time will pass until the first stable version, but it's not far anymore.
+  The most important missing goals are:
+  </p>
+
+  <dir>
+    <li>Flexible window layout (unfortunately very complicated)</li>
+    <li>Searching and filtering functionality: search of games, position search, etc.
+        The search funtionality will be based on CQL (Chess Query Language;
+        see <a href="http://www.rbnn.com/cql/">CQL Manual</a>).</li>
+    <li>Multiple selections in game list</li>
+    <li>Support of Bughouse games</li>
+    <li>Support of other variants in opening tree</li>
+    <li>Input of games with keyboard</li>
+  </dir>
+
+  <p>
+  With the implementation of this items the first full version will be
+  released - possibly with the next version.
   </p>
 
   <p>
-  Scidb has a newly designed homepage. It is tested with all modern browser:
-  Firefox 4+, Safari 4+, Chrome 6+, Opera 11+, Konqueror 4+, and Internet-Explorer 9+.
-  With older browser versions these pages do not have the intended look.
+  Of course the Windows version is pending. This requires:
   </p>
+
+  <dir>
+    <li>
+      A (quite complex) library to emulate the missing functions <code>fopencookie()</code>,
+      and <code>open_memstream()</code> under Windows.
+    </li>
+    <li>
+      Porting all system specific functionalities, so far completely implemented
+      only under Unix - currently the porting is done partially under Windows.
+    </li>
+    <li>
+      Intensive testing because the GUI has a different behavior under Windows.
+    </li>
+  </dir>
 
 </div><!-- block -->
 
 <div class="block">
 
   <div class="header">
-    What's new in second version? <hr />
+    What's new in third version? <hr />
   </div>
 
+  <p>
+  The most important novelties are:
+  </p>
+
   <dir>
-    <li><p>Game history</p></li>
-    <li><p>Help dialog (with a few help pages)</p></li>
-    <li><p>New file selection box with extraneous functions:</p>
-      <ul type="circle">
-        <li>Delete database</li>
-        <li>Rename database</li>
-        <li>Duplicate database</li>
-        <li>Create new folder</li>
-        <li>Selection of database encoding</li>
+    <li>
+      Support of different chess variants: Crazyhouse, Antichess (Suicide, Giveaway, Losers),
+      and Three-Check. In current version the support is still a bit experimentally, but
+      with full functionality.
+    </li>
+    <li>
+      Analysis window with support of external chess engines. Due to the lack of
+      the still missing window layout a standalone window will be opened for analysis.
+    </li>
+    <li>
+      Dialog for setup of external chess engines. Two chess engines are already
+      pre-installed:
+      <ul>
+        <li>Stockfish (supports <i>Chess 960</i>, and <i>Three-Check</i>)</li>
+        <li>Sjeng (supports Crazyhouse, Antichess, and later Bughouse)</li>
       </ul>
     </li>
-    <li><p>Automatic detection of database encoding</p></li>
-    <li><p>Enhanced Scidb database format; now it exists a new comment type: move information.
-    This provides a compact storage and, in a future version, a facilitated input.</p></li>
-    <li><p>Automatic upgrade to the new database format</p></li>
-    <li><p>Revised export dialog</p></li>
-    <li><p>Undo/redo in comment editor</p></li>
-    <li><p>Improved behavior of the HTML window:</p>
-      <ul type="circle">
-        <li>Double buffering for flicker-free display</li>
-        <li>Automatic hyphenation</li>
-      </ul>
+    <li>
+      Automatic update of supplements via the Internet, currently these are the
+      player photo files.
     </li>
-    <li><p>Accelerated popup of the game save dialog</p></li>
-    <li><p>Improved tournament table:</p>
-      <ul type="circle">
-        <li>Additional scoring system "Bilbao" (three points for a win)</li>
-        <li>Additional tie-breaks</li>
-      </ul>
+    <li>
+      Integration of format independent database archives. Among other things
+      this facilitates an easier shipping of databases via Internet.
     </li>
-    <li><p>The export to .si3/.si4 now offers a selection of the <acronym>PGN</acronym>-Tags (a restriction of the tags is accelerating the position tree)</p></li>
-    <li><p>Selection dialog of database symbols is revised</p></li>
-    <li><p>New feature in game editor: copy/move comments between different languages</p></li>
-    <li><p>Drop-down shadows (experimental)</p></li>
-    <li><p>Partial translation into Hungarian; the translation is still in progress</p></li>
-    <li><p>Ths Spanish translation is taken out temporary due to incompleteness. Volunteers for the translation: please look at <a href="wanted.html">Wanted</a></p></li>
-    <li><p><acronym>UNIX</acronym> man pages</p></li>
+    <li>
+      Drag&amp;Drop between databases.
+    </li>
+    <li>
+      Mouse wheel support for all list windows and the chess board.
+    </li>
+    <li>
+      Serious performance problem when opening ChessBase databases is solved.
+    </li>
+    <li>
+      Merge of games, optionally takes into account move transitions.
+    </li>
+    <li>
+      Game editor now features various settings.
+    </li>
+    <li>
+      There exists a player dictionary (with sorting and filtering functionality)
+      and an engine dictionary.
+    </li>
+  </dir>
+
+  <dir>
+    <li>Move input: pressing middle mouse button (or spacebar) alternates the move suggestion</li>
+    <li>New database tab: list of sites</li>
+    <li>Full-screen mode tweaked</li>
+    <li>Command line tool cdb2sci added for conversion of databases to Scidb format (.sci)</li>
+    <li>HTML widget reworked: saving resources in a highly significant way</li>
+    <li>Swedish localization integrated (thanks to Lars Ekman)</li>
+    <li>Spanish translation reactivated (thanks to Juan Carlos Vásquez)</li>
+    <li>Spanish help pages added (thanks to Carlos Fernando González)</li>
+    <li>HTML file export of tournament table</li>
+    <li>New piece sets: "Free Staunton", and "Virtual"</li>
+    <li>New board themes: "Blue Theme", "Staunton", and "Virtual"</li>
+    <li>Automatic detection of character set when encoding games (only for si3/si4/cbh)</li>
+    <li>Game browser: full-screen mode integrated, and also maximize/minimize board</li>
+    <li>File selection dialog improved; Drag&amp;Drop among other things</li>
+    <li>Game-Save/Replace dialog improved</li>
+    <li>Player notecards implemented</li>
+    <li>Database window: docking/undocking of list tabs integrated</li>
+    <li>Move input with mouse overworked (if move suggestion is disabled)</li>
+    <li>Menu bar removed: instead a simple main menu exists; this is state-of-the-art,
+        and the layout will be improved</li>
+    <li>Compacting database (.sci only) integrated; required for the physical removal of
+        games marked for deletion</li>
+    <li>Tournament table: optional display of win/draw/loss</li>
+    <li>Algebraic (normal, short, and long), English, Correspondence, and Telegraphic move notations available</li>
+    <li>Now it is possible to import databases without to open beforehand</li>
+    <li>Export of tournament table to HTML file</li>
+    <li>Severe problem with Tcl version 8.6 solved</li>
+    <li>More help pages</li>
+    <li>Some icons newly designed</li>
   </dir>
 </div><!-- block -->
 

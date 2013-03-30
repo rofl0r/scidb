@@ -72,10 +72,6 @@ CONTENT
   <h4>Tcl/Tk</h4>
 
   <dir>
-    <li><p>The sub-windows inside the main window should be dockable/undockable.
-    Furthermore the sub-windows should be movable (with drag&amp;drop),
-    currently the positions of the sub-windows are fixed.</p></li>
-
 	 <li><p>Some of the icons do need rework.</p></li>
 
     <li><p>Programming a 'Tip of the Day' dialog with appendant tips.</p></li>
@@ -96,8 +92,6 @@ CONTENT
     basis for this task is the library 'newlib' (only the stdio part).
     More programming effort for the porting shouldn't be neccessary.</p></li>
 
-    <li><p>Embedding a drag&amp;drop library.</p></li>
-     
     <li><p><acronym>HTML</acronym> generation (see <acronym>LaTeX</acronym> generation).</p></li>
 
     <li><p>The <acronym>SVG</acronym> library Anti-Grain (<acronym>AGG</acronym>)

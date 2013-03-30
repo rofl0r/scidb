@@ -82,12 +82,6 @@ CONTENT
   <h4>Tcl/Tk</h4>
 
   <dir>
-    <li>
-    Die einzelnen Fenster innerhalb des Hauptfensters sollten
-    lösbar/verankerbar sein. Weiterhin sollten sie frei verschiebbar
-    sein (mit <span lang="en">Drag&amp;Drop</span>). Zur Zeit sind alle Fensterpositionen fix.
-    </li>
-
     <li>Einige Icons bedürfen der Überarbeitung.</li>
 
     <li>Ein 'Tip des Tages'-Dialog mit zugehörigen Tips.</li>
@@ -111,8 +105,6 @@ CONTENT
       Als Basis dient die Bibliothek 'newlib' (nur der stdio-Teil).
       Weiterer Aufwand ausser dem Testen sollte nicht vonnöten sein.
     </li>
-
-    <li>Einbindung einer <span lang="en">Drag&amp;Drop</span>-Bibliothek.</li>
 
     <li><acronym>HTML</acronym>-Generierung (siehe <acronym>LaTeX</acronym>-Generierung).</li>
 

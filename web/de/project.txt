@@ -16,6 +16,8 @@ CONTENT
 
   <p>Im Februar 2012 erschien die zweite öffentliche Vorschau-Version.</p>
 
+  <p>Im April 2013 erschien die dritte öffentliche Vorschau-Version.</p>
+
   <p>Wenn ein Interesse besteht, an der Entwicklung von Scidb teilzuhaben, dann
   besuche bitte die SourceForge-Seite und sende eine Nachricht an den Projektadministrator.
   Danke!</p>

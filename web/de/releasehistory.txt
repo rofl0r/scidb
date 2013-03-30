@@ -7,6 +7,71 @@ CONTENT
 <div class="block">
 
   <div class="header">
+    Dritte öffentliche Vorschau-Version (April 2013) <hr />
+  </div>
+
+  <p>Die dritte öffentliche Vorschau-Version basiert auf der
+  <acronym>SVN</acronym>-Revisionsnummer 692.</p>
+
+  <div class="box">
+    <p>
+    <b><font color="#8B0000">Spezifische Probbleme aller <acronym>Ubuntu</acronym>
+    Editionen ab Version 11.10</font></b>
+    </p>
+
+    <dir>
+      <li>
+        Die <acronym>Tk</acronym>-Bibliothek 8.5.10 ist instabil (was weithin
+        bekannt ist). Es wird dringend empfohlen, eine stabile <acronym>Tk</acronym>-Bibliothek
+        zu installieren (Version 8.5.6 oder 8.5.11, or 8.6.0).
+      </li>
+      <li>
+        Die vorinstallierte <acronym>Tk</acronym>-Bibliothek (jede Version) ist verkrüppelt,
+        dies führt dazu das einige Fenster festfrieren (d.h. sie reagieren nicht auf Maus- oder
+        Tastaturereignisse).
+      </li>
+    </dir>
+
+    <p>
+    Alle <acronym>Ubuntu</acronym> Editionen &gt;= 11.10 sind definitiv defekt
+    &ndash; ein Resultat der Sicherheitsparanoia des Ubuntu-Teams &ndash;
+    und der Entwickler, der einige Wochen mit der Suche nach Notlösungen verbrachte,
+    wird möglicherweise zukünftige Versionen dieser Edition nicht mehr unterstützen.
+    Das <acronym>Ubuntu</acronym>-Team nimnmt an, daß jegliche Software ein Angreifer ist,
+    und entfernt die sogenannten <i>Sicherheitslöcher</i>. Dies führt zu verkrüppelten und
+    defekten Systemen, die nicht mehr Unix-konform sind. <acronym>Scidb</acronym> ist sehr
+    anspruchsvoll und setzt ein voll funktionsfähiges Unix-System voraus.
+    <acronym>Scidb</acronym> ist zudem definitiv kein Angreifer.
+    </p>
+
+    <p>
+    Es existieren keine bekannten Workarounds (Umgehungen) für die Probleme mit der
+    <acronym>Tk</acronym>-Bibliothek, außer der Installation einer selbstgebauten
+    <acronym>Tk</acronym>-Bibliothek.
+    </p>
+
+  </div>
+
+  <div class="box">
+
+    <p><b><font color="#8B0000">
+    <acronym>Ubuntu</acronym> &gt;= 11.10 hält noch ein spezifisches Problem bereit:
+    </font></b></p>
+
+    <p>
+    Sub-Prozesse arbeiten im allgemeinen nicht (für weitere Details siehe
+    <a href="http://sourceforge.net/mailarchive/forum.php?thread_name=20111118143650.38280%40gmx.net&amp;forum_name=scidb-users" target="_blank">
+    Scidb's Users List</a>),
+    dies führt zu Abstürzen, sofern nicht die (unter dem Link) vorgeschlagenen Lösungen
+    angewendet werden.
+    </p>
+
+  </div>
+</div>
+
+<div class="block">
+
+  <div class="header">
     Zweite öffentliche Vorschau-Version (Februar 2012) <hr />
   </div>
 

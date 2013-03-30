@@ -30,28 +30,6 @@ CONTENT
   <hr />
 
   <ul>
-    <li><a href="http://blogchess.blogosfere.it/2010/11/scidb-un-nuovo-programma-per-gestire-database.html">
-	   Scidb: un nuovo programma per gestire database</a></li>
-    <li style="list-style: none"></li>
-    <li><a href="http://blogchess.blogosfere.it/2011/03/scidb-alpha-in-arrivo-a-maggio-chessbase-trema.html">
-	   Scidb alpha in arrivo a maggio, Chessbase trema!</a></li>
-    <li style="list-style: none"></li>
-    <li><a href="http://blogchess.blogosfere.it/2011/05/scidb-prime-immagini-di-una-beta-che-verra.html">
-	   Scidb: prime immagini di una beta che verrà</a></li>
-    <li style="list-style: none"></li>
-	 <li><a href="http://blogchess.blogosfere.it/2011/07/scidb-entra-in-fase-beta-ecco-cosa-ci-aspetta.html">
-	   Scidb entra in fase beta: ecco cosa ci aspetta</a></li>
-    <li style="list-style: none"></li>
-	 <li><a href="http://blogchess.blogosfere.it/2011/07/scidb-apre-al-pubblico-scarica-la-versione-beta.html">
-	   Scidb apre al pubblico: scarica la versione beta!</a></li>
-    <li style="list-style: none"></li>
-	 <li><a href="http://blogchess.blogosfere.it/2011/11/scidb-alla-sua-beta-release-numero-100.html">
-	   Scidb alla sua beta release numero 100!</a></li>
-  </ul>
-
-  <hr />
-
-  <ul>
 	 <li><a href="http://ghandybh.blogspot.com/2011/10/aonde-guardar-suas-partidas-de-xadrez.html">
 	   Xadrez e filosófia enxadrística: Aonde guardar suas partidas de xadrez?</a></li>
   </ul>

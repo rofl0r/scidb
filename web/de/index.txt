@@ -61,21 +61,30 @@ CONTENT
   <p>
   Die dritte öffentliche Vorschau-Version wurde freigegeben
   (siehe <a href="download.html" lang="en">Download</a>).
-  Sie enthält viele, viele Fehlerbereinigungen, aber auch wieder viele, viele
-  Neuerungen - mit möglichen neuen Fehlern. Bis zur ersten stabilen Version wird
-  noch etwas Zeit vergehen, aber es fehlt nicht mehr viel. Die zwei wichtigsten
-  Punkte sind:
+  Sie enthält viele, viele Fehlerbereinigungen, aber auch wieder viele
+  Neuerungen. Bis zur ersten stabilen Version wird noch etwas Zeit vergehen,
+  aber es fehlt nicht mehr viel. Die wichtigsten noch fehlenden Punkte sind:
   </p>
 
   <dir>
     <li>Ein flexibles Fensterlayout (leider sehr aufwendig)</li>
-    <li>Suchfunktionen bzw. Filterfunktionen: Partiedatensuche, Positionssuche, etc.</li>
+    <li>Suchfunktionen bzw. Filterfunktionen: Partiedatensuche, Positionssuche, etc.
+        Die Suchfunktionen sollen auf CQL (Chess Query Language) basieren (siehe
+        <a href="http://www.rbnn.com/cql/">CQL Manual</a>).</li>
+    <li>Mehrfach-Selektion in der Partienliste</li>
+    <li>Unterstützung von Tandem-Partien</li>
+    <li>Unterstützung von anderen Schachformen in der Eröffnungsbaumsuche</li>
+    <li>Tastatureingabe von Partien im Partieneditor</li>
   </dir>
 
-  Mit der Impementierung dieser beiden Punkte wird die erste Vollversion
-  erscheinen - möglicherweise schon bei der nächsten öffentlichen Version.
+  <p>
+  Mit der Implementierung dieser Punkte wird die erste Vollversion
+  erscheinen &ndash; möglicherweise schon mit der nächsten öffentlichen Version.
+  </p>
 
+  <p>
   Selbstverständlich steht auch noch die Windows-Version aus. Diese erfordert:
+  </p>
 
   <dir>
     <li>
@@ -103,35 +112,38 @@ CONTENT
 
   <p>
   Die wichtigsten Neuerungen sind:
+  </p>
 
   <dir>
     <li>
       Die Unterstützung anderer Schachformen: Einsetzschach (Crazyhouse), Schlagschach
-      (Suicide, Giveaway, Losers), Drei-Schach (Three-Check), und Tandemschach (Bughouse).
-      In dieser Version ist diese Unterstützung noch etwas experimentell.
+      (Suicide, Giveaway, Losers) und Dreimal-Schach (Three-Check).
+      In dieser Version ist diese Unterstützung noch etwas experimentell, aber voll
+      funktionsfähig.
     </li>
     <li>
       Ein Analyse-Fenster, daß externe Schachprogramme unterstützt. Aufgrund des noch
       fehlenden Fensterlayouts wird ein neues Fenster für die Analyse geöffnet.
     </li>
     <li>
-      Ein Setup-Dialog zum Einrichten neuer Schachprogramme. Es sind bereits drei
+      Ein Setup-Dialog zum Einrichten neuer Schachprogramme. Es sind bereits zwei
       Schachprogramme vorinstalliert:
       <ul>
-        <li>Stockfish (unterstützt Schach-960)</li>
-        <li>Sjeng (unterstützt Einsetzschach, Schlagschach, und Tandemschach)</li>
-        <li>Crafty (unterstützt Drei-Schach - noch experimentell)</li>
+        <li>Stockfish (unterstützt Schach-960 und Dreimal-Schach)</li>
+        <li>Sjeng (unterstützt Einsetzschach, Schlagschach, und später
+        Tandemschach)</li>
+      </ul>
     </li>
     <li>
       Automatisches Update von Ergänzungen über das Internet, z. Zt. sind dies die
-      Spielerphoto- und Spielerinformationsdateien.
+      Spielerphotodateien.
     </li>
     <li>
       Die Integrierung von formatunabhängigen Datenbankarchiven. Dies erlaubt unter
       anderem eine leichtere Versendung von Datenbanken über das Internet.
     </li>
     <li>
-      Drag&apm;Drop von Datenbanken in andere Datenbanken.
+      Drag&amp;Drop von Datenbanken in andere Datenbanken.
     </li>
     <li>
       Mausradunterstützung für alle Listen und das Schachbrett.
@@ -141,7 +153,14 @@ CONTENT
       bereinigt.
     </li>
     <li>
+      Verschmelzen von Partien mit optionaler Einbezugnahme von Zugumstellungen.
+    </li>
+    <li>
       Der Partieneditor verfügt nun über vielfältige Einstellungsmöglichkeiten.
+    </li>
+    <li>
+      Es exisitieren ein Spielerlexikon (mit Sortierungs- und Filterfunktionen) sowie
+      ein Motorenlexikon (Schachprogrammlexikon).
     </li>
   </dir>
 
@@ -150,7 +169,6 @@ CONTENT
   </p>
 
   <dir>
-    <li>Mehr Hilfeseiten</li>
     <li>Zugeingabe: Mittlere Maustaste (oder Leertaste) wechselt zu einem alternativen Zugvorschlag</li>
     <li>Neuer Datenbankreiter: Orte-Liste</li>
     <li>Vollbild-Modus verbessert</li>
@@ -159,20 +177,24 @@ CONTENT
     <li>Schwedische Lokalisierung integriert (Dank an Lars Ekman)</li>
     <li>Spanische Lokalisierung reaktiviert (Dank an Juan Carlos Vásquez)</li>
     <li>Spanische Hilfeseiten hinzugefügt (Dank an Carlos Fernando González)</li>
+    <li>HTML-Dateiexport der Turniertabelle</li>
+    <li>Neue Figurensätze: "Free Staunton" und "Virtual"</li>
+    <li>Neue Schachbrettthemen: "Blue Theme", "Staunton" und "Virtual"</li>
     <li>Automatische Erkennung des Zeichensatzes beim Laden von Partien (betrifft si3/si4/cbh)</li>
     <li>Partien-Browser: Vollbild-Modus, sowie Maximieren/Minimieren des Brettes, hinzugefügt</li>
-    <li>Dateiauswahldialog erweitert und verbessert, unter anderem Drag&apm;Drop</li>
+    <li>Dateiauswahldialog erweitert und verbessert, unter anderem Drag&amp;Drop</li>
     <li>Partie-Speichern/Ersetzen-Dialog verbessert</li>
     <li>Spieler-Karteikarten implementiert</li>
     <li>Datenbankfenster: Andocken/Abkopplen der Listen-Reiter integriert</li>
     <li>Zugeingabe mit der Maus überarbeitet (wenn Zugvorschlag abgeschaltet ist)</li>
     <li>Menüleiste entfernt, stattdessen exisitiert ein simples Hauptmenü; dies ist zeitgemäß und verbessert das Layout</li>
-    <li>Kompaktieren von Datenbanken (nur .sci) integriert</li>
-    <li>Installation der ChessBase-Zeichensätze integriert</li>
+    <li>Kompaktieren von Datenbanken (nur .sci) integriert; notwendig um zur Löschung vorgesehene Partien physikalisch zu entfernen</li>
     <li>Turniertabelle: Optionale Anzeige von Gewinn/Remis/Verlust</li>
     <li>Algebraische- (Normal-, Kurz- und Langform), Englische, Korrespondenz- und telegrafische Notation verfügbar</li>
     <li>Es können nun ungeöffnete Datenbanken importiert werden</li>
+    <li>Export von Turniertabellen nach HTML-Datei</li>
     <li>Ein schwerwiegendes Problem mit Tcl-Version 8.6 behoben</li>
+    <li>Mehr Hilfeseiten</li>
     <li>Einige Icons neu gestaltet</li>
   </dir>
 
