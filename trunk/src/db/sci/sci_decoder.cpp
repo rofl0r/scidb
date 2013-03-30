@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 688 $
-// Date   : $Date: 2013-03-29 16:55:41 +0000 (Fri, 29 Mar 2013) $
+// Version: $Revision: 690 $
+// Date   : $Date: 2013-03-30 19:19:17 +0000 (Sat, 30 Mar 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -202,7 +202,9 @@ Decoder::decodePawn(sq::ID from, Byte nybble)
 		{
 			if (from > sq::h2)
 			{
-				M_ASSERT(variant::isAntichessExceptLosers(m_variant));
+				if (!variant::isAntichessExceptLosers(m_variant))
+					throwCorruptData();
+
 				// Promotion to king (Antichess).
 				Square to = (from + m_strm.get()) & 63;
 				return Move::genCapturePromote(from, to, piece::King, m_position.piece(to));
@@ -232,7 +234,9 @@ Decoder::decodePawn(sq::ID from, Byte nybble)
 	{
 		if (from < sq::a7)
 		{
-			M_ASSERT(variant::isAntichessExceptLosers(m_variant));
+			if (!variant::isAntichessExceptLosers(m_variant))
+				throwCorruptData();
+
 			// Promotion to king (Antichess).
 			Square to = (from - m_strm.get()) & 63;
 			return Move::genCapturePromote(from, to, piece::King, m_position.piece(to));

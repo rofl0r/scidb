@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 682 $
-# Date   : $Date: 2013-03-24 19:46:42 +0000 (Sun, 24 Mar 2013) $
+# Version: $Revision: 690 $
+# Date   : $Date: 2013-03-30 19:19:17 +0000 (Sat, 30 Mar 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -3121,6 +3121,18 @@ proc ProbeEngine {parent entry} {
 
 	set dir [string map {" " "-"} $engine(ShortId)]
 	set engine(Directory) [file join $::scidb::dir::user engines $dir]
+
+	if {	"WB" in $engine(Protocol)
+		&& [lindex $engine(Profiles:WB) 0] eq "Default"
+		&& [string length [lindex $engine(Profiles:WB) 1]] == 0} {
+		set sharedir [file join $::scidb::dir::share engines]
+		set script [file join $::scidb::dir::share engines $engine(ShortId).dat]
+		if {[file readable $script]} {
+			set f [open $script "r"]
+			lset engine(Profiles:WB) 1 [read $f]
+			close $f
+		}
+	}
 
 	return [array get engine]
 }
