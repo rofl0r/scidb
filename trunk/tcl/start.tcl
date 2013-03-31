@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 675 $
-# Date   : $Date: 2013-03-19 00:44:15 +0000 (Tue, 19 Mar 2013) $
+# Version: $Revision: 697 $
+# Date   : $Date: 2013-03-31 17:59:00 +0000 (Sun, 31 Mar 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -28,7 +28,7 @@
 
 namespace eval scidb {
 
-set revision [::scidb::misc::revision]
+set revision 83 ;# first revision ever
 
 variable clipbaseName		[::scidb::db::get clipbase name]
 variable scratchbaseName	[::scidb::db::get scratchbase name]
