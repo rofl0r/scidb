@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 637 $
-# Date   : $Date: 2013-01-23 13:22:07 +0000 (Wed, 23 Jan 2013) $
+# Version: $Revision: 696 $
+# Date   : $Date: 2013-03-31 00:13:33 +0000 (Sun, 31 Mar 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -67,7 +67,7 @@ proc source {path args} {
 	variable Log
 	variable currentFile
 
-	array set opts { -message "" -encoding "" }
+	array set opts { -message "" -encoding "" -throw 0 }
 	array set opts $args
 	set msg $opts(-message)
 
@@ -82,7 +82,9 @@ proc source {path args} {
 	set enc {}
 	if {[string length $opts(-encoding)]} { set enc [list -encoding $opts(-encoding)] }
 
-	if {[catch {uplevel ::source {*}$enc [list $path]} err]} {
+	if {$opts(-throw)} {
+		uplevel ::source {*}$enc [list $path]
+	} elseif {[catch {uplevel ::source {*}$enc [list $path]} err]} {
 		lappend Log error [format $mc::FileIsCorrupt $path] error $err
 	} elseif {[string length $msg]} {
 		lappend Log info "$msg: $path"
