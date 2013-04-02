@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 688 $
-# Date   : $Date: 2013-03-29 16:55:41 +0000 (Fri, 29 Mar 2013) $
+# Version: $Revision: 702 $
+# Date   : $Date: 2013-04-02 20:29:46 +0000 (Tue, 02 Apr 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -440,7 +440,7 @@ proc dbNew {parent variant} {
 		-customicon $::icon::16x16::filetypeArchive \
 		-customtooltip $mc::Archiving \
 		-customcommand [namespace code [list CreateArchive]] \
-		-customfiletypes {.sci .si4 .si3 .cbh .cbh .pgn .pgn.gz .bpgn .bpgn.gz .zip} \
+		-customfiletypes {.sci .si4 .si3 .cbh .cbf .pgn .pgn.gz .bpgn .bpgn.gz .zip} \
 	]
 	set FileSelBoxInUse 0
 

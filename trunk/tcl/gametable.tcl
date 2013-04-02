@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 661 $
-# Date   : $Date: 2013-02-23 23:03:04 +0000 (Sat, 23 Feb 2013) $
+# Version: $Revision: 702 $
+# Date   : $Date: 2013-04-02 20:29:46 +0000 (Tue, 02 Apr 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -831,7 +831,6 @@ proc TableSelected {path index} {
 
 	if {[llength $Vars(positioncmd)]} { set fen [{*}$Vars(positioncmd)] }
 	set number [expr {[column $info number] - 1}]
-	set variant [::scidb::db::get variant? $base $number]
 
 	set pos [::widget::busyOperation { ::game::new $path \
 		-base $base -variant $variant -view $view -number $number -fen $fen }]

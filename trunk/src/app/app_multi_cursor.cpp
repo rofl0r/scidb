@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 643 $
-// Date   : $Date: 2013-01-29 13:15:54 +0000 (Tue, 29 Jan 2013) $
+// Version: $Revision: 702 $
+// Date   : $Date: 2013-04-02 20:29:46 +0000 (Tue, 02 Apr 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -111,7 +111,7 @@ MultiCursor::MultiCursor(	Application& app,
 		{
 			if (!m_base->isEmpty(v))
 			{
-				m_cursor[v] = new Cursor(*this, m_base->database(v));
+				(m_cursor[v] = new Cursor(*this, m_base->database(v)))->database().setReadonly();
 				if (m_leader == 0)
 					m_leader = m_cursor[v];
 			}
@@ -121,6 +121,7 @@ MultiCursor::MultiCursor(	Application& app,
 	{
 		m_leader = m_cursor[variant::Index_Normal] =
 			new Cursor(*this, m_base->database(variant::Index_Normal));
+		m_leader->database().setReadonly();
 	}
 }
 
