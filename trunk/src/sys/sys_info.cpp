@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 668 $
-// Date   : $Date: 2013-03-10 18:15:28 +0000 (Sun, 10 Mar 2013) $
+// Version: $Revision: 703 $
+// Date   : $Date: 2013-04-03 15:55:59 +0000 (Wed, 03 Apr 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -109,6 +109,13 @@ sys::info::memFree()
 
 
 int64_t
+sys::info::memAvail()
+{
+	return ::readProcInfo("CommitLimit:");
+}
+
+
+int64_t
 sys::info::memTotal()
 {
 	long numPages = ::sysconf(_SC_PHYS_PAGES);
@@ -139,6 +146,14 @@ sys::info::memFree()
 	status.dwLength = sizeof(status);
 	GlobalMemoryStatusEx(&status);
 	return status.ullAvailPhys;
+}
+
+
+int64_t
+sys::info::memAvail()
+{
+	// TODO
+	return memFree();
 }
 
 
@@ -199,6 +214,14 @@ sys::info::memFree()
 	}
 
 	return int64_t(vmStats.free_count)*int64_t(pageSize);
+}
+
+
+int64_t
+sys::info::memAvail()
+{
+	// TODO
+	return memFree();
 }
 
 

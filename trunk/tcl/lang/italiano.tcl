@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 688 $
-# Date   : $Date: 2013-03-29 16:55:41 +0000 (Fri, 29 Mar 2013) $
+# Version: $Revision: 703 $
+# Date   : $Date: 2013-04-03 15:55:59 +0000 (Wed, 03 Apr 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1424,7 +1424,7 @@
 ::setup::board::mc::Error(EmptyBoard)					"La scacchiera è vuota"
 ::setup::board::mc::Error(NoWhiteKing)					"Manca il re bianco."
 ::setup::board::mc::Error(NoBlackKing)					"Manca il re nero."
-::setup::board::mc::Error(DoubleCheck)					"Entrambi i re sono sotto scacco."
+::setup::board::mc::Error(BothInCheck)					"Entrambi i re sono sotto scacco."
 ::setup::board::mc::Error(OppositeCheck)				"Il lato senza tratto è sotto scacco."
 ::setup::board::mc::Error(TooManyWhitePawns)			"Troppi pedoni bianchi."
 ::setup::board::mc::Error(TooManyBlackPawns)			"Troppi pedoni neri."

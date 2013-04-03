@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 668 $
-// Date   : $Date: 2013-03-10 18:15:28 +0000 (Sun, 10 Mar 2013) $
+// Version: $Revision: 703 $
+// Date   : $Date: 2013-04-03 15:55:59 +0000 (Wed, 03 Apr 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -27,6 +27,7 @@ namespace info {
 unsigned numberOfProcessors();
 
 int64_t memFree();
+int64_t memAvail();
 int64_t memTotal();
 
 bool isWindows();

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 688 $
-# Date   : $Date: 2013-03-29 16:55:41 +0000 (Fri, 29 Mar 2013) $
+# Version: $Revision: 703 $
+# Date   : $Date: 2013-04-03 15:55:59 +0000 (Wed, 03 Apr 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1423,7 +1423,7 @@
 ::setup::board::mc::Error(EmptyBoard)			"Board is empty." ;# NEW
 ::setup::board::mc::Error(NoWhiteKing)			"Világos király hiányzik."
 ::setup::board::mc::Error(NoBlackKing)			"Sötét király hiányzik."
-::setup::board::mc::Error(DoubleCheck)			"Mindkét király sakkban áll."
+::setup::board::mc::Error(BothInCheck)			"Mindkét király sakkban áll."
 ::setup::board::mc::Error(OppositeCheck)		"A nem lépésre jövő fél királya sakkban áll."
 ::setup::board::mc::Error(TooManyWhitePawns)		"Túl sok világos gyalog."
 ::setup::board::mc::Error(TooManyBlackPawns)		"Túl sok sötét gyalog."

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 688 $
-# Date   : $Date: 2013-03-29 16:55:41 +0000 (Fri, 29 Mar 2013) $
+# Version: $Revision: 703 $
+# Date   : $Date: 2013-04-03 15:55:59 +0000 (Wed, 03 Apr 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1420,7 +1420,7 @@
 ::setup::board::mc::Error(EmptyBoard)					"El tablero está vacío."
 ::setup::board::mc::Error(NoWhiteKing)					"Sin rey blanco."
 ::setup::board::mc::Error(NoBlackKing)					"Sin rey negro."
-::setup::board::mc::Error(DoubleCheck)					"Ambos reyes en jaque."
+::setup::board::mc::Error(BothInCheck)					"Ambos reyes en jaque."
 ::setup::board::mc::Error(OppositeCheck)				"El lado que no mueve está en jaque."
 ::setup::board::mc::Error(TooManyWhitePawns)			"Demasiados peones blancos."
 ::setup::board::mc::Error(TooManyBlackPawns)			"Demasiados peones negros."

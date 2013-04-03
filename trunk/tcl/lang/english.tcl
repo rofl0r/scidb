@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 688 $
-# Date   : $Date: 2013-03-29 16:55:41 +0000 (Fri, 29 Mar 2013) $
+# Version: $Revision: 703 $
+# Date   : $Date: 2013-04-03 15:55:59 +0000 (Wed, 03 Apr 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1415,7 +1415,7 @@
 ::setup::board::mc::Error(EmptyBoard)					"Board is empty."
 ::setup::board::mc::Error(NoWhiteKing)					"Missing white king."
 ::setup::board::mc::Error(NoBlackKing)					"Missing black king."
-::setup::board::mc::Error(DoubleCheck)					"Both kings are in check."
+::setup::board::mc::Error(BothInCheck)					"Both kings are in check."
 ::setup::board::mc::Error(OppositeCheck)				"Side not to move is in check."
 ::setup::board::mc::Error(TooManyWhitePawns)			"Too many white pawns."
 ::setup::board::mc::Error(TooManyBlackPawns)			"Too many black pawns."

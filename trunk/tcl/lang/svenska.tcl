@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 688 $
-# Date   : $Date: 2013-03-29 16:55:41 +0000 (Fri, 29 Mar 2013) $
+# Version: $Revision: 703 $
+# Date   : $Date: 2013-04-03 15:55:59 +0000 (Wed, 03 Apr 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1423,7 +1423,7 @@
 ::setup::board::mc::Error(EmptyBoard)					"Brädet är tomt."
 ::setup::board::mc::Error(NoWhiteKing)					"Vit kung saknas."
 ::setup::board::mc::Error(NoBlackKing)					"Svart kung saknas."
-::setup::board::mc::Error(DoubleCheck)					"Båda kungar står i schack."
+::setup::board::mc::Error(BothInCheck)					"Båda kungar står i schack."
 ::setup::board::mc::Error(OppositeCheck)				"Spelaren som inte är vid draget står i schack."
 ::setup::board::mc::Error(TooManyWhitePawns)			"För många vita bönder."
 ::setup::board::mc::Error(TooManyBlackPawns)			"För många svarta bönder."

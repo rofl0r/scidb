@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 671 $
-// Date   : $Date: 2013-03-13 09:49:26 +0000 (Wed, 13 Mar 2013) $
+// Version: $Revision: 703 $
+// Date   : $Date: 2013-04-03 15:55:59 +0000 (Wed, 03 Apr 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -27,6 +27,8 @@
 #include "m_assert.h"
 
 namespace db {
+
+inline MoveInfoSet::MoveInfoSet() {}
 
 inline bool MoveInfoSet::isEmpty() const									{ return m_row.empty(); }
 inline bool MoveInfoSet::contains(MoveInfo const& info) const		{ return find(info) >= 0; }

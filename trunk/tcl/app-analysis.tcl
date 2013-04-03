@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 688 $
-# Date   : $Date: 2013-03-29 16:55:41 +0000 (Fri, 29 Mar 2013) $
+# Version: $Revision: 703 $
+# Date   : $Date: 2013-04-03 15:55:59 +0000 (Wed, 03 Apr 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -467,6 +467,11 @@ proc stopAnalysis {} {
 
 proc activate {w flag} {
 	::toolbar::activate $w $flag
+}
+
+
+proc clearHash {} {
+	Display(hash) 0
 }
 
 
