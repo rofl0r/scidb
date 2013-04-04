@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 688 $
-// Date   : $Date: 2013-03-29 16:55:41 +0000 (Fri, 29 Mar 2013) $
+// Version: $Revision: 704 $
+// Date   : $Date: 2013-04-04 22:19:12 +0000 (Thu, 04 Apr 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -515,8 +515,13 @@ Codec::~Codec() throw()
 	if (m_asyncReader)
 		m_gameData->closeAsyncReader(m_asyncReader);
 
+	if (m_progressiveStream)
+	{
+		m_progressiveStream->close();
+		delete m_progressiveStream;
+	}
+
 	delete m_gameData;
-	delete m_progressiveStream;
 }
 
 
@@ -1126,7 +1131,6 @@ void
 Codec::readIndexProgressive(unsigned index)
 {
 	M_ASSERT(m_progressiveStream);
-	M_ASSERT(index < gameInfoList().size());
 
 	char buf[sizeof(IndexEntry)];
 

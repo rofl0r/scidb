@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 703 $
-// Date   : $Date: 2013-04-03 15:55:59 +0000 (Wed, 03 Apr 2013) $
+// Version: $Revision: 704 $
+// Date   : $Date: 2013-04-04 22:19:12 +0000 (Thu, 04 Apr 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -17,6 +17,8 @@
 // ======================================================================
 
 #include "sys_info.h"
+
+#include "m_utility.h"
 
 #if defined(__unix__)
 
@@ -111,7 +113,18 @@ sys::info::memFree()
 int64_t
 sys::info::memAvail()
 {
-	return ::readProcInfo("CommitLimit:");
+	int64_t free		= ::readProcInfo("MemFree:");
+	int64_t cached		= ::readProcInfo("Cached:");
+
+	if (free <= 0 || cached <= 0)
+		return -1;
+
+	int64_t limit		= ::readProcInfo("CommitLimit:");
+
+	if (limit <= 0)
+		return free + cached;
+
+	return mstl::min(limit, free + cached);
 }
 
 

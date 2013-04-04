@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 702 $
-// Date   : $Date: 2013-04-02 20:29:46 +0000 (Tue, 02 Apr 2013) $
+// Version: $Revision: 704 $
+// Date   : $Date: 2013-04-04 22:19:12 +0000 (Thu, 04 Apr 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -821,6 +821,7 @@ namespace variant
 	mstl::string const& identifier(uint16_t idn);
 	mstl::string const& identifier(Type type);
 	mstl::string const& ficsIdentifier(uint16_t idn);
+	Idn idnFromString(mstl::string const& ficsPosition);
 
 	mstl::string const& fen(Idn idn);
 	mstl::string fen(uint16_t idn);

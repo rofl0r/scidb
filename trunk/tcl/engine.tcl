@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 703 $
-# Date   : $Date: 2013-04-03 15:55:59 +0000 (Wed, 03 Apr 2013) $
+# Version: $Revision: 704 $
+# Date   : $Date: 2013-04-04 22:19:12 +0000 (Thu, 04 Apr 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1572,7 +1572,7 @@ proc UseEngine {list item profileList} {
 		}
 		while {$min <= $max} {
 			set options {}
-			if {$min > $avail} { lappend options -foreground gray20 }
+			if {$min > $avail} { lappend options -foreground gray40 }
 			$Vars(widget:memory) listinsert $min {*}$options
 			set incr [expr {[::scidb::misc::predPow2 $min]/2}]
 			incr min $incr

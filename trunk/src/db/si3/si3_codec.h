@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 661 $
-// Date   : $Date: 2013-02-23 23:03:04 +0000 (Sat, 23 Feb 2013) $
+// Version: $Revision: 704 $
+// Date   : $Date: 2013-04-04 22:19:12 +0000 (Thu, 04 Apr 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -101,6 +101,7 @@ public:
 					mstl::string const& originalSuffix,
 					mstl::string const& encoding,
 					util::Progress& progress) override;
+	unsigned doOpenProgressive(mstl::string const& rootname, mstl::string const& encoding) override;
 	void doClear(mstl::string const& rootname) override;
 
 	unsigned putGame(util::ByteStream const& strm) override;
@@ -113,6 +114,7 @@ public:
 	void update(mstl::string const& rootname);
 	void update(mstl::string const& rootname, unsigned index, bool updateNamebase) override;
 	void updateHeader(mstl::string const& rootname) override;
+	void readIndexProgressive(unsigned index) override;
 	void reloadDescription(mstl::string const& rootname) override;
 	void reloadNamebases(mstl::string const& rootname,
 								mstl::string const& originalSuffix,
@@ -178,6 +180,7 @@ private:
 	void decodeIndex(mstl::fstream &fstrm, util::Progress& progress);
 
 	void readIndex(mstl::fstream& fstrm, util::Progress& progress);
+	uint16_t readIndexHeader(mstl::fstream& fstrm, unsigned* retNumGames);
 
 	void readNamebases(mstl::fstream& stream, util::Progress& progress);
 	void preloadNamebase(ByteIStream& bstrm,
@@ -218,6 +221,7 @@ private:
 	mstl::string				m_extNamebase;
 	unsigned						m_blockSize;
 	mstl::fstream				m_gameStream;
+	mstl::fstream*				m_progressiveStream;
 	Lookup						m_roundLookup;
 	sys::utf8::Codec*			m_codec;
 	mstl::string				m_encoding;

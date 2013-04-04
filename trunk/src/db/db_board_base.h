@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 704 $
+// Date   : $Date: 2013-04-04 22:19:12 +0000 (Thu, 04 Apr 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -23,6 +23,9 @@
 // the Free Software Foundation; either version 2 of the License, or
 // (at your option) any later version.
 // ======================================================================
+
+#ifndef _db_board_base_included
+#define _db_board_base_included
 
 #include "db_common.h"
 
@@ -181,5 +184,7 @@ namespace base { void initialize(); }
 } // namespace db
 
 #include "db_board_base.ipp"
+
+#endif // _db_board_base_included
 
 // vi:set ts=3 sw=3:

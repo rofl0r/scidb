@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 703 $
-# Date   : $Date: 2013-04-03 15:55:59 +0000 (Wed, 03 Apr 2013) $
+# Version: $Revision: 704 $
+# Date   : $Date: 2013-04-04 22:19:12 +0000 (Thu, 04 Apr 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -451,7 +451,11 @@ proc buttonSetText {w var args} {
 	set type [lindex [split $w .] end]
 
 	if {$type eq "hlp"} {
-		::tooltip::tooltip $w [mc::stripped $var]
+		if {[string first "&" [set $var]] >= 0} {
+			set var [mc::stripped $var]
+		}
+		::tooltip::tooltip $w "[set $var] <F1>"
+		bind $w <<LanguageChanged>> [list buttonSetText $w $var]
 	} else {
 		if {[$w cget -compound] eq "left"} {
 			::tk::SetAmpText $w " [set $var]"
