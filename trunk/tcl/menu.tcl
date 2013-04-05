@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 702 $
-# Date   : $Date: 2013-04-02 20:29:46 +0000 (Tue, 02 Apr 2013) $
+# Version: $Revision: 707 $
+# Date   : $Date: 2013-04-05 15:35:36 +0000 (Fri, 05 Apr 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -215,14 +215,14 @@ proc build {menu} {
 		-image $::icon::16x16::setup \
 		;
 	lassign [::tk::UnderlineAmpersand $mc::Engines] text ul
-	set cmd [namespace code [list ::engine::openAdmininstration .application]]
+	set cmd [list ::engine::openAdmininstration .application]
 	$m add command \
 		-label " $text" \
 		-underline [incr ul] -command $cmd \
 		;
 if {0} {
 	lassign [::tk::UnderlineAmpersand $mc::PrivatePlayerCard] text ul
-	set cmd [namespace code [list ::playercard::setupPrivateCard .application]]
+	set cmd [list ::playercard::setupPrivateCard .application]
 	$m add command \
 		-label " $text" \
 		-underline [incr ul] \
