@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 703 $
-# Date   : $Date: 2013-04-03 15:55:59 +0000 (Wed, 03 Apr 2013) $
+# Version: $Revision: 708 $
+# Date   : $Date: 2013-04-05 22:54:16 +0000 (Fri, 05 Apr 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -102,12 +102,12 @@
 ::mc::White					"Blancas"
 ::mc::Yes					"Sí"
 
-::mc::King					"Rey"
-::mc::Queen					"Dama"
-::mc::Rook					"Torre"
-::mc::Bishop				"Alfil"
-::mc::Knight				"Caballo"
-::mc::Pawn					"Peón"
+::mc::Piece(K)				"Rey"
+::mc::Piece(Q)				"Dama"
+::mc::Piece(R)				"Torre"
+::mc::Piece(B)				"Alfil"
+::mc::Piece(N)				"Caballo"
+::mc::Piece(P)				"Peón"
 
 ::mc::Logical(reset)		"Restablecer"
 ::mc::Logical(or)			"O"

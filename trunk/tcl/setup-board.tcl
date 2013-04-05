@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 703 $
-# Date   : $Date: 2013-04-03 15:55:59 +0000 (Wed, 03 Apr 2013) $
+# Version: $Revision: 708 $
+# Date   : $Date: 2013-04-05 22:54:16 +0000 (Fri, 05 Apr 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -445,7 +445,7 @@ proc open {parent} {
 	# buttons #################################################
 	if {![info exists [namespace current]::_MirrorSide]} {
 		proc SetupVars {args} {
-			set [namespace current]::_MirrorSide "$::mc::King \u2194 $::mc::Queen"
+			set [namespace current]::_MirrorSide "$::mc::Piece(K) \u2194 $::mc::Piece(Q)"
 			set [namespace current]::_FlipSide "$::mc::White \u2194 $::mc::Black"
 		}
 

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 703 $
-# Date   : $Date: 2013-04-03 15:55:59 +0000 (Wed, 03 Apr 2013) $
+# Version: $Revision: 708 $
+# Date   : $Date: 2013-04-05 22:54:16 +0000 (Fri, 05 Apr 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -100,12 +100,12 @@
 ::mc::White					"White"
 ::mc::Yes					"yes"
 
-::mc::King					"King"
-::mc::Queen					"Queen"
-::mc::Rook					"Rook"
-::mc::Bishop				"Bishop"
-::mc::Knight				"Knight"
-::mc::Pawn					"Pawn"
+::mc::Piece(K)				"King"
+::mc::Piece(Q)				"Queen"
+::mc::Piece(R)				"Rook"
+::mc::Piece(B)				"Bishop"
+::mc::Piece(N)				"Knight"
+::mc::Piece(P)				"Pawn"
 
 ::mc::Logical(reset)		"Reset"
 ::mc::Logical(or)			"Or"

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 665 $
-# Date   : $Date: 2013-03-02 18:06:29 +0000 (Sat, 02 Mar 2013) $
+# Version: $Revision: 708 $
+# Date   : $Date: 2013-04-05 22:54:16 +0000 (Fri, 05 Apr 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -927,11 +927,11 @@ proc DoImport {position dlg} {
 			set currentCode [lindex $found 0]
 			set f $::figurines::langSet($currentCode)
 			set s ""
-			append s "[lindex $f 0]=$::mc::King, "
-			append s "[lindex $f 1]=$::mc::Queen, "
-			append s "[lindex $f 2]=$::mc::Rook, "
-			append s "[lindex $f 3]=$::mc::Bishop, "
-			append s "[lindex $f 4]=$::mc::Knight"
+			append s "[lindex $f 0]=$::mc::Piece(K), "
+			append s "[lindex $f 1]=$::mc::Piece(Q), "
+			append s "[lindex $f 2]=$::mc::Piece(R), "
+			append s "[lindex $f 3]=$::mc::Piece(B), "
+			append s "[lindex $f 4]=$::mc::Piece(K)"
 			if {[llength $found] > 1} {
 				::dialog::warning \
 					-parent $dlg \

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 704 $
-# Date   : $Date: 2013-04-04 22:19:12 +0000 (Thu, 04 Apr 2013) $
+# Version: $Revision: 708 $
+# Date   : $Date: 2013-04-05 22:54:16 +0000 (Fri, 05 Apr 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -288,7 +288,7 @@ proc dialogButtons {dlg buttons args} {
 			help - hlp {
 				set n [llength [pack slaves $dlg.__buttons]]
 				if {$n > 0} {
-					set sep [tk::frame $dlg.sep$n -borderwidth 0 -takefocus 0 -width 20]
+					set sep [tk::frame $dlg.sep$n -borderwidth 0 -takefocus 0 -width 10]
 					PackDialogButton $dlg $sep left
 					set Specs(justify:$sep) $opts(-justify)
 				}

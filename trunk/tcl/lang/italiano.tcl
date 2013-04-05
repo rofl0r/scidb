@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 703 $
-# Date   : $Date: 2013-04-03 15:55:59 +0000 (Wed, 03 Apr 2013) $
+# Version: $Revision: 708 $
+# Date   : $Date: 2013-04-05 22:54:16 +0000 (Fri, 05 Apr 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -101,12 +101,12 @@
 ::mc::White					"Bianco"
 ::mc::Yes					"sì"
 
-::mc::King					"Re"
-::mc::Queen					"Donna"
-::mc::Rook					"Torre"
-::mc::Bishop				"Alfiere"
-::mc::Knight				"Cavallo"
-::mc::Pawn					"Pedone"
+::mc::Piece(K)				"Re"
+::mc::Piece(Q)				"Donna"
+::mc::Piece(R)				"Torre"
+::mc::Piece(B)				"Alfiere"
+::mc::Piece(N)				"Cavallo"
+::mc::Piece(P)				"Pedone"
 
 ::mc::Logical(reset)		"Reset"
 ::mc::Logical(or)			"OR"

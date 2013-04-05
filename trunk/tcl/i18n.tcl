@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 624 $
-# Date   : $Date: 2013-01-08 21:46:21 +0000 (Tue, 08 Jan 2013) $
+# Version: $Revision: 708 $
+# Date   : $Date: 2013-04-05 22:54:16 +0000 (Fri, 05 Apr 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -94,12 +94,12 @@ set Variation			"Variation"
 set White				"White"
 set Yes					"Yes"
 
-set King					"King"
-set Queen				"Queen"
-set Rook					"Rook"
-set Bishop				"Bishop"
-set Knight				"Knight"
-set Pawn					"Pawn"
+set Piece(K)			"King"
+set Piece(Q)			"Queen"
+set Piece(R)			"Rook"
+set Piece(B)			"Bishop"
+set Piece(N)			"Knight"
+set Piece(P)			"Pawn"
 
 set Logical(reset)	"Reset"
 set Logical(or)		"Or"

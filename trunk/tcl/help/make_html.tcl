@@ -3,8 +3,8 @@
 exec tclsh "$0" "$@"
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 653 $
-# Date   : $Date: 2013-02-07 17:17:24 +0000 (Thu, 07 Feb 2013) $
+# Version: $Revision: 708 $
+# Date   : $Date: 2013-04-05 22:54:16 +0000 (Fri, 05 Apr 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -29,6 +29,14 @@ exec tclsh "$0" "$@"
 
 package require Tcl 8.5
 
+array set Pieces {
+	de {K D T L S B}
+	en {K Q R B N P}
+	es {R D T A C P}
+	it {R D T A C P}
+	hu {K V B F H G}
+	sv {K D T L S B}
+}
 
 set HtmlDocType {<?xml version="1.0" encoding="utf-8"?>
 
@@ -105,10 +113,6 @@ set HtmlMapping {
 	&Bishop;			{<span class="chess">&#x2657;</span>}
 	&Knight;			{<span class="chess">&#x2658;</span>}
 	&Pawn;			{<span class="chess">&#x2659;</span>}
-}
-
-set KeyMapping {
-	<key>ESC</key>	Esc
 }
 
 set f [open ../../../Makefile.in r]
@@ -299,7 +303,9 @@ proc formatUrl {url} {
 
 proc readContents {chan file} {
 	variable HtmlMapping
+	variable Pieces
 	variable charset
+	variable lang
 
 	set contents {}
 	set linePref ""
@@ -339,7 +345,23 @@ proc readContents {chan file} {
 		set line [string map $HtmlMapping $line]
 
 		while {[regexp {<key>([a-zA-Z]*)</key>} $line _ key]} {
-			set line [regsub -all "<key>$key</key>" $line "<kbd class='key'>$::mc::Key($key)</kbd>"]
+			switch $key {
+				King		{ set expr "<kbd class='key'>[lindex $Pieces($lang) 0]</kbd>" }
+				Queen		{ set expr "<kbd class='key'>[lindex $Pieces($lang) 1]</kbd>" }
+				Rook		{ set expr "<kbd class='key'>[lindex $Pieces($lang) 2]</kbd>" }
+				Bishop	{ set expr "<kbd class='key'>[lindex $Pieces($lang) 3]</kbd>" }
+				Knight	{ set expr "<kbd class='key'>[lindex $Pieces($lang) 4]</kbd>" }
+				Pawn		{ set expr "<kbd class='key'>[lindex $Pieces($lang) 5]</kbd>" }
+
+				default {
+					if {[string length $key] == 1} {
+						set expr "<kbd class='key'>$key</kbd>"
+					} else {
+						set expr "<kbd class='key'>$::mc::Key($key)</kbd>"
+					}
+				}
+			}
+			set line [regsub -all "<key>$key</key>" $line $expr]
 		}
 
 		if {[string match CHARSET* $line]} {

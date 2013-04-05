@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 703 $
-# Date   : $Date: 2013-04-03 15:55:59 +0000 (Wed, 03 Apr 2013) $
+# Version: $Revision: 708 $
+# Date   : $Date: 2013-04-05 22:54:16 +0000 (Fri, 05 Apr 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -100,12 +100,12 @@
 ::mc::White			"Világos"
 ::mc::Yes			"igen"
 
-::mc::King			"Király"
-::mc::Queen			"Vezér"
-::mc::Rook			"Bástya"
-::mc::Bishop			"Futó"
-::mc::Knight			"Huszár"
-::mc::Pawn			"Gyalog"
+::mc::Piece(K)			"Király"
+::mc::Piece(Q)			"Vezér"
+::mc::Piece(R)			"Bástya"
+::mc::Piece(B)			"Futó"
+::mc::Piece(N)			"Huszár"
+::mc::Piece(P)			"Gyalog"
 
 ::mc::Logical(reset)		"Reset" ;# NEW
 ::mc::Logical(or)		"Vagy"
