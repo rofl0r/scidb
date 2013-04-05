@@ -217,4 +217,4 @@ FOOTER
   <li><a href="index.html">Scidb</a>&nbsp;|&nbsp;</li>
   <li><a href="screenshots.html" lang="en">Screenshots</a>&nbsp;|&nbsp;</li>
 
-# vi:set ts=2 sw=2 et filetype=html:
+# vi:set ts=2 sw=2 et filetype=html fileencoding=latin1:

@@ -7,27 +7,109 @@ CONTENT
 <div class="block">
 
   <div class="header">
-    Einige <span lang="en">Links</span> zu verwandten Themen <hr />
+  Schachpartien
   </div>
 
+  <p>
+  Die meisten Partien liegen
+  im <a href="http://de.wikipedia.org/wiki/Portable_Game_Notation">PGN-Format</a>
+  vor. Sie können in Scidb angesehen oder importiert werden.
+  </p>
+
+  <p>
+  Mark Crowther's <a href="http://www.theweekinchess.com">The Week in Chess</a>
+  bietet täglich Schachneuigkeiten und Partien. Diese Seite bietet zudem große
+  Archive mit Schachpartien hoher Qualität:
+  </p>
+
   <ul>
-    <li><a href="http://sourceforge.net/projects/scidb">
-      Scidb Project on SourceForge Home Page</a></li>
-    <li style="list-style: none"></li>
-    <li><a href="http://sourceforge.net/projects/scid">
-      Scid Project on SourceForge Home Page</a></li>
-    <li style="list-style: none"></li>
-    <li><a href="http://sourceforge.net/projects/scidvspc">
-      Scid vs. PC Project on SourceForge Home Page</a></li>
-    <li style="list-style: none"></li>
-    <li><a href="http://lists.sourceforge.net/lists/listinfo/scidb-users">
-      Scidb Users Mailing List</a></li>
-    <li style="list-style: none"></li>
-    <li><a href="http://sourceforge.net/projects/jessy">
-      Jessy Project on SourceForge Home Page</a></li>
+    <li><a href="http://www.chess.co.uk/twic/twicp1.html">TWIC 211-400</a>: 23.11.1998 bis 8.7.2002</li>
+    <li><a href="http://www.chess.co.uk/twic/twicp.html">TWIC 400...</a>: 8.7.2002 bis heute</li>
   </ul>
 
-  <hr />
+  <p>
+  Die Seite <a href="http://www.nowinchess.com/games.php">Now In Chess</a> von
+  Gerardo Fernandez bietet weitere Partien hoher Qualität, die nicht in den TWIC
+  Archiven enthalten sind.
+  </p>
+
+  <div class="header">
+  Schachmotoren (Schachprogramme)
+  </div>
+
+  <p>
+  Es gibt sehr viele Motoren. Eine gute Übersicht bietet
+  <a href="http://www.computerchess.org.uk/ccrl/4040">CCRL 40/40</a>
+  mit einer Liste, die einen Überblick über die Spielstärke der jeweiligen Motoren
+  erlaubt.
+  </p>
+
+  <p>
+  Besonders zu erwähnen sind:
+  </p>
+
+  <dir>
+    <li>
+    <a href="http://stockfishchess.org">Stockfish</a>:
+    Dieser Motor ist in Scidb bereits vorinstalliert. Zu der Originalversion ist
+    nicht zu raten, sie enthält signifikante Programmfehler (Abstürze). Die
+    vorinstallierte Scidb-Version weist zudem eine einzigartige Besonderheit auf,
+    sie unterstützt auch die Schachform Dreimal-Schach
+    (<a href="http://en.wikipedia.org/wiki/Three-check_chess">Three-Check chess</a>).
+    </li>
+
+    <li>
+    <a href="http://www.vlasak.biz/critter">Critter</a>:
+    Ebenfalls ein sehr spielstarker Motor, leider kein Open Source.
+    </li>
+
+    <li>
+    <a href="http://sjeng.org/indexold.html">Sjeng</a>:
+    Dieser Motor, ebenfalls vorinstalliert in Scidb, unterstützt die Schachformen
+    <a href="http://de.wikipedia.org/wiki/Schachvarianten#Crazyhouse_oder_Einsetzschach">
+    Einsetzschach</a> (Crazyhouse) und
+    <a href="http://de.wikipedia.org/wiki/R%C3%A4uberschach">Schlagschach</a>
+    (Suicide, Giveaway, Losers).
+    </li>
+  </dir>
+
+  <div class="header">
+  Weitere Schachdatenbanken
+  </div>
+
+  <p>
+  <a href="http://scid.sourceforge.net">Scid</a> ist die wohl bekannteste freie
+  Schachdatenbank, ursprünglich entwickelt von Shane Hudson. Die heutige Version
+  von Scid ist recht fehlerhaft.
+  </p>
+
+  <p>
+  <a href="scidvspc.sourceforge.net">Scid vs. PC</a>, programmiert von
+  Steven Atkinson, ist ein fehlerbereinigter Ableger von Scid, mit dem
+  Schwerpunkt auf bessere Benutzerfreundlichkeit.
+  </p>
+
+  <p>
+  Gerhard Kalab bietet mit
+  <a href="http://code.google.com/p/scidonthego/">Scid on the Go</a>
+  eine Scid-Version für das Android Tablet.
+  </p>
+
+  <p>
+  <a href="http://chessx.sourceforge.net">ChessX</a>, derzeitig programmiert
+  von Jens Nissen, bietet ein freie Schachdatenbank, die auf das
+  <a href="http://de.wikipedia.org/wiki/Portable_Game_Notation">PGN-Format</a>
+  spezialisiert ist.
+  </p>
+
+  <p>
+  Nicht mehr in Entwicklung, aber immer noch interessant ist
+  die Java-Anwendung <a href="http://jose-chess.sourceforge.net">José</a>.
+  </p>
+
+  <div class="header">
+  Artikel über Scidb
+  </div>
 
   <ul>
 	 <li><a href="http://ghandybh.blogspot.com/2011/10/aonde-guardar-suas-partidas-de-xadrez.html">
@@ -42,4 +124,4 @@ FOOTER
   <li><a href="moreinfo.html">Weitere Informationen</a>&nbsp;|&nbsp;</li>
   <li><a href="links.html" lang="en">Links</a>&nbsp;|&nbsp;</li>
 
-# vi:set ts=2 sw=2 et filetype=html:
+# vi:set ts=2 sw=2 et filetype=html fileencoding=latin1:

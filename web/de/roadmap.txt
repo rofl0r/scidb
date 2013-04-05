@@ -64,4 +64,4 @@ FOOTER
   <li><a href="project.html">Das Scidb-Projekt</a>&nbsp;|&nbsp;</li>
   <li><a href="releasehistory.html">Freigabehistorie</a>&nbsp;|&nbsp;</li>
 
-# vi:set ts=2 sw=2 et filetype=html:
+# vi:set ts=2 sw=2 et filetype=html fileencoding=latin1:

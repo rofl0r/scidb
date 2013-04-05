@@ -7,27 +7,104 @@ CONTENT
 <div class="block">
 
   <div class="header">
-    Some Scidb-related web links <hr />
+  Chess games
   </div>
 
+  <p>
+  The most games are available in
+  <a href="http://en.wikipedia.org/wiki/Portable_Game_Notation">PGN Format</a>.
+  This format can be viewed or imported in Scidb.
+  </p>
+
+  <p>
+  Mark Crowther's <a href="http://www.theweekinchess.com">The Week in Chess</a>
+  is providing daily chess news and games. Furthermore this site provides
+  chess archives with high quality:
+  </p>
+
   <ul>
-    <li><a href="http://sourceforge.net/projects/scidb">
-      Scidb Project on SourceForge Home Page</a></li>
-    <li style="list-style: none"></li>
-    <li><a href="http://sourceforge.net/projects/scid">
-      Scid Project on SourceForge Home Page</a></li>
-    <li style="list-style: none"></li>
-    <li><a href="http://sourceforge.net/projects/scidvspc">
-      Scid vs. PC Project on SourceForge Home Page</a></li>
-    <li style="list-style: none"></li>
-    <li><a href="http://lists.sourceforge.net/lists/listinfo/scidb-users">
-      Scidb Users Mailing List</a></li>
-    <li style="list-style: none"></li>
-    <li><a href="http://sourceforge.net/projects/jessy">
-      Jessy Project on SourceForge Home Page</a></li>
+    <li><a href="http://www.chess.co.uk/twic/twicp1.html">TWIC 211-400</a>: 11/23/1998 to 7/8/2002</li>
+    <li><a href="http://www.chess.co.uk/twic/twicp.html">TWIC 400...</a>: 7/8/2002 until today</li>
   </ul>
 
-  <hr />
+  <p>
+  The site <a href="http://www.nowinchess.com/games.php">Now In Chess</a> by
+  Gerardo Fernandez is tracking games of high quality not contained in TWIC
+  archives.
+  </p>
+
+  <div class="header">
+  Chess engines
+  </div>
+
+  <p>
+  Many chess engines are available. A good listing is provided by
+  <a href="http://www.computerchess.org.uk/ccrl/4040">CCRL 40/40</a>,
+  which allows an overview onto the strength of the engines.
+  </p>
+
+  <p>
+  Of particular significance are:
+  </p>
+
+  <dir>
+    <li>
+    <a href="http://stockfishchess.org">Stockfish</a>:
+    This engine is pre-installed in Scidb. Not recommended is the original
+    version, because of significant programming errors (crashes). Scidb's version
+    is providing an unique feature, the support of variant
+    <a href="http://en.wikipedia.org/wiki/Three-check_chess">Three-Check chess</a>.
+    </li>
+
+    <li>
+    <a href="http://www.vlasak.biz/critter">Critter</a>:
+    Also a really strong engine, but unfortunately not open source.
+    </li>
+
+    <li>
+    <a href="http://sjeng.org/indexold.html">Sjeng</a>:
+    This engine - also pre-installed in Scidb - is supporting the chess variants
+    <a href="http://en.wikipedia.org/wiki/Crazyhouse">Crazyhouse</a> and
+    <a href="http://en.wikipedia.org/wiki/Antichess">Antichess</a>.
+    </li>
+  </dir>
+
+  <div class="header">
+  Other chess databases
+  </div>
+
+  <p>
+  <a href="http://scid.sourceforge.net">Scid</a> is probably the best known free
+  chess database, originally developed by Shane Hudson. The today's version
+  of Scid is rather buggy.
+  </p>
+
+  <p>
+  <a href="scidvspc.sourceforge.net">Scid vs. PC</a>, developed by
+  Steven Atkinson, is a bug-fixed version of Scid, with focus on
+  greater usability.
+  </p>
+
+  <p>
+  Gerhard Kalab's
+  <a href="http://code.google.com/p/scidonthego/">Scid on the Go</a>
+  lets you use Scid for an Android tablet.
+  </p>
+
+  <p>
+  <a href="http://chessx.sourceforge.net">ChessX</a>, currently developed
+  by Jens Nissen, provides a free chess database specialized on the
+  <a href="http://en.wikipedia.org/wiki/Portable_Game_Notation">PGN Format</a>.
+  </p>
+
+  <p>
+  No longer in development, but still of interest is the Java application
+  <a href="http://jose-chess.sourceforge.net">José</a>.
+  </p>
+
+  <div class="header">
+  Articles about Scidb
+  </div>
 
   <ul>
 	 <li><a href="http://ghandybh.blogspot.com/2011/10/aonde-guardar-suas-partidas-de-xadrez.html">
@@ -42,4 +119,4 @@ FOOTER
   <li><a href="moreinfo.html">More Info</a>&nbsp;|&nbsp;</li>
   <li><a href="links.html">Links</a>&nbsp;|&nbsp;</li>
 
-# vi:set ts=2 sw=2 et filetype=html:
+# vi:set ts=2 sw=2 et filetype=html fileencoding=latin1:

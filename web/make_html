@@ -140,6 +140,8 @@ set content(ONLOAD) "onload=\"setCookie('lang', '$content(LANG)', 720);$content(
 # write .html file #########################
 
 set fd [open "[lindex $argv 0]"]
+chan configure $fd -encoding iso8859-1
+chan configure stdout -encoding iso8859-1
 
 while {[gets $fd line] >= 0} {
   set indicies [regexp -indices -inline -- {%[A-Z_]+%} $line]
