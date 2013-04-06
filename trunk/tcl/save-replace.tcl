@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 687 $
-# Date   : $Date: 2013-03-26 22:44:54 +0000 (Tue, 26 Mar 2013) $
+# Version: $Revision: 709 $
+# Date   : $Date: 2013-04-06 21:45:29 +0000 (Sat, 06 Apr 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -3038,10 +3038,11 @@ proc CheckFields {top title fields} {
 proc SetPlayerFromDict {dlg side info} {
 	variable ::${dlg}::Priv
 	lassign $info Priv(${side}-name) Priv(${side}-fideID)
-	::widget::dialogRaise $dlg
 	focus -force $dlg.top.$side-name
 	$dlg.top.$side-name icursor end
 	::playerdict::unsetReceiver
+	lower .playerDict
+	raise $dlg
 }
 
 

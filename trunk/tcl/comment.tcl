@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 708 $
-# Date   : $Date: 2013-04-05 22:54:16 +0000 (Fri, 05 Apr 2013) $
+# Version: $Revision: 709 $
+# Date   : $Date: 2013-04-06 21:45:29 +0000 (Sat, 06 Apr 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -141,6 +141,7 @@ proc open {parent pos lang} {
 		-font $Fonts(normal) \
 		-wrap word \
 		-setgrid 1 \
+		-font $::font::text(editor:normal) \
 		-yscrollcommand [list ::scrolledframe::sbset $top.sb] \
 		-undo no \
 		-maxundo 0 \

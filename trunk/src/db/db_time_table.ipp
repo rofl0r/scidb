@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 661 $
-// Date   : $Date: 2013-02-23 23:03:04 +0000 (Sat, 23 Feb 2013) $
+// Version: $Revision: 709 $
+// Date   : $Date: 2013-04-06 21:45:29 +0000 (Sat, 06 Apr 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -33,7 +33,6 @@ inline bool TimeTable::isEmpty() const					{ return m_table.empty(); }
 inline unsigned TimeTable::size() const				{ return m_table.size(); }
 
 inline void TimeTable::reserve(unsigned capacity)	{ m_table.reserve(capacity); }
-inline void TimeTable::clear()							{ m_table.clear(); }
 inline void TimeTable::swap(TimeTable& table)		{ m_table.swap(table.m_table); }
 
 inline MoveInfoSet const& TimeTable::operator[](unsigned index) const { return m_table[index]; }

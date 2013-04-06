@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 662 $
-// Date   : $Date: 2013-02-24 22:35:15 +0000 (Sun, 24 Feb 2013) $
+// Version: $Revision: 709 $
+// Date   : $Date: 2013-04-06 21:45:29 +0000 (Sat, 06 Apr 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -38,6 +38,14 @@ using namespace db;
 TimeTable::TimeTable()
 	:m_types(0)
 {
+	::memset(m_size, 0, sizeof(m_size));
+}
+
+
+void
+TimeTable::clear()
+{
+	m_table.clear();
 	::memset(m_size, 0, sizeof(m_size));
 }
 

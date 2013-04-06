@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 708 $
-# Date   : $Date: 2013-04-05 22:54:16 +0000 (Fri, 05 Apr 2013) $
+# Version: $Revision: 709 $
+# Date   : $Date: 2013-04-06 21:45:29 +0000 (Sat, 06 Apr 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -410,6 +410,7 @@
 ### application::database ##############################################
 ::application::database::mc::FileOpen							"Apri Database"
 ::application::database::mc::FileOpenRecent					"Apri Recente"
+::application::database::mc::FileOpenURL						"Open URL" ;# NEW
 ::application::database::mc::FileNew							"Nuovo Database"
 ::application::database::mc::FileExport						"Esporta"
 ::application::database::mc::FileImport(pgn)					"Importa file PGN"
@@ -453,6 +454,8 @@
 ::application::database::mc::ExtractArchive					"Estrai l'archivio %s"
 ::application::database::mc::SelectVariant					"Selezione Variante"
 ::application::database::mc::Example							"Esempio"
+::application::database::mc::EnterURL							"Enter URL" ;# NEW
+::application::database::mc::Protocol							"Protocol" ;# NEW
 
 ::application::database::mc::RecodingDatabase				"Registro %base da %from a %to"
 ::application::database::mc::RecodedGames						"%s partite registrate"

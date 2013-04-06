@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 708 $
-# Date   : $Date: 2013-04-05 22:54:16 +0000 (Fri, 05 Apr 2013) $
+# Version: $Revision: 709 $
+# Date   : $Date: 2013-04-06 21:45:29 +0000 (Sat, 06 Apr 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -410,6 +410,7 @@
 ### application::database ##############################################
 ::application::database::mc::FileOpen							"Öppna databas"
 ::application::database::mc::FileOpenRecent					"Öppna senaste"
+::application::database::mc::FileOpenURL						"Open URL" ;# NEW
 ::application::database::mc::FileNew							"Ny databas"
 ::application::database::mc::FileExport						"Exportera"
 ::application::database::mc::FileImport(pgn)					"Importera PGN fil"
@@ -453,6 +454,8 @@
 ::application::database::mc::ExtractArchive					"Packa upp arkiv %s"
 ::application::database::mc::SelectVariant					"Select Variant" ;# NEW
 ::application::database::mc::Example							"Example" ;# NEW
+::application::database::mc::EnterURL							"Enter URL" ;# NEW
+::application::database::mc::Protocol							"Protocol" ;# NEW
 
 ::application::database::mc::RecodingDatabase				"Omkodar %base från %from till %to"
 ::application::database::mc::RecodedGames						"%s parti(er) omkodade"
