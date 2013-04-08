@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 632 $
-// Date   : $Date: 2013-01-12 23:18:00 +0000 (Sat, 12 Jan 2013) $
+// Version: $Revision: 710 $
+// Date   : $Date: 2013-04-08 20:43:55 +0000 (Mon, 08 Apr 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -909,6 +909,15 @@ Move::Move(Work& work, MoveNode const* move, bool isEmptyGame, unsigned varNo, u
 
 	bool needSpace = false;
 
+	if (move->hasMark())
+	{
+		work.pop(m_list);
+		m_list.push_back(new Marks(move->marks()));
+		work.m_isVirgin = false;
+		work.pushSpace();
+		needSpace = true;
+	}
+
 	mstl::string info;
 	getMoveInfo(work, move, info);
 
@@ -921,6 +930,7 @@ Move::Move(Work& work, MoveNode const* move, bool isEmptyGame, unsigned varNo, u
 		{
 			work.pop(m_list);
 			m_list.push_back(new Comment(comm, move::Post, Comment::AtStart));
+			work.m_isVirgin = false;
 			needSpace = true;
 		}
 	}
@@ -930,17 +940,23 @@ Move::Move(Work& work, MoveNode const* move, bool isEmptyGame, unsigned varNo, u
 		if (needSpace)
 			work.pushSpace();
 		work.pop(m_list);
+		work.m_isVirgin = false;
 		m_list.push_back(new Comment(db::Comment(info, false, false), move::Post, Comment::Finally));
 		needSpace = true;
 	}
 
 	if (needSpace)
 	{
-		work.m_isVirgin = false;
 //		work.pushParagraph(Spacing::PreComment);
-		if (!move->hasMark())
+		if (move->hasComment(move::Post))
+		{
 			work.pushSpaceOrParagraph(Spacing::Comment);
-		work.needMoveNo = true;
+			work.needMoveNo = true;
+		}
+		else if (!info.empty())
+			work.pushSpaceOrParagraph(Spacing::Comment);
+		else
+			work.pushSpace();
 	}
 }
 

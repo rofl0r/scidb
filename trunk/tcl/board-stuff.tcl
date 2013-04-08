@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 633 $
-# Date   : $Date: 2013-01-15 21:44:24 +0000 (Tue, 15 Jan 2013) $
+# Version: $Revision: 710 $
+# Date   : $Date: 2013-04-08 20:43:55 +0000 (Mon, 08 Apr 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1075,7 +1075,7 @@ proc DrawDisk {w square color} {
 		set Board(image,disk,$color) [MakeDisk $Board(size) $color]
 	}
 
-	SetImage $w.c $Board(size) {*}[$w.c coords square:$square] $Board(image,disk,$color) $tags
+	SetImage $w.c $Board(size) {*}[$w.c coords square:$square] $Board(image,disk,$color)
 }
 
 

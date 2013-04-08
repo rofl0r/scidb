@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 709 $
-# Date   : $Date: 2013-04-06 21:45:29 +0000 (Sat, 06 Apr 2013) $
+# Version: $Revision: 710 $
+# Date   : $Date: 2013-04-08 20:43:55 +0000 (Mon, 08 Apr 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1359,12 +1359,12 @@ proc PopupMenu {parent x y {base ""}} {
 		-state $state \
 		;
 
-	$menu add command \
-		-label " $mc::FileOpenURL..." \
-		-image $::icon::16x16::internet \
-		-compound left \
-		-command [namespace code [list OpenURL $top]] \
-		;
+#	$menu add command \
+#		-label " $mc::FileOpenURL..." \
+#		-image $::icon::16x16::internet \
+#		-compound left \
+#		-command [namespace code [list OpenURL $top]] \
+#		;
 	$menu add command \
 		-label " $mc::FileNew ($::mc::VariantName(Normal))..." \
 		-image $::icon::16x16::databaseNew \

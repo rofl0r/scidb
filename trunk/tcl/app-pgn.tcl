@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 708 $
-# Date   : $Date: 2013-04-05 22:54:16 +0000 (Fri, 05 Apr 2013) $
+# Version: $Revision: 710 $
+# Date   : $Date: 2013-04-08 20:43:55 +0000 (Mon, 08 Apr 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -501,9 +501,11 @@ proc editComment {pos {position -1} {key {}} {lang {}}} {
 
 	if {$position == -1} { set position $Vars(position) }
 
-	if {$pos == "a" && [::scidb::game::position $position atStart?]} {
-		if {[llength $key] == 0} { return }
-		set pos s
+	if {[::scidb::game::position $position atStart?]} {
+		switch $pos {
+			p { return }
+			a { set pos s }
+		}
 	}
 
 	if {[llength $lang] == 0} {
@@ -2255,16 +2257,17 @@ proc PopupMenu {parent position} {
 			-command [namespace code [list editAnnotation $position]] \
 			-accel "$::mc::Key(Ctrl)-[set [namespace parent]::board::mc::Accel(edit-annotation)]" \
 			;
+		set accel "$::mc::Key(Ctrl)-$::mc::Key(Shift)-"
+		append accel "[set [namespace parent]::board::mc::Accel(edit-comment)]"
 		if {[::scidb::game::position atStart?]} {
 			$menu add command \
 				-label " $mc::EditPrecedingComment..." \
 				-image $::fsbox::bookmarks::icon::16x16::modify \
 				-compound left \
 				-command [namespace code [list editComment p $position]] \
+				-accel $accel \
 				;
 		} else {
-			set accel "$::mc::Key(Ctrl)-$::mc::Key(Shift)-"
-			append accel "[set [namespace parent]::board::mc::Accel(edit-comment)]"
 			$menu add command \
 				-label " $mc::EditCommentBefore..." \
 				-image $::fsbox::bookmarks::icon::16x16::modify \
