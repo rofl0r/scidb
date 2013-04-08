@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 688 $
-# Date   : $Date: 2013-03-29 16:55:41 +0000 (Fri, 29 Mar 2013) $
+# Version: $Revision: 712 $
+# Date   : $Date: 2013-04-08 21:19:37 +0000 (Mon, 08 Apr 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -177,6 +177,7 @@ proc build {path getViewCmd {visibleColumns {}} {args {}}} {
 	}
 	lappend args -popupcmd [namespace code PopupMenu]
 	set Vars(table) [::scrolledtable::build $path $columns {*}$args]
+	pack $path -fill both -expand yes
 	RefreshEventType $path
 
 	::bind $path <<TableFill>>			[namespace code [list TableFill $path %d]]

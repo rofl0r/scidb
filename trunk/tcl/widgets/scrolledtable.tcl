@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 653 $
-# Date   : $Date: 2013-02-07 17:17:24 +0000 (Thu, 07 Feb 2013) $
+# Version: $Revision: 712 $
+# Date   : $Date: 2013-04-08 21:19:37 +0000 (Mon, 08 Apr 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -64,7 +64,6 @@ proc build {path columns args} {
 	array set opts $args
 
 	ttk::frame $path -takefocus 0
-	pack $path -fill both -expand yes
 	set top [ttk::frame $path.top -takefocus 0]
 	pack $top -fill both -expand yes
 
