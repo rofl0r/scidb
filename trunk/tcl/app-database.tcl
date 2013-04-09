@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 710 $
-# Date   : $Date: 2013-04-08 20:43:55 +0000 (Mon, 08 Apr 2013) $
+# Version: $Revision: 715 $
+# Date   : $Date: 2013-04-09 14:53:14 +0000 (Tue, 09 Apr 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1424,6 +1424,10 @@ proc OpenURL {parent} {
 	variable Protocol_
 	variable RecentURL
 
+	if {[catch {package require http 2.7}]} {
+		return [::util::photos::pleaseInstallHttp $parent]
+	}
+
 	set dlg $parent.url
 	toplevel $dlg -class Scidb
 	pack [set top [ttk::frame $dlg.top]] -fill both
@@ -1478,7 +1482,7 @@ proc DoOpenURL {dlg} {
 	}
 	set RecentURL [concat $URL_ $RecentURL]
 
-	// TODO
+	# TODO
 
 	destroy $dlg
 }

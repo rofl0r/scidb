@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 609 $
-# Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+# Version: $Revision: 715 $
+# Date   : $Date: 2013-04-09 14:53:14 +0000 (Tue, 09 Apr 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -289,6 +289,15 @@ proc checkForUpdate {informProc} {
 }
 
 
+proc pleaseInstallHttp {parent} {
+	::dialog::error \
+		-parent $parent \
+		-message $mc::Error(nohttp) \
+		-detail [format $mc::Detail(nohttp) {"sudo apt-get install tclhttp"}] \
+		;
+}
+
+
 proc CheckForUpdateResponse {informProc token} {
 	set shared [InstallDir 1]
 	set local [InstallDir 0]
@@ -385,13 +394,7 @@ proc Download {parent dlg} {
 	set result [downloadFiles [namespace code [list ProcessUpdate $parent]] $Shared $parent]
 
 	switch $result {
-		nohhtp {
-			::dialog::error \
-				-parent $dlg \
-				-message $mc::Error(nohttp) \
-				-detail [format $mc::Detail(nohttp) {"sudo apt-get install tclhttp"}] \
-				;
-		}
+		nohhtp	{ pleaseInstallHttp $dlg }
 		failed	{ ::dialog::error -parent $dlg -message $mc::Error(failed) }
 		passwd	{ ::dialog::error -parent $dlg -message $mc::Error(passwd) }
 		nosudo	{ ::dialog::error -parent $dlg -message $mc::Error(nosudo) -detail $mc::Detail(nosudo) }

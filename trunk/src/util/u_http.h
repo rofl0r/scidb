@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 715 $
+// Date   : $Date: 2013-04-09 14:53:14 +0000 (Tue, 09 Apr 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -72,6 +72,11 @@ public:
 
 	Http();	// not yet usable
 	explicit Http(char const* host);
+	~Http();
+
+	bool isOpen() const;
+
+	int contentSize() const;
 
 	void setHost(char const* host);
 	void setReferer(char const* host);
@@ -80,8 +85,12 @@ public:
 
 	mstl::string const& host() const;
 
+	int open(char const* url);
+
 	int get(char const* url, mstl::string& result);
 	int get(char const* url, mstl::ostream& stream);
+	int get(mstl::string& result);
+	int get(mstl::ostream& stream);
 
 private:
 
@@ -91,7 +100,7 @@ private:
 	// Opens a TCP socket and returns the descriptor.
 	int makeSocket();
 
-	int readLine(Socket& sock, mstl::string& result);
+	int readLine(mstl::string& result);
 	void setup();
 
 	void makeRequest(char const* command, mstl::string const& url, mstl::string& result);
@@ -101,6 +110,8 @@ private:
 	mstl::string	m_userAgent;
 	bool				m_hideUserAgent;
 	unsigned			m_timeout;
+	int				m_contentSize;
+	Socket*			m_sock;
 	mstl::string	m_proxyServer;
 };
 

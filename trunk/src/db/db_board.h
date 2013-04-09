@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 688 $
-// Date   : $Date: 2013-03-29 16:55:41 +0000 (Fri, 29 Mar 2013) $
+// Version: $Revision: 715 $
+// Date   : $Date: 2013-04-09 14:53:14 +0000 (Tue, 09 Apr 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -634,9 +634,13 @@ private:
 	template <piece::Type Piece>
 	void addToHolding(uint64_t toMask, variant::Type variant, unsigned color);
 	template <piece::Type Piece>
+	void addToMyHolding(variant::Type variant, unsigned color);
+	template <piece::Type Piece>
 	void removeFromHolding(variant::Type variant, unsigned color);
 	template <piece::Type Piece>
 	void removeFromHolding(uint64_t fromMask, variant::Type variant, unsigned color);
+	template <piece::Type Piece>
+	void removeFromMyHolding(variant::Type variant, unsigned color);
 	template <piece::Type Piece>
 	void possiblyRemoveFromHolding(variant::Type variant, unsigned color);
 	template <piece::Type Piece> void incrMaterial(unsigned color);

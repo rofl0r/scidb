@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 715 $
+// Date   : $Date: 2013-04-09 14:53:14 +0000 (Tue, 09 Apr 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -18,7 +18,9 @@
 
 namespace util {
 
-inline mstl::string const& Http::host() const { return m_host; }
+inline mstl::string const& Http::host() const	{ return m_host; }
+inline int Http::contentSize() const				{ return m_contentSize; }
+inline bool Http::isOpen() const						{ return m_sock; }
 
 } // namespace util
 
