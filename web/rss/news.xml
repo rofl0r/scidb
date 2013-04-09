@@ -7,7 +7,7 @@
 	 <description></description>
     <language>en</language>
     <copyright>Gregor Cramer</copyright>
-    <lastBuildDate>Thu, 19 Feb 2012 22:59:10 +0100</lastBuildDate>
+    <lastBuildDate>Mon, 1 Apr 2013 22:59:10 +0100</lastBuildDate>
     <image>
       <url>http://scidb.sourceforge.net/images/logo.png</url>
       <link>http://scidb.sourceforge.net/</link>
@@ -15,11 +15,11 @@
     </image>
     <category>Chess</category>
     <item>
-      <title>Second public preview version</title>
+      <title>Third public preview version</title>
       <link>http://scidb.sourceforge.net</link>
-      <description><![CDATA[The second public preview version is released on February 19, 2012.<br/>
+      <description><![CDATA[The third public preview version is released on April 1, 2013.<br/>
 		Visit Scidb's <a href="http://scidb.sourceforge.net">homepage</a> for further details.]]></description>
-      <pubDate>Thu, 19 Feb 2012 23:04:17 +0100</pubDate>
+      <pubDate>Mon, 1 Apr 2013 23:04:17 +0100</pubDate>
     </item>
   </channel>
 </rss>

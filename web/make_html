@@ -95,6 +95,7 @@ if {[string match */de [pwd]]} {
 
   set content(GUIDE_DOWNLOAD)       "Download"
   set content(GUIDE_SCREENSHOTS)    "Screenshots"
+  set content(GUIDE_HELPPAGES)      "Hilfeseiten"
   set content(GUIDE_MOREINFO)       "Weitere Informationen"
   set content(GUIDE_LINKS)          "Scidb-Links"
   set content(GUIDE_WANTED)         "Gesucht"
@@ -117,6 +118,7 @@ if {[string match */de [pwd]]} {
 
   set content(GUIDE_DOWNLOAD)       "Download"
   set content(GUIDE_SCREENSHOTS)    "Screenshots"
+  set content(GUIDE_HELPPAGES)      "Help Pages"
   set content(GUIDE_MOREINFO)       "More Info"
   set content(GUIDE_LINKS)          "Scidb Links"
   set content(GUIDE_WANTED)         "Wanted"
@@ -151,7 +153,7 @@ while {[gets $fd line] >= 0} {
     set k [lindex [lindex $indicies 0] 1]
     set section [string range $line [expr {$i + 1}] [expr {$k - 1}]]
     set line [string replace $line $i $k $content($section)]
-    set indicies [regexp -indices -inline -- {%[A-Z]+%} $line]
+    set indicies [regexp -indices -inline -- {%[A-Z_]+%} $line]
   }
 
   if {$subdir} {

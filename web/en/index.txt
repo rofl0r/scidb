@@ -54,6 +54,59 @@ CONTENT
   is a chess database application for Linux/Unix and Windows. Scidb is inspired by Scid
   ("Shane's Chess Information Database"), but it is a completely new development.</p>
 
+  <p>
+  The principal features of this chess database application:
+  </p>
+
+  <dir>
+    <li>
+      Support of various chess variants:
+      <ul>
+        <li><a href="http://en.wikipedia.org/wiki/Three-check_chess">Three-Check chess</a></li>
+        <li><a href="http://en.wikipedia.org/wiki/Antichess">Antichess</a>
+            (<a href="http://suicidechess.ca/index.php?lg=en">Suicide</a>,
+            <a href="http://www6.chessclub.com/help/Giveaway">Giveaway</a>,
+            <a href="http://loserschess.org/">Losers</a>)</li>
+        <li><a href="http://en.wikipedia.org/wiki/Crazyhouse">Crazyhouse</a></li>
+        <li><a href="http://en.wikipedia.org/wiki/Bughouse_chess">Bughouse</a>
+            (in preparation)</li>
+        </ul>
+    </li>
+
+    <li>
+    Support of <a href="http://en.wikipedia.org/wiki/Chess960">Chess 960</a>
+    and <a href="http://en.wikipedia.org/wiki/Chess960">Shuffle Chess</a>
+    </li>
+
+    <li>
+      Support of various database and file formats:
+      <dir>
+        <table>
+          <tr><td>Scidb:</td>     <td>.sci, .scv</td></tr>
+          <tr><td>Scid:</td>      <td>.si3, .si4</td></tr>
+          <tr><td>ChessBase:</td> <td>.cbh, .cbf (read-only)</td></tr>
+          <tr><td>PGN:</td>       <td>.pgn, .pgn.gz, .zip</td></tr>
+        </table>
+      </dir>
+    </li>
+
+    <li>
+      28 different SVG/TrueType chess piece sets
+    </li>
+
+    <li>
+      User-configurable chess board themes (based on SVG)
+    </li>
+
+    <li>
+      <a href="http://www.rbnn.com/cql/">CQL</a> based search functions (in development)
+    </li>
+
+    <li>
+      PDF export (in preparation)
+    </li>
+  </dir>
+
 </div><!-- block -->
 
 <div class="block">
@@ -73,11 +126,11 @@ CONTENT
   <dir>
     <li>Flexible window layout (unfortunately very complicated)</li>
     <li>Searching and filtering functionality: search of games, position search, etc.
-        The search funtionality will be based on CQL (Chess Query Language;
+        The search functionality will be based on CQL (Chess Query Language;
         see <a href="http://www.rbnn.com/cql/">CQL Manual</a>).</li>
     <li>Multiple selections in game list</li>
     <li>Support of Bughouse games</li>
-    <li>Support of other variants in opening tree</li>
+    <li>Support of variants (Crazyhouse, Antichess, Three-Check) in opening tree</li>
     <li>Input of games with keyboard</li>
   </dir>
 
@@ -162,6 +215,10 @@ CONTENT
       and an engine dictionary.
     </li>
   </dir>
+
+  <p>
+  More novelties:
+  </p>
 
   <dir>
     <li>Move input: pressing middle mouse button (or spacebar) alternates the move suggestion</li>

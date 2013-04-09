@@ -58,14 +58,17 @@ CONTENT
 
     <li>
     <a href="http://www.vlasak.biz/critter">Critter</a>:
-    Also a really strong engine, but unfortunately not open source.
+    Also a really strong engine, unfortunately not open source.
     </li>
 
     <li>
     <a href="http://sjeng.org/indexold.html">Sjeng</a>:
     This engine - also pre-installed in Scidb - is supporting the chess variants
     <a href="http://en.wikipedia.org/wiki/Crazyhouse">Crazyhouse</a> and
-    <a href="http://en.wikipedia.org/wiki/Antichess">Antichess</a>.
+    <a href="http://en.wikipedia.org/wiki/Antichess">Antichess</a>
+    (<a href="http://suicidechess.ca/index.php?lg=en">Suicide</a>,
+    <a href="http://www6.chessclub.com/help/Giveaway">Giveaway</a>,
+    <a href="http://loserschess.org/">Losers</a>).
     </li>
   </dir>
 
@@ -98,7 +101,7 @@ CONTENT
   </p>
 
   <p>
-  No longer in development, but still of interest is the Java application
+  No longer in development, but still of interest, is the Java application
   <a href="http://jose-chess.sourceforge.net">José</a>.
   </p>
 

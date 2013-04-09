@@ -186,8 +186,8 @@ CONTENT
         <td>
 					<a href="screenshots/help-window.png">
             <img src="screenshots/thumbs/help-window.png"
-                 alt="Help dialog"§
-               title="Help dialog"§
+                 alt="Help dialog"
+               title="Help dialog"
                class="bordersOff"
                width="120"
               height="104"

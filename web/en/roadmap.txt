@@ -12,7 +12,7 @@ CONTENT
 
   <dir>
     <li>Search functions: search by header, position search, etc.
-        bases on <acronym>CQL</acronym> (Chess Query Language)</li>
+        based on <acronym>CQL</acronym> (Chess Query Language)</li>
     <li>Filter functions: game filter, player filter</li>
     <li>Flexible window layout</li>
     <li>Multiple selections in game list</li>

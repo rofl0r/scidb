@@ -12,7 +12,7 @@ CONTENT
 
 	<p>
   The third public preview version is ready for download:
-  <a href="http://sourceforge.net/projects/scidb/files/scidb-beta--2013-04-01--rev692.tar.gz/download">scidb-beta--2013-04-01--rev692.tar.gz</a>.
+  <a href="http://sourceforge.net/projects/scidb/files/scidb-beta--2013-04-01--rev701.tar.gz/download">scidb-beta--2013-04-01--rev701.tar.gz</a>.
   This version is for Linux/Unix systems only. Thw windows version will be released later,
   presumably at end of year 2013 (unfortunately postponed again, the implementation takes
   a longer time than expected).
@@ -31,8 +31,8 @@ CONTENT
 	<p>Install Scidb as usual:</p>
 	
 	<p>
-	&nbsp;&nbsp;&gt; tar -xzf scidb-beta--2013-04-01--rev692.tar.gz<br />
-	&nbsp;&nbsp;&gt; cd scidb<br />
+	&nbsp;&nbsp;&gt; tar -xzf scidb-beta--2013-04-01--rev701.tar.gz<br />
+	&nbsp;&nbsp;&gt; cd scidb-beta--2013-04-01--rev701<br />
 	&nbsp;&nbsp;&gt; ./configure<br />
 	&nbsp;&nbsp;&gt; make<br />
 	&nbsp;&nbsp;&gt; sudo make install

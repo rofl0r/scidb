@@ -50,6 +50,60 @@ CONTENT
   aber eine komplette Neuentwicklung.
   </p>
 
+  <p>
+  Die hauptsächlichen Besonderheiten dieser Datenbankapplikation sind:
+  </p>
+
+  <dir>
+    <li>
+      Unterstützung anderer Schachformen:
+      <ul>
+        <li>Dreimal-Schach
+            (<a href="http://en.wikipedia.org/wiki/Three-check_chess">Three-Check chess</a>)</li>
+        <li><a href="http://de.wikipedia.org/wiki/R%C3%A4uberschach">Schlagschach</a>
+            (<a href="http://suicidechess.ca/index.php?lg=en">Suicide</a>,
+            <a href="http://www6.chessclub.com/help/Giveaway">Giveaway</a>,
+            <a href="http://loserschess.org/">Losers</a>)</li>
+        <li><a href="http://de.wikipedia.org/wiki/Schachvarianten#Crazyhouse_oder_Einsetzschach">
+            Einsetzschach</a>
+            (<a href="http://en.wikipedia.org/wiki/Crazyhouse">Crazyhouse</a>)</li>
+        <li><a href="https://de.wikipedia.org/wiki/Tandemschach">Tandem-Schach</a>
+            (in Vorbereitung)</li>
+        </ul>
+    </li>
+
+    <li>
+    Unterstützt <a href="http://de.wikipedia.org/wiki/Chess960">Schach-960</a>
+    und <a href="http://de.wikipedia.org/wiki/Shuffle_Chess">Shuffle-Schach</a>
+    </li>
+
+    <li>
+      Unterstützt mehrere Datenbank- bzw. Dateiformate:
+      <table style="margin-left:30px;">
+        <tr><td>Scidb:</td>     <td>.sci, .scv</td></tr>
+        <tr><td>Scid:</td>      <td>.si3, .si4</td></tr>
+        <tr><td>ChessBase:</td> <td>.cbh, .cbf (nur lesend)</td></tr>
+        <tr><td>PGN:</td>       <td>.pgn, .pgn.gz, .zip</td></tr>
+      </table>
+    </li>
+
+    <li>
+      28 verschiedene SVG/TrueType Schachfigurensätze
+    </li>
+
+    <li>
+      Benutzerkonfigurierbare Schachbrettthemen (SVG-basiert)
+    </li>
+
+    <li>
+      <a href="http://www.rbnn.com/cql/">CQL</a>-basierte Suchfunktionen (in Entwicklung)
+    </li>
+
+    <li>
+      PDF-Export (in Vorbereitung)
+    </li>
+  </dir>
+
 </div>
 
 <div class="block">
@@ -73,7 +127,8 @@ CONTENT
         <a href="http://www.rbnn.com/cql/">CQL Manual</a>).</li>
     <li>Mehrfach-Selektion in der Partienliste</li>
     <li>Unterstützung von Tandem-Partien</li>
-    <li>Unterstützung von anderen Schachformen in der Eröffnungsbaumsuche</li>
+    <li>Unterstützung von anderen Schachformen in der Eröffnungsbaumsuche
+        (Einsetzschach, Schlagschach, Dreimal-Schach)</li>
     <li>Tastatureingabe von Partien im Partieneditor</li>
   </dir>
 

@@ -67,9 +67,12 @@ CONTENT
     <a href="http://sjeng.org/indexold.html">Sjeng</a>:
     Dieser Motor, ebenfalls vorinstalliert in Scidb, unterstützt die Schachformen
     <a href="http://de.wikipedia.org/wiki/Schachvarianten#Crazyhouse_oder_Einsetzschach">
-    Einsetzschach</a> (Crazyhouse) und
-    <a href="http://de.wikipedia.org/wiki/R%C3%A4uberschach">Schlagschach</a>
-    (Suicide, Giveaway, Losers).
+    Einsetzschach</a>
+    (<a href="http://en.wikipedia.org/wiki/Crazyhouse">Crazyhouse</a>)
+    und <a href="http://de.wikipedia.org/wiki/R%C3%A4uberschach">Schlagschach</a>
+    (<a href="http://suicidechess.ca/index.php?lg=en">Suicide</a>,
+    <a href="http://www6.chessclub.com/help/Giveaway">Giveaway</a>,
+    <a href="http://loserschess.org/">Losers</a>).
     </li>
   </dir>
 
