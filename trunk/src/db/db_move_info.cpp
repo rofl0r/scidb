@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 671 $
-// Date   : $Date: 2013-03-13 09:49:26 +0000 (Wed, 13 Mar 2013) $
+// Version: $Revision: 717 $
+// Date   : $Date: 2013-04-10 13:35:14 +0000 (Wed, 10 Apr 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -413,7 +413,9 @@ MoveInfo::printClock(char const* id, mstl::string& result, Format format) const
 
 
 void
-MoveInfo::print(EngineList const& engines, mstl::string& result, Format format) const
+MoveInfo::print(	EngineList const& engines,
+						mstl::string& result,
+						Format format) const
 {
 	if (m_engine)
 	{
@@ -653,7 +655,7 @@ MoveInfo::encode(ByteStream& strm) const
 			);
 			strm << uint24_t
 			(
-				  (uint32_t(m_elapsed.m_seconds << 10) & 0x0003fff)	// 14 bits
+				  (uint32_t(m_elapsed.m_seconds & 0x0003fff) << 10)	// 14 bits
 				| (uint32_t(m_elapsed.m_milliSeconds))						// 10 bits
 			);
 			break;

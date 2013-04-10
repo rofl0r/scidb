@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 703 $
-// Date   : $Date: 2013-04-03 15:55:59 +0000 (Wed, 03 Apr 2013) $
+// Version: $Revision: 717 $
+// Date   : $Date: 2013-04-10 13:35:14 +0000 (Wed, 10 Apr 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -52,6 +52,7 @@ public:
 	bool contains(MoveInfo const& info) const;
 
 	unsigned count() const;
+	unsigned count(unsigned moveInfoTypes) const;
 	int find(MoveInfo const& info) const;
 
 	::util::crc::checksum_t computeChecksum(EngineList const& engines, util::crc::checksum_t crc) const;
@@ -71,7 +72,8 @@ public:
 	bool extractFromComment(EngineList& engineList, mstl::string& comment);
 	void print(	EngineList const& engines,
 					mstl::string& result,
-					MoveInfo::Format format = MoveInfo::Pgn) const;
+					MoveInfo::Format format = MoveInfo::Pgn,
+					unsigned moveInfoTypes = unsigned(-1)) const;
 
 private:
 

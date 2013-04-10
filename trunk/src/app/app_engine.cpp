@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 661 $
-// Date   : $Date: 2013-02-23 23:03:04 +0000 (Sat, 23 Feb 2013) $
+// Version: $Revision: 717 $
+// Date   : $Date: 2013-04-10 13:35:14 +0000 (Wed, 10 Apr 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1156,10 +1156,9 @@ Engine::startAnalysis(Game* game)
 		return true;
 	}
 
-	bool isNew = m_game ? game->id() != m_gameId : true;
-
-	m_usedMultiPV = 0;
 	m_restart = false;
+
+	bool isNew = m_game ? game->id() != m_gameId : true;
 
 	if (isNew)
 	{
@@ -1199,6 +1198,7 @@ Engine::startAnalysis(Game* game)
 			return true;
 	}
 
+	m_usedMultiPV = 0;
 	m_gameId = game->id();
 
 	if (m_engine->isReady())

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 717 $
+// Date   : $Date: 2013-04-10 13:35:14 +0000 (Wed, 10 Apr 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -186,7 +186,8 @@ public:
 									unsigned linebreakMaxLineLength,
 									unsigned linebreakMaxLineLengthVar,
 									unsigned linebreakMinCommentLength,
-									unsigned displayStyle);
+									unsigned displayStyle,
+									unsigned moveInfoTypes);
 
 	Node* newAction(Action::Command command) const;
 	Node* newAction(Action::Command command, unsigned level) const;

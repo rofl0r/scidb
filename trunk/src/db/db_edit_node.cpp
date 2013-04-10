@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 710 $
-// Date   : $Date: 2013-04-08 20:43:55 +0000 (Mon, 08 Apr 2013) $
+// Version: $Revision: 717 $
+// Date   : $Date: 2013-04-10 13:35:14 +0000 (Wed, 10 Apr 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -139,6 +139,7 @@ struct Node::Spacing
 	unsigned		m_commentCount;
 	unsigned		m_linebreakMaxLineLength;
 	unsigned		m_displayStyle;
+	unsigned		m_moveInfoTypes;
 };
 
 
@@ -149,6 +150,7 @@ Node::Spacing::Spacing()
 	,m_plyCount(0)
 	,m_linebreakMaxLineLength(::DontSetBreaks)
 	,m_displayStyle(display::CompactStyle)
+	,m_moveInfoTypes(0)
 {
 }
 
@@ -1176,7 +1178,7 @@ Move::getMoveInfo(Work& work, MoveNode const* move, mstl::string& result)
 	{
 		M_ASSERT(work.engineList);
 
-		move->moveInfo().print(*work.engineList, result, MoveInfo::Text);
+		move->moveInfo().print(*work.engineList, result, MoveInfo::Text, work.m_moveInfoTypes);
 
 		if (!result.empty())
 		{
@@ -1368,7 +1370,8 @@ Root::makeList(TagSet const& tags,
 					unsigned linebreakMaxLineLength,
 					unsigned linebreakMaxLineLengthVar,
 					unsigned linebreakMinCommentLength,
-					unsigned displayStyle)
+					unsigned displayStyle,
+					unsigned moveInfoTypes)
 {
 	M_REQUIRE(node);
 	M_REQUIRE(node->atLineStart());
@@ -1384,6 +1387,7 @@ Root::makeList(TagSet const& tags,
 	work.linebreakMinCommentLength = linebreakMinCommentLength;
 	work.isEmpty = node->isEmptyLine();
 	work.m_displayStyle = displayStyle;
+	work.m_moveInfoTypes = moveInfoTypes;
 
 	if ((displayStyle & display::CompactStyle) && node->countHalfMoves() > linebreakThreshold)
 		work.m_linebreakMaxLineLength = linebreakMaxLineLength;

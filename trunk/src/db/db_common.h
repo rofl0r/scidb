@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 704 $
-// Date   : $Date: 2013-04-04 22:19:12 +0000 (Thu, 04 Apr 2013) $
+// Version: $Revision: 717 $
+// Date   : $Date: 2013-04-10 13:35:14 +0000 (Wed, 10 Apr 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -996,6 +996,19 @@ namespace encoding
 namespace protocol
 {
 	enum ID { Scidb, Standard, UCI };
+}
+
+namespace moveinfo {
+
+	enum ID
+	{
+		Evaluation	= 1 << 0,
+		Clock			= 1 << 1,
+		ElapsedTime	= 1 << 2,
+		CorrSent		= 1 << 3,
+		Video			= 1 << 4,
+	};
+
 }
 
 namespace nag

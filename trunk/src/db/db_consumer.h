@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 661 $
-// Date   : $Date: 2013-02-23 23:03:04 +0000 (Sat, 23 Feb 2013) $
+// Version: $Revision: 717 $
+// Date   : $Date: 2013-04-10 13:35:14 +0000 (Wed, 10 Apr 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -177,7 +177,6 @@ protected:
 	variant::Type getVariant() const;
 	void setStartBoard(Board const& board);
 	void addMoveInfo(MoveInfo const& info);
-	unsigned mainlineLength() const;
 
 	MoveInfoSet	m_moveInfoSet;
 	EngineList	m_engines;

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 666 $
-# Date   : $Date: 2013-03-03 07:24:18 +0000 (Sun, 03 Mar 2013) $
+# Version: $Revision: 717 $
+# Date   : $Date: 2013-04-10 13:35:14 +0000 (Wed, 10 Apr 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -96,6 +96,14 @@ set Diagrams(show)				"Show Diagrams"
 set Diagrams(square-size)		"Square Size"
 set Diagrams(indentation)		"Indent Width"
 
+}
+
+array set ShowMoveInfo {
+	eval	1
+	clk	1
+	emt	1
+	ccsnt	1
+	video	0
 }
 
 set StyleLayout {
@@ -331,18 +339,25 @@ proc configureText {path {fontContext ""}} {
 
 proc setupStyle {context {position -1}} {
 	variable [namespace parent]::${context}::Options
+	variable ShowMoveInfo
 
 	if {$Options(style:column)} { set thresholds {0 0 0 0} } else { set thresholds {240 80 60 0} }
 
 	if {$context eq "editor"} {
 		set paragraphSpacing $Options(spacing:paragraph)
 		set diagramShow $Options(show:diagram)
-		set showMoveInfo $Options(show:moveinfo)
+		set showMoveInfo {}
 		set showVariationNumbers $Options(show:varnumbers)
+
+		if {$Options(show:moveinfo)} {
+			foreach {type show} [array get ShowMoveInfo] {
+				if {$show} { lappend showMoveInfo $type }
+			}
+		}
 	} else {
 		set paragraphSpacing no
 		set diagramShow no
-		set showMoveInfo no
+		set showMoveInfo {}
 		set showVariationNumbers no
 	}
 
@@ -1715,6 +1730,8 @@ proc WriteOptions {chan} {
 	if {[array names Timestamp] > 0} {
 		::options::writeItem $chan [namespace current]::Timestamp
 	}
+
+	::options::writeItem $chan [namespace current]::ShowMoveInfo
 }
 
 ::options::hookWriter [namespace current]::WriteOptions

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 671 $
-// Date   : $Date: 2013-03-13 09:49:26 +0000 (Wed, 13 Mar 2013) $
+// Version: $Revision: 717 $
+// Date   : $Date: 2013-04-10 13:35:14 +0000 (Wed, 10 Apr 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -621,6 +621,23 @@ MoveNode::countMoveInfo() const
 
 		for (unsigned i = 0; i < n->m_variations.size(); ++i)
 			result += n->m_variations[i]->countMoveInfo();
+	}
+
+	return result;
+}
+
+
+unsigned
+MoveNode::countMoveInfo(unsigned moveInfoTypes) const
+{
+	unsigned result = 0;
+
+	for (MoveNode const* n = this; n; n = n->m_next)
+	{
+		result += n->m_moveInfo->count(moveInfoTypes);
+
+		for (unsigned i = 0; i < n->m_variations.size(); ++i)
+			result += n->m_variations[i]->countMoveInfo(moveInfoTypes);
 	}
 
 	return result;

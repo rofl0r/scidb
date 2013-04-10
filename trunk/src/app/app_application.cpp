@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 671 $
-// Date   : $Date: 2013-03-13 09:49:26 +0000 (Wed, 13 Mar 2013) $
+// Version: $Revision: 717 $
+// Date   : $Date: 2013-04-10 13:35:14 +0000 (Wed, 10 Apr 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2434,6 +2434,7 @@ Application::setupGame(	unsigned linebreakThreshold,
 								unsigned linebreakMaxLineLengthVar,
 								unsigned linebreakMinCommentLength,
 								unsigned displayStyle,
+								unsigned moveInfoTypes,
 								move::Notation moveStyle)
 {
 	M_REQUIRE(displayStyle & (display::CompactStyle | display::ColumnStyle));
@@ -2447,6 +2448,7 @@ Application::setupGame(	unsigned linebreakThreshold,
 										linebreakMaxLineLengthVar,
 										linebreakMinCommentLength,
 										displayStyle,
+										moveInfoTypes,
 										moveStyle);
 
 		i->second->refresh = 1;
