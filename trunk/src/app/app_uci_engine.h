@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 718 $
+// Date   : $Date: 2013-04-14 23:59:32 +0000 (Sun, 14 Apr 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -98,7 +98,6 @@ private:
 	mstl::string	m_value;
 	State				m_state;
 	Variant			m_variant;
-	bool				m_needChess960;
 	bool				m_uciok;
 	bool				m_isReady;
 	bool				m_hasMultiPV;
