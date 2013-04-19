@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 719 $
-// Date   : $Date: 2013-04-19 16:40:59 +0000 (Fri, 19 Apr 2013) $
+// Version: $Revision: 720 $
+// Date   : $Date: 2013-04-19 16:50:48 +0000 (Fri, 19 Apr 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1614,7 +1614,7 @@ Position::finish(Match& match)
 
 	mstl::auto_ptr<Position> flipped;
 
-	if ((m_transformations & (Flip | Shift | Flip_Color)) == Flip | Shift | Flip_Color)
+	if ((m_transformations & (Flip | Shift | Flip_Color)) == (Flip | Shift | Flip_Color))
 	{
 	}
 
