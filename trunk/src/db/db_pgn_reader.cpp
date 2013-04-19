@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 688 $
-// Date   : $Date: 2013-03-29 16:55:41 +0000 (Fri, 29 Mar 2013) $
+// Version: $Revision: 719 $
+// Date   : $Date: 2013-04-19 16:40:59 +0000 (Fri, 19 Apr 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1357,7 +1357,7 @@ PgnReader::parseFinalComment(mstl::string const& comment)
 			if (::matchEndOfSentence(s, "Black mates", 11))
 				return ::setTermination(m_tags, termination::Normal);
 			if (::matchEndOfSentence(s, "Both players ran out of time", 28))
-				return ::setTermination(m_tags, termination::TimeForfeitBoth);
+				return ::setTermination(m_tags, termination::TimeForfeit);
 			if (::matchEndOfSentence(s, "Bare king", 9))
 				return ::setTermination(m_tags, termination::Normal);
 			break;
@@ -1425,7 +1425,7 @@ PgnReader::parseFinalComment(mstl::string const& comment)
 
 		case 'd':
 			if (::matchEndOfSentence(s, "drawn because both players ran out of time", 42))
-				return ::setTermination(m_tags, termination::TimeForfeitBoth);
+				return ::setTermination(m_tags, termination::TimeForfeit);
 			if (::matchEndOfSentence(s, "drawn by mutual agreement", 25))
 				return ::setTermination(m_tags, termination::Normal);
 			if (::matchEndOfSentence(s, "drawn by stalemate", 18))

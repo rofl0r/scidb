@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 704 $
-// Date   : $Date: 2013-04-04 22:19:12 +0000 (Thu, 04 Apr 2013) $
+// Version: $Revision: 719 $
+// Date   : $Date: 2013-04-19 16:40:59 +0000 (Fri, 19 Apr 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -138,6 +138,9 @@ extern uint64_t PawnF2[2][64];
 extern uint64_t MaskL90[64];
 extern uint64_t MaskL45[64];
 extern uint64_t MaskR45[64];
+extern uint64_t MaskVertical[64][64];
+extern uint64_t MaskDiagonal[64];
+extern uint64_t MaskOffDiagonal[64];
 
 extern uint64_t MaskIsolatedPawn[64];
 extern uint64_t MaskDuoPawn[64];
@@ -176,7 +179,9 @@ int msb(uint64_t n);
 template <typename T> int count(T n);
 
 int lsbClear(uint8_t& n);
+int msbClear(uint8_t& n);
 int lsbClear(uint64_t& n);
+int msbClear(uint64_t& n);
 
 namespace base { void initialize(); }
 

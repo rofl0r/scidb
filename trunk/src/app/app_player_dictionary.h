@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 617 $
-// Date   : $Date: 2013-01-08 11:41:26 +0000 (Tue, 08 Jan 2013) $
+// Version: $Revision: 719 $
+// Date   : $Date: 2013-04-19 16:40:59 +0000 (Fri, 19 Apr 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -31,6 +31,8 @@
 
 #include "m_bitset.h"
 #include "m_vector.h"
+
+namespace mstl { class pattern; }
 
 namespace db { class Player; }
 namespace db { class Query; }
@@ -99,7 +101,7 @@ public:
 	void resetFilter();
 	void negateFilter();
 	void filterLetter(char letter);
-	void filterName(Operator op, mstl::string const& pattern);
+	void filterName(Operator op, mstl::pattern const& pattern);
 	void filterFederation(Operator op, ::db::country::Code country);
 	void filterNativeCountry(Operator op, ::db::country::Code country);
 	void filterType(Operator op, ::db::species::ID type);

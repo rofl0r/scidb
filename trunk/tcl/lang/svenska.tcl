@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 717 $
-# Date   : $Date: 2013-04-10 13:35:14 +0000 (Wed, 10 Apr 2013) $
+# Version: $Revision: 719 $
+# Date   : $Date: 2013-04-19 16:40:59 +0000 (Fri, 19 Apr 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1877,7 +1877,7 @@
 ::terminationbox::mc::Reason(Unplayed)					"Parti är ospelat"
 ::terminationbox::mc::Reason(Abandoned)				"Parti är avbrutit"
 ::terminationbox::mc::Reason(Adjudication)			"Avdömt"
-::terminationbox::mc::Reason(Death)						"Death" ;# NEW
+::terminationbox::mc::Reason(Disconnection)			"Disconnection" ;# NEW
 ::terminationbox::mc::Reason(Emergency)				"Avbrutit pga nödsituation"
 ::terminationbox::mc::Reason(RulesInfraction)		"Avdömt pga regelbrott"
 ::terminationbox::mc::Reason(TimeForfeit)				"%s tidsförlust"

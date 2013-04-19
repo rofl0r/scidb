@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 715 $
-// Date   : $Date: 2013-04-09 14:53:14 +0000 (Tue, 09 Apr 2013) $
+// Version: $Revision: 719 $
+// Date   : $Date: 2013-04-19 16:40:59 +0000 (Fri, 19 Apr 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1570,6 +1570,18 @@ Board::hasPromoted(Square sq) const
 {
 	uint64_t mask = setBit(sq);
 	return m_promoted[m_occupiedBy[White] & mask ? White : Black] & mask;
+}
+
+
+piece::ID
+Board::pieceAt(Square s) const
+{
+	uint64_t mask = setBit(s);
+
+	if (!(m_occupied & mask))
+		return piece::Empty;
+
+	return ::toPiece(m_piece[s], m_occupiedBy[White] & mask ? White : Black);
 }
 
 
@@ -5252,6 +5264,12 @@ Board::doMove(Move const& m, variant::Type variant)
 			m_piece[to] = piece::King;
 			m_occupied = m_occupiedBy[White] | m_occupiedBy[Black];
 
+			if (variant == variant::ThreeCheck && givesCheck())
+			{
+				M_ASSERT(m_checksGiven[m_stm] < 3);
+				hashChecksGiven(m_stm, m_checksGiven[m_stm]++);
+			}
+
 			swapToMove();
 			++m_plyNumber;
 			return;
@@ -6547,18 +6565,6 @@ Board::makeMove(Square from, Square to, piece::Type promotedOrDrop) const
 	}
 
 	return Move::null();
-}
-
-
-piece::ID
-Board::pieceAt(Square s) const
-{
-	uint64_t mask = setBit(s);
-
-	if (!(m_occupied & mask))
-		return piece::Empty;
-
-	return ::toPiece(m_piece[s], m_occupiedBy[White] & mask ? White : Black);
 }
 
 

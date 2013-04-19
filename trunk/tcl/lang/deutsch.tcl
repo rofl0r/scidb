@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 717 $
-# Date   : $Date: 2013-04-10 13:35:14 +0000 (Wed, 10 Apr 2013) $
+# Version: $Revision: 719 $
+# Date   : $Date: 2013-04-19 16:40:59 +0000 (Fri, 19 Apr 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1870,7 +1870,7 @@
 ::terminationbox::mc::Reason(Unplayed)					"Die Partie wurde nicht gespielt"
 ::terminationbox::mc::Reason(Abandoned)				"Die Partie wurde abgebrochen"
 ::terminationbox::mc::Reason(Adjudication)			"Abschätzung"
-::terminationbox::mc::Reason(Death)						""
+::terminationbox::mc::Reason(Disconnection)			"Leitungsunterbrechung"
 ::terminationbox::mc::Reason(Emergency)				"Aufgrund eines Ereignisses unvollendet"
 ::terminationbox::mc::Reason(RulesInfraction)		"Entschieden aufgrund einer Regelübertretung"
 ::terminationbox::mc::Reason(TimeForfeit)				"%s überschritt die Bedenkzeit"

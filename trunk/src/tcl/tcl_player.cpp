@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 644 $
-// Date   : $Date: 2013-01-29 13:39:29 +0000 (Tue, 29 Jan 2013) $
+// Version: $Revision: 719 $
+// Date   : $Date: 2013-04-19 16:40:59 +0000 (Fri, 19 Apr 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -32,6 +32,7 @@
 #include "db_player.h"
 #include "db_namebase_entry.h"
 
+#include "m_match.h"
 #include "m_utility.h"
 
 #include <tcl.h>
@@ -555,7 +556,7 @@ cmdFilter(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 					break;
 
 				case 'n': // name
-					m_dictionary->filterName(op, Tcl_GetString(val));
+					m_dictionary->filterName(op, mstl::pattern(Tcl_GetString(val)));
 					break;
 
 				case 's': // sex

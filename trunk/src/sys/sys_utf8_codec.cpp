@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 648 $
-// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
+// Version: $Revision: 719 $
+// Date   : $Date: 2013-04-19 16:40:59 +0000 (Fri, 19 Apr 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -31,6 +31,7 @@
 #include <tcl.h>
 #include <ctype.h>
 #include <string.h>
+#include <stdlib.h>
 
 using namespace sys::utf8;
 using namespace tcl;

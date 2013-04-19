@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 688 $
-// Date   : $Date: 2013-03-29 16:55:41 +0000 (Fri, 29 Mar 2013) $
+// Version: $Revision: 719 $
+// Date   : $Date: 2013-04-19 16:40:59 +0000 (Fri, 19 Apr 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -153,7 +153,7 @@ Position::doMove(unsigned moveNumber)
 			{
 				piece::Type				type			= piece::type(piece);
 				MoveGenEntry const*	moveGen		= MoveGenTable + TableOffset[type];
-				unsigned					iteration	= piece::longStepPiece(piece) ? 7 : 1;
+				unsigned					iteration	= piece::isLongStepPiece(piece) ? 7 : 1;
 
 				for ( ; moveGen->type == type; ++moveGen)
 				{

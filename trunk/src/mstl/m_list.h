@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 719 $
+// Date   : $Date: 2013-04-19 16:40:59 +0000 (Fri, 19 Apr 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -19,7 +19,6 @@
 #ifndef _mstl_list_included
 #define _mstl_list_included
 
-#include "m_vector.h"
 #include "m_list_node.h"
 
 namespace mstl {
@@ -30,7 +29,6 @@ class list
 public:
 
 	typedef T						value_type;
-	typedef vector<T*>			vector_type;
 	typedef list<T>				list_type;
 	typedef value_type*			pointer;
 	typedef value_type const*	const_pointer;

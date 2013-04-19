@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 719 $
+// Date   : $Date: 2013-04-19 16:40:59 +0000 (Fri, 19 Apr 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -49,6 +49,7 @@ inline int db::board::msb(uint64_t n)	{ return mstl::bf::msb_index(n); }
 
 template <typename T> inline int db::board::count(T n) { return mstl::bf::count_bits(n); }
 
+
 inline
 int
 db::board::lsbClear(uint8_t& n)
@@ -58,11 +59,32 @@ db::board::lsbClear(uint8_t& n)
 	return r;
 }
 
+
 inline
 int
 db::board::lsbClear(uint64_t& n)
 {
 	int r = lsb(n);
+	n &= ~(uint64_t(1) << r);
+	return r;
+}
+
+
+inline
+int
+db::board::msbClear(uint8_t& n)
+{
+	int r = msb(n);
+	n &= ~(1 << r);
+	return r;
+}
+
+
+inline
+int
+db::board::msbClear(uint64_t& n)
+{
+	int r = msb(n);
 	n &= ~(uint64_t(1) << r);
 	return r;
 }

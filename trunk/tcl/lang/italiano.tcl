@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 717 $
-# Date   : $Date: 2013-04-10 13:35:14 +0000 (Wed, 10 Apr 2013) $
+# Version: $Revision: 719 $
+# Date   : $Date: 2013-04-19 16:40:59 +0000 (Fri, 19 Apr 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1878,7 +1878,7 @@
 ::terminationbox::mc::Reason(Unplayed)					"La partita non è stata giocata"
 ::terminationbox::mc::Reason(Abandoned)				"La partita è stata abbandonata"
 ::terminationbox::mc::Reason(Adjudication)			"Aggiundicata"
-::terminationbox::mc::Reason(Death)						"Morte"
+::terminationbox::mc::Reason(Disconnection)			"Disconnection" ;# NEW
 ::terminationbox::mc::Reason(Emergency)				"Abbandonata per via di un'emergenza"
 ::terminationbox::mc::Reason(RulesInfraction)		"Decisa in virtù di infrazioni alle regole"
 ::terminationbox::mc::Reason(TimeForfeit)				"%s perde per tempo"

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 688 $
-# Date   : $Date: 2013-03-29 16:55:41 +0000 (Fri, 29 Mar 2013) $
+# Version: $Revision: 719 $
+# Date   : $Date: 2013-04-19 16:40:59 +0000 (Fri, 19 Apr 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -942,7 +942,7 @@ proc ComputeLayout {canvWidth canvHeight {bordersize -1}} {
 
 	if {$layout(side-to-move) || ($layout(material-values) && $Vars(layout) eq "Normal")} {
 		if {$layout(side-to-move)} { set minsize 64 } else { set minsize 34 }
-		set Dim(stm) [expr {max(18, min($minsize, (min($canvWidth, $canvHeight) - 19)/32 + 5))}]
+		set Dim(stm) [expr {max(18, min($minsize, (min($canvWidth, $canvHeight) - 19)/24 + 5))}]
 		set Dim(gap:x) [expr {max(7, $Dim(stm)/3)}]
 		set Dim(gap:y) $Dim(gap:x)
 	} else {

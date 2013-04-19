@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 717 $
-// Date   : $Date: 2013-04-10 13:35:14 +0000 (Wed, 10 Apr 2013) $
+// Version: $Revision: 719 $
+// Date   : $Date: 2013-04-19 16:40:59 +0000 (Fri, 19 Apr 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -670,7 +670,7 @@ namespace termination
 		Emergency,			///< Game concluded due to unforeseen circumstances
 		RulesInfraction,	///< Administrative forfeit due to losing player's failure
 		TimeForfeit,		///< Loss due to losing player's failure to meet time control requirements
-		TimeForfeitBoth,	///< Game drawn because both players ran out of time
+		EXPIRED, 			// TimeForfeitBoth,	///< Game drawn because both players ran out of time
 		Unterminated,		///< Game not terminated
 	};
 
@@ -877,7 +877,13 @@ namespace piece
 
 	bool isWhite(ID piece);
 	bool isBlack(ID piece);
-	bool longStepPiece(ID piece);
+	bool isLongStepPiece(ID piece);
+	bool isOrthogonalLongStepPiece(ID piece);
+	bool isDiagonalLongStepPiece(ID piece);
+
+	bool isLongStepPiece(Type piece);
+	bool isOrthogonalLongStepPiece(Type piece);
+	bool isDiagonalLongStepPiece(Type piece);
 	bool canPromoteTo(Type type, variant::Type variant);
 
 	Type type(ID piece);

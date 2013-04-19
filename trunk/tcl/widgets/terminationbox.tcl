@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 609 $
-# Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+# Version: $Revision: 719 $
+# Date   : $Date: 2013-04-19 16:40:59 +0000 (Fri, 19 Apr 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -57,7 +57,7 @@ set Result(1/2-1/2)					"Draw agreed"
 set Reason(Unplayed)					"Game is unplayed"
 set Reason(Abandoned)				"Game is abandoned"
 set Reason(Adjudication)			"Adjudication"
-set Reason(Death)						""
+set Reason(Disconnection)			"Disconnection"
 set Reason(Emergency)				"Abandoned due to an emergency"
 set Reason(RulesInfraction)		"Decided due to a rules infraction"
 set Reason(TimeForfeit)				"%s forfeits on time"

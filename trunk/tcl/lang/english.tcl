@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 717 $
-# Date   : $Date: 2013-04-10 13:35:14 +0000 (Wed, 10 Apr 2013) $
+# Version: $Revision: 719 $
+# Date   : $Date: 2013-04-19 16:40:59 +0000 (Fri, 19 Apr 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1869,7 +1869,7 @@
 ::terminationbox::mc::Reason(Unplayed)					"Game is unplayed"
 ::terminationbox::mc::Reason(Abandoned)				"Game is abandoned"
 ::terminationbox::mc::Reason(Adjudication)			"Adjudication"
-::terminationbox::mc::Reason(Death)						""
+::terminationbox::mc::Reason(Disconnection)			"Disconnection"
 ::terminationbox::mc::Reason(Emergency)				"Abandoned due to an emergency"
 ::terminationbox::mc::Reason(RulesInfraction)		"Decided due to a rules infraction"
 ::terminationbox::mc::Reason(TimeForfeit)				"%s forfeits on time"
