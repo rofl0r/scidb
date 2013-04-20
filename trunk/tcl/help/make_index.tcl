@@ -3,8 +3,8 @@
 exec tclsh "$0" "$@"
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 609 $
-# Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+# Version: $Revision: 721 $
+# Date   : $Date: 2013-04-20 10:31:46 +0000 (Sat, 20 Apr 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -37,7 +37,6 @@ proc getArg {line} {
 	return [string range $line $n end]
 }
 
-
 proc readTranslationFile {file encoding} {
 	set f [open $file r]
 	chan configure $f -encoding $encoding
@@ -54,7 +53,6 @@ proc readTranslationFile {file encoding} {
 
 	close $f
 }
-
 
 encoding system utf-8
 set lang [file tail [pwd]] 

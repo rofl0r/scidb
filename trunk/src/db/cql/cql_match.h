@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 719 $
-// Date   : $Date: 2013-04-19 16:40:59 +0000 (Fri, 19 Apr 2013) $
+// Version: $Revision: 721 $
+// Date   : $Date: 2013-04-20 10:31:46 +0000 (Sat, 20 Apr 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -159,6 +159,7 @@ private:
 	char const* parseEventType(char const* s, Error& error);
 	char const* parseForAny(char const* s, Error& error);
 	char const* parseGameNumber(char const* s, Error& error);
+	char const* parseGender(char const* s, Error& error);
 	char const* parseHasAnnotation(char const* s, Error& error);
 	char const* parseHasComments(char const* s, Error& error);
 	char const* parseHasFlags(char const* s, Error& error);     

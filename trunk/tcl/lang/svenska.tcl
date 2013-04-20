@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 719 $
-# Date   : $Date: 2013-04-19 16:40:59 +0000 (Fri, 19 Apr 2013) $
+# Version: $Revision: 721 $
+# Date   : $Date: 2013-04-20 10:31:46 +0000 (Sat, 20 Apr 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1920,7 +1920,8 @@
 
 ### help ###############################################################
 ::help::mc::Contents					"&Innehåll"
-::help::mc::Index						"&Index"
+::help::mc::Index						"Inde&x"
+::help::mc::CQL						"C&QL"
 ::help::mc::Search					"&Sök"
 
 ::help::mc::Help						"Hjälp"
