@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 719 $
-// Date   : $Date: 2013-04-19 16:40:59 +0000 (Fri, 19 Apr 2013) $
+// Version: $Revision: 723 $
+// Date   : $Date: 2013-04-20 21:01:30 +0000 (Sat, 20 Apr 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -158,7 +158,7 @@ private:
 	struct node : public bits::node_base
 	{
 		T m_data;
-		unsigned m_index;
+		size_type m_index;
 	};
 
 	void init(size_type capacity);

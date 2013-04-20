@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 719 $
-// Date   : $Date: 2013-04-19 16:40:59 +0000 (Fri, 19 Apr 2013) $
+// Version: $Revision: 723 $
+// Date   : $Date: 2013-04-20 21:01:30 +0000 (Sat, 20 Apr 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -616,7 +616,7 @@ ring<T>::prepare(size_type k)
 template <typename T>
 inline
 void
-ring<T>::reserve(unsigned n)
+ring<T>::reserve(size_type n)
 {
 	size_type k = m_list.size();
 
