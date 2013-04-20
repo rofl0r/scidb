@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 719 $
-// Date   : $Date: 2013-04-19 16:40:59 +0000 (Fri, 19 Apr 2013) $
+// Version: $Revision: 722 $
+// Date   : $Date: 2013-04-20 16:11:07 +0000 (Sat, 20 Apr 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -96,6 +96,7 @@ private:
 	char const* parseBlackElo(Match& match, char const* s, Error& error);
 	char const* parseBlackRating(Match& match, char const* s, Error& error);
 	char const* parseBlackToMove(Match& match, char const* s, Error& error);
+	char const* parseCastling(Match& match, char const* s, Error& error);
 	char const* parseIsCastling(Match& match, char const* s, Error& error);
 	char const* parseCheck(Match& match, char const* s, Error& error);
 	char const* parseCheckCount(Match& match, char const* s, Error& error);

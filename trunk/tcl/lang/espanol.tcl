@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 721 $
-# Date   : $Date: 2013-04-20 10:31:46 +0000 (Sat, 20 Apr 2013) $
+# Version: $Revision: 722 $
+# Date   : $Date: 2013-04-20 16:11:07 +0000 (Sat, 20 Apr 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1926,8 +1926,10 @@
 ::help::mc::MatchCase				"Coincidir capitalización"
 ::help::mc::TitleOnly				"Buscar solamente en tútulos"
 ::help::mc::CurrentPageOnly		"Buscar solamente en la página actual"
-::help::mc::GoBack					"Retroceder una página (Alt-\u2190)"
-::help::mc::GoForward				"Avanzar una página (Alt-\u2192)"
+::help::mc::GoBack					"Retroceder una página"
+::help::mc::GoForward				"Avanzar una página"
+::help::mc::GoHome					"Go to top of page" ;# NEW
+::help::mc::GoEnd						"Go to end of page" ;# NEW
 ::help::mc::GotoPage					"Ir a la página '%s'"
 ::help::mc::ExpandAllItems			"Expandir todo"
 ::help::mc::CollapseAllItems		"Colapsar todo"

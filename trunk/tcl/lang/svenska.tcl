@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 721 $
-# Date   : $Date: 2013-04-20 10:31:46 +0000 (Sat, 20 Apr 2013) $
+# Version: $Revision: 722 $
+# Date   : $Date: 2013-04-20 16:11:07 +0000 (Sat, 20 Apr 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1931,6 +1931,8 @@
 ::help::mc::CurrentPageOnly		"Sök endast på aktuell sida"
 ::help::mc::GoBack					"Gå bakåt en sida"
 ::help::mc::GoForward				"Gå framåt en sida"
+::help::mc::GoHome					"Go to top of page" ;# NEW
+::help::mc::GoEnd						"Go to end of page" ;# NEW
 ::help::mc::GotoPage					"Gå till sida '%s'"
 ::help::mc::ExpandAllItems			"Visa alla objekt"
 ::help::mc::CollapseAllItems		"Dölj alla objekt"

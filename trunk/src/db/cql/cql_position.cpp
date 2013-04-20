@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 720 $
-// Date   : $Date: 2013-04-19 16:50:48 +0000 (Fri, 19 Apr 2013) $
+// Version: $Revision: 722 $
+// Date   : $Date: 2013-04-20 16:11:07 +0000 (Sat, 20 Apr 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -556,6 +556,14 @@ char const*
 Position::parseBlackToMove(Match& match, char const* s, Error& error)
 {
 	m_boardMatchList.push_back(new cql::board::ToMove(Black));
+	return s;
+}
+
+
+char const*
+Position::parseCastling(Match& match, char const* s, Error& error)
+{
+	// TODO
 	return s;
 }
 
@@ -1457,6 +1465,7 @@ Position::parse(Match& match, char const* s, Error& error)
 		Pair("and",								&Position::parseAnd),
 		Pair("attackcount",					&Position::parseAttackCount),
 		Pair("btm",								&Position::parseBlackToMove),
+		Pair("castling",						&Position::parseCastling),
 		Pair("check",							&Position::parseCheck),
 		Pair("checkcount",					&Position::parseCheckCount),
 		Pair("contactcheck",					&Position::parseContactCheck),

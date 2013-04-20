@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 609 $
-# Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+# Version: $Revision: 722 $
+# Date   : $Date: 2013-04-20 16:11:07 +0000 (Sat, 20 Apr 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -188,7 +188,7 @@ proc WidgetProc {t command args} {
 			$t item enabled $item $enabled
 			$t item lastchild $Vars($depth:lastchild) $item
 			set Vars([expr {$depth + 1}]:lastchild) $item
-			return
+			return $item
 		}
 
 		resize {
@@ -251,6 +251,13 @@ proc WidgetProc {t command args} {
 
 		itemheight? {
 			return $Vars(itemheight)
+		}
+
+		bind {
+			if {[llength $args] > 2} {
+				error "wrong # args: should be \"bind ?pattern? ?command?\""
+			}
+			return [bind $t {*}$args]
 		}
 	}
 
