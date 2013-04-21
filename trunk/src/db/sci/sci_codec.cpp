@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 704 $
-// Date   : $Date: 2013-04-04 22:19:12 +0000 (Thu, 04 Apr 2013) $
+// Version: $Revision: 724 $
+// Date   : $Date: 2013-04-21 15:20:47 +0000 (Sun, 21 Apr 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1321,6 +1321,8 @@ Codec::writeIndexHeader(mstl::ostream& strm)
 
 	bstrm.put(::MagicIndexFile, 8);
 	bstrm << uint16_t(FileVersion);						// Scidb version
+	// TODO increase to 32 bit, because for administrative tasks a higher limit may be useful
+	// TODO thus we have to decrease the description length by one byte
 	bstrm << uint24_t(gameInfoList().size());			// number of games
 	bstrm << uint8_t(variant::toIndex(variant()));	// chess variant in this base
 	bstrm << uint8_t(type());								// base type
