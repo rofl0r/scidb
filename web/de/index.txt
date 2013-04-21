@@ -59,22 +59,22 @@ CONTENT
       Unterstützung anderer Schachformen:
       <ul>
         <li>Dreimal-Schach
-            (<a href="http://en.wikipedia.org/wiki/Three-check_chess">Three-Check chess</a>)</li>
-        <li><a href="http://de.wikipedia.org/wiki/R%C3%A4uberschach">Schlagschach</a>
-            (<a href="http://suicidechess.ca/index.php?lg=en">Suicide</a>,
-            <a href="http://www6.chessclub.com/help/Giveaway">Giveaway</a>,
-            <a href="http://loserschess.org/">Losers</a>)</li>
-        <li><a href="http://de.wikipedia.org/wiki/Schachvarianten#Crazyhouse_oder_Einsetzschach">
+            (<a target="_blank" href="http://en.wikipedia.org/wiki/Three-check_chess">Three-Check chess</a>)</li>
+        <li><a target="_blank" href="http://de.wikipedia.org/wiki/R%C3%A4uberschach">Schlagschach</a>
+            (<a target="_blank" href="http://suicidechess.ca/index.php?lg=en">Suicide</a>,
+            <a target="_blank" href="http://www6.chessclub.com/help/Giveaway">Giveaway</a>,
+            <a target="_blank" href="http://loserschess.org/">Losers</a>)</li>
+        <li><a target="_blank" href="http://de.wikipedia.org/wiki/Schachvarianten#Crazyhouse_oder_Einsetzschach">
             Einsetzschach</a>
-            (<a href="http://en.wikipedia.org/wiki/Crazyhouse">Crazyhouse</a>)</li>
-        <li><a href="https://de.wikipedia.org/wiki/Tandemschach">Tandem-Schach</a>
+            (<a target="_blank" href="http://en.wikipedia.org/wiki/Crazyhouse">Crazyhouse</a>)</li>
+        <li><a target="_blank" href="https://de.wikipedia.org/wiki/Tandemschach">Tandem-Schach</a>
             (in Vorbereitung)</li>
         </ul>
     </li>
 
     <li>
-    Unterstützt <a href="http://de.wikipedia.org/wiki/Chess960">Schach-960</a>
-    und <a href="http://de.wikipedia.org/wiki/Shuffle_Chess">Shuffle-Schach</a>
+    Unterstützt <a target="_blank" href="http://de.wikipedia.org/wiki/Chess960">Schach-960</a>
+    und <a target="_blank" href="http://de.wikipedia.org/wiki/Shuffle_Chess">Shuffle-Schach</a>
     </li>
 
     <li>
@@ -96,7 +96,7 @@ CONTENT
     </li>
 
     <li>
-      <a href="http://www.rbnn.com/cql/">CQL</a>-basierte Suchfunktionen (in Entwicklung)
+      <a target="_blank" href="http://www.rbnn.com/cql/">CQL</a>-basierte Suchfunktionen (in Entwicklung)
     </li>
 
     <li>
@@ -124,7 +124,7 @@ CONTENT
     <li>Ein flexibles Fensterlayout (leider sehr aufwendig)</li>
     <li>Suchfunktionen bzw. Filterfunktionen: Partiedatensuche, Positionssuche, etc.
         Die Suchfunktionen sollen auf CQL (Chess Query Language) basieren (siehe
-        <a href="http://www.rbnn.com/cql/">CQL Manual</a>).</li>
+        <a target="_blank" href="http://www.rbnn.com/cql/">CQL Manual</a>).</li>
     <li>Mehrfach-Selektion in der Partienliste</li>
     <li>Unterstützung von Tandem-Partien</li>
     <li>Unterstützung von anderen Schachformen in der Eröffnungsbaumsuche
@@ -247,7 +247,6 @@ CONTENT
     <li>Turniertabelle: Optionale Anzeige von Gewinn/Remis/Verlust</li>
     <li>Algebraische- (Normal-, Kurz- und Langform), Englische, Korrespondenz- und telegrafische Notation verfügbar</li>
     <li>Es können nun ungeöffnete Datenbanken importiert werden</li>
-    <li>Export von Turniertabellen nach HTML-Datei</li>
     <li>Ein schwerwiegendes Problem mit Tcl-Version 8.6 behoben</li>
     <li>Mehr Hilfeseiten</li>
     <li>Einige Icons neu gestaltet</li>

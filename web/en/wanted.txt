@@ -19,11 +19,11 @@ CONTENT
 
     <ol>
       <li>A membership in Sourceforge is required (open
-        <a href="https://sourceforge.net/account/registration/">Account Registration</a>).
+        <a target="_blank" href="https://sourceforge.net/account/registration/">Account Registration</a>).
         The membership is free of charge and duties.
       </li>
       <li>
-        Open <a href="https://sourceforge.net/sendmessage.php?touser=2321037">Send an Email</a>,
+        Open <a target="_blank" href="https://sourceforge.net/sendmessage.php?touser=2321037">Send an Email</a>,
         log in with your member name, and send the message.
       </li>
     </ol>
@@ -41,7 +41,7 @@ CONTENT
    <p>How to enter feature requests:</p>
 
     <ol>
-       <li>Open <a href="http://sourceforge.net/tracker/?group_id=307371&amp;atid=1294800">Tracker: Feature Requests</a></li>
+       <li>Open <a target="_blank" href="http://sourceforge.net/tracker/?group_id=307371&amp;atid=1294800">Tracker: Feature Requests</a></li>
        <li>Click "Add new".</li>
     </ol>
   </div>
@@ -59,7 +59,7 @@ CONTENT
   </ul>
 
   <p>For such functionalities another project is in planning stage:
-  <a href="http://jessy.sourceforge.net/">Jessy</a>. In this way an overloading
+  <a target="_blank" href="http://jessy.sourceforge.net/">Jessy</a>. In this way an overloading
   of the database application Scidb will be prevented. Jessy will
   have a connection to the Scidb bases.</p>
 

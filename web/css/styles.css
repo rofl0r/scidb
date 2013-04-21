@@ -60,6 +60,11 @@ a:hover, a:active {
   text-decoration: underline;
 }
 
+a[href^="http://"] {
+  background: url(../images/external-link.png) center right no-repeat;
+  padding-right: 15px;
+}
+
 p {
 }
 

@@ -23,7 +23,7 @@ CONTENT
   Danke!</p>
 
   <p>Wenn Sie uns kontaktieren möchten, bitte eine Nachricht an die
-  <a href="https://lists.sourceforge.net/lists/listinfo/scidb-users" lang="en">Scidb Users Mailing List</a>
+  <a target="_blank" href="https://lists.sourceforge.net/lists/listinfo/scidb-users" lang="en">Scidb Users Mailing List</a>
   senden.</p>
 
 </div>

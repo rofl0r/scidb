@@ -22,11 +22,11 @@ CONTENT
     <ol>
       <li>
         Eine Mitgliedschaft bei Sourceforge ist erforderlich
-        (<a href="https://sourceforge.net/account/registration" lang="en">Account Registration</a>).
+        (<a target="_blank" href="https://sourceforge.net/account/registration" lang="en">Account Registration</a>).
         Die Mitgliedschaft ist Gebuehren- und Verpflichtungsfrei.
       </li>
       <li>
-        <a href="https://sourceforge.net/sendmessage.php?touser=2321037" lang="en">Send an Email</a>
+        <a target="_blank" href="https://sourceforge.net/sendmessage.php?touser=2321037" lang="en">Send an Email</a>
         öffnen, mit dem Mitgliedsnamen einloggen und die Nachricht senden.
       </li>
     </ol>
@@ -46,7 +46,7 @@ CONTENT
    <p>Wie ein Funktionswunsch eingetragen werden kann:</p>
 
     <ol>
-       <li><a href="http://sourceforge.net/tracker/?group_id=307371&amp;atid=1294800" lang="en">Tracker: Feature Requests</a> öffnen.</li>
+       <li><a target="_blank" href="http://sourceforge.net/tracker/?group_id=307371&amp;atid=1294800" lang="en">Tracker: Feature Requests</a> öffnen.</li>
        <li><span lang="en">"Add new"</span> anklicken.</li>
     </ol>
   </div>
@@ -68,7 +68,7 @@ CONTENT
 
   <p>
   Für diese Funktionalitäten ist ein weiteres Projekt vorgesehen:
-  <a href="http://jessy.sourceforge.net/">Jessy</a>. Auf diese Weise
+  <a target="_blank" href="http://jessy.sourceforge.net/">Jessy</a>. Auf diese Weise
   wird eine Überladung der Applikation Scidb verhindert. Jessy wird
   die Scidb-Datenbanken unterstützen.
   </p>
