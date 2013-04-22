@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 722 $
-# Date   : $Date: 2013-04-20 16:11:07 +0000 (Sat, 20 Apr 2013) $
+# Version: $Revision: 726 $
+# Date   : $Date: 2013-04-22 17:33:00 +0000 (Mon, 22 Apr 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1932,8 +1932,8 @@
 ::help::mc::CurrentPageOnly		"Cerca solo nella pagina corrente"
 ::help::mc::GoBack					"Vai indietro una pagina"
 ::help::mc::GoForward				"Vai avanti una pagina"
-::help::mc::GoHome					"Go to top of page" ;# NEW
-::help::mc::GoEnd						"Go to end of page" ;# NEW
+::help::mc::GotoHome					"Go to top of page" ;# NEW
+::help::mc::GotoEnd					"Go to end of page" ;# NEW
 ::help::mc::GotoPage					"Vai alla pagina '%s'"
 ::help::mc::ExpandAllItems			"Espandi tutti gli oggetti"
 ::help::mc::CollapseAllItems		"Comprimi tutti gli oggetti"

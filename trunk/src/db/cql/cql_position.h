@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 722 $
-// Date   : $Date: 2013-04-20 16:11:07 +0000 (Sat, 20 Apr 2013) $
+// Version: $Revision: 726 $
+// Date   : $Date: 2013-04-22 17:33:00 +0000 (Mon, 22 Apr 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -126,6 +126,7 @@ private:
 	char const* parseMoveNumber(Match& match, char const* s, Error& error);
 	char const* parseMoveTo(Match& match, char const* s, Error& error);
 	char const* parseNoAnnotate(Match& match, char const* s, Error& error);
+	char const* parseNoCastling(Match& match, char const* s, Error& error);
 	char const* parseNoCheck(Match& match, char const* s, Error& error);
 	char const* parseNoContactCheck(Match& match, char const* s, Error& error);
 	char const* parseNoDoubleCheck(Match& match, char const* s, Error& error);
@@ -164,7 +165,6 @@ private:
 	char const* parseSumRange(Match& match, char const* s, Error& error);
 	char const* parseTagMatch(Match& match, char const* s, Error& error);
 	char const* parseTerminal(Match& match, char const* s, Error& error);
-	char const* parseThreeChecks(Match& match, char const* s, Error& error);
 	char const* parseVariations(Match& match, char const* s, Error& error);
 	char const* parseVariationsOnly(Match& match, char const* s, Error& error);
 	char const* parseWhiteElo(Match& match, char const* s, Error& error);

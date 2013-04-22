@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 719 $
-// Date   : $Date: 2013-04-19 16:40:59 +0000 (Fri, 19 Apr 2013) $
+// Version: $Revision: 726 $
+// Date   : $Date: 2013-04-22 17:33:00 +0000 (Mon, 22 Apr 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -61,6 +61,12 @@ struct NoEnPassant : public Match
 
 
 struct IsCastling : public Match
+{
+	bool match(Board const& board, Move const& move) override;
+};
+
+
+struct NoCastling : public Match
 {
 	bool match(Board const& board, Move const& move) override;
 };
