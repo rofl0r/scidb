@@ -3,8 +3,8 @@
 exec tclsh "$0" "$@"
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 726 $
-# Date   : $Date: 2013-04-22 17:33:00 +0000 (Mon, 22 Apr 2013) $
+# Version: $Revision: 729 $
+# Date   : $Date: 2013-04-22 22:02:38 +0000 (Mon, 22 Apr 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -107,10 +107,10 @@ set HtmlMapping {
 	<dir>				{<ul style="list-style-type: none"><li>}
 	</dir>			{</li></ul>}
 
-	<comment>		{<span color="darkgreen">}
+	<comment>		{<span class="comment">}
 	</comment>		{</span>}
 
-	<keyword>		{<span color="darkred">}
+	<keyword>		{<span class="keyword">}
 	</keyword>		{</span>}
 
 	<see/>			&#x21d2;
