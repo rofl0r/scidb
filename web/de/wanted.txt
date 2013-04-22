@@ -23,7 +23,7 @@ CONTENT
       <li>
         Eine Mitgliedschaft bei Sourceforge ist erforderlich
         (<a target="_blank" href="https://sourceforge.net/account/registration" lang="en">Account Registration</a>).
-        Die Mitgliedschaft ist Gebuehren- und Verpflichtungsfrei.
+        Die Mitgliedschaft ist Gebühren- und Verpflichtungsfrei.
       </li>
       <li>
         <a target="_blank" href="https://sourceforge.net/sendmessage.php?touser=2321037" lang="en">Send an Email</a>

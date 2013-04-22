@@ -60,7 +60,9 @@ a:hover, a:active {
   text-decoration: underline;
 }
 
-a[href^="http://"] {
+a[href^="http://"],
+a[href^="https://"],
+a[href^="ftp://"] {
   background: url(../images/external-link.png) center right no-repeat;
   padding-right: 15px;
 }
@@ -372,6 +374,13 @@ div.box {
   width:      0px;
   height:     0px;
   visibility: hidden;
+}
+
+/* chess figurines */
+
+span.chess {
+  font-family: scidb_chess_travellerregular;
+  font-weight: normal;
 }
 
 /* vi:set ts=2 sw=2 et: */
