@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 609 $
-# Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+# Version: $Revision: 732 $
+# Date   : $Date: 2013-04-23 12:24:05 +0000 (Tue, 23 Apr 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -367,10 +367,10 @@ set Type(tourn) [image create photo -data {
 	AElFTkSuQmCC
 }]
 
-set Type(swiss) [image create photo -data {
-	iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMAgMAAAArG7R0AAAADFBMVEUAAAAAAAD////YGADE
-	zaH2AAAAGklEQVQI12P4//8/Axi/RuBfq9aDMbIYVB0AMnMiEa20/TkAAAAASUVORK5CYII=
-}]
+# set Type(swiss) [image create photo -data {
+# 	iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMAgMAAAArG7R0AAAADFBMVEUAAAAAAAD////YGADE
+# 	zaH2AAAAGklEQVQI12P4//8/Axi/RuBfq9aDMbIYVB0AMnMiEa20/TkAAAAASUVORK5CYII=
+# }]
 
 set Type(swiss) [image create photo -data {
 	iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAABmJLR0QAAAAAAAD5Q7t/AAAA
