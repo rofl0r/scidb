@@ -1,7 +1,7 @@
 ## ======================================================================
 # Author : $Author$
-# Version: $Revision: 739 $
-# Date   : $Date: 2013-04-24 14:01:13 +0000 (Wed, 24 Apr 2013) $
+# Version: $Revision: 742 $
+# Date   : $Date: 2013-04-24 20:45:31 +0000 (Wed, 24 Apr 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -628,11 +628,13 @@ proc Select {type t key} {
 	if {[info exists Priv($type:last:$key)]} {
 		set item $Priv($type:last:$key)
 		$t see $item
+		$t yview scroll 1 unit
 	}
 
 	if {[info exists Priv($type:key:$key)]} {
-		$t activate $Priv($type:first:$key)
 		$t see $Priv($type:key:$key)
+		$t see $Priv($type:first:$key)
+		$t activate $Priv($type:first:$key)
 	}
 }
 
