@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 721 $
-// Date   : $Date: 2013-04-20 10:31:46 +0000 (Sat, 20 Apr 2013) $
+// Version: $Revision: 740 $
+// Date   : $Date: 2013-04-24 17:35:35 +0000 (Wed, 24 Apr 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -162,14 +162,13 @@ private:
 	char const* parseGender(char const* s, Error& error);
 	char const* parseHasAnnotation(char const* s, Error& error);
 	char const* parseHasComments(char const* s, Error& error);
-	char const* parseHasFlags(char const* s, Error& error);     
+	char const* parseHasMarkers(char const* s, Error& error);     
+	char const* parseHasSpecialMarkers(char const* s, Error& error);     
 	char const* parseHasVariations(char const* s, Error& error);
 	char const* parseIsChess960(char const* s, Error& error);
 	char const* parseIsComputer(char const* s, Error& error);
 	char const* parseIsHuman(char const* s, Error& error);
 	char const* parseIsShuffleChess(char const* s, Error& error);
-	char const* parseIsStandardPosition(char const* s, Error& error);
-	char const* parseIsStartPosition(char const* s, Error& error);
 	char const* parseLanguage(char const* s, Error& error);
 	char const* parseNot(char const* s, Error& error);
 	char const* parseOr(char const* s, Error& error);

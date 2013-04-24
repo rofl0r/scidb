@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 629 $
-// Date   : $Date: 2013-01-10 18:59:39 +0000 (Thu, 10 Jan 2013) $
+// Version: $Revision: 740 $
+// Date   : $Date: 2013-04-24 17:35:35 +0000 (Wed, 24 Apr 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -100,6 +100,15 @@ GameInfo::isGiveaway() const
 {
 	// NOTE: should be used only for Suicide/Giveaway games
 	return m_gameFlags & Flag_Giveaway;
+}
+
+
+inline
+bool
+GameInfo::isSuicide() const
+{
+	// NOTE: should be used only for Suicide/Giveaway games
+	return !isGiveaway();
 }
 
 

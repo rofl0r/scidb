@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 688 $
-// Date   : $Date: 2013-03-29 16:55:41 +0000 (Fri, 29 Mar 2013) $
+// Version: $Revision: 740 $
+// Date   : $Date: 2013-04-24 17:35:35 +0000 (Wed, 24 Apr 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -173,6 +173,7 @@ public:
 	material::si3::Signature material() const;
 	Signature signature() const;							// ChessBase: n/a; Scid: roughly
 	bool isGiveaway() const;
+	bool isSuicide() const;
 
 	// Scid 3.x: possibly n/a until game is loaded
 	Date eventDate() const;
