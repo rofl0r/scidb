@@ -12,23 +12,23 @@ CONTENT
 
   <p>
   Die meisten Partien liegen
-  im <a target="_blank" href="http://de.wikipedia.org/wiki/Portable_Game_Notation">PGN-Format</a>
+  im <a target="_blank" href="http://de.wikipedia.org/wiki/Portable_Game_Notation">PGN-Format<link/></a>
   vor. Sie können in Scidb angesehen oder importiert werden.
   </p>
 
   <p>
-  Mark Crowther's <a target="_blank" href="http://www.theweekinchess.com">The Week in Chess</a>
+  Mark Crowther's <a target="_blank" href="http://www.theweekinchess.com">The Week in Chess<link/></a>
   bietet täglich Schachneuigkeiten und Partien. Diese Seite bietet zudem große
   Archive mit Schachpartien hoher Qualität:
   </p>
 
   <ul>
-    <li><a target="_blank" href="http://www.chess.co.uk/twic/twicp1.html">TWIC 211-400</a>: 23.11.1998 bis 8.7.2002</li>
-    <li><a target="_blank" href="http://www.chess.co.uk/twic/twicp.html">TWIC 400...</a>: 8.7.2002 bis heute</li>
+    <li><a target="_blank" href="http://www.chess.co.uk/twic/twicp1.html">TWIC 211-400<link/></a>: 23.11.1998 bis 8.7.2002</li>
+    <li><a target="_blank" href="http://www.chess.co.uk/twic/twicp.html">TWIC 400...<link/></a>: 8.7.2002 bis heute</li>
   </ul>
 
   <p>
-  Die Seite <a target="_blank" href="http://www.nowinchess.com/games.php">Now In Chess</a> von
+  Die Seite <a target="_blank" href="http://www.nowinchess.com/games.php">Now In Chess<link/></a> von
   Gerardo Fernandez bietet weitere Partien hoher Qualität, die nicht in den TWIC
   Archiven enthalten sind.
   </p>
@@ -39,7 +39,7 @@ CONTENT
 
   <p>
   Es gibt sehr viele Motoren. Eine gute Übersicht bietet
-  <a target="_blank" href="http://www.computerchess.org.uk/ccrl/4040">CCRL 40/40</a>
+  <a target="_blank" href="http://www.computerchess.org.uk/ccrl/4040">CCRL 40/40<link/></a>
   mit einer Liste, die einen Überblick über die Spielstärke der jeweiligen Motoren
   erlaubt.
   </p>
@@ -50,29 +50,29 @@ CONTENT
 
   <dir>
     <li>
-    <a target="_blank" href="http://stockfishchess.org">Stockfish</a>:
+    <a target="_blank" href="http://stockfishchess.org">Stockfish<link/></a>:
     Dieser Motor ist in Scidb bereits vorinstalliert. Zu der Originalversion ist
     nicht zu raten, sie enthält signifikante Programmfehler (Abstürze). Die
     vorinstallierte Scidb-Version weist zudem eine einzigartige Besonderheit auf,
     sie unterstützt auch die Schachform Dreimal-Schach
-    (<a target="_blank" href="http://en.wikipedia.org/wiki/Three-check_chess">Three-Check chess</a>).
+    (<a target="_blank" href="http://en.wikipedia.org/wiki/Three-check_chess">Three-Check chess<link/></a>).
     </li>
 
     <li>
-    <a target="_blank" href="http://www.vlasak.biz/critter">Critter</a>:
+    <a target="_blank" href="http://www.vlasak.biz/critter">Critter<link/></a>:
     Ebenfalls ein sehr spielstarker Motor, leider kein Open Source.
     </li>
 
     <li>
-    <a target="_blank" href="http://sjeng.org/indexold.html">Sjeng</a>:
+    <a target="_blank" href="http://sjeng.org/indexold.html">Sjeng<link/></a>:
     Dieser Motor, ebenfalls vorinstalliert in Scidb, unterstützt die Schachformen
     <a target="_blank" href="http://de.wikipedia.org/wiki/Schachvarianten#Crazyhouse_oder_Einsetzschach">
-    Einsetzschach</a>
-    (<a target="_blank" href="http://en.wikipedia.org/wiki/Crazyhouse">Crazyhouse</a>)
-    und <a target="_blank" href="http://de.wikipedia.org/wiki/R%C3%A4uberschach">Schlagschach</a>
-    (<a target="_blank" href="http://suicidechess.ca/index.php?lg=en">Suicide</a>,
-    <a target="_blank" href="http://www6.chessclub.com/help/Giveaway">Giveaway</a>,
-    <a target="_blank" href="http://loserschess.org/">Losers</a>).
+    Einsetzschach<link/></a>
+    (<a target="_blank" href="http://en.wikipedia.org/wiki/Crazyhouse">Crazyhouse<link/></a>)
+    und <a target="_blank" href="http://de.wikipedia.org/wiki/R%C3%A4uberschach">Schlagschach<link/></a>
+    (<a target="_blank" href="http://suicidechess.ca/index.php?lg=en">Suicide<link/></a>,
+    <a target="_blank" href="http://www6.chessclub.com/help/Giveaway">Giveaway<link/></a>,
+    <a target="_blank" href="http://loserschess.org/">Losers<link/></a>).
     </li>
   </dir>
 
@@ -81,33 +81,33 @@ CONTENT
   </div>
 
   <p>
-  <a target="_blank" href="http://scid.sourceforge.net">Scid</a> ist die wohl bekannteste freie
+  <a target="_blank" href="http://scid.sourceforge.net">Scid<link/></a> ist die wohl bekannteste freie
   Schachdatenbank, ursprünglich entwickelt von Shane Hudson. Die heutige Version
   von Scid ist recht fehlerhaft.
   </p>
 
   <p>
-  <a target="_blank" href="scidvspc.sourceforge.net">Scid vs. PC</a>, programmiert von
+  <a target="_blank" href="scidvspc.sourceforge.net">Scid vs. PC<link/></a>, programmiert von
   Steven Atkinson, ist ein fehlerbereinigter Ableger von Scid, mit dem
   Schwerpunkt auf bessere Benutzerfreundlichkeit.
   </p>
 
   <p>
   Gerhard Kalab bietet mit
-  <a target="_blank" href="http://code.google.com/p/scidonthego/">Scid on the Go</a>
+  <a target="_blank" href="http://code.google.com/p/scidonthego/">Scid on the Go<link/></a>
   eine Scid-Version für das Android Tablet.
   </p>
 
   <p>
-  <a target="_blank" href="http://chessx.sourceforge.net">ChessX</a>, derzeitig programmiert
+  <a target="_blank" href="http://chessx.sourceforge.net">ChessX<link/></a>, derzeitig programmiert
   von Jens Nissen, bietet ein freie Schachdatenbank, die auf das
-  <a target="_blank" href="http://de.wikipedia.org/wiki/Portable_Game_Notation">PGN-Format</a>
+  <a target="_blank" href="http://de.wikipedia.org/wiki/Portable_Game_Notation">PGN-Format<link/></a>
   spezialisiert ist.
   </p>
 
   <p>
   Nicht mehr in Entwicklung, aber immer noch interessant ist
-  die Java-Anwendung <a target="_blank" href="http://jose-chess.sourceforge.net">José</a>.
+  die Java-Anwendung <a target="_blank" href="http://jose-chess.sourceforge.net">José<link/></a>.
   </p>
 
   <div class="header">
@@ -116,7 +116,7 @@ CONTENT
 
   <ul>
 	 <li><a target="_blank" href="http://ghandybh.blogspot.com/2011/10/aonde-guardar-suas-partidas-de-xadrez.html">
-	   Xadrez e filosófia enxadrística: Aonde guardar suas partidas de xadrez?</a></li>
+	   Xadrez e filosófia enxadrística: Aonde guardar suas partidas de xadrez?<link/></a></li>
   </ul>
 
 </div>

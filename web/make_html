@@ -11,6 +11,10 @@ set fd [open $filename]
 set section ""
 chan configure $fd -encoding iso8859-1
 
+set Mapping {
+  <link/> {<span class="link">&nbsp;&#xf08e;</span>}
+}
+
 array set content {
   CONTENT     ""
   FOOTER      ""
@@ -38,7 +42,7 @@ while {[gets $fd line] >= 0} {
 
       default {
         if {[string length [string trim $line]] > 0} {
-          append content($section) $line "\n"
+          append content($section) [string map $Mapping $line] "\n"
         }
       }
     }

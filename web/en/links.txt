@@ -12,23 +12,23 @@ CONTENT
 
   <p>
   The most games are available in
-  <a target="_blank" href="http://en.wikipedia.org/wiki/Portable_Game_Notation">PGN Format</a>.
+  <a target="_blank" href="http://en.wikipedia.org/wiki/Portable_Game_Notation">PGN Format<link/></a>.
   This format can be viewed or imported in Scidb.
   </p>
 
   <p>
-  Mark Crowther's <a target="_blank" href="http://www.theweekinchess.com">The Week in Chess</a>
+  Mark Crowther's <a target="_blank" href="http://www.theweekinchess.com">The Week in Chess<link/></a>
   is providing daily chess news and games. Furthermore this site provides
   chess archives with high quality:
   </p>
 
   <ul>
-    <li><a target="_blank" href="http://www.chess.co.uk/twic/twicp1.html">TWIC 211-400</a>: 11/23/1998 to 7/8/2002</li>
-    <li><a target="_blank" href="http://www.chess.co.uk/twic/twicp.html">TWIC 400...</a>: 7/8/2002 until today</li>
+    <li><a target="_blank" href="http://www.chess.co.uk/twic/twicp1.html">TWIC 211-400<link/></a>: 11/23/1998 to 7/8/2002</li>
+    <li><a target="_blank" href="http://www.chess.co.uk/twic/twicp.html">TWIC 400...<link/></a>: 7/8/2002 until today</li>
   </ul>
 
   <p>
-  The site <a target="_blank" href="http://www.nowinchess.com/games.php">Now In Chess</a> by
+  The site <a target="_blank" href="http://www.nowinchess.com/games.php">Now In Chess<link/></a> by
   Gerardo Fernandez is tracking games of high quality not contained in TWIC
   archives.
   </p>
@@ -39,7 +39,7 @@ CONTENT
 
   <p>
   Many chess engines are available. A good listing is provided by
-  <a target="_blank" href="http://www.computerchess.org.uk/ccrl/4040">CCRL 40/40</a>,
+  <a target="_blank" href="http://www.computerchess.org.uk/ccrl/4040">CCRL 40/40<link/></a>,
   which allows an overview over the strength of the engines.
   </p>
 
@@ -49,26 +49,26 @@ CONTENT
 
   <dir>
     <li>
-    <a target="_blank" href="http://stockfishchess.org">Stockfish</a>:
+    <a target="_blank" href="http://stockfishchess.org">Stockfish<link/></a>:
     This engine is pre-installed in Scidb. Not recommended is the original
     version, because of significant programming errors (crashes). Scidb's version
     is providing an unique feature, the support of variant
-    <a target="_blank" href="http://en.wikipedia.org/wiki/Three-check_chess">Three-Check Chess</a>.
+    <a target="_blank" href="http://en.wikipedia.org/wiki/Three-check_chess">Three-Check Chess<link/></a>.
     </li>
 
     <li>
-    <a target="_blank" href="http://www.vlasak.biz/critter">Critter</a>:
+    <a target="_blank" href="http://www.vlasak.biz/critter">Critter<link/></a>:
     Also a really strong engine, unfortunately not open source.
     </li>
 
     <li>
-    <a target="_blank" href="http://sjeng.org/indexold.html">Sjeng</a>:
+    <a target="_blank" href="http://sjeng.org/indexold.html">Sjeng<link/></a>:
     This engine - also pre-installed in Scidb - is supporting the chess variants
-    <a target="_blank" href="http://en.wikipedia.org/wiki/Crazyhouse">Crazyhouse</a> and
-    <a target="_blank" href="http://en.wikipedia.org/wiki/Antichess">Antichess</a>
-    (<a target="_blank" href="http://suicidechess.ca/index.php?lg=en">Suicide</a>,
-    <a target="_blank" href="http://www6.chessclub.com/help/Giveaway">Giveaway</a>,
-    <a target="_blank" href="http://loserschess.org/">Losers</a>).
+    <a target="_blank" href="http://en.wikipedia.org/wiki/Crazyhouse">Crazyhouse<link/></a> and
+    <a target="_blank" href="http://en.wikipedia.org/wiki/Antichess">Antichess<link/></a>
+    (<a target="_blank" href="http://suicidechess.ca/index.php?lg=en">Suicide<link/></a>,
+    <a target="_blank" href="http://www6.chessclub.com/help/Giveaway">Giveaway<link/></a>,
+    <a target="_blank" href="http://loserschess.org/">Losers<link/></a>).
     </li>
   </dir>
 
@@ -77,32 +77,32 @@ CONTENT
   </div>
 
   <p>
-  <a target="_blank" href="http://scid.sourceforge.net">Scid</a> is probably the best known free
+  <a target="_blank" href="http://scid.sourceforge.net">Scid<link/></a> is probably the best known free
   chess database, originally developed by Shane Hudson. The today's version
   of Scid is rather buggy.
   </p>
 
   <p>
-  <a target="_blank" href="scidvspc.sourceforge.net">Scid vs. PC</a>, developed by
+  <a target="_blank" href="scidvspc.sourceforge.net">Scid vs. PC<link/></a>, developed by
   Steven Atkinson, is a bug-fixed version of Scid, with focus on
   greater usability.
   </p>
 
   <p>
   Gerhard Kalab's
-  <a target="_blank" href="http://code.google.com/p/scidonthego/">Scid on the Go</a>
+  <a target="_blank" href="http://code.google.com/p/scidonthego/">Scid on the Go<link/></a>
   lets you use Scid for an Android tablet.
   </p>
 
   <p>
-  <a target="_blank" href="http://chessx.sourceforge.net">ChessX</a>, currently developed
+  <a target="_blank" href="http://chessx.sourceforge.net">ChessX<link/></a>, currently developed
   by Jens Nissen, provides a free chess database specialized on the
-  <a target="_blank" href="http://en.wikipedia.org/wiki/Portable_Game_Notation">PGN Format</a>.
+  <a target="_blank" href="http://en.wikipedia.org/wiki/Portable_Game_Notation">PGN Format<link/></a>.
   </p>
 
   <p>
   No longer in development, but still of interest, is the Java application
-  <a target="_blank" href="http://jose-chess.sourceforge.net">José</a>.
+  <a target="_blank" href="http://jose-chess.sourceforge.net">José<link/></a>.
   </p>
 
   <div class="header">
@@ -111,7 +111,7 @@ CONTENT
 
   <ul>
 	 <li><a target="_blank" href="http://ghandybh.blogspot.com/2011/10/aonde-guardar-suas-partidas-de-xadrez.html">
-	   Xadrez e filosófia enxadrística: Aonde guardar suas partidas de xadrez?</a></li>
+	   Xadrez e filosófia enxadrística: Aonde guardar suas partidas de xadrez?<link/></a></li>
   </ul>
 
 </div>

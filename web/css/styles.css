@@ -60,11 +60,11 @@ a:hover, a:active {
   text-decoration: underline;
 }
 
-a[href^="http://"],
-a[href^="https://"],
-a[href^="ftp://"] {
-  background: url(../images/external-link.png) center right no-repeat;
-  padding-right: 15px;
+span.link {
+  font-family: 'FontAwesome';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 12px;
 }
 
 p {

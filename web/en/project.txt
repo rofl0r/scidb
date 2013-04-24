@@ -21,7 +21,7 @@ CONTENT
   SourceForge page and send a note to the project admin. Thanks!</p>
 
   <p>If you'd like to contact us, please post to the
-  <a target="_blank" href="https://lists.sourceforge.net/lists/listinfo/scidb-users">Scidb Users Mailing List</a>.</p>
+  <a target="_blank" href="https://lists.sourceforge.net/lists/listinfo/scidb-users">Scidb Users Mailing List<link/></a>.</p>
 
 </div>
  

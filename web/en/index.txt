@@ -62,20 +62,20 @@ CONTENT
     <li>
       Support of various chess variants:
       <ul>
-        <li><a target="_blank" href="http://en.wikipedia.org/wiki/Three-check_chess">Three-Check chess</a></li>
-        <li><a target="_blank" href="http://en.wikipedia.org/wiki/Antichess">Antichess</a>
-            (<a target="_blank" href="http://suicidechess.ca/index.php?lg=en">Suicide</a>,
-            <a target="_blank" href="http://www6.chessclub.com/help/Giveaway">Giveaway</a>,
-            <a target="_blank" href="http://loserschess.org/">Losers</a>)</li>
-        <li><a target="_blank" href="http://en.wikipedia.org/wiki/Crazyhouse">Crazyhouse</a></li>
-        <li><a target="_blank" href="http://en.wikipedia.org/wiki/Bughouse_chess">Bughouse</a>
+        <li><a target="_blank" href="http://en.wikipedia.org/wiki/Three-check_chess">Three-Check chess<link/></a></li>
+        <li><a target="_blank" href="http://en.wikipedia.org/wiki/Antichess">Antichess<link/></a>
+            (<a target="_blank" href="http://suicidechess.ca/index.php?lg=en">Suicide<link/></a>,
+            <a target="_blank" href="http://www6.chessclub.com/help/Giveaway">Giveaway<link/></a>,
+            <a target="_blank" href="http://loserschess.org/">Losers<link/></a>)</li>
+        <li><a target="_blank" href="http://en.wikipedia.org/wiki/Crazyhouse">Crazyhouse<link/></a></li>
+        <li><a target="_blank" href="http://en.wikipedia.org/wiki/Bughouse_chess">Bughouse<link/></a>
             (in preparation)</li>
         </ul>
     </li>
 
     <li>
-    Support of <a target="_blank" href="http://en.wikipedia.org/wiki/Chess960">Chess 960</a>
-    and <a target="_blank" href="http://en.wikipedia.org/wiki/Chess960">Shuffle Chess</a>
+    Support of <a target="_blank" href="http://en.wikipedia.org/wiki/Chess960">Chess 960<link/></a>
+    and <a target="_blank" href="http://en.wikipedia.org/wiki/Chess960">Shuffle Chess<link/></a>
     </li>
 
     <li>
@@ -99,7 +99,7 @@ CONTENT
     </li>
 
     <li>
-      <a target="_blank" href="http://www.rbnn.com/cql/">CQL</a> based search functions (in development)
+      <a target="_blank" href="http://www.rbnn.com/cql/">CQL<link/></a> based search functions (in development)
     </li>
 
     <li>
@@ -127,7 +127,7 @@ CONTENT
     <li>Flexible window layout (unfortunately very complicated)</li>
     <li>Searching and filtering functionality: search of games, position search, etc.
         The search functionality will be based on CQL (Chess Query Language;
-        see <a target="_blank" href="http://www.rbnn.com/cql/">CQL Manual</a>).</li>
+        see <a target="_blank" href="http://www.rbnn.com/cql/">CQL Manual<link/></a>).</li>
     <li>Multiple selections in game list</li>
     <li>Support of Bughouse games</li>
     <li>Support of variants (Crazyhouse, Antichess, Three-Check) in opening tree</li>

@@ -57,7 +57,7 @@ CONTENT
 
     <p>
     Sub-processes are in general not working (for further details see
-    <a target="_blank" href="http://sourceforge.net/mailarchive/forum.php?thread_name=20111118143650.38280%40gmx.net&amp;forum_name=scidb-users" target="_blank">Scidb's Users List</a>), this may cause
+    <a target="_blank" href="http://sourceforge.net/mailarchive/forum.php?thread_name=20111118143650.38280%40gmx.net&amp;forum_name=scidb-users" target="_blank">Scidb's Users List<link/></a>), this may cause
     crashes, in case no proposed solution (see link) is applied.
     </p>
 
