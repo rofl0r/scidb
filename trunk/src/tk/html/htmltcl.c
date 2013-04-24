@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 433 $
-// Date   : $Date: 2012-09-21 17:19:40 +0000 (Fri, 21 Sep 2012) $
+// Version: $Revision: 739 $
+// Date   : $Date: 2013-04-24 14:01:13 +0000 (Wed, 24 Apr 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1527,7 +1527,7 @@ configureCmd(
                 rc = TCL_ERROR;
             } else {
                 memcpy(pTree->aFontSizeTable, aFontSize, sizeof(aFontSize));
-                mask |= S_MASK;
+                mask |= S_MASK|F_MASK;
             }
         }
 

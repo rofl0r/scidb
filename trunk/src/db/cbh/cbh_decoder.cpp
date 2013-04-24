@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 734 $
-// Date   : $Date: 2013-04-23 15:28:23 +0000 (Tue, 23 Apr 2013) $
+// Version: $Revision: 739 $
+// Date   : $Date: 2013-04-24 14:01:13 +0000 (Wed, 24 Apr 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -744,19 +744,7 @@ Decoder::decodeComment(MoveNode* node, unsigned length, move::Position position)
 			Comment c;
 			node->swapComment(c, position);
 			c.append(comment, '\n');
-// XXX Due to a bug we will catch exceptions:
-try
-{
 			c.normalize();
-}
-catch (...)
-{
-	DB_RAISE(
-		"corrupted XML strings '%s' -- '%s' --> '%s'\n",
-		node->comment(position).content().c_str(),
-		comment.content().c_str(),
-		c.content().c_str());
-}
 			node->swapComment(c, position);
 		}
 		else
