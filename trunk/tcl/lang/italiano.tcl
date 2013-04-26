@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 726 $
-# Date   : $Date: 2013-04-22 17:33:00 +0000 (Mon, 22 Apr 2013) $
+# Version: $Revision: 743 $
+# Date   : $Date: 2013-04-26 15:55:35 +0000 (Fri, 26 Apr 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1891,7 +1891,8 @@
 ::terminationbox::mc::Termination(bishops)			"Partita patta per stallo (alfieri di colore opposto)"
 ::terminationbox::mc::Termination(fifty)				"Partita patta per la regola delle 50 mosse"
 ::terminationbox::mc::Termination(threefold)			"Partita patta per triplice ripetizione"
-::terminationbox::mc::Termination(mating)				"Partita patta per insufficienza di materiale"
+::terminationbox::mc::Termination(nomating)			"Partita patta per insufficienza di materiale"
+::terminationbox::mc::Termination(nocheck)			"Neither player can give check" ;# NEW
 
 ### eventmodebox #######################################################
 ::eventmodebox::mc::OTB				"A tavolino"

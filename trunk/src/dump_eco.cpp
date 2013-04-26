@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 671 $
-// Date   : $Date: 2013-03-13 09:49:26 +0000 (Wed, 13 Mar 2013) $
+// Version: $Revision: 743 $
+// Date   : $Date: 2013-04-26 15:55:35 +0000 (Fri, 26 Apr 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -44,6 +44,7 @@
 #include "m_hash.h"
 
 #include <string.h>
+#include <stdlib.h>
 #include <stdio.h>
 #include <ctype.h>
 
@@ -853,6 +854,12 @@ load(mstl::istream& strm)
 		{
 			if (!strm.getline(buf))
 			{
+				if (root == 0)
+				{
+					fprintf(stderr, "corruped input file\n");
+					exit(1);
+				}
+
 				for (unsigned i = 0; i < resolve.size(); ++i)
 				{
 					Resolve const& r = resolve[i];

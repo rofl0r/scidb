@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 726 $
-# Date   : $Date: 2013-04-22 17:33:00 +0000 (Mon, 22 Apr 2013) $
+# Version: $Revision: 743 $
+# Date   : $Date: 2013-04-26 15:55:35 +0000 (Fri, 26 Apr 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1890,7 +1890,8 @@
 ::terminationbox::mc::Termination(bishops)		"Game drawn by stalemate (opposite color bishops)" ;# NEW
 ::terminationbox::mc::Termination(fifty)		"Game drawn by the 50 move rule" ;# NEW
 ::terminationbox::mc::Termination(threefold)		"Game drawn by threefold repetition" ;# NEW
-::terminationbox::mc::Termination(mating)		"Neither player has mating material" ;# NEW
+::terminationbox::mc::Termination(nomating)		"Neither player has mating material" ;# NEW
+::terminationbox::mc::Termination(nocheck)		"Neither player can give check" ;# NEW
 
 ### eventmodebox #######################################################
 ::eventmodebox::mc::OTB				"Over the board"

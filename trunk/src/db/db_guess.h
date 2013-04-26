@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 743 $
+// Date   : $Date: 2013-04-26 15:55:35 +0000 (Fri, 26 Apr 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -165,8 +165,8 @@ private:
 	bool boardIsLegal() const;
 	int evaluateNoMoves() const;
 	int countAllPieces(color::ID side) const;
-	int staticExchangeEvaluator(Move const& move);
-	uint64_t addXrayPiece(unsigned from, unsigned target);
+	int staticExchangeEvaluator(Move const& move) const;
+	uint64_t addXrayPiece(unsigned from, unsigned target) const;
 
 	// normal chess evaluation
 	void preEvaluate();

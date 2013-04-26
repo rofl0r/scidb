@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 740 $
-// Date   : $Date: 2013-04-24 17:35:35 +0000 (Wed, 24 Apr 2013) $
+// Version: $Revision: 743 $
+// Date   : $Date: 2013-04-26 15:55:35 +0000 (Fri, 26 Apr 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -97,7 +97,7 @@ public:
 
 	// Use this method before matching board position after move.
 	// Do only use if move section is involved.
-	bool match(db::Board const& board, db::Move const& move);
+	bool match(db::Board const& board, db::Move const& move, db::variant::Type variant);
 
 	// Use this method after starting a variation. Returns false if
 	// variation cannot match.
@@ -132,6 +132,7 @@ private:
 	void setInitial();
 	void setFinal();
 	void addPosition(Position* position);
+	void cut();
 
 	char const* parseAnd(char const* s, Error& error);
 	char const* parseAnnotator(char const* s, Error& error);
@@ -201,6 +202,7 @@ private:
 	bool						m_initialOnly;
 	bool						m_finalOnly;
 	bool						m_isStandard;
+	bool						m_proceed;
 	unsigned					m_sections;
 	unsigned					m_idn;
 	MatchLogicalList		m_matchLogicalList;

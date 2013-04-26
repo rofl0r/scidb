@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 719 $
-# Date   : $Date: 2013-04-19 16:40:59 +0000 (Fri, 19 Apr 2013) $
+# Version: $Revision: 743 $
+# Date   : $Date: 2013-04-26 15:55:35 +0000 (Fri, 26 Apr 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -70,7 +70,8 @@ set Termination(less-material)	"%s wins by having less material (stalemate)"
 set Termination(bishops)			"Game drawn by stalemate (opposite color bishops)"
 set Termination(fifty)				"Game drawn by the 50 move rule"
 set Termination(threefold)			"Game drawn by threefold move repetition"
-set Termination(mating)				"Neither player has mating material"
+set Termination(nomating)			"Neither player has mating material"
+set Termination(nocheck)			"Neither player can give check"
 
 } ;# namespace mc
 
@@ -81,7 +82,7 @@ variable reasons {Normal Unplayed Abandoned Adjudication Disconnection Emergency
 						RulesInfraction TimeForfeit Unterminated}
 
 
-proc buildText {reason state result toMove termination} {
+proc buildText {reason state result toMove termination variant} {
 	switch $state {
 		Stalemate {
 			switch $termination {
@@ -132,8 +133,12 @@ proc buildText {reason state result toMove termination} {
 				}
 				1/2-1/2	{
 					switch  $termination {
-						mating - nobody {
-							return $mc::NoMatingMaterial
+						mating {
+							if {$variant eq "ThreeCheck"} {
+								return $mc::Termination(nocheck)
+							} else {
+								return $mc::Termination(nomating)
+							}
 						}
 						white {
 							set mapping [list %causer $mc::Black %opponent $mc::White]

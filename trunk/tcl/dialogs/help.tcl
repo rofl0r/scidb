@@ -1,7 +1,7 @@
 ## ======================================================================
 # Author : $Author$
-# Version: $Revision: 742 $
-# Date   : $Date: 2013-04-24 20:45:31 +0000 (Wed, 24 Apr 2013) $
+# Version: $Revision: 743 $
+# Date   : $Date: 2013-04-26 15:55:35 +0000 (Fri, 26 Apr 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1365,7 +1365,9 @@ proc Goto {position} {
 		if {[llength $node] == 0} { return }
 		set bbox [$Priv(html) bbox $node]
 		lassign $bbox _ y0 _ y1
-		set changed [expr {(max($view0, $y0) > min($view1, $y1))}] ;# no intersection
+		# seems to be too confusing
+		# set changed [expr {(max($view0, $y0) > min($view1, $y1))}] ;# no intersection
+		set changed [expr {$y0 - $view0 > 30}]
 		set position [lindex $bbox 1]
 	}
 

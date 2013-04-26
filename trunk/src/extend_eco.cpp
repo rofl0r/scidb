@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 743 $
+// Date   : $Date: 2013-04-26 15:55:35 +0000 (Fri, 26 Apr 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -169,7 +169,7 @@ printMove(unsigned ply, Move const& move)
 	printf(" ");
 	if ((ply & 1) == 0)
 		printf("%u.", (ply + 2) >> 1);
-	printf("%s", move.printSan(s).c_str());
+	printf("%s", move.printSan(s, protocol::Standard, encoding::Latin1).c_str());
 }
 
 
@@ -241,7 +241,7 @@ extend()
 
 			for (unsigned k = 0; k < moves.size(); ++k)
 			{
-				board.prepareForPrint(moves[k], variant::Normal);
+				board.prepareForPrint(moves[k], variant::Normal, Board::ExternalRepresentation);
 				board.doMove(moves[k], variant::Normal);
 			}
 
@@ -255,7 +255,7 @@ extend()
 				__attribute__((unused)) uint64_t h = board.hashNoEP();
 
 				board.prepareUndo(more[k]);
-				board.prepareForPrint(more[k], variant::Normal);
+				board.prepareForPrint(more[k], variant::Normal, Board::ExternalRepresentation);
 				board.doMove(more[k], variant::Normal);
 
 				if (board.isLegal())
@@ -374,7 +374,7 @@ prepare()
 				Move move = Move(line[k]);
 
 				moves.append(move);
-				board.prepareForPrint(move, variant::Normal);
+				board.prepareForPrint(move, variant::Normal, Board::ExternalRepresentation);
 				board.doMove(move, variant::Normal);
 
 				if (k + 1 < line.size())

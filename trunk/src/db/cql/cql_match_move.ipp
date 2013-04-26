@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 719 $
-// Date   : $Date: 2013-04-19 16:40:59 +0000 (Fri, 19 Apr 2013) $
+// Version: $Revision: 743 $
+// Date   : $Date: 2013-04-26 15:55:35 +0000 (Fri, 26 Apr 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -31,6 +31,13 @@ inline MoveFrom::MoveFrom(Designator const& designator) :m_designator(designator
 inline MoveTo::MoveTo(Designator const& designator) :m_designator(designator) {}
 inline PieceDrop::PieceDrop(Designator const& designator) :m_designator(designator) {}
 inline Promote::Promote(Designator const& designator) :m_designator(designator) {}
+
+inline
+ExchangeEvaluation::ExchangeEvaluation(int minScore, int maxScore)
+	:m_minScore(minScore)
+	,m_maxScore(maxScore)
+{
+}
 
 } // namespace move
 } // namespace cql

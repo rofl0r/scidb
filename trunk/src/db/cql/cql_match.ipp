@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 719 $
-// Date   : $Date: 2013-04-19 16:40:59 +0000 (Fri, 19 Apr 2013) $
+// Version: $Revision: 743 $
+// Date   : $Date: 2013-04-26 15:55:35 +0000 (Fri, 26 Apr 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -28,6 +28,7 @@ namespace cql {
 
 inline bool Match::isStandard() const		{ return m_ranges.empty(); }
 inline bool Match::matchComments() const	{ return !m_matchCommentList.empty(); }
+inline bool Match::proceed() const			{ return m_proceed; }
 
 inline Match::Ranges const& Match::nonStandardRanges() const { return m_ranges; }
 
@@ -35,6 +36,7 @@ inline unsigned Match::sections() const { return m_sections; }
 
 inline void Match::setInitial()	{ m_initialOnly = true; }
 inline void Match::setFinal()		{ m_finalOnly = true; }
+inline void Match::cut()			{ m_proceed = false; }
 
 } // namespace cql
 

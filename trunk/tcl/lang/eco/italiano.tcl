@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 407 $
-# Date   : $Date: 2012-08-08 21:52:05 +0000 (Wed, 08 Aug 2012) $
+# Version: $Revision: 743 $
+# Date   : $Date: 2013-04-26 15:55:35 +0000 (Fri, 26 Apr 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -132,6 +132,7 @@
 "Birmingham Gambit"					"Gambetto di Birmingham"
 "London Defence"					"Difesa di Londra"
 "New York Defence"					"Difesa di New York"
+"Paris Defence"						"Difesa di Paris"
 "Sicilian Variation"					"Variante Siciliana"
 "Abbazia (Scandinavian) Defence"			"Difesa Abbazia (Scandinava)"
 "Accelerated Averbakh System"				"Sistema Averbakh Accelerato"
@@ -252,6 +253,8 @@
 "Florentine Gambit"					"Gambetto Fiorentino"
 "Folkestone (Swedish) Variation"			"Variante Folkestone (Svedese)"
 "Fool's Mate"						"Matto dell'Imbecille"
+"Légal Mate"						"Matto del Légal"
+"Scholar's Mate"					"Matto del barbiere"
 "Four Knights (Tarrasch) Variation"			"Variante Quattro Cavalli (Tarrasch)"
 "Four Pawns Attack"					"Attacco dei Quattro Pedoni"
 "Four Pawns Gambit"					"Gambetto dei Quattro Pedoni"

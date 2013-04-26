@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 496 $
-# Date   : $Date: 2012-10-29 16:24:43 +0000 (Mon, 29 Oct 2012) $
+# Version: $Revision: 743 $
+# Date   : $Date: 2013-04-26 15:55:35 +0000 (Fri, 26 Apr 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -408,6 +408,8 @@
 "Fishing Pole Variation"					"Variante del pescador polaco"
 "Folkestone (Swedish) Variation"				"Variante Folkestone (sueca)"
 "Fool's Mate"							"Mate del loco"
+"Légal Mate"							"Mate de Légal"
+"Scholar's Mate"						"Mate del pastor"
 "Fort Knox Variation"						"Variante Fort Knox"
 "Four Knights Game"						"Apertura de los cuatro caballos"
 "Four Knights (Tarrasch) Variation"				"Variante de los cuatro caballos (Tarrasch)"

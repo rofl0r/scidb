@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 740 $
-// Date   : $Date: 2013-04-24 17:35:35 +0000 (Wed, 24 Apr 2013) $
+// Version: $Revision: 743 $
+// Date   : $Date: 2013-04-26 15:55:35 +0000 (Fri, 26 Apr 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -87,6 +87,7 @@ namespace error
 		Relation_List_Expected,
 		Unmatched_Bracket,
 		Empty_Piece_Designator,
+		Invalid_Designator,
 		Any_Fyle_Not_Allowed_In_Range,
 		Any_Rank_Not_Allowed_In_Range,
 		Invalid_Fyle_In_Square_Designator,

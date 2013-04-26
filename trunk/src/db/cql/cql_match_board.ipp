@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 719 $
-// Date   : $Date: 2013-04-19 16:40:59 +0000 (Fri, 19 Apr 2013) $
+// Version: $Revision: 743 $
+// Date   : $Date: 2013-04-26 15:55:35 +0000 (Fri, 26 Apr 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -36,12 +36,28 @@ Repetition::Position::Position(::db::board::ExactZHPosition const& board)
 {
 }
 
+inline CheckCount::CheckCount(unsigned count) :m_wcount(count), m_bcount(4) {}
+inline CheckCount::CheckCount(unsigned wcount, unsigned bcount) :m_wcount(wcount), m_bcount(bcount) {}
+inline HalfmoveClockLimit::HalfmoveClockLimit(unsigned limit) :m_limit(limit) {}
 inline MatchMinMax::MatchMinMax() :m_min(1), m_max(1000) {}
 inline MatchMinMax::MatchMinMax(unsigned min, unsigned max) :m_min(min), m_max(max) {}
+inline MatingMaterial::MatingMaterial(bool negate) :m_negate(negate) {}
 inline State::State() :m_and(0), m_not(0) {}
 inline ToMove::ToMove(db::color::ID color) :m_color(color) {}
 inline GappedSequence::GappedSequence() :m_info(0), m_index(0) {}
 inline Repetition::Repetition() :m_info(0) {}
+
+inline
+MaxSwapEvaluation::MaxSwapEvaluation(	Designator const& from,
+													Designator const& to,
+													int minScore,
+													int maxScore)
+	:m_from(from)
+	,m_to(to)
+	,m_minScore(minScore)
+	,m_maxScore(maxScore)
+{
+}
 
 inline
 Power::Power(Designator const& designator, unsigned min, unsigned max)
