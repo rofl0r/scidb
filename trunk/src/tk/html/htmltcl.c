@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 743 $
-// Date   : $Date: 2013-04-26 15:55:35 +0000 (Fri, 26 Apr 2013) $
+// Version: $Revision: 745 $
+// Date   : $Date: 2013-04-26 18:46:49 +0000 (Fri, 26 Apr 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2843,7 +2843,7 @@ newWidget(
         return TCL_ERROR;
     }
     Tk_MakeWindowExist(pTree->docwin);
-    Tk_ResizeWindow(pTree->docwin, 12000, 30000);
+    Tk_ResizeWindow(pTree->docwin, 12000, 40000);
 #ifndef FIX_EVENT_HANDLING
     Tk_MapWindow(pTree->docwin);
 #endif
