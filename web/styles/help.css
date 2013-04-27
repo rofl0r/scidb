@@ -60,7 +60,12 @@ h1.title { text-align: center; background-color: #6495ed; }
 ul.index { margin: 5px; }
 
 span.chess {
-	font-family: 'Scidb Chess Traveller';
+	font-family: 'Scidb Chess Traveller', 'Scid Chess Traveller';
+	font-size: 90%;
+}
+
+span.piece {
+	font-family: 'Scidb Chess Traveller', 'Scid Chess Traveller';
 	font-size: 90%;
 }
 
