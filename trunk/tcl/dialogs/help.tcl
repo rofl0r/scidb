@@ -1,7 +1,7 @@
 ## ======================================================================
 # Author : $Author$
-# Version: $Revision: 747 $
-# Date   : $Date: 2013-04-27 16:52:57 +0000 (Sat, 27 Apr 2013) $
+# Version: $Revision: 748 $
+# Date   : $Date: 2013-04-27 17:32:56 +0000 (Sat, 27 Apr 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1379,13 +1379,10 @@ proc ReloadCurrentPage {{reload yes}} {
 		if {![file readable [FullPath [file tail $file]]]} { return }
 	}
 
+	set yview [lindex [$Priv(html) yview] 0]
 	set Priv(current:file) ""
 	set Links($file) [Load [FullPath [file tail $file]] {} {} {} $reload]
-
-	if {$Priv(history:index) >= 0} {
-		set Priv(current:status) notfound
-		history::back
-	}
+	if {$reload} { $Priv(html) yview moveto $yview }
 }
 
 
