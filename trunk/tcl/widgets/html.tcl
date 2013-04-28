@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 739 $
-# Date   : $Date: 2013-04-24 14:01:13 +0000 (Wed, 24 Apr 2013) $
+# Version: $Revision: 750 $
+# Date   : $Date: 2013-04-28 22:15:22 +0000 (Sun, 28 Apr 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -282,7 +282,7 @@ proc Build {w args} {
 		} else {
 			set cmd [namespace code [list SbSet $w.h]]
 		}
-		$html configure -xscrollcommand $cmd -xscrollincrement 10
+		$html configure -xscrollcommand $cmd -xscrollincrement 30
 	}
 	if {$opts(-usevertscroll)} {
 		if {$opts(-keepvertscroll)} {
@@ -290,7 +290,7 @@ proc Build {w args} {
 		} else {
 			set cmd [namespace code [list SbSet $w.v]]
 		}
-		$html configure -yscrollcommand $cmd -yscrollincrement 10
+		$html configure -yscrollcommand $cmd -yscrollincrement 15
 	}
 
 	if {$Priv(center)} {
