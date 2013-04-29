@@ -26,12 +26,12 @@
  **************************************************************************/
 
 @font-face {
-    font-family: 'Scidb Chess Traveller';
-    src: url('../../font/scidbchesstraveller.eot');
-    src: url('../../font/scidbchesstraveller.eot?#iefix') format('embedded-opentype'),
-         url('../../font/scidbchesstraveller.woff') format('woff'),
-         url('../../font/scidbchesstraveller.ttf') format('truetype'),
-         url('../../font/scidbchesstraveller.svg#ScidbChessTravellerRegular') format('svg');
+    font-family: 'Scidb Chess Standard';
+    src: url('../../font/scidbchessstandard.eot');
+    src: url('../../font/scidbchessstandard.eot?#iefix') format('embedded-opentype'),
+         url('../../font/scidbchessstandard.woff') format('woff'),
+         url('../../font/scidbchessstandard.ttf') format('truetype'),
+         url('../../font/scidbchessstandard.svg#ScidbChessStandardRegular') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -60,13 +60,11 @@ h1.title { text-align: center; background-color: #6495ed; }
 ul.index { margin: 5px; }
 
 span.chess {
-	font-family: 'Scidb Chess Traveller', 'Scid Chess Traveller';
-	font-size: 90%;
+	font-family: 'Scidb Chess Standard', 'Scid Chess Standard';
 }
 
 span.piece {
-	font-family: 'Scidb Chess Traveller', 'Scid Chess Traveller';
-	font-size: 90%;
+	font-family: 'Scidb Chess Standard', 'Scid Chess Standard';
 }
 
 span.awesome {
