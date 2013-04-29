@@ -161,7 +161,7 @@
             <a href="roadmap.html">%GUIDE_ROADMAP%</a>
           </li>
           <li class="secondary">
-            <a target="_blank" href="help/%LANG%/index.html">%GUIDE_HELPPAGES%</a>
+            <a href="help/%LANG%/Overview.html">%GUIDE_HELPPAGES%</a>
           </li>
         </ul>
       </div>

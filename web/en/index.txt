@@ -99,7 +99,7 @@ CONTENT
     </li>
 
     <li>
-      <a target="_blank" href="http://www.rbnn.com/cql/">CQL<link/></a> based search functions (in development)
+      <a href="help/en/CQL-Index.html">CQL</a> based search functions (in development)
     </li>
 
     <li>
@@ -127,7 +127,7 @@ CONTENT
     <li>Flexible window layout (unfortunately very complicated)</li>
     <li>Searching and filtering functionality: search of games, position search, etc.
         The search functionality will be based on CQL (Chess Query Language;
-        see <a target="_blank" href="http://www.rbnn.com/cql/">CQL Manual<link/></a>).</li>
+        see <a href="help/en/CQL-Index.html">CQL Manual</a>).</li>
     <li>Multiple selections in game list</li>
     <li>Support of Bughouse games</li>
     <li>Support of variants (Crazyhouse, Antichess, Three-Check) in opening tree</li>
