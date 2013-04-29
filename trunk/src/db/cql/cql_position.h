@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 743 $
-// Date   : $Date: 2013-04-26 15:55:35 +0000 (Fri, 26 Apr 2013) $
+// Version: $Revision: 753 $
+// Date   : $Date: 2013-04-29 19:49:37 +0000 (Mon, 29 Apr 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -92,6 +92,7 @@ private:
 	char const* parseAccumulate(Match& match, char const* s, Error& error);
 	char const* parseAnd(Match& match, char const* s, Error& error);
 	char const* parseAttackCount(Match& match, char const* s, Error& error);
+	char const* parseBlackCannotWin(Match& match, char const* s, Error& error);
 	char const* parseBlackElo(Match& match, char const* s, Error& error);
 	char const* parseBlackRating(Match& match, char const* s, Error& error);
 	char const* parseBlackToMove(Match& match, char const* s, Error& error);
@@ -173,6 +174,7 @@ private:
 	char const* parseTerminal(Match& match, char const* s, Error& error);
 	char const* parseVariations(Match& match, char const* s, Error& error);
 	char const* parseVariationsOnly(Match& match, char const* s, Error& error);
+	char const* parseWhiteCannotWin(Match& match, char const* s, Error& error);
 	char const* parseWhiteElo(Match& match, char const* s, Error& error);
 	char const* parseWhiteRating(Match& match, char const* s, Error& error);
 	char const* parseWhiteToMove(Match& match, char const* s, Error& error);

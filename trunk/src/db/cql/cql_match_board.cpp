@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 743 $
-// Date   : $Date: 2013-04-26 15:55:35 +0000 (Fri, 26 Apr 2013) $
+// Version: $Revision: 753 $
+// Date   : $Date: 2013-04-29 19:49:37 +0000 (Mon, 29 Apr 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -438,6 +438,13 @@ AttackCount::match(GameInfo const& info, Board const& board, Variant variant, bo
 	}
 
 	return result(n);
+}
+
+
+bool
+CannotWin::match(GameInfo const& info, Board const& board, Variant variant, bool isFinal)
+{
+	return board.cannotWin(m_color, variant);
 }
 
 

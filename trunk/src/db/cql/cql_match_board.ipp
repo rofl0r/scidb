@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 743 $
-// Date   : $Date: 2013-04-26 15:55:35 +0000 (Fri, 26 Apr 2013) $
+// Version: $Revision: 753 $
+// Date   : $Date: 2013-04-29 19:49:37 +0000 (Mon, 29 Apr 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -36,6 +36,7 @@ Repetition::Position::Position(::db::board::ExactZHPosition const& board)
 {
 }
 
+inline CannotWin::CannotWin(db::color::ID color) :m_color(color) {}
 inline CheckCount::CheckCount(unsigned count) :m_wcount(count), m_bcount(4) {}
 inline CheckCount::CheckCount(unsigned wcount, unsigned bcount) :m_wcount(wcount), m_bcount(bcount) {}
 inline HalfmoveClockLimit::HalfmoveClockLimit(unsigned limit) :m_limit(limit) {}

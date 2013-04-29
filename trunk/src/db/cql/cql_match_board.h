@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 743 $
-// Date   : $Date: 2013-04-26 15:55:35 +0000 (Fri, 26 Apr 2013) $
+// Version: $Revision: 753 $
+// Date   : $Date: 2013-04-29 19:49:37 +0000 (Mon, 29 Apr 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -96,6 +96,20 @@ private:
 	Designator	m_fst;
 	Designator	m_snd;
 	bool			m_color[2];
+};
+
+
+class CannotWin : public Match
+{
+public:
+
+	CannotWin(db::color::ID color);
+
+	bool match(GameInfo const& info, Board const& board, Variant variant, bool isFinal) override;
+
+private:
+
+	db::color::ID m_color;
 };
 
 
