@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 609 $
-# Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+# Version: $Revision: 755 $
+# Date   : $Date: 2013-04-30 21:07:56 +0000 (Tue, 30 Apr 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -27,8 +27,9 @@ variable Excluded {}
 
 
 proc open {parent url} {
-	regsub -all " " $url "%20" url
+	variable Escape
 
+	set url [::scidb::misc::url escape $url]
 	::widget::busyCursor on
 
 	switch -- [tk windowingsystem] {

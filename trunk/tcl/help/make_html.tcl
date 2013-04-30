@@ -3,8 +3,8 @@
 exec tclsh "$0" "$@"
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 753 $
-# Date   : $Date: 2013-04-29 19:49:37 +0000 (Mon, 29 Apr 2013) $
+# Version: $Revision: 755 $
+# Date   : $Date: 2013-04-30 21:07:56 +0000 (Tue, 30 Apr 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -119,6 +119,9 @@ set HtmlMapping {
 
 	<chess>			{<span class='chess'>}
 	</chess>			</span>
+
+	<n>				{<span class='normal'>}
+	</n>				</span>
 
 	<NEW>				{<span class='NEW'>}
 	</NEW>			{</span>}

@@ -1,7 +1,7 @@
 ## ======================================================================
 # Author : $Author$
-# Version: $Revision: 754 $
-# Date   : $Date: 2013-04-30 10:46:03 +0000 (Tue, 30 Apr 2013) $
+# Version: $Revision: 755 $
+# Date   : $Date: 2013-04-30 21:07:56 +0000 (Tue, 30 Apr 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1317,7 +1317,7 @@ proc MouseEnter {node} {
 		if {[$node dynamic get user3]} {
 			::tooltip::show $Priv(html) $mc::PageNotAvailable
 		} elseif {[$node dynamic get user]} {
-			::tooltip::show $Priv(html) [$node attribute href]
+			::tooltip::show $Priv(html) [::scidb::misc::url unescape [$node attribute href]]
 		}
 	}
 }

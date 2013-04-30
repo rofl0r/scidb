@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 617 $
-# Date   : $Date: 2013-01-08 11:41:26 +0000 (Tue, 08 Jan 2013) $
+# Version: $Revision: 755 $
+# Date   : $Date: 2013-04-30 21:07:56 +0000 (Tue, 30 Apr 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -33,6 +33,8 @@ proc titlebox {w args} {
 
 namespace eval titlebox {
 namespace eval mc {
+
+set None				"No title"
 
 set Title(GM)		"Grandmaster (FIDE)"
 set Title(IM)		"International Master (FIDE)"

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 743 $
-# Date   : $Date: 2013-04-26 15:55:35 +0000 (Fri, 26 Apr 2013) $
+# Version: $Revision: 755 $
+# Date   : $Date: 2013-04-30 21:07:56 +0000 (Tue, 30 Apr 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -2099,6 +2099,7 @@
 ::log::mc::Information	"Información"
 
 ### titlebox ############################################################
+::titlebox::mc::None				"No title" ;# NEW
 ::titlebox::mc::Title(GM)		"Gran Maestro (FIDE)"
 ::titlebox::mc::Title(IM)		"Maestro Internacional (FIDE)"
 ::titlebox::mc::Title(FM)		"Maestro Fide (FIDE)"

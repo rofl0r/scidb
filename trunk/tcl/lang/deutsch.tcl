@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 743 $
-# Date   : $Date: 2013-04-26 15:55:35 +0000 (Fri, 26 Apr 2013) $
+# Version: $Revision: 755 $
+# Date   : $Date: 2013-04-30 21:07:56 +0000 (Tue, 30 Apr 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -2095,6 +2095,7 @@
 ::log::mc::Information	"Information"
 
 ### titlebox ############################################################
+::titlebox::mc::None				"Kein Titel"
 ::titlebox::mc::Title(GM)		"Groﬂmeister (FIDE)"
 ::titlebox::mc::Title(IM)		"Internationaler Meister (FIDE)"
 ::titlebox::mc::Title(FM)		"Fidemeister (FIDE)"

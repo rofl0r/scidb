@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 755 $
+// Date   : $Date: 2013-04-30 21:07:56 +0000 (Tue, 30 Apr 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -181,7 +181,7 @@ mapToUnixNewline(char* s, char const* e)
 
 
 static unsigned
-quoteChars(char* src, char const* end, char* dst)
+quoteChars(char const* src, char const* end, char* dst)
 {
 	char* buf = dst;
 
