@@ -1,7 +1,7 @@
 ## ======================================================================
 # Author : $Author$
-# Version: $Revision: 755 $
-# Date   : $Date: 2013-04-30 21:07:56 +0000 (Tue, 30 Apr 2013) $
+# Version: $Revision: 757 $
+# Date   : $Date: 2013-05-01 14:34:49 +0000 (Wed, 01 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1418,7 +1418,7 @@ proc Goto {position} {
 		lassign $bbox _ y0 _ y1
 		# seems to be too confusing
 		# set changed [expr {(max($view0, $y0) > min($view1, $y1))}] ;# no intersection
-		set changed [expr {$y0 - $view0 > 30}]
+		set changed [expr {abs($y0 - $view0) > 30}]
 		set position [lindex $bbox 1]
 	}
 
