@@ -46,26 +46,26 @@
   font-style: normal;
 }
 
-#wrapper {
+#wrapper_0815 {
   position:   relative;
   width:      851px;
   margin:     18px auto;
   text-align: left;
 }
 
-#header {
+#header_0815 {
   width:      100%;
 }
 
-#footer {
+#footer_0815 {
   width:      100%;
 }
 
-#contentarea {
+#contentarea_0815 {
   width:      100%;
 }
 
-#contentarea div.block {
+#contentarea_0815 div.block_0815 {
   background-color: white;
   border-top:       1px solid #437597;
   border-bottom:    1px solid #437597;
@@ -109,6 +109,11 @@ h1.title {
 }
 
 ul.index { margin: 5px; }
+
+span.normal {
+  font-weight: normal;
+  font-style: normal;
+}
 
 span.chess {
   font-family: 'Scidb Chess Standard';

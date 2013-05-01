@@ -3,8 +3,8 @@
 exec tclsh "$0" "$@"
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 752 $
-# Date   : $Date: 2013-04-29 19:45:43 +0000 (Mon, 29 Apr 2013) $
+# Version: $Revision: 759 $
+# Date   : $Date: 2013-05-01 21:13:48 +0000 (Wed, 01 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -73,15 +73,15 @@ while {[gets $src line] >= 0} {
 		}
 	} elseif {[string match *<body>* $line]} {
 		puts $dst $line
-		puts $dst "<div id='wrapper'>"
-		backlinks header
-		puts $dst "<div id='contentarea'>"
-		puts $dst "<div class='block'>"
+		puts $dst "<div id='wrapper_0815'>"
+		backlinks header_0815
+		puts $dst "<div id='contentarea_0815'>"
+		puts $dst "<div class='block_0815'>"
 	} elseif {[string match *</body>* $line]} {
-		puts $dst "</div><!-- block -->"
-		puts $dst "</div><!-- contentarea -->"
-		backlinks footer
-		puts $dst "</div><!-- wrapper -->"
+		puts $dst "</div><!-- block_0815 -->"
+		puts $dst "</div><!-- contentarea_0815 -->"
+		backlinks footer_0815
+		puts $dst "</div><!-- wrapper_0815 -->"
 		puts $dst $line
 	} else {
 		puts $dst $line
