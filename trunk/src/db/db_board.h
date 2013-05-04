@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 743 $
-// Date   : $Date: 2013-04-26 15:55:35 +0000 (Fri, 26 Apr 2013) $
+// Version: $Revision: 763 $
+// Date   : $Date: 2013-05-04 16:11:18 +0000 (Sat, 04 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -342,6 +342,8 @@ public:
 	color::ID sideToMove() const;
 	/// Return opponent color of side next to move
 	color::ID notToMove() const;
+	/// Return current castling rights
+	castling::Rights currentCastlingRights() const;
 	/// Return the castling rights data
 	castling::Rights castlingRights() const;
 	/// Return the castling rights data for given color

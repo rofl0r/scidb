@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 743 $
-// Date   : $Date: 2013-04-26 15:55:35 +0000 (Fri, 26 Apr 2013) $
+// Version: $Revision: 763 $
+// Date   : $Date: 2013-05-04 16:11:18 +0000 (Sat, 04 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -6924,6 +6924,24 @@ Board::cannotWin(color::ID color, variant::Type variant) const
 		return false;
 	
 	return total == 2 && material.minor() == 1;
+}
+
+
+castling::Rights
+Board::currentCastlingRights() const
+{
+	unsigned rights = castlingRights();
+
+	if ((rights & castling::WhiteQueenside) && !canCastleLong(White))
+		rights &= ~WhiteQueenside;
+	if ((rights & castling::WhiteKingside) && !canCastleShort(White))
+		rights &= ~WhiteKingside;
+	if ((rights & castling::BlackQueenside) && !canCastleLong(Black))
+		rights &= ~BlackQueenside;
+	if ((rights & castling::BlackKingside) && !canCastleShort(Black))
+		rights &= ~BlackKingside;
+
+	return castling::Rights(rights);
 }
 
 
