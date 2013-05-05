@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 717 $
-// Date   : $Date: 2013-04-10 13:35:14 +0000 (Wed, 10 Apr 2013) $
+// Version: $Revision: 765 $
+// Date   : $Date: 2013-05-05 21:37:26 +0000 (Sun, 05 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -93,9 +93,11 @@ public:
 		UpdateBoard				= 1 << 0,
 		UpdatePgn				= 1 << 1,
 		UpdateOpening			= 1 << 2,
-		UpdateLanguageSet		= 1 << 4,
-		UpdateIllegalMoves	= 1 << 5,
-		UpdateAll				= ~(1 << 6),
+		UpdateLanguageSet		= 1 << 3,
+		UpdateIllegalMoves	= 1 << 4,
+		UpdateAll				= (1 << 5) - 1,
+
+		UpdateNewPosition		= 1 << 6,
 	};
 
 	enum Force

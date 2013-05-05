@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 719 $
-# Date   : $Date: 2013-04-19 16:40:59 +0000 (Fri, 19 Apr 2013) $
+# Version: $Revision: 765 $
+# Date   : $Date: 2013-05-05 21:37:26 +0000 (Sun, 05 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -437,6 +437,7 @@ proc update {position cmd data} {
 		move	{ ::board::diagram::move $board $data }
 	}
 
+	::board::diagram::clearMarks $board
 	UpdateSideToMove $Vars(widget:frame)
 	DrawMaterialValues $Vars(widget:frame)
 	UpdateControls

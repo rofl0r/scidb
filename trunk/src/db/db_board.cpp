@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 763 $
-// Date   : $Date: 2013-05-04 16:11:18 +0000 (Sat, 04 May 2013) $
+// Version: $Revision: 765 $
+// Date   : $Date: 2013-05-05 21:37:26 +0000 (Sun, 05 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -366,6 +366,7 @@ bool
 Board::isEqualPosition(Board const& target) const
 {
 	// NOTE: we cannot use ExactZHPosition, because the fen is not supporting pieces in hand
+	// NOTE: do not use for Three-check Chess games
 	return m_hash == target.m_hash && target.exactPosition() == exactPosition();
 }
 

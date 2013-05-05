@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 763 $
-// Date   : $Date: 2013-05-04 16:11:18 +0000 (Sat, 04 May 2013) $
+// Version: $Revision: 765 $
+// Date   : $Date: 2013-05-05 21:37:26 +0000 (Sun, 05 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -4119,8 +4119,13 @@ Game::updateSubscriber(unsigned action)
 	if (m_isModified != m_wasModified)
 		m_subscriber->stateChanged(m_wasModified = m_isModified);
 
-	if ((action & UpdateBoard) && m_undoCommand == None && m_redoCommand == None)
+	if ((action & (UpdateBoard | UpdateNewPosition)) && m_undoCommand == None && m_redoCommand == None)
+	{
+		if (action & UpdateNewPosition)
+			m_previousKey.clear();
+
 		goToCurrentMove();
+	}
 }
 
 

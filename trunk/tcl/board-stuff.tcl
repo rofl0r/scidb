@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 710 $
-# Date   : $Date: 2013-04-08 20:43:55 +0000 (Mon, 08 Apr 2013) $
+# Version: $Revision: 765 $
+# Date   : $Date: 2013-05-05 21:37:26 +0000 (Sun, 05 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -396,6 +396,14 @@ proc hilite {w i which} {
 
 proc hilited {w which} {
 	return [set ${w}::Board($which)]
+}
+
+
+proc clearMarks {w} {
+	variable ${w}::Board
+
+	set Board(marks) {}
+	$w.c delete mark
 }
 
 

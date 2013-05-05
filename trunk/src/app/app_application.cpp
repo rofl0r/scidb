@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 733 $
-// Date   : $Date: 2013-04-23 14:52:15 +0000 (Tue, 23 Apr 2013) $
+// Version: $Revision: 765 $
+// Date   : $Date: 2013-05-05 21:37:26 +0000 (Sun, 05 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1629,15 +1629,15 @@ Application::switchGame(unsigned position)
 	if (game.refresh)
 	{
 		if (game.refresh == 2)
-			game.game->refreshSubscriber(Game::UpdateAll);
+			game.game->refreshSubscriber(Game::UpdateAll | Game::UpdateNewPosition);
 		else
-			game.game->updateSubscriber(Game::UpdateBoard | Game::UpdatePgn | Game::UpdateOpening);
+			game.game->updateSubscriber(Game::UpdateNewPosition | Game::UpdatePgn | Game::UpdateOpening);
 
 		game.refresh = 0;
 	}
 	else
 	{
-		game.game->updateSubscriber(Game::UpdateBoard);
+		game.game->updateSubscriber(Game::UpdateNewPosition);
 	}
 
 	if (m_subscriber)
@@ -1699,7 +1699,7 @@ Application::refreshGame(unsigned position, bool immediate)
 	EditGame& game = *m_gameMap.find(position)->second;
 
 	if (position == m_currentPosition || immediate)
-		game.game->refreshSubscriber(Game::UpdateAll);
+		game.game->refreshSubscriber(Game::UpdateAll | Game::UpdateNewPosition);
 	else
 		game.refresh = 2;
 }
