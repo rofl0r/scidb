@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 765 $
-# Date   : $Date: 2013-05-05 21:37:26 +0000 (Sun, 05 May 2013) $
+# Version: $Revision: 766 $
+# Date   : $Date: 2013-05-09 14:10:11 +0000 (Thu, 09 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -291,7 +291,7 @@ proc Build {w args} {
 		} else {
 			set cmd [namespace code [list SbSet $w.v]]
 		}
-		$html configure -yscrollcommand $cmd -yscrollincrement 15
+		$html configure -yscrollcommand $cmd -yscrollincrement 18
 	}
 
 	if {$Priv(center)} {

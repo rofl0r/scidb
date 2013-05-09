@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 757 $
-// Date   : $Date: 2013-05-01 14:34:49 +0000 (Wed, 01 May 2013) $
+// Version: $Revision: 766 $
+// Date   : $Date: 2013-05-09 14:10:11 +0000 (Thu, 09 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -356,19 +356,34 @@ int HtmlInlineContextPushBorder(InlineContext *pContext, InlineBorder *pBorder)
                     break;
 
                 case CSS_CONST_SUB: {
+#ifdef CORRECT_SUBSCRIPT
+                    iVert += pPM->iFontBottom - pPM->iBaseline;
+                    iVert -= pM->iFontBottom - pM->iBaseline;
+                    iVert += pPM->iFontBottom + pPM->iFontTop;
+                    iVert -= pM->iFontBottom + pM->iFontTop;
+#elif 0 // original implementation; not working
                     HtmlNode *pNodeParent = HtmlNodeParent(pNode);
                     if (pNodeParent) {
                         HtmlFont *pF=HtmlNodeComputedValues(pNodeParent)->fFont;
                         iVert = pF->ex_pixels;
                     }
                     iVert += (pPM->iBaseline - pM->iBaseline);
+#else // hack, because the line height should be preserved
+                    iVert += pPM->iFontBottom + pPM->iFontTop;
+                    iVert -= pM->iFontBottom + pM->iFontTop;
+#endif
                     break;
                 }
 
                 case CSS_CONST_SUPER: {
+#if 0 // original implementation; not working
                     HtmlFont *pF = pComputed->fFont;
                     iVert = (pPM->iBaseline - pM->iBaseline);
                     iVert -= pF->ex_pixels;
+#else
+                    iVert += pPM->iFontBottom - pPM->iBaseline;
+                    iVert -= pM->iFontBottom - pM->iBaseline;
+#endif
                     break;
                 }
 
