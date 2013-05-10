@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 753 $
-// Date   : $Date: 2013-04-29 19:49:37 +0000 (Mon, 29 Apr 2013) $
+// Version: $Revision: 769 $
+// Date   : $Date: 2013-05-10 22:26:18 +0000 (Fri, 10 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -47,6 +47,26 @@ inline State::State() :m_and(0), m_not(0) {}
 inline ToMove::ToMove(db::color::ID color) :m_color(color) {}
 inline GappedSequence::GappedSequence() :m_info(0), m_index(0) {}
 inline Repetition::Repetition() :m_info(0) {}
+
+inline
+Evaluation::Evaluation(Mode mode, unsigned ply)
+	:m_mode(mode)
+	,m_view(SideToMove)
+	,m_arg(ply)
+	,m_lower(0.0)
+	,m_upper(0.0)
+{
+}
+
+inline
+Evaluation::Evaluation(Mode mode, unsigned n, float lower, float upper, View view)
+	:m_mode(mode)
+	,m_view(view)
+	,m_arg(n)
+	,m_lower(lower)
+	,m_upper(upper)
+{
+}
 
 inline
 MaxSwapEvaluation::MaxSwapEvaluation(	Designator const& from,

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 343 $
-// Date   : $Date: 2012-06-15 12:05:39 +0000 (Fri, 15 Jun 2012) $
+// Version: $Revision: 769 $
+// Date   : $Date: 2013-05-10 22:26:18 +0000 (Fri, 10 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -921,9 +921,9 @@ HtmlTokenize(
             /* Now prepare to parse the markup attributes. Advance i until
              * &z[n+i] points to the first character of the first attribute,
              * the closing '>' character, the closing "/>" string
-	     * of a self-closing tag, or the end of the document. If the end of
-	     * the document is reached, bail out via the 'incomplete'
-	     * exception handler.
+             * of a self-closing tag, or the end of the document. If the end of
+             * the document is reached, bail out via the 'incomplete'
+             * exception handler.
              */
             while (ISSPACE(z[n + i])) {
                 i++;

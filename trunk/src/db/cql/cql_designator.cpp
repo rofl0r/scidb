@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 743 $
-// Date   : $Date: 2013-04-26 15:55:35 +0000 (Fri, 26 Apr 2013) $
+// Version: $Revision: 769 $
+// Date   : $Date: 2013-05-10 22:26:18 +0000 (Fri, 10 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1412,12 +1412,12 @@ Designator::Designator()
 	static_assert(variant::Index_Antichess  == 4, "initialization not working");
 	static_assert(variant::Index_Losers     == 5, "initialization not working");
 
-	static_assert(piece::King   == 1, "initialization not working");
-	static_assert(piece::Queen  == 2, "initialization not working");
-	static_assert(piece::Rook   == 3, "initialization not working");
-	static_assert(piece::Bishop == 4, "initialization not working");
-	static_assert(piece::Knight == 5, "initialization not working");
-	static_assert(piece::Pawn   == 6, "initialization not working");
+	static_assert(db::piece::King   == 1, "initialization not working");
+	static_assert(db::piece::Queen  == 2, "initialization not working");
+	static_assert(db::piece::Rook   == 3, "initialization not working");
+	static_assert(db::piece::Bishop == 4, "initialization not working");
+	static_assert(db::piece::Knight == 5, "initialization not working");
+	static_assert(db::piece::Pawn   == 6, "initialization not working");
 }
 
 

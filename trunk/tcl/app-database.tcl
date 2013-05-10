@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 717 $
-# Date   : $Date: 2013-04-10 13:35:14 +0000 (Wed, 10 Apr 2013) $
+# Version: $Revision: 769 $
+# Date   : $Date: 2013-05-10 22:26:18 +0000 (Fri, 10 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1208,7 +1208,12 @@ proc PopupMenu {parent x y {base ""}} {
 			-label " $mc::FileExport..." \
 			-image $::icon::16x16::fileExport \
 			-compound left \
-			-command [list ::export::open $parent $base $Vars(variant) $type $name 0] \
+			-command [list ::export::open $parent \
+							-base $base \
+							-variant $Vars(variant) \
+							-type $type \
+							-name $name \
+							-view 0] \
 			;
 		$menu add command \
 			-label " $mc::FileImport(db)..." \

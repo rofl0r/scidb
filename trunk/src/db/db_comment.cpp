@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 739 $
-// Date   : $Date: 2013-04-24 14:01:13 +0000 (Wed, 24 Apr 2013) $
+// Version: $Revision: 769 $
+// Date   : $Date: 2013-05-10 22:26:18 +0000 (Fri, 10 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -720,23 +720,63 @@ struct Normalize : public Comment::Callback
 };
 
 
-struct Flatten : public Comment::Callback
+struct CountLanguages : public Comment::Callback
 {
-	Flatten(mstl::string& result, encoding::CharSet encoding) :m_result(result), m_encoding(encoding) {}
+	CountLanguages() :m_count(0) {}
+
+	unsigned result() const { return m_count; }
 
 	void start()  override {}
 	void finish() override {}
 
 	void startLanguage(mstl::string const& lang) override
 	{
-		if (!m_result.empty())
-			m_result += ' ';
-
 		if (!lang.empty())
+			++m_count;
+	}
+
+	void endLanguage(mstl::string const& lang) override	{}
+	void startAttribute(Attribute attr) override				{}
+	void endAttribute(Attribute attr) override				{}
+	void content(mstl::string const& s) override				{}
+	void symbol(char s) override									{}
+	void nag(mstl::string const& s) override					{}
+
+	void invalidXmlContent(mstl::string const& content) override {}
+
+	unsigned m_count;
+};
+
+
+struct Flatten : public Comment::Callback
+{
+	Flatten(mstl::string& result, encoding::CharSet encoding, bool printLanguageCode)
+		:m_result(result)
+		,m_encoding(encoding)
+		,m_printLanguageCode(printLanguageCode)
+	{
+	}
+
+	void start()  override {}
+	void finish() override {}
+
+	void startLanguage(mstl::string const& lang) override
+	{
+		if (m_printLanguageCode)
 		{
-			m_result += '<';
-			m_result += lang;
-			m_result += '>';
+			if (!m_result.empty())
+				m_result += ' ';
+
+			if (!lang.empty())
+			{
+				m_result += '<';
+				m_result += lang;
+				m_result += '>';
+				m_result += ' ';
+			}
+		}
+		else if (!m_result.empty())
+		{
 			m_result += ' ';
 		}
 	}
@@ -776,6 +816,7 @@ struct Flatten : public Comment::Callback
 
 	mstl::string&		m_result;
 	encoding::CharSet	m_encoding;
+	bool					m_printLanguageCode;
 };
 
 
@@ -1649,7 +1690,9 @@ Comment::flatten(mstl::string& result, encoding::CharSet encoding) const
 
 	if (isXml())
 	{
-		Flatten flatten(result, encoding);
+		CountLanguages count;
+		parse(count);
+		Flatten flatten(result, encoding, count.result() > 1);
 		result.reserve(result.size() + m_content.size() + 100);
 		parse(flatten);
 	}

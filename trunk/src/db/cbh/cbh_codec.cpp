@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 661 $
-// Date   : $Date: 2013-02-23 23:03:04 +0000 (Sat, 23 Feb 2013) $
+// Version: $Revision: 769 $
+// Date   : $Date: 2013-05-10 22:26:18 +0000 (Fri, 10 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -680,7 +680,7 @@ Codec::filterTags(TagSet& tags, Section section) const
 	tag::TagSet infoTags = m_infoTags;
 
 	if (section == InfoTags)
-		infoTags.flip(0, tag::ExtraTag - 1);
+		infoTags.flip(0, tag::LastTag);
 
 	tags.remove(infoTags);
 }

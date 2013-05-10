@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 648 $
-// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
+// Version: $Revision: 769 $
+// Date   : $Date: 2013-05-10 22:26:18 +0000 (Fri, 10 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -668,7 +668,7 @@ cmdPrint(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 		Tcl_WrongNumArgs(
 			ti, 1, objv,
 			"<database> <variant> <view> <file> <search-path> <script-path> <preamble> <flags> "
-			" <options> <nag-map> <languages> <significant> <progress-cmd> <progress-arg> "
+			" <options> <nag-map> <languages> <significant> <trace> <progress-cmd> <progress-arg> "
 			"<log-cmd> <log-arg>");
 		return TCL_ERROR;
 	}

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 743 $
-# Date   : $Date: 2013-04-26 15:55:35 +0000 (Fri, 26 Apr 2013) $
+# Version: $Revision: 769 $
+# Date   : $Date: 2013-05-10 22:26:18 +0000 (Fri, 10 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1075,7 +1075,8 @@ proc UpdatePGN {position data {w {}}} {
 
 			result {
 				set reason [::scidb::game::query $position termination]
-				set Vars(result) [makeResult {*}[lrange $node 1 end] $reason $Vars(variant)]
+				if {[info exists Vars(variant)]} { set variant $Vars(variant) } else { set variant Normal }
+				set Vars(result) [makeResult {*}[lrange $node 1 end] $reason $variant]
 				PrintResult $w $position
 				if {[llength $current]} {
 					catch { $w tag configure $current -background $Colors(background) }

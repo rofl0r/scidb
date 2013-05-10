@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 688 $
-// Date   : $Date: 2013-03-29 16:55:41 +0000 (Fri, 29 Mar 2013) $
+// Version: $Revision: 769 $
+// Date   : $Date: 2013-05-10 22:26:18 +0000 (Fri, 10 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -560,9 +560,9 @@ Encoder::isExtraTag(tag::ID tag)
 	bool skip = TagLookup::skipTag(tag);
 
 	if (!skip)
-		return true;
+		return tag::isValid(tag);
 
-	return !skip && isRatingTag(tag);
+	return isRatingTag(tag);
 }
 
 
@@ -623,7 +623,7 @@ Encoder::encodeTagSection(TagSet const& tags, tag::TagSet allowedTags, bool allo
 
 	allowedTags -= ::TagLookup::ignoreTags();
 
-	for (tag::ID tag = tags.findFirst(); tag < tag::ExtraTag; tag = tags.findNext(tag))
+	for (tag::ID tag = tags.findFirst(); tag <= tag::LastTag; tag = tags.findNext(tag))
 	{
 		if (	allowedTags.test(tag)
 			&& tags.isUserSupplied(tag)

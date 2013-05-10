@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 743 $
-// Date   : $Date: 2013-04-26 15:55:35 +0000 (Fri, 26 Apr 2013) $
+// Version: $Revision: 769 $
+// Date   : $Date: 2013-05-10 22:26:18 +0000 (Fri, 10 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -33,8 +33,6 @@ namespace db { class Move; }
 namespace db { class Board; }
 
 namespace cql {
-
-class Designator;
 
 namespace move {
 
@@ -85,6 +83,35 @@ private:
 
 	int m_minScore;
 	int m_maxScore;
+};
+
+
+class MoveEvaluation : public Match
+{
+public:
+
+	enum Mode { Depth, MoveTime, Mate };
+	enum View { SideToMove, Absolute };
+
+	MoveEvaluation(Mode mode,
+						unsigned n,
+						Designator const& from,
+						Designator const& to,
+						float lower,
+						float upper,
+						View view);
+
+	bool match(Board const& board, Move const& move, Variant variant) override;
+
+private:
+
+	Mode			m_mode;
+	View			m_view;
+	unsigned		m_arg;
+	Designator	m_from;
+	Designator	m_to;
+	float			m_lower;
+	float			m_upper;
 };
 
 

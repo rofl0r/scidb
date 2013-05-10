@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 755 $
-# Date   : $Date: 2013-04-30 21:07:56 +0000 (Tue, 30 Apr 2013) $
+# Version: $Revision: 769 $
+# Date   : $Date: 2013-05-10 22:26:18 +0000 (Fri, 10 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1609,6 +1609,7 @@
 ::export::mc::ExportDatabase				"Exportera databas"
 ::export::mc::ExportDatabaseVariant		"Export database - variant %s" ;# NEW
 ::export::mc::ExportDatabaseTitle		"Exportera databas '%s'"
+::export::mc::ExportCurrentGameTitle	"Export Current Game" ;# NEW
 ::export::mc::ExportingDatabase			"Exporterar '%s' till filen '%s'"
 ::export::mc::Export							"Export"
 ::export::mc::NoGamesCopied				"Inga partier exporterade."

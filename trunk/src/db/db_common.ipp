@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 719 $
-// Date   : $Date: 2013-04-19 16:40:59 +0000 (Fri, 19 Apr 2013) $
+// Version: $Revision: 769 $
+// Date   : $Date: 2013-05-10 22:26:18 +0000 (Fri, 10 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -440,7 +440,8 @@ convertEcfToElo(unsigned ecf)
 
 namespace tag {
 
-inline bool isMandatory(ID tag) { return Event <= tag && tag <= Result; }
+inline bool isValid(ID tag)		{ return tag <= LastTag || (BughouseTag <= tag && tag < ExtraTag); }
+inline bool isMandatory(ID tag)	{ return Event <= tag && tag <= Result; }
 
 } // namespace tag
 

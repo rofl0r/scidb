@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 755 $
-# Date   : $Date: 2013-04-30 21:07:56 +0000 (Tue, 30 Apr 2013) $
+# Version: $Revision: 769 $
+# Date   : $Date: 2013-05-10 22:26:18 +0000 (Fri, 10 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1610,6 +1610,7 @@
 ::export::mc::ExportDatabase				"Esporta database"
 ::export::mc::ExportDatabaseVariant		"Esporta database - variante %s"
 ::export::mc::ExportDatabaseTitle		"Esporta Database '%s'"
+::export::mc::ExportCurrentGameTitle	"Export Current Game" ;# NEW
 ::export::mc::ExportingDatabase			"Sto esportando '%s' nel file '%s'"
 ::export::mc::Export							"Esporta"
 ::export::mc::NoGamesCopied				"Nessuna partita esportata."

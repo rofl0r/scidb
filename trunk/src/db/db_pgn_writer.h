@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 668 $
-// Date   : $Date: 2013-03-10 18:15:28 +0000 (Sun, 10 Mar 2013) $
+// Version: $Revision: 769 $
+// Date   : $Date: 2013-05-10 22:26:18 +0000 (Fri, 10 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -57,7 +57,7 @@ public:
 
 	format::Type format() const override;
 
-	void writeCommnentLine(mstl::string const& content);
+	void writeCommentLines(mstl::string const& content);
 
 	void writeTag(mstl::string const& name, mstl::string const& value) override;
 	void writePrecedingComment(Comment const& comment, MarkSet const& marks) override;

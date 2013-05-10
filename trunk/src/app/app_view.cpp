@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 688 $
-// Date   : $Date: 2013-03-29 16:55:41 +0000 (Fri, 29 Mar 2013) $
+// Version: $Revision: 769 $
+// Date   : $Date: 2013-05-10 22:26:18 +0000 (Fri, 10 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -732,13 +732,12 @@ View::exportGames(mstl::string const& filename,
 		destination.save(progress);
 		destination.close();
 	}
-	else if (ext == "pgn" || ext == "gz" || ext == "zip" || ext == "PGN" || ext == "ZIP")
+	else if (ext == "pgn" || ext == "gz" || ext == "zip")
 	{
 		util::ZStream::Type type;
 
 		if (ext == "gz")			type = util::ZStream::GZip;
 		else if (ext == "zip")	type = util::ZStream::Zip;
-		else if (ext == "ZIP")	type = util::ZStream::Zip;
 		else							type = util::ZStream::Text;
 
 		mstl::ios_base::openmode mode = mstl::ios_base::out;

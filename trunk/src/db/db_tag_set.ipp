@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 769 $
+// Date   : $Date: 2013-05-10 22:26:18 +0000 (Fri, 10 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -67,7 +67,7 @@ inline
 void
 TagSet::set(tag::ID tag, mstl::string const& value)
 {
-	M_REQUIRE(tag < tag::ExtraTag);
+	M_ASSERT(tag::isValid(tag));
 
 	if (!value.empty())
 		set(tag, value, true);
@@ -78,7 +78,7 @@ inline
 void
 TagSet::set(tag::ID tag, char const* value, unsigned length)
 {
-	M_REQUIRE(tag < tag::ExtraTag);
+	M_ASSERT(tag::isValid(tag));
 	M_REQUIRE(value);
 
 	if (length)
@@ -90,7 +90,7 @@ inline
 void
 TagSet::setSignificance(tag::ID tag, Byte value)
 {
-	M_REQUIRE(tag < tag::ExtraTag);
+	M_ASSERT(tag::isValid(tag));
 	m_significance[tag] = value;
 }
 
