@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 638 $
-// Date   : $Date: 2013-01-23 17:26:55 +0000 (Wed, 23 Jan 2013) $
+// Version: $Revision: 770 $
+// Date   : $Date: 2013-05-11 00:43:11 +0000 (Sat, 11 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -64,6 +64,7 @@ PgnReader::PgnReader(mstl::istream& strm,
 	,m_arg(arg)
 	,m_warning(Tcl_NewStringObj("warning", -1))
 	,m_error(Tcl_NewStringObj("error", -1))
+	,m_mode(readMode)
 	,m_lineOffset(lineOffset)
 	,m_countErrors(0)
 	,m_countWarnings(0)
@@ -184,13 +185,10 @@ PgnReader::error(	Error code,
 {
 	char const* msg = 0;
 
-	++m_countErrors;
-
 	if (m_trialModeFlag)
-	{
 		m_lastError = code;
-		return;
-	}
+
+	++m_countErrors;
 
 	if (m_cmd == 0)
 		return;

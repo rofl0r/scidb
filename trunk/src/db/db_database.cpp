@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 702 $
-// Date   : $Date: 2013-04-02 20:29:46 +0000 (Tue, 02 Apr 2013) $
+// Version: $Revision: 770 $
+// Date   : $Date: 2013-05-11 00:43:11 +0000 (Sat, 11 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1193,11 +1193,11 @@ Database::importGame(Producer& producer, unsigned index)
 
 	m_codec->reset();
 	unsigned n = m_codec->importGames(producer, progress, index);
+	m_namebases.update();
 
 	if (n > 0)
 	{
 		m_lastChange = sys::time::timestamp();
-		m_namebases.update();
 		setEncodingFailed(producer.encodingFailed() || m_codec->encodingFailed());
 		m_statistic.add(*m_gameInfoList[index]);
 

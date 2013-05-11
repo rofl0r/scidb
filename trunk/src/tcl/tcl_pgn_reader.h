@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 638 $
-// Date   : $Date: 2013-01-23 17:26:55 +0000 (Wed, 23 Jan 2013) $
+// Version: $Revision: 770 $
+// Date   : $Date: 2013-05-11 00:43:11 +0000 (Sat, 11 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -91,6 +91,7 @@ private:
 	Tcl_Obj*	m_arg;
 	Tcl_Obj*	m_warning;
 	Tcl_Obj*	m_error;
+	ReadMode	m_mode;
 	unsigned	m_lineOffset;
 	unsigned	m_countErrors;
 	unsigned	m_countWarnings;

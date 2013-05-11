@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 769 $
-# Date   : $Date: 2013-05-10 22:26:18 +0000 (Fri, 10 May 2013) $
+# Version: $Revision: 770 $
+# Date   : $Date: 2013-05-11 00:43:11 +0000 (Sat, 11 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1471,6 +1471,8 @@
 ::import::mc::DifferentEncoding					"Die ausgewählte Enkodierung %src stimmt nicht mit der Dateienkodierung %dst überein."
 ::import::mc::DifferentEncodingDetails			"Eine Umkodierung wird danach nicht mehr erfolgreich sein."
 ::import::mc::CannotDetectFigurineSet			"Es konnte kein geeigneter Figurensatz ermittelt werden."
+::import::mc::TryAgainWithEnglishSet			"Nochmal probieren mit dem englischen Figurensatz?"
+::import::mc::TryAgainWithEnglishSetDetail	"Es mag hilfreich sein den englischen Figurensatz zu verwenden, denn dies ist Standard in PGN."
 ::import::mc::CheckImportResult					"Bitte prüfen ob der richtige Figurensatz ermittelt wurde: %s."
 ::import::mc::CheckImportResultDetail			"In seltenen Fällen scheitert die automatische Ermittlung aufgrund von Mehrdeutigkeiten."
 

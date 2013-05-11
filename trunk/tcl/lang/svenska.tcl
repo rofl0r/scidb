@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 769 $
-# Date   : $Date: 2013-05-10 22:26:18 +0000 (Fri, 10 May 2013) $
+# Version: $Revision: 770 $
+# Date   : $Date: 2013-05-11 00:43:11 +0000 (Sat, 11 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1478,6 +1478,8 @@
 ::import::mc::DifferentEncoding					"Den valda kodningen %src överensstämmer inte med filkodningen %dst."
 ::import::mc::DifferentEncodingDetails			"Databasen kan därefter inte omkoderas."
 ::import::mc::CannotDetectFigurineSet			"Kan inte hitta någon passande figuruppsättning."
+::import::mc::TryAgainWithEnglishSet			"Try again with English figurines?" ;# NEW
+::import::mc::TryAgainWithEnglishSetDetail	"It may be helpful to use English figurines, because this is standard in PGN." ;# NEW
 ::import::mc::CheckImportResult					"Kontrollera om den riktiga figuruppsättningen hittats: %s."
 ::import::mc::CheckImportResultDetail			"In seldom cases the auto-detection fails due to ambiguities."
 
