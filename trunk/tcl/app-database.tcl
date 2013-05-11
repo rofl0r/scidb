@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 769 $
-# Date   : $Date: 2013-05-10 22:26:18 +0000 (Fri, 10 May 2013) $
+# Version: $Revision: 772 $
+# Date   : $Date: 2013-05-11 14:35:53 +0000 (Sat, 11 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -60,11 +60,11 @@ set LoadMessage						"Opening database '%s'"
 set UpgradeMessage					"Upgrading database '%s'"
 set CompactMessage					"Compacting database '%s'"
 set CannotOpenFile					"Cannot open file '%s'."
-set EncodingFailed					"Encoding %s failed."
+set EncodingFailed					"Character decoding %s failed."
 set DatabaseAlreadyOpen				"Database '%s' is already open."
 set Properties							"Properties"
 set Preload								"Preload"
-set MissingEncoding					"Missing encoding %s (using %s instead)"
+set MissingEncoding					"Missing character encoding %s (using %s instead)"
 set DescriptionTooLarge				"Description is too large."
 set DescrTooLargeDetail				"The entry contains %d characters, but only %d characters are allowed."
 set ClipbaseDescription				"Temporary database, not kept on disk."

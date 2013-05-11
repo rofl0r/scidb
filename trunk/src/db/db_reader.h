@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 688 $
-// Date   : $Date: 2013-03-29 16:55:41 +0000 (Fri, 29 Mar 2013) $
+// Version: $Revision: 772 $
+// Date   : $Date: 2013-05-11 14:35:53 +0000 (Sat, 11 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -42,8 +42,9 @@ public:
 
 	enum ReadMode
 	{
-		Text,
 		File,
+		Game,
+		Variation,
 	};
 
 	enum ResultMode

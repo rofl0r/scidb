@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 668 $
-# Date   : $Date: 2013-03-10 18:15:28 +0000 (Sun, 10 Mar 2013) $
+# Version: $Revision: 772 $
+# Date   : $Date: 2013-05-11 14:35:53 +0000 (Sat, 11 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1145,6 +1145,16 @@ namespace eval 16x16 {
 		TPBlwpHM6xLfpPuM6ln9UXvb8hWtES//J2WxNejIMh4N9wRDQ33j1vJZwpGHAOF30oAxdAw9
 		+Ot25ZKGDz+oatOjo/f84eGfAmu869ZyIOHIxDufOJ9UUi1Tij6lEOCatZxMOPJ4/txLfgdD
 		CCiEEtoAAAAASUVORK5CYII=
+	}]
+
+	set selectAll [image create photo -data {
+		iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAdVBMVEUAAAAAAACIioWIioUA
+		AAB9lKmCma+Hn7SIioWNpLuascecssqdn5qdtMuhuM+qwdmrwdmrwdqrwtmswtqswtusw9ut
+		w9utxNutxNyusKuuxNyuxN2uxd2vxd3Q0NDg4ODj4+Pk5eTv7+/29vb7+/v+/v7///+14zxV
+		AAAABHRSTlMAO0S/VGZI9wAAAAFiS0dEJloImLUAAAB4SURBVBjTXcrpGoIgEIXhSdGmXMai
+		KHcouP9bDGXM5Zs/PC8HAE64FMEcuilrv5YFXd+1zTurDQu6LvGp/GMMBmheSkl5OafIoJLQ
+		dWB4PuT9RlQWI4PkBTmGqqLQAnRcTJ/C325BQmu9XezAP7Xw94e1GWJci+EHQVcOMtNJkgYA
+		AAAASUVORK5CYII=
 	}]
 
 	set home [image create photo -data {
