@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 708 $
-# Date   : $Date: 2013-04-05 22:54:16 +0000 (Fri, 05 Apr 2013) $
+# Version: $Revision: 773 $
+# Date   : $Date: 2013-05-12 16:51:25 +0000 (Sun, 12 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -130,6 +130,12 @@ proc showTrace {path text useHorzScroll closeCmd} {
 
 	$txt insert end $text
 	$txt configure -state disabled
+}
+
+
+proc textIsEmpty? {w} {
+	if {[$w compare end > 2.0]} { return 0 }
+	return [expr {[$w count -chars 1.0 2.0] <= 1}]
 }
 
 

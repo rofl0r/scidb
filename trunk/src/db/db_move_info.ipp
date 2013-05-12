@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 671 $
-// Date   : $Date: 2013-03-13 09:49:26 +0000 (Wed, 13 Mar 2013) $
+// Version: $Revision: 773 $
+// Date   : $Date: 2013-05-12 16:51:25 +0000 (Sun, 12 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -174,15 +174,6 @@ bool
 MoveInfo::isMoveInfo(unsigned char firstByte)
 {
 	return firstByte & 0x80;
-}
-
-
-inline
-unsigned char const*
-MoveInfo::skip(unsigned char const* strm)
-{
-	M_REQUIRE(isMoveInfo(*strm));
-	return strm + length(*strm);
 }
 
 } // namespace db

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 671 $
-// Date   : $Date: 2013-03-13 09:49:26 +0000 (Wed, 13 Mar 2013) $
+// Version: $Revision: 773 $
+// Date   : $Date: 2013-05-12 16:51:25 +0000 (Sun, 12 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -114,7 +114,7 @@ public:
 	static Type type(unsigned char firstByte);
 	static unsigned length(unsigned char firstByte);
 	static void skip(util::ByteStream& strm);
-	static unsigned char const* skip(unsigned char const* strm);
+	static unsigned char const* skip(unsigned char const* strm, unsigned char const* eos);
 
 private:
 

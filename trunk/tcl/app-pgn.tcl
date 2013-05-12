@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 769 $
-# Date   : $Date: 2013-05-10 22:26:18 +0000 (Fri, 10 May 2013) $
+# Version: $Revision: 773 $
+# Date   : $Date: 2013-05-12 16:51:25 +0000 (Sun, 12 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -476,6 +476,7 @@ proc saveGame {mode} {
 
 	set position [::scidb::game::current]
 	lassign [::scidb::game::link? $position] base variant index
+	if {$mode ne "add" && ![::game::verify $Vars(main) $position [expr {$index + 1}]]} { return }
 
 	if {$base eq $scratchbaseName} {
 		set base [::scidb::db::get name]
@@ -2162,7 +2163,7 @@ proc PopupMenu {parent position} {
 		if {[string length $white] && [string length $black]} {
 			set title "$white-$black"
 		} else {
-			set title [lindex [::scidb::game::sink? $id] 2]
+			set title [lindex [::scidb::game::sink? $position] 2]
 		}
 		set cmd [list ::export::open $parent -base $base -variant $variant -index $index -title $title]
 		$menu add command \

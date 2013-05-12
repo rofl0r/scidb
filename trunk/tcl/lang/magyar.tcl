@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 772 $
-# Date   : $Date: 2013-05-11 14:35:53 +0000 (Sat, 11 May 2013) $
+# Version: $Revision: 773 $
+# Date   : $Date: 2013-05-12 16:51:25 +0000 (Sun, 12 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -480,6 +480,7 @@
 ::application::database::mc::CompactionRecommended	"It is recommended to compact the database." ;# NEW
 ::application::database::mc::SearchPGNTags		"Searching for PGN tags" ;# NEW
 ::application::database::mc::SelectSuperfluousTags	"Select superfluous tags:" ;# NEW
+::application::database::mc::WillBePermanentlyDeleted	"Please note: This action will permanently delete the concerned information from database." ;# NEW
 
 ::application::database::mc::T_Unspecific					"Nem specifikus"
 ::application::database::mc::T_Temporary					"Ideiglenes"
@@ -832,7 +833,7 @@
 
 ### pgn-setup ##########################################################
 ::pgn::setup::mc::Configure(editor)			"Szerkesztő testreszabása"
-::pgn::setup::mc::Configure(browser)			"Szöveg kimenet testreszabása"
+::pgn::setup::mc::Configure(browser)			"Szöveg kimenet testreszabása" ;# NEW "Customize Text Display"
 ::pgn::setup::mc::TakeOver(editor)			"A játszma böngésző beállításainak használata"
 ::pgn::setup::mc::TakeOver(browser)			"A játszma szerkesztő beállításainak használata"
 ::pgn::setup::mc::Pixel					"pixel"  ;#NEW
@@ -1839,6 +1840,8 @@
 ::game::mc::VariantHasChanged		"Game cannot be opened because the variant of the database has changed and is now different from the game variant." ;# NEW
 ::game::mc::RemoveGameFromHistory	"Remove game from history?" ;# NEW
 ::game::mc::GameNumberDoesNotExist	"Game %number does not exist in '%base'."
+::game::mc::ReallyReplaceGame		"It seems that the actual game #%s is not the originally loaded game due to intermediate database changes, it is likely that you lose a different game. Really replace game data?" ;# NEW
+::game::mc::ReallyReplaceGameDetail	"It is recommended to have a look on game #%s before doing this action." ;# NEW
 
 ### languagebox ########################################################
 ::languagebox::mc::AllLanguages	"Összes nyelv"

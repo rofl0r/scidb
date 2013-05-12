@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 772 $
-# Date   : $Date: 2013-05-11 14:35:53 +0000 (Sat, 11 May 2013) $
+# Version: $Revision: 773 $
+# Date   : $Date: 2013-05-12 16:51:25 +0000 (Sun, 12 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -600,7 +600,7 @@ proc PopupMenu {edit position x y} {
 		-command [namespace code [list TextPaste $position $edit.text]] \
 		;
 
-	set empty [expr {[$edit.text compare end <= 2.0]}]
+	set empty [::widget::textIsEmpty? $edit.text]
 	if {!$empty || [$edit.text edit modified] || $Priv($position:undo)} {
 		$m add separator
 		if {$empty && ![$edit.text edit modified]} { set state disabled } else { set state normal }

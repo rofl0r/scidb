@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 659 $
-// Date   : $Date: 2013-02-19 09:52:03 +0000 (Tue, 19 Feb 2013) $
+// Version: $Revision: 773 $
+// Date   : $Date: 2013-05-12 16:51:25 +0000 (Sun, 12 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -80,9 +80,9 @@ private:
 	void decodeTextSection(MoveNode* node, util::ByteStream& text);
 	void decodeMark();
 
-	Byte const* skipTags(Byte const* p);
-	Byte const* skipEngines(Byte const* p);
-	Byte const* skipMoveInfo(Byte const* p);
+	Byte const* skipTags(Byte const* p, Byte const* eos);
+	Byte const* skipEngines(Byte const* p, Byte const* eos);
+	Byte const* skipMoveInfo(Byte const* p, Byte const* eos);
 
 	void skipVariations();
 

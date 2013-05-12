@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 773 $
+// Date   : $Date: 2013-05-12 16:51:25 +0000 (Sun, 12 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -870,6 +870,23 @@ tcl::intFromObj(unsigned objc, Tcl_Obj* const objv[], unsigned index)
 	int value;
 
 	if (Tcl_GetIntFromObj(interp(), objv[index], &value) != TCL_OK)
+		TCL_RAISE("integer expected as %u. argument to %s", index, Tcl_GetString(objv[0]));
+
+	return value;
+}
+
+
+int64_t
+tcl::wideIntFromObj(unsigned objc, Tcl_Obj* const objv[], unsigned index)
+{
+	M_REQUIRE(objc > 0);
+
+	if (index >= objc)
+		TCL_RAISE("Wrong number of arguments to %s", Tcl_GetString(objv[0]));
+
+	Tcl_WideInt value;
+
+	if (Tcl_GetWideIntFromObj(interp(), objv[index], &value) != TCL_OK)
 		TCL_RAISE("integer expected as %u. argument to %s", index, Tcl_GetString(objv[0]));
 
 	return value;

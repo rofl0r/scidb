@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 643 $
-// Date   : $Date: 2013-01-29 13:15:54 +0000 (Tue, 29 Jan 2013) $
+// Version: $Revision: 773 $
+// Date   : $Date: 2013-05-12 16:51:25 +0000 (Sun, 12 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -603,9 +603,10 @@ Mark::skip(util::ByteStream& strm)
 
 
 unsigned char const*
-Mark::skip(unsigned char const* stream)
+Mark::skip(unsigned char const* stream, unsigned char const* eos)
 {
 	M_REQUIRE(isMark(*stream));
+	M_REQUIRE(stream < eos);
 
 	switch (*stream++)
 	{
@@ -613,15 +614,26 @@ Mark::skip(unsigned char const* stream)
 			break;
 
 		case mark::Diagram:
-			for ( ; *stream; ++stream)
-				;
+			if (stream == eos)
+				IO_RAISE(Game, Corrupted, "corrupted stream");
+
+			while (*stream)
+			{
+				if (++stream == eos)
+					IO_RAISE(Game, Corrupted, "corrupted stream");
+			}
 			++stream;
 			break;
 
 		case mark::Draw:
-			stream += 2;
-			if (*stream & 0x80)
-				++stream;
+			if ((stream += 2) >= eos)
+				IO_RAISE(Game, Corrupted, "corrupted stream");
+
+			if (*stream++ & 0x80)
+			{
+				if (stream++ == eos)
+					IO_RAISE(Game, Corrupted, "corrupted stream");
+			}
 			break;
 
 		default:

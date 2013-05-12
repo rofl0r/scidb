@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 649 $
-// Date   : $Date: 2013-02-05 21:57:09 +0000 (Tue, 05 Feb 2013) $
+// Version: $Revision: 773 $
+// Date   : $Date: 2013-05-12 16:51:25 +0000 (Sun, 12 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -81,7 +81,7 @@ private:
 
 	Byte const* skipTags(Byte const* p);
 	Byte const* skipEngines(Byte const* p);
-	Byte const* skipMoveInfo(Byte const* p);
+	Byte const* skipMoveInfo(Byte const* p, Byte const* eos);
 
 	void skipVariations();
 

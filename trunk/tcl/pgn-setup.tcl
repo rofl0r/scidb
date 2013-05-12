@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 717 $
-# Date   : $Date: 2013-04-10 13:35:14 +0000 (Wed, 10 Apr 2013) $
+# Version: $Revision: 773 $
+# Date   : $Date: 2013-05-12 16:51:25 +0000 (Sun, 12 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -31,7 +31,7 @@ namespace eval setup {
 namespace eval mc {
 
 set Configure(editor)			"Customize Editor"
-set Configure(browser)			"Customize Text Output"
+set Configure(browser)			"Customize Text Display"
 set TakeOver(editor)				"Adopt settings from Game Browser"
 set TakeOver(browser)			"Adopt settings from Game Editor"
 set Pixel							"pixel"

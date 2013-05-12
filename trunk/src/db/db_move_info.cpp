@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 717 $
-// Date   : $Date: 2013-04-10 13:35:14 +0000 (Wed, 10 Apr 2013) $
+// Version: $Revision: 773 $
+// Date   : $Date: 2013-05-12 16:51:25 +0000 (Sun, 12 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -597,6 +597,18 @@ MoveInfo::length(unsigned char firstByte)
 	}
 
 	return 1; // never reached
+}
+
+
+unsigned char const*
+MoveInfo::skip(unsigned char const* strm, unsigned char const* eos)
+{
+	M_REQUIRE(isMoveInfo(*strm));
+
+	if ((strm += length(*strm)) > eos)
+		IO_RAISE(Game, Corrupted, "corrupted stream");
+
+	return strm;
 }
 
 
