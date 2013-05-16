@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 769 $
-// Date   : $Date: 2013-05-10 22:26:18 +0000 (Fri, 10 May 2013) $
+// Version: $Revision: 774 $
+// Date   : $Date: 2013-05-16 22:06:25 +0000 (Thu, 16 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1330,7 +1330,8 @@ namespace display
 		ParagraphSpacing		= 1 << 2,
 		ShowDiagrams			= 1 << 3,
 		ShowMoveInfo			= 1 << 4,
-		ShowVariationNumbers	= 1 << 5,
+		ShowEmoticons			= 1 << 5,
+		ShowVariationNumbers	= 1 << 6,
 	};
 };
 

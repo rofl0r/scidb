@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 774 $
+// Date   : $Date: 2013-05-16 22:06:25 +0000 (Thu, 16 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -23,13 +23,15 @@
 
 #include "sys_pipe.h"
 
+namespace sys { class Thread; };
+
 namespace util {
 
 class PipedProgress : public Progress, protected sys::pipe::Pipe
 {
 public:
 
-	PipedProgress();
+	PipedProgress(sys::Thread& thread);
 
 	bool interrupted() override;
 	bool interruptReceived() const;
@@ -41,9 +43,10 @@ public:
 
 private:
 
-	double	m_total;
-	bool		m_interrupted;
-	int		m_prevValue;
+	sys::Thread&	m_thread;
+	double			m_total;
+	bool				m_interrupted;
+	int				m_prevValue;
 };
 
 } // namespace util

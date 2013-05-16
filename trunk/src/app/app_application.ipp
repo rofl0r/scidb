@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 671 $
-// Date   : $Date: 2013-03-13 09:49:26 +0000 (Wed, 13 Mar 2013) $
+// Version: $Revision: 774 $
+// Date   : $Date: 2013-05-16 22:06:25 +0000 (Thu, 16 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -49,6 +49,7 @@ inline Application::Subscriber* Application::subscriber() const	{ return m_subsc
 inline unsigned Application::currentPosition() const					{ return m_currentPosition; }
 inline db::Tree const* Application::currentTree() const				{ return m_currentTree.get(); }
 inline mstl::ostream* Application::engineLog() const					{ return m_engineLog; }
+inline sys::Thread& Application::treeThread()							{ return m_treeThread; }
 
 inline void Application::setSwitchReferenceBase(bool flag)			{ m_switchReference = flag; }
 inline void Application::setReferenceBase(Cursor* cursor)			{ setReferenceBase(cursor, true); }

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 717 $
-// Date   : $Date: 2013-04-10 13:35:14 +0000 (Wed, 10 Apr 2013) $
+// Version: $Revision: 774 $
+// Date   : $Date: 2013-05-16 22:06:25 +0000 (Thu, 16 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -48,6 +48,7 @@ inline unsigned Game::variationLevel() const			{ return m_currentKey.level(); }
 inline color::ID Game::sideToMove() const				{ return m_currentBoard.sideToMove(); }
 inline TagSet const& Game::tags() const				{ return m_tags; }
 inline GameData const& Game::data() const				{ return *this; }
+inline unsigned Game::displayStyle() const			{ return m_displayStyle; }
 
 inline void Game::setTags(TagSet const& tags)		{ m_tags = tags; }
 inline void Game::setFlags(unsigned flags)			{ m_flags = flags; }

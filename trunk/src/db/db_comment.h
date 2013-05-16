@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 671 $
-// Date   : $Date: 2013-03-13 09:49:26 +0000 (Wed, 13 Mar 2013) $
+// Version: $Revision: 774 $
+// Date   : $Date: 2013-05-16 22:06:25 +0000 (Thu, 16 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -63,6 +63,7 @@ public:
 		virtual void content(mstl::string const& s) = 0;
 		virtual void nag(mstl::string const& s) = 0;
 		virtual void symbol(char s) = 0;
+		virtual void emoticon(mstl::string const& s) = 0;
 
 		virtual void invalidXmlContent(mstl::string const& content) = 0;
 	};
@@ -103,6 +104,7 @@ public:
 	void remove(mstl::string const& lang);
 	void remove(LanguageSet const& languageSet);
 	void strip(LanguageSet const& set);
+	void detectEmoticons();
 	bool fromHtml(mstl::string const& s);
 	void swap(Comment& comment);
 	void swap(mstl::string& content, bool engFlag, bool othFlag);
@@ -121,6 +123,7 @@ public:
 	static bool convertCommentToXml(	mstl::string const& comment,
 												Comment& result,
 												encoding::CharSet encoding);
+	static void escapeString(mstl::string const& src, mstl::string& dst);
 
 private:
 

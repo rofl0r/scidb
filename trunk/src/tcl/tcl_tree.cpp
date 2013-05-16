@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 661 $
-// Date   : $Date: 2013-02-23 23:03:04 +0000 (Sat, 23 Feb 2013) $
+// Version: $Revision: 774 $
+// Date   : $Date: 2013-05-16 22:06:25 +0000 (Thu, 16 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -98,8 +98,9 @@ namespace {
 
 struct MyPipedProgress : public util::PipedProgress
 {
-	MyPipedProgress(Tcl_Obj* cmd, Tcl_Obj* arg)
-		:m_cmd(cmd)
+	MyPipedProgress(sys::Thread& thread, Tcl_Obj* cmd, Tcl_Obj* arg)
+		:PipedProgress(thread)
+		,m_cmd(cmd)
 		,m_arg(arg)
 	{
 		M_ASSERT(cmd);
@@ -173,7 +174,11 @@ static int
 cmdInit(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 {
 	if (m_progress == 0)
-		m_progress = new MyPipedProgress(objectFromObj(objc, objv, 1), objectFromObj(objc, objv, 2));
+	{
+		m_progress = new MyPipedProgress(Scidb->treeThread(),
+													objectFromObj(objc, objv, 1),
+													objectFromObj(objc, objv, 2));
+	}
 
 	return TCL_OK;
 }

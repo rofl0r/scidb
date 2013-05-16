@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 774 $
+// Date   : $Date: 2013-05-16 22:06:25 +0000 (Thu, 16 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -26,15 +26,22 @@
 using namespace util;
 
 
-PipedProgress::PipedProgress() : m_total(0), m_interrupted(false), m_prevValue(-1) {}
-
 bool PipedProgress::interruptReceived() const { return m_interrupted; }
+
+
+PipedProgress::PipedProgress(sys::Thread& thread)
+	:m_thread(thread)
+	,m_total(0)
+	,m_interrupted(false)
+	,m_prevValue(-1)
+{
+}
 
 
 bool
 PipedProgress::interrupted()
 {
-	if (!sys::thread::testCancel())
+	if (!m_thread.testCancel())
 		return false;
 
 	if (!m_interrupted)
