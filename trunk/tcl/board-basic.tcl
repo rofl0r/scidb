@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 609 $
-# Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+# Version: $Revision: 778 $
+# Date   : $Date: 2013-05-17 15:46:46 +0000 (Fri, 17 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -59,7 +59,7 @@ array set Default {
 	Filename						{}
 
 	lite,rotation				0
-	lite,solid					#e0d070
+	lite,solid					#b0c4de
 	lite,texture				{}
 	lite,x1						0
 	lite,x2						0
@@ -67,7 +67,7 @@ array set Default {
 	lite,y2						0
 
 	dark,rotation				0
-	dark,solid					#70a070
+	dark,solid					#4682b4
 	dark,texture				{}
 	dark,x1						0
 	dark,x2						0
@@ -78,14 +78,14 @@ array set Default {
 	borderline,opacity		0x80
 	borderline,gap				0
 
-	hilite,selected			#b0d0e0
-	hilite,suggested			#ffff00
+	hilite,selected			#11ac1f
+	hilite,suggested			#fff056
 
-	hint,border-color			#007d00
+	hint,border-color			#32719d
 	hint,border-tile			{}
 	hint,background-color	{}
-	hint,background-tile		{wood wood_143.gif}
-	hint,coordinates			#d3ff02
+	hint,background-tile		{marble marble_252.jpg}
+	hint,coordinates			#ffffff
 }
 set Default(identifier) $defaultId
 set Default(version) [set [namespace parent]::Version]

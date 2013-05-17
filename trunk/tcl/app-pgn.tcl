@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 774 $
-# Date   : $Date: 2013-05-16 22:06:25 +0000 (Thu, 16 May 2013) $
+# Version: $Revision: 778 $
+# Date   : $Date: 2013-05-17 15:46:46 +0000 (Fri, 17 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1596,13 +1596,16 @@ proc PrintComment {position w level key pos data} {
 				}
 				str {
 					if {[llength $startPos] == 0} { set startPos [$w index current] }
+					set tags $langTag
 					switch $flags {
-						0 { set tag {} }
-						1 { set tag bold }
-						2 { set tag italic }
-						3 { set tag bold-italic }
+						1 { lappend tags bold }
+						2 { lappend tags italic }
+						3 { lappend tags bold-italic }
 					}
-					$w insert current $text [list $langTag $tag]
+					if {$underline} {
+						lappend tags underline
+					}
+					$w insert current $text $tags
 				}
 				+bold			{ incr flags +1 }
 				-bold			{ incr flags -1 }

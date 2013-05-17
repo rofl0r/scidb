@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 696 $
-# Date   : $Date: 2013-03-31 00:13:33 +0000 (Sun, 31 Mar 2013) $
+# Version: $Revision: 778 $
+# Date   : $Date: 2013-05-17 15:46:46 +0000 (Fri, 17 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -269,6 +269,15 @@ if {[catch {
 	puts "Start-up failed."
 	puts "Please try \"[file tail $nameofexecutable] --first-time\"."
 	exit 1
+}
+
+# migrate to new default theme
+if {$scidb::revision <= 569} {
+	if {$board::currentTheme eq {Blue Theme|1354018040763|yellow.color|gregor}} {
+		set board::currentTheme Default
+	} elseif {$scidb::revision > 83 && $board::currentTheme eq "Default"} {
+		set board::currentTheme {Primus|1368794511290|yellow.color|gregor}
+	}
 }
 
 set ::scidb::revision [::scidb::misc::revision]
