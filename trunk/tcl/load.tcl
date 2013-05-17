@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 778 $
-# Date   : $Date: 2013-05-17 15:46:46 +0000 (Fri, 17 May 2013) $
+# Version: $Revision: 781 $
+# Date   : $Date: 2013-05-17 16:07:55 +0000 (Fri, 17 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -274,6 +274,9 @@ if {	[file exists [file join $::scidb::dir::user themes StonyGlass.dat]]
 if {[file exists [file join $::scidb::dir::user themes BlueTheme.dat]]} {
 	file delete [file join $::scidb::dir::user themes BlueTheme.dat]
 	file delete [file join $::scidb::dir::user themes square BlueTheme.dat]
+	set update 1
+}
+if {![file exists [file join $::scidb::dir::user themes Primus.dat]]} {
 	set update 1
 }
 if {$update} { ::scidb::themes::update }
