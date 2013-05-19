@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 782 $
+// Date   : $Date: 2013-05-19 16:31:08 +0000 (Sun, 19 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -125,7 +125,7 @@ inline
 typename set<T>::iterator
 set<T>::find(const_reference v)
 {
-	return const_cast<iterator>(const_cast<set const&>(*this).find(v));
+	return iterator(const_cast<pointer>(const_cast<set const&>(*this).find(v).ref()));
 }
 
 

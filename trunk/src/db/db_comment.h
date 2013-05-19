@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 774 $
-// Date   : $Date: 2013-05-16 22:06:25 +0000 (Thu, 16 May 2013) $
+// Version: $Revision: 782 $
+// Date   : $Date: 2013-05-19 16:31:08 +0000 (Sun, 19 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -44,9 +44,9 @@ public:
 	{
 		enum Attribute
 		{
-			Bold			= 'b',
-			Italic		= 'i',
-			Underline	= 'u',
+			Bold,
+			Italic,
+			Underline,
 		};
 
 		virtual ~Callback() throw();
@@ -67,6 +67,8 @@ public:
 
 		virtual void invalidXmlContent(mstl::string const& content) = 0;
 	};
+
+	enum Mode { PreserveEmoticons, ExpandEmoticons };
 
 	typedef mstl::map<mstl::string,unsigned> LanguageSet;
 
@@ -109,7 +111,7 @@ public:
 	void swap(Comment& comment);
 	void swap(mstl::string& content, bool engFlag, bool othFlag);
 	void copy(mstl::string const& fromLang, mstl::string const& toLang, bool stripOriginal = false);
-	void normalize(char delim = '\n');
+	void normalize(Mode mode = ExpandEmoticons, char delim = '\n');
 	void clear();
 
 	void parse(Callback& cb) const;

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 782 $
+// Date   : $Date: 2013-05-19 16:31:08 +0000 (Sun, 19 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -20,6 +20,7 @@
 #define _mstl_stack_included
 
 #include "m_memblock.h"
+#include "m_pointer_iterator.h"
 #include "m_iterator.h"
 
 namespace mstl {
@@ -32,14 +33,14 @@ public:
 	typedef T						value_type;
 	typedef value_type*			pointer;
 	typedef value_type const*	const_pointer;
-	typedef pointer				iterator;
-	typedef const_pointer		const_iterator;
 	typedef value_type&			reference;
 	typedef value_type const&	const_reference;
 	typedef bits::size_t			size_type;
 
-	typedef mstl::reverse_iterator<T>			reverse_iterator;
-	typedef mstl::const_reverse_iterator<T>	const_reverse_iterator;
+	typedef pointer_iterator<T>			iterator;
+	typedef pointer_const_iterator<T>	const_iterator;
+	typedef reverse_iterator<T>			reverse_iterator;
+	typedef const_reverse_iterator<T>	const_reverse_iterator;
 
 	stack();
 	explicit stack(size_type n);

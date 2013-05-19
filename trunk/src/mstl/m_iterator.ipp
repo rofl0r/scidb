@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 782 $
+// Date   : $Date: 2013-05-19 16:31:08 +0000 (Sun, 19 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -276,7 +276,7 @@ const_reverse_iterator<T>::operator<(const_reverse_iterator const& iter) const
 
 template <typename T>
 inline
-typename const_reverse_iterator<T>::const_reference
+typename const_reverse_iterator<T>::reference
 const_reverse_iterator<T>::operator*() const
 {
 	const_iterator prev  = m_i;
@@ -286,7 +286,7 @@ const_reverse_iterator<T>::operator*() const
 
 template <typename T>
 inline
-typename const_reverse_iterator<T>::const_pointer
+typename const_reverse_iterator<T>::pointer
 const_reverse_iterator<T>::operator->() const
 {
 	return &(operator*());
@@ -375,7 +375,7 @@ const_reverse_iterator<T>::operator-(size_t n) const
 
 template <typename T>
 inline
-typename const_reverse_iterator<T>::const_reference
+typename const_reverse_iterator<T>::reference
 const_reverse_iterator<T>::operator[](difference_type n) const
 {
 	return *(*this + n);

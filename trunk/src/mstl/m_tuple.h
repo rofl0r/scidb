@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 648 $
-// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
+// Version: $Revision: 782 $
+// Date   : $Date: 2013-05-19 16:31:08 +0000 (Sun, 19 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -58,6 +58,24 @@ private:
 	typedef typename tl::bits::member_list<type_list> members;
 
 	members m_members;
+};
+
+template <typename T> struct is_pod;
+template <typename T> struct is_movable;
+
+template <typename T0, typename T1, typename T2, typename T3>
+struct
+is_pod< tuple<T0,T1,T2,T3> >
+{
+	enum { value = is_pod<T0>::value & is_pod<T1>::value & is_pod<T2>::value & is_pod<T3>::value };
+};
+
+template <typename T0, typename T1, typename T2, typename T3>
+struct
+is_movable< tuple<T0,T1,T2,T3> >
+{
+	enum { value = is_movable<T0>::value & is_movable<T1>::value
+					 & is_movable<T2>::value & is_movable<T3>::value };
 };
 
 } // namespace mstl

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 719 $
-// Date   : $Date: 2013-04-19 16:40:59 +0000 (Fri, 19 Apr 2013) $
+// Version: $Revision: 782 $
+// Date   : $Date: 2013-05-19 16:31:08 +0000 (Sun, 19 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -499,6 +499,42 @@ list<T>::end() const
 
 template <typename T>
 inline
+typename list<T>::reverse_iterator
+list<T>::rbegin()
+{
+	return reverse_iterator(end());
+}
+
+
+template <typename T>
+inline
+typename list<T>::reverse_iterator
+list<T>::rend()
+{
+	return reverse_iterator(begin());
+}
+
+
+template <typename T>
+inline
+typename list<T>::const_reverse_iterator
+list<T>::rbegin() const
+{
+	return const_reverse_iterator(end());
+}
+
+
+template <typename T>
+inline
+typename list<T>::const_reverse_iterator
+list<T>::rend() const
+{
+	return const_reverse_iterator(begin());
+}
+
+
+template <typename T>
+inline
 bool
 list<T>::empty() const
 {
@@ -747,6 +783,20 @@ list<T>::operator=(list const& v)
 	return *this;
 }
 
+
+template <typename T>
+inline
+list<T>&
+list<T>::operator+=(list const& v)
+{
+	const_iterator first	= v.begin();
+	const_iterator last	= v.end();
+
+	for ( ; first != last; ++first)
+		push_back(*first);
+
+	return *this;
+}
 
 #if HAVE_0X_MOVE_CONSTRCUTOR_AND_ASSIGMENT_OPERATOR
 

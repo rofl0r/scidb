@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 782 $
+// Date   : $Date: 2013-05-19 16:31:08 +0000 (Sun, 19 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -23,9 +23,45 @@
 
 namespace mstl {
 
-template<typename T, typename U> U* uninitialized_copy(T const* first, T const* last, U* result);
-template<typename T, typename U> U* uninitialized_move(T const* first, T const* last, U* result);
+template <typename T> struct pointer_iterator;
+template <typename T> struct pointer_const_iterator;
+
+template<typename T> T* uninitialized_copy(T const* first, T const* last, T* result);
+template<typename T> T* uninitialized_move(T const* first, T const* last, T* result);
 template<typename T> T* uninitialized_fill_n(T* first, size_t n, T const& value);
+
+template<typename T> T* uninitialized_copy(T* first, T* last, T* result);
+template<typename T> T* uninitialized_move(T* first, T* last, T* result);
+
+template<typename T>
+T* uninitialized_copy(pointer_iterator<T> first, pointer_iterator<T> last, T* result);
+template<typename T>
+T* uninitialized_move(pointer_iterator<T> first, pointer_iterator<T> last, T* result);
+template<typename T>
+T* uninitialized_fill_n(pointer_iterator<T>* first, size_t n, T const& value);
+
+template<typename T, typename U>
+U** uninitialized_copy(pointer_iterator<T*> first, pointer_iterator<T*> last, U** result);
+template<typename T, typename U>
+U** uninitialized_move(pointer_iterator<T*> first, pointer_iterator<T*> last, U** result);
+template<typename T, typename U>
+U** uninitialized_fill_n(pointer_iterator<U**> first, size_t n, T const* value);
+
+template<typename T>
+T* uninitialized_copy(pointer_const_iterator<T> first, pointer_const_iterator<T> last, T* result);
+template<typename T>
+T* uninitialized_move(pointer_const_iterator<T> first, pointer_const_iterator<T> last, T* result);
+
+template<typename T, typename U>
+U** uninitialized_copy(pointer_const_iterator<T*> first, pointer_const_iterator<T*> last, U** result);
+template<typename T, typename U>
+U** uninitialized_move(pointer_const_iterator<T*> first, pointer_const_iterator<T*> last, U** result);
+
+template<typename Iterator, typename T>
+T* uninitialized_copy(Iterator first, Iterator last, T* result);
+
+template<typename Iterator, typename T>
+T* uninitialized_move(Iterator first, Iterator last, T* result);
 
 } // namespace mstl
 

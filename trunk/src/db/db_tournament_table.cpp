@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 782 $
+// Date   : $Date: 2013-05-19 16:31:08 +0000 (Sun, 19 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1433,7 +1433,7 @@ TournamentTable::emitKnockoutTable(TeXt::Receptacle& receptacle, KnockoutOrder o
 
 	for (unsigned round = m_maxRound; round > 0; --round)
 	{
-		ClashList slots(1 << (m_maxRound - round + m_lastRound - 1), 0);
+		ClashList slots(1u << (m_maxRound - round + m_lastRound - 1), nullptr);
 		unsigned r = mstl::div4(slots.size());
 
 		used.reset();

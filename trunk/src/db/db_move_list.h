@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 782 $
+// Date   : $Date: 2013-05-19 16:31:08 +0000 (Sun, 19 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -29,6 +29,7 @@
 
 #include "db_move.h"
 
+#include "m_pointer_iterator.h"
 #include "m_iterator.h"
 
 namespace db {
@@ -44,11 +45,11 @@ public:
 	// TODO: Make a sharper calculation.
 	enum { Maximum_Moves = 522 };
 
-	typedef Move*			iterator;
-	typedef Move const*	const_iterator;
+	typedef mstl::pointer_iterator<Move>			iterator;
+	typedef mstl::pointer_const_iterator<Move>	const_iterator;
 
-	typedef mstl::reverse_iterator<Move>			reverse_iterator;
-	typedef mstl::const_reverse_iterator<Move>	const_reverse_iterator;
+	typedef mstl::reverse_iterator<iterator>					reverse_iterator;
+	typedef mstl::const_reverse_iterator<const_iterator>	const_reverse_iterator;
 
 	MoveList();
 

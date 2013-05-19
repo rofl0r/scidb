@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 774 $
-// Date   : $Date: 2013-05-16 22:06:25 +0000 (Thu, 16 May 2013) $
+// Version: $Revision: 782 $
+// Date   : $Date: 2013-05-19 16:31:08 +0000 (Sun, 19 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -774,10 +774,10 @@ Variation::difference(Root const* root, Variation const* var, unsigned level, No
 						|| static_cast<Move const*>(rhs)->ply() == 0
 						|| *static_cast<Move const*>(lhs)->ply() != static_cast<Move const*>(rhs)->ply()))
 				{
-					KeyNode const* const* lhsLast	= m_list.begin() + i + 1;
-					KeyNode const* const* lhsEnd	= m_list.end();
-					KeyNode const* const* rhsLast	= var->m_list.begin() + k + 1;
-					KeyNode const* const* rhsEnd	= var->m_list.end();
+					List::const_iterator lhsLast	= m_list.begin() + i + 1;
+					List::const_iterator lhsEnd	= m_list.end();
+					List::const_iterator rhsLast	= var->m_list.begin() + k + 1;
+					List::const_iterator rhsEnd	= var->m_list.end();
 
 					while	(	lhsLast < lhsEnd
 							&& rhsLast < rhsEnd

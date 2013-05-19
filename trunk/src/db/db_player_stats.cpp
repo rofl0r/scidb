@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 782 $
+// Date   : $Date: 2013-05-19 16:31:08 +0000 (Sun, 19 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -108,7 +108,7 @@ PlayerStats::finish()
 {
 	for (unsigned i = 0; i < 2; ++i)
 	{
-		::qsort(	const_cast<MapType*>(m_ecoMap[i].container().begin()),
+		::qsort(	const_cast<MapType*>(m_ecoMap[i].container().begin().ref()),
 					m_ecoMap[i].size(),
 					sizeof(MapType),
 					::cmpEco);

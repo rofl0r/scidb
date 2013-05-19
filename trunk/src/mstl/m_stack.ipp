@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 782 $
+// Date   : $Date: 2013-05-19 16:31:08 +0000 (Sun, 19 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -63,7 +63,7 @@ inline
 stack<T>::stack(stack const& v)
 	:memblock<T>(v.size())
 {
-	this->m_finish = ::mstl::uninitialized_copy(v.begin(), v.end(), this->m_start) - 1;
+	this->m_finish = ::mstl::uninitialized_copy(pointer(v.begin()), pointer(v.end()), this->m_start) - 1;
 }
 
 
@@ -71,8 +71,8 @@ template <typename T>
 inline
 stack<T>::~stack() throw()
 {
-	M_ASSERT((begin() == 0) == (end() == 0));
-	::mstl::bits::destroy(begin(), end());
+	M_ASSERT((pointer(begin()) == 0) == (pointer(end()) == 0));
+	::mstl::bits::destroy(pointer(begin()), pointer(end()));
 }
 
 
@@ -85,7 +85,9 @@ stack<T>::operator=(stack const& v)
 	{
 		clear();
 		reserve(v.size());
-		this->m_finish = ::mstl::uninitialized_copy(v.begin(), v.end(), this->m_start) - 1;
+		this->m_finish = ::mstl::uninitialized_copy(	const_pointer(v.begin()),
+																	const_pointer(v.end()),
+																	this->m_start) - 1;
 	}
 
 	return *this;
