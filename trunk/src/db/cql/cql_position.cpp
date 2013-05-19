@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 769 $
-// Date   : $Date: 2013-05-10 22:26:18 +0000 (Fri, 10 May 2013) $
+// Version: $Revision: 784 $
+// Date   : $Date: 2013-05-19 20:35:50 +0000 (Sun, 19 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -39,6 +39,7 @@
 #include "m_auto_ptr.h"
 #include "m_string.h"
 #include "m_algorithm.h"
+#include "m_type_traits.h"
 
 #include <ctype.h>
 #include <stdlib.h>
@@ -372,6 +373,10 @@ Position::doMatch(GameInfo const& info, Board const& board, Variant variant, uns
 		{
 			if (!(*i)->match(info, board, variant, flags))
 			{
+				static_assert(
+					(mstl::is_convertible<cql::board::GappedSequence, cql::board::Sequence>::value),
+					"we have to check both, Sequence and GappedSequence");
+
 				if (m_not && dynamic_cast<cql::board::GappedSequence const*>(*i))
 					return false;
 

@@ -1,7 +1,7 @@
 ## ======================================================================
 # Author : $Author$
-# Version: $Revision: 766 $
-# Date   : $Date: 2013-05-09 14:10:11 +0000 (Thu, 09 May 2013) $
+# Version: $Revision: 784 $
+# Date   : $Date: 2013-05-19 20:35:50 +0000 (Sun, 19 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -589,7 +589,7 @@ proc LoadPage {item} {
 			set ExternalLinks($path) 1
 		} else {
 			set fragment [$Priv(uri:$item) fragment]
-			set Links($path) [[namespace parent]::Load $path {} {} $fragment]
+			set Links($path) [[namespace parent]::Load $path {} $fragment]
 		}
 	}
 }
