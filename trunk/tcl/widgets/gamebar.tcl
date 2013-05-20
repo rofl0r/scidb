@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 773 $
-# Date   : $Date: 2013-05-12 16:51:25 +0000 (Sun, 12 May 2013) $
+# Version: $Revision: 785 $
+# Date   : $Date: 2013-05-20 21:11:32 +0000 (Mon, 20 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1806,7 +1806,7 @@ proc PopupPlayerMenu {gamebar id side} {
 		set name [lindex $info 0]
 		if {$name eq "?" || $name eq "-"} { set name "" }
 		if {[string length $name]} {
-			lassign [GetSource $id] base variant index
+			lassign [GetSource $id] base variant gameIndex
 			::playertable::popupMenu $menu $base $variant $info [list $gameIndex $side]
 			$menu add separator
 		}

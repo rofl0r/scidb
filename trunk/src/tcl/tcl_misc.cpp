@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 782 $
-// Date   : $Date: 2013-05-19 16:31:08 +0000 (Sun, 19 May 2013) $
+// Version: $Revision: 785 $
+// Date   : $Date: 2013-05-20 21:11:32 +0000 (Mon, 20 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -306,21 +306,14 @@ ToList::putContent()
 				char const* q = s;
 				char const* p = util::emoticons::parseEmotion(q, e, emotion);
 
-				mstl::string tmp;
 				mstl::string str;
-
-				tmp.hook(const_cast<char*>(s), p - s);
-				::db::Comment::escapeString(tmp, str);
+				str.hook(const_cast<char*>(s), p - s);
 
 				if (!str.empty())
 					appendTag("str", str);
 
 				if (p < e)
-				{
-					mstl::string code;
-					::db::Comment::escapeString(util::emoticons::toAscii(emotion), code);
-					appendTag("emo", code);
-				}
+					appendTag("emo", util::emoticons::toAscii(emotion));
 
 				s = q;
 			}

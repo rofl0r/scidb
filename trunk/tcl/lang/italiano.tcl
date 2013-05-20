@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 774 $
-# Date   : $Date: 2013-05-16 22:06:25 +0000 (Thu, 16 May 2013) $
+# Version: $Revision: 785 $
+# Date   : $Date: 2013-05-20 21:11:32 +0000 (Mon, 20 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -43,11 +43,13 @@
 ::mc::Key(Enter)			"Invio"
 ::mc::Key(Esc)				"Esci"
 ::mc::Key(Home)			"Inizio" ;# "Home"
+::mc::Key(Ins)				"Ins" ;# NEW
 ::mc::Key(Left)			"\u2190"
 ::mc::Key(Next)			"Page\u2193"
 ::mc::Key(Prior)			"Page\u2191"
 ::mc::Key(Right)			"\u2192"
 ::mc::Key(Shift)			"Shift"
+::mc::Key(Space)			"\u2423"
 ::mc::Key(Up)				"\u2191"
 
 ::mc::Alignment			"Allineamento"
