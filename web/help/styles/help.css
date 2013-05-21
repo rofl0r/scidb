@@ -86,8 +86,9 @@
 }
 
 html {
-  font-family:      Arial, 'Bitstream Vera Sans', 'DejaVu Sans', Verdana,
-                    'Lucida Grande', 'Lucida Sans', Helvetica;
+  font-family:      'Bitstream Vera Sans', Verdana, 'Helvetica Neue',
+                    Helvetica, Arial, 'DejaVu Sans', 'Lucida Grande',
+                    'Lucida Sans';
   background-color: #b8d2e2;
 }
 
