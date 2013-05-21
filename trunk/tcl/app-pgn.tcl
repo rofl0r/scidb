@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 782 $
-# Date   : $Date: 2013-05-19 16:31:08 +0000 (Sun, 19 May 2013) $
+# Version: $Revision: 786 $
+# Date   : $Date: 2013-05-21 21:27:38 +0000 (Tue, 21 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1563,13 +1563,7 @@ proc PrintComment {position w level key pos data} {
 					if {$tag eq "symbol"} {
 						if {$flags & 1} { set tag symbolb }
 					} else {
-						switch $flags {
-							0 { set tag {} }
-							1 { set tag bold }
-							2 { set tag italic }
-							3 { set tag bold-italic }
-						}
-						if {$underline} { lappend tag underline }
+						if {$flags & 1} { set tag codeb } else { set tag code }
 					}
 					lappend tag $langTag $nagTag
 					set sym [::font::mapNagToUtfSymbol $sym]

@@ -3,8 +3,8 @@
 exec tclsh "$0" "$@"
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 774 $
-# Date   : $Date: 2013-05-16 22:06:25 +0000 (Thu, 16 May 2013) $
+# Version: $Revision: 786 $
+# Date   : $Date: 2013-05-21 21:27:38 +0000 (Tue, 21 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -488,6 +488,7 @@ proc readContents {chan file} {
 			}
 		}
 
+# <kbd class='key'>Strg</kbd>+<kbd class='key'>%::application::board::mc::Accel(edit-comment)%</kbd>
 		while {[regexp {<key>([a-zA-Z%:\(\)-]*)</key>} $line _ key]} {
 			switch $key {
 				King		{ set expr "<kbd class='key'>[lindex $Pieces($lang) 0]</kbd>" }

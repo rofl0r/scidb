@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 782 $
-# Date   : $Date: 2013-05-19 16:31:08 +0000 (Sun, 19 May 2013) $
+# Version: $Revision: 786 $
+# Date   : $Date: 2013-05-21 21:27:38 +0000 (Tue, 21 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -307,6 +307,8 @@ proc configureText {path {fontContext ""}} {
 		$w tag configure figurineb -font $::font::figurine($fontContext:bold) -underline no
 		$w tag configure symbol -font $::font::symbol($fontContext:normal)
 		$w tag configure symbolb -font $::font::symbol($fontContext:bold)
+		$w tag configure code -font $::font::text($fontContext:normal)
+		$w tag configure codeb -font $::font::text($fontContext:bold)
 
 		$w tag configure opening -foreground $Colors(foreground:opening)
 		$w tag configure opening -font $::font::text($fontContext:bold)

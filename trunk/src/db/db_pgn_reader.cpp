@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 772 $
-// Date   : $Date: 2013-05-11 14:35:53 +0000 (Sat, 11 May 2013) $
+// Version: $Revision: 786 $
+// Date   : $Date: 2013-05-21 21:27:38 +0000 (Tue, 21 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -3380,21 +3380,34 @@ PgnReader::parseComment(Token prevToken, int c)
 	if (c == '{')
 	{
 		// parse comment until first '}'
-		do
-			c = get();
-		while (::isspace(c));
-
-		while (c != '}')
+		if (m_modification == Normalize)
 		{
-			if (c == '\n' || c == '\r')
-			{
-				::appendSpace(content);
+			do
+				c = get();
+			while (::isspace(c));
 
-				do
+			while (c != '}')
+			{
+				if (c == '\n' || c == '\r')
+				{
+					::appendSpace(content);
+
+					do
+						c = get();
+					while (::isspace(c));
+				}
+				else
+				{
+					content += c;
 					c = get();
-				while (::isspace(c));
+				}
 			}
-			else
+		}
+		else
+		{
+			c = get();
+
+			while (c != '}')
 			{
 				content += c;
 				c = get();

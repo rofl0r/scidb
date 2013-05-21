@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 785 $
-# Date   : $Date: 2013-05-20 21:11:32 +0000 (Mon, 20 May 2013) $
+# Version: $Revision: 786 $
+# Date   : $Date: 2013-05-21 21:27:38 +0000 (Tue, 21 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -35,7 +35,7 @@
 ::mc::SortOrder		{A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Å Ä Ö a b c d e f g h i j k l m n o p q r s t u v w x y z å ä ö}
 
 ::mc::Key(Alt)				"Alt"
-::mc::Key(BS)				"\u232b"
+::mc::Key(BS)				"\u27fb" ;# "\u232b" is correct, but difficult to read
 ::mc::Key(Ctrl)			"Ctrl" ;# NEW
 ::mc::Key(Del)				"Del" ;# NEW
 ::mc::Key(Down)			"\u2193"
