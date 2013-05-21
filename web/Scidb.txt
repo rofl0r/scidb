@@ -28,10 +28,10 @@
      content="Scidb, Scid, chess, chess database, Schach, Schachdatenbank, GPL" />
 
   <link rel="icon"
-       href="http://scidb.sourceforge.net/images/scidb.ico"
+       href="http://scidb.sourceforge.net/favicon.ico"
        type="image/x-icon" />
   <link rel="shortcut icon"
-       href="http://scidb.sourceforge.net/images/scidb.ico" />
+       href="http://scidb.sourceforge.net/favicon.ico" />
 
   <link rel="stylesheet"
        type="text/css"

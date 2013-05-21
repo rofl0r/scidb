@@ -3,8 +3,8 @@
 exec tclsh "$0" "$@"
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 759 $
-# Date   : $Date: 2013-05-01 21:13:48 +0000 (Wed, 01 May 2013) $
+# Version: $Revision: 790 $
+# Date   : $Date: 2013-05-21 23:10:08 +0000 (Tue, 21 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -52,7 +52,7 @@ proc backlinks {divid} {
 
 	if {[string match *de $home]} {
 		set backToHome [enc "Zurück zur Homepage"]
-		set backToIndex [enc "Zurück zum Hilfe-Übersicht"]
+		set backToIndex [enc "Zurück zur Hilfe-Übersicht"]
 	} else {
 		set backToHome "Back to home page"
 		set backToIndex "Back to help overview"
