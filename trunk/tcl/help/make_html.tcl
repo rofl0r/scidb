@@ -3,8 +3,8 @@
 exec tclsh "$0" "$@"
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 786 $
-# Date   : $Date: 2013-05-21 21:27:38 +0000 (Tue, 21 May 2013) $
+# Version: $Revision: 789 $
+# Date   : $Date: 2013-05-21 23:02:39 +0000 (Tue, 21 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -442,7 +442,7 @@ proc readContents {chan file} {
 			regexp -indices $reImg $line location
 			lassign $location i k
 			set newline [string range $line 0 [expr {$i - 1}]]
-			append newline "<img ${extra1}src=\"${src}\" alt=\"\" />${extra2}"
+			append newline "<img ${extra1}src=\"${src}\" alt=\"\"${extra2}/>"
 			append newline [string range $line [expr {$k + 1}] end]
 			set line $newline
 		}
