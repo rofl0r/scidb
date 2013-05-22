@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 726 $
-# Date   : $Date: 2013-04-22 17:33:00 +0000 (Mon, 22 Apr 2013) $
+# Version: $Revision: 793 $
+# Date   : $Date: 2013-05-22 00:00:16 +0000 (Wed, 22 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -117,6 +117,9 @@ array set fontFamilies {
 
 	Fixed {
 		{Bitstream Vera Sans Mono}
+		{Monaco}
+		{Menlo}
+		{Consolas}
 		{Arial Monospaced}
 		{Akkurat-Mono}
 		{Andale Mono}
