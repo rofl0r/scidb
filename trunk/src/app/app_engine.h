@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 648 $
-// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
+// Version: $Revision: 795 $
+// Date   : $Date: 2013-05-22 21:49:03 +0000 (Wed, 22 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -191,6 +191,7 @@ public:
 		db::Game const* currentGame() const;
 		Options const& options() const;
 		::db::variant::Type currentVariant() const;
+		unsigned supportedVariants() const;
 		int findVariation(db::Move const& move) const;
 
 		long pid() const;

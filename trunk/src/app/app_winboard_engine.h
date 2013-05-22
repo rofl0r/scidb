@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 795 $
+// Date   : $Date: 2013-05-22 21:49:03 +0000 (Wed, 22 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -129,6 +129,7 @@ private:
 	bool m_featureVariant;
 	bool m_featurePing;
 	bool m_isCrafty;
+	bool m_parsingFeatures;
 	bool m_startAnalyzeIsPending;
 	bool m_stopAnalyzeIsPending;
 };

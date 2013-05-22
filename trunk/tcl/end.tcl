@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 780 $
-# Date   : $Date: 2013-05-17 16:03:49 +0000 (Fri, 17 May 2013) $
+# Version: $Revision: 795 $
+# Date   : $Date: 2013-05-22 21:49:03 +0000 (Wed, 22 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -272,7 +272,7 @@ if {[catch {
 }
 
 # migrate to new default theme
-if {$scidb::revision <= 701} {
+if {$scidb::revision < 701} {
 	if {$board::currentTheme eq {Blue Theme|1354018040763|yellow.color|gregor}} {
 		set board::currentTheme Default
 	} elseif {$scidb::revision > 83 && $board::currentTheme eq "Default"} {

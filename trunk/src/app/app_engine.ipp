@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 795 $
+// Date   : $Date: 2013-05-22 21:49:03 +0000 (Wed, 22 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -50,6 +50,7 @@ inline unsigned Engine::Concrete::skillLevel() const			{ return m_engine->skillL
 inline unsigned Engine::Concrete::limitedStrength() const	{ return m_engine->limitedStrength(); }
 inline unsigned Engine::Concrete::numThreads() const			{ return m_engine->numThreads(); }
 inline unsigned Engine::Concrete::numCores() const				{ return m_engine->numCores(); }
+inline unsigned Engine::Concrete::supportedVariants() const	{ return m_engine->supportedVariants(); }
 
 inline long Engine::Concrete::pid() const							{ return m_engine->pid(); }
 
