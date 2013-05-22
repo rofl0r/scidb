@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 769 $
-// Date   : $Date: 2013-05-10 22:26:18 +0000 (Fri, 10 May 2013) $
+// Version: $Revision: 794 $
+// Date   : $Date: 2013-05-22 20:19:59 +0000 (Wed, 22 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2650,9 +2650,12 @@ Codec::doDecoding(Consumer& consumer, TagSet& tags, GameInfo const& info, unsign
 }
 
 
-// NOTE: currently not used!
+#if 0
 Move
-Codec::findExactPositionAsync(GameInfo const& info, Board const& position, bool skipVariations)
+Codec::findExactPosition(	GameInfo const& info,
+									Board const& position,
+									bool skipVariations,
+									BlockFileReader* reader)
 {
 	Byte buf[32768];
 
@@ -2666,6 +2669,7 @@ Codec::findExactPositionAsync(GameInfo const& info, Board const& position, bool 
 	Decoder decoder(gStrm, aStrm, *m_codec, isChess960);
 	return decoder.findExactPosition(position, skipVariations);
 }
+#endif
 
 
 bool

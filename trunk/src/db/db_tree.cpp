@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 688 $
-// Date   : $Date: 2013-03-29 16:55:41 +0000 (Fri, 29 Mar 2013) $
+// Version: $Revision: 794 $
+// Date   : $Date: 2013-05-22 20:19:59 +0000 (Wed, 22 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -201,7 +201,7 @@ Tree::possiblyAdd(Database const& base,
 {
 	try
 	{
-		Move m = base.findExactPositionAsync(m_index, myPosition, true);
+		Move m = base.findExactPosition(m_index, myPosition, true);
 
 		if (!m.isInvalid())
 			add(info, eco, ::index(m), myPosition);

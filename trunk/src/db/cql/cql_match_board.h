@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 769 $
-// Date   : $Date: 2013-05-10 22:26:18 +0000 (Fri, 10 May 2013) $
+// Version: $Revision: 794 $
+// Date   : $Date: 2013-05-22 20:19:59 +0000 (Wed, 22 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -28,6 +28,7 @@
 #define _cql_match_board_included
 
 #include "cql_designator.h"
+#include "cql_engine.h"
 
 #include "db_board.h"
 
@@ -429,21 +430,27 @@ class Evaluation : public Match
 {
 public:
 
-	enum Mode { Depth, MoveTime, Mate };
+	typedef Engine::Mode		Mode;
+	typedef Engine::Method	Method;
+
 	enum View { SideToMove, Absolute };
 
-	Evaluation(Mode mode, unsigned ply);
-	Evaluation(Mode mode, unsigned n, float lower, float upper, View view);
+	Evaluation(Method method, Mode mode, unsigned ply);
+	Evaluation(Method method, Mode mode, unsigned arg, float lower, float upper, View view);
 
 	bool match(GameInfo const& info, Board const& board, Variant variant, unsigned flags) override;
 
+	void setEngine(Engine* engine);
+
 private:
 
+	Method	m_method;
 	Mode		m_mode;
 	View		m_view;
 	unsigned	m_arg;
 	float		m_lower;
 	float		m_upper;
+	Engine*	m_engine;
 };
 
 

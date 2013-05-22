@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 769 $
-// Date   : $Date: 2013-05-10 22:26:18 +0000 (Fri, 10 May 2013) $
+// Version: $Revision: 794 $
+// Date   : $Date: 2013-05-22 20:19:59 +0000 (Wed, 22 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -28,6 +28,7 @@
 #define _cql_match_move_included
 
 #include "cql_designator.h"
+#include "cql_engine.h"
 
 namespace db { class Move; }
 namespace db { class Board; }
@@ -90,7 +91,8 @@ class MoveEvaluation : public Match
 {
 public:
 
-	enum Mode { Depth, MoveTime, Mate };
+	typedef Engine::Mode Mode;
+
 	enum View { SideToMove, Absolute };
 
 	MoveEvaluation(Mode mode,
@@ -112,6 +114,7 @@ private:
 	Designator	m_to;
 	float			m_lower;
 	float			m_upper;
+	Engine*		m_engine;
 };
 
 

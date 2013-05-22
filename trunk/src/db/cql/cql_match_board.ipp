@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 769 $
-// Date   : $Date: 2013-05-10 22:26:18 +0000 (Fri, 10 May 2013) $
+// Version: $Revision: 794 $
+// Date   : $Date: 2013-05-22 20:19:59 +0000 (Wed, 22 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -49,9 +49,10 @@ inline GappedSequence::GappedSequence() :m_info(0), m_index(0) {}
 inline Repetition::Repetition() :m_info(0) {}
 
 inline
-Evaluation::Evaluation(Mode mode, unsigned ply)
-	:m_mode(mode)
-	,m_view(SideToMove)
+Evaluation::Evaluation(Method method, Mode mode, unsigned ply)
+	:m_method(method)
+	,m_mode(mode)
+	,m_view(Absolute)
 	,m_arg(ply)
 	,m_lower(0.0)
 	,m_upper(0.0)
@@ -59,13 +60,21 @@ Evaluation::Evaluation(Mode mode, unsigned ply)
 }
 
 inline
-Evaluation::Evaluation(Mode mode, unsigned n, float lower, float upper, View view)
-	:m_mode(mode)
+Evaluation::Evaluation(Method method, Mode mode, unsigned arg, float lower, float upper, View view)
+	:m_method(method)
+	,m_mode(mode)
 	,m_view(view)
-	,m_arg(n)
+	,m_arg(arg)
 	,m_lower(lower)
 	,m_upper(upper)
 {
+}
+
+inline
+void
+Evaluation::setEngine(Engine* engine)
+{
+	m_engine = engine;
 }
 
 inline

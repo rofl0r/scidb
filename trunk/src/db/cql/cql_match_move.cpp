@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 769 $
-// Date   : $Date: 2013-05-10 22:26:18 +0000 (Fri, 10 May 2013) $
+// Version: $Revision: 794 $
+// Date   : $Date: 2013-05-22 20:19:59 +0000 (Wed, 22 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -82,8 +82,14 @@ NoCastling::match(Board const& board, Move const& move, Variant variant)
 bool
 MoveEvaluation::match(Board const& board, Move const& move, Variant variant)
 {
-	// TODO
-	return false;
+	M_ASSERT(m_engine);
+
+	float result = m_engine->evaluate(m_mode, m_arg, move);
+
+	if (m_view == SideToMove && board.blackToMove())
+		result = -result;
+
+	return m_lower <= result && result <= m_upper;
 }
 
 

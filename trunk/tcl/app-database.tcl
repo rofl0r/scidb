@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 773 $
-# Date   : $Date: 2013-05-12 16:51:25 +0000 (Sun, 12 May 2013) $
+# Version: $Revision: 794 $
+# Date   : $Date: 2013-05-22 20:19:59 +0000 (Wed, 22 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -517,6 +517,10 @@ proc openBase {parent file byUser args} {
 				}
 				set opts(-readonly) 1
 			}
+		}
+		if {![::scidb::db::get open? $file]} {
+			::dialog::error -parent $parent -message [format $mc::CannotOpenFile $file]
+			return 0
 		}
 		set readonly $opts(-readonly)
 		if {$ext == "sci" && [::scidb::db::get upgrade? $file]} {

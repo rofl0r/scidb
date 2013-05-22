@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 648 $
-// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
+// Version: $Revision: 794 $
+// Date   : $Date: 2013-05-22 20:19:59 +0000 (Wed, 22 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -211,18 +211,6 @@ Database::insertAnnotator(mstl::string const& name)
 	M_ASSERT(!isReadonly());
 
 	return m_namebases(Namebase::Annotator).insert(name, m_codec->maxAnnotatorCount());
-}
-
-
-inline
-Move
-Database::findExactPositionAsync(unsigned index, Board const& position, bool skipVariations) const
-{
-	M_REQUIRE(isOpen());
-	M_REQUIRE(index < countGames());
-	M_REQUIRE(usingAsyncReader());
-
-	return m_codec->findExactPositionAsync(*m_gameInfoList[index], position, skipVariations);
 }
 
 

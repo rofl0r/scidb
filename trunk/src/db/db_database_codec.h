@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 667 $
-// Date   : $Date: 2013-03-08 23:38:44 +0000 (Fri, 08 Mar 2013) $
+// Version: $Revision: 794 $
+// Date   : $Date: 2013-05-22 20:19:59 +0000 (Wed, 22 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -192,10 +192,14 @@ public:
 	save::State saveMoves(util::ByteStream const& gameData, Provider const& provider);
 	virtual void sync();
 
-	virtual void useAsyncReader(bool flag);
-	virtual Move findExactPositionAsync(GameInfo const& info,
-													Board const& position,
-													bool skipVariations);
+	virtual ::util::BlockFileReader* getAsyncReader();
+	virtual void closeAsyncReader(::util::BlockFileReader* reader);
+
+	Move findExactPosition(GameInfo const& info, Board const& position, bool skipVariations);
+	virtual Move findExactPosition(	GameInfo const& info,
+												Board const& position,
+												bool skipVariations,
+												::util::BlockFileReader* reader);
 
 	GameInfo* allocGameInfo();
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 661 $
-// Date   : $Date: 2013-02-23 23:03:04 +0000 (Sat, 23 Feb 2013) $
+// Version: $Revision: 794 $
+// Date   : $Date: 2013-05-22 20:19:59 +0000 (Wed, 22 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -100,10 +100,6 @@ public:
 
 	void reset() override;
 	void setEncoding(mstl::string const& encoding) override;
-
-	Move findExactPositionAsync(	GameInfo const& info,
-											Board const& position,
-											bool skipVariations) override;
 
 	static bool getAttributes(	mstl::string const& filename,
 										int& numGames,

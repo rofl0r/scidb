@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 667 $
-// Date   : $Date: 2013-03-08 23:38:44 +0000 (Fri, 08 Mar 2013) $
+// Version: $Revision: 794 $
+// Date   : $Date: 2013-05-22 20:19:59 +0000 (Wed, 22 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -45,6 +45,14 @@ inline void DatabaseCodec::reloadDescription()						{ reloadDescription(m_db->m_
 inline void DatabaseCodec::removeAllFiles()							{ removeAllFiles(m_db->m_rootname); }
 
 inline void DatabaseCodec::setDescription(char const* description) { m_db->m_description = description; }
+
+
+inline
+Move
+DatabaseCodec::findExactPosition(GameInfo const& info, Board const& position, bool skipVariations)
+{
+	return findExactPosition(info, position, skipVariations, 0);
+}
 
 
 inline

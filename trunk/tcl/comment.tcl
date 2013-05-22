@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 786 $
-# Date   : $Date: 2013-05-21 21:27:38 +0000 (Tue, 21 May 2013) $
+# Version: $Revision: 794 $
+# Date   : $Date: 2013-05-22 20:19:59 +0000 (Wed, 22 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1066,17 +1066,29 @@ proc DumpToComment {dump} {
 					if {[incr n] == 1} {
 						if {$n == $count} {
 							if {$lst == 1 && $fst == 1} {
-								set value [string trim $value]
+								if {[string index $value end] == "\n"} {
+									# skip additional newline
+									set value [string range $value 0 end-1]
+								}
+								set value [string trim $value " "]
 							} elseif {$fst == 1} {
-								set value [string trimleft $value]
+								set value [string trimleft $value " "]
 							} elseif {$lst == 1} {
-								set value [string trimright $value]
+								if {[string index $value end] == "\n"} {
+									# skip additional newline
+									set value [string range $value 0 end-1]
+								}
+								set value [string trimright $value " "]
 							}
 						} elseif {$fst == 1} {
-							set value [string trimleft $value]
+							set value [string trimleft $value " "]
 						}
-					} elseif {$n == $count} {
-						if {$lst == 1} { set value [string trimright $value] }
+					} elseif {$n == $count && $lst == 1} {
+						if {[string index $value end] == "\n"} {
+							# skip additional newline
+							set value [string range $value 0 end-1]
+						}
+						set value [string trimright $value " "]
 					}
 				} else {
 					set value $Vars(symbol:$num)
