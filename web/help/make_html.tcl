@@ -3,8 +3,8 @@
 exec tclsh "$0" "$@"
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 796 $
-# Date   : $Date: 2013-05-23 14:06:51 +0000 (Thu, 23 May 2013) $
+# Version: $Revision: 797 $
+# Date   : $Date: 2013-05-23 14:08:03 +0000 (Thu, 23 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -71,7 +71,7 @@ proc backlinks {divid} {
 }
 
 
-set expr {\|(::)?([a-zA-Z_]+::)*[a-zA-Z_]+(\([a-zA-Z_:-]*\))?\|.+\|}
+set expr {\|(::)?([a-zA-Z_]+::)*[a-zA-Z_]+(\([a-zA-Z_:-]*\))?\|[^|]+\|}
 
 while {[gets $src line] >= 0} {
 	if {[string match "<!-- begin: exclude in web browser -->" $line]} {
