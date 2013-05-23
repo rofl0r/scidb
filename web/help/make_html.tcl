@@ -3,8 +3,8 @@
 exec tclsh "$0" "$@"
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 790 $
-# Date   : $Date: 2013-05-21 23:10:08 +0000 (Tue, 21 May 2013) $
+# Version: $Revision: 796 $
+# Date   : $Date: 2013-05-23 14:06:51 +0000 (Thu, 23 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -28,6 +28,9 @@ exec tclsh "$0" "$@"
 # ======================================================================
 
 package require Tcl 8.5
+
+file mkdir de
+file mkdir en
 
 set srcfile [lindex $argv 0]
 set dstfile [lindex $argv 1]
@@ -67,6 +70,9 @@ proc backlinks {divid} {
 	puts $dst "</div><!-- $divid -->"
 }
 
+
+set expr {\|(::)?([a-zA-Z_]+::)*[a-zA-Z_]+(\([a-zA-Z_:-]*\))?\|.+\|}
+
 while {[gets $src line] >= 0} {
 	if {[string match "<!-- begin: exclude in web browser -->" $line]} {
 		while {[gets $src line] >= 0 && ![string match "<!-- end: exclude in web browser -->" $line]} {
@@ -84,6 +90,16 @@ while {[gets $src line] >= 0} {
 		puts $dst "</div><!-- wrapper_0815 -->"
 		puts $dst $line
 	} else {
+		set start 0
+		while {[regexp -indices -start $start $expr $line pos]} {
+			lassign $pos n1 n2
+			incr n2 -1
+			set n1 $n2
+			while {[string index $line $n1] ne "|"} { incr n1 -1 }
+			incr n1
+			lassign $pos k1 k2
+			set line [string replace $line $k1 $k2 [string range $line $n1 $n2]]
+		}
 		puts $dst $line
 	}
 }
