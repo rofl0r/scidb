@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 774 $
-# Date   : $Date: 2013-05-16 22:06:25 +0000 (Thu, 16 May 2013) $
+# Version: $Revision: 798 $
+# Date   : $Date: 2013-05-24 16:41:53 +0000 (Fri, 24 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1624,6 +1624,13 @@ proc splitAnnotation {text} {
 	}
 
 	return $result
+}
+
+
+proc makeBoldFont {font} {
+	set family [font configure $font -family]
+	set size [font configure $font -size]
+	return [list $family $size bold]
 }
 
 

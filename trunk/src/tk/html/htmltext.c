@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 786 $
-// Date   : $Date: 2013-05-21 21:27:38 +0000 (Tue, 21 May 2013) $
+// Version: $Revision: 798 $
+// Date   : $Date: 2013-05-24 16:41:53 +0000 (Fri, 24 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2197,7 +2197,7 @@ HtmlTextNew(HtmlTree* pTree, int n, const char *z, int isTrimEnd, int isTrimStar
      * included because I am paranoid the optimized HtmlNodeIsWhitespace()
      * test (pText->zText==0) will malfunction one day.
      */
-    if (1) {
+    if (0) {
         int haveText = 0;
         HtmlTextIter sIter;
         HtmlTextIterFirst(pText, &sIter);

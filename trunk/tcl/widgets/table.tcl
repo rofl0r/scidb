@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 717 $
-# Date   : $Date: 2013-04-10 13:35:14 +0000 (Wed, 10 Apr 2013) $
+# Version: $Revision: 798 $
+# Date   : $Date: 2013-05-24 16:41:53 +0000 (Fri, 24 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -514,6 +514,11 @@ proc insert {table index list} {
 	}
 
 	set Vars(rows) [max $Vars(rows) [expr {$index + 1}]]
+}
+
+
+proc getFont {table} {
+	return [set ${table}::Options(-font)]
 }
 
 

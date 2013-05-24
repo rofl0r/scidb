@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 795 $
-# Date   : $Date: 2013-05-22 21:49:03 +0000 (Wed, 22 May 2013) $
+# Version: $Revision: 798 $
+# Date   : $Date: 2013-05-24 16:41:53 +0000 (Fri, 24 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -138,6 +138,7 @@ proc fsbox::tooltip {args} { return [::tooltip::tooltip {*}$args] }
 proc fsbox::makeStateSpecificIcons {args} { return [::icon::makeStateSpecificIcons {*}$args] }
 proc fsbox::busy {args} { ::widget::busyCursor on }
 proc fsbox::unbusy {args} { ::widget::busyCursor off }
+proc fsbox::mySort {args} { return [::scidb::misc::sort {*}$args] }
 proc fsbox::configureRadioEntry {args} { ::theme::configureRadioEntry {*}$args }
 
 proc dialog::progressbar::busyCursor {w state} { ::widget::busyCursor $w $state }

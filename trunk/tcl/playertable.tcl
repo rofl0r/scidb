@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 640 $
-# Date   : $Date: 2013-01-23 23:55:14 +0000 (Wed, 23 Jan 2013) $
+# Version: $Revision: 798 $
+# Date   : $Date: 2013-05-24 16:41:53 +0000 (Fri, 24 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -748,6 +748,7 @@ proc SortColumn {path id dir} {
 		}
 		cancel {
 			set columnNo [::scrolledtable::columnNo $path lastName]
+			if {$columnNo > 1} { decr columnNo }
 			::scidb::db::sort player $base $variant $columnNo $view -ascending -reset
 		}
 		default {
@@ -756,7 +757,7 @@ proc SortColumn {path id dir} {
 				lappend options -latest
 			}
 			set columnNo [::scrolledtable::columnNo $table $id]
-			if {$columnNo > 1} { incr column -1 }
+			if {$columnNo > 1} { decr columnNo }
 			::scidb::db::sort player $base $variant $columnNo $view {*}$options -$dir
 		}
 	}

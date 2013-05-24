@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 785 $
-# Date   : $Date: 2013-05-20 21:11:32 +0000 (Mon, 20 May 2013) $
+# Version: $Revision: 798 $
+# Date   : $Date: 2013-05-24 16:41:53 +0000 (Fri, 24 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -505,7 +505,7 @@ proc busyCursor {w {state on}} {
 		set action forget
 	}
 
-	if {$action eq "hold"} { ::update }
+	::update
 
 	foreach toplevel {.application .setupEngine .help .playerDict} {
 		if {[winfo exists $toplevel]} {
@@ -524,7 +524,7 @@ proc busyCursor {w {state on}} {
 
 
 proc unbusyCursor {{w {}}} {
-	if {[llength $w]} { busyCursor $w off } else { busyCursor off }
+	busyCursor {*}$w off
 }
 
 

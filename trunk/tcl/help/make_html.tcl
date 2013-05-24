@@ -3,8 +3,8 @@
 exec tclsh "$0" "$@"
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 794 $
-# Date   : $Date: 2013-05-22 20:19:59 +0000 (Wed, 22 May 2013) $
+# Version: $Revision: 798 $
+# Date   : $Date: 2013-05-24 16:41:53 +0000 (Fri, 24 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -228,7 +228,7 @@ proc readTranslationFile {file nagFile encoding} {
 }
 
 proc substituteVariables {line} {
-	while {[regexp {%(::)?[a-zA-Z_:]*(\([^)]*\))?%} $line pattern]} {
+	while {[regexp {%(::)?([a-zA-Z_]+::)*[a-zA-Z_]+(\([^)]+\))?%} $line pattern]} {
 		set var [string range $pattern 1 end-1]
 		if {[info exists $var]} {
 			set line [string map [list $pattern [set $var]] $line]
