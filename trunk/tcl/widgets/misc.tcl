@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 798 $
-# Date   : $Date: 2013-05-24 16:41:53 +0000 (Fri, 24 May 2013) $
+# Version: $Revision: 801 $
+# Date   : $Date: 2013-05-25 18:12:05 +0000 (Sat, 25 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -48,6 +48,7 @@ set Control(close)		"Close"
 } ;# namespace mc
 
 set Priv(busy:state) 0
+set Priv(busy:locked) 0
 
 
 set ButtonOrder \
@@ -489,8 +490,9 @@ proc setBoldFont {w} {
 
 
 proc busyCursor {w {state on}} {
-	variable BusyCmd
 	variable Priv
+
+	if {$Priv(busy:locked)} { return }
 
 	if {[string index $w 0] ne "."} {
 		set state $w
@@ -505,6 +507,7 @@ proc busyCursor {w {state on}} {
 		set action forget
 	}
 
+	set Priv(busy:locked) 1
 	::update
 
 	foreach toplevel {.application .setupEngine .help .playerDict} {
@@ -520,6 +523,7 @@ proc busyCursor {w {state on}} {
 	}
 
 	if {$action eq "hold"} { ::update }
+	set Priv(busy:locked) 0
 }
 
 
