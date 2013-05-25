@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 798 $
-# Date   : $Date: 2013-05-24 16:41:53 +0000 (Fri, 24 May 2013) $
+# Version: $Revision: 799 $
+# Date   : $Date: 2013-05-25 14:38:21 +0000 (Sat, 25 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1946,6 +1946,8 @@
 ::help::mc::GotoHome					"Go to top of page" ;# NEW
 ::help::mc::GotoEnd					"Go to end of page" ;# NEW
 ::help::mc::GotoPage					"Gå till sida '%s'"
+::help::mc::NextTopic				"Go to next topic" ;# NEW
+::help::mc::PrevTopic				"Go to previous topic" ;# NEW
 ::help::mc::ExpandAllItems			"Visa alla objekt"
 ::help::mc::CollapseAllItems		"Dölj alla objekt"
 ::help::mc::SelectLanguage			"Välj språk"

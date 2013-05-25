@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 785 $
-# Date   : $Date: 2013-05-20 21:11:32 +0000 (Mon, 20 May 2013) $
+# Version: $Revision: 799 $
+# Date   : $Date: 2013-05-25 14:38:21 +0000 (Sat, 25 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -2329,19 +2329,27 @@ proc Layout {gamebar} {
 		} else {
 			incr height [expr {$pady + $adjust/2}]
 		}
-		set x [expr {max(2, ($lineWidth - $width1)/2)}]
-		set x [expr {min($x, max(2, ($lineWidth - $width0)/2))}]
-		set x [expr {min($x, max(2, ($lineWidth - $width2)/2))}]
+		if {$Options(alignment) eq "center"} {
+			set x [expr {max(2, ($lineWidth - $width1)/2)}]
+			set x [expr {min($x, max(2, ($lineWidth - $width0)/2))}]
+			set x [expr {min($x, max(2, ($lineWidth - $width2)/2))}]
+		} elseif {$Options(separateLines)} {
+			set x [expr {$flagWd + 5}]
+		} else {
+			set x 5
+		}
 		if {$Options(separateLines)} {
 			$gamebar coords line1$id $x $height
-		} else {
+		} elseif {$Options(alignment) eq "center"} {
 			$gamebar coords line1$id [expr {max(2, ($lineWidth - $width1)/2)}] $height
+		} else {
+			$gamebar coords line1$id $x $height
 		}
 		$gamebar coords line1bg$id {*}[$gamebar bbox line1$id]
 		$gamebar coords line1Input$id {*}[$gamebar bbox line1$id]
 		incr height $height1
 		if {$Options(separateLines)} {
-			if {$flagWd > 0} {
+			if {$flagWd > 0 || $Options(alignment) ne "center"} {
 				set fx [expr {$x - $flagWd}]
 				set fy [expr {$height - ($flagHt - $height0)/2}]
 				$gamebar coords whiteCountry$id $fx $fy
@@ -2361,14 +2369,22 @@ proc Layout {gamebar} {
 			$gamebar coords black$id $x $height
 			incr height $height0
 		} else {
-			set x [expr {max(2, ($lineWidth - $width0)/2)}]
+			if {$Options(alignment) eq "center"} {
+				set x [expr {max(2, ($lineWidth - $width0)/2)}]
+			} else {
+				set x 5
+			}
 			$gamebar coords white$id $x $height
 			incr x $whiteWd
 			$gamebar coords hyphen$id $x $height
 			incr x $hyphenWd
 			$gamebar coords black$id $x $height
 			incr height $height0
-			set x [expr {max(2, ($lineWidth - $width2)/2)}]
+			if {$Options(alignment) eq "center"} {
+				set x [expr {max(2, ($lineWidth - $width2)/2)}]
+			} else {
+				set x 5
+			}
 		}
 		foreach side {white black} {
 			$gamebar coords ${side}bg${id} {*}[$gamebar bbox ${side}${id}]

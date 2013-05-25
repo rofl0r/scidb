@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 798 $
-# Date   : $Date: 2013-05-24 16:41:53 +0000 (Fri, 24 May 2013) $
+# Version: $Revision: 799 $
+# Date   : $Date: 2013-05-25 14:38:21 +0000 (Sat, 25 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1938,6 +1938,8 @@
 ::help::mc::GotoHome					"Zum Seitenanfang"
 ::help::mc::GotoEnd					"Zum Seiteneende"
 ::help::mc::GotoPage					"Wechsle zur Seite '%s'"
+::help::mc::NextTopic				"Gehe zum nächsten Thema"
+::help::mc::PrevTopic				"Gehe zum vorhergehenden Thema"
 ::help::mc::ExpandAllItems			"Alle Elemente expandieren"
 ::help::mc::CollapseAllItems		"Alle Elemente zusammenfalten"
 ::help::mc::SelectLanguage			"Sprachauswahl"
