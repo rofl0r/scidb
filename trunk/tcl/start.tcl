@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 778 $
-# Date   : $Date: 2013-05-17 15:46:46 +0000 (Fri, 17 May 2013) $
+# Version: $Revision: 807 $
+# Date   : $Date: 2013-05-26 15:08:31 +0000 (Sun, 26 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -421,13 +421,6 @@ proc doAccelCmd {accel keyState cmd} {
 proc shiftIsHeldDown? {state} {
 	variable ShiftMask
 	return [expr {$state & $ShiftMask}]
-}
-
-
-proc clipboard {} {
-	set selection ""
-	catch { set selection [selection get] }
-	return $selection
 }
 
 

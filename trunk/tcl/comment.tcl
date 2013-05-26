@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 794 $
-# Date   : $Date: 2013-05-22 20:19:59 +0000 (Wed, 22 May 2013) $
+# Version: $Revision: 807 $
+# Date   : $Date: 2013-05-26 15:08:31 +0000 (Sun, 26 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -2419,8 +2419,7 @@ proc TextCopy {w} {
 	if {[llength [$w tag ranges sel]]} {
 		set data [ParseDump [$w dump -tag -image -text sel.first sel.last]]
 		SetUndoPoint $w
-		clipboard clear -displayof $w
-		clipboard append -displayof $w $data
+		::clipboard::selectText $data
 		SetUndoPoint $w
 	}
 }
@@ -2432,8 +2431,7 @@ proc TextCut {w} {
 	if {[llength [$w tag ranges sel]]} {
 		set data [ParseDump [$w dump -tag -image -text sel.first sel.last]]
 		SetUndoPoint $w
-		clipboard clear -displayof $w
-		clipboard append -displayof $w $data
+		::clipboard::selectText $data
 		if {[$w get sel.first] eq "\n"} { set decr -1c } else { set decr "" }
 		if {[$w get sel.last] eq "\u00b6"} { set incr +1c } else { set incr "" }
 		$w delete sel.first$decr sel.last$incr

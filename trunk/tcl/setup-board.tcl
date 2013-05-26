@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 708 $
-# Date   : $Date: 2013-04-05 22:54:16 +0000 (Fri, 05 Apr 2013) $
+# Version: $Revision: 807 $
+# Date   : $Date: 2013-05-26 15:08:31 +0000 (Sun, 26 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1411,10 +1411,7 @@ proc CopyFen {} {
 	$w delete 1.0 end
 	$w insert end $fen sel
 
-	clipboard clear
-	clipboard append $fen
-	selection own $w
-	selection get
+	::clipboard::selectText $fen
 }
 
 
