@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 804 $
-# Date   : $Date: 2013-05-26 13:51:09 +0000 (Sun, 26 May 2013) $
+# Version: $Revision: 805 $
+# Date   : $Date: 2013-05-26 14:19:02 +0000 (Sun, 26 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -402,7 +402,7 @@
 ::application::board::mc::SwitchView(list)			"Passa alla vista della partita"
 
 ::application::board::mc::Accel(edit-annotation)	"A"
-::application::board::mc::Accel(edit-comment)		"C"
+::application::board::mc::Accel(edit-comment)		"K"
 ::application::board::mc::Accel(edit-marks)			"M"
 ::application::board::mc::Accel(add-new-game)		"S"
 ::application::board::mc::Accel(replace-game)		"R"
