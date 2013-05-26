@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 802 $
-# Date   : $Date: 2013-05-26 10:04:34 +0000 (Sun, 26 May 2013) $
+# Version: $Revision: 803 $
+# Date   : $Date: 2013-05-26 10:49:56 +0000 (Sun, 26 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -436,6 +436,9 @@ proc replace {gamebar id tags} {
 	Reset $gamebar $id
 	Setup $gamebar [getIndex $gamebar $id] $id $tags [MakeData $gamebar $id $tags]
 	$gamebar itemconfigure close:icon$id -image $icon::15x15::close(unlocked)
+	if {$Specs(selected:$gamebar) == $id} {
+		setEmphasized $gamebar no
+	}
 	Update $gamebar $id no
 }
 

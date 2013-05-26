@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 802 $
-# Date   : $Date: 2013-05-26 10:04:34 +0000 (Sun, 26 May 2013) $
+# Version: $Revision: 803 $
+# Date   : $Date: 2013-05-26 10:49:56 +0000 (Sun, 26 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1750,6 +1750,7 @@
 ::dialog::save::mc::SavingGameLogInfo			"Salvataggio partita (%white - %black, %event) nel database '%base'"
 ::dialog::save::mc::CurrentBaseIsReadonly		"L'attuale database '%s' è per sola-lettura."
 ::dialog::save::mc::CurrentGameHasTrialMode	"L'attuale partita è in modalità di prova e non può essere salvata."
+::dialog::save::mc::LeaveTrialModeHint			"You have to leave trial mode beforehand, use shortcut %s." ;# NEW
 ::dialog::save::mc::OpenPlayerDictionary		"Apri Dizionario Giocatore"
 
 ::dialog::save::mc::LocalName						"&Nome locale"

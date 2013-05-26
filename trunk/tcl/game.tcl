@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 802 $
-# Date   : $Date: 2013-05-26 10:04:34 +0000 (Sun, 26 May 2013) $
+# Version: $Revision: 803 $
+# Date   : $Date: 2013-05-26 10:49:56 +0000 (Sun, 26 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1275,16 +1275,6 @@ proc UpdateHistoryEntry {pos base variant tags} {
 	}
 
 	set History [linsert $History 0 $entry]
-}
-
-
-proc GameInTrialMode {parent title} {
-	set name [::util::databaseName [::scidb::db::get name]]
-	::dialog::info \
-		-parent $parent \
-		-message [format $mc::CurrentGameHasTrialMode $name] \
-		-title "[tk appname] - $title" \
-		;
 }
 
 

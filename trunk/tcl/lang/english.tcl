@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 802 $
-# Date   : $Date: 2013-05-26 10:04:34 +0000 (Sun, 26 May 2013) $
+# Version: $Revision: 803 $
+# Date   : $Date: 2013-05-26 10:49:56 +0000 (Sun, 26 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1741,6 +1741,7 @@
 ::dialog::save::mc::SavingGameLogInfo			"Saving game (%white - %black, %event) into database '%base'"
 ::dialog::save::mc::CurrentBaseIsReadonly		"Current database '%s' is read-only."
 ::dialog::save::mc::CurrentGameHasTrialMode	"Current game is in trial mode and cannot be saved."
+::dialog::save::mc::LeaveTrialModeHint			"You have to leave trial mode beforehand, use shortcut %s."
 ::dialog::save::mc::OpenPlayerDictionary		"Open Player Dictionary"
 
 ::dialog::save::mc::LocalName						"&Local Name"
