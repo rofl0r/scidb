@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 804 $
-# Date   : $Date: 2013-05-26 13:51:09 +0000 (Sun, 26 May 2013) $
+# Version: $Revision: 808 $
+# Date   : $Date: 2013-05-26 19:22:31 +0000 (Sun, 26 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1317,7 +1317,6 @@
 ::gamebar::mc::CopyThisGameToClipboard		"Diese Partie in die Ablage kopieren (PGN-Format)"
 ::gamebar::mc::ExportThisGame					"Diese Partie exportieren"
 ::gamebar::mc::PasteLastClipbaseGame		"Letzte Partie aus Ablage-Datenbank einfügen"
-::gamebar::mc::PasteClipboardContent		"Inhalt aus der Ablage einfügen"
 ::gamebar::mc::MergeLastClipbaseGame		"Mit letzter Partie aus Ablage-Datenbank zusammenfügen"
 ::gamebar::mc::PasteGameFrom					"Partie einfügen"
 ::gamebar::mc::MergeGameFrom					"Mit Partie zusammenfügen"

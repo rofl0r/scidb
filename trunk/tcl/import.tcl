@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 804 $
-# Date   : $Date: 2013-05-26 13:51:09 +0000 (Sun, 26 May 2013) $
+# Version: $Revision: 808 $
+# Date   : $Date: 2013-05-26 19:22:31 +0000 (Sun, 26 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -288,10 +288,12 @@ proc openEdit {parent position args} {
 	bind $edit.text <Control-A> $selectCmd
 	bind $edit.text <Control-a> $selectCmd
 
-	set pastecmd [namespace code [list TextPasteSelection $position %W %x %y CLIPBOARD]]
+	set pastecmd [namespace code [list TextPasteSelection $position %W %x %y PRIMARY]]
 	bind $edit.text <<PasteSelection>> $pastecmd
 	bind $edit.text <<PasteSelection>> {+ break }
-	set pastecmd [namespace code [list TextPasteSelection $position %W %x %y PRIMARY]]
+	bind $edit.text <Insert> $pastecmd
+	bind $edit.text <Insert> {+ break }
+	set pastecmd [namespace code [list TextPasteSelection $position %W %x %y CLIPBOARD]]
 	bind $edit.text <<Paste>> $pastecmd
 	bind $edit.text <<Paste>> {+ break }
 

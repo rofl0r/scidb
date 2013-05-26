@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 806 $
-# Date   : $Date: 2013-05-26 14:59:23 +0000 (Sun, 26 May 2013) $
+# Version: $Revision: 808 $
+# Date   : $Date: 2013-05-26 19:22:31 +0000 (Sun, 26 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1325,7 +1325,6 @@
 ::gamebar::mc::CopyThisGameToClipboard		"Copy this game to Clipboard (PGN format)" ;# NEW
 ::gamebar::mc::ExportThisGame					"Export this game" ;# NEW
 ::gamebar::mc::PasteLastClipbaseGame		"Paste last Clipbase game" ;# NEW
-::gamebar::mc::PasteClipboardContent		"Paste content from Clipbpard" ;# NEW
 ::gamebar::mc::MergeLastClipbaseGame		"Merge last Clipbase game" ;# NEW
 ::gamebar::mc::PasteGameFrom					"Paste game" ;# NEW
 ::gamebar::mc::MergeGameFrom					"Merge game" ;# NEW

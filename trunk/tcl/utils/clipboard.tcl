@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 807 $
-# Date   : $Date: 2013-05-26 15:08:31 +0000 (Sun, 26 May 2013) $
+# Version: $Revision: 808 $
+# Date   : $Date: 2013-05-26 19:22:31 +0000 (Sun, 26 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -31,23 +31,35 @@ namespace eval clipboard {
 variable CurrentSelection ""
 
 
-proc selectText {text} {
+proc selectText {text {buffer CLIPBOARD}} {
+	if {[tk windowingsystem] eq "x11"} {
+		if {$buffer eq "PRIMARY"} {
+			variable CurrentSelection
+			set CurrentSelection $text
+
+			selection handle -selection PRIMARY "." [namespace current]::PrimaryTransfer
+			selection own -selection PRIMARY -command [namespace current]::LostSelection "."
+			return
+		}
+	}
+
 	clipboard clear -displayof "."
 	clipboard append -displayof "." $text
-
-	if {[tk windowingsystem] eq "x11"} {
-		variable CurrentSelection
-		set CurrentSelection $text
-
-		selection handle -selection PRIMARY "." [namespace current]::PrimaryTransfer
-		selection own -selection PRIMARY -command [namespace current]::LostSelection "."
-	}
 }
 
 
-proc getSelection {} {
-	set str ""
-	catch { ::tk::GetSelection $w PRIMARY } str
+proc getSelection {{buffer CLIPBOARD}} {
+	if {[tk windowingsystem] eq "x11"} {
+		if {$buffer eq "PRIMARY"} {
+			set str ""
+			if {[catch { ::tk::GetSelection "." PRIMARY } str]} {
+				return ""
+			}
+			return $str
+		}
+	}
+
+	set str [clipboard get -displayof "."]
 	return $str
 }
 
