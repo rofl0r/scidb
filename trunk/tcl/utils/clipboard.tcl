@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 804 $
-# Date   : $Date: 2013-05-26 13:51:09 +0000 (Sun, 26 May 2013) $
+# Version: $Revision: 806 $
+# Date   : $Date: 2013-05-26 14:59:23 +0000 (Sun, 26 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -24,34 +24,34 @@
 # (at your option) any later version.
 # ======================================================================
 
-::util::source selection
+::util::source clipboard
 
 namespace eval selection {
 
 variable CurrentSelection ""
 
 proc selectText {text} {
+	clipboard clear -displayof "."
+	clipboard append -displayof "." $text
+
 	if {[tk windowingsystem] eq "x11"} {
 		variable CurrentSelection
 		set CurrentSelection $text
 
-		selection handle -selection PRIMARY "." [namespace current]::primaryTransfer
-		selection own -selection PRIMARY -command [namespace current]::lostSelection "."
-	} else {
-		clipboard clear -displayof "."
-		clipboard append -displayof "." $text
+		selection handle -selection PRIMARY "." [namespace current]::PrimaryTransfer
+		selection own -selection PRIMARY -command [namespace current]::LostSelection "."
 	}
 }
 
 if {[tk windowingsystem] eq "x11"} {
 
-	proc primaryTransfer {offset maxChars} {
+	proc PrimaryTransfer {offset maxChars} {
 		variable CurrentSelection
 		return [string range $CurrentSelection $offset [expr {$offset + $maxChars - 1}]]
 	}
 
 
-	proc lostSelection {} {
+	proc LostSelection {} {
 		variable CurrentSelection
 		set CurrentSelection ""
 	}

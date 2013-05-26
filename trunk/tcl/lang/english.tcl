@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 805 $
-# Date   : $Date: 2013-05-26 14:19:02 +0000 (Sun, 26 May 2013) $
+# Version: $Revision: 806 $
+# Date   : $Date: 2013-05-26 14:59:23 +0000 (Sun, 26 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -401,7 +401,7 @@
 ::application::board::mc::SwitchView(list)			"Switch to game list view"
 
 ::application::board::mc::Accel(edit-annotation)	"A"
-::application::board::mc::Accel(edit-comment)		"K"
+::application::board::mc::Accel(edit-comment)		"C"
 ::application::board::mc::Accel(edit-marks)			"M"
 ::application::board::mc::Accel(add-new-game)		"S"
 ::application::board::mc::Accel(replace-game)		"R"

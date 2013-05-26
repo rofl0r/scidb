@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 804 $
-# Date   : $Date: 2013-05-26 13:51:09 +0000 (Sun, 26 May 2013) $
+# Version: $Revision: 806 $
+# Date   : $Date: 2013-05-26 14:59:23 +0000 (Sun, 26 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -560,17 +560,6 @@ proc openMarksPalette {{position -1} {key {}}} {
 	} else {
 		Edit $position ::marks $key
 	}
-}
-
-
-proc copyGameToPrimary {} {
-	variable Vars
-
-	if {[empty?]} { return }
-	if {[::scidb::game::query modified?]} { set source modified } else { set source original }
-	set flags [::export::getPgnFlags]
-	set result [string trim [::scidb::game::toPGN $source -position $Vars(position) -flags $flags]]
-	::selection::selectText $result
 }
 
 

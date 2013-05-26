@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 661 $
-# Date   : $Date: 2013-02-23 23:03:04 +0000 (Sat, 23 Feb 2013) $
+# Version: $Revision: 806 $
+# Date   : $Date: 2013-05-26 14:59:23 +0000 (Sun, 26 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -78,12 +78,14 @@ proc open {callee {show 1}} {
 	set Priv(newline) 1
 	set t $Log.top.text
 
-	if {[$t count -chars 1.0 2.0] > 1} {
+	if {!$Priv(empty) && [$t count -chars 1.0 2.0] > 1} {
 		$t configure -state normal
 		$t insert end "\n"
 		$t configure -state disabled
 		$t yview moveto 1.0
 	}
+
+	set Priv(empty) 1
 }
 
 
@@ -238,6 +240,7 @@ proc Print {type show args} {
 	$t configure -state disabled
 	$t yview moveto 1.0
 	set Priv(newline) 0
+	set Priv(empty) 0
 }
 
 
@@ -304,6 +307,7 @@ proc Open {} {
 	set Priv(hide) 0
 	set Priv(center) 1
 	set Priv(newline) 1
+	set Priv(empty) 0
 	set Priv(open) 0
 	set Priv(transient) [expr {[tk windowingsystem] ne "win32"}]
 }
