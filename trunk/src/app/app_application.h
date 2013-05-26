@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 802 $
-// Date   : $Date: 2013-05-26 10:04:34 +0000 (Sun, 26 May 2013) $
+// Version: $Revision: 804 $
+// Date   : $Date: 2013-05-26 13:51:09 +0000 (Sun, 26 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -279,6 +279,10 @@ public:
 										mstl::string const& comment,
 										unsigned flags,
 										FileMode fmode);
+	::db::save::State exportGame(	unsigned position,
+											mstl::ostream& strm,
+											unsigned flags,
+											::db::copy::Source source);
 	db::save::State saveGame(Cursor& cursor, bool replace);
 	db::save::State updateMoves();
 	db::save::State updateCharacteristics(Cursor& cursor, unsigned index, db::TagSet const& tags);

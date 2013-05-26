@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 769 $
-# Date   : $Date: 2013-05-10 22:26:18 +0000 (Fri, 10 May 2013) $
+# Version: $Revision: 804 $
+# Date   : $Date: 2013-05-26 13:51:09 +0000 (Sun, 26 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -500,6 +500,7 @@ array set Flags {
 array set Defaults {
 	pgn,flag,include_varations						1
 	pgn,flag,include_comments						1
+	pgn,flag,include_annotation					1
 	pgn,flag,include_moveinfo						1
 	pgn,flag,include_marks							1
 	pgn,flag,include_termination_tag				1
@@ -797,6 +798,20 @@ proc open {parent args} {
 	ttk::grabWindow $dlg
 	tkwait window $dlg
 	ttk::releaseGrab $dlg
+}
+
+
+proc getPgnFlags {} {
+	variable Flags
+	variable Values
+
+	set flags 0
+	foreach attr [array names Flags] {
+		if {$Values(pgn,flag,[lindex [split $attr ,] 1])} {
+			set flags [expr {$flags | [Pow2 $Flags($attr)]}]
+		}
+	}
+	return $flags
 }
 
 

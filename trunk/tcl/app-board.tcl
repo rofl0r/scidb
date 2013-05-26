@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 774 $
-# Date   : $Date: 2013-05-16 22:06:25 +0000 (Thu, 16 May 2013) $
+# Version: $Revision: 804 $
+# Date   : $Date: 2013-05-26 13:51:09 +0000 (Sun, 26 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -308,6 +308,7 @@ proc build {w width height} {
 	bind <Control-KP_Add>		[list ::application::pgn::changeFontSize +1]
 	bind <Control-minus>			[list ::application::pgn::changeFontSize -1]
 	bind <Control-KP_Subtract>	[list ::application::pgn::changeFontSize -1]
+	bind <<Copy>>					[list ::application::pgn::copyGameToPrimary]
 	bind <<LanguageChanged>>	[namespace code LanguageChanged]
 
 	for {set i 1} {$i <= 9} {incr i} {

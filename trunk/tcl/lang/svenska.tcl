@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 803 $
-# Date   : $Date: 2013-05-26 10:49:56 +0000 (Sun, 26 May 2013) $
+# Version: $Revision: 804 $
+# Date   : $Date: 2013-05-26 13:51:09 +0000 (Sun, 26 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1321,7 +1321,10 @@
 ::gamebar::mc::EnterGameNumber				"Enter game number" ;# NEW
 
 ::gamebar::mc::CopyThisGameToClipbase		"Copy this game to Clipbase" ;# NEW
+::gamebar::mc::CopyThisGameToClipboard		"Copy this game to Clipboard (PGN format)" ;# NEW
+::gamebar::mc::ExportThisGame					"Export this game" ;# NEW
 ::gamebar::mc::PasteLastClipbaseGame		"Paste last Clipbase game" ;# NEW
+::gamebar::mc::PasteClipboardContent		"Paste content from Clipbpard" ;# NEW
 ::gamebar::mc::MergeLastClipbaseGame		"Merge last Clipbase game" ;# NEW
 ::gamebar::mc::PasteGameFrom					"Paste game" ;# NEW
 ::gamebar::mc::MergeGameFrom					"Merge game" ;# NEW
@@ -1334,11 +1337,12 @@
 ::gamebar::mc::NoTranspositions				"No transpositions" ;# NEW
 ::gamebar::mc::IncludeTranspositions		"Include transpositions" ;# NEW
 ::gamebar::mc::VariationDepth					"Variation depth" ;# NEW
-::gamebar::mc::CopyOriginalVersion			"Original version from database" ;# NEW
+::gamebar::mc::OriginalVersion				"Original version from database" ;# NEW
 ::gamebar::mc::ModifiedVersion				"Modified version in game editor" ;# NEW
 ::gamebar::mc::WillCopyModifiedGame			"This operation will copy the modified game in editor. The original version cannot be copied because the associated database is not open." ;# NEW
 
 ::gamebar::mc::CopyGame							"Copy Game" ;# NEW
+::gamebar::mc::ExportGame						"Export Game" ;# NEW
 ::gamebar::mc::LockGame							"Lås partiet"
 ::gamebar::mc::UnlockGame						"Lås upp partiet"
 ::gamebar::mc::CloseGame						"Stäng partiet"

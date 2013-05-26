@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 803 $
-# Date   : $Date: 2013-05-26 10:49:56 +0000 (Sun, 26 May 2013) $
+# Version: $Revision: 804 $
+# Date   : $Date: 2013-05-26 13:51:09 +0000 (Sun, 26 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -560,6 +560,17 @@ proc openMarksPalette {{position -1} {key {}}} {
 	} else {
 		Edit $position ::marks $key
 	}
+}
+
+
+proc copyGameToPrimary {} {
+	variable Vars
+
+	if {[empty?]} { return }
+	if {[::scidb::game::query modified?]} { set source modified } else { set source original }
+	set flags [::export::getPgnFlags]
+	set result [string trim [::scidb::game::toPGN $source -position $Vars(position) -flags $flags]]
+	::selection::selectText $result
 }
 
 
@@ -2206,6 +2217,7 @@ proc PopupMenu {parent position} {
 
 		set state "normal"
 		if {[::scidb::game::count comments] == 0} { set state disabled }
+		lassign [::scidb::game::link? $position] base variant index
 
 		menu $menu.strip.comments -tearoff no
 		$menu.strip add cascade \
@@ -2244,25 +2256,6 @@ proc PopupMenu {parent position} {
 			-compound left \
 			-command [namespace code [list CopyComments $parent]] \
 			-state $state \
-			;
-
-		lassign [::scidb::game::sink? $position] base variant index
-		set mainVariant [::util::toMainVariant $variant]
-		foreach side {white black} {
-			set info [scidb::db::fetch ${side}PlayerInfo $index $base $mainVariant]
-			set $side [lindex [split [lindex $info 0] ","] 0]
-		}
-		if {[string length $white] && [string length $black]} {
-			set title "$white-$black"
-		} else {
-			set title [lindex [::scidb::game::sink? $position] 2]
-		}
-		set cmd [list ::export::open $parent -base $base -variant $variant -index $index -title $title]
-		$menu add command \
-			-label " $::application::database::mc::FileExport..." \
-			-image $::icon::16x16::fileExport \
-			-compound left \
-			-command $cmd \
 			;
 		if {$base eq $::scidb::scratchbaseName} {
 			$menu add command \

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 803 $
-# Date   : $Date: 2013-05-26 10:49:56 +0000 (Sun, 26 May 2013) $
+# Version: $Revision: 804 $
+# Date   : $Date: 2013-05-26 13:51:09 +0000 (Sun, 26 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1314,7 +1314,10 @@
 ::gamebar::mc::EnterGameNumber				"Eingabe der Partienummer"
 
 ::gamebar::mc::CopyThisGameToClipbase		"Diese Partie in die Ablage-Datenbank kopieren"
+::gamebar::mc::CopyThisGameToClipboard		"Diese Partie in die Ablage kopieren (PGN-Format)"
+::gamebar::mc::ExportThisGame					"Diese Partie exportieren"
 ::gamebar::mc::PasteLastClipbaseGame		"Letzte Partie aus Ablage-Datenbank einfügen"
+::gamebar::mc::PasteClipboardContent		"Inhalt aus der Ablage einfügen"
 ::gamebar::mc::MergeLastClipbaseGame		"Mit letzter Partie aus Ablage-Datenbank zusammenfügen"
 ::gamebar::mc::PasteGameFrom					"Partie einfügen"
 ::gamebar::mc::MergeGameFrom					"Mit Partie zusammenfügen"
@@ -1327,11 +1330,12 @@
 ::gamebar::mc::NoTranspositions				"Keine Zugumstellungen"
 ::gamebar::mc::IncludeTranspositions		"Zugumstellungen mit einbeziehen"
 ::gamebar::mc::VariationDepth					"Variantentiefe"
-::gamebar::mc::CopyOriginalVersion			"Die Originalversion aus der Datanbank"
+::gamebar::mc::OriginalVersion				"Die Originalversion aus der Datanbank"
 ::gamebar::mc::ModifiedVersion				"Die modifizierte Version im Partieeditor"
 ::gamebar::mc::WillCopyModifiedGame			"Diese Operation wird die modifizierte Partie aus dem Partieeditor kopieren. Die Originalversion kann nicht kopiert werden, denn die beeinhaltende Datenbank ist nicht geöffnet."
 
 ::gamebar::mc::CopyGame							"Partie kopieren"
+::gamebar::mc::ExportGame						"Partie exportieren"
 ::gamebar::mc::LockGame							"Partie sperren"
 ::gamebar::mc::UnlockGame						"Partie freigeben"
 ::gamebar::mc::CloseGame						"Partie schliessen"
