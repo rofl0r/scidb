@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 671 $
-# Date   : $Date: 2013-03-13 09:49:26 +0000 (Wed, 13 Mar 2013) $
+# Version: $Revision: 802 $
+# Date   : $Date: 2013-05-26 10:04:34 +0000 (Sun, 26 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -539,7 +539,7 @@ proc doDestructiveCommand {parent action cmd yesAction noAction} {
 			lassign $cmd cmd args
 			set cmd [list $cmd [list {*}$args -force]]
 		} else {
-			lappend $cmd -force
+			lappend cmd -force
 		}
 		{*}$cmd
 	}

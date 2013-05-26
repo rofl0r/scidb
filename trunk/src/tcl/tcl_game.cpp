@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 798 $
-// Date   : $Date: 2013-05-24 16:41:53 +0000 (Fri, 24 May 2013) $
+// Version: $Revision: 802 $
+// Date   : $Date: 2013-05-26 10:04:34 +0000 (Sun, 26 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -3438,7 +3438,17 @@ cmdCopy(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 	}
 	else if (::strcmp(cmd, "clipbase") == 0)
 	{
-		scidb->exportGameToClipbase(unsignedFromObj(objc, objv, 2));
+		char const* arg = stringFromObj(objc, objv, 3);
+		copy::Source source;
+
+		if (::strcmp(arg, "original") == 0)
+			source = copy::OriginalSource;
+		else if (::strcmp(arg, "modified") == 0)
+			source = copy::ModifiedVersion;
+		else
+			return error(CmdCopy, nullptr, nullptr, "unexpected source '%s'", arg);
+
+		scidb->exportGameToClipbase(unsignedFromObj(objc, objv, 2), source);
 	}
 	else
 	{

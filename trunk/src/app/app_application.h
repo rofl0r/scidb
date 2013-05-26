@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 774 $
-// Date   : $Date: 2013-05-16 22:06:25 +0000 (Thu, 16 May 2013) $
+// Version: $Revision: 802 $
+// Date   : $Date: 2013-05-26 10:04:34 +0000 (Sun, 26 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -301,7 +301,7 @@ public:
 											Update updateMode);
 	unsigned stripTags(View& view, TagMap const& tags, util::Progress& progress, Update updateMode);
 	void viewClosed(Cursor const& cursor, unsigned viewId);
-	void exportGameToClipbase(unsigned position);
+	void exportGameToClipbase(unsigned position, ::db::copy::Source source);
 	void pasteLastClipbaseGame(unsigned position);
 	bool mergeLastClipbaseGame(unsigned position,
 										db::position::ID startPosition,
@@ -471,6 +471,7 @@ private:
 	Cursor* scratchbase(db::variant::Type variant) const;
 	Cursor* scratchbase(unsigned variantIndex) const;
 
+	GameP createIntermediateGame(GameP original);
 	GameP insertScratchGame(unsigned position, db::variant::Type variant);
 	GameP insertGame(unsigned position);
 	Cursor* findBase(mstl::string const& name);

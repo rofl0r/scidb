@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 794 $
-# Date   : $Date: 2013-05-22 20:19:59 +0000 (Wed, 22 May 2013) $
+# Version: $Revision: 802 $
+# Date   : $Date: 2013-05-26 10:04:34 +0000 (Sun, 26 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -434,6 +434,7 @@ proc openBase {parent file byUser args} {
 	} else {
 		set ext [string range $ext 1 end]
 	}
+
 	set ext [string tolower $ext]
 
 	if {![file readable $file]} {
@@ -449,6 +450,7 @@ proc openBase {parent file byUser args} {
 	if {[file type $file] eq "link"} { set file [file normalize [file readlink $file]] }
 
 	if {[file extension $file] eq ".scv"} {
+		# TODO: check if alreay opened
 		return [::remote::busyOperation { OpenArchive $parent $file $byUser {*}$args }]
 	}
 

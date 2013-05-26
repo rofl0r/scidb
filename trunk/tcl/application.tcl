@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 774 $
-# Date   : $Date: 2013-05-16 22:06:25 +0000 (Thu, 16 May 2013) $
+# Version: $Revision: 802 $
+# Date   : $Date: 2013-05-26 10:04:34 +0000 (Sun, 26 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -316,7 +316,8 @@ if {[::process::testOption use-clock]} {
 			-encoding $::encoding::autoEncoding
 	}
 
-	::game::recover
+	::game::recover $app
+	::game::reopenLockedGames $app
 
 	if {[::process::testOption show-board]} {
 		after idle [namespace code [list switchTab board]]
