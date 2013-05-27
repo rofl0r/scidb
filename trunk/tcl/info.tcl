@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 653 $
-# Date   : $Date: 2013-02-07 17:17:24 +0000 (Thu, 07 Feb 2013) $
+# Version: $Revision: 810 $
+# Date   : $Date: 2013-05-27 22:24:12 +0000 (Mon, 27 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -235,7 +235,7 @@ proc BuildContributionsFrame {w} {
 			padding-bottom:	0.5em;
 		}
 		div.box {
-			background:			#eedd82;
+			background:			#fff8dc;
 			border:				1px solid black;
 			border-radius:		0.5em;
 			margin-top:			1em;
@@ -332,13 +332,23 @@ proc DisplayContributions {w} {
 			<h1>$mc::Testing</h1>
 			<hr/>
 			<table border='0'>
-				<tr><td>[Name {Steven Atkinson}]</td></tr>
-				<tr><td>[Name {Paolo Casaschi}]</td></tr>
-				<tr><td>[Name {Gregor Cramer}]</td></tr>
-				<tr><td>[Name {Lars Ekman}]</td></tr>
-				<!-- Carlos Fernando González -->
-				<tr><td>[Name {Giovanni Ornaghi}]</td></tr>
-				<tr><td>[Name {Zoltán Tibenszky}]</td></tr>
+				<tr>
+					<td>[Name {Steven Atkinson}]</td>
+					<td>\u2000\u2000</td>
+					<td>[Name {Lars Ekman}]</td>
+					<td>\u2000\u2000</td>
+					<td>[Name {Zoltán Tibenszky}]</td>
+				</tr>
+				<tr>
+					<td>[Name {Paolo Casaschi}]</td>
+					<td>\u2000\u2000</td>
+					<td>[Name {José Carlos Martins}]</td>
+				</tr>
+				<tr>
+					<td>[Name {Gregor Cramer}]</td>
+					<td>\u2000\u2000</td>
+					<td>[Name {Giovanni Ornaghi}]</td>
+				</tr>
 			</table>
 		</div>
 		<div class='box'>

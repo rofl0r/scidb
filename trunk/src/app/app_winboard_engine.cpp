@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 795 $
-// Date   : $Date: 2013-05-22 21:49:03 +0000 (Wed, 22 May 2013) $
+// Version: $Revision: 810 $
+// Date   : $Date: 2013-05-27 22:24:12 +0000 (Mon, 27 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1566,7 +1566,9 @@ winboard::Engine::detectFeatures(char const* identifier)
 			m_dontInvertScore = true;
 
 		if (isProbing())
-			send("log off");		// turn off crafty logging, to reduce number of junk files
+			send("log off");	// turn off crafty logging, to reduce number of junk files
+
+		send("linelength 100000"); // disable line breaks
 
 		addFeature(app::Engine::Feature_Analyze);
 		m_featureSetboard = true;

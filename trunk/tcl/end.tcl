@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 798 $
-# Date   : $Date: 2013-05-24 16:41:53 +0000 (Fri, 24 May 2013) $
+# Version: $Revision: 810 $
+# Date   : $Date: 2013-05-27 22:24:12 +0000 (Mon, 27 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -99,6 +99,8 @@ if {[tk windowingsystem] eq "x11"} {
 	proc fsbox::x11MakeFrameless {w} { ::x11::makeFrameless $w }
 	proc tooltip::x11DropShadow {args} { ::x11::dropShadow {*}$args }
 }
+
+set ::clipboard::window .application
 
 set dialog::iconOk		$icon::iconOk
 set dialog::iconCancel	$icon::iconCancel

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 808 $
-# Date   : $Date: 2013-05-26 19:22:31 +0000 (Sun, 26 May 2013) $
+# Version: $Revision: 810 $
+# Date   : $Date: 2013-05-27 22:24:12 +0000 (Mon, 27 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -46,6 +46,7 @@
 ::mc::Key(Ins)				"Ins" ;# NEW
 ::mc::Key(Left)			"\u2190"
 ::mc::Key(Next)			"Page\u2193"
+::mc::Key(Option)			"option" ;# Mac
 ::mc::Key(Prior)			"Page\u2191"
 ::mc::Key(Right)			"\u2192"
 ::mc::Key(Shift)			"Shift"
@@ -2119,6 +2120,12 @@
 ::move::mc::Action(exchange)		"Cambia mossa"
 ::move::mc::Action(append)			"Aggiungi mossa in cosa"
 ::move::mc::Action(load)			"Carica la prima partita con questa continuazione"
+
+::move::mc::Accel(trial)			"T"
+::move::mc::Accel(replace)			"R"
+::move::mc::Accel(variation)		"V"
+::move::mc::Accel(append)			"A"
+::move::mc::Accel(load)				"L"
 
 ::move::mc::GameWillBeTruncated	"La partita sarà interrotta. Continuare con '%s'?"
 

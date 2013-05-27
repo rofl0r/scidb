@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 785 $
-# Date   : $Date: 2013-05-20 21:11:32 +0000 (Mon, 20 May 2013) $
+# Version: $Revision: 810 $
+# Date   : $Date: 2013-05-27 22:24:12 +0000 (Mon, 27 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -40,6 +40,7 @@ set Key(Home)			"Home"
 set Key(Ins)			"Insert"
 set Key(Left)			"\u2190"
 set Key(Next)			"Page\u2193"	;# Page Down
+set Key(Option)		"option"			;# Mac
 set Key(Prior)			"Page\u2191"	;# Page Up
 set Key(Right)			"\u2192"
 set Key(Shift)			"Shift"

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 774 $
-// Date   : $Date: 2013-05-16 22:06:25 +0000 (Thu, 16 May 2013) $
+// Version: $Revision: 810 $
+// Date   : $Date: 2013-05-27 22:24:12 +0000 (Mon, 27 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -681,6 +681,8 @@ private:
 									bool ignoreEnPassant) const;
 
 	Move parseMove(mstl::string const& san) const;
+
+	edit::Root* buildEditNodes() const;
 
 	mutable SubscriberP m_subscriber;
 
