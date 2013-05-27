@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 299 $
-# Date   : $Date: 2012-04-19 17:30:01 +0000 (Thu, 19 Apr 2012) $
+# Version: $Revision: 809 $
+# Date   : $Date: 2013-05-27 17:09:11 +0000 (Mon, 27 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -54,6 +54,8 @@ namespace eval olednd {
   variable _common_drag_source_types {}
   variable _common_drop_target_types {}
   variable _unhandled_types {}
+  variable _drag_source {}
+  variable _drop_target {}
   variable _prev_drop_target {}
 };# namespace olednd
 

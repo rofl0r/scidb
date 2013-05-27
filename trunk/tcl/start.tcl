@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 807 $
-# Date   : $Date: 2013-05-26 15:08:31 +0000 (Sun, 26 May 2013) $
+# Version: $Revision: 809 $
+# Date   : $Date: 2013-05-27 17:09:11 +0000 (Mon, 27 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -532,11 +532,14 @@ proc openBases {pathList} {
 proc bgerror {err} {
 	if {$err eq "selection owner didn't respond"} {
       set parent [::tkdnd::get_drop_target]
-      if {[llength $parent] == 0} { set parent .application }
-      after idle [list dialog::error \
-         -parent $parent \
-         -message $::util::mc::SelectionOwnerDidntRespond \
-      ]
+      if {[llength $parent]} {
+			after idle [list dialog::error \
+				-parent $parent \
+				-message $::util::mc::SelectionOwnerDidntRespond \
+			]
+		} else {
+			puts stderr "selection owner didn't respond"
+		}
 	} elseif {[string match {*selection doesn't exist*} $err]} {
 		# ignore this stupid message. this message appears
 		# in case of empty strings. this is not an error!

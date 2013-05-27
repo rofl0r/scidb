@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 798 $
-// Date   : $Date: 2013-05-24 16:41:53 +0000 (Fri, 24 May 2013) $
+// Version: $Revision: 809 $
+// Date   : $Date: 2013-05-27 17:09:11 +0000 (Mon, 27 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -691,10 +691,7 @@ Selector::sort(Database const& db, attribute::game::ID attr, order::ID order, ra
 			return;
 
 		case attribute::game::Eco:
-			if (db.format() == format::Scidb)
-				func = game::compUserEco;
-			else
-				func = game::compEco;
+			func = db.format() == format::Scidb ? game::compUserEco : game::compEco;
 			break;
 
 		case attribute::game::WhiteRating:
@@ -910,11 +907,7 @@ Selector::reverse(Database const& db)
 	}
 	else
 	{
-		unsigned n = m_map.size();
-		unsigned middle = n/2;
-
-		for (unsigned i = 0; i < middle; ++i)
-			mstl::swap(m_map[i], m_map[n - i - 1]);
+		mstl::reverse(m_map.begin(), m_map.end());
 	}
 }
 

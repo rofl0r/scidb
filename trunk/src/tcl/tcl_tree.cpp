@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 774 $
-// Date   : $Date: 2013-05-16 22:06:25 +0000 (Thu, 16 May 2013) $
+// Version: $Revision: 809 $
+// Date   : $Date: 2013-05-27 17:09:11 +0000 (Mon, 27 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -175,7 +175,7 @@ cmdInit(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 {
 	if (m_progress == 0)
 	{
-		m_progress = new MyPipedProgress(Scidb->treeThread(),
+		m_progress = new MyPipedProgress(scidb->treeThread(),
 													objectFromObj(objc, objv, 1),
 													objectFromObj(objc, objv, 2));
 	}

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 782 $
-// Date   : $Date: 2013-05-19 16:31:08 +0000 (Sun, 19 May 2013) $
+// Version: $Revision: 809 $
+// Date   : $Date: 2013-05-27 17:09:11 +0000 (Mon, 27 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -89,13 +89,16 @@ fill_n(OutputIterator first, unsigned count, T const& value)
 /// it exchanges *(first + i) and *(last - (i + 1)).
 /// \ingroup MutatingAlgorithms
 ///
-template <typename BidirectionalIterator>
+template <typename RandomAccessIterator>
 inline
 void
-reverse(BidirectionalIterator first, BidirectionalIterator last)
+reverse(RandomAccessIterator first, RandomAccessIterator last)
 {
-	for ( ; distance(first, last--) > 1; ++first)
-		swap(*first, *last);
+	if (first == last)
+		return;
+
+	for (--last ; first < last; ++first, --last)
+		mstl::swap(*first, *last);
 }
 
 } // namespace mstl

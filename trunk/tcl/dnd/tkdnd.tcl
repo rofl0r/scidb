@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 427 $
-# Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
+# Version: $Revision: 809 $
+# Date   : $Date: 2013-05-27 17:09:11 +0000 (Mon, 27 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -176,6 +176,17 @@ namespace eval tkdnd {
   initialise
   
 };# namespace tkdnd
+
+# ----------------------------------------------------------------------------
+#  Command tkdnd::get_drop_target
+# ----------------------------------------------------------------------------
+proc tkdnd::get_drop_target {} {
+  variable _platform_namespace
+  if {[info exists ${_platform_namespace}::_drop_target]} {
+    return [set ${_platform_namespace}::_drop_target]
+  }
+  return ""
+}
 
 # ----------------------------------------------------------------------------
 #  Command tkdnd::drag_source

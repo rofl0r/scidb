@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 809 $
+// Date   : $Date: 2013-05-27 17:09:11 +0000 (Mon, 27 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -35,8 +35,8 @@ void fill(ForwardIterator first, ForwardIterator last, T const& value);
 template <typename OutputIterator, typename T>
 OutputIterator fill_n(OutputIterator first, unsigned count, T const& value);
 
-template <typename BidirectionalIterator>
-void reverse(BidirectionalIterator first, BidirectionalIterator last);
+template <typename RandomAccessIterator>
+void reverse(RandomAccessIterator first, RandomAccessIterator last);
 
 } // namespace mstl
 

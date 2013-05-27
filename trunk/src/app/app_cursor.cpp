@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 661 $
-// Date   : $Date: 2013-02-23 23:03:04 +0000 (Sat, 23 Feb 2013) $
+// Version: $Revision: 809 $
+// Date   : $Date: 2013-05-27 17:09:11 +0000 (Mon, 27 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -250,7 +250,7 @@ Database&
 Cursor::database()
 {
 	if (m_isRefBase)
-		Application::stopUpdateTree();
+		m_cursor.app().stopUpdateTree();
 
 	return *m_db;
 }
@@ -333,7 +333,7 @@ Cursor::importGames(Producer& producer, util::Progress& progress)
 	M_REQUIRE(!isReadonly());
 
 	if (m_isRefBase)
-		Application::stopUpdateTree();
+		m_cursor.app().stopUpdateTree();
 
 	unsigned res = m_db->importGames(producer, progress);
 
@@ -357,7 +357,7 @@ Cursor::importGames(	db::Database const& src,
 	M_REQUIRE(!isReadonly());
 
 	if (m_isRefBase)
-		Application::stopUpdateTree();
+		m_cursor.app().stopUpdateTree();
 
 	unsigned res = m_db->importGames(src, illegalRejected, log, progress);
 

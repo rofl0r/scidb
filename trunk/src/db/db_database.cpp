@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 794 $
-// Date   : $Date: 2013-05-22 20:19:59 +0000 (Wed, 22 May 2013) $
+// Version: $Revision: 809 $
+// Date   : $Date: 2013-05-27 17:09:11 +0000 (Mon, 27 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -772,32 +772,17 @@ Database::updateMoves(Game& game)
 					m_codec->updateHeader();
 			}
 
-			if (variant::isAntichessExceptLosers(m_variant))
+			bool illegalCastling	= game.containsIllegalCastlings();
+			bool illegalMoves		= game.containsIllegalMoves();
+
+			if (	illegalCastling != info.containsIllegalCastlings()
+				|| illegalMoves != info.containsIllegalMoves())
 			{
-				bool illegalMoves = game.containsIllegalMoves();
+				info.setIllegalCastling(illegalCastling);
+				info.setIllegalMove(illegalMoves);
 
-				if (illegalMoves != info.containsIllegalMoves())
-				{
-					info.setIllegalMove(illegalMoves);
-
-					if (!m_memoryOnly)
-						m_codec->update(game.index(), false);
-				}
-			}
-			else
-			{
-				bool illegalCastling	= game.containsIllegalCastlings();
-				bool illegalMoves		= game.containsIllegalMoves();
-
-				if (	illegalCastling != info.containsIllegalCastlings()
-					|| illegalMoves != info.containsIllegalMoves())
-				{
-					info.setIllegalCastling(illegalCastling);
-					info.setIllegalMove(illegalMoves);
-
-					if (!m_memoryOnly)
-						m_codec->update(game.index(), false);
-				}
+				if (!m_memoryOnly)
+					m_codec->update(game.index(), false);
 			}
 		}
 

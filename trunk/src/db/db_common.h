@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 802 $
-// Date   : $Date: 2013-05-26 10:04:34 +0000 (Sun, 26 May 2013) $
+// Version: $Revision: 809 $
+// Date   : $Date: 2013-05-27 17:09:11 +0000 (Mon, 27 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -951,6 +951,15 @@ namespace permission
 		ReadOnly,
 	};
 }
+
+namespace process
+{
+	enum Mode
+	{
+		Background,
+		Synchronous,
+	};
+};
 
 namespace position
 {

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 661 $
-// Date   : $Date: 2013-02-23 23:03:04 +0000 (Sat, 23 Feb 2013) $
+// Version: $Revision: 809 $
+// Date   : $Date: 2013-05-27 17:09:11 +0000 (Mon, 27 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -39,16 +39,16 @@
 namespace mstl { class string; }
 namespace util { class Progress; }
 
-namespace db {
-
-class Database;
-class Producer;
-class TagSet;
-
-} // namespace db
+namespace db
+{
+	class Database;
+	class Producer;
+	class TagSet;
+}
 
 namespace app {
 
+class Apllication;
 class MultiCursor;
 class View;
 

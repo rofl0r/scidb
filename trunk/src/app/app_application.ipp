@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 774 $
-// Date   : $Date: 2013-05-16 22:06:25 +0000 (Thu, 16 May 2013) $
+// Version: $Revision: 809 $
+// Date   : $Date: 2013-05-27 17:09:11 +0000 (Mon, 27 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -47,9 +47,9 @@ inline Cursor& Application::clipBase()						{ return cursor(clipbaseName()); }
 
 inline Application::Subscriber* Application::subscriber() const	{ return m_subscriber.get(); }
 inline unsigned Application::currentPosition() const					{ return m_currentPosition; }
-inline db::Tree const* Application::currentTree() const				{ return m_currentTree.get(); }
+inline db::Tree const* Application::currentTree() const				{ return m_treeAdmin.tree().get(); }
 inline mstl::ostream* Application::engineLog() const					{ return m_engineLog; }
-inline sys::Thread& Application::treeThread()							{ return m_treeThread; }
+inline sys::Thread& Application::treeThread()							{ return m_treeAdmin.thread(); }
 
 inline void Application::setSwitchReferenceBase(bool flag)			{ m_switchReference = flag; }
 inline void Application::setReferenceBase(Cursor* cursor)			{ setReferenceBase(cursor, true); }
