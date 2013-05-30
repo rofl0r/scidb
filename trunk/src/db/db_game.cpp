@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 810 $
-// Date   : $Date: 2013-05-27 22:24:12 +0000 (Mon, 27 May 2013) $
+// Version: $Revision: 812 $
+// Date   : $Date: 2013-05-30 23:54:21 +0000 (Thu, 30 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -3132,8 +3132,6 @@ Game::stripMoves(move::Position position)
 void
 Game::unstripMoves(MoveNode* startNode, Board const& startBoard, edit::Key const& key)
 {
-	M_ASSERT(startNode->next());
-
 	BEGIN_BACKUP;
 
 	MoveNode* last = startNode->getLineEnd();
