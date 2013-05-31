@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 813 $
-// Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
+// Version: $Revision: 814 $
+// Date   : $Date: 2013-05-31 23:15:11 +0000 (Fri, 31 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -397,7 +397,7 @@ cmdActiveVariants(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 static int
 cmdWriting(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 {
-	bool background = false;
+	bool background __attribute__((unused)) = false;
 
 	for (int i = 1; i < objc; i += 2)
 	{
