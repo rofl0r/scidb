@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 661 $
-# Date   : $Date: 2013-02-23 23:03:04 +0000 (Sat, 23 Feb 2013) $
+# Version: $Revision: 813 $
+# Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1629,7 +1629,7 @@ proc Properties {w id popup} {
 		$dlg.close configure -command [list destroy $dlg]
 		wm protocol $dlg WM_DELETE_WINDOW [list destroy $dlg]
 		wm withdraw $dlg
-		::util::place $dlg center $canv
+		::util::place $dlg -parent $canv -position center
 		wm deiconify $dlg
 	}
 }

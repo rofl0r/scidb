@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 810 $
-# Date   : $Date: 2013-05-27 22:24:12 +0000 (Mon, 27 May 2013) $
+# Version: $Revision: 813 $
+# Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -376,8 +376,14 @@
 ::application::mc::ChessInfoDatabase	"Chess Information Data Base"
 ::application::mc::Shutdown				"Shutdown..."
 ::application::mc::QuitAnyway				"Quit anyway?"
+::application::mc::CancelLogout			"Cancel Logout"
+::application::mc::AbortWriteOperation	"Abort write operation"
 
 ::application::mc::UpdatesAvailable		"Updates available"
+
+::application::mc::WriteOperationInProgress "Write operation in progress: currently Scidb is modifying/writing database '%s'."
+::application::mc::LogoutNotPossible	"Logout is currently not possible, the result would be a corrupted database."
+::application::mc::RestartLogout			"Aborting the write operation will restart the logout process."
 
 ### application::board #################################################
 ::application::board::mc::ShowCrosstable				"Show tournament table for this game"

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 813 $
+// Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -17,6 +17,7 @@
 // ======================================================================
 
 #include "tk_init.h"
+#include "tk_session_manager.h"
 
 #include <tcl.h>
 
@@ -37,6 +38,7 @@ tk::init(Tcl_Interp* ti)
 	fixes_init(ti);
 	selection_init(ti);
 	x11_init(ti);
+	session_manager_init(ti, "::scidb::tk::sm");
 	miscInit(ti);
 	window_manager_init(ti);
 	twm_init(ti);

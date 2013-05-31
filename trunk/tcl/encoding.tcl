@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 648 $
-# Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
+# Version: $Revision: 813 $
+# Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -327,7 +327,7 @@ proc choose {parent currentEnc defaultEnc {autoDetectFlag no}} {
 	wm resizable $dlg true true
 	wm minsize $dlg 600 400
 	wm withdraw $dlg
-	::util::place $dlg center $parent
+	::util::place $dlg -parent $parent -position center
 	wm deiconify $dlg
 	focus $dlg.enc.list.t
 	ttk::grabWindow $dlg

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 810 $
-# Date   : $Date: 2013-05-27 22:24:12 +0000 (Mon, 27 May 2013) $
+# Version: $Revision: 813 $
+# Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -378,8 +378,14 @@
 ::application::mc::ChessInfoDatabase	"Base de Datos Ajedrecística"
 ::application::mc::Shutdown				"Cierre..."
 ::application::mc::QuitAnyway				"¿Desea cerrar de todos modos?"
+::application::mc::CancelLogout			"Cancel Logout" ;# NEW
+::application::mc::AbortWriteOperation	"Abort write operation" ;# NEW
 
 ::application::mc::UpdatesAvailable		"Actualizaciones disponibles"
+
+::application::mc::WriteOperationInProgress "Write operation in progress: currently Scidb is modifying/writing database '%s'." ;# NEW
+::application::mc::LogoutNotPossible	"Logout is currently not possible, the result would be a corrupted database." ;# NEW
+::application::mc::RestartLogout			"Aborting the write operation will restart the logout process." ;# NEW
 
 ### application::board #################################################
 ::application::board::mc::ShowCrosstable				"Mostrar tabla de torneo para esta partida"

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 715 $
-# Date   : $Date: 2013-04-09 14:53:14 +0000 (Tue, 09 Apr 2013) $
+# Version: $Revision: 813 $
+# Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -450,8 +450,8 @@ proc Open {type args} {
 				scan $geometry "%dx%d" dw dh
 			}
 			set parent $data(-parent)
-			set sw [winfo screenwidth  $parent]
-			set sh [winfo screenheight $parent]
+			set sw [winfo workareawidth  $parent]
+			set sh [winfo workareaheight $parent]
 			if {$parent eq "." || $data(-place) eq "centeronscreen"} {
 				set x0 [expr {($sw - $dw)/2 - [winfo vrootx $parent]}]
 				set y0 [expr {($sh - $dh)/2 - [winfo vrooty $parent]}]

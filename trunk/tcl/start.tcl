@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 809 $
-# Date   : $Date: 2013-05-27 17:09:11 +0000 (Mon, 27 May 2013) $
+# Version: $Revision: 813 $
+# Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -234,6 +234,12 @@ proc update {} {
 
 } ;# namespace themes
 } ;# namespace scidb
+
+
+# --- Initalization ------------------------------------------------------------
+proc util::place::getWmFrameExtents {w} { return [::scidb::tk::wm extents $w] }
+proc util::place::getWmWorkArea {w} { return [::scidb::tk::wm workarea $w] }
+# ------------------------------------------------------------------------------
 
 
 if {[::process::testOption version]} {

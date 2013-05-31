@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 793 $
-# Date   : $Date: 2013-05-22 00:00:16 +0000 (Wed, 22 May 2013) $
+# Version: $Revision: 813 $
+# Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -648,8 +648,8 @@ proc OpenDialog {font options} {
 			incr w [expr {($uw - $bw)*$wi}]
 			incr h [expr {($uh - $bh)*$hi}]
 		}
-		set sw [winfo screenwidth  $parent]
-		set sh [winfo screenheight $parent]
+		set sw [winfo workareawidth  $parent]
+		set sh [winfo workareaheight $parent]
 		if {$parent eq "."} {
 			set x0 [expr {($sw - $w)/2 - [winfo vrootx $parent]}]
 			set y0 [expr {($sh - $h)/2 - [winfo vrooty $parent]}]

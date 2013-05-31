@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 702 $
-// Date   : $Date: 2013-04-02 20:29:46 +0000 (Tue, 02 Apr 2013) $
+// Version: $Revision: 813 $
+// Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -26,6 +26,7 @@
 
 #include "app_multi_cursor.h"
 #include "app_cursor.h"
+#include "app_application.h"
 
 #include "db_multi_base.h"
 #include "db_database.h"
@@ -39,6 +40,34 @@
 
 using namespace app;
 using namespace db;
+
+
+namespace {
+
+struct WriteGuard
+{
+	void release() { m_app.setIsWriting(); }
+
+	WriteGuard(Application& app, Database const& base)
+		:m_app(app)
+	{
+		if (!base.isMemoryOnly())
+			m_app.setIsWriting(base.name());
+	}
+
+	WriteGuard(Application& app, MultiCursor const& cursor)
+		:m_app(app)
+	{
+		if (!cursor.cursor().isMemoryOnly())
+			m_app.setIsWriting(cursor.name());
+	}
+
+	~WriteGuard() { release(); }
+
+	Application& m_app;
+};
+
+} // namespace
 
 
 mstl::string MultiCursor::m_clipbaseName("Clipbase");
@@ -101,7 +130,9 @@ MultiCursor::MultiCursor(	Application& app,
 																storage::MemoryOnly,
 																type));
 
+	WriteGuard guard(m_app, *base->database());
 	unsigned n = base->importGames(producer, progress);
+	guard.release();
 
 	m_base = base.release();
 
@@ -200,6 +231,8 @@ MultiCursor::copyGames(	MultiCursor& destination,
 								util::Progress& progress) const
 {
 	unsigned total = 0;
+
+	WriteGuard guard(m_app, destination);
 
 	for (unsigned v = 0; v < ::db::variant::NumberOfVariants; ++v)
 	{

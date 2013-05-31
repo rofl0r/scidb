@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 703 $
-# Date   : $Date: 2013-04-03 15:55:59 +0000 (Wed, 03 Apr 2013) $
+# Version: $Revision: 813 $
+# Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -237,7 +237,7 @@ proc open {parent} {
 	wm transient $dlg [winfo toplevel $parent]
 	wm title $dlg "[tk appname] - $mc::SetStartPosition"
 	wm resizable $dlg no no
-	::util::place $dlg center $parent
+	::util::place $dlg -parent $parent -position center
 	wm deiconify $dlg
 	focus $focus
 	::ttk::grabWindow $dlg

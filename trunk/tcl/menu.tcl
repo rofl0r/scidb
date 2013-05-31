@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 707 $
-# Date   : $Date: 2013-04-05 15:35:36 +0000 (Fri, 05 Apr 2013) $
+# Version: $Revision: 813 $
+# Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -107,7 +107,7 @@ variable MenuWidget
 
 proc setup {} {
 	bind .application <F1> [list ::help::open .application]
-	bind .application <Control-l> [list ::log::show]
+	bind .application <Control-l> [list ::log::show -force]
 	bind .application <F11> [namespace code [list viewFullscreen toggle]]
 	bind .application <Control-q> ::application::shutdown
 	bind .application <Configure> [namespace code { CheckFullscreen %W }]
@@ -336,7 +336,7 @@ if {0} {
 		-underline [incr ul] \
 		-image $::icon::16x16::log \
 		-accelerator "${::mc::Key(Ctrl)}+L" \
-		-command ::log::show \
+		-command [list ::log::show -force] \
 		;
 
 	### contact ##############################################################

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 809 $
-// Date   : $Date: 2013-05-27 17:09:11 +0000 (Mon, 27 May 2013) $
+// Version: $Revision: 813 $
+// Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -167,6 +167,7 @@ public:
 	bool treeIsUpToDate(db::Tree::Key const& key) const;
 	bool engineExists(unsigned id) const;
 	bool isSingleBase(mstl::string const& name) const;
+	bool isWriting() const;
 
 	unsigned countBases() const;
 	unsigned countGames() const;
@@ -252,6 +253,7 @@ public:
 	unsigned indexAt(unsigned position) const;
 	checksum_t checksumIndex(unsigned position = InvalidPosition) const;
 	checksum_t checksumMoves(unsigned position = InvalidPosition) const;
+	mstl::string const& currentlyWriting() const;
 	bool verifyGame(unsigned position);
 
 	db::load::State loadGame(unsigned position);
@@ -275,6 +277,7 @@ public:
 						checksum_t crcIndex,
 						checksum_t crcMoves);
 	void setReadonly(Cursor& cursor, bool flag);
+	void setIsWriting(mstl::string const& name = mstl::string::empty_string);
 	db::save::State writeGame(	unsigned position,
 										mstl::string const& filename,
 										mstl::string const& encoding,
@@ -508,6 +511,7 @@ private:
 	mstl::ostream*	m_engineLog;
 	bool				m_isClosed;
 	bool				m_treeIsFrozen;
+	mstl::string	m_isWriting;
 	TreeAdmin		m_treeAdmin;
 
 	mutable util::RKiss m_rand;

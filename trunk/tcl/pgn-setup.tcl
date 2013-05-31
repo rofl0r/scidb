@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 786 $
-# Date   : $Date: 2013-05-21 21:27:38 +0000 (Tue, 21 May 2013) $
+# Version: $Revision: 813 $
+# Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -512,7 +512,7 @@ proc openSetupDialog {parent context position args} {
 	wm withdraw $dlg
 	wm title $dlg "$::scidb::app - $mc::Configure($context)"
 	wm resizable $dlg no no
-	::util::place $dlg center $parent
+	::util::place $dlg -parent $parent -position center
 	wm transient $dlg [winfo toplevel $parent]
 	catch { wm attributes $dlg -type dialog }
 	wm deiconify $dlg

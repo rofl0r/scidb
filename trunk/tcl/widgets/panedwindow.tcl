@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 609 $
-# Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+# Version: $Revision: 813 $
+# Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -109,8 +109,12 @@ proc WidgetProc {w command args} {
 		variable [namespace current]::${w}::MaxSize
 		variable [namespace current]::${w}::GridSize
 
-		set MaxSize($child) 32000
-		set GridSize($child) 0
+		if {![info exists MaxSize($child)]} {
+			set MaxSize($child) 32000
+		}
+		if {![info exists GridSize($child)]} {
+			set GridSize($child) 0
+		}
 		
 		if {[info exists opts(-maxsize)]} {
 			if {[string is integer -strict $opts(-maxsize)]} {

@@ -1,7 +1,7 @@
 ## ======================================================================
 # Author : $Author$
-# Version: $Revision: 810 $
-# Date   : $Date: 2013-05-27 22:24:12 +0000 (Mon, 27 May 2013) $
+# Version: $Revision: 813 $
+# Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -417,7 +417,7 @@ proc CheckLanguage {parent helpFile} {
 	wm protocol $dlg WM_DELETE_WINDOW [$dlg.cancel cget -command]
 	wm resizable $dlg no no
 	wm title $dlg $mc::SelectLanguage
-	::util::place $dlg center $parent
+	::util::place $dlg -parent $parent -position center
 	wm deiconify $dlg
 	update idletasks
 	focus $dlg.cancel

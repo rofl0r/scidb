@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 609 $
-# Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+# Version: $Revision: 813 $
+# Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -28,7 +28,7 @@ proc trace {cmd type args} {
 		uplevel [list __trace__orig remove $type $name $ops $commandPrefix]
 	}
 
-	uplevel [list __trace__orig $cmd $type {*}$args]
+	return [uplevel [list __trace__orig $cmd $type {*}$args]]
 }
 
 

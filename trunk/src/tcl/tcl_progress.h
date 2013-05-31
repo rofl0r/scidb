@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 813 $
+// Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -34,6 +34,7 @@ public:
 	Progress(Tcl_Obj* cmd, Tcl_Obj* arg);
 	~Progress() throw();
 
+	bool interruptable() const;
 	bool interrupted() override;
 	unsigned ticks() const override;
 
@@ -43,6 +44,7 @@ public:
 	void update(unsigned progress) override;
 	void finish() throw() override;
 	void checkInterruption();
+	void interrupt(Tcl_Obj* inform);
 
 	static void initialize();
 
@@ -52,22 +54,14 @@ private:
 
 	Tcl_Obj*			m_cmd;
 	Tcl_Obj*			m_arg;
+	Tcl_Obj*			m_inform;
 	unsigned			m_maximum;
 	mutable int		m_numTicks;
 	bool				m_sendFinish;
 	bool				m_sendMessage;
+	bool				m_interrupted;
 	bool				m_checkInterruption;
 	mstl::string	m_msg;
-
-	static Tcl_Obj* m_open;
-	static Tcl_Obj* m_close;
-	static Tcl_Obj* m_start;
-	static Tcl_Obj* m_update;
-	static Tcl_Obj* m_tick;
-	static Tcl_Obj* m_finish;
-	static Tcl_Obj* m_interrupted;
-	static Tcl_Obj* m_ticks;
-	static Tcl_Obj* m_message;
 };
 
 } // namespace tcl

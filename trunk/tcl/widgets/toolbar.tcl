@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 609 $
-# Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+# Version: $Revision: 813 $
+# Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -2792,8 +2792,8 @@ proc UndockToolbar {toolbar x y} {
 	::update idletasks
 	set rw [winfo reqwidth $win]
 	set rh [winfo reqheight $win]
-	set sw [winfo screenwidth $win]
-	set sh [winfo screenheight $win]
+	set sw [winfo workareawidth $win]
+	set sh [winfo workareaheight $win]
 	set rx [expr {max(min($x, $sw - $rw), 0)}]
 	set ry [expr {max(min($y, $sh - $rh), 0)}]
 	wm geometry $win +$rx+$ry

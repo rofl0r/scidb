@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 609 $
-# Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+# Version: $Revision: 813 $
+# Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -727,8 +727,8 @@ proc Popup {dlg parent modal focus {place {}} {geometry {}}} {
 		} else {
 			scan $geometry "%dx%d" w h
 		}
-		set sw [winfo screenwidth  $parent]
-		set sh [winfo screenheight $parent]
+		set sw [winfo workareawidth  $parent]
+		set sh [winfo workareaheight $parent]
 		if {$parent eq "." || $place eq "centeronscreen"} {
 			set x0 [expr {($sw - $w)/2 - [winfo vrootx $parent]}]
 			set y0 [expr {($sh - $h)/2 - [winfo vrooty $parent]}]

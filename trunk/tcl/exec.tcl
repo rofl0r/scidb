@@ -1,8 +1,8 @@
 #!/bin/sh
 #! ======================================================================
 #! $RCSfile: tk_init.h,v $
-#! $Revision: 609 $
-#! $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+#! $Revision: 813 $
+#! $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
 #! $Author: gregor $
 #! ======================================================================
 
@@ -147,6 +147,10 @@ proc ParseArgs {} {
 		if {$arg eq "--"} {
 			incr i
 			break
+		}
+		if {$arg eq "--session-id"} {
+			incr i
+			continue
 		}
 		if {[string range $arg 0 1] ne "--"} {
 			break
@@ -406,6 +410,7 @@ if {	![::process::testOption single-process]
 			exit 1
 		}
 	}
+	unset -nocomplain err
 }
 
 } ;# namespace remote

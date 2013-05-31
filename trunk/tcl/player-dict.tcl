@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 640 $
-# Date   : $Date: 2013-01-23 23:55:14 +0000 (Wed, 23 Jan 2013) $
+# Version: $Revision: 813 $
+# Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -349,7 +349,7 @@ proc open {parent args} {
 	wm protocol $dlg WM_DELETE_WINDOW [list destroy $dlg]
 	wm geometry $dlg ${minsize}x${height}
 	wm minsize $dlg $minsize $minheight
-	::util::place $dlg center [winfo toplevel $parent]
+	::util::place $dlg -parent [winfo toplevel $parent] -position center
 	wm deiconify $dlg
 
 	::scrolledtable::update $table "" "" [::scidb::player::count]
@@ -668,7 +668,7 @@ proc SetFilter {table} {
 	wm resizable $dlg no no
 	wm protocol $dlg WM_DELETE_WINDOW [list set [namespace current]::Reply_ cancel]
 	wm transient $dlg [winfo toplevel $parent]
-	::util::place $dlg center $parent
+	::util::place $dlg -parent $parent -position center
 	::ttk::grabWindow $dlg
 	wm deiconify $dlg
 	focus $general.name

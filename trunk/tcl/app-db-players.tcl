@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 609 $
-# Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+# Version: $Revision: 813 $
+# Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -303,6 +303,7 @@ proc Search {path base variant view {selected -1}} {
 
 	if {$selected >= 0} {
 		# TODO: we do an exact search, but probably we like to seach only for player name!
+		set Vars($base:$variant:lastChange) [::scidb::db::get lastChange $base $variant]
 		::scidb::view::search $base $variant $view null events [list player $selected]
 		::eventtable::scroll $path.info.events home
 		::gametable::scroll $path.info.games home

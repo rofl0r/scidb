@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 809 $
-// Date   : $Date: 2013-05-27 17:09:11 +0000 (Mon, 27 May 2013) $
+// Version: $Revision: 813 $
+// Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -80,6 +80,7 @@ public:
 	bool isReferenceBase() const;
 	bool isScratchbase() const;
 	bool isClipbase() const;
+	bool isMemoryOnly() const;
 	bool hasTreeView() const;
 
 	db::format::Type format() const;
@@ -99,6 +100,8 @@ public:
 	db::type::ID type() const;
 	/// Return view identifier of tree view (-1 if not exists)
 	int treeViewIdentifier() const;
+	/// Return the application object
+	Application& app() const;
 
 	/// Create new view and return the identifier.
 	unsigned newView(	View::UpdateMode gameUpdateMode,

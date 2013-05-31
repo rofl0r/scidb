@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 609 $
-# Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+# Version: $Revision: 813 $
+# Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -658,7 +658,7 @@ proc SelectTexture {parent which} {
 	wm withdraw $dlg
 	update idletasks
 	wm minsize $dlg [winfo reqwidth $dlg] [winfo reqheight $dlg]
-	util::place $dlg right $Widget(piece,$which)
+	util::placeposition $dlg -parent $Widget(piece,$which) -position right
 	wm deiconify $dlg
 	focus $browser
 	ttk::grabWindow $dlg
@@ -1104,7 +1104,7 @@ proc SelectGradient {which} {
 	wm title $dlg $::scidb::app
 	wm protocol $dlg WM_DELETE_WINDOW "if {!\[::dialog::choosecolor::isOpen\]} { destroy $dlg }"
 	wm withdraw $dlg
-	util::place $dlg right $Widget(piece,$which) true
+	util::place $dlg -parent $Widget(piece,$which) -position right -shift 1
 	wm resizable $dlg false false
 	wm deiconify $dlg
 	ttk::grabWindow $dlg
@@ -1623,7 +1623,7 @@ proc openConfigDialog {parent size closeCmd updateCmd resetCmd} {
 	wm resizable $dlg 0 0
 	wm withdraw $dlg
 	wm title $dlg "$::scidb::app: [set [namespace current]::mc::PieceStyleConf]"
-	util::place $dlg center $parent
+	::util::place $dlg -parent $parent -position center
 #	wm transient $dlg [winfo toplevel $parent]
 	wm protocol $dlg WM_DELETE_WINDOW [namespace code [list DestroyDialog $dlg $size $resetCmd]]
 	wm deiconify $dlg

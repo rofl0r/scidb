@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 809 $
-// Date   : $Date: 2013-05-27 17:09:11 +0000 (Mon, 27 May 2013) $
+// Version: $Revision: 813 $
+// Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -39,6 +39,7 @@ inline bool Application::haveReferenceBase() const		{ return m_referenceBase; }
 inline bool Application::switchReferenceBase() const	{ return m_switchReference; }
 inline bool Application::hasInstance()						{ return m_instance; }
 inline bool Application::isClosed() const					{ return m_isClosed; }
+inline bool Application::isWriting() const				{ return !m_isWriting.empty(); }
 
 inline Cursor const& Application::scratchBase() const	{ return cursor(scratchbaseName()); }
 inline Cursor& Application::scratchBase()					{ return cursor(scratchbaseName()); }
@@ -50,7 +51,9 @@ inline unsigned Application::currentPosition() const					{ return m_currentPosit
 inline db::Tree const* Application::currentTree() const				{ return m_treeAdmin.tree().get(); }
 inline mstl::ostream* Application::engineLog() const					{ return m_engineLog; }
 inline sys::Thread& Application::treeThread()							{ return m_treeAdmin.thread(); }
+inline mstl::string const& Application::currentlyWriting() const	{ return m_isWriting; }
 
+inline void Application::setIsWriting(mstl::string const& name)	{ m_isWriting = name; }
 inline void Application::setSwitchReferenceBase(bool flag)			{ m_switchReference = flag; }
 inline void Application::setReferenceBase(Cursor* cursor)			{ setReferenceBase(cursor, true); }
 inline void Application::freezeTree(bool flag)							{ m_treeIsFrozen = flag; }

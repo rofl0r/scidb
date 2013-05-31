@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 643 $
-// Date   : $Date: 2013-01-29 13:15:54 +0000 (Tue, 29 Jan 2013) $
+// Version: $Revision: 813 $
+// Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -66,6 +66,7 @@ public:
 	bool isClosed() const;
 	bool isReadonly() const;
 	bool isWriteable() const;
+	bool isMemoryOnly() const;
 	bool isClipbase() const;
 	bool isScratchbase() const;
 	bool isSingleBase() const;

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 808 $
-# Date   : $Date: 2013-05-26 19:22:31 +0000 (Sun, 26 May 2013) $
+# Version: $Revision: 813 $
+# Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -306,7 +306,7 @@ proc openEdit {parent position args} {
 	}
 
 	wm withdraw $dlg
-	::util::place $dlg center [winfo toplevel $parent]
+	::util::place $dlg -parent [winfo toplevel $parent] -position center
 	wm protocol $dlg WM_DELETE_WINDOW [namespace code [list Close $position $dlg]]
 	SetTitle $dlg $position
 	update idletasks

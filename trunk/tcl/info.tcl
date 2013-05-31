@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 810 $
-# Date   : $Date: 2013-05-27 22:24:12 +0000 (Mon, 27 May 2013) $
+# Version: $Revision: 813 $
+# Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -73,7 +73,7 @@ proc openDialog {parent} {
 		wm title $dlg [format [set [namespace current]::mc::InfoTitle] $::scidb::app]
 		wm resizable $dlg 0 0
 #		wm transient $dlg [winfo toplevel $parent]
-		util::place $dlg center [winfo toplevel $parent]
+		util::place $dlg -parent [winfo toplevel $parent] -position center
 		wm deiconify $dlg
 	}
 

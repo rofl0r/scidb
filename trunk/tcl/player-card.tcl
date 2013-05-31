@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 609 $
-# Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+# Version: $Revision: 813 $
+# Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -382,7 +382,7 @@ proc setupPrivateCard {parent} {
 	wm resizable $dlg true false
 	wm title $dlg [::mc::stripAmpersand $::menu::mc::PrivatePlayerCard]
 	wm transient $dlg [winfo toplevel $parent]
-	::util::place $dlg center $parent
+	::util::place $dlg -parent $parent -position center
 	wm deiconify $dlg
 	focus $list
 	update idletasks

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 804 $
-# Date   : $Date: 2013-05-26 13:51:09 +0000 (Sun, 26 May 2013) $
+# Version: $Revision: 813 $
+# Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -792,7 +792,7 @@ proc open {parent args} {
 	wm protocol $dlg WM_DELETE_WINDOW [list destroy $dlg]
 	wm resizable $dlg false false
 	wm transient $dlg $parent
-	::util::place $dlg center [winfo toplevel $parent]
+	::util::place $dlg -parent [winfo toplevel $parent] -position center
 	wm deiconify $dlg
 
 	ttk::grabWindow $dlg
@@ -3429,7 +3429,7 @@ proc ShowTrace {parent trace} {
 		grid columnconfigure $f 1 -weight 1
 		::widget::dialogButtons $dlg close
 		$dlg.close configure -command [list destroy $dlg]
-		::util::place $dlg center $w
+		::util::place $dlg -parent $w -position center
 		wm protocol $dlg WM_DELETE_WINDOW [list destroy $dlg]
 		wm deiconify $dlg
 	}

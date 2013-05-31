@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 806 $
-# Date   : $Date: 2013-05-26 14:59:23 +0000 (Sun, 26 May 2013) $
+# Version: $Revision: 813 $
+# Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -384,7 +384,7 @@ proc openAnalysis {{force {}}} {
 	wm transient $dlg .application
 	wm minsize $dlg 350 100
 	wm title $dlg $::application::database::mc::T_Analysis
-	::util::place $dlg center .application
+	::util::place $dlg -parent .application -position center
 	wm deiconify $dlg
 }
 

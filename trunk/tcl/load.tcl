@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 781 $
-# Date   : $Date: 2013-05-17 16:07:55 +0000 (Fri, 17 May 2013) $
+# Version: $Revision: 813 $
+# Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -288,9 +288,11 @@ foreach subdir {piece square {}} {
 		load::source $file -message $msg
 	}
 }
+unset msg
 
 set file [file join $::scidb::dir::share textures preferences.dat]
 if {[file readable $file]} { load::source $file }
+unset file subdir
 
 # --- Load done --------------------------------------------------------
 ::scidb::app::load done

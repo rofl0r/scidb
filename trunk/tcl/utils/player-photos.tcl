@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 715 $
-# Date   : $Date: 2013-04-09 14:53:14 +0000 (Tue, 09 Apr 2013) $
+# Version: $Revision: 813 $
+# Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -190,7 +190,7 @@ proc openDialog {parent} {
 	wm resizable $dlg no no
 	wm title $dlg $mc::InstallPlayerPhotos
 	wm protocol $dlg WM_DELETE_WINDOW [list destroy $dlg]
-	::util::place $dlg center $parent
+	::util::place $dlg -parent $parent -position center
 	wm deiconify $dlg
 }
 
@@ -577,7 +577,7 @@ proc AskPassword {parent} {
 	bind $dlg <Escape> [list $dlg.cancel invoke]
 
 	wm transient $dlg $parent
-	::util::place $dlg center $parent
+	::util::place $dlg -parent $parent -position center
 	wm deiconify $dlg
 	::ttk::grabWindow $dlg
 	focus $top.e

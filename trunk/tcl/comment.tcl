@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 810 $
-# Date   : $Date: 2013-05-27 22:24:12 +0000 (Mon, 27 May 2013) $
+# Version: $Revision: 813 $
+# Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -298,8 +298,8 @@ proc open {parent pos lang} {
 			set ry [expr {$ty + [lindex $Geometry 1]}]
 			set rw [winfo reqwidth $dlg]
 			set rh [winfo reqheight $dlg]
-			set sw [winfo screenwidth $dlg]
-			set sh [winfo screenheight $dlg]
+			set sw [winfo workareawidth $dlg]
+			set sh [winfo workareaheight $dlg]
 			set rx [expr {max(min($rx, $sw - $rw), 0)}]
 			set ry [expr {max(min($ry, $sh - $rh), 0)}]
 			set x0 [expr {max(0, [lindex $Geometry 2])}]
@@ -1379,7 +1379,8 @@ proc PopupSymbolTable {w text} {
 	::tooltip::tooltip on $top*
 	wm withdraw $m
 	wm transient $m $parent
-	util::place $m below $w
+	catch { wm attributes $m -type popup_menu }
+	util::place $m -parent $w -position below -type popup
 	wm deiconify $m
 	raise $m
 	focus $m
@@ -1876,8 +1877,9 @@ proc PopdownLanguages {dlg} {
 		$popdown.l select $first
 	}
 
+	catch { wm attributes $m -type dropdown_menu }
 	::update idletasks
-	::util::place $popdown below $Vars(addLang)
+	::util::place $popdown -parent $Vars(addLang) -position below -type popup
 	switch -- [tk windowingsystem] {
 		x11 - win32 { wm transient $popdown $dlg }
 	}

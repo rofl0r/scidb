@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 807 $
-# Date   : $Date: 2013-05-26 15:08:31 +0000 (Sun, 26 May 2013) $
+# Version: $Revision: 813 $
+# Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -743,7 +743,7 @@ proc open {parent} {
 	catch { wm attributes $dlg -type dialog }
 	wm title $dlg "[tk appname] - $mc::SetStartBoard"
 	wm resizable $dlg false false
-	::util::place $dlg center $parent
+	::util::place $dlg -parent $parent -position center
 	wm deiconify $dlg
 	focus $focus
 	::ttk::grabWindow $dlg

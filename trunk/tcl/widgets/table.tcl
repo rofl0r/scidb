@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 798 $
-# Date   : $Date: 2013-05-24 16:41:53 +0000 (Fri, 24 May 2013) $
+# Version: $Revision: 813 $
+# Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -953,6 +953,7 @@ proc Configure {table w h} {
 		GenerateTableMinSizeEvent $table
 	}
 
+	set h [winfo height $table.t]
 	set hdrHeight [$table.t headerheight]
 	set tableHeight [expr {$h - $hdrHeight - 2*[$table.t cget -borderwidth]}]
 	set height [expr {$tableHeight/$Vars(linespace)}]
@@ -1737,7 +1738,7 @@ proc OpenConfigureDialog {table id header} {
 	if {[tk windowingsystem] eq "aqua"} {
 		catch { ::tk::unsupported::MacWindowStyle style $top moveableModal {} }
 	}
-	::util::place $top center $table
+	::util::place $top -parent $table -position center
 	wm deiconify $top
 	::focus $tbl.bforeground
 	ttk::grabWindow $top

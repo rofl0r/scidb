@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 609 $
-# Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+# Version: $Revision: 813 $
+# Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -986,7 +986,7 @@ proc openConfigDialog {parent size closeCmd updateCmd resetCmd} {
 	wm resizable $dlg 0 0
 	wm withdraw $dlg
 	wm title $dlg "$::scidb::app: [set [namespace current]::mc::SquareStyleConf]"
-	util::place $dlg center $parent
+	::util::place $dlg -parent $parent -position center
 #	wm transient $dlg [winfo toplevel $parent]
 	wm protocol $dlg WM_DELETE_WINDOW [namespace code [list DestroyDialog $dlg $size $resetCmd]]
 	wm deiconify $dlg

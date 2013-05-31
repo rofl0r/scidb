@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 773 $
-// Date   : $Date: 2013-05-12 16:51:25 +0000 (Sun, 12 May 2013) $
+// Version: $Revision: 813 $
+// Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -947,6 +947,7 @@ tcl::boolFromObj(unsigned objc, Tcl_Obj* const objv[], unsigned index)
 namespace tcl {
 
 namespace app			{ void init(Tcl_Interp* interp); }
+namespace progress	{ void init(Tcl_Interp* interp); }
 namespace db			{ void init(Tcl_Interp* interp); }
 namespace view			{ void init(Tcl_Interp* interp); }
 namespace game			{ void init(Tcl_Interp* interp); }
@@ -988,6 +989,7 @@ tcl::init(Tcl_Interp* ti)
 	Tcl_IncrRefCount(::m_postponed = Tcl_NewStringObj("::remote::postponed", -1));
 
 	app::init(ti);
+	progress::init(ti);
 	db::init(ti);
 	view::init(ti);
 	game::init(ti);

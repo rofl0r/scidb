@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 810 $
-# Date   : $Date: 2013-05-27 22:24:12 +0000 (Mon, 27 May 2013) $
+# Version: $Revision: 813 $
+# Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -93,11 +93,19 @@ if {[tk windowingsystem] eq "x11"} {
 			update idletasks
 			::scidb::tk::wm toolbar $w
 		}
+		proc changeDesktop {w} {
+			if {[winfo exists .application]} {
+				::scidb::tk::wm desktop .application
+			} else {
+				::scidb::tk::wm desktop .
+			}
+		}
 	}
 
 	proc toolbar::x11MakeToolbar {w} { ::x11::makeToolbar $w }
 	proc fsbox::x11MakeFrameless {w} { ::x11::makeFrameless $w }
 	proc tooltip::x11DropShadow {args} { ::x11::dropShadow {*}$args }
+	proc dialog::messagebox::changeDesktop {w type} { ::x11::changeDesktop $w }
 }
 
 set ::clipboard::window .application
@@ -115,6 +123,7 @@ set dialog::choosefont::iconReset	$icon::iconReset
 set dialog::progressbar::icon::16x16::stop $::icon::16x16::stop
 
 set tk::ShadowOffset $::shadow::offset
+
 
 proc dialog::choosefont::messageBox {parent title msg buttons defaultButton} {
 	return [::dialog::warning \

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 806 $
-# Date   : $Date: 2013-05-26 14:59:23 +0000 (Sun, 26 May 2013) $
+# Version: $Revision: 813 $
+# Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -2722,7 +2722,7 @@ proc CopyComments {parent} {
 	wm withdraw $dlg
 	wm title $dlg $mc::Command(copy:comments)
 	wm resizable $dlg false false
-	::util::place $dlg center
+	::util::place $dlg -parent $parent -position center
 	wm deiconify $dlg
 	focus $top.src
 	::ttk::grabWindow $dlg
@@ -2865,7 +2865,7 @@ proc ExchangeMoves {parent} {
 	wm withdraw $dlg
 	wm title $dlg $mc::Command(variation:exchange)
 	wm resizable $dlg false false
-	::util::place $dlg center
+	::util::place $dlg -parent $parent -position center
 	wm deiconify $dlg
 	focus $top.sblength
 	::ttk::grabWindow $dlg
