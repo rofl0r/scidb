@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 812 $
-// Date   : $Date: 2013-05-30 23:54:21 +0000 (Thu, 30 May 2013) $
+// Version: $Revision: 816 $
+// Date   : $Date: 2013-06-01 11:54:02 +0000 (Sat, 01 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -3585,7 +3585,7 @@ Game::finishLoad(variant::Type variant, mstl::string const* fen)
 	::checkThreefoldRepetitions(m_startBoard, m_variant, m_startNode);
 	updateLine();
 	updateLanguageSet();
-	m_wantedLanguages = m_languageSet;
+//	m_wantedLanguages = m_languageSet;
 	m_startNode->updateFromTimeTable(m_timeTable);
 	m_previousKey.clear();
 

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 813 $
-# Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
+# Version: $Revision: 816 $
+# Date   : $Date: 2013-06-01 11:54:02 +0000 (Sat, 01 Jun 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1055,7 +1055,7 @@ proc DoImport {position dlg} {
 			set reply [::dialog::question -parent $dlg -message $msg -detail $detail]
 			if {$reply == "no"} { return }
 			set index [lsearch -exact -index 0 $Priv($position:sets) en]
-			$Priv($position:figurines) current $index
+			$Priv($position:figurines) current [expr {$index + 1}]
 			set figurine [$Priv($position:figurines) get fig]
 		}
 	}

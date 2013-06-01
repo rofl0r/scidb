@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 813 $
-// Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
+// Version: $Revision: 816 $
+// Date   : $Date: 2013-06-01 11:54:02 +0000 (Sat, 01 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1648,7 +1648,7 @@ Database::stripMoveInformation(Filter const& filter, unsigned types, util::Progr
 	M_REQUIRE(format() == format::Scidb);
 
 	unsigned count			= filter.count();
-	unsigned frequency	= progress.frequency(count, 20000);
+	unsigned frequency	= progress.frequency(count, 5000);
 	unsigned reportAfter	= frequency;
 	unsigned number		= 0;
 	unsigned numGames		= 0;
@@ -1694,7 +1694,7 @@ Database::stripTags(Filter const& filter, TagMap const& tags, util::Progress& pr
 	M_REQUIRE(format() == format::Scidb);
 
 	unsigned count			= filter.count();
-	unsigned frequency	= progress.frequency(count, 20000);
+	unsigned frequency	= progress.frequency(count, 5000);
 	unsigned reportAfter	= frequency;
 	unsigned number		= 0;
 	unsigned numGames		= 0;

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 794 $
-// Date   : $Date: 2013-05-22 20:19:59 +0000 (Wed, 22 May 2013) $
+// Version: $Revision: 816 $
+// Date   : $Date: 2013-06-01 11:54:02 +0000 (Sat, 01 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -938,7 +938,7 @@ Codec::writeIndexEntries(mstl::fstream& fstrm, unsigned start, Progress& progres
 
 	GameInfoList& infoList = gameInfoList();
 
-	unsigned frequency	= progress.frequency(infoList.size(), 100000);
+	unsigned frequency	= progress.frequency(infoList.size(), 5000);
 	unsigned reportAfter	= frequency + start;
 
 	ProgressWatcher watcher(progress, infoList.size());

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 813 $
-// Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
+// Version: $Revision: 816 $
+// Date   : $Date: 2013-06-01 11:54:02 +0000 (Sat, 01 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -446,7 +446,7 @@ Cursor::compact(::util::Progress& progress)
 
 	try
 	{
-		unsigned frequency	= progress.frequency(numGames, 20000);
+		unsigned frequency	= progress.frequency(numGames, 5000);
 		unsigned reportAfter	= frequency;
 
 		util::ProgressWatcher watcher(progress, numGames);
