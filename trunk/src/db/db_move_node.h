@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 717 $
-// Date   : $Date: 2013-04-10 13:35:14 +0000 (Wed, 10 Apr 2013) $
+// Version: $Revision: 819 $
+// Date   : $Date: 2013-06-03 22:58:13 +0000 (Mon, 03 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -171,6 +171,7 @@ public:
 	void replaceMarks(MarkSet const& marks);
 	void swapComment(Comment& comment, move::Position position);
 	void setComment(Comment const& comment, move::Position position);
+	void setMove(Move const& move);
 	void merge(MoveNode const* node);
 	void setInfoFlag(bool flag = true);
 	void swapVariations(unsigned varNo1, unsigned varNo2);

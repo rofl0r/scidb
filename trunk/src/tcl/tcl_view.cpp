@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 774 $
-// Date   : $Date: 2013-05-16 22:06:25 +0000 (Thu, 16 May 2013) $
+// Version: $Revision: 819 $
+// Date   : $Date: 2013-06-03 22:58:13 +0000 (Mon, 03 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -582,10 +582,11 @@ cmdCopy(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 	Cursor& dst = scidb->cursor(destination, variant);
 	unsigned variantIndex = variant::toIndex(variant);
 	unsigned illegalRejected = 0;
+	unsigned numGames = dst.count(table::Games);
 
 	n = view.copyGames(dst, tagBits, extraTags, illegalRejected, log, progress);
 	accepted[variantIndex] = n;
-	rejected[variantIndex] = dst.count(table::Games) - n;
+	rejected[variantIndex] = dst.count(table::Games) - numGames - n;
 
 	if (progress.interrupted())
 		n = -n - 1;

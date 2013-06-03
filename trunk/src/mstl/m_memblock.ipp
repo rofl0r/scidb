@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 819 $
+// Date   : $Date: 2013-06-03 22:58:13 +0000 (Mon, 03 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -45,6 +45,24 @@ inline
 memblock<T>::~memblock() throw()
 {
 	operator delete(m_start);
+}
+
+
+template <typename T>
+inline
+typename memblock<T>::size_type
+memblock<T>::size() const
+{
+	return m_finish - m_start;
+}
+
+
+template <typename T>
+inline
+typename memblock<T>::size_type
+memblock<T>::capacity() const
+{
+	return m_end_of_storage - m_start;
 }
 
 

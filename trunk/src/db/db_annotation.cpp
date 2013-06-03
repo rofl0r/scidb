@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 819 $
+// Date   : $Date: 2013-06-03 22:58:13 +0000 (Mon, 03 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -159,6 +159,21 @@ Annotation::contains(nag::ID nag) const
 	}
 
 	return false;
+}
+
+
+unsigned
+Annotation::countPrefixNags() const
+{
+	unsigned n = 0;
+
+	for (unsigned i = 0; i < m_count; ++i)
+	{
+		if (nag::isPrefix(nag::ID(m_annotation[i])))
+			++n;
+	}
+
+	return n;
 }
 
 
@@ -328,6 +343,21 @@ Annotation::suffix(mstl::string& result) const
 			result += "$";
 			::addNumber(result, m_annotation[i]);
 		}
+	}
+
+	return result;
+}
+
+
+mstl::string&
+Annotation::all(mstl::string& result) const
+{
+	for (unsigned i = 0; i < m_count; ++i)
+	{
+		if (!result.empty())
+			::addSpace(result);
+		result += "$";
+		::addNumber(result, m_annotation[i]);
 	}
 
 	return result;

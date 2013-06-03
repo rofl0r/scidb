@@ -3,8 +3,8 @@
 exec tclsh "$0" "$@"
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 719 $
-# Date   : $Date: 2013-04-19 16:40:59 +0000 (Fri, 19 Apr 2013) $
+# Version: $Revision: 819 $
+# Date   : $Date: 2013-06-03 22:58:13 +0000 (Mon, 03 Jun 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -66,7 +66,7 @@ set f [open $translationFile r]
 chan configure $f -encoding $charset
 while {[gets $f line] >= 0} {
 	if {[string length $line] > 0 && [string index $line 0] ne "#"} {
-		if {[string match ::help::mc::Overview* $line]} {
+		if {[string match ::overview::mc::Overview* $line]} {
 			set var [lindex $line 0]
 			set value [string map {& {} "..." {}} [lindex $line 1]]
 			set ns [join [lrange [split $var ::] 1 end-2] ::]

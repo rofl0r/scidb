@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 794 $
-// Date   : $Date: 2013-05-22 20:19:59 +0000 (Wed, 22 May 2013) $
+// Version: $Revision: 819 $
+// Date   : $Date: 2013-06-03 22:58:13 +0000 (Mon, 03 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -683,7 +683,7 @@ Evaluation::match(GameInfo const& info, Board const& board, Variant variant, uns
 {
 	M_ASSERT(m_engine);
 
-	bool rc;
+	bool rc = false; // shut up the compiler
 
 	switch (m_method)
 	{

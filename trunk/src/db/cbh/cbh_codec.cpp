@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 794 $
-// Date   : $Date: 2013-05-22 20:19:59 +0000 (Wed, 22 May 2013) $
+// Version: $Revision: 819 $
+// Date   : $Date: 2013-06-03 22:58:13 +0000 (Mon, 03 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2437,9 +2437,9 @@ Codec::decodeIndex(ByteStream& strm, GameInfo& info)
 	info.m_positionId = flags & (1 << 0) ? 0 : variant::Standard; // XXX possibly wrong
 	info.m_setup = bool(flags & (1 << 0));
 
-	if (flags & (1 << 1)) info.m_variationCount = 5;
-	if (flags & (1 << 2)) info.m_commentCount = 5;
-	if (flags & (7 << 3)) info.m_annotationCount = 5;
+	if (flags & (1 << 1)) info.m_variationCount = 10;
+	if (flags & (1 << 2)) info.m_commentCount = 10;
+	if (flags & (7 << 3)) info.m_annotationCount = 10;
 
 	strm.skip(1);
 
@@ -2470,7 +2470,7 @@ Codec::startDecoding(ByteStream& gameStream,
 
 	if (word & 0x80000000)
 	{
-		M_THROW(DecodingFailedException());
+		throw DecodingFailedException();
 
 		// TODO: we have something special to do, but what?
 		// look at Big2010, #1964391, Giffard, Nicalas - Castlagliola, Marina
@@ -2644,7 +2644,7 @@ Codec::doDecoding(Consumer& consumer, TagSet& tags, GameInfo const& info, unsign
 	addTeamTags(tags, info);
 
 	Decoder decoder(gStrm, aStrm, *m_codec, isChess960);
-	save::State state = decoder.doDecoding(consumer, tags, info);
+	save::State state = decoder.doDecoding(consumer, tags, info, m_moveNodeAllocator);
 
 	return state;
 }

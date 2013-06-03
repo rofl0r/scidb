@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 819 $
+// Date   : $Date: 2013-06-03 22:58:13 +0000 (Mon, 03 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -158,7 +158,7 @@ mstl::bits::prepare_exc(mstl::exception& exc,
 	prepare_msg(exc, file, line, func, status == -1 ? 0 : exc_type);
 
 	if (status != -1)
-		free(exc_type);
+		::free(exc_type);
 
 #else
 

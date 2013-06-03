@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 755 $
-# Date   : $Date: 2013-04-30 21:07:56 +0000 (Tue, 30 Apr 2013) $
+# Version: $Revision: 819 $
+# Date   : $Date: 2013-06-03 22:58:13 +0000 (Mon, 03 Jun 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -17,14 +17,6 @@
 # ======================================================================
 
 namespace eval web {
-namespace eval mc {
-	set CannotFindBrowser			"Couldn't find a suitable web browser."
-	set CannotFindBrowserDetail	"Set the BROWSER environment variable to your desired browser."
-}
-
-variable Browsers {google-chrome iceweasel firefox opera iexplorer konqueror epiphany galeon mosaic amaya browsex}
-variable Excluded {}
-
 
 proc open {parent url} {
 	variable Escape
@@ -48,11 +40,16 @@ proc open {parent url} {
 		"x11" {
 			variable DefaultBrowser
 			variable Excluded
+			variable Options
 
 			if {![info exists DefaultBrowser]} {
 				set DefaultBrowser [FindDefaultBrowser]
 			}
 			while {[llength $DefaultBrowser]} {
+				if {[info exists Options($DefaultBrowser)]} {
+					set options [string map [list %url% $url] $Options($DefaultBrowser)]
+					if {![catch {exec /bin/sh -c "$DefaultBrowser $options"}]} { break }
+				}
 				if {![catch {exec /bin/sh -c "$DefaultBrowser '$url'" &}]} { break }
 				lappend Excluded $DefaultBrowser
 				set DefaultBrowser [FindDefaultBrowser]
@@ -69,6 +66,21 @@ proc open {parent url} {
 
 	::widget::busyCursor off
 }
+
+
+if {[tk windowingsystem] eq "x11"} {
+
+namespace eval mc {
+	set CannotFindBrowser			"Couldn't find a suitable web browser."
+	set CannotFindBrowserDetail	"Set the BROWSER environment variable to your desired browser."
+}
+
+variable Browsers {google-chrome iceweasel firefox mozilla opera iexplorer konqueror epiphany galeon mosaic amaya browsex}
+variable Options {
+	mozilla		{-raise -remote 'openURL(%url%)'}
+	iceweasel	{-remote 'openURL(%url%)'}
+}
+variable Excluded {}
 
 
 proc FindDefaultBrowser {} {
@@ -126,6 +138,8 @@ proc IsExcluded {browser} {
 
 	return [expr {[lsearch -exact $Excluded $browser] >= 0}]
 }
+
+} ;# [tk windowingsystem] eq "x11"
 
 } ;# namespace web
 
