@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 813 $
-// Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
+// Version: $Revision: 821 $
+// Date   : $Date: 2013-06-06 17:02:47 +0000 (Thu, 06 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -526,6 +526,18 @@ getWorkArea(Tk_Window tkwin, int desktop, Rect& result)
 
 
 static bool
+getDefaultExtents(Rect& result)
+{
+	result.left = 6;
+	result.right = 6;
+	result.width = 24;
+	result.height = 8;
+
+	return false;
+}
+
+
+static bool
 getExtents(Tk_Window tkwin, Rect& result)
 {
 	Display*	display	= Tk_Display(tkwin);
@@ -533,19 +545,12 @@ getExtents(Tk_Window tkwin, Rect& result)
 	Atom		request;
 
 	if (!checkAtom(request, display, XA_NET_FRAME_EXTENTS))
-		return false;
+		return getDefaultExtents(result);
 
 	uint32_t* data = reinterpret_cast<uint32_t*>(getProperty(display, root, request, 4));
 
 	if (data == 0)
-	{
-		result.left = 6;
-		result.right = 6;
-		result.width = 24;
-		result.height = 8;
-
-		return false;
-	}
+		return getDefaultExtents(result);
 	
 	result.left		= data[0];
 	result.right	= data[1];
