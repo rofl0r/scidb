@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 794 $
-// Date   : $Date: 2013-05-22 20:19:59 +0000 (Wed, 22 May 2013) $
+// Version: $Revision: 824 $
+// Date   : $Date: 2013-06-07 22:01:59 +0000 (Fri, 07 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -84,7 +84,7 @@ public:
 				Type type = type::Unspecific);
 	Database(mstl::string const& name,
 				mstl::string const& encoding,
-				permission::Mode mode,
+				permission::ReadMode mode,
 				util::Progress& progress);
 	Database(mstl::string const& name, Producer& producer, util::Progress& progress);
 	~Database() throw();
@@ -96,8 +96,8 @@ public:
 	bool isEmpty() const;
 	/// Returns whether the database is set read-only or not.
 	bool isReadonly() const;
-	/// Returns whether the database is potentially writeable or not.
-	bool isWriteable() const;
+	/// Returns whether the database is potentially writable or not.
+	bool isWritable() const;
 	/// Returns whether the database is memory-only or not.
 	bool isMemoryOnly() const;
 	/// Returns whether the database is open.
@@ -283,6 +283,8 @@ public:
 	void setDescription(mstl::string const& description);
 	/// Set/unset read-only flag.
 	void setReadonly(bool flag = true);
+	/// Set/unset writable flag.
+	void setWritable(bool flag);
 
 	/// Strip move information from all selected games.
 	unsigned stripMoveInformation(Filter const& filter, unsigned types, util::Progress& progress);

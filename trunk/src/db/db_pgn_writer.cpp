@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 804 $
-// Date   : $Date: 2013-05-26 13:51:09 +0000 (Sun, 26 May 2013) $
+// Version: $Revision: 824 $
+// Date   : $Date: 2013-06-07 22:01:59 +0000 (Fri, 07 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -586,19 +586,36 @@ PgnWriter::putMarks(MarkSet const& marks)
 
 
 void
-PgnWriter::writePrecedingComment(Comment const& comment, MarkSet const& marks)
+PgnWriter::writePrecedingComment(Annotation const& annotation,
+											Comment const& comment,
+											MarkSet const& marks)
 {
-	if (!comment.isEmpty())
+	bool hasComment = !comment.isEmpty() || !marks.isEmpty();
+
+	if ((annotation.contains(nag::Diagram) || annotation.contains(nag::DiagramFromBlack)))
 	{
-		m_hasPrecedingComment = true;
-		m_needPreComment = true;
-	}
-	else if (!marks.isEmpty())
-	{
-		m_needPreComment = true;
+		mstl::string s;
+		annotation.print(s);
+		putToken(s);
+
+		if (hasComment)
+			putSpace();
 	}
 
-	putComment(comment, marks);
+	if (hasComment)
+	{
+		if (!comment.isEmpty())
+		{
+			m_hasPrecedingComment = true;
+			m_needPreComment = true;
+		}
+		else if (!marks.isEmpty())
+		{
+			m_needPreComment = true;
+		}
+
+		putComment(comment, marks);
+	}
 }
 
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 813 $
-// Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
+// Version: $Revision: 824 $
+// Date   : $Date: 2013-06-07 22:01:59 +0000 (Fri, 07 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -205,6 +205,14 @@ MultiCursor::countGames() const
 
 
 void
+MultiCursor::setWritable(bool flag)
+{
+	M_REQUIRE(isOpen());
+	m_leader->base().setWritable(flag);
+}
+
+
+void
 MultiCursor::close()
 {
 	if (isOpen())
@@ -274,7 +282,7 @@ MultiCursor::changeVariant(::db::variant::Type variant)
 	M_REQUIRE(!isScratchbase());
 	M_REQUIRE(!isClipbase());
 	M_REQUIRE(!isReadonly());
-	M_REQUIRE(isWriteable());
+	M_REQUIRE(isWritable());
 
 	if (m_leader->variant() != variant)
 	{

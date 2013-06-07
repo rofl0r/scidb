@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 813 $
-// Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
+// Version: $Revision: 824 $
+// Date   : $Date: 2013-06-07 22:01:59 +0000 (Fri, 07 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -658,7 +658,7 @@ Application::encoding(unsigned position) const
 Cursor*
 Application::open(mstl::string const& name,
 						mstl::string const& encoding,
-						permission::Mode permission,
+						permission::ReadMode permission,
 						process::Mode processMode,
 						util::Progress& progress)
 {
@@ -1594,7 +1594,7 @@ Application::createIntermediateGame(GameP original)
 	scratchGame->data.game->setIndex(scratchGame->sink.index);
 
 	Database& database = scratchGame->sink.cursor->base();
-	GameInfo info(original->sink.cursor->base().gameInfo(scratchGame->sink.index));
+	GameInfo info(scratchGame->sink.cursor->base().gameInfo(scratchGame->sink.index));
 
 	info = original->sink.cursor->base().gameInfo(original->sink.index);
 	info.reallocate(database.namebases());

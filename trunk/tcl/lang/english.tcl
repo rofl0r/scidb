@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 813 $
-# Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
+# Version: $Revision: 824 $
+# Date   : $Date: 2013-06-07 22:01:59 +0000 (Fri, 07 Jun 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -532,13 +532,13 @@
 ::application::database::mc::NewDatabase						"New Database"
 ::application::database::mc::CloseDatabase					"Close Database '%s'"
 ::application::database::mc::SetReadonly						"Set Database '%s' readonly" ;# NEW
-::application::database::mc::SetWriteable						"Set Database '%s' writeable" ;# NEW
+::application::database::mc::SetWriteable						"Set Database '%s' writable" ;# NEW
 
 ::application::database::mc::OpenReadonly						"Open readonly"
-::application::database::mc::OpenWriteable					"Open writeable"
+::application::database::mc::OpenWriteable					"Open writable"
 
-::application::database::mc::UpgradeDatabase					"%s is an old format database that cannot be opened writeable.\n\nUpgrading will create a new version of the database and after that remove the original files.\n\nThis may take a while, but it only needs to be done one time.\n\nDo you want to upgrade this database now?"
-::application::database::mc::UpgradeDatabaseDetail			"\"No\" will open the database readonly, and you cannot set it writeable."
+::application::database::mc::UpgradeDatabase					"%s is an old format database that cannot be opened writable.\n\nUpgrading will create a new version of the database and after that remove the original files.\n\nThis may take a while, but it only needs to be done one time.\n\nDo you want to upgrade this database now?"
+::application::database::mc::UpgradeDatabaseDetail			"\"No\" will open the database readonly, and you cannot set it writable."
 
 ::application::database::mc::MoveInfo(evaluation)			"Evaluation"
 ::application::database::mc::MoveInfo(playersClock)		"Players Clock"

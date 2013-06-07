@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 819 $
-// Date   : $Date: 2013-06-03 22:58:13 +0000 (Mon, 03 Jun 2013) $
+// Version: $Revision: 824 $
+// Date   : $Date: 2013-06-07 22:01:59 +0000 (Fri, 07 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -235,7 +235,7 @@ MoveInfoSet::count(unsigned types) const
 bool
 MoveInfoSet::extractFromComment(EngineList& engineList, mstl::string& comment)
 {
-	M_REQUIRE(comment.writeable() || comment.empty());
+	M_REQUIRE(comment.writable() || comment.empty());
 
 	MoveInfo			info;
 	mstl::string	result;

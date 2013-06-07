@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 794 $
-// Date   : $Date: 2013-05-22 20:19:59 +0000 (Wed, 22 May 2013) $
+// Version: $Revision: 824 $
+// Date   : $Date: 2013-06-07 22:01:59 +0000 (Fri, 07 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -33,7 +33,7 @@ namespace db {
 inline bool Database::isEmpty() const							{ return m_size == 0; }
 inline bool Database::isOpen() const							{ return m_codec; }
 inline bool Database::isReadonly() const						{ return m_readOnly; }
-inline bool Database::isWriteable() const						{ return m_writeable; }
+inline bool Database::isWritable() const						{ return m_writable; }
 inline bool Database::shouldUpgrade() const					{ return m_codec->isExpired(); }
 inline bool Database::isMemoryOnly() const					{ return m_memoryOnly; }
 inline bool Database::encodingIsBroken() const				{ return !m_encodingOk; }

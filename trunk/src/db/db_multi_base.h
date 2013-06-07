@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 637 $
-// Date   : $Date: 2013-01-23 13:22:07 +0000 (Wed, 23 Jan 2013) $
+// Version: $Revision: 824 $
+// Date   : $Date: 2013-06-07 22:01:59 +0000 (Fri, 07 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -52,7 +52,7 @@ public:
 					util::Progress& progress);
 	MultiBase(	mstl::string const& name,
 					mstl::string const& encoding,
-					permission::Mode mode,
+					permission::ReadMode mode,
 					util::Progress& progress);
 	MultiBase(	mstl::string const& name,
 					mstl::string const& encoding,

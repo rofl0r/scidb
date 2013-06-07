@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 661 $
-// Date   : $Date: 2013-02-23 23:03:04 +0000 (Sat, 23 Feb 2013) $
+// Version: $Revision: 824 $
+// Date   : $Date: 2013-06-07 22:01:59 +0000 (Fri, 07 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -51,7 +51,7 @@ public:
 	Codec();
 	~Codec() throw();
 
-	bool isWriteable() const override;
+	bool isWritable() const override;
 	bool encodingFailed() const override;
 
 	Format format() const override;

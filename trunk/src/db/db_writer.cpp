@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 804 $
-// Date   : $Date: 2013-05-26 13:51:09 +0000 (Sun, 26 May 2013) $
+// Version: $Revision: 824 $
+// Date   : $Date: 2013-06-07 22:01:59 +0000 (Fri, 07 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -82,20 +82,35 @@ Writer::conv(mstl::string const& comment)
 void
 Writer::sendPrecedingComment(Comment const& comment, Annotation const& annotation, MarkSet const& marks)
 {
+	bool hasDiagram = annotation.contains(nag::Diagram) || annotation.contains(nag::DiagramFromBlack);
+
 	if (test(Flag_Include_Comments))
 	{
-		if (	!m_needSpace
-			&& (annotation.contains(nag::Diagram) || annotation.contains(nag::DiagramFromBlack)))
+		if (hasDiagram && test(Flag_Use_ChessBase_Format))
 		{
-			writePrecedingComment(Comment("#", false, false), MarkSet());
+			writePrecedingComment(Annotation(), Comment("#", false, false), MarkSet());
 			m_needSpace = true;
-		}
 
-		if (!comment.isEmpty() || !marks.isEmpty())
+			if (!comment.isEmpty() || !marks.isEmpty())
+			{
+				writePrecedingComment(Annotation(), comment, marks);
+				m_needSpace = true;
+			}
+		}
+		else
 		{
-			writePrecedingComment(comment, marks);
+			writePrecedingComment(annotation, comment, marks);
 			m_needSpace = true;
 		}
+	}
+	else if (hasDiagram)
+	{
+		if (test(Flag_Use_ChessBase_Format))
+			writePrecedingComment(Annotation(), Comment("#", false, false), MarkSet());
+		else
+			writePrecedingComment(annotation, Comment(), MarkSet());
+
+		m_needSpace = true;
 	}
 }
 

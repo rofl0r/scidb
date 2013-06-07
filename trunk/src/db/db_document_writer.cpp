@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 824 $
+// Date   : $Date: 2013-06-07 22:01:59 +0000 (Fri, 07 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -91,7 +91,9 @@ DocumentWriter::writeMove(	Move const& move,
 
 
 void
-DocumentWriter::writePrecedingComment(Comment const& comment, MarkSet const& marks)
+DocumentWriter::writePrecedingComment(	Annotation const& annotation,
+													Comment const& comment,
+													MarkSet const& marks)
 {
 }
 

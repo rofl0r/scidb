@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 668 $
-// Date   : $Date: 2013-03-10 18:15:28 +0000 (Sun, 10 Mar 2013) $
+// Version: $Revision: 824 $
+// Date   : $Date: 2013-06-07 22:01:59 +0000 (Fri, 07 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -117,7 +117,9 @@ protected:
 
 	virtual void writeBeginGame(unsigned number) = 0;
 	virtual void writeEndGame() = 0;
-	virtual void writePrecedingComment(Comment const& comment, MarkSet const& marks) = 0;
+	virtual void writePrecedingComment(	Annotation const& annotation,
+													Comment const& comment,
+													MarkSet const& marks) = 0;
 	virtual void writeTrailingComment(Comment const& comment) = 0;
 	virtual void writeTag(mstl::string const& name, mstl::string const& value) = 0;
 	virtual void writeTag(tag::ID tag, mstl::string const& value);

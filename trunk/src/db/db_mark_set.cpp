@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 824 $
+// Date   : $Date: 2013-06-07 22:01:59 +0000 (Fri, 07 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -96,7 +96,7 @@ MarkSet::sort()
 bool
 MarkSet::extractFromComment(mstl::string& comment)
 {
-	M_REQUIRE(comment.writeable() || comment.empty());
+	M_REQUIRE(comment.writable() || comment.empty());
 
 	mstl::string result;
 

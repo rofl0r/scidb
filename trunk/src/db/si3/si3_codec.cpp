@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 816 $
-// Date   : $Date: 2013-06-01 11:54:02 +0000 (Sat, 01 Jun 2013) $
+// Version: $Revision: 824 $
+// Date   : $Date: 2013-06-07 22:01:59 +0000 (Fri, 07 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -363,7 +363,7 @@ Codec::format() const
 
 
 bool
-Codec::isWriteable() const
+Codec::isWritable() const
 {
 	return true;
 }
@@ -433,7 +433,7 @@ Codec::setEncoding(mstl::string const& encoding)
 
 
 void
-Codec::setWriteable()
+Codec::setWritable()
 {
 	if (!m_gameStream.is_writable())
 		m_gameStream.reopen(mstl::ios_base::in | mstl::ios_base::out | mstl::ios_base::binary);

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 804 $
-// Date   : $Date: 2013-05-26 13:51:09 +0000 (Sun, 26 May 2013) $
+// Version: $Revision: 824 $
+// Date   : $Date: 2013-06-07 22:01:59 +0000 (Fri, 07 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -61,7 +61,9 @@ public:
 	void writeCommentLines(mstl::string const& content);
 
 	void writeTag(mstl::string const& name, mstl::string const& value) override;
-	void writePrecedingComment(Comment const& comment, MarkSet const& marks) override;
+	void writePrecedingComment(Annotation const& annotation,
+										Comment const& comment,
+										MarkSet const& marks) override;
 	void writeTrailingComment(Comment const& comment) override;
 	void writeMoveInfo(MoveInfoSet const& moveInfo) override;
 	void writeMove(Move const& move,

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 813 $
-# Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
+# Version: $Revision: 824 $
+# Date   : $Date: 2013-06-07 22:01:59 +0000 (Fri, 07 Jun 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1514,7 +1514,7 @@ proc Properties {w id popup} {
 	set readOnly [::scidb::db::get readonly? $file]
 
 	set descr [::scidb::db::get description $file]
-	if {[llength $descr] == 0} { set descr "\u2014" }
+	if {[string length $descr] == 0} { set descr "\u2014" }
 	grid $f.lpath $f.tpath $f.ldescr $f.tdescr
 	$f.tpath configure -text $file
 	$f.tdescr configure -text $descr
@@ -1649,7 +1649,7 @@ proc ShowDescription {w id} {
 
 	set file [lindex $Vars(bases) $Vars(map:$id) 2]
 	set text [::scidb::db::get description $file]
-	if {[llength $text]} { ::tooltip::show $w.content $text }
+	if {[string length $text]} { ::tooltip::show $w.content $text }
 }
 
 } ;# namespace switcher

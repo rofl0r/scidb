@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 657 $
-// Date   : $Date: 2013-02-08 22:07:00 +0000 (Fri, 08 Feb 2013) $
+// Version: $Revision: 824 $
+// Date   : $Date: 2013-06-07 22:01:59 +0000 (Fri, 07 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -78,7 +78,7 @@ MultiBase::MultiBase(mstl::string const& name,
 
 MultiBase::MultiBase(mstl::string const& name,
 							mstl::string const& encoding,
-							permission::Mode mode,
+							permission::ReadMode mode,
 							util::Progress& progress)
 	:m_singleBase(true)
 {

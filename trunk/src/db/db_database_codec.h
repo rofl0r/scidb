@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 819 $
-// Date   : $Date: 2013-06-03 22:58:13 +0000 (Mon, 03 Jun 2013) $
+// Version: $Revision: 824 $
+// Date   : $Date: 2013-06-07 22:01:59 +0000 (Fri, 07 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -111,7 +111,7 @@ public:
 
 	bool isOpen() const;
 	virtual bool isExpired() const;
-	virtual bool isWriteable() const = 0;
+	virtual bool isWritable() const = 0;
 	virtual bool encodingFailed() const = 0;
 
 	variant::Type variant() const;
@@ -141,7 +141,7 @@ public:
 
 	void updateHeader();
 	virtual void setEncoding(mstl::string const& encoding) = 0;
-	virtual void setWriteable();
+	virtual void setWritable();
 	virtual void reset() = 0;
 
 	void open(DatabaseContent* db, mstl::string const& encoding);
