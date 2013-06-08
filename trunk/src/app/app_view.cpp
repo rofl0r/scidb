@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 813 $
-// Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
+// Version: $Revision: 826 $
+// Date   : $Date: 2013-06-08 18:28:18 +0000 (Sat, 08 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -686,8 +686,6 @@ View::exportGames(mstl::string const& filename,
 						FileMode fmode) const
 {
 	M_REQUIRE(!application().contains(filename));
-
-	typedef DatabaseCodec::Format Format;
 
 	if (m_cursor.m_db->size() == 0)
 		return 0;

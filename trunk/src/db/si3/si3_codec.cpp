@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 824 $
-// Date   : $Date: 2013-06-07 22:01:59 +0000 (Fri, 07 Jun 2013) $
+// Version: $Revision: 826 $
+// Date   : $Date: 2013-06-08 18:28:18 +0000 (Sat, 08 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1604,8 +1604,6 @@ Codec::reloadNamebase(	ByteIStream& bstrm,
 								unsigned count,
 								Progress& progress)
 {
-	typedef Namebase::Type Type;
-
 	M_ASSERT(m_codec);
 
 	if (count == 0)

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 794 $
-// Date   : $Date: 2013-05-22 20:19:59 +0000 (Wed, 22 May 2013) $
+// Version: $Revision: 826 $
+// Date   : $Date: 2013-06-08 18:28:18 +0000 (Sat, 08 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -365,8 +365,6 @@ Tree::buildTree960(	unsigned myIdn,
 							unsigned frequency,
 							unsigned numGames)
 {
-	typedef EcoTable::EcoSet EcoSet;
-
 	M_ASSERT(myIdn != 0);
 	M_ASSERT(myIdn != variant::Standard);
 	M_ASSERT(!myPosition.isStandardPosition(base.variant()));
@@ -477,8 +475,6 @@ Tree::buildTreeStandard(unsigned myIdn,
 								unsigned frequency,
 								unsigned numGames)
 {
-	typedef EcoTable::EcoSet EcoSet;
-
 	M_ASSERT(myIdn == variant::Standard);
 	M_ASSERT(myPosition.isStandardPosition(base.variant()));
 
@@ -542,8 +538,6 @@ Tree::buildTreeStart(unsigned myIdn,
 							unsigned frequency,
 							unsigned numGames)
 {
-	typedef EcoTable::EcoSet EcoSet;
-
 	M_ASSERT(myIdn != variant::Standard);
 	M_ASSERT(myPosition.isStartPosition());
 

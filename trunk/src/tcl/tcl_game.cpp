@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 819 $
-// Date   : $Date: 2013-06-03 22:58:13 +0000 (Mon, 03 Jun 2013) $
+// Version: $Revision: 826 $
+// Date   : $Date: 2013-06-08 18:28:18 +0000 (Sat, 08 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1335,7 +1335,6 @@ cmdDump(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 	if (objc > 6)
 	{
 		typedef View::StringList StringList;
-		typedef View::LengthList LengthList;
 
 		StringList result, positions;
 

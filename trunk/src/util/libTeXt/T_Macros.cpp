@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 826 $
+// Date   : $Date: 2013-06-08 18:28:18 +0000 (Sat, 08 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -361,8 +361,6 @@ performEdef(Environment& env)
 static void
 performXdef(Environment& env)
 {
-	typedef Environment::ConsumerP ConsumerP;
-
 	TokenP		cs(env.getUndefinedToken(Verify::controlSequenceToken));
 	bool			isChar(cs->type() == Token::T_Number || cs->type() == Token::T_Ascii);
 	TokenList	paramList;

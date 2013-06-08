@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 826 $
+// Date   : $Date: 2013-06-08 18:28:18 +0000 (Sat, 08 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1215,7 +1215,6 @@ static void
 blur_image(PixBuf const& src, PixBuf& dst, double radius)
 {
 	typedef typename PixBuf::agg_pixfmt pixfmt;
-	typedef agg::renderer_base<pixfmt> renderer_base;
 
 	agg::rendering_buffer rbuf(dst.buf(), dst.cols(), dst.rows(), dst.pitch());
 	agg::rendering_buffer rbuf_pre(	const_cast<unsigned char*>(src.buf()),
