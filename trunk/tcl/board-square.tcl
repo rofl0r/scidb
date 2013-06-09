@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 813 $
-# Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
+# Version: $Revision: 830 $
+# Date   : $Date: 2013-06-09 22:10:38 +0000 (Sun, 09 Jun 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -682,7 +682,7 @@ proc RecolorButton {type which} {
 			::scidb::tk::image recolor #00000000 photo_Circle(texture)
 		} else {
 			# TODO really neccessary?
-			set file [file join $::scidb::dir::share textures tile {*}$style($type,texture)]
+			set file [file join $::scidb::dir::user textures tile {*}$style($type,texture)]
 			set texture [getTexture $file]
 			photo_Circle(texture) copy $::icon::15x15::circle
 			if {[llength $texture]} {

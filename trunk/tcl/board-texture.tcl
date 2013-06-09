@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 813 $
-# Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
+# Version: $Revision: 830 $
+# Date   : $Date: 2013-06-09 22:10:38 +0000 (Sun, 09 Jun 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -56,6 +56,7 @@ set Browser(incr) [expr {$Browser(size) + 2*$Browser(space)}]
 
 namespace import ::tcl::mathfunc::min
 namespace import ::tcl::mathfunc::max
+namespace import [namespace parent]::findTexture
 
 namespace export openBrowser buildBrowser forgetTextures getTexture makePopup popup popdown
 
@@ -378,7 +379,9 @@ proc FindTextures {canv which} {
 
 		foreach cat [set [namespace parent]::square::texSubDirs] {
 			set dir [file join $::scidb::dir::share textures $which $cat]
-			set files [lsort -dictionary [glob -directory $dir -nocomplain *.jpg *.png *.gif]]
+			set files [glob -directory $dir -nocomplain *.jpg *.png *.gif]
+			set dir [file join $::scidb::dir::user textures $which $cat]
+			lappend files {*}[glob -directory $dir -nocomplain *.jpg *.png *.gif]
 			lappend Browser(files) {*}[lsort -dictionary $files]
 		}
 	}
@@ -512,7 +515,7 @@ proc buildBrowser {w recv which nrows ncols currentTexture {otherTexture {}}} {
 
 	set Browser(row) 0
 	set Browser(col) 0
-	set Browser(hilite) [file join $::scidb::dir::share textures $which {*}$currentTexture]
+	set Browser(hilite) [[namespace parent]::findTexture $which {*}$currentTexture]
 	set Browser(result) {}
 
 	bind $w.container <Destroy>  [namespace code { after cancel $Browser(afterId,texture) }]
