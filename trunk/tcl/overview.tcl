@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 813 $
-# Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
+# Version: $Revision: 827 $
+# Date   : $Date: 2013-06-09 09:10:26 +0000 (Sun, 09 Jun 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -112,6 +112,7 @@ proc open {parent base variant info view index {fen {}}} {
 	set Vars(modified) 0
 	set Vars(text) {}
 
+	set Priv(tabs) {}
 	for {set i 1} {$i <= 4} {incr i} { BuildTab $nb $boardSize($i) $sw $sh [expr {$i % 2}] }
 	$nb select $Priv(tab)
 	pack $nb

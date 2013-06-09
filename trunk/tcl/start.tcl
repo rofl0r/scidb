@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 823 $
-# Date   : $Date: 2013-06-07 11:00:41 +0000 (Fri, 07 Jun 2013) $
+# Version: $Revision: 827 $
+# Date   : $Date: 2013-06-09 09:10:26 +0000 (Sun, 09 Jun 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -279,6 +279,7 @@ namespace eval mc {}
 tk appname $scidb::app
 
 tk::toplevel .application -class $::scidb::app
+::scidb::tk::wm startup .
 wm withdraw .application
 
 if {[::scidb::misc::debug?]} {

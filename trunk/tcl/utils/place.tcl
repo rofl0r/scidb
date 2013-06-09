@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 813 $
-# Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
+# Version: $Revision: 827 $
+# Date   : $Date: 2013-06-09 09:10:26 +0000 (Sun, 09 Jun 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -16,9 +16,10 @@
 # (at your option) any later version.
 # ======================================================================
 
-# This implementation is adopted from BWidget/utils.tcl.
+# This implementation is adopted from BWidget/utils.tcl, but heavily
+# modified.
 
-# Due to centering problems on window, see http://wiki.tcl.tk/20773
+# Due to centering problems on windows, see http://wiki.tcl.tk/20773
 
 package provide place 1.1
 

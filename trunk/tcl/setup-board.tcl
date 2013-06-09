@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 813 $
-# Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
+# Version: $Revision: 827 $
+# Date   : $Date: 2013-06-09 09:10:26 +0000 (Sun, 09 Jun 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -581,6 +581,7 @@ proc open {parent} {
 		::ttk::label $checks.lblb -textvar ::mc::Black
 
 		foreach side {w b} {
+			set Vars(checks:$side) 0
 			::ttk::spinbox $checks.val$side \
 				-from 0 \
 				-to 3 \
