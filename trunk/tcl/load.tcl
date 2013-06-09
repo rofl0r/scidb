@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 813 $
-# Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
+# Version: $Revision: 829 $
+# Date   : $Date: 2013-06-09 10:03:08 +0000 (Sun, 09 Jun 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -280,6 +280,9 @@ if {![file exists [file join $::scidb::dir::user themes Primus.dat]]} {
 	set update 1
 }
 if {$update} { ::scidb::themes::update }
+if {![file exists [file join $::scidb::dir::user themes square Wood-Green.dat]]} {
+	file delete [file join $::scidb::dir::user themes square Wood-Green.dat]
+}
 unset update
 ###################################################
 

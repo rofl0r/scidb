@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 712 $
-# Date   : $Date: 2013-04-08 21:19:37 +0000 (Mon, 08 Apr 2013) $
+# Version: $Revision: 829 $
+# Date   : $Date: 2013-06-09 10:03:08 +0000 (Sun, 09 Jun 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1213,6 +1213,7 @@ proc TableFill {path args} {
 					}
 
 					result {
+						# if {$item eq "1/2-1/2"} { set item "1/2" }
 						lappend text [::util::formatResult $item]
 					}
 
