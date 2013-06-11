@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 819 $
-// Date   : $Date: 2013-06-03 22:58:13 +0000 (Mon, 03 Jun 2013) $
+// Version: $Revision: 831 $
+// Date   : $Date: 2013-06-11 16:53:48 +0000 (Tue, 11 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -87,7 +87,7 @@ inline
 bool
 Consumer::startGame(TagSet const& tags)
 {
-	return startGame(tags, 0);
+	return startGame(tags, 0, 0);
 }
 
 
@@ -95,7 +95,15 @@ inline
 bool
 Consumer::startGame(TagSet const& tags, Board const& board)
 {
-	return startGame(tags, &board);
+	return startGame(tags, &board, 0);
+}
+
+
+inline
+bool
+Consumer::startGame(TagSet const& tags, uint16_t idn)
+{
+	return startGame(tags, 0, &idn);
 }
 
 } // namespace db

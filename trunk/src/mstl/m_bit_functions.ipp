@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 831 $
+// Date   : $Date: 2013-06-11 16:53:48 +0000 (Tue, 11 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -22,6 +22,10 @@
 # include "m_uint128_t.h"
 # else
 # include "m_types.h"
+#endif
+
+#ifdef USE_POPCNT
+# include <nmmintrin.h>
 #endif
 
 namespace mstl {
@@ -70,7 +74,12 @@ inline unsigned lsb(uint64_t x)				{ return ctz(x); }
 inline unsigned popcount(uint8_t x)			{ return pc(unsigned(x)); }
 inline unsigned popcount(uint16_t x)		{ return pc(unsigned(x)); }
 inline unsigned popcount(uint32_t x)		{ return pc(x); }
+
+#ifdef USE_POPCNT
+inline unsigned popcount(uint64_t x)		{ return _mm_popcnt_u64(x); }
+#else
 inline unsigned popcount(uint64_t x)		{ return pc(x); }
+#endif
 
 #ifdef USE_UINT128
 # if __WORDSIZE == 32 || !__GNUC_PREREQ(4,4)

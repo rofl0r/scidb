@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 819 $
-// Date   : $Date: 2013-06-03 22:58:13 +0000 (Mon, 03 Jun 2013) $
+// Version: $Revision: 831 $
+// Date   : $Date: 2013-06-11 16:53:48 +0000 (Tue, 11 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -104,6 +104,7 @@ public:
 
 	bool startGame(TagSet const& tags);
 	bool startGame(TagSet const& tags, Board const& board);
+	bool startGame(TagSet const& tags, uint16_t idn);
 	save::State finishGame(TagSet const& tags);
 	virtual save::State skipGame(TagSet const& tags);
 
@@ -191,7 +192,7 @@ private:
 
 	typedef mstl::stack<Entry> Stack;
 
-	bool startGame(TagSet const& tags, Board const* board);
+	bool startGame(TagSet const& tags, Board const* board, uint16_t* idn);
 	void setup(Board const& startPosition);
 	void setup(mstl::string const& fen);
 	void setup(unsigned idn);

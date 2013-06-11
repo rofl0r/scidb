@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 717 $
-// Date   : $Date: 2013-04-10 13:35:14 +0000 (Wed, 10 Apr 2013) $
+// Version: $Revision: 831 $
+// Date   : $Date: 2013-06-11 16:53:48 +0000 (Tue, 11 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -126,6 +126,7 @@ private:
 	bool					m_endOfRun;
 	bool					m_danglingPop;
 	unsigned				m_danglingEndMarker;
+	unsigned				m_trailingComment;
 	unsigned				m_lastCommentPos;
 };
 

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 712 $
-# Date   : $Date: 2013-04-08 21:19:37 +0000 (Mon, 08 Apr 2013) $
+# Version: $Revision: 831 $
+# Date   : $Date: 2013-06-11 16:53:48 +0000 (Tue, 11 Jun 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -998,7 +998,7 @@ proc ScanDrag {table x y} {
 			set Vars(drag:selection) [$table.t selection get]
 			$table.t dragimage clear
 			foreach col [::table::columns $table] {
-				$table.t dragimage add i$Vars(drag:row) $col elemBrd
+				catch { $table.t dragimage add i$Vars(drag:row) $col elemBrd }
 			}
 			$table.t dragimage configure -visible yes
 		}

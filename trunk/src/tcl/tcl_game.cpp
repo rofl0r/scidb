@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 826 $
-// Date   : $Date: 2013-06-08 18:28:18 +0000 (Sat, 08 Jun 2013) $
+// Version: $Revision: 831 $
+// Date   : $Date: 2013-06-11 16:53:48 +0000 (Tue, 11 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -3220,6 +3220,7 @@ cmdImport(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 											nullptr,
 											::db::Reader::Raw,
 											tcl::PgnReader::Game,
+											::db::permission::ReadOnly,
 											nullptr,
 											lineOffset,
 											true);
@@ -3245,6 +3246,7 @@ cmdImport(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 												arg,
 												modification,
 												tcl::PgnReader::Game,
+												::db::permission::ReadOnly,
 												nullptr,
 												lineOffset,
 												trialMode);

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 813 $
-# Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
+# Version: $Revision: 831 $
+# Date   : $Date: 2013-06-11 16:53:48 +0000 (Tue, 11 Jun 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -667,6 +667,7 @@
 ::application::tree::mc::NoGamesAvailable					"Keine Partien verfügbar"
 ::application::tree::mc::Searching							"Suche"
 ::application::tree::mc::VariantsNotYetSupported		"Schachformen (außer Normalschach) werden noch nicht unterstützt."
+::application::tree::mc::End									"Ende"
 
 ::application::tree::mc::FromWhitesPerspective			"Aus weißer Sicht"
 ::application::tree::mc::FromBlacksPerspective			"Aus schwarzer Sicht"

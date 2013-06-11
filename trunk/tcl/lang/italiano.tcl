@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 813 $
-# Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
+# Version: $Revision: 831 $
+# Date   : $Date: 2013-06-11 16:53:48 +0000 (Tue, 11 Jun 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -668,6 +668,7 @@
 ::application::tree::mc::NoGamesAvailable					"Nessuna partita disponibile"
 ::application::tree::mc::Searching							"Ricerca"
 ::application::tree::mc::VariantsNotYetSupported		"Variante di scacchi non ancora supportata."
+::application::tree::mc::End									"end" ;# NEW
 
 ::application::tree::mc::FromWhitesPerspective			"Dalla prospettiva del bianco"
 ::application::tree::mc::FromBlacksPerspective			"Dalla prospettiva del nero"

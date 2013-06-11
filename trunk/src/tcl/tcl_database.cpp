@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 824 $
-// Date   : $Date: 2013-06-07 22:01:59 +0000 (Fri, 07 Jun 2013) $
+// Version: $Revision: 831 $
+// Date   : $Date: 2013-06-11 16:53:48 +0000 (Tue, 11 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1067,6 +1067,7 @@ cmdImport(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 										objv[4],
 										tcl::PgnReader::Normalize,
 										tcl::PgnReader::File,
+										::db::permission::ReadOnly,
 										&gameCount);
 
 		count = destination.importGames(reader, progress);
@@ -1148,13 +1149,19 @@ cmdOpen(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 		return TCL_ERROR;
 	}
 
+	::db::permission::ReadMode readMode = ::db::permission::ReadOnly;
+
+	if (ext == "pgn" || ext == "PGN")
+		readMode = ::db::permission::ReadWrite;
+
 	tcl::PgnReader	reader(	stream,
 									variant::Undetermined,
 									encoding,
 									objv[2],
 									objv[3],
 									tcl::PgnReader::Normalize,
-									tcl::PgnReader::File);
+									tcl::PgnReader::File,
+									::db::permission::ReadWrite);
 
 	int n = scidb->create(dst, type::PGNFile, reader, progress);
 
@@ -1170,7 +1177,8 @@ cmdOpen(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 	}
 
 	stream.close();
-	scidb->multiCursor(dst).setWritable(!progress.interrupted());
+	scidb->multiCursor(dst).setWritable(	!progress.interrupted()
+													&& readMode == ::db::permission::ReadWrite);
 
 	if (progress.interrupted())
 		n = -n - 1;

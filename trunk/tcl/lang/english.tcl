@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 824 $
-# Date   : $Date: 2013-06-07 22:01:59 +0000 (Fri, 07 Jun 2013) $
+# Version: $Revision: 831 $
+# Date   : $Date: 2013-06-11 16:53:48 +0000 (Tue, 11 Jun 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -665,6 +665,7 @@
 ::application::tree::mc::NoGamesAvailable					"No games available"
 ::application::tree::mc::Searching							"Searching"
 ::application::tree::mc::VariantsNotYetSupported		"Chess variants not yet supported."
+::application::tree::mc::End									"end"
 
 ::application::tree::mc::FromWhitesPerspective			"From whites perspective"
 ::application::tree::mc::FromBlacksPerspective			"From blacks perspective"

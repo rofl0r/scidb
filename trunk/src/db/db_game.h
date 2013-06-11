@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 810 $
-// Date   : $Date: 2013-05-27 22:24:12 +0000 (Mon, 27 May 2013) $
+// Version: $Revision: 831 $
+// Date   : $Date: 2013-06-11 16:53:48 +0000 (Tue, 11 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -145,6 +145,7 @@ public:
 	typedef mstl::list<mstl::string> StringList;
 	typedef mstl::vector<edit::Node const*> DiffList;
 	typedef mstl::vector<Move> History;
+	typedef mstl::vector<MoveNode*> Variation;
 	typedef Comment::LanguageSet LanguageSet;
 
 	struct Subscriber : public mstl::ref_counter
@@ -457,6 +458,14 @@ public:
 	unsigned addVariation(MoveNodeP node);
 	/// Adds a new variation at the current position
 	unsigned addVariation(MoveList const& moves);
+	/// Merge a move as a variation
+	void mergeVariation(Move const& move);
+	/// Merge a move as a variation
+	void mergeVariation(mstl::string const& san);
+	/// Merge a new variation
+	void mergeVariation(MoveNodeP node);
+	/// Merge a new variation
+	void mergeVariation(MoveList const& moves);
 	/// Adds a new variation and promotes this variation one line up
 	void newMainline(mstl::string const& san);
 	/// Adds a new variation and promotes this variation one line up
@@ -666,6 +675,7 @@ private:
 	void revertGame(MoveNode* startNode, Command command);
 	void resetGame(MoveNode* startNode, Board const& startBoard, edit::Key const& key);
 	void moveVariation(unsigned from, unsigned to, Command command);
+	void mergeVariation(Variation const& moves);
 	void newMainline(MoveNode* node);
 	void promoteVariation(unsigned oldVariationNumber, unsigned newVariationNumber, bool update);
 	void removeMainline();
