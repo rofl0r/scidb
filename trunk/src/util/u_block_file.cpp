@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 661 $
-// Date   : $Date: 2013-02-23 23:03:04 +0000 (Sat, 23 Feb 2013) $
+// Version: $Revision: 832 $
+// Date   : $Date: 2013-06-12 06:32:40 +0000 (Wed, 12 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -689,9 +689,11 @@ BlockFile::put(ByteStream const& buf)
 			m_sizeInfo.push_back(0);
 			m_view.m_buffer.m_number = 0;
 		}
-		else if ((m_view.m_buffer.m_size = m_sizeInfo.back()) + nbytes <= m_blockSize)
+		else
 		{
-			if (unsigned rc = fetch(m_view, m_sizeInfo.size() - 1, span))
+			m_view.m_buffer.m_number = m_sizeInfo.size() - 1;
+
+			if (unsigned rc = fetch(m_view, m_view.m_buffer.m_number, span))
 				return rc;
 		}
 	}

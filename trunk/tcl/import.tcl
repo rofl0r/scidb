@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 816 $
-# Date   : $Date: 2013-06-01 11:54:02 +0000 (Sat, 01 Jun 2013) $
+# Version: $Revision: 832 $
+# Date   : $Date: 2013-06-12 06:32:40 +0000 (Wed, 12 Jun 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -441,7 +441,7 @@ proc Open {parent file msg encoding type} {
 		::log::error $mc::AbortedDueToInternalError
 		::progress::close
 		::log::close
-		return {*}$opts -rethrow 1 "internal error"
+		return {*}$opts -rethrow 1 $rc
 	}
 
 	if {$rc == 1} {
@@ -526,7 +526,7 @@ proc Import {parent base files msg encoding} {
 			::log::error $mc::AbortedDueToInternalError
 			::progress::close
 			::log::close
-			return {*}$opts -rethrow 1 "internal error"
+			return {*}$opts -rethrow 1 $rc
 		}
 
 		if {$rc == 1} {

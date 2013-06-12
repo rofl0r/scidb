@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 831 $
-// Date   : $Date: 2013-06-11 16:53:48 +0000 (Tue, 11 Jun 2013) $
+// Version: $Revision: 832 $
+// Date   : $Date: 2013-06-12 06:32:40 +0000 (Wed, 12 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -34,13 +34,13 @@
 #include "db_move.h"
 #include "db_move_list.h"
 #include "db_comment.h"
+#include "db_file_offsets.h"
 
 #include "m_string.h"
 #include "m_vector.h"
 #include "m_map.h"
 
 namespace mstl { class istream; }
-namespace mstl { template <typename> class vector; }
 namespace util { class Progress; }
 namespace sys { namespace utf8 { class Codec; } }
 
@@ -52,7 +52,6 @@ public:
 
 	typedef mstl::map<mstl::string,unsigned> Variants;
 	typedef unsigned GameCount[variant::NumberOfVariants];
-	typedef mstl::vector<unsigned> FileOffsets;
 
 	PgnReader(	mstl::istream& stream,
 					variant::Type variant,
@@ -257,6 +256,7 @@ private:
 	unsigned				m_countErrors[LastError + 1];
 	ReadMode				m_readMode;
 	GameCount			m_gameCount;
+	unsigned				m_gameIndex;
 	GameCount const*	m_firstGameNumber;
 	ResultMode			m_resultMode;
 	Comments				m_comments;

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 824 $
-// Date   : $Date: 2013-06-07 22:01:59 +0000 (Fri, 07 Jun 2013) $
+// Version: $Revision: 832 $
+// Date   : $Date: 2013-06-12 06:32:40 +0000 (Wed, 12 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -27,9 +27,11 @@
 #ifndef _db_multi_base_included
 #define _db_multi_base_included
 
-#include "db_common.h"
+#include "db_file_offsets.h"
 
 #include "m_string.h"
+#include "m_bitset.h"
+#include "m_vector.h"
 
 namespace util { class Progress; }
 
@@ -45,6 +47,7 @@ public:
 	typedef type::ID Type;
 	typedef format::Type Format;
 	typedef unsigned GameCount[variant::NumberOfVariants];
+	typedef mstl::bitset IndexMap;
 
 	MultiBase(	mstl::string const& name,
 					mstl::string const& encoding,
@@ -94,13 +97,18 @@ public:
 	/// Import games from given producer.
 	unsigned importGames(Producer& producer, util::Progress& progress, GameCount* count = 0);
 
+	/// Setup data for PGN files.
+	void setup(FileOffsets* fileOffsets);
+
 private:
 
 	typedef Database* Bases[variant::NumberOfVariants];
+	typedef IndexMap IndexMaps[variant::NumberOfVariants];
 
-	Bases			m_bases;
-	Database*	m_leader;
-	bool			m_singleBase;
+	Bases				m_bases;
+	Database*		m_leader;
+	bool				m_singleBase;
+	FileOffsets*	m_fileOffsets;
 };
 
 } // namespace db

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 831 $
-// Date   : $Date: 2013-06-11 16:53:48 +0000 (Tue, 11 Jun 2013) $
+// Version: $Revision: 832 $
+// Date   : $Date: 2013-06-12 06:32:40 +0000 (Wed, 12 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -52,7 +52,7 @@ public:
 					Tcl_Obj* arg,
 					Modification modification,
 					ReadMode readMode,
-					::db::permission::ReadMode permission = ::db::permission::ReadOnly,
+					::db::FileOffsets* fileOffsets = 0,
 					GameCount const* firstGameNumber = 0,
 					unsigned lineOffset = 0,
 					bool trialMode = false);
@@ -61,7 +61,6 @@ public:
 	unsigned countErrors() const;
 	unsigned countWarnings() const;
 	Error lastErrorCode() const;
-	FileOffsets const& fileOffsets() const;
 
 	void setResult(int n, int illegal) const;
 
@@ -89,18 +88,17 @@ public:
 
 private:
 
-	Tcl_Obj*		m_cmd;
-	Tcl_Obj*		m_arg;
-	Tcl_Obj*		m_warning;
-	Tcl_Obj*		m_error;
-	ReadMode		m_mode;
-	FileOffsets	m_fileOffsets;
-	unsigned		m_lineOffset;
-	unsigned		m_countErrors;
-	unsigned		m_countWarnings;
-	bool			m_trialModeFlag;
-	bool			m_tooManyRoundNames;
-	Error			m_lastError;
+	Tcl_Obj*	m_cmd;
+	Tcl_Obj*	m_arg;
+	Tcl_Obj*	m_warning;
+	Tcl_Obj*	m_error;
+	ReadMode	m_mode;
+	unsigned	m_lineOffset;
+	unsigned	m_countErrors;
+	unsigned	m_countWarnings;
+	bool		m_trialModeFlag;
+	bool		m_tooManyRoundNames;
+	Error		m_lastError;
 };
 
 } // namespace tcl

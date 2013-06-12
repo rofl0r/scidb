@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 824 $
-// Date   : $Date: 2013-06-07 22:01:59 +0000 (Fri, 07 Jun 2013) $
+// Version: $Revision: 832 $
+// Date   : $Date: 2013-06-12 06:32:40 +0000 (Wed, 12 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -56,24 +56,25 @@ match(char const* s, char const* pattern, unsigned n)
 static bool
 seemsToBeMoveInfo(char const* s, char const* e)
 {
-	if (*e == ')' || isdigit(*e))
-		return true;
-
-	if (*e == 's' && isdigit(e[-1]))
+	if (e >= s)
 	{
-		e -= 2;
+		if (*e == ')' || isdigit(*e))
+			return true;
 
-		while (e > s && isdigit(*e))
-			--e;
-
-		if (*e == ' ')
+		if (*e == 's' && e > s && isdigit(e[-1]))
 		{
-			--e;
-
-			while (e > s && *e == ' ')
+			do
 				--e;
+			while (e > s && isdigit(*e));
 
-			return *e == ')' || isdigit(*e);
+			if (e > s && *e == ' ')
+			{
+				do
+					--e;
+				while (e > s && *e == ' ');
+
+				return *e == ')' || isdigit(*e);
+			}
 		}
 	}
 
@@ -444,7 +445,7 @@ MoveInfoSet::extractFromComment(EngineList& engineList, mstl::string& comment)
 		}
 	}
 
-	char const* e = s + comment.size() - 1;
+	char const* e = comment.c_str() + comment.size() - 1;
 
 	if (e > comment.c_str())
 	{

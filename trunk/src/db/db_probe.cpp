@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 832 $
+// Date   : $Date: 2013-06-12 06:32:40 +0000 (Wed, 12 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -352,7 +352,7 @@ movePiece(Move const& move, egtb::Square* whiteSquares, egtb::Square* blackSquar
 		}
 	}
 
-	M_RAISE("internal error");
+	M_RAISE("internal error in %s", __func__);
 }
 
 

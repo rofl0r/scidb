@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 824 $
-// Date   : $Date: 2013-06-07 22:01:59 +0000 (Fri, 07 Jun 2013) $
+// Version: $Revision: 832 $
+// Date   : $Date: 2013-06-12 06:32:40 +0000 (Wed, 12 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -201,14 +201,6 @@ MultiCursor::countGames() const
 {
 	M_REQUIRE(isOpen());
 	return m_base->countGames();
-}
-
-
-void
-MultiCursor::setWritable(bool flag)
-{
-	M_REQUIRE(isOpen());
-	m_leader->base().setWritable(flag);
 }
 
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 824 $
-// Date   : $Date: 2013-06-07 22:01:59 +0000 (Fri, 07 Jun 2013) $
+// Version: $Revision: 832 $
+// Date   : $Date: 2013-06-12 06:32:40 +0000 (Wed, 12 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -167,6 +167,7 @@ public:
 	bool treeIsUpToDate(db::Tree::Key const& key) const;
 	bool engineExists(unsigned id) const;
 	bool isSingleBase(mstl::string const& name) const;
+	bool isWritable(mstl::string const& name) const;
 	bool isWriting() const;
 
 	unsigned countBases() const;

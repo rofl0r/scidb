@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 824 $
-// Date   : $Date: 2013-06-07 22:01:59 +0000 (Fri, 07 Jun 2013) $
+// Version: $Revision: 832 $
+// Date   : $Date: 2013-06-12 06:32:40 +0000 (Wed, 12 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -47,6 +47,7 @@ MultiBase::MultiBase(mstl::string const& name,
 							storage::Type storage,
 							Type type)
 	:m_singleBase(variant != variant::Undetermined)
+	,m_fileOffsets(0)
 {
 	M_REQUIRE(variant == variant::Undetermined || variant::isMainVariant(variant));
 
@@ -81,6 +82,7 @@ MultiBase::MultiBase(mstl::string const& name,
 							permission::ReadMode mode,
 							util::Progress& progress)
 	:m_singleBase(true)
+	,m_fileOffsets(0)
 {
 	::memset(m_bases, 0, sizeof(m_bases));
 	mstl::auto_ptr<Database> database(new Database(name, encoding, mode, progress));
@@ -93,6 +95,8 @@ MultiBase::~MultiBase()
 {
 	for (unsigned i = 0; i < variant::NumberOfVariants; ++i)
 		delete m_bases[i];
+
+	delete m_fileOffsets;
 }
 
 
@@ -188,6 +192,15 @@ MultiBase::close(variant::Type variant)
 		delete m_bases[variantIndex];
 		m_bases[variantIndex] = 0;
 	}
+}
+
+
+void
+MultiBase::setup(FileOffsets* fileOffsets)
+{
+	delete m_fileOffsets;
+	m_fileOffsets = fileOffsets;
+	m_leader->setWritable(m_fileOffsets != 0);
 }
 
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 794 $
-// Date   : $Date: 2013-05-22 20:19:59 +0000 (Wed, 22 May 2013) $
+// Version: $Revision: 832 $
+// Date   : $Date: 2013-06-12 06:32:40 +0000 (Wed, 12 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -624,7 +624,7 @@ struct Normalize : public Comment::Callback
 			{
 #ifndef NREQ
 				if (count++ == 20)
-					M_RAISE("internal error");
+					M_RAISE("internal error in comment class");
 #endif
 
 				if (m_stack.top() == flag)

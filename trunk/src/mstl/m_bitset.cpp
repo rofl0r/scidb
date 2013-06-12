@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 648 $
-// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
+// Version: $Revision: 832 $
+// Date   : $Date: 2013-06-12 06:32:40 +0000 (Wed, 12 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -732,8 +732,8 @@ bitset::resize(size_type nbits, bool set)
 	M_REQUIRE(!compressed());
 
 #ifdef M_CHECK
-		size_type old_count = count();
-		size_type old_size  = m_size;
+	size_type old_count = count();
+	size_type old_size  = m_size;
 #endif
 
 	size_type words = count_words(nbits);
