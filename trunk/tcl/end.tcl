@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 823 $
-# Date   : $Date: 2013-06-07 11:00:41 +0000 (Fri, 07 Jun 2013) $
+# Version: $Revision: 834 $
+# Date   : $Date: 2013-06-13 20:34:04 +0000 (Thu, 13 Jun 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -41,10 +41,10 @@ proc welcomeToScidb {parent} {
 	variable WhatsNew
 
 	if {!$Welcome} {
-		::help::open .application Welcome
+		::help::open .application Welcome -center 1
 		set Welcome 1
 	} elseif {$WhatsNew} {
-		::help::open .application Whats-New
+		::help::open .application Whats-New -center 1
 	}
 }
 
@@ -298,11 +298,6 @@ set ::scidb::revision [::scidb::misc::revision]
 
 ::mc::setup
 ::font::useLanguage $mc::langID
-
-if {[::process::testOption first-time]} {
-	::scidb::themes::update
-}
-
 ::theme::setTheme $menu::Theme
 ::menu::setup
 ::board::setup

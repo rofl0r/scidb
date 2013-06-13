@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 829 $
-# Date   : $Date: 2013-06-09 10:03:08 +0000 (Sun, 09 Jun 2013) $
+# Version: $Revision: 834 $
+# Date   : $Date: 2013-06-13 20:34:04 +0000 (Thu, 13 Jun 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -277,6 +277,9 @@ if {[file exists [file join $::scidb::dir::user themes BlueTheme.dat]]} {
 	set update 1
 }
 if {![file exists [file join $::scidb::dir::user themes Primus.dat]]} {
+	set update 1
+}
+if {[::process::testOption first-time]} {
 	set update 1
 }
 if {$update} { ::scidb::themes::update }

@@ -1,7 +1,7 @@
 ## ======================================================================
 # Author : $Author$
-# Version: $Revision: 813 $
-# Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
+# Version: $Revision: 834 $
+# Date   : $Date: 2013-06-13 20:34:04 +0000 (Thu, 13 Jun 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -115,6 +115,7 @@ proc open {parent {file ""} args} {
 	array set opts {
 		-transient	no
 		-parent		{}
+		-center		0
 	}
 	array set opts $args
 	if {[llength $opts(-parent)] == 0} { set opts(-parent) $parent }
@@ -325,6 +326,9 @@ proc open {parent {file ""} args} {
 	}
 
 	ReloadCurrentPage no
+	if {$opts(-center)} {
+		::util::place $dlg -parent $parent -position center
+	}
 	wm deiconify $dlg
 	return $dlg
 }

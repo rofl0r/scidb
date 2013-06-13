@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 828 $
-# Date   : $Date: 2013-06-09 09:23:12 +0000 (Sun, 09 Jun 2013) $
+# Version: $Revision: 834 $
+# Date   : $Date: 2013-06-13 20:34:04 +0000 (Thu, 13 Jun 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -208,6 +208,7 @@ proc update {} {
 			}
 			close $f
 			if {!$ignore} {
+				set overwrite 1
 				set path [file join $themesDir [file tail $file]]
 				if {[file exists $path]} {
 					set exisiting 0
@@ -222,9 +223,11 @@ proc update {} {
 					}
 					if {!$exisiting} {
 						puts stderr [format $mc::CannotOverwriteTheme $path]
+						set overwrite 0
 					}
 					close $f
-				} else {
+				}
+				if {$overwrite} {
 					catch { file copy -force $file $path }
 				}
 			}

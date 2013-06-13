@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 833 $
-# Date   : $Date: 2013-06-13 17:27:21 +0000 (Thu, 13 Jun 2013) $
+# Version: $Revision: 834 $
+# Date   : $Date: 2013-06-13 20:34:04 +0000 (Thu, 13 Jun 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -398,7 +398,9 @@ proc setupSquares {size} {
 
 					RefreshSquare $which $s
 				} else {
-					::scidb::tk::image recolor $style($which,solid) photo_Square($which,$s) -composite set
+					set color $style($which,solid)
+					if {[string length $color] == 0} { set color gray }
+					::scidb::tk::image recolor $color photo_Square($which,$s) -composite set
 					photo_Square($which,$s) copy photo_Borderline($s)
 				}
 
