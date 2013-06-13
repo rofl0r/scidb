@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 830 $
-# Date   : $Date: 2013-06-09 22:10:38 +0000 (Sun, 09 Jun 2013) $
+# Version: $Revision: 833 $
+# Date   : $Date: 2013-06-13 17:27:21 +0000 (Thu, 13 Jun 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -512,7 +512,7 @@ proc SelectTexture {parent which} {
 	incr Vars(open)
 	bind $parent <<BrowserSelect>> [namespace code [list BrowserSelect $parent $which %d]]
 	set other [expr {$which eq "lite" ? "dark" : "lite"}]
-	openBrowser $parent $which $style($which,texture) $style($other,texture) right
+	openBrowser $parent $which $style($which,texture) $style($other,texture) {} right
 	bind $parent <<BrowserSelect>> {}
 	incr Vars(open) -1
 }

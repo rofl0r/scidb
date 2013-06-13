@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 804 $
-# Date   : $Date: 2013-05-26 13:51:09 +0000 (Sun, 26 May 2013) $
+# Version: $Revision: 833 $
+# Date   : $Date: 2013-06-13 17:27:21 +0000 (Thu, 13 Jun 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -908,7 +908,7 @@ proc reopenLockedGames {parent} {
 	set LockedGames {}
 
 	set reply [::dialog::question -parent $parent -message $mc::ReopenLockedGames -default yes]
-	if {$reply eq "no"} { return }
+	if {$reply eq "no"} { return [UnlockGames] }
 
 	set selection -1
 	set count [llength $Vars(slots)]
@@ -1042,6 +1042,18 @@ proc openGame {parent index} {
 	}
 
 	return [expr {$rc > 0}]
+}
+
+
+proc UnlockGames {} {
+	variable LockedGames
+	variable List
+
+	set LockedGames {}
+
+	for {set i 0} {$i < [llength $List]} {incr i} {
+		lset List $i 2 0
+	}
 }
 
 

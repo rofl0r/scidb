@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 813 $
-# Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
+# Version: $Revision: 833 $
+# Date   : $Date: 2013-06-13 17:27:21 +0000 (Thu, 13 Jun 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -91,7 +91,7 @@ array set Defaults {
 	-foreground					black
 	-selectionbackground		#ffdd76
 	-selectionforeground		black
-	-disabledforeground		#999999
+	-disabledforeground		#555555
 	-labelforeground			black
 	-labelbackground			#d9d9d9
 	-borderwidth				1

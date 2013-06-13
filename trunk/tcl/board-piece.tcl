@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 813 $
-# Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
+# Version: $Revision: 833 $
+# Date   : $Date: 2013-06-13 17:27:21 +0000 (Thu, 13 Jun 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -606,13 +606,13 @@ proc SelectTexture {parent which} {
 	ttk::label $lt.lrot -textvar [namespace current]::mc::Rotate
 	foreach deg {0 90 180 270} {
 		set Widget($deg,$which) [ \
-			ttk::checkbutton \
-				$lt.b$deg \
+			ttk::checkbutton $lt.b$deg \
 				-text "$deg°" \
 				-variable [namespace current]::Vars(rotation,$which) \
 				-onvalue $deg \
 				-state $state \
-				-command [namespace code [list RotateTexture $which]]]
+				-command [namespace code [list RotateTexture $which]]] \
+				;
 	}
 
 	bind $Widget(zoom,$which)  <FocusOut> +[namespace code [list ZoomTexture $which]]
@@ -658,7 +658,7 @@ proc SelectTexture {parent which} {
 	wm withdraw $dlg
 	update idletasks
 	wm minsize $dlg [winfo reqwidth $dlg] [winfo reqheight $dlg]
-	util::placeposition $dlg -parent $Widget(piece,$which) -position right
+	util::place::position $dlg -parent $Widget(piece,$which) -position right
 	wm deiconify $dlg
 	focus $browser
 	ttk::grabWindow $dlg
