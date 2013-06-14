@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 813 $
-// Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
+// Version: $Revision: 839 $
+// Date   : $Date: 2013-06-14 17:08:49 +0000 (Fri, 14 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -783,6 +783,7 @@ safeCall(void* clientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 			case IOException::Game:				file = "Game"; break;
 			case IOException::Namebase:		file = "Namebase"; break;
 			case IOException::Annotation:		file = "Annotation"; break;
+			case IOException::PgnFile:			file = "PGN File"; break;
 		}
 
 		switch (exc.errorType())
@@ -799,6 +800,7 @@ safeCall(void* clientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 			case IOException::Encoding_Failed:			error = "EncodingFailed"; break;
 			case IOException::Max_File_Size_Exceeded:	error = "MaxFileSizeExceeded"; break;
 			case IOException::Load_Failed:				error = "LoadFailed"; break;
+			case IOException::Not_Original_Version:	error = "NotOriginalVersion"; break;
 		}
 
 		rc = tcl::ioError(file, error, exc.what());

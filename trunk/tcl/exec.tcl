@@ -1,8 +1,8 @@
 #!/bin/sh
 #! ======================================================================
 #! $RCSfile: tk_init.h,v $
-#! $Revision: 813 $
-#! $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
+#! $Revision: 839 $
+#! $Date: 2013-06-14 17:08:49 +0000 (Fri, 14 Jun 2013) $
 #! $Author: gregor $
 #! ======================================================================
 
@@ -280,7 +280,7 @@ proc busyOperation {cmd} {
 	if {$postponed} {
 		after idle [namespace code update]
 	}
-	return -code $code $res
+	return -code $code -rethrow 1 $res
 }
 
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 769 $
-// Date   : $Date: 2013-05-10 22:26:18 +0000 (Fri, 10 May 2013) $
+// Version: $Revision: 839 $
+// Date   : $Date: 2013-06-14 17:08:49 +0000 (Fri, 14 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -299,6 +299,7 @@ bool
 SpecialGameMarkers::match(GameInfo const& info, Variant variant, unsigned gameNumber)
 {
 	return	((m_flags & GameInfo::Flag_Deleted) && info.isDeleted())
+			|| ((m_flags & GameInfo::Flag_Changed) && info.isChanged())
 			|| ((m_flags & GameInfo::Flag_Illegal_Castling) && info.containsIllegalCastlings())
 			|| ((m_flags & GameInfo::Flag_Illegal_Move) && info.containsIllegalMoves());
 }

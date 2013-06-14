@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 769 $
-// Date   : $Date: 2013-05-10 22:26:18 +0000 (Fri, 10 May 2013) $
+// Version: $Revision: 839 $
+// Date   : $Date: 2013-06-14 17:08:49 +0000 (Fri, 14 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1222,6 +1222,10 @@ Match::parseHasSpecialMarkers(char const* s, Error& error)
 			if (marker == "deleted")
 			{
 				flags |= GameInfo::Flag_Deleted;
+			}
+			else if (marker == "changed")
+			{
+				flags |= GameInfo::Flag_Changed;
 			}
 			else if (marker == "illegalmove")
 			{

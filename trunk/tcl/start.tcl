@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 838 $
-# Date   : $Date: 2013-06-14 09:42:18 +0000 (Fri, 14 Jun 2013) $
+# Version: $Revision: 839 $
+# Date   : $Date: 2013-06-14 17:08:49 +0000 (Fri, 14 Jun 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -377,6 +377,7 @@ set IOError(ReadError)				"read error"
 set IOError(EncodingFailed)		"cannot write namebase file"
 set IOError(MaxFileSizeExceeded)	"maximal file size reached"
 set IOError(LoadFailed)				"load failed (too many event entries)"
+set IOError(NotOriginalVersion)	"PGN file has changed outside from Scidb since last open"
 
 set SelectionOwnerDidntRespond   "Timeout during drop action: selection owner didn't respond."
 

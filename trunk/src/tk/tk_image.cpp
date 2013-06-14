@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 826 $
-// Date   : $Date: 2013-06-08 18:28:18 +0000 (Sat, 08 Jun 2013) $
+// Version: $Revision: 839 $
+// Date   : $Date: 2013-06-14 17:08:49 +0000 (Fri, 14 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -313,8 +313,6 @@ struct pixbuf
 				p[R] = ::mulChan(p[R], opacity);
 				p[G] = ::mulChan(p[G], opacity);
 				p[B] = ::mulChan(p[B], opacity);
-				if (Alpha)
-					p[A] = 255;
 			}
 		}
 	}

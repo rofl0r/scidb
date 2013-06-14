@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 832 $
-// Date   : $Date: 2013-06-12 06:32:40 +0000 (Wed, 12 Jun 2013) $
+// Version: $Revision: 839 $
+// Date   : $Date: 2013-06-14 17:08:49 +0000 (Fri, 14 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -30,7 +30,6 @@
 #include "db_common.h"
 
 #include "m_vector.h"
-#include "m_bitset.h"
 
 namespace db {
 
@@ -38,19 +37,39 @@ class FileOffsets
 {
 public:
 
-	typedef mstl::vector<unsigned> Offsets;
-	typedef mstl::bitset IndexMap;
+	struct Offset
+	{
+	public:
 
-	void resize(unsigned n);
+		Offset(unsigned offset);
+		Offset(unsigned offset, unsigned variant, unsigned gameIndex);
+
+		bool isGameIndex() const;
+
+		unsigned offset() const;
+		unsigned variant() const;
+		unsigned gameIndex() const;
+
+	private:
+
+		uint32_t m_offset;
+		uint32_t m_index:24;
+		uint32_t m_variant:8;
+	};
+
+	typedef mstl::vector<Offset> Offsets;
+
+	unsigned size() const;
+	Offset const& get(unsigned index) const;
+
 	void append(unsigned offset);
-	void setIndex(unsigned variant, unsigned gameIndex);
+	void append(unsigned offset, unsigned variant, unsigned gameIndex);
+
+	void reserve(unsigned n);
 
 private:
 
-	typedef IndexMap Maps[variant::NumberOfVariants];
-
-	Offsets	m_offsets;
-	Maps		m_indexMap;
+	Offsets m_offsets;
 };
 
 } // namespace db

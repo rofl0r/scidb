@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 824 $
-// Date   : $Date: 2013-06-07 22:01:59 +0000 (Fri, 07 Jun 2013) $
+// Version: $Revision: 839 $
+// Date   : $Date: 2013-06-14 17:08:49 +0000 (Fri, 14 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -40,6 +40,8 @@ inline bool Database::encodingIsBroken() const				{ return !m_encodingOk; }
 inline bool Database::encodingFailed() const					{ return m_encodingFailed; }
 inline bool Database::usingAsyncReader() const				{ return m_usingAsyncReader; }
 inline bool Database::hasTemporaryStorage() const			{ return m_temporary; }
+inline bool Database::hasChanged() const						{ return m_hasChanged; }
+inline bool Database::descriptionHasChanged() const		{ return m_descriptionHasChanged; }
 
 inline unsigned Database::id() const							{ return m_id; }
 inline unsigned Database::countGames() const					{ return m_gameInfoList.size(); }

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 832 $
-// Date   : $Date: 2013-06-12 06:32:40 +0000 (Wed, 12 Jun 2013) $
+// Version: $Revision: 839 $
+// Date   : $Date: 2013-06-14 17:08:49 +0000 (Fri, 14 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -67,9 +67,12 @@ public:
 	bool isEmpty() const;
 	bool isEmpty(variant::Type variant) const;
 	bool isEmpty(unsigned variantIndex) const;
+	bool hasChanged() const;
+	bool hasChanged(unsigned variantIndex) const;
 	bool exists(variant::Type variant) const;
 	bool exists(unsigned variantIndex) const;
 	bool isSingleBase() const;
+	bool isTextFile() const;
 
 	/// Returns the (decoding) format of database
 	Format format() const;
@@ -96,6 +99,8 @@ public:
 	void replace(Database* database);
 	/// Import games from given producer.
 	unsigned importGames(Producer& producer, util::Progress& progress, GameCount* count = 0);
+	/// Update PGN file.
+	save::State save(mstl::string const& encoding, unsigned flags, util::Progress& progress);
 
 	/// Setup data for PGN files.
 	void setup(FileOffsets* fileOffsets);

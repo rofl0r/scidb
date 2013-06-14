@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 839 $
+// Date   : $Date: 2013-06-14 17:08:49 +0000 (Fri, 14 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -62,6 +62,7 @@ public:
 		Game,
 		Namebase,
 		Annotation,
+		PgnFile,
 	};
 
 	enum ErrorType
@@ -78,6 +79,7 @@ public:
 		Encoding_Failed,
 		Max_File_Size_Exceeded,
 		Load_Failed,
+		Not_Original_Version,
 	};
 
 	IOException(FileType fileType,
