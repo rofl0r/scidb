@@ -1,7 +1,7 @@
 // ======================================================================
 // $RCSfile: tk_image.cpp,v $
-// $Revision: 657 $
-// $Date: 2013-02-08 22:07:00 +0000 (Fri, 08 Feb 2013) $
+// $Revision: 840 $
+// $Date: 2013-06-14 17:18:52 +0000 (Fri, 14 Jun 2013) $
 // $Author: gregor $
 // ======================================================================
 
@@ -396,6 +396,7 @@ logIOError(IOException const& exc, unsigned gameNumber = 0)
 		case IOException::Write_Failed:
 		case IOException::Encoding_Failed:
 		case IOException::Max_File_Size_Exceeded:
+		case IOException::Not_Original_Version:
 			return; // cannot happen
 	}
 
@@ -406,6 +407,7 @@ logIOError(IOException const& exc, unsigned gameNumber = 0)
 		case IOException::Game:				file = "game"; break;
 		case IOException::Namebase:		file = "namebase"; break;
 		case IOException::Annotation:		file = "annotation"; break;
+		case IOException::PgnFile:			/* cannot happen */ break;
 	}
 
 	mstl::string msg("Error");
