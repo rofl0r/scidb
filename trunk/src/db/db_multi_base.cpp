@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 839 $
-// Date   : $Date: 2013-06-14 17:08:49 +0000 (Fri, 14 Jun 2013) $
+// Version: $Revision: 841 $
+// Date   : $Date: 2013-06-14 18:24:55 +0000 (Fri, 14 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -396,7 +396,7 @@ MultiBase::save(mstl::string const& encoding, unsigned flags, util::Progress& pr
 
 				while (k < n && ::isspace(descr[k]))
 					++k;
-				descr.erase(0u, k);
+				descr.erase(mstl::string::size_type(0), mstl::string::size_type(k));
 				n = descr.size();
 			}
 
