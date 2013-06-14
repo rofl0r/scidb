@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 834 $
-# Date   : $Date: 2013-06-13 20:34:04 +0000 (Thu, 13 Jun 2013) $
+# Version: $Revision: 835 $
+# Date   : $Date: 2013-06-14 08:38:02 +0000 (Fri, 14 Jun 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -276,14 +276,16 @@ if {[file exists [file join $::scidb::dir::user themes BlueTheme.dat]]} {
 	file delete [file join $::scidb::dir::user themes square BlueTheme.dat]
 	set update 1
 }
-if {![file exists [file join $::scidb::dir::user themes Primus.dat]]} {
+if {	![file exists [file join $::scidb::dir::user themes Primus.dat]]
+	|| ![file exists [file join $::scidb::dir::user themes Country-Style.dat]]
+	|| ![file exists [file join $::scidb::dir::user themes Blackjack.dat]]} {
 	set update 1
 }
 if {[::process::testOption first-time]} {
 	set update 1
 }
 if {$update} { ::scidb::themes::update }
-if {![file exists [file join $::scidb::dir::user themes square Wood-Green.dat]]} {
+if {[file exists [file join $::scidb::dir::user themes square Wood-Green.dat]]} {
 	file delete [file join $::scidb::dir::user themes square Wood-Green.dat]
 }
 unset update

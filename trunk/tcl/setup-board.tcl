@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 827 $
-# Date   : $Date: 2013-06-09 09:10:26 +0000 (Sun, 09 Jun 2013) $
+# Version: $Revision: 835 $
+# Date   : $Date: 2013-06-14 08:38:02 +0000 (Fri, 14 Jun 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -656,7 +656,7 @@ proc open {parent} {
 	set size [expr {$squareSize*8 + 2*$BorderThickness + $edge}]
 	set canv [tk::canvas $top.board -width $size -height $size -takefocus 0]
 	::theme::configureCanvas $canv
-	set board [::board::diagram::new $canv.board $squareSize $BorderThickness]
+	set board [::board::diagram::new $canv.board $squareSize -bordersize $BorderThickness]
 	::board::diagram::update $board $Vars(pos)
 	$board configure -cursor crosshair
 	set Vars(board) $board

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 832 $
-# Date   : $Date: 2013-06-12 06:32:40 +0000 (Wed, 12 Jun 2013) $
+# Version: $Revision: 835 $
+# Date   : $Date: 2013-06-14 08:38:02 +0000 (Fri, 14 Jun 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1437,7 +1437,7 @@ proc InsertDiagram {position w level key data} {
 				set index 0
 				set key [string map {d m} $key]
 				set img $w.[string map {. :} $key]
-				board::diagram::new $img $size $borderSize
+				board::diagram::new $img $size -bordersize $borderSize
 				if {2*$pady < $alignment} {board::diagram::alignBoard $img $Colors(background)}
 				if {$color eq "black"} { ::board::diagram::rotate $img }
 				::board::diagram::update $img $board

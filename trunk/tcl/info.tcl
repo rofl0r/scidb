@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 813 $
-# Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
+# Version: $Revision: 835 $
+# Date   : $Date: 2013-06-14 08:38:02 +0000 (Fri, 14 Jun 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -438,9 +438,10 @@ proc DisplayContributions {w} {
 		<div class='box'>
 			<h1>$mc::BoardThemeDesign</h1>
 			<hr/>
-			<p>
-				[Name {Gregor Cramer}]
-			</p>
+			<table border='0'>
+				<tr><td>[Name {Gregor Cramer}]</td></tr>
+				<tr><td>[Name {José Carlos Martins}]</td><td>\u2001</td><td>Country Style</td></tr>
+			</table>
 		</div>
 		<div class='box'>
 			<h1>$mc::FlagsDesign</h1>

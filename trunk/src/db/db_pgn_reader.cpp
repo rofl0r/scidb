@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 832 $
-// Date   : $Date: 2013-06-12 06:32:40 +0000 (Wed, 12 Jun 2013) $
+// Version: $Revision: 835 $
+// Date   : $Date: 2013-06-14 08:38:02 +0000 (Fri, 14 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -430,7 +430,7 @@ PgnReader::detectedVariant() const
 void
 PgnReader::setup(FileOffsets* fileOffsets)
 {
-	if (m_fileOffsets = fileOffsets)
+	if ((m_fileOffsets = fileOffsets))
 		m_fileOffsets->resize(estimateNumberOfGames());
 }
 

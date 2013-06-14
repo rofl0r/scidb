@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 833 $
-# Date   : $Date: 2013-06-13 17:27:21 +0000 (Thu, 13 Jun 2013) $
+# Version: $Revision: 835 $
+# Date   : $Date: 2013-06-14 08:38:02 +0000 (Fri, 14 Jun 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -804,7 +804,7 @@ proc DestroyDialog {dlg size resetCmd} {
 			-title $::scidb::app \
 			-message [set [namespace current]::mc::CloseDialog]] eq "yes"} {
 		Reset $size
-		$resetCmd
+		{*}$resetCmd
 		destroy $dlg
 	}
 }
