@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 835 $
-# Date   : $Date: 2013-06-14 08:38:02 +0000 (Fri, 14 Jun 2013) $
+# Version: $Revision: 836 $
+# Date   : $Date: 2013-06-14 08:50:22 +0000 (Fri, 14 Jun 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -175,6 +175,7 @@ proc update {} {
 			{Black & White|1322146381433|yellow.color|gregor}
 			{Brown & Goldenrod|1355495679308|yellow.color|gregor}
 			{Burly|1295711105525|yellow.color|gregor}
+			{Contrast|1371196032342|purple|gregor}
 			{Country Style|1370798009651|INE543149|cmartins}
 			{Crater|1296048990606|yellow.color|gregor}
 			{Glass|1228820514871|yellow.color|gregor}
