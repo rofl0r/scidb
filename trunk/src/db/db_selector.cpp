@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 842 $
-// Date   : $Date: 2013-06-16 11:17:35 +0000 (Sun, 16 Jun 2013) $
+// Version: $Revision: 843 $
+// Date   : $Date: 2013-06-16 19:03:13 +0000 (Sun, 16 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -308,7 +308,16 @@ compMaterial(unsigned const* lhs, unsigned const* rhs)
 static int
 compUserEco(unsigned const* lhs, unsigned const* rhs)
 {
-	return int(database->gameInfo(*lhs).idn()) - int(database->gameInfo(*rhs).idn());
+	GameInfo const& il = database->gameInfo(*lhs);
+	GameInfo const& ir = database->gameInfo(*rhs);
+
+	if (il.idn() != variant::Standard)
+		return ir.idn() == variant::Standard;
+
+	if (ir.idn() != variant::Standard)
+		return -1;
+
+	return compare(il.userEco(), ir.userEco());
 }
 
 
