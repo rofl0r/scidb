@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 833 $
-# Date   : $Date: 2013-06-13 17:27:21 +0000 (Thu, 13 Jun 2013) $
+# Version: $Revision: 844 $
+# Date   : $Date: 2013-06-16 21:24:29 +0000 (Sun, 16 Jun 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -2230,7 +2230,7 @@
 ::dialog::fsbox::mc::TypesettingFile		"Typesetting File"
 ::dialog::fsbox::mc::ImageFile				"Image File"
 ::dialog::fsbox::mc::TextFile					"Text File"
-::dialog::fsbox::mc::BinaryFile				"Binäry File"
+::dialog::fsbox::mc::BinaryFile				"Binary File"
 ::dialog::fsbox::mc::ShellScript				"Shell Script" ;# NEW
 ::dialog::fsbox::mc::Executable				"Executable" ;# NEW
 

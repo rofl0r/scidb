@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 648 $
-// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
+// Version: $Revision: 844 $
+// Date   : $Date: 2013-06-16 21:24:29 +0000 (Sun, 16 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -67,8 +67,8 @@ public:
 
 	static bool is7BitAscii(mstl::string const& s);
 	static bool is7BitAscii(char const* s, unsigned nbytes);
-	static bool matchAscii(mstl::string const& utf8, mstl::string const& ascii);
-	static bool matchGerman(mstl::string const& utf8, mstl::string const& ascii);
+	static bool matchAscii(mstl::string const& utf8, mstl::string const& ascii, bool noCase = false);
+	static bool matchGerman(mstl::string const& utf8, mstl::string const& ascii, bool noCase = false);
 	static bool fitsRegion(mstl::string const& s, unsigned region);
 	static unsigned removeOverlongSequences(char* s, unsigned size);
 	static void mapFromGerman(mstl::string const& name, mstl::string& result);

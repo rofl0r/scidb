@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 824 $
-// Date   : $Date: 2013-06-07 22:01:59 +0000 (Fri, 07 Jun 2013) $
+// Version: $Revision: 844 $
+// Date   : $Date: 2013-06-16 21:24:29 +0000 (Sun, 16 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -803,7 +803,7 @@ namespace variant
 		QueenVsRooks		= 4014,	// FICS misc/queen-rooks
 		UpsideDown			= 4015,	// Upside down chess <http://www.chessvariants.org/diffsetup.dir/upside.html>
 
-		// NOTE: maximal number is 4095
+		MaxCode				= 4095,	// maximal number
 	};
 
 	bool isAntichess(Type variant);

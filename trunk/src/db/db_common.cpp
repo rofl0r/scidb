@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 769 $
-// Date   : $Date: 2013-05-10 22:26:18 +0000 (Fri, 10 May 2013) $
+// Version: $Revision: 844 $
+// Date   : $Date: 2013-06-16 21:24:29 +0000 (Sun, 16 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -4438,6 +4438,7 @@ variant::fen(Idn idn)
 		case Runaway:			return FRunaway;
 		case QueenVsRooks:	return FQueenVsRooks;
 		case UpsideDown:		return FUpsideDown;
+		case MaxCode:			break;
 	}
 
 	M_ASSERT(!"position number out of range");

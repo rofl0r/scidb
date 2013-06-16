@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 832 $
-# Date   : $Date: 2013-06-12 06:32:40 +0000 (Wed, 12 Jun 2013) $
+# Version: $Revision: 844 $
+# Date   : $Date: 2013-06-16 21:24:29 +0000 (Sun, 16 Jun 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -828,7 +828,8 @@ proc SetFigurines {position} {
 	}
 	set font [$w cget -font]
 	set bold [list [list [font configure $font -family] [font configure $font -size] bold]]
-	set Priv($position:sets) [lsort -index 1 -dictionary $Priv($position:sets)]
+	set Priv($position:sets) [scidb::misc::sort \
+		-index 1 -order [::mc::sortOrderTable] $Priv($position:sets)]
 	set value [list en [::encoding::languageName en] [string map {" " ""}  $::figurines::langSet(en)]]
 	set Priv($position:sets) [linsert $Priv($position:sets) 0 $value]
 	set index [lsearch -index 0 -exact $Priv($position:sets) $current]

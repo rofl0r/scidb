@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 826 $
-// Date   : $Date: 2013-06-08 18:28:18 +0000 (Sat, 08 Jun 2013) $
+// Version: $Revision: 844 $
+// Date   : $Date: 2013-06-16 21:24:29 +0000 (Sun, 16 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -249,6 +249,9 @@ Tree::buildTree0(	unsigned myIdn,
 			progress.update(m_index);
 			reportAfter += frequency;
 		}
+
+		if (progress.interrupted())
+			return false;
 
 		GameInfo const& info = base.gameInfo(m_index);
 

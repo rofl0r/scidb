@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 833 $
-# Date   : $Date: 2013-06-13 17:27:21 +0000 (Thu, 13 Jun 2013) $
+# Version: $Revision: 844 $
+# Date   : $Date: 2013-06-16 21:24:29 +0000 (Sun, 16 Jun 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -31,8 +31,9 @@
 
 ### global #############################################################
 ::mc::SortMapping		{Å A å a à a À A è e È E é e É E ì i Ì i ò o Ò O ù u Ù U}
-::mc::AsciiMapping	{Å A à a À A å a è e È E é e É E ì i Ì i  ò o Ò O ù u Ù U}
-::mc::SortOrder		{A À Å B C D E È É F G H I Ì J K L M N O Ò P Q R S T U Ù V W X Y Z a à å b c d e è é f g h i ì j k l m n o ò p q r s t u ù v w x y z}
+::mc::AsciiMapping	{Å A à a à a À A è e È E é e É E ì i Ì i ò o Ò O ù u Ù U}
+::mc::SortOrder		{}
+
 
 ::mc::Key(Alt)				"Alt"
 ::mc::Key(BS)				"\u27fb" ;# "\u232b" is correct, but difficult to read

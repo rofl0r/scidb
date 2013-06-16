@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 809 $
-// Date   : $Date: 2013-05-27 17:09:11 +0000 (Mon, 27 May 2013) $
+// Version: $Revision: 844 $
+// Date   : $Date: 2013-06-16 21:24:29 +0000 (Sun, 16 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -327,7 +327,7 @@ Thread::startThread(void* arg)
 {
 	startRoutine(static_cast<Thread*>(arg)->m_runnable, static_cast<Thread*>(arg)->m_exception);
 	atomic_cmpxchg(&(static_cast<Thread*>(arg))->m_cancel, 0, 1);
-	pthread_exit(0); // never returns
+	return 0;
 }
 
 

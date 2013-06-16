@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 719 $
-// Date   : $Date: 2013-04-19 16:40:59 +0000 (Fri, 19 Apr 2013) $
+// Version: $Revision: 844 $
+// Date   : $Date: 2013-06-16 21:24:29 +0000 (Sun, 16 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -35,9 +35,12 @@ public:
 	bool isPrepared() const;
 
 	bool add(mstl::string const& pattern);
+	bool add(mstl::string const& pattern, unsigned flag);
 	bool search(mstl::string const& text, Method method = LongestMatchOnly);
 
-	virtual void match(unsigned position, unsigned index, unsigned length) = 0;
+	char const* findTag(char const* text, unsigned& flag);
+
+	virtual void match(unsigned position, unsigned index, unsigned length);
 
 private:
 

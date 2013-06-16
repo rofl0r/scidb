@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 810 $
-# Date   : $Date: 2013-05-27 22:24:12 +0000 (Mon, 27 May 2013) $
+# Version: $Revision: 844 $
+# Date   : $Date: 2013-06-16 21:24:29 +0000 (Sun, 16 Jun 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -367,6 +367,14 @@ proc translate {str} {
 }
 
 
+proc mapForSort {str}	{ return [string map $mc::SortMapping $str] }
+proc mapToAscii {str}	{ return [string map $mc::AsciiMapping $str] }
+
+proc mappingForSort {}	{ return $mc::SortMapping }
+proc mappingToAscii {}	{ return $mc::AsciiMapping }
+proc sortOrderTable {}	{ return $mc::SortOrder }
+
+
 proc setup {} {
 	variable languages
 
@@ -499,13 +507,6 @@ proc translateEco {str} {
 
 	return [TranslateParen $str]
 }
-
-
-proc mapForSort {str}	{ return [string map $mc::SortMapping $str] }
-proc mapToAscii {str}	{ return [string map $mc::AsciiMapping $str] }
-
-proc mappingForSort {}	{ return $mc::SortMapping }
-proc mappingToAscii {}	{ return $mc::AsciiMapping }
 
 
 proc TranslateParen {str} {
