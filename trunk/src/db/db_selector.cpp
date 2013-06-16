@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 809 $
-// Date   : $Date: 2013-05-27 17:09:11 +0000 (Mon, 27 May 2013) $
+// Version: $Revision: 842 $
+// Date   : $Date: 2013-06-16 11:17:35 +0000 (Sun, 16 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -308,25 +308,7 @@ compMaterial(unsigned const* lhs, unsigned const* rhs)
 static int
 compUserEco(unsigned const* lhs, unsigned const* rhs)
 {
-	GameInfo const& il = database->gameInfo(*lhs);
-	GameInfo const& ir = database->gameInfo(*rhs);
-
-	switch (il.idn())
-	{
-		case variant::Standard:
-			switch (ir.idn())
-			{
-				case 0:						return -1;
-				case variant::Standard:	return compare(il.userEco(), ir.userEco());
-				default:						return int(variant::Standard) - int(ir.idn());
-			}
-			// not reached
-
-		case 0:	return -int(ir.idn());
-		default:	return ir.idn() ? int(il.idn()) - int(ir.idn()) : -1;
-	}
-
-	return 0; // not reached
+	return int(database->gameInfo(*lhs).idn()) - int(database->gameInfo(*rhs).idn());
 }
 
 
