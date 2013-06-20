@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 845 $
-# Date   : $Date: 2013-06-19 08:57:08 +0000 (Wed, 19 Jun 2013) $
+# Version: $Revision: 847 $
+# Date   : $Date: 2013-06-20 06:48:19 +0000 (Thu, 20 Jun 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -394,7 +394,7 @@ switch [tk windowingsystem] {
 		set ShiftMask [::scidb::tk::misc shiftMask?]
 		set LockMask [::scidb::tk::misc lockMask?]
 		set ControlMask [::scidb::tk::misc controlMask?]
-		set ModMask [::scidb::tk::misc modMask?]^
+		set ModMask [::scidb::tk::misc modMask?]
 	}
 }
 
