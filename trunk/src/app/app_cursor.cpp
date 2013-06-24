@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 851 $
-// Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
+// Version: $Revision: 855 $
+// Date   : $Date: 2013-06-24 21:01:19 +0000 (Mon, 24 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -435,7 +435,14 @@ Cursor::compact(::util::Progress& progress)
 	if (!m_db->shouldCompress())
 		return false;
 
-	unsigned numGames = m_db->countGames();
+	unsigned numGames		= m_db->countGames();
+	unsigned initialSize	= m_db->countInitialGames();
+
+	for (unsigned i = 0, n = initialSize; i < n; ++i)
+	{
+		if (m_db->gameInfo(i).isDeleted())
+			--initialSize;
+	}
 
 	mstl::string orig(m_db->name());
 	mstl::string name;
@@ -496,6 +503,7 @@ Cursor::compact(::util::Progress& progress)
 		}
 
 		compacted->save(progress);
+		compacted->resetInitialSize(initialSize);
 	}
 	catch (...)
 	{

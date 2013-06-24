@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 851 $
-// Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
+// Version: $Revision: 855 $
+// Date   : $Date: 2013-06-24 21:01:19 +0000 (Mon, 24 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -280,6 +280,8 @@ public:
 	void resetChangedStatus();
 	/// Reset initial size to current size.
 	void resetInitialSize();
+	/// Reset initial size to given size.
+	void resetInitialSize(unsigned size);
 
 	/// Build tournament table for selected games.
 	TournamentTable* makeTournamentTable(Filter const& gameFilter) const;
