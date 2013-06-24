@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 795 $
-// Date   : $Date: 2013-05-22 21:49:03 +0000 (Wed, 22 May 2013) $
+// Version: $Revision: 857 $
+// Date   : $Date: 2013-06-24 23:28:35 +0000 (Mon, 24 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -116,7 +116,6 @@ private:
 	bool m_identifierDetected;
 	bool m_shortNameDetected;
 	bool m_mustUseChess960;
-	bool m_mustUseNoCastle;
 	bool m_editSent;
 	bool m_dontInvertScore;
 	bool m_wholeSeconds;

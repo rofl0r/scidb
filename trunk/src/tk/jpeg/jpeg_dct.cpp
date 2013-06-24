@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 857 $
+// Date   : $Date: 2013-06-24 23:28:35 +0000 (Mon, 24 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -747,7 +747,9 @@ DCT::DCT(int bitsInSample)
 	:m_impl(new ConcreteDCT<false>(bitsInSample))
 #endif
 	,m_quant0(0.0)
+#ifdef JPEG_SUPPORT_12_BIT
 	,m_bitsInSample(bitsInSample)
+#endif
 {
 }
 

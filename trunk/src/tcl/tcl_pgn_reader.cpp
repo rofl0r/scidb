@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 851 $
-// Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
+// Version: $Revision: 857 $
+// Date   : $Date: 2013-06-24 23:28:35 +0000 (Mon, 24 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -64,7 +64,6 @@ PgnReader::PgnReader(mstl::istream& strm,
 	,m_warning(Tcl_NewStringObj("warning", -1))
 	,m_error(Tcl_NewStringObj("error", -1))
 	,m_save(Tcl_NewStringObj("save", -1))
-	,m_mode(readMode)
 	,m_lineOffset(lineOffset)
 	,m_countErrors(0)
 	,m_countWarnings(0)

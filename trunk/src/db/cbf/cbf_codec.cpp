@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 824 $
-// Date   : $Date: 2013-06-07 22:01:59 +0000 (Fri, 07 Jun 2013) $
+// Version: $Revision: 857 $
+// Date   : $Date: 2013-06-24 23:28:35 +0000 (Mon, 24 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -96,8 +96,6 @@ extractRoundNumber(mstl::string& str, unsigned& round, unsigned& subround)
 
 			if (valid && *s == ')')
 			{
-				char* end;
-
 				e = s + 1;
 				s = anchor;
 
@@ -109,17 +107,20 @@ extractRoundNumber(mstl::string& str, unsigned& round, unsigned& subround)
 					++s;
 
 				if (s < e)
+				{
+					char* end;
 					round = strtol(s, &end, 10);
 
-				if (end < e)
-				{
-					s = end;
+					if (end < e)
+					{
+						s = end;
 
-					while (s < e && !isdigit(*s))
-						++s;
+						while (s < e && !isdigit(*s))
+							++s;
 
-					if (s < e)
-						subround = strtol(s, &end, 10);
+						if (s < e)
+							subround = strtol(s, &end, 10);
+					}
 				}
 
 				if (anchor > str.begin() && isspace(s[-1]) && isspace(*e))

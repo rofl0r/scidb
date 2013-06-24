@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 844 $
-// Date   : $Date: 2013-06-16 21:24:29 +0000 (Sun, 16 Jun 2013) $
+// Version: $Revision: 857 $
+// Date   : $Date: 2013-06-24 23:28:35 +0000 (Mon, 24 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -4138,7 +4138,7 @@ mstl::string const&
 event::toString(Mode mode)
 {
 	static_assert(U_NUMBER_OF(ModeLookup) == Composition + 1, "event::Lookup expired");
-	M_ASSERT(mode < int(U_NUMBER_OF(ModeLookup)));
+	M_ASSERT(int(mode) < int(U_NUMBER_OF(ModeLookup)));
 
 	return ModeLookup[mode];
 }

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 743 $
-// Date   : $Date: 2013-04-26 15:55:35 +0000 (Fri, 26 Apr 2013) $
+// Version: $Revision: 857 $
+// Date   : $Date: 2013-06-24 23:28:35 +0000 (Mon, 24 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -123,8 +123,6 @@ public:
 
 	enum { Lower = 1, Upper = 2, Exact = 3 };
 
-	Transposition();
-
 	bool lookup(uint64_t key, uint16_t& move, int& score, unsigned depth, int& alpha, int& beta) const;
 	void store(uint64_t key, uint16_t move, unsigned depth, int score, int alpha, int beta);
 
@@ -132,12 +130,8 @@ private:
 
 	enum { TableSize = 32768 };	// 0.5 MB
 
-	TransEntry	m_table[TableSize];
-	unsigned		m_size;
+	TransEntry m_table[TableSize];
 };
-
-
-Transposition::Transposition() : m_size(0) {}
 
 
 bool

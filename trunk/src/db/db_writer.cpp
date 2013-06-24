@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 831 $
-// Date   : $Date: 2013-06-11 16:53:48 +0000 (Tue, 11 Jun 2013) $
+// Version: $Revision: 857 $
+// Date   : $Date: 2013-06-24 23:28:35 +0000 (Mon, 24 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -306,7 +306,7 @@ Writer::beginGame(TagSet const& tags)
 					{
 						mstl::string v = value;
 
-						if (!v.back() == ')')
+						if (v.back() != ')')
 						{
 							v += " (";
 							v += tags.value(tag::Mode);

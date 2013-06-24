@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 773 $
-// Date   : $Date: 2013-05-12 16:51:25 +0000 (Sun, 12 May 2013) $
+// Version: $Revision: 857 $
+// Date   : $Date: 2013-06-24 23:28:35 +0000 (Mon, 24 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -517,8 +517,8 @@ Mark::encode(ByteStream& strm) const
 	}
 	else
 	{
-		M_ASSERT(m_color < 0x80);
-		M_ASSERT(m_type < 0x20);
+		M_ASSERT(int(m_color) < 0x80);
+		M_ASSERT(int(m_type) < 0x20);
 
 		strm.put(m_square1);
 		strm.put(m_type == mark::Text ? m_text : char(m_type));

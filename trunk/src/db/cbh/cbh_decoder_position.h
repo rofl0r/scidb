@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 857 $
+// Date   : $Date: 2013-06-24 23:28:35 +0000 (Mon, 24 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -93,8 +93,7 @@ private:
 	Move doCapture(Byte number, Byte offs);
 	Move doMove(Move move);
 
-	Stack	m_stack;
-	Byte	m_rookNumbers[4];
+	Stack m_stack;
 };
 
 } // namespace decoder

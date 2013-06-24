@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 723 $
-// Date   : $Date: 2013-04-20 21:01:30 +0000 (Sat, 20 Apr 2013) $
+// Version: $Revision: 857 $
+// Date   : $Date: 2013-06-24 23:28:35 +0000 (Mon, 24 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -16,6 +16,7 @@
 // (at your option) any later version.
 // ======================================================================
 
+#include "m_utility.h"
 #include "m_assert.h"
 
 namespace mstl {
@@ -652,8 +653,8 @@ void
 ring<T>::swap(ring& v)
 {
 	m_list.swap(v.m_list);
-	m_first.swap(v.m_first);
-	m_last.swap(v.m_last);
+	swap(m_first, v.m_first);
+	swap(m_last, v.m_last);
 }
 
 

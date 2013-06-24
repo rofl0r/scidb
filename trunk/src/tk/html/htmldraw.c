@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 786 $
-// Date   : $Date: 2013-05-21 21:27:38 +0000 (Tue, 21 May 2013) $
+// Version: $Revision: 857 $
+// Date   : $Date: 2013-06-24 23:28:35 +0000 (Mon, 24 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -4804,8 +4804,8 @@ HtmlWidgetSetViewport(
         int iShiftY;
         int iShiftX;
 
-        scroll_x = scroll_x; /* %25000; */
-        scroll_y = scroll_y; /* %25000; */
+        /* scroll_x = scroll_x % 25000; */
+        /* scroll_y = scroll_y % 25000; */
         iShiftY = Tk_Y(pTree->docwin) - scroll_y;
         iShiftX = Tk_X(pTree->docwin) - scroll_x;
 

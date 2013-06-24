@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 810 $
-// Date   : $Date: 2013-05-27 22:24:12 +0000 (Mon, 27 May 2013) $
+// Version: $Revision: 857 $
+// Date   : $Date: 2013-06-24 23:28:35 +0000 (Mon, 24 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -218,7 +218,6 @@ winboard::Engine::Engine()
 	,m_identifierDetected(false)
 	,m_shortNameDetected(false)
 	,m_mustUseChess960(false)
-	,m_mustUseNoCastle(false)
 	,m_editSent(false)
 	,m_dontInvertScore(false)
 	,m_wholeSeconds(false)
