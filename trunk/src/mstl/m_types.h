@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 853 $
+// Date   : $Date: 2013-06-24 16:01:47 +0000 (Mon, 24 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -373,6 +373,10 @@
 
 #if !HAVE_0X_ALLOWING_MOVE_CONSTRUCTORS_TO_THROW
 # define noexcept
+#endif
+
+#if !__GNUC_PREREQ(4,3) || !defined(USE_0X_STANDARD) ///////////////////////////
+# define decltype typeof
 #endif
 
 #if !HAVE_0X_STATIC_ASSERTIONS
