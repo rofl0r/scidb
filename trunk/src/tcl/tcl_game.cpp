@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 832 $
-// Date   : $Date: 2013-06-12 06:32:40 +0000 (Wed, 12 Jun 2013) $
+// Version: $Revision: 851 $
+// Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -3221,7 +3221,6 @@ cmdImport(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 											::db::Reader::Raw,
 											tcl::PgnReader::Game,
 											nullptr,
-											nullptr,
 											lineOffset,
 											true);
 			util::Progress	progress;
@@ -3247,7 +3246,6 @@ cmdImport(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 												modification,
 												tcl::PgnReader::Game,
 												nullptr,
-												nullptr,
 												lineOffset,
 												trialMode);
 
@@ -3261,7 +3259,7 @@ cmdImport(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 
 		if (trialMode)
 		{
-			setResult(reader.lastErrorCode() == tcl::PgnReader::LastError);
+			setResult(reader.countErrors() == 0);
 		}
 		else
 		{

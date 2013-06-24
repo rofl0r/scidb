@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 831 $
-// Date   : $Date: 2013-06-11 16:53:48 +0000 (Tue, 11 Jun 2013) $
+// Version: $Revision: 851 $
+// Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -144,6 +144,13 @@ uint16_t
 Consumer::idn() const
 {
 	return m_idn;
+}
+
+
+void
+Consumer::setFlags(uint32_t flags)
+{
+	m_flags = flags & ~GameInfo::Flag_Special;
 }
 
 

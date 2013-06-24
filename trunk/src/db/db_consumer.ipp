@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 831 $
-// Date   : $Date: 2013-06-11 16:53:48 +0000 (Tue, 11 Jun 2013) $
+// Version: $Revision: 851 $
+// Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -55,9 +55,7 @@ inline EngineList& Consumer::engines()									{ return m_engines; }
 inline Consumer::TagBits const& Consumer::allowedTags() const	{ return m_allowedTags; }
 inline TimeTable& Consumer::timeTable()								{ return m_sendTimeTable; }
 
-inline void Consumer::setFlags(uint32_t flags)						{ m_flags = flags; }
 inline void Consumer::setProducer(Producer* producer)				{ m_producer = producer; }
-inline void Consumer::addMoveInfo(MoveInfo const& info)			{ m_moveInfoSet.add(info); }
 inline void Consumer::startMoveSection()								{ beginMoveSection(); }
 inline void Consumer::useVariant(variant::Type variant)			{ m_useVariant = variant; }
 
@@ -65,6 +63,15 @@ inline void Consumer::incrementCommentCount()						{ ++m_commentCount; }
 inline void Consumer::incrementMoveInfoCount()						{ ++m_moveInfoCount; }
 inline void Consumer::incrementMarkCount()							{ ++m_markCount; }
 inline void Consumer::incrementAnnotationCount()					{ ++m_annotationCount; }
+
+
+inline
+void
+Consumer::addMoveInfo(MoveInfo const& info)
+{
+	M_REQUIRE(!info.isEmpty());
+	m_moveInfoSet.add(info);
+}
 
 
 inline

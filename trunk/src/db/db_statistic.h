@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 851 $
+// Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -42,17 +42,26 @@ public:
 	Statistic();
 
 	void clear();
+	void reset();
 	void add(GameInfo const& info);
 	void compute(GameInfo* const* first, GameInfo* const* last, Mode mode);
 
 	unsigned deleted;
-	uint16_t minYear;
-	uint16_t maxYear;
-	uint16_t avgYear;
-	uint16_t minElo;
-	uint16_t maxElo;
-	uint16_t avgElo;
-	unsigned result[5];
+	unsigned changed;
+	unsigned added;
+
+	struct Content
+	{
+		uint16_t minYear;
+		uint16_t maxYear;
+		uint16_t avgYear;
+		uint16_t minElo;
+		uint16_t maxElo;
+		uint16_t avgElo;
+		unsigned result[5];
+	};
+
+	Content content;
 
 private:
 

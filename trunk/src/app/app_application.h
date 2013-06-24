@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 832 $
-// Date   : $Date: 2013-06-12 06:32:40 +0000 (Wed, 12 Jun 2013) $
+// Version: $Revision: 851 $
+// Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -142,6 +142,7 @@ public:
 
 	typedef mstl::ref_counted_ptr<Subscriber> SubscriberP;
 	typedef mstl::vector<Cursor*> CursorList;
+	typedef mstl::vector<MultiCursor*> MultiCursorList;
 
 	enum CloseMode	{ Except_Clipbase, Including_Clipbase };
 	enum Filter		{ None = 0, Players = 1 << 0, Events = 1 << 1, Sites = 1 << 2 };
@@ -180,6 +181,7 @@ public:
 	sys::Thread& treeThread();
 
 	void enumCursors(CursorList& list, db::variant::Type variant) const;
+	void enumCursors(MultiCursorList& list) const;
 
 	Cursor* open(	mstl::string const& name,
 						mstl::string const& encoding,
@@ -228,7 +230,9 @@ public:
 	int getRandomGameIndex(unsigned position = InvalidPosition) const;
 
 	MultiCursor& multiCursor(mstl::string const& name);
+	MultiCursor const& multiCursor(mstl::string const& name) const;
 	db::MultiBase& multiBase(mstl::string const& name);
+	db::MultiBase const& multiBase(mstl::string const& name) const;
 
 	db::variant::Type currentVariant() const;
 	Variants getAllVariants() const;
@@ -304,6 +308,7 @@ public:
 	void bindGameToDatabase(unsigned position, mstl::string const& name, unsigned index);
 	void bindGameToView(unsigned position, int viewId, Update updateMode = UpdateGameInfo);
 	void save(mstl::string const& name, util::Progress& progress);
+	void save(mstl::string const& name, unsigned flags, util::Progress& progress);
 	void startUpdateTree(Cursor& cursor);
 	unsigned stripMoveInformation(View& view,
 											unsigned types,

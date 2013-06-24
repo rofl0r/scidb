@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 813 $
-# Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
+# Version: $Revision: 851 $
+# Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -206,7 +206,7 @@ proc dialogRaise {dlg} {
 		}
 
 		default {
-			if {[::fsbox::checkIsKDE]} {
+			if {[tk windowingsystem] eq "x11" && [::fsbox::trash::checkIsKDE]} {
 				# stupid handling of KDE: without withdrawing
 				# the window will not be raised
 				set geom [wm geometry $dlg]

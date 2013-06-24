@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 774 $
-// Date   : $Date: 2013-05-16 22:06:25 +0000 (Thu, 16 May 2013) $
+// Version: $Revision: 851 $
+// Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -51,7 +51,7 @@ inline GameData const& Game::data() const				{ return *this; }
 inline unsigned Game::displayStyle() const			{ return m_displayStyle; }
 
 inline void Game::setTags(TagSet const& tags)		{ m_tags = tags; }
-inline void Game::setFlags(unsigned flags)			{ m_flags = flags; }
+inline void Game::removeFlags(unsigned flags)		{ m_flags &= ~flags; }
 
 inline Game::Subscriber* Game::subscriber() const	{ return m_subscriber.get(); }
 

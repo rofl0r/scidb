@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 824 $
-// Date   : $Date: 2013-06-07 22:01:59 +0000 (Fri, 07 Jun 2013) $
+// Version: $Revision: 851 $
+// Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -44,6 +44,7 @@
 #include "m_assert.h"
 
 #include "sys_utf8_codec.h"
+#include "sys_file.h"
 
 #include <string.h>
 
@@ -1815,5 +1816,41 @@ Codec::findExactPosition(	GameInfo const& info,
 	Decoder decoder(src, m_gameData->blockSize() - info.gameOffset());
 	return decoder.findExactPosition(position, skipVariations);
 }
+
+
+bool
+Codec::getAttributes(mstl::string const& filename,
+							int& numGames,
+							type::ID& type,
+							uint32_t& creationTime,
+							mstl::string* description)
+{
+	mstl::fstream strm(sys::file::internalName(filename), mstl::ios_base::in | mstl::ios_base::binary);
+
+	if (!strm)
+		return false;
+
+	char header[120];
+
+	strm.seekp(8, mstl::ios_base::beg);
+
+	if (!strm.read(header, description ? sizeof(header) : 24))
+		return false;
+
+	ByteStream bstrm(header, sizeof(header));
+
+	bstrm.skip(2);
+	numGames	= bstrm.uint24();
+	type = type::ID(bstrm.uint8());
+	creationTime  = bstrm.uint32();
+
+	if (description)
+		bstrm.get(*description);
+
+	strm.close();
+
+	return true;
+}
+
 
 // vi:set ts=3 sw=3:

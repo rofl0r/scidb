@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 782 $
-// Date   : $Date: 2013-05-19 16:31:08 +0000 (Sun, 19 May 2013) $
+// Version: $Revision: 851 $
+// Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -223,6 +223,15 @@ vector<T>::vector(vector const& v, size_type n)
 	this->m_finish = mstl::uninitialized_copy(const_pointer(v.begin()),
 															const_pointer(v.begin()) + n,
 															this->m_start);
+}
+
+
+template <typename T>
+template <typename Iterator>
+inline
+vector<T>::vector(Iterator first, Iterator last)
+{
+	assign(first, last);
 }
 
 
@@ -666,13 +675,15 @@ vector<T>::insert_aux(iterator position, const_reference value)
 template <typename T>
 template <typename Iterator>
 inline
-vector<T>::vector(Iterator first, Iterator last)
+void
+vector<T>::assign(Iterator first, Iterator last)
 {
 	M_REQUIRE(first <= last);
 	M_REQUIRE(last || !first);
 
 	size_type n = distance(first, last);
 
+	clear();
 	reserve(n);
 
 	for ( ; first < last; ++first)

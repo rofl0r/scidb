@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 740 $
-// Date   : $Date: 2013-04-24 17:35:35 +0000 (Wed, 24 Apr 2013) $
+// Version: $Revision: 851 $
+// Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -73,8 +73,7 @@ inline uint8_t GameInfo::countComments() const				{ return m_commentCount; }
 inline uint8_t GameInfo::countAnnotations() const			{ return m_annotationCount; }
 inline Signature GameInfo::signature() const					{ return m_signature; }
 inline unsigned GameInfo::moveCount() const 					{ return mstl::div2(m_plyCount + 1); }
-
-inline void GameInfo::setFlags(unsigned flags)				{ m_gameFlags = flags; }
+inline void GameInfo::setUnchanged()							{ m_gameFlags &= ~Flag_Special; }
 
 inline species::ID GameInfo::playerType(color::ID color) const	{ return m_player[color]->type(); }
 inline sex::ID GameInfo::sex(color::ID color) const				{ return m_player[color]->sex(); }
@@ -83,6 +82,14 @@ inline uint32_t GameInfo::fideID(color::ID color) const			{ return m_player[colo
 
 inline NamebasePlayer const* GameInfo::playerEntry(color::ID color) const { return m_player[color]; }
 inline NamebaseEvent const* GameInfo::eventEntry() const { return m_event; }
+
+
+inline
+void
+GameInfo::setFlags(unsigned flags)
+{
+	m_gameFlags = (m_gameFlags & Flag_Special) | (flags & ~Flag_Special);
+}
 
 
 inline

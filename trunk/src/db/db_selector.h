@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 629 $
-// Date   : $Date: 2013-01-10 18:59:39 +0000 (Thu, 10 Jan 2013) $
+// Version: $Revision: 851 $
+// Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -99,6 +99,7 @@ private:
 	typedef mstl::vector<unsigned> Map;
 	typedef int(*Compar)(void const*, void const*);
 
+	void reserve(Database const& db, unsigned numEntries);
 	void finish(Database const& db, unsigned numEntries, order::ID order, Compar compFunc);
 
 	Map m_map;

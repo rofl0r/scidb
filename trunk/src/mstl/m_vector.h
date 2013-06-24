@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 782 $
-// Date   : $Date: 2013-05-19 16:31:08 +0000 (Sun, 19 May 2013) $
+// Version: $Revision: 851 $
+// Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -99,6 +99,8 @@ public:
 
 	bool equal(vector_type const& v) const;
 	bool equal(vector_type const& v, size_type n) const;
+
+	template <typename Iterator> void assign(Iterator first, Iterator last);
 
 	iterator insert(iterator position, const_reference value);
 	void insert(iterator position, size_type n, const_reference value);

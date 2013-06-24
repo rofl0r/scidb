@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 839 $
-// Date   : $Date: 2013-06-14 17:08:49 +0000 (Fri, 14 Jun 2013) $
+// Version: $Revision: 851 $
+// Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -68,6 +68,7 @@ public:
 	enum ErrorType
 	{
 		Unknown_Error_Type,
+		Create_Failed,
 		Open_Failed,
 		Read_Only,
 		Unknown_Version,

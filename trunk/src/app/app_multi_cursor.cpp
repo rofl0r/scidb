@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 832 $
-// Date   : $Date: 2013-06-12 06:32:40 +0000 (Wed, 12 Jun 2013) $
+// Version: $Revision: 851 $
+// Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -132,6 +132,9 @@ MultiCursor::MultiCursor(	Application& app,
 
 	WriteGuard guard(m_app, *base->database());
 	unsigned n = base->importGames(producer, progress);
+	if (n)
+		base->save(progress);
+	base->resetInitialSize();
 	guard.release();
 
 	m_base = base.release();
@@ -193,6 +196,13 @@ bool
 MultiCursor::isSingleBase() const
 {
 	return m_base->isSingleBase();
+}
+
+
+bool
+MultiCursor::isUnsaved() const
+{
+	return m_base->isUnsaved();
 }
 
 

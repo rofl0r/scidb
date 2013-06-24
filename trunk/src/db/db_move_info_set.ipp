@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 703 $
-// Date   : $Date: 2013-04-03 15:55:59 +0000 (Wed, 03 Apr 2013) $
+// Version: $Revision: 851 $
+// Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -65,6 +65,7 @@ inline
 MoveInfo&
 MoveInfoSet::add(MoveInfo const& info)
 {
+	M_REQUIRE(!info.isEmpty());
 	m_row.push_back(info);
 	return m_row.back();
 }

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 769 $
-// Date   : $Date: 2013-05-10 22:26:18 +0000 (Fri, 10 May 2013) $
+// Version: $Revision: 851 $
+// Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -27,9 +27,7 @@
 #ifndef _cql_match_info_included
 #define _cql_match_info_included
 
-#include "db_date.h"
-#include "db_eco.h"
-#include "db_common.h"
+#include "db_game_info.h"
 
 #include "m_match.h"
 #include "m_bitset.h"
@@ -395,6 +393,8 @@ private:
 class SpecialGameMarkers : public Match
 {
 public:
+
+	enum { Flag_Added = ::db::GameInfo::Flag_Last << 1 };
 
 	SpecialGameMarkers(unsigned flags);
 

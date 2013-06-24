@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 839 $
-// Date   : $Date: 2013-06-14 17:08:49 +0000 (Fri, 14 Jun 2013) $
+// Version: $Revision: 851 $
+// Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -789,6 +789,7 @@ safeCall(void* clientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 		switch (exc.errorType())
 		{
 			case IOException::Unknown_Error_Type:		error = "UnknownErrorType"; break;
+			case IOException::Create_Failed:				error = "CreateFailed"; break;
 			case IOException::Open_Failed:				error = "OpenFailed"; break;
 			case IOException::Read_Only:					error = "ReadOnly"; break;
 			case IOException::Unknown_Version:			error = "UnknownVersion"; break;

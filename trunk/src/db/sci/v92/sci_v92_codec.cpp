@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 824 $
-// Date   : $Date: 2013-06-07 22:01:59 +0000 (Fri, 07 Jun 2013) $
+// Version: $Revision: 851 $
+// Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2346,7 +2346,7 @@ Codec::remove(mstl::string const& fileName)
 bool
 Codec::getAttributes(mstl::string const& filename,
 							int& numGames,
-							db::type::ID& type,
+							type::ID& type,
 							uint32_t& creationTime,
 							mstl::string* description)
 {

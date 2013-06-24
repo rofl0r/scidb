@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 831 $
-// Date   : $Date: 2013-06-11 16:53:48 +0000 (Tue, 11 Jun 2013) $
+// Version: $Revision: 851 $
+// Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -553,6 +553,8 @@ public:
 	void setTags(TagSet const& tags);
 	/// Set game flags (should coincide with game flags in GameInfo).
 	void setFlags(unsigned flags);
+	/// Remove some flags from game flags.
+	void removeFlags(unsigned flags);
 	/// Reset game for next load.
 	void resetForNextLoad();
 	/// Set current language set.

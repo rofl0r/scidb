@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 824 $
-// Date   : $Date: 2013-06-07 22:01:59 +0000 (Fri, 07 Jun 2013) $
+// Version: $Revision: 851 $
+// Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -370,6 +370,8 @@ Cursor::importGames(Producer& producer, util::Progress& progress)
 
 	WriteGuard guard(this);
 	unsigned res = m_db->importGames(producer, progress);
+	if (res)
+		m_db->save(progress);
 	guard.release();
 
 	if (res > 0)
@@ -396,6 +398,8 @@ Cursor::importGames(	db::Database const& src,
 
 	WriteGuard guard(this);
 	unsigned res = m_db->importGames(src, illegalRejected, log, progress);
+	if (res > 0)
+		m_db->save(progress);
 	guard.release();
 
 	if (res > 0)

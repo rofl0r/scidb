@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 766 $
-# Date   : $Date: 2013-05-09 14:10:11 +0000 (Thu, 09 May 2013) $
+# Version: $Revision: 851 $
+# Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -399,7 +399,7 @@ proc WidgetProc {w command args} {
 				update idletasks
 				after idle [namespace code [list Place $w.sub]]
 			}
-			return
+			return $Priv(minbbox)
 		}
 
 		minbbox {
@@ -412,6 +412,10 @@ proc WidgetProc {w command args} {
 				set Priv(minbbox) [ComputeBoundingBox $w.sub.html [$w.sub.html node] $maxWidth]
 			}
 			return $Priv(minbbox)
+		}
+
+		margin {
+			return [set [namespace current]::Margin]
 		}
 
 		handler - search - style {

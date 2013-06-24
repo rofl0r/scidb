@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 773 $
-// Date   : $Date: 2013-05-12 16:51:25 +0000 (Sun, 12 May 2013) $
+// Version: $Revision: 851 $
+// Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -73,6 +73,18 @@ MoveInfo::MoveInfo()
 	:m_content(None)
 	,m_engine(0)
 {
+}
+
+
+MoveInfo::Type
+MoveInfo::type(unsigned char firstByte)
+{
+	M_REQUIRE(firstByte == 0 || isMoveInfo(firstByte));
+
+	if (firstByte == 0)
+		return None;
+
+	return Type(((firstByte >> 4) & 0x07) + 1);
 }
 
 
@@ -239,6 +251,24 @@ MoveInfo::parseElapsedTime(char const* s)
 	m_content = ElapsedMilliSeconds;
 
 	return ::skipSpaces(e);
+}
+
+
+char const*
+MoveInfo::parseTimeInfo(char const* s)
+{
+	M_REQUIRE(s);
+
+	char* e = 0;
+
+	m_elapsed.m_milliSeconds = 0;
+	m_elapsed.m_seconds = strtoul(::skipSpaces(s), &e, 10);
+
+	if (*e != 's')
+		return 0;
+
+	m_content = ElapsedMilliSeconds;
+	return ::skipSpaces(e + 1);
 }
 
 
@@ -502,25 +532,18 @@ MoveInfo::print(	EngineList const& engines,
 }
 
 
-MoveInfo::Type
-MoveInfo::type(unsigned char firstByte)
-{
-	M_REQUIRE(isMoveInfo(firstByte));
-	return Type(((firstByte >> 4) & 0x07) + 1);
-}
-
-
 void
 MoveInfo::decode(ByteStream& strm)
 {
-	M_REQUIRE(isMoveInfo(strm.peek()));
+	M_REQUIRE(strm.peek() == 0 || isMoveInfo(strm.peek()));
 
 	uint8_t	u = strm.get();
 	uint32_t	v;
 
 	switch (m_content = type(u))
 	{
-		case None:	// cannot happen
+		case None:
+			// nothing to do
 			break;
 
 		case CorrespondenceChessSent:
@@ -617,7 +640,9 @@ MoveInfo::encode(ByteStream& strm) const
 {
 	switch (m_content)
 	{
-		case None: // should not happen
+		case None:
+			// should only happen in time tables
+			strm << uint8_t(0);
 			break;
 
 		case CorrespondenceChessSent:

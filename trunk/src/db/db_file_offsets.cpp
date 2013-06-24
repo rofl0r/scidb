@@ -14,7 +14,7 @@
 // ======================================================================
 
 // ======================================================================
-// Copyright: (C) 2012-2013 Gregor Cramer
+// Copyright: (C) 2013 Gregor Cramer
 // ======================================================================
 
 // ======================================================================
@@ -24,33 +24,16 @@
 // (at your option) any later version.
 // ======================================================================
 
-#ifndef _tcl_player_included
-#define _tcl_player_included
+#include "db_file_offsets.h"
 
-#include "db_common.h"
+using namespace db;
 
-#include "m_pair.h"
 
-extern "C" { struct Tcl_Interp; }
-
-namespace db { class NamebasePlayer; }
-namespace db { class Player; }
-
-namespace tcl
+FileOffsets::FileOffsets(FileOffsets const& fileOffsets)
+	:m_countSkipped(fileOffsets.m_countSkipped)
 {
-	namespace player
-	{
-		typedef mstl::pair< ::db::rating::Type, ::db::rating::Type> Ratings;
-
-		int getInfo(::db::NamebasePlayer const& player,
-						Ratings& ratings,
-						::db::federation::ID federation,
-						bool info,
-						bool idCard,
-						bool usePlayerBase);
-	}
+	if (!fileOffsets.isEmpty())
+		m_offsets.assign(fileOffsets.m_offsets.begin(), fileOffsets.m_offsets.end() - 1);
 }
-
-#endif // _tcl_player_included
 
 // vi:set ts=3 sw=3:

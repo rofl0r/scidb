@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 625 $
-// Date   : $Date: 2013-01-09 16:39:57 +0000 (Wed, 09 Jan 2013) $
+// Version: $Revision: 851 $
+// Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -192,7 +192,8 @@ cmdGet(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 				NamebasePlayer const* player = table->getPlayer(ranking - 1);
 				if (!player)
 					return error(CmdGet, nullptr, nullptr, "invalid ranking number %u", ranking);
-				return tcl::player::getInfo(*player, ratings, federation::Fide, true, true);
+
+				return tcl::player::getInfo(*player, ratings, federation::Fide, true, true, true);
 			}
 			break;
 

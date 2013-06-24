@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 834 $
-# Date   : $Date: 2013-06-13 20:34:04 +0000 (Thu, 13 Jun 2013) $
+# Version: $Revision: 851 $
+# Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -106,6 +106,7 @@ if {[tk windowingsystem] eq "x11"} {
 	proc fsbox::x11MakeFrameless {w} { ::x11::makeFrameless $w }
 	proc tooltip::x11DropShadow {args} { ::x11::dropShadow {*}$args }
 	proc dialog::messagebox::changeDesktop {w type} { ::x11::changeDesktop $w }
+	proc ::fsbox::makeFrameless {w} { update idletasks; ::scidb::tk::wm frameless $w }
 }
 
 set ::clipboard::window .application

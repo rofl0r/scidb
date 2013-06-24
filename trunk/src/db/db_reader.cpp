@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 688 $
-// Date   : $Date: 2013-03-29 16:55:41 +0000 (Fri, 29 Mar 2013) $
+// Version: $Revision: 851 $
+// Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -533,7 +533,7 @@ Reader::getAttributes(mstl::string const& filename, int& numGames, mstl::string*
 	{
 		util::ZStream strm(sys::file::internalName(filename), mstl::ios_base::in);
 
-		if (!strm.is_open())
+		if (!strm.isOpen())
 			return false;
 
 		numGames = strm.size();

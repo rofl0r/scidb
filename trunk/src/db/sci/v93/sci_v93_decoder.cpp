@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 773 $
-// Date   : $Date: 2013-05-12 16:51:25 +0000 (Sun, 12 May 2013) $
+// Version: $Revision: 851 $
+// Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -727,7 +727,13 @@ Decoder::decodeTags(ByteStream& strm, TagSet& tags)
 
 	for (tag::ID id = tag::ID(strm.get()); id; id = tag::ID(strm.get()))
 	{
-		if (id == tag::ExtraTag)
+		if (id == 75)
+		{
+			value.clear();
+			strm.get(value);
+			tags.setExtra("NIC", value);
+		}
+		else if (id == tag::ExtraTag)
 		{
 			name.clear();
 			value.clear();
@@ -735,7 +741,7 @@ Decoder::decodeTags(ByteStream& strm, TagSet& tags)
 			strm.get(value);
 			tags.setExtra(name, value);
 		}
-		else
+		else if (tag::isValid(id))
 		{
 			value.clear();
 			strm.get(value);

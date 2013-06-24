@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 813 $
-# Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
+# Version: $Revision: 851 $
+# Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -179,19 +179,7 @@ proc Show {} {
 		}
 	
 		default {
-			if {$Priv(show) && $Priv(visibility) ne "VisibilityUnobscured"} {
-				if {[::fsbox::checkIsKDE]} {
-					set geom [wm geometry $Log]
-					if {[string length $geom]} {
-						set geom [string range $geom [string first + $geom] end]
-						catch { wm geometry $Log $geom }
-					}
-					wm withdraw $Log
-				}
-				wm deiconify $Log
-				raise $Log
-				focus -force $Log
-			}
+			::widget::dialogRaise $Log
 		}
 	}
 

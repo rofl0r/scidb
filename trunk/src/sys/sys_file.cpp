@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 851 $
+// Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -24,8 +24,9 @@
 #include <tcl.h>
 #include <time.h>
 
-# include <sys/stat.h>
-# include <sys/types.h>
+#include <sys/stat.h>
+#include <sys/types.h>
+#include <string.h>
 
 #ifdef __WIN32__
 # define stat	_stat
@@ -235,7 +236,7 @@ sys::file::createMapping(char const* filename, Mode mode)
 	else
 		flags = O_RDONLY;
 
-	int fildes = ::open(filename, flags);
+	int fildes = ::open(internalName(filename), flags);
 
 	if (fildes == -1)
 		return 0;
@@ -305,7 +306,7 @@ sys::file::setModificationTime(char const* filename, uint32_t time)
 	struct ::utimbuf ubuf;
 	struct ::stat st;
 
-	if (::stat(filename, &st) == -1)
+	if (::stat(internalName(filename), &st) == -1)
 		return false;
 
 	ubuf.actime = st.st_atime;
@@ -325,6 +326,9 @@ sys::file::rename(char const* oldFilename, char const* newFilename, bool preserv
 {
 	M_REQUIRE(oldFilename);
 	M_REQUIRE(newFilename);
+
+	if (::strcmp(oldFilename, newFilename) == 0)
+		return;
 
 	struct stat st;
 

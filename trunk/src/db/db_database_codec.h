@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 824 $
-// Date   : $Date: 2013-06-07 22:01:59 +0000 (Fri, 07 Jun 2013) $
+// Version: $Revision: 851 $
+// Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -211,6 +211,7 @@ public:
 	static bool getAttributes(	mstl::string const& filename,
 										int& numGames,
 										type::ID& type,
+										variant::Type& variant,
 										uint32_t& creationTime,
 										mstl::string* description = 0);
 	static void getSuffixes(mstl::string const& filename, StringList& result);
