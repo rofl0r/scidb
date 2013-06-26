@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 851 $
-// Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
+// Version: $Revision: 859 $
+// Date   : $Date: 2013-06-26 21:13:52 +0000 (Wed, 26 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -700,7 +700,7 @@ View::exportGames(mstl::string const& filename,
 									storage::OnDisk,
 									m_cursor.m_db->variant(),
 									type);
-		destination.setDescription(description);
+		destination.setupDescription(description);
 		progress.message("write-game");
 
 		WriteGuard guard(m_app, destination);
@@ -732,7 +732,7 @@ View::exportGames(mstl::string const& filename,
 									storage::OnDisk,
 									m_cursor.m_db->variant(),
 									type);
-		destination.setDescription(description);
+		destination.setupDescription(description);
 
 		WriteGuard guard(m_app, destination);
 

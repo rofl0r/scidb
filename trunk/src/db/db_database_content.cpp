@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 824 $
-// Date   : $Date: 2013-06-07 22:01:59 +0000 (Fri, 07 Jun 2013) $
+// Version: $Revision: 859 $
+// Date   : $Date: 2013-06-26 21:13:52 +0000 (Wed, 26 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -30,15 +30,15 @@
 #include "u_misc.h"
 
 using namespace db;
-namespace file = util::misc::file;
+using namespace util;
 
 
 DatabaseContent::~DatabaseContent() throw() {}
 
 
 DatabaseContent::DatabaseContent(mstl::string const& filename, mstl::string const& encoding, Type type)
-	:m_rootname(file::rootname(filename))
-	,m_suffix(file::suffix(filename))
+	:m_rootname(misc::file::rootname(filename))
+	,m_suffix(misc::file::suffix(filename))
 	,m_type(type)
 	,m_variant(variant::Undetermined)
 	,m_created(0)
@@ -54,8 +54,8 @@ DatabaseContent::DatabaseContent(mstl::string const& filename, mstl::string cons
 
 
 DatabaseContent::DatabaseContent(mstl::string const& filename, DatabaseContent const& content)
-	:m_rootname(file::rootname(filename))
-	,m_suffix(file::suffix(filename))
+	:m_rootname(misc::file::rootname(filename))
+	,m_suffix(misc::file::suffix(filename))
 	,m_type(content.m_type)
 	,m_variant(content.m_variant)
 	,m_created(content.m_created)

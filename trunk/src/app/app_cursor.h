@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 824 $
-// Date   : $Date: 2013-06-07 22:01:59 +0000 (Fri, 07 Jun 2013) $
+// Version: $Revision: 859 $
+// Date   : $Date: 2013-06-26 21:13:52 +0000 (Wed, 26 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -153,7 +153,7 @@ public:
 	/// Update the characteristics of a game.
 	void updateCharacteristics(unsigned index, db::TagSet const& tags);
 	/// Update the database description.
-	void setDescription(mstl::string const& description);
+	void setupDescription(mstl::string const& description);
 	/// Set flag whether this cursor is the currently active cursor.
 	void setActive(bool flag);
 

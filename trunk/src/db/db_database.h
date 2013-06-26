@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 855 $
-// Date   : $Date: 2013-06-24 21:01:19 +0000 (Mon, 24 Jun 2013) $
+// Version: $Revision: 859 $
+// Date   : $Date: 2013-06-26 21:13:52 +0000 (Wed, 26 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -302,9 +302,11 @@ public:
 	/// Set variant of database games.
 	void setVariant(variant::Type variant);
 	/// Set description of database.
-	void setDescription(mstl::string const& description);
+	void setupDescription(mstl::string const& description);
+	/// Change description of database.
+	void updateDescription(mstl::string const& description);
 	/// Set/unset read-only flag.
-	void setReadonly(bool flag = true);
+	bool setReadonly(bool flag = true);
 	/// Set/unset writable flag.
 	void setWritable(bool flag);
 

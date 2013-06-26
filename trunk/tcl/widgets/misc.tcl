@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 851 $
-# Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
+# Version: $Revision: 859 $
+# Date   : $Date: 2013-06-26 21:13:52 +0000 (Wed, 26 Jun 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -206,7 +206,7 @@ proc dialogRaise {dlg} {
 		}
 
 		default {
-			if {[tk windowingsystem] eq "x11" && [::fsbox::trash::checkIsKDE]} {
+			if {[CheckIsKDE]} {
 				# stupid handling of KDE: without withdrawing
 				# the window will not be raised
 				set geom [wm geometry $dlg]
@@ -699,6 +699,23 @@ proc SetMenuLabel {m index var args} {
 
 proc SetDialogTitle {dlg cmd} {
 	wm title $dlg [eval $cmd]
+}
+
+
+proc CheckIsKDE {} {
+	variable IsKde_
+
+	if {![info exists IsKde_]} {
+		if {[tk windowingsystem] eq "x11"} {
+			set atoms {}
+			catch { set atoms [exec /bin/sh -c "xlsatoms | grep _KDE_RUNNING"] }
+			set IsKde_ [expr {[string length $atoms] > 0}]
+		} else {
+			set IsKde_ 0
+		}
+	}
+
+	return $IsKde_
 }
 
 

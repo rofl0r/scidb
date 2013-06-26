@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 609 $
-# Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+# Version: $Revision: 859 $
+# Date   : $Date: 2013-06-26 21:13:52 +0000 (Wed, 26 Jun 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -60,11 +60,19 @@ proc formatNumber {n {kilo false}} {
 }
 
 
-proc formatFileSize {n} {
-	set result [formatNumber $n yes]
-	if {[string is digit [string index $result end]]} { append result " " }
-	append result "B"
-	return $result
+proc formatFileSize {size} {
+	set unit Byte
+	if {$size >= 1000000000} {
+		set size [expr {($size + 500000000)/1000000000}]
+		set unit GB
+	} elseif {$size >= 1000000} {
+		set size [expr {($size + 500000)/1000000}]
+		set unit MB
+	} elseif {$size >= 1000} {
+		set size [expr {($size + 500)/1000}]
+		set unit KB
+	}
+	return "[formatNumber $size false] $unit"
 }
 
 

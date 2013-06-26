@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 851 $
-// Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
+// Version: $Revision: 859 $
+// Date   : $Date: 2013-06-26 21:13:52 +0000 (Wed, 26 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1309,6 +1309,18 @@ namespace save
 	};
 
 	bool isOk(State state);
+}
+
+namespace file
+{
+	enum State
+	{
+		IsUpTodate,
+		Updated,
+		IsRemoved,
+		IsReadonly,
+		HasChanged,
+	};
 }
 
 namespace load

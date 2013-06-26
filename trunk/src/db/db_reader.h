@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 851 $
-// Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
+// Version: $Revision: 859 $
+// Date   : $Date: 2013-06-26 21:13:52 +0000 (Wed, 26 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -174,6 +174,10 @@ public:
 protected:
 
 	static void parseDescription(mstl::istream& strm, mstl::string& result);
+
+private:
+
+	static void trimDescription(mstl::string& descr);
 };
 
 } // namespace db

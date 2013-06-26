@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 851 $
-# Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
+# Version: $Revision: 859 $
+# Date   : $Date: 2013-06-26 21:13:52 +0000 (Wed, 26 Jun 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -100,6 +100,9 @@ if {[tk windowingsystem] eq "x11"} {
 				::scidb::tk::wm desktop .
 			}
 		}
+
+		proc ::trash::urlDecode {str} { return [::scidb::misc::url unescape $str] }
+		proc ::trash::urlEncode {str} { return [::scidb::misc::url escape $str] }
 	}
 
 	proc toolbar::x11MakeToolbar {w} { ::x11::makeToolbar $w }

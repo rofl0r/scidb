@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 855 $
-// Date   : $Date: 2013-06-24 21:01:19 +0000 (Mon, 24 Jun 2013) $
+// Version: $Revision: 859 $
+// Date   : $Date: 2013-06-26 21:13:52 +0000 (Wed, 26 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -144,10 +144,10 @@ Cursor::Cursor::isEmpty() const
 
 
 void
-Cursor::setDescription(mstl::string const& description)
+Cursor::setupDescription(mstl::string const& description)
 {
 	M_REQUIRE(isOpen());
-	m_db->setDescription(description);
+	m_db->setupDescription(description);
 }
 
 
