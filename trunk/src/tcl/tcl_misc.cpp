@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 859 $
-// Date   : $Date: 2013-06-26 21:13:52 +0000 (Wed, 26 Jun 2013) $
+// Version: $Revision: 860 $
+// Date   : $Date: 2013-06-26 22:23:59 +0000 (Wed, 26 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1324,21 +1324,17 @@ cmdUrlEscape(ClientData clientData, Tcl_Interp* ti, int objc, Tcl_Obj* const obj
 
 	mstl::string url;
 
-	while (p < e)
+	for ( ; p < e; ++p)
 	{
-		uchar code;
-		p = sys::utf8::nextChar(p, code);
-		code &= 0xff;
-
-		if (code > 127 || isspace(code) || !isgraph(code))
+		if ((unsigned char)(*p) > 127 || isspace(*p) || !isgraph(*p))
 		{
 			url += '%';
-			url += valToXDigit(code >> 4);
-			url += valToXDigit(code & 0x0f);
+			url += valToXDigit(*p >> 4);
+			url += valToXDigit(*p & 0xf0);
 		}
 		else
 		{
-			url += char(code);
+			url += *p;
 		}
 
 	}
@@ -1351,8 +1347,6 @@ cmdUrlEscape(ClientData clientData, Tcl_Interp* ti, int objc, Tcl_Obj* const obj
 static int
 cmdUrlUnescape(ClientData clientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 {
-	typedef sys::utf8::uchar uchar;
-
 	char const* p = stringFromObj(objc, objv, 1);
 	char const* e = p + ::strlen(p);
 
@@ -1366,7 +1360,7 @@ cmdUrlUnescape(ClientData clientData, Tcl_Interp* ti, int objc, Tcl_Obj* const o
 		}
 		else if (isxdigit(p[1]) && isxdigit(p[2]))
 		{
-			sys::utf8::append(url, (xdigitToVal(p[1]) << 4) + xdigitToVal(p[2]));
+			url += char((xdigitToVal(p[1]) << 4) + xdigitToVal(p[2]));
 			p += 3;
 		}
 		else
