@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 861 $
+// Date   : $Date: 2013-06-27 19:31:01 +0000 (Thu, 27 Jun 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -48,9 +48,11 @@ enum Type
 };
 
 mstl::string internalName(char const* externalName);
+char pathDelim();
 
 bool access(char const* filename, Mode mode);
 
+bool dirIsEmpty(char const* dirname);
 long size(char const* filename);
 bool changed(char const* filename, uint32_t& time);
 bool isHardLinked(char const* filename1, char const* filename2);
@@ -68,6 +70,8 @@ void unlock(int fd);
 
 } // namespace file
 } // namespace sys
+
+#include "sys_file.ipp"
 
 #endif // _sys_file_included
 

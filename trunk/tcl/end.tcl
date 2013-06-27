@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 859 $
-# Date   : $Date: 2013-06-26 21:13:52 +0000 (Wed, 26 Jun 2013) $
+# Version: $Revision: 861 $
+# Date   : $Date: 2013-06-27 19:31:01 +0000 (Thu, 27 Jun 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -111,6 +111,8 @@ if {[tk windowingsystem] eq "x11"} {
 	proc dialog::messagebox::changeDesktop {w type} { ::x11::changeDesktop $w }
 	proc ::fsbox::makeFrameless {w} { update idletasks; ::scidb::tk::wm frameless $w }
 }
+
+proc ::fsbox::dirIsEmpty {dir} { return [::scidb::misc::dirEmpty? $dir] }
 
 set ::clipboard::window .application
 
