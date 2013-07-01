@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 849 $
-// Date   : $Date: 2013-06-20 15:03:29 +0000 (Thu, 20 Jun 2013) $
+// Version: $Revision: 864 $
+// Date   : $Date: 2013-07-01 16:22:59 +0000 (Mon, 01 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -33,6 +33,14 @@ static int m_altModMask = Mod1Mask | Mod5Mask;
 
 # include <X11/keysym.h>
 
+static KeySym
+KeycodeToKeysym(Display* display, KeyCode keycode, int index)
+{
+  int keysyms_per_keycode_return;
+  return *XGetKeyboardMapping(display, keycode, 1, &keysyms_per_keycode_return);
+}
+
+
 static void
 initKeymapInfo(Tcl_Interp* ti)
 {
@@ -47,7 +55,7 @@ initKeymapInfo(Tcl_Interp* ti)
 	{
 		if (*keyCode)
 		{
-			KeySym keysym = XKeycodeToKeysym(display, *keyCode, 0);
+			KeySym keysym = KeycodeToKeysym(display, *keyCode, 0);
 
 			if (keysym == XK_Alt_L || keysym == XK_Alt_R)
 				m_altModMask |= (ShiftMask << (i/maxKeyPerMod));

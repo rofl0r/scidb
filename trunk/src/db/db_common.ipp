@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 769 $
-// Date   : $Date: 2013-05-10 22:26:18 +0000 (Fri, 10 May 2013) $
+// Version: $Revision: 864 $
+// Date   : $Date: 2013-07-01 16:22:59 +0000 (Mon, 01 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -450,6 +450,8 @@ namespace nag {
 inline bool isPrefix(ID nag)	{ return WithTheIdea <= nag && nag <= EditorsRemark; }
 inline bool isInfix(ID nag)	{ return GoodMove <= nag && nag <= QuestionableMove; }
 inline bool isSuffix(ID nag)	{ return nag && !isPrefix(nag) && !isInfix(nag); }
+
+inline ID map(ID nag) { return fromChessPad(fromScid3(nag)); }
 
 } // namespace nag
 

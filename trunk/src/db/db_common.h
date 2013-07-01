@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 859 $
-// Date   : $Date: 2013-06-26 21:13:52 +0000 (Wed, 26 Jun 2013) $
+// Version: $Revision: 864 $
+// Date   : $Date: 2013-07-01 16:22:59 +0000 (Mon, 01 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1282,8 +1282,9 @@ namespace nag
 
 	ID fromScid3(ID nag);
 	ID toScid3(ID nag);
-
 	ID fromChessPad(ID nag);
+
+	ID map(ID nag);
 
 	char const* toSymbol(ID nag);
 	ID fromSymbol(mstl::string const& symbol);

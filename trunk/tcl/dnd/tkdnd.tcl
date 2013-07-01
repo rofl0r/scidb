@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 827 $
-# Date   : $Date: 2013-06-09 09:10:26 +0000 (Sun, 09 Jun 2013) $
+# Version: $Revision: 864 $
+# Date   : $Date: 2013-07-01 16:22:59 +0000 (Mon, 01 Jul 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -52,7 +52,7 @@
 #
 
 package require Tk
-package require tkDND 2.3
+package require tkDND 3.0
 
 namespace eval tkdnd {
   variable _topw ".drag"

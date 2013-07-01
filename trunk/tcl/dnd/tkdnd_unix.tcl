@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 861 $
-# Date   : $Date: 2013-06-27 19:31:01 +0000 (Thu, 27 Jun 2013) $
+# Version: $Revision: 864 $
+# Date   : $Date: 2013-07-01 16:22:59 +0000 (Mon, 01 Jul 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -70,6 +70,8 @@ namespace eval xdnd {
   proc debug {msg} {
     puts $msg
   };# debug
+
+  proc registerWrapper {w {alias ""}} { return [_register_wrapper $w $alias] }
 };# namespace xdnd
 
 # ----------------------------------------------------------------------------

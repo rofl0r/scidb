@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 861 $
-// Date   : $Date: 2013-06-27 19:31:01 +0000 (Thu, 27 Jun 2013) $
+// Version: $Revision: 864 $
+// Date   : $Date: 2013-07-01 16:22:59 +0000 (Mon, 01 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -133,11 +133,10 @@ selectionGet(Tcl_Interp* ti, Tk_Window tkwin, Atom selection, Atom target, unsig
 
 # if defined(__unix__)
 
-#  include "m_utility.h"
-
 #  include <X11/Xatom.h>
 #  include <ctype.h>
 #  include <stdlib.h>
+#  include <stdint.h>
 
 static Atom xaSTRING				= 0;
 static Atom xaUTF8_STRING		= 0;
