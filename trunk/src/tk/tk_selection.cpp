@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 864 $
-// Date   : $Date: 2013-07-01 16:22:59 +0000 (Mon, 01 Jul 2013) $
+// Version: $Revision: 865 $
+// Date   : $Date: 2013-07-01 20:15:42 +0000 (Mon, 01 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -228,8 +228,8 @@ quoteChars(char const* src, char const* end, char* dst)
 					if (dst[-1] != '\r')
 						*dst++ = '\r';
 					*dst++ = '\n';
-					src = nxt;
 				}
+				src = nxt;
 				break;
 
 			case '-': case '_': case '.': case '!': case '~':	// RFC 3986

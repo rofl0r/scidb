@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 861 $
-// Date   : $Date: 2013-06-27 19:31:01 +0000 (Thu, 27 Jun 2013) $
+// Version: $Revision: 865 $
+// Date   : $Date: 2013-07-01 20:15:42 +0000 (Mon, 01 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1092,7 +1092,12 @@ cmdSuffixes(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 	Tcl_Obj* objs[result.size()];
 
 	for (unsigned i = 0; i < result.size(); ++i)
-		objs[i] = Tcl_NewStringObj(result[i], -1);
+	{
+		mstl::string ext(result[i]);
+		if (ext == "gz")
+			ext.assign("pgn.gz");
+		objs[i] = Tcl_NewStringObj(ext, -1);
+	}
 
 	setResult(result.size(), objs);
 	return TCL_OK;

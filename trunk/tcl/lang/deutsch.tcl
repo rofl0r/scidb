@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 861 $
-# Date   : $Date: 2013-06-27 19:31:01 +0000 (Thu, 27 Jun 2013) $
+# Version: $Revision: 865 $
+# Date   : $Date: 2013-07-01 20:15:42 +0000 (Mon, 01 Jul 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -716,7 +716,7 @@
 ::database::switcher::mc::Failed								"fehlgeschlagen"
 
 ::database::switcher::mc::UriRejectedDetail(open)		"Nur Scidb-Datenbanken können geöffnet werden:"
-::database::switcher::mc::UriRejectedDetail(import)	"Nur Scidb-Datenbanken können importiert werden:"
+::database::switcher::mc::UriRejectedDetail(import)	"Nur Scidb-Datenbanken, aber keine ChessBase-Datenbanken, können importiert werden:"
 ::database::switcher::mc::EmptyUriList						"Der Drop-Inhalt ist leer."
 ::database::switcher::mc::CopyGames							"Partien kopieren"
 ::database::switcher::mc::CopyGamesFromTo					"Partien kopieren von '%src' nach '%dst'"
@@ -2440,7 +2440,6 @@
 ::fsbox::mc::Cannot(rename)				"Die Datei '%s' kann nicht umbenannt werden."
 ::fsbox::mc::Cannot(move)					"Die Datei '%s' kann nicht verschoben werden."
 ::fsbox::mc::Cannot(overwrite)			"Die Datei '%s' kann nicht überschrieben werden."
-::fsbox::mc::Cannot(delete-or-move)		"Die Datei '%s' kann nicht gelöscht oder verschoben werden."
 
 ::fsbox::mc::DropAction(move)				"Hierher verschieben"
 ::fsbox::mc::DropAction(copy)				"Hierher kopieren"
