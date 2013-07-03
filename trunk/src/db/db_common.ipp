@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 864 $
-// Date   : $Date: 2013-07-01 16:22:59 +0000 (Mon, 01 Jul 2013) $
+// Version: $Revision: 866 $
+// Date   : $Date: 2013-07-03 16:27:30 +0000 (Wed, 03 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -451,8 +451,16 @@ inline bool isPrefix(ID nag)	{ return WithTheIdea <= nag && nag <= EditorsRemark
 inline bool isInfix(ID nag)	{ return GoodMove <= nag && nag <= QuestionableMove; }
 inline bool isSuffix(ID nag)	{ return nag && !isPrefix(nag) && !isInfix(nag); }
 
-inline ID map(ID nag) { return fromChessPad(fromScid3(nag)); }
+inline ID fromJose(ID nag)		{ return nag == Jose_Diagram ? Diagram : nag; }
+inline ID map(ID nag)			{ return fromChessPad(fromScid3(nag)); }
 
+namespace prefix {
+
+inline ID fromJose(ID nag)		{ return nag == Jose_Diagram ? Diagram : nag; }
+inline ID fromScid3(ID nag)	{ return nag == Scid3_Diagram ? Diagram : nag; }
+inline ID map(ID nag)			{ return prefix::fromJose(prefix::fromChessPad(prefix::fromScid3(nag))); }
+
+} // namespace prefix
 } // namespace nag
 
 namespace sex {

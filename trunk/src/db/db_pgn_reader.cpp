@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 864 $
-// Date   : $Date: 2013-07-01 16:22:59 +0000 (Mon, 01 Jul 2013) $
+// Version: $Revision: 866 $
+// Date   : $Date: 2013-07-03 16:27:30 +0000 (Wed, 03 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -4439,7 +4439,7 @@ PgnReader::parseMoveNumber(Token prevToken, int)
 			advanceLinePos();
 	}
 
-	return prevToken;
+	return kMoveNumber;
 }
 
 
@@ -4457,9 +4457,11 @@ PgnReader::parseNag(Token prevToken, int)
 		nag = nag*10 + get() - '0';
 	while (::isdigit(*m_linePos));
 
-	nag::ID myNag = nag::map(nag::ID(nag));
+	nag::ID myNag = nag::map((prevToken & (kSan | kNag))
+										? nag::ID(nag)
+										: nag::prefix::map(nag::ID(nag::ID(nag))));
 
-	if (myNag == nag::Null || nag >= nag::Scidb_Last)
+	if (myNag == nag::Null || myNag >= nag::Scidb_Last)
 		sendWarning(InvalidNag, mstl::string("$") + ::itos(nag));
 	else
 		putNag(myNag);

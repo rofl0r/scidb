@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 833 $
-# Date   : $Date: 2013-06-13 17:27:21 +0000 (Thu, 13 Jun 2013) $
+# Version: $Revision: 866 $
+# Date   : $Date: 2013-07-03 16:27:30 +0000 (Wed, 03 Jul 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -321,7 +321,8 @@ proc addcol {table id args} {
 		set labelImage $opts(-image)
 	} elseif {[llength $opts(-textvar)]} {
 		set labelText [set $opts(-textvar)]
-		set trace "variable $opts(-textvar) write { [namespace current]::SetText $table $id $opts(-textvar) }"
+		set trace \
+			"variable $opts(-textvar) write { [namespace current]::SetText $table $id $opts(-textvar) }"
 		trace add {*}$trace
 		::bind $table.t <Destroy> +[list trace remove {*}$trace]
 	} else {

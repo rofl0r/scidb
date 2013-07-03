@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 857 $
-// Date   : $Date: 2013-06-24 23:28:35 +0000 (Mon, 24 Jun 2013) $
+// Version: $Revision: 866 $
+// Date   : $Date: 2013-07-03 16:27:30 +0000 (Wed, 03 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -4046,6 +4046,23 @@ nag::fromChessPad(ID nag)
 			case ChessPad_With:					return With;
 			case ChessPad_Without:				return Without;
 
+			default:									return Null;
+		}
+	}
+
+	return nag;
+}
+
+
+nag::ID
+nag::prefix::fromChessPad(ID nag)
+{
+	if (nag >= Scid3_Specific && Scid3_Last > nag)
+	{
+		switch (nag)
+		{
+			case ChessPad_Diagram:				return Diagram;
+			case ChessPad_DiagramFromBlack:	return DiagramFromBlack;
 			default:									return Null;
 		}
 	}

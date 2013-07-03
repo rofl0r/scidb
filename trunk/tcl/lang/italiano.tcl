@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 865 $
-# Date   : $Date: 2013-07-01 20:15:42 +0000 (Mon, 01 Jul 2013) $
+# Version: $Revision: 866 $
+# Date   : $Date: 2013-07-03 16:27:30 +0000 (Wed, 03 Jul 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -2379,6 +2379,7 @@
 ::fsbox::mc::FileSystem						"File System"
 ::fsbox::mc::Desktop							"Desktop"
 ::fsbox::mc::Trash							"Cestino"
+::fsbox::mc::Download						"Download" ;# NEW
 ::fsbox::mc::Home								"Home"
 
 ::fsbox::mc::SelectEncoding				"Selezionare la codifica del database (apre un'interfaccia)"

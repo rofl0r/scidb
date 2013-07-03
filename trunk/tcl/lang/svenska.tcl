@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 865 $
-# Date   : $Date: 2013-07-01 20:15:42 +0000 (Mon, 01 Jul 2013) $
+# Version: $Revision: 866 $
+# Date   : $Date: 2013-07-03 16:27:30 +0000 (Wed, 03 Jul 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -2377,6 +2377,7 @@
 ::fsbox::mc::FileSystem						"Filsystem"
 ::fsbox::mc::Desktop							"Skrivbord"
 ::fsbox::mc::Trash							"Papperskorg"
+::fsbox::mc::Download						"Download" ;# NEW
 ::fsbox::mc::Home								"Hem"
 
 ::fsbox::mc::SelectEncoding				"Välj kodning av databas (öppnar en dialog)"

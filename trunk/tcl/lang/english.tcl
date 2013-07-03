@@ -1,7 +1,7 @@
 ln -sf ../# ====================================================================== .
 # Author : $Author$
-# Version: $Revision: 865 $
-# Date   : $Date: 2013-07-01 20:15:42 +0000 (Mon, 01 Jul 2013) $
+# Version: $Revision: 866 $
+# Date   : $Date: 2013-07-03 16:27:30 +0000 (Wed, 03 Jul 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -2369,6 +2369,7 @@ ln -sf ../# ====================================================================
 ::fsbox::mc::FileSystem						"File System"
 ::fsbox::mc::Desktop							"Desktop"
 ::fsbox::mc::Trash							"Trash"
+::fsbox::mc::Download						"Download"
 ::fsbox::mc::Home								"Home"
 
 ::fsbox::mc::SelectEncoding				"Select the encoding of the database (opens a dialog)"

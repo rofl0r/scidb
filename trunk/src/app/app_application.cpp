@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 859 $
-// Date   : $Date: 2013-06-26 21:13:52 +0000 (Wed, 26 Jun 2013) $
+// Version: $Revision: 866 $
+// Date   : $Date: 2013-07-03 16:27:30 +0000 (Wed, 03 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -822,7 +822,7 @@ Application::closeAll(CloseMode mode)
 
 	m_cursorMap.swap(map);
 
-	if (refBase)
+	if (refBase || mode == Including_Clipbase)
 		setReferenceBase(refBase, false);
 }
 

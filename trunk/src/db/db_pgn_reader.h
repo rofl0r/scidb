@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 851 $
-// Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
+// Version: $Revision: 866 $
+// Date   : $Date: 2013-07-03 16:27:30 +0000 (Wed, 03 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -97,8 +97,9 @@ private:
 	// loop inside nextToken()
 	static Token const kNag					= 1 << 7;	// Numeric Annotation Glyph
 	static Token const kMovePrefix		= 1 << 8;
-	static Token const kComment			= 1 << 9;
-	static Token const kOutDated			= 1 << 10;
+	static Token const kMoveNumber		= 1 << 9;
+	static Token const kComment			= 1 << 10;
+	static Token const kOutDated			= 1 << 11;
 
 	// special token
 	static Token const PartOfMove			= kSan | kNag | kComment;
