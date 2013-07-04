@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 872 $
+// Date   : $Date: 2013-07-04 13:07:56 +0000 (Thu, 04 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -51,6 +51,7 @@ public:
 	size_t elems_per_chunk() const;
 
 	void clear();
+	void swap(chunk_allocator& allocator);
 
 	T* alloc();
 	T* alloc(size_t length);

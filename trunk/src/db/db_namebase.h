@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 629 $
-// Date   : $Date: 2013-01-10 18:59:39 +0000 (Thu, 10 Jan 2013) $
+// Version: $Revision: 872 $
+// Date   : $Date: 2013-07-04 13:07:56 +0000 (Thu, 04 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -203,7 +203,9 @@ public:
 												species::ID type,
 												sex::ID sex,
 												uint32_t fideID);
+
 	void rename(NamebaseEntry* entry, mstl::string const& name);
+	void finishRenaming();
 
 	void update();
 	void setPrepared(unsigned maxFrequency, unsigned maxId, unsigned maxUsage);
@@ -272,7 +274,9 @@ private:
 		PlayerAllocator*	m_playerAllocator;
 	};
 
-	StringAllocator m_stringAllocator;
+	StringAllocator  m_stringAllocator;
+	StringAllocator* m_stringAllocator2;
+	StringAllocator* m_stringAllocator3;
 };
 
 } // namespace db

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 866 $
-# Date   : $Date: 2013-07-03 16:27:30 +0000 (Wed, 03 Jul 2013) $
+# Version: $Revision: 872 $
+# Date   : $Date: 2013-07-04 13:07:56 +0000 (Thu, 04 Jul 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -128,7 +128,6 @@ proc defaultCSS {monoFamilies textFamilies} {
 	append css ".match   { background: yellow; color: black; }" \n
 	append css [monoStyle $monoFamilies] \n
 	append css [textStyle $textFamilies] \n
-puts $css
 	return $css
 }
 

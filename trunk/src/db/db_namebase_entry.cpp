@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 635 $
-// Date   : $Date: 2013-01-20 22:09:56 +0000 (Sun, 20 Jan 2013) $
+// Version: $Revision: 872 $
+// Date   : $Date: 2013-07-04 13:07:56 +0000 (Thu, 04 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -38,7 +38,7 @@ NamebaseEntry* NamebaseEntry::m_emptyEntry	= new NamebaseEntry();
 
 
 NamebaseEntry::NamebaseEntry(mstl::string const& name) :m_name(name) {}
-NamebaseEntry::~NamebaseEntry() throw() {}
+//NamebaseEntry::~NamebaseEntry() throw() {}
 
 NamebaseSite::NamebaseSite() : m_value(country::Unknown), m_site(0) {}
 NamebaseEvent::NamebaseEvent() {}

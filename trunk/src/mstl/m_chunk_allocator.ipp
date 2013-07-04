@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 872 $
+// Date   : $Date: 2013-07-04 13:07:56 +0000 (Thu, 04 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -119,6 +119,17 @@ chunk_allocator<T,Zero>::clear()
 
 	m_chunk_list.clear();
 	new_chunk();
+}
+
+
+template <typename T, bool Zero>
+inline
+void
+chunk_allocator<T,Zero>::swap(chunk_allocator& allocator)
+{
+	mstl::swap(m_chunk_size, allocator.m_chunk_size);
+	mstl::swap(m_num_elems, allocator.m_num_elems);
+	m_chunk_list.swap(allocator.m_chunk_list);
 }
 
 

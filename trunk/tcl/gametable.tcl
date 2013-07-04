@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 851 $
-# Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
+# Version: $Revision: 872 $
+# Date   : $Date: 2013-07-04 13:07:56 +0000 (Thu, 04 Jul 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -495,9 +495,10 @@ proc build {path getViewCmd {visibleColumns {}} {args {}}} {
 	lappend args -popupcmd [namespace code PopupMenu]
 	set Vars(table) [::scrolledtable::build $path $columns {*}$args]
 	pack $path -fill both -expand yes
-	::scrolledtable::configure $path material -font2 $::font::figurine(text:normal)
-	::scrolledtable::configure $path position -font2 $::font::figurine(text:normal)
-	::scrolledtable::configure $path overview -font2 $::font::figurine(text:normal)
+	set specialfont [list [list $::font::figurine(text:normal) 9812 9823]]
+	::scrolledtable::configure $path material -specialfont $specialfont
+	::scrolledtable::configure $path position -specialfont $specialfont
+	::scrolledtable::configure $path overview -specialfont $specialfont
 	RefreshEventType $path
 
 	::bind $path <<TableFill>>			[namespace code [list TableFill $path %d]]

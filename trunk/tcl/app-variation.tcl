@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 609 $
-# Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+# Version: $Revision: 872 $
+# Date   : $Date: 2013-07-04 13:07:56 +0000 (Thu, 04 Jul 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -144,7 +144,7 @@ proc build {parent menu width height} {
 		lappend Vars(styles) $id styTotal$id
 	}
 
-	::table::configure $tb line -font2 $::font::figurine(text:normal)
+	::table::configure $tb line -specialfont [list [list $::font::figurine(text:normal) 9812 9823]]
 
 	::table::bind $tb <ButtonPress-1>	[namespace code [list Select $tb %x %y]]
 	::table::bind $tb <Button1-Motion>	[namespace code [list Motion1 $tb %x %y]]

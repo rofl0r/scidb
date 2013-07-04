@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 859 $
-// Date   : $Date: 2013-06-26 21:13:52 +0000 (Wed, 26 Jun 2013) $
+// Version: $Revision: 872 $
+// Date   : $Date: 2013-07-04 13:07:56 +0000 (Thu, 04 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -441,9 +441,7 @@ Database::save(util::Progress& progress)
 	unsigned start = m_size;
 
 	m_namebases.update();
-
-	if (m_codec->encodingFailed())
-		setEncodingFailed(true);
+	setEncodingFailed(m_codec->encodingFailed());
 
 	if (!isMemoryOnly())
 	{
@@ -451,7 +449,6 @@ Database::save(util::Progress& progress)
 		m_codec->save(start, progress);
 		m_codec->updateHeader();
 		::sys::file::changed(m_name, m_fileTime);
-		setEncodingFailed(m_codec->encodingFailed());
 	}
 
 	m_size = m_gameInfoList.size();
@@ -1409,6 +1406,7 @@ Database::recode(mstl::string const& encoding, util::Progress& progress)
 		return;
 
 	m_encodingFailed = false;
+	m_encodingOk = true;
 
 	m_codec->setEncoding(m_encoding = encoding);
 	m_codec->reloadDescription();

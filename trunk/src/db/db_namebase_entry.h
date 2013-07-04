@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 631 $
-// Date   : $Date: 2013-01-11 16:16:29 +0000 (Fri, 11 Jan 2013) $
+// Version: $Revision: 872 $
+// Date   : $Date: 2013-07-04 13:07:56 +0000 (Thu, 04 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -47,7 +47,6 @@ public:
 
 	NamebaseEntry();
 	NamebaseEntry(mstl::string const& name);
-	virtual ~NamebaseEntry() throw();
 
 	bool operator==(mstl::string const& name) const;
 	bool operator< (mstl::string const& name) const;

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 774 $
-# Date   : $Date: 2013-05-16 22:06:25 +0000 (Thu, 16 May 2013) $
+# Version: $Revision: 872 $
+# Date   : $Date: 2013-07-04 13:07:56 +0000 (Thu, 04 Jul 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -274,10 +274,17 @@ proc build {parent width height} {
 		-outlinewidth 1 \
 		-fill [list $Defaults(active:background) active] \
 		;
-	$tree element create elemTextFig text -lines $Options(engine:nlines) \
-		-wrap word -font2 $::font::figurine(text:normal)
-	$tree element create elemTextSym text -lines $Options(engine:nlines) \
-		-wrap word -font2 $::font::symbol(text:normal)
+	$tree element create elemTextFig text \
+		-lines $Options(engine:nlines) \
+		-wrap word \
+		-specialfont [list [list $::font::figurine(text:normal) 9812 9823]] \
+		;
+
+	$tree element create elemTextSym text \
+		-lines $Options(engine:nlines) \
+		-wrap word \
+		-specialfont $::font::symbol(text:normal) \
+		;
 
 	$tree style create styleFig
 	$tree style elements styleFig {elemRect elemTextFig}
