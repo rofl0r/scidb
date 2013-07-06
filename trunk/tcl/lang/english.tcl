@@ -1,7 +1,7 @@
 ln -sf ../# ====================================================================== .
 # Author : $Author$
-# Version: $Revision: 866 $
-# Date   : $Date: 2013-07-03 16:27:30 +0000 (Wed, 03 Jul 2013) $
+# Version: $Revision: 876 $
+# Date   : $Date: 2013-07-06 12:37:44 +0000 (Sat, 06 Jul 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1552,7 +1552,7 @@ ln -sf ../# ====================================================================
 ::import::mc::Warning(InvalidCountryCode)					"Invalid country code"
 ::import::mc::Warning(InvalidRating)						"Invalid rating value"
 ::import::mc::Warning(InvalidNag)							"Invalid NAG"
-::import::mc::Warning(BraceSeenOutsideComment)			"\"\}\" seen outisde a comment in game (ignored)"
+::import::mc::Warning(BraceSeenOutsideComment)			"\"\}\" seen outside a comment in game (ignored)"
 ::import::mc::Warning(MissingFen)							"No start position for this Shuffle/Chess-960 game; will be interpreted as standard chess"
 ::import::mc::Warning(UnknownEventType)					"Unknown event type"
 ::import::mc::Warning(UnknownTitle)							"Unknown title (ignored)"

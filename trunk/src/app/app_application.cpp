@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 866 $
-// Date   : $Date: 2013-07-03 16:27:30 +0000 (Wed, 03 Jul 2013) $
+// Version: $Revision: 876 $
+// Date   : $Date: 2013-07-06 12:37:44 +0000 (Sat, 06 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -731,6 +731,7 @@ Application::create(	mstl::string const& name,
 
 	MultiCursor* cursor = new MultiCursor(*this, name, type, producer, progress);
 	m_cursorMap[name] = cursor;
+	moveGamesBackToDatabase(cursor->cursor());
 	return cursor->countGames();
 }
 

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 872 $
-# Date   : $Date: 2013-07-04 13:07:56 +0000 (Thu, 04 Jul 2013) $
+# Version: $Revision: 876 $
+# Date   : $Date: 2013-07-06 12:37:44 +0000 (Sat, 06 Jul 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -91,7 +91,7 @@ set Warning(InvalidTagName)						"Invalid tag name"
 set Warning(InvalidCountryCode)					"Invalid country code"
 set Warning(InvalidRating)							"Invalid rating value"
 set Warning(InvalidNag)								"Invalid NAG"
-set Warning(BraceSeenOutsideComment)			"\"\}\" seen outisde a comment in game"
+set Warning(BraceSeenOutsideComment)			"\"\}\" seen outside a comment in game"
 set Warning(MissingFen)								"Missing FEN (variant tag will be ignored)"
 set Warning(UnknownEventType)						"Unknown event type"
 set Warning(UnknownTitle)							"Unknown title (ignored)"
