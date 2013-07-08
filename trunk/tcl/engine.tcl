@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 851 $
-# Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
+# Version: $Revision: 880 $
+# Date   : $Date: 2013-07-08 21:37:41 +0000 (Mon, 08 Jul 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1445,6 +1445,8 @@ proc StartEngine {list} {
 			if {$Vars(current:name) ne $Vars(active:name)} {
 				::application::analysis::startAnalysis [::application::board::anaylsisWindow]
 			} elseif {$Vars(current:profile) ne $Vars(active:profile)} {
+				::application::analysis::restartAnalysis
+			} else {
 				::application::analysis::restartAnalysis
 			}
 			if {$Vars(current:priority) ne $Vars(active:priority)} {

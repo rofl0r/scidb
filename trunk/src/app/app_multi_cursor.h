@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 851 $
-// Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
+// Version: $Revision: 880 $
+// Date   : $Date: 2013-07-08 21:37:41 +0000 (Mon, 08 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -109,6 +109,9 @@ public:
 	void changeVariant(::db::variant::Type variant);
 	/// Replace database object.
 	void replace(db::Database* database);
+
+	// Compact the databases.
+	bool compact(::util::Progress& progress);
 
 	static mstl::string const& clipbaseName();
 	static mstl::string const& scratchbaseName();

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 876 $
-// Date   : $Date: 2013-07-06 12:37:44 +0000 (Sat, 06 Jul 2013) $
+// Version: $Revision: 880 $
+// Date   : $Date: 2013-07-08 21:37:41 +0000 (Mon, 08 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1496,7 +1496,7 @@ Application::changeVariant(unsigned position, variant::Type variant)
 		game.link.crcMoves = game.sink.crcMoves;
 
 		game.sink.cursor->base().deleteGame(game.sink.index, true);
-		// TODO: compress database
+		// TODO: compact database
 	}
 }
 
@@ -2404,7 +2404,7 @@ Application::importGame(Producer& producer, unsigned position, bool trialMode)
 
 		scratch->database().deleteGame(myGame->sink.index, true);
 		releaseGame(position);
-		// TODO: compress scratch base
+		// TODO: compact scratch base
 	}
 
 	game->data.game->setIsIrreversible(true);
@@ -2705,7 +2705,10 @@ Application::save(mstl::string const& name, util::Progress& progress)
 
 
 file::State
-Application::save(mstl::string const& name, unsigned flags, util::Progress& progress)
+Application::save(mstl::string const& name,
+						mstl::string const& encoding,
+						unsigned flags,
+						util::Progress& progress)
 {
 	M_REQUIRE(contains(name));
 
@@ -2713,7 +2716,9 @@ Application::save(mstl::string const& name, unsigned flags, util::Progress& prog
 	MultiBase&		multiBase(multiCursor.multiBase());
 	WriteGuard		guard(*this, multiBase);
 
-	file::State state = multiBase.save(flags, progress);
+	file::State state = multiBase.save(encoding, flags, progress);
+
+	multiCursor.compact(progress);
 
 	if (state == file::Updated && m_subscriber)
 	{

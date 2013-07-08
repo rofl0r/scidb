@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 859 $
-// Date   : $Date: 2013-06-26 21:13:52 +0000 (Wed, 26 Jun 2013) $
+// Version: $Revision: 880 $
+// Date   : $Date: 2013-07-08 21:37:41 +0000 (Mon, 08 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -109,7 +109,7 @@ public:
 	/// Save changes.
 	void save(util::Progress& progress);
 	/// Update PGN file.
-	file::State save(unsigned flags, util::Progress& progress);
+	file::State save(mstl::string const& encoding, unsigned flags, util::Progress& progress);
 	/// Reset status of databases.
 	void resetInitialSize();
 

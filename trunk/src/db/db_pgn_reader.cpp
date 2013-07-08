@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 866 $
-// Date   : $Date: 2013-07-03 16:27:30 +0000 (Wed, 03 Jul 2013) $
+// Version: $Revision: 880 $
+// Date   : $Date: 2013-07-08 21:37:41 +0000 (Mon, 08 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1841,7 +1841,7 @@ PgnReader::get(bool allowEndOfInput)
 		}
 		else
 		{
-			m_currentOffset = m_stream.tellg() + 1;
+			m_currentOffset = m_stream.tellg();
 			m_eof = true;
 		}
 

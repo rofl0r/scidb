@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 859 $
-// Date   : $Date: 2013-06-26 21:13:52 +0000 (Wed, 26 Jun 2013) $
+// Version: $Revision: 880 $
+// Date   : $Date: 2013-07-08 21:37:41 +0000 (Mon, 08 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -111,7 +111,7 @@ public:
 	/// Returns whether the database format should be upgraded.
 	bool shouldUpgrade() const;
 	/// Returns whether this database should be compressed.
-	bool shouldCompress() const;
+	bool shouldCompact() const;
 	/// Return whether this database is opened with temporary storage.
 	bool hasTemporaryStorage() const;
 	/// Return whether this database contains unsaved changes.
@@ -264,6 +264,10 @@ public:
 	void attach(mstl::string const& filename, util::Progress& progress);
 	/// Update database files.
 	void save(util::Progress& progress);
+	/// Compact database on disk.
+	void compact(Database& destination, util::Progress& progress);
+	/// Compact database in memory.
+	void compact(util::Progress& progress);
 	/// Write complete index of database to stream.
 	void writeIndex(mstl::ostream& os, util::Progress& progress);
 	/// Write complete namebases of database to stream.

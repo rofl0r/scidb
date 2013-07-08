@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 718 $
-// Date   : $Date: 2013-04-14 23:59:32 +0000 (Sun, 14 Apr 2013) $
+// Version: $Revision: 880 $
+// Date   : $Date: 2013-07-08 21:37:41 +0000 (Mon, 08 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -47,6 +47,8 @@ public:
 
 	bool startAnalysis(bool isNew) override;
 	bool stopAnalysis(bool restartIsPending) override;
+	bool continueAnalysis() override;
+
 	bool isReady() const override;
 	bool isAnalyzing() const override;
 
@@ -87,7 +89,6 @@ private:
 	void parseOption(char const* msg);
 	char const* parseMoveList(char const* s, db::Board& board, db::MoveList& moves);
 	void setupPosition(db::Board const& board);
-	void continueAnalysis();
 	void sendOption(mstl::string const& name, mstl::string const& value);
 
 	db::Move parseCurrentMove(char const* s);
@@ -109,7 +110,6 @@ private:
 	bool				m_isNewGame;
 	bool				m_startAnalyzeIsPending;
 	bool				m_stopAnalyzeIsPending;
-	bool				m_continueAnalysis;
 	bool				m_isChess960;
 	bool				m_sendAnalyseMode;
 	bool				m_usedAnalyseModeBefore;

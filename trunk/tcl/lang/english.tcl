@@ -1,7 +1,7 @@
 ln -sf ../# ====================================================================== .
 # Author : $Author$
-# Version: $Revision: 876 $
-# Date   : $Date: 2013-07-06 12:37:44 +0000 (Sat, 06 Jul 2013) $
+# Version: $Revision: 880 $
+# Date   : $Date: 2013-07-08 21:37:41 +0000 (Mon, 08 Jul 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -473,6 +473,8 @@ ln -sf ../# ====================================================================
 ::application::database::mc::SelectVariant					"Select Variant"
 ::application::database::mc::Example							"Example"
 ::application::database::mc::UnsavedFiles						"This PGN file is unsaved."
+::application::database::mc::FileIsRemoved					"File '%s' is removed. Please use the export dialog if you like to save this database."
+::application::database::mc::FileIsNotWritable				"File '%s' is not writeable. Please use the export dialog if you like to save this database, or set this file writeable."
 
 ::application::database::mc::RecodingDatabase				"Recoding %base from %from to %to"
 ::application::database::mc::RecodedGames						"%s game(s) recoded"

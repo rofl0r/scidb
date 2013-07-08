@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 851 $
-// Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
+// Version: $Revision: 880 $
+// Date   : $Date: 2013-07-08 21:37:41 +0000 (Mon, 08 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1104,7 +1104,7 @@ Codec::readIndexHeader(mstl::fstream& fstrm, unsigned* retNumGames)
 	setType(type::ID(baseType));
 	setCreated(created);
 
-	shouldCompress(flags & maintenance::Compress);
+	shouldCompact(flags & maintenance::Compact);
 
 	GameInfoList& infoList = gameInfoList();
 
@@ -1361,8 +1361,8 @@ Codec::writeIndexHeader(mstl::ostream& strm)
 
 	Byte flags = 0;
 
-	if (shouldCompress())
-		flags |= maintenance::Compress;
+	if (shouldCompact())
+		flags |= maintenance::Compact;
 
 	bstrm.put(::MagicIndexFile, 8);
 	bstrm << uint16_t(FileVersion);						// Scidb version

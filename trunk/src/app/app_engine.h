@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 795 $
-// Date   : $Date: 2013-05-22 21:49:03 +0000 (Wed, 22 May 2013) $
+// Version: $Revision: 880 $
+// Date   : $Date: 2013-07-08 21:37:41 +0000 (Mon, 08 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -138,6 +138,7 @@ public:
 
 		virtual bool startAnalysis(bool isNewGame) = 0;
 		virtual bool stopAnalysis(bool restartIsPending) = 0;
+		virtual bool continueAnalysis() = 0;
 
 		virtual void protocolStart(bool isProbing) = 0;
 		virtual void protocolEnd() = 0;

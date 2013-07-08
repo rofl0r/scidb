@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 859 $
-// Date   : $Date: 2013-06-26 21:13:52 +0000 (Wed, 26 Jun 2013) $
+// Version: $Revision: 880 $
+// Date   : $Date: 2013-07-08 21:37:41 +0000 (Mon, 08 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -157,7 +157,7 @@ public:
 	/// Set flag whether this cursor is the currently active cursor.
 	void setActive(bool flag);
 
-	// Compress the database.
+	// Compact the database.
 	bool compact(::util::Progress& progress);
 
 	SubscriberP subscriber() const;

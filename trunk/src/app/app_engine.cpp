@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 717 $
-// Date   : $Date: 2013-04-10 13:35:14 +0000 (Wed, 10 Apr 2013) $
+// Version: $Revision: 880 $
+// Date   : $Date: 2013-07-08 21:37:41 +0000 (Mon, 08 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1195,7 +1195,10 @@ Engine::startAnalysis(Game* game)
 	else if (isAnalyzing())
 	{
 		if (m_engine->m_board.isEqualZHPosition(game->currentBoard()))
+		{
+			m_engine->continueAnalysis();
 			return true;
+		}
 	}
 
 	m_usedMultiPV = 0;

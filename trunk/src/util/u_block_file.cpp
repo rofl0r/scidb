@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 832 $
-// Date   : $Date: 2013-06-12 06:32:40 +0000 (Wed, 12 Jun 2013) $
+// Version: $Revision: 880 $
+// Date   : $Date: 2013-07-08 21:37:41 +0000 (Mon, 08 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -408,6 +408,25 @@ BlockFile::clear()
 	m_isDirty = false;
 	m_view.m_buffer.reset();
 	putMagic();
+}
+
+
+void
+BlockFile::removeBlocks(unsigned firstBlockNo, unsigned lastBlockNo)
+{
+	M_REQUIRE(isMemoryOnly());
+	M_REQUIRE(isInSyncMode());
+	M_REQUIRE(firstBlockNo < countBlocks());
+	M_REQUIRE(lastBlockNo < countBlocks());
+	M_REQUIRE(firstBlockNo <= lastBlockNo);
+
+	m_sizeInfo.erase(	m_sizeInfo.begin() + firstBlockNo,
+							m_sizeInfo.begin() + lastBlockNo - firstBlockNo + 1);
+	m_cache.erase(	m_cache.begin() + firstBlockNo,
+						m_cache.end() + lastBlockNo - firstBlockNo + 1);
+
+	if (mstl::is_between(m_view.m_buffer.m_number, firstBlockNo, lastBlockNo))
+		m_view.m_buffer.m_number = InvalidBlock;
 }
 
 

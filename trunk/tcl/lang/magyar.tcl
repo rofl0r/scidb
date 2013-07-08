@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 876 $
-# Date   : $Date: 2013-07-06 12:37:44 +0000 (Sat, 06 Jul 2013) $
+# Version: $Revision: 880 $
+# Date   : $Date: 2013-07-08 21:37:41 +0000 (Mon, 08 Jul 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -475,6 +475,8 @@
 ::application::database::mc::SelectVariant		"Select Variant" ;# NEW
 ::application::database::mc::Example			"Example" ;# NEW
 ::application::database::mc::UnsavedFiles		"This PGN file is unsaved." ;# NEW
+::application::database::mc::FileIsRemoved		"File '%s' is removed. Please use the export dialog if you like to save this database." ;# NEW
+::application::database::mc::FileIsNotWritable		"File '%s' is not writeable. Please use the export dialog if you like to save this database, or set this file writeable." ;# NEW
 
 ::application::database::mc::RecodingDatabase		"Recoding %s from %s to %s"
 ::application::database::mc::RecodedGames		"%s game(s) recoded"

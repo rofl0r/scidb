@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 824 $
-// Date   : $Date: 2013-06-07 22:01:59 +0000 (Fri, 07 Jun 2013) $
+// Version: $Revision: 880 $
+// Date   : $Date: 2013-07-08 21:37:41 +0000 (Mon, 08 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -71,7 +71,7 @@ public:
 	bool				m_writable;
 	bool				m_memoryOnly;
 	bool				m_temporary;
-	bool				m_shouldCompress;
+	bool				m_shouldCompact;
 	mstl::string	m_description;
 	mstl::string	m_encoding;
 	Allocator 		m_allocator;

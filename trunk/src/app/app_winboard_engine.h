@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 857 $
-// Date   : $Date: 2013-06-24 23:28:35 +0000 (Mon, 24 Jun 2013) $
+// Version: $Revision: 880 $
+// Date   : $Date: 2013-07-08 21:37:41 +0000 (Mon, 08 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -52,6 +52,8 @@ public:
 
 	bool startAnalysis(bool isNewGame) override;
 	bool stopAnalysis(bool restartIsPending) override;
+	bool continueAnalysis() override;
+
 	bool isReady() const override;
 	bool isAnalyzing() const override;
 

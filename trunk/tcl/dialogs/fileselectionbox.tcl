@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 861 $
-# Date   : $Date: 2013-06-27 19:31:01 +0000 (Thu, 27 Jun 2013) $
+# Version: $Revision: 880 $
+# Date   : $Date: 2013-07-08 21:37:41 +0000 (Mon, 08 Jul 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -655,8 +655,8 @@ proc GetNumGames {filename mtime} {
 proc IsUsed {file} {
 	switch [string tolower [file extension $file]] {
 		.pgn - .pgn.gz - .bpgn - .bpgn.gz - .zip {
-			if {![::scidb::db::get open? [file normalize $file]]} { return no }
-			if {![::scidb::db::get readonly? $file]} { return yes }
+#			if {![::scidb::db::get open? [file normalize $file]]} { return no }
+#			if {![::scidb::db::get readonly? $file]} { return yes }
 		}
 
 		.sci - .si3 - .si4 - .cbh - .cbf {

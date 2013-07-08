@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 851 $
-// Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
+// Version: $Revision: 880 $
+// Date   : $Date: 2013-07-08 21:37:41 +0000 (Mon, 08 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -263,7 +263,7 @@ protected:
 										unsigned prevRecordLength);
 
 	bool isReadonly() const;
-	bool shouldCompress() const;
+	bool shouldCompact() const;
 	GameInfoList& gameInfoList();
 	GameInfo& gameInfo(unsigned index);
 	mstl::string const& description() const;
@@ -275,7 +275,7 @@ protected:
 	void setType(DatabaseContent::Type type);
 	void setCreated(uint32_t time);
 	void setDescription(char const* description);
-	void shouldCompress(bool flag);
+	void shouldCompact(bool flag);
 	void useEncoding(mstl::string const& encoding);
 
 	void checkPermissions(mstl::string const& filename);

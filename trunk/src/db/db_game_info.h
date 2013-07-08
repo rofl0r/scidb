@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 851 $
-// Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
+// Version: $Revision: 880 $
+// Date   : $Date: 2013-07-08 21:37:41 +0000 (Mon, 08 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -246,6 +246,7 @@ public:
 	void setFlags(unsigned flags);
 	void setDirty(bool flag);
 	void setUnchanged();
+	void setGameOffset(unsigned offset);
 	void setIllegalCastling(bool flag);
 	void setIllegalMove(bool flag);
 	void reset(Namebases& namebases);

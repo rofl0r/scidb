@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 851 $
-// Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
+// Version: $Revision: 880 $
+// Date   : $Date: 2013-07-08 21:37:41 +0000 (Mon, 08 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -309,6 +309,24 @@ void
 MultiCursor::replace(db::Database* database)
 {
 	m_base->replace(database);
+}
+
+
+bool
+MultiCursor::compact(::util::Progress& progress)
+{
+	bool compacted = false;
+
+	for (unsigned v = 0; v < ::db::variant::NumberOfVariants; ++v)
+	{
+		if (m_cursor[v])
+		{
+			if (m_cursor[v]->compact(progress))
+				compacted = true;
+		}
+	}
+
+	return compacted;
 }
 
 // vi:set ts=3 sw=3:

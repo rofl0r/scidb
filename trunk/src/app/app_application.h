@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 859 $
-// Date   : $Date: 2013-06-26 21:13:52 +0000 (Wed, 26 Jun 2013) $
+// Version: $Revision: 880 $
+// Date   : $Date: 2013-07-08 21:37:41 +0000 (Mon, 08 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -308,7 +308,10 @@ public:
 	void bindGameToDatabase(unsigned position, mstl::string const& name, unsigned index);
 	void bindGameToView(unsigned position, int viewId, Update updateMode = UpdateGameInfo);
 	void save(mstl::string const& name, util::Progress& progress);
-	::db::file::State save(mstl::string const& name, unsigned flags, util::Progress& progress);
+	::db::file::State save(	mstl::string const& name,
+									mstl::string const& encoding,
+									unsigned flags,
+									util::Progress& progress);
 	void startUpdateTree(Cursor& cursor);
 	unsigned stripMoveInformation(View& view,
 											unsigned types,
