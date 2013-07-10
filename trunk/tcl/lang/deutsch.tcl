@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 885 $
-# Date   : $Date: 2013-07-10 18:14:19 +0000 (Wed, 10 Jul 2013) $
+# Version: $Revision: 887 $
+# Date   : $Date: 2013-07-10 20:36:15 +0000 (Wed, 10 Jul 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -507,6 +507,7 @@
 ::application::database::mc::SelectSuperfluousTags			"Unerwünschte Tags auswählen:"
 ::application::database::mc::WillBePermanentlyDeleted		"Bitte beachten: Diese Aktion wird die betroffenen Daten permanent aus der Datenbank entfernen."
 ::application::database::mc::ReadWriteFailed					"Die Datenbank kann nicht schreibbar gesetzt werden:"
+::application::database::mc::NoExtraTagsFound				"Keine Tags zum Löschen gefunden."
 
 ::application::database::mc::T_Unspecific						"Unspezifiziert"
 ::application::database::mc::T_Temporary						"Temporär"

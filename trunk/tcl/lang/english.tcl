@@ -1,7 +1,7 @@
 ln -sf ../# ====================================================================== .
 # Author : $Author$
-# Version: $Revision: 885 $
-# Date   : $Date: 2013-07-10 18:14:19 +0000 (Wed, 10 Jul 2013) $
+# Version: $Revision: 887 $
+# Date   : $Date: 2013-07-10 20:36:15 +0000 (Wed, 10 Jul 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -505,6 +505,7 @@ ln -sf ../# ====================================================================
 ::application::database::mc::SelectSuperfluousTags			"Select superfluous tags:"
 ::application::database::mc::WillBePermanentlyDeleted		"Please note: This action will permanently delete the concerned information from database."
 ::application::database::mc::ReadWriteFailed					"Setting the database writable failed:"
+::application::database::mc::NoExtraTagsFound				"No tags found for deletion."
 
 ::application::database::mc::T_Unspecific						"Unspecific"
 ::application::database::mc::T_Temporary						"Temporary"
