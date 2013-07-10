@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 880 $
-# Date   : $Date: 2013-07-08 21:37:41 +0000 (Mon, 08 Jul 2013) $
+# Version: $Revision: 885 $
+# Date   : $Date: 2013-07-10 18:14:19 +0000 (Wed, 10 Jul 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -225,6 +225,8 @@
 
 ### menu ###############################################################
 ::menu::mc::Theme							"Tema"
+::menu::mc::CustomStyleMenu			"Scidb's Style Menu" ;# NEW
+::menu::mc::DefaultStyleMenu			"Default Style Menu" ;# NEW
 
 ::menu::mc::AllScidbFiles				"Todos los archivos Scidb"
 ::menu::mc::AllScidbBases				"Todas las bases Scidb"

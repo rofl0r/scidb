@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 851 $
-# Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
+# Version: $Revision: 885 $
+# Date   : $Date: 2013-07-10 18:14:19 +0000 (Wed, 10 Jul 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -693,6 +693,8 @@ namespace eval 12x12 {
 #} ;# namespace 15x13
 
 namespace eval 15x15 {
+
+	set none [image create photo -width 15 -height 15]
 
 	set circle [image create photo -data {
 		iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAABRklEQVQoz6WSwU7CQBCG/267

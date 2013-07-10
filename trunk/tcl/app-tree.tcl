@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 872 $
-# Date   : $Date: 2013-07-04 13:07:56 +0000 (Thu, 04 Jul 2013) $
+# Version: $Revision: 885 $
+# Date   : $Date: 2013-07-10 18:14:19 +0000 (Wed, 10 Jul 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1502,22 +1502,24 @@ proc PopupMenu {table x y} {
 			-compound left \
 			-value $mode \
 			;
-		::theme::configureRadioEntry $m $text
+		::theme::configureRadioEntry $m
 	}
 	$m add separator
 	$m add checkbutton \
-		-label " $mc::AutomaticSearch" \
+		-label $mc::AutomaticSearch \
 		-variable [namespace current]::Options(search:automatic) \
 		-image $::icon::16x16::search \
 		-compound left \
 		;
+	::theme::configureCheckEntry $m
 	$m add separator
 	$m add checkbutton \
-		-label " $mc::LockReferenceBase" \
+		-label $mc::LockReferenceBase \
 		-variable [namespace current]::Options(base:lock) \
 		-image $::icon::16x16::lock \
 		-compound left \
 		;
+	::theme::configureCheckEntry $m
 	$m add separator
 
 	set n [menu $m.switch -tearoff false]
@@ -1548,7 +1550,7 @@ proc PopupMenu {table x y} {
 			-variable [namespace current]::_Current \
 			-command [list ::scidb::tree::set $value] \
 			;
-		::theme::configureRadioEntry $n $text
+		::theme::configureRadioEntry $n
 	}
 
 	::bind $m <<MenuUnpost>> [list after idle [list table::doSelection $table]]

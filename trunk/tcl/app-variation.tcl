@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 872 $
-# Date   : $Date: 2013-07-04 13:07:56 +0000 (Thu, 04 Jul 2013) $
+# Version: $Revision: 885 $
+# Date   : $Date: 2013-07-10 18:14:19 +0000 (Wed, 10 Jul 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -610,11 +610,13 @@ proc PopupMenu {table x y} {
 		-label $mc::AutomaticSearch \
 		-variable [namespace current]::Options(search:automatic) \
 		;
+	::theme::configureCheckEntry $m
 	$m add separator
 	$m add checkbutton \
 		-label $mc::LockReferenceBase \
 		-variable [namespace current]::Options(base:lock) \
 		;
+	::theme::configureCheckEntry $m
 	$m add separator
 
 	set n [menu $m.switch -tearoff false]

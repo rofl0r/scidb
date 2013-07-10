@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 813 $
-# Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
+# Version: $Revision: 885 $
+# Date   : $Date: 2013-07-10 18:14:19 +0000 (Wed, 10 Jul 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1687,7 +1687,11 @@ proc SelectMatchAttributes {dlg attr x y} {
 		;
 	$m add separator
 	foreach field $fieldList {
-		$m add checkbutton -label $mc::Label($field) -variable [namespace current]::Selection($attr:$field)
+		$m add checkbutton \
+			-label $mc::Label($field) \
+			-variable [namespace current]::Selection($attr:$field) \
+			;
+		::theme::configureCheckEntry $m
 	}
 
 	tk_popup $m $x $y

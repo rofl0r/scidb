@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 813 $
-# Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
+# Version: $Revision: 885 $
+# Date   : $Date: 2013-07-10 18:14:19 +0000 (Wed, 10 Jul 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -707,6 +707,7 @@ proc Mouse3Down {w key info node} {
 			-command [namespace code [list ToggleTrace $opt $key]] \
 			-variable [namespace current]::Options(debug:$opt) \
 			;
+		::theme::configureCheckEntry $sub
 	}
 	$m add cascade -label $::crosstable::mc::Debugging -menu $sub
 
@@ -781,6 +782,7 @@ proc PopupMenu {key} {
 			-command [namespace code [list ToggleTrace $opt $key]] \
 			-variable [namespace current]::Options(debug:$opt) \
 			;
+		::theme::configureCheckEntry $sub
 	}
 	$m add cascade -label $::crosstable::mc::Debugging -menu $sub
 

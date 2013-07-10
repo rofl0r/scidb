@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 872 $
-# Date   : $Date: 2013-07-04 13:07:56 +0000 (Thu, 04 Jul 2013) $
+# Version: $Revision: 885 $
+# Date   : $Date: 2013-07-10 18:14:19 +0000 (Wed, 10 Jul 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -813,6 +813,7 @@ proc addGameFlagsMenuEntry {menu base variant view index} {
 			-variable [namespace current]::_Flags($flag) \
 			-command [namespace code [list SetFlag $base $variant $index $view $flag]]
 			;
+		::theme::configureCheckEntry $menu.gameflags
 	}
 
 	$menu add cascade \

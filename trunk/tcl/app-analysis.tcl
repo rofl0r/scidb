@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 880 $
-# Date   : $Date: 2013-07-08 21:37:41 +0000 (Mon, 08 Jul 2013) $
+# Version: $Revision: 885 $
+# Date   : $Date: 2013-07-10 18:14:19 +0000 (Wed, 10 Jul 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1064,6 +1064,7 @@ proc PopupMenu {parent args} {
 		-command [namespace code EngineLock] \
 		-variable [namespace current]::Vars(engine:locked) \
 		;
+	::theme::configureCheckEntry $menu
 	$menu add separator
 	$menu add checkbutton \
 		-label " $mc::BestFirstOrder" \
@@ -1072,6 +1073,7 @@ proc PopupMenu {parent args} {
 		-command [namespace code [list SetOrdering $parent]] \
 		-variable [namespace current]::Options(engine:bestFirst) \
 		;
+	::theme::configureCheckEntry $menu
 	$menu add checkbutton \
 		-label " $mc::MultipleVariations"  \
 		-image $::icon::16x16::lines \
@@ -1081,6 +1083,7 @@ proc PopupMenu {parent args} {
 		-onvalue 4 \
 		-offvalue 1 \
 		;
+	::theme::configureCheckEntry $menu
 	if {$Options(engine:multiPV) > 1} {
 		set sub [menu $menu.lines -tearoff 0]
 		$menu add cascade \
@@ -1094,6 +1097,7 @@ proc PopupMenu {parent args} {
 				-value $i \
 				-command [namespace code [list SetLinesPerPV $parent]] \
 				;
+			::widget::configureRadioEntry $sub
 		}
 	}
 

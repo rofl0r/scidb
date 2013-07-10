@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 835 $
-# Date   : $Date: 2013-06-14 08:38:02 +0000 (Fri, 14 Jun 2013) $
+# Version: $Revision: 885 $
+# Date   : $Date: 2013-07-10 18:14:19 +0000 (Wed, 10 Jul 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -744,32 +744,38 @@ proc PopupMenu {w} {
 		-variable ::board::layout(side-to-move) \
 		-command [namespace code Apply] \
 		;
+	::theme::configureCheckEntry $m
 	$m add checkbutton \
 		-label $::board::options::mc::ShowMaterialValues \
 		-variable ::board::layout(material-values) \
 		-command [namespace code Apply] \
 		;
+	::theme::configureCheckEntry $m
 	$m add checkbutton \
 		-label $::board::options::mc::ShowMaterialBar \
 		-variable ::board::layout(material-bar) \
 		-state [expr {$::board::layout(material-values) ? "normal" : "disabled"}] \
 		-command [namespace code Apply] \
 		;
+	::theme::configureCheckEntry $m
 	$m add checkbutton \
 		-label $::board::options::mc::ShowBorder \
 		-variable ::board::layout(border) \
 		-command [namespace code Apply] \
 		;
+	::theme::configureCheckEntry $m
 	$m add checkbutton \
 		-label $::board::options::mc::ShowCoordinates \
 		-variable ::board::layout(coordinates) \
 		-command [namespace code Apply] \
 		;
+	::theme::configureCheckEntry $m
 	$m add checkbutton \
 		-label $::board::options::mc::ShowSuggestedMove \
 		-variable ::board::hilite(show-suggested) \
 		-command [namespace code Apply] \
 		;
+	::theme::configureCheckEntry $m
 	tk_popup $m {*}[winfo pointerxy $w]
 }
 

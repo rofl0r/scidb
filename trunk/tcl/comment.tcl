@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 857 $
-# Date   : $Date: 2013-06-24 23:28:35 +0000 (Mon, 24 Jun 2013) $
+# Version: $Revision: 885 $
+# Date   : $Date: 2013-07-10 18:14:19 +0000 (Wed, 10 Jul 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1626,10 +1626,11 @@ proc PopupMenu {parent} {
 	if {$::pgn::editor::Options(show:emoticon)} {
 		$m add separator
 		$m add checkbutton \
-			-label " $mc::DisplayEmoticons" \
+			-label $mc::DisplayEmoticons \
 			-variable [namespace current]::Options(showEmoticons) \
 			-command [namespace code DisplayEmoticons] \
 			;
+		::theme::configureCheckEntry $m
 	}
 
 	tk_popup $m {*}[winfo pointerxy $parent]

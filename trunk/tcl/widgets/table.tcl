@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 866 $
-# Date   : $Date: 2013-07-03 16:27:30 +0000 (Wed, 03 Jul 2013) $
+# Version: $Revision: 885 $
+# Date   : $Date: 2013-07-10 18:14:19 +0000 (Wed, 10 Jul 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -516,6 +516,9 @@ proc insert {table index list} {
 
 	set Vars(rows) [max $Vars(rows) [expr {$index + 1}]]
 }
+
+
+proc configureCheckEntry {m} { return $m }
 
 
 proc getFont {table} {
@@ -1420,8 +1423,9 @@ proc PopupMenu {table x y X Y} {
 			}
 			incr count
 			$menu add $type {*}[array get opts]
-			if {$type eq "radiobutton"} {
-				::theme::configureRadioEntry $menu $opts(-label)
+			switch $type {
+				radiobutton { ::theme::configureRadioEntry $menu }
+				checkbutton { ::theme::configureCheckEntry $menu }
 			}
 			unset opts
 		}
@@ -1519,11 +1523,12 @@ proc PopupMenu {table x y X Y} {
 			&& (	($Options(-maxwidth:$id) == 0 && $Options(-minwidth:$id) > 0)
 				|| $Options(-maxwidth:$id) > $Options(-minwidth:$id))} {
 			if {[$menu type end] ne "separator"} { $menu add separator }
-			$menu add check \
+			$menu add checkbutton \
 				-label $mc::AutoStretchColumn \
 				-variable [namespace current]::${table}::Options(-stretch:$id) \
 				-command [namespace code [list ToggleStretchable $table $id]] \
 				;
+			configureCheckEntry $menu
 		}
 	}
 

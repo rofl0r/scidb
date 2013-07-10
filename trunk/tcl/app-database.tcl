@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 880 $
-# Date   : $Date: 2013-07-08 21:37:41 +0000 (Mon, 08 Jul 2013) $
+# Version: $Revision: 885 $
+# Date   : $Date: 2013-07-10 18:14:19 +0000 (Wed, 10 Jul 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1417,6 +1417,7 @@ proc PopupMenu {parent x y {base ""}} {
 				-variable [namespace current]::Vars(flag:readonly) \
 				-state $state \
 				;
+			::theme::configureCheckEntry $menu
 			$menu add separator
 		}
 	}
@@ -1473,11 +1474,12 @@ proc PopupMenu {parent x y {base ""}} {
 		;
 	foreach {name size} {Large 48 Medium 32 Small 24 Tiny 16} {
 		$m add checkbutton                                   \
-			-label [set mc::$name]                            \
+			-label " [set mc::$name]"                         \
 			-onvalue $size                                    \
 			-offvalue $size                                   \
 			-variable ::database::switcher::Options(iconsize) \
 			;
+		::theme::configureCheckEntry $m
 	}
 
 	$menu add separator

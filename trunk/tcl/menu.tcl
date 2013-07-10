@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 851 $
-# Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
+# Version: $Revision: 885 $
+# Date   : $Date: 2013-07-10 18:14:19 +0000 (Wed, 10 Jul 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -30,6 +30,8 @@ namespace eval menu {
 namespace eval mc {
 
 set Theme						"Theme"
+set CustomStyleMenu			"Scidb's Style Menu"
+set DefaultStyleMenu			"Default Style Menu"
 
 set AllScidbFiles				"All Scidb files"
 set AllScidbBases				"All Scidb databases"
@@ -179,15 +181,26 @@ proc build {menu} {
 		if {$style ne "classic"} {
 			$m add radiobutton \
 				-label $style \
-				-image $::icon::16x16::none \
-				-compound left \
 				-variable [namespace current]::Theme \
-				-indicatoron off \
 				-value $style \
-				-command [list ::theme::setTheme $style]
-			::theme::configureRadioEntry $m $style
+				-command [list ::theme::setTheme $style] \
+				;
+			::theme::configureRadioEntry $m
 		}
 	}
+	$m add separator
+	$m add radiobutton \
+		-label $mc::CustomStyleMenu \
+		-variable ::theme::useCustomStyleMenuEntries \
+		-value 1 \
+		;
+	::theme::configureRadioEntry $m
+	$m add radiobutton \
+		-label $mc::DefaultStyleMenu \
+		-variable ::theme::useCustomStyleMenuEntries \
+		-value 0 \
+		;
+	::theme::configureRadioEntry $m
 
 	### toolbars #############################################################
 	set m [menu $menu.mToolbars]
