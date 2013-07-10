@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 885 $
-# Date   : $Date: 2013-07-10 18:14:19 +0000 (Wed, 10 Jul 2013) $
+# Version: $Revision: 886 $
+# Date   : $Date: 2013-07-10 19:14:34 +0000 (Wed, 10 Jul 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1097,7 +1097,7 @@ proc PopupMenu {parent args} {
 				-value $i \
 				-command [namespace code [list SetLinesPerPV $parent]] \
 				;
-			::widget::configureRadioEntry $sub
+			::theme::configureRadioEntry $sub
 		}
 	}
 
