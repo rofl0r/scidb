@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 883 $
-// Date   : $Date: 2013-07-10 04:10:40 +0000 (Wed, 10 Jul 2013) $
+// Version: $Revision: 884 $
+// Date   : $Date: 2013-07-10 14:22:53 +0000 (Wed, 10 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -18,7 +18,7 @@
  * RCS: @(#) $Id: tkTreeCtrl.h,v 1.97 2009/05/17 18:39:54 treectrl Exp $
  */
 
-#include "tk.h"
+#include "tcl.h"
 #include "tkPort.h"
 #include "default.h"
 #include "tclInt.h"
