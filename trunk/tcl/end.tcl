@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 885 $
-# Date   : $Date: 2013-07-10 18:14:19 +0000 (Wed, 10 Jul 2013) $
+# Version: $Revision: 889 $
+# Date   : $Date: 2013-07-11 18:29:31 +0000 (Thu, 11 Jul 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -149,6 +149,7 @@ proc dialog::choosecolor::tooltip {args} { ::tooltip::tooltip {*}$args }
 
 proc toolbar::makeStateSpecificIcons {img} { return [::icon::makeStateSpecificIcons $img] }
 proc toolbar::configureCheckEntry {args} { return [::theme::configureCheckEntry {*}$args] }
+proc toolbar::configureRadioEntry {args} { return [::theme::configureRadioEntry {*}$args] }
 
 proc calendar::tooltip {args} { ::tooltip::tooltip {*}$args }
 
