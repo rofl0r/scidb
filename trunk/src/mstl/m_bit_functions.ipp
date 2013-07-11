@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 887 $
-// Date   : $Date: 2013-07-10 20:36:15 +0000 (Wed, 10 Jul 2013) $
+// Version: $Revision: 888 $
+// Date   : $Date: 2013-07-11 08:54:31 +0000 (Thu, 11 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -73,23 +73,39 @@ inline unsigned popcount(uint16_t x)		{ return pc(unsigned(x)); }
 inline unsigned
 popcount(uint32_t x)
 {
-#if 1 // the builtin function of GCC is quite slow
-	x = x - ((x >> 1) & 0x55555555);
-	x = (x & 0x33333333) + ((x >> 2) & 0x33333333);
-	x = (x + (x >> 4)) & 0x0f0f0f0f;
-	return (x * 0x01010101) >> 24;
+#if 1
+
+	x -=  (x >> 1) & 0x55555555u;
+	x  = ((x >> 2) & 0x33333333u) + (x & 0x33333333u);
+	x  = ((x >> 4) + x) & 0x0f0f0f0fu;
+	return (x*0x01010101u) >> 24;
+
 #else
+
+	// the builtin function of GCC is quite slow
 	return pc(x);
+
 #endif
 }
 
 inline unsigned
 popcount(uint64_t x)
 {
-#if 1 // the builtin function of GCC is quite slow
-	return popcount(static_cast<uint32_t>(x)) + popcount(static_cast<uint32_t>(x >> 32));
+#if __WORDSIZE == 32
+
+	return popcount(uint32_t(x)) + popcount(uint32_t(x >> 32));
+
+#elif __WORDSIZE == 64
+
+	x -=  (x >> 1) & UINT64_C(0x5555555555555555);
+	x  = ((x >> 2) & UINT64_C(0x3333333333333333)) + (x & UINT64_C(0x3333333333333333));
+	x  = ((x >> 4) + x) & UINT64_C(0x0f0f0f0f0f0f0f0f);
+	return (x*UINT64_C(0x0101010101010101)) >> 56;
+
 #else
+
 	return pc(x);
+
 #endif
 }
 
