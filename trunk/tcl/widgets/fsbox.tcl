@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 885 $
-# Date   : $Date: 2013-07-10 18:14:19 +0000 (Wed, 10 Jul 2013) $
+# Version: $Revision: 893 $
+# Date   : $Date: 2013-07-13 17:04:36 +0000 (Sat, 13 Jul 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -4397,6 +4397,8 @@ proc ResetFamId {w} {
 
 proc SetDeleteAction {w action} {
 	variable [namespace parent]::${w}::Vars
+
+	if {![info exists Vars(button:delete)]} { return }
 
 	set Vars(delete:action) $action
 
