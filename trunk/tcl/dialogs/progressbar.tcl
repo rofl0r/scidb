@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 813 $
-# Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
+# Version: $Revision: 894 $
+# Date   : $Date: 2013-07-13 23:02:30 +0000 (Sat, 13 Jul 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -246,7 +246,7 @@ proc setMaximum {w maximum} {
 
 
 proc Start {w command close} {
-	$command
+	{*}$command
 	if {$close} { destroy $w }
 }
 
