@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 880 $
-// Date   : $Date: 2013-07-08 21:37:41 +0000 (Mon, 08 Jul 2013) $
+// Version: $Revision: 902 $
+// Date   : $Date: 2013-07-15 22:00:27 +0000 (Mon, 15 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2102,7 +2102,7 @@ tcl::db::getGameInfo(Database const& db, unsigned index, Ratings const& ratings)
 	SET(BlackCountry,         Tcl_NewStringObj(country::toString(info.findFederation(color::Black)), -1));
 	SET(BlackTitle,           Tcl_NewStringObj(title::toString(info.findTitle(color::Black)), -1));
 	SET(BlackType,            Tcl_NewStringObj(species::toString(info.findPlayerType(color::Black)), -1));
-	SET(BlackSex,             Tcl_NewStringObj(sex::toString(info.findSex(color::White)), -1));
+	SET(BlackSex,             Tcl_NewStringObj(sex::toString(info.findSex(color::Black)), -1));
 	SET(Event,                Tcl_NewStringObj(info.event(), info.event().size()));
 	SET(EventType,            Tcl_NewStringObj(event::toString(info.eventType()), -1));
 	SET(EventDate,            Tcl_NewStringObj(info.eventDate().asShortString(), -1));
