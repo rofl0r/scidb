@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 895 $
-# Date   : $Date: 2013-07-15 07:37:51 +0000 (Mon, 15 Jul 2013) $
+# Version: $Revision: 899 $
+# Date   : $Date: 2013-07-15 14:02:21 +0000 (Mon, 15 Jul 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -280,9 +280,9 @@
 
 # Default Application
 ::menu::mc::Assign							"assign" ;# NEW
-::menu::mc::ErrorWhileExecCmd				"Error while executing command: '%s'." ;# NEW
 ::menu::mc::FailedSettingDefaultApp		"Failed to set Scidb as a default application for %s." ;# NEW
 ::menu::mc::SuccessSettingDefaultApp	"Successfully set Scidb as a default application for %s." ;# NEW
+::menu::mc::CommandFailed					"Command '%s' failed." ;# NEW
 
 ### load ###############################################################
 ::load::mc::SevereError				"Grave errore durante caricamento file ECO"

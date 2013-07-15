@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 895 $
-# Date   : $Date: 2013-07-15 07:37:51 +0000 (Mon, 15 Jul 2013) $
+# Version: $Revision: 899 $
+# Date   : $Date: 2013-07-15 14:02:21 +0000 (Mon, 15 Jul 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -278,9 +278,9 @@
 
 # Default Application
 ::menu::mc::Assign							"zuordnen"
-::menu::mc::ErrorWhileExecCmd				"Fehler beim Asuführen des Befehls '%s'."
-::menu::mc::FailedSettingDefaultApp		"Scidb als Standardapplikation für %s zu bestimmen schlug fehl."
+::menu::mc::FailedSettingDefaultApp		"Scidb als Standardapplikation für %s zu bestimmen misslang."
 ::menu::mc::SuccessSettingDefaultApp	"Scidb wurde erfolgreich als Standardapplikation für %s bestimmt."
+::menu::mc::CommandFailed					"Der Befehl '%s' schlug fehl."
 
 ### load ###############################################################
 ::load::mc::SevereError				"Schwerwiegender Fehler beim Laden der ECO-Datei"
