@@ -1,7 +1,7 @@
 ln -sf ../# ====================================================================== .
 # Author : $Author$
-# Version: $Revision: 899 $
-# Date   : $Date: 2013-07-15 14:02:21 +0000 (Mon, 15 Jul 2013) $
+# Version: $Revision: 901 $
+# Date   : $Date: 2013-07-15 14:33:31 +0000 (Mon, 15 Jul 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -234,8 +234,10 @@ ln -sf ../# ====================================================================
 ::menu::mc::ScidbArchives					"Scidb archives"
 ::menu::mc::PGNFilesArchives				"PGN files/archives"
 ::menu::mc::PGNFiles							"PGN files"
+::menu::mc::PGNFilesCompressed			"PGN files (compressed)"
 ::menu::mc::BPGNFilesArchives				"BPGN files/archives"
 ::menu::mc::BPGNFiles						"BPGN files"
+::menu::mc::BPGNFilesCompressed			"BPGN files (compressed)"
 ::menu::mc::PGNArchives						"PGN archives"
 
 ::menu::mc::Language							"&Language"

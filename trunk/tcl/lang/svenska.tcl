@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 899 $
-# Date   : $Date: 2013-07-15 14:02:21 +0000 (Mon, 15 Jul 2013) $
+# Version: $Revision: 901 $
+# Date   : $Date: 2013-07-15 14:33:31 +0000 (Mon, 15 Jul 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -235,8 +235,10 @@
 ::menu::mc::ScidbArchives					"Scidb arkiv"
 ::menu::mc::PGNFilesArchives				"PGN filer/arkiv"
 ::menu::mc::PGNFiles							"PGN filer"
+::menu::mc::PGNFilesCompressed			"PGN filer (komprimerat)"
 ::menu::mc::BPGNFilesArchives				"BPGN filer/arkiv"
 ::menu::mc::BPGNFiles						"BPGN filer"
+::menu::mc::BPGNFilesCompressed			"BPGN filer (komprimerat)"
 ::menu::mc::PGNArchives						"PGN arkiv"
 
 ::menu::mc::Language							"&Språk"

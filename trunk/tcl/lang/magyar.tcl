@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 899 $
-# Date   : $Date: 2013-07-15 14:02:21 +0000 (Mon, 15 Jul 2013) $
+# Version: $Revision: 901 $
+# Date   : $Date: 2013-07-15 14:33:31 +0000 (Mon, 15 Jul 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -235,8 +235,10 @@
 ::menu::mc::ScidbArchives		"Scidb archívumok"
 ::menu::mc::PGNFilesArchives		"PGN fájlok/arhívumok"
 ::menu::mc::PGNFiles			"PGN fájlok"
+::menu::mc::PGNFilesCompressed		"PGN fájlok (tömörített)"
 ::menu::mc::BPGNFilesArchives		"BPGN fájlok/arhívumok"
 ::menu::mc::BPGNFiles			"BPGN fájlok"
+::menu::mc::BPGNFilesCompressed		"BPGN fájlok (tömörített)"
 ::menu::mc::PGNArchives			"PGN arhívumok"
 
 ::menu::mc::Language			"N&yelv"
