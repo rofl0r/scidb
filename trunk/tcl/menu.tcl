@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 895 $
-# Date   : $Date: 2013-07-15 07:37:51 +0000 (Mon, 15 Jul 2013) $
+# Version: $Revision: 898 $
+# Date   : $Date: 2013-07-15 12:44:48 +0000 (Mon, 15 Jul 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -812,12 +812,24 @@ if {[tk windowingsystem] eq "x11" && [string length [auto_execok xdg-mime]]} {
 		}
 
 		if {[llength $mimetypes]} {
+			global env
+
 			::widget::busyCursor on
+			set xdg_data_home ~/.local/share
+			if {[info exists env(XDG_DATA_HOME)]} {
+				foreach p [split $XDG_DATA_HOME :] {
+					if {[file isdirectory $p/mime]} {
+						set xdg_data_home $p
+						break
+					}
+				}
+			}
 			set cmd [list $xdgmime default scidb.desktop {*}[join $mimetypes " "]]
 			# Unluckely the pipe is swallowing any error, but we have to use 'y' because
 			# xdg-mime may ask if ~/.local/share/applications/mimeapps.list should be set
 			# writeable.
 			catch { exec echo "y" | {*}$cmd }
+			catch { update-mime-database $xdg_data_home/mime }
 			set failed {}
 			set success {}
 			foreach mimetype $mimetypes {
