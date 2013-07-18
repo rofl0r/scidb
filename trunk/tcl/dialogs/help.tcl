@@ -1,7 +1,7 @@
 ## ======================================================================
 # Author : $Author$
-# Version: $Revision: 834 $
-# Date   : $Date: 2013-06-13 20:34:04 +0000 (Thu, 13 Jun 2013) $
+# Version: $Revision: 905 $
+# Date   : $Date: 2013-07-18 17:10:34 +0000 (Thu, 18 Jul 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -606,8 +606,9 @@ proc Update {} {
 
 	set Contents {}
 	set file [[namespace parent]::FullPath Contents.dat]
-	if {![file readable $file]} { return [[namespace parent]::Destroy] }
-	catch { source -encoding utf-8 $file }
+	if {[file readable $file]} {
+		catch { source -encoding utf-8 $file }
+	}
 	foreach name [array names Priv uri:*] { $Priv($name) destroy }
 	if {$tcl_platform(platform) ne "unix"} {
 		set Contents [FilterContents $Contents $UnixOnly]
