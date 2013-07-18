@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 887 $
-# Date   : $Date: 2013-07-10 20:36:15 +0000 (Wed, 10 Jul 2013) $
+# Version: $Revision: 904 $
+# Date   : $Date: 2013-07-18 16:26:11 +0000 (Thu, 18 Jul 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1115,7 +1115,10 @@ proc UpdatePGN {position data {w {}}} {
 					if {[llength $Vars(next)]} {
 						$w tag configure $Vars(next) -background $Colors(background:nextmove)
 					}
-					if {[llength $previous]} { $w see [lindex [$w tag nextrange $key 1.0] 0] }
+					if {[llength $previous]} {
+						set nextkey [$w tag nextrange $key 1.0]
+						if {[llength $nextkey]} { $w see [lindex $nextkey 0] }
+					}
 					set Vars(current) $key
 					if {[llength $previous] && $Vars(active) eq $previous} {
 						EnterMove $w $position $previous

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 884 $
-// Date   : $Date: 2013-07-10 14:22:53 +0000 (Wed, 10 Jul 2013) $
+// Version: $Revision: 904 $
+// Date   : $Date: 2013-07-18 16:26:11 +0000 (Thu, 18 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -17,6 +17,8 @@
  *
  * RCS: @(#) $Id: tkTreeCtrl.h,v 1.97 2009/05/17 18:39:54 treectrl Exp $
  */
+
+struct mmsghdr; // this hacks is suppressing a gcc warning
 
 #include "tcl.h"
 #include "tkPort.h"

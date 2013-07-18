@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 819 $
-# Date   : $Date: 2013-06-03 22:58:13 +0000 (Mon, 03 Jun 2013) $
+# Version: $Revision: 904 $
+# Date   : $Date: 2013-07-18 16:26:11 +0000 (Thu, 18 Jul 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1549,6 +1549,7 @@ proc SelectionChanged {mw context position tag {blink yes}} {
 	$mw raise $Priv(pane:$pane)
 
 	setupStyle $context
+	::scidb::game::switch $position
 	::scidb::game::import $position $data [namespace current]::Trash {}
 	::scidb::game::langSet $position [list {} $langID]
 	if {$pane ne $Priv(previous-pane)} {

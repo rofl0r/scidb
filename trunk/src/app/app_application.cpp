@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 880 $
-// Date   : $Date: 2013-07-08 21:37:41 +0000 (Mon, 08 Jul 2013) $
+// Version: $Revision: 904 $
+// Date   : $Date: 2013-07-18 16:26:11 +0000 (Thu, 18 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2411,7 +2411,9 @@ Application::importGame(Producer& producer, unsigned position, bool trialMode)
 
 	if (position != ReservedPosition && count > 0 && !trialMode && m_subscriber)
 	{
-		refreshGame(position);
+		// otherwise loadGame() is doing the refresh
+		if (game->sink.cursor->isScratchbase())
+			refreshGame(position);
 		m_subscriber->updateGameInfo(rememberPosition);
 	}
 
