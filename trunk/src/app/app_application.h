@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 880 $
-// Date   : $Date: 2013-07-08 21:37:41 +0000 (Mon, 08 Jul 2013) $
+// Version: $Revision: 906 $
+// Date   : $Date: 2013-07-22 20:44:36 +0000 (Mon, 22 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -71,6 +71,7 @@ class MultiCursor;
 class Cursor;
 class View;
 class Engine;
+class FAMService;
 
 class Application
 {
@@ -503,6 +504,8 @@ private:
 	void setActiveBase(Cursor* cursor);
 	void stopAnalysis(db::Game const* game);
 	void updateGameInfo(Cursor const& cursor, db::Database& database);
+	bool compact(Cursor& cursor, util::Progress& progress);
+	bool compact(Cursor& cursor);
 
 	Cursor*			m_current;
 	Cursor*			m_clipbase;
@@ -527,7 +530,8 @@ private:
 
 	mutable SubscriberP m_subscriber;
 
-	static Application* m_instance;
+	static Application*	m_instance;
+	static FAMService*	m_famService;
 };
 
 } // namespace app

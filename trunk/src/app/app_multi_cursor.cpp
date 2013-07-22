@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 880 $
-// Date   : $Date: 2013-07-08 21:37:41 +0000 (Mon, 08 Jul 2013) $
+// Version: $Revision: 906 $
+// Date   : $Date: 2013-07-22 20:44:36 +0000 (Mon, 22 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -32,7 +32,9 @@
 #include "db_database.h"
 
 #include "sys_utf8_codec.h"
+#include "sys_fam.h"
 
+#include "m_map.h"
 #include "m_auto_ptr.h"
 #include "m_assert.h"
 
@@ -68,6 +70,7 @@ struct WriteGuard
 };
 
 } // namespace
+
 
 
 mstl::string MultiCursor::m_clipbaseName("Clipbase");
@@ -312,21 +315,17 @@ MultiCursor::replace(db::Database* database)
 }
 
 
-bool
-MultiCursor::compact(::util::Progress& progress)
+void
+MultiCursor::famChanged()
 {
-	bool compacted = false;
+	// TODO
+}
 
-	for (unsigned v = 0; v < ::db::variant::NumberOfVariants; ++v)
-	{
-		if (m_cursor[v])
-		{
-			if (m_cursor[v]->compact(progress))
-				compacted = true;
-		}
-	}
 
-	return compacted;
+void
+MultiCursor::famDeleted()
+{
+	// TODO
 }
 
 // vi:set ts=3 sw=3:

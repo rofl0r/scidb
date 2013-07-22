@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 880 $
-// Date   : $Date: 2013-07-08 21:37:41 +0000 (Mon, 08 Jul 2013) $
+// Version: $Revision: 906 $
+// Date   : $Date: 2013-07-22 20:44:36 +0000 (Mon, 22 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -32,12 +32,11 @@
 #include "m_string.h"
 #include "m_ref_counter.h"
 
-namespace db { class MultiBase; }
-namespace db { class Producer; }
-namespace db { class Database; }
-namespace db { class Log; }
-
-namespace util { class Progress; }
+namespace db	{ class MultiBase; }
+namespace db	{ class Producer; }
+namespace db	{ class Database; }
+namespace db	{ class Log; }
+namespace util	{ class Progress; }
 
 namespace app {
 
@@ -110,8 +109,9 @@ public:
 	/// Replace database object.
 	void replace(db::Database* database);
 
-	// Compact the databases.
-	bool compact(::util::Progress& progress);
+	// FAM service
+	void famChanged();
+	void famDeleted();
 
 	static mstl::string const& clipbaseName();
 	static mstl::string const& scratchbaseName();

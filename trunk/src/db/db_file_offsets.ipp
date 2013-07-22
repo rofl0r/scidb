@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 851 $
-// Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
+// Version: $Revision: 906 $
+// Date   : $Date: 2013-07-22 20:44:36 +0000 (Mon, 22 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -80,6 +80,14 @@ FileOffsets::Offset::variant() const
 
 
 inline
+unsigned
+FileOffsets::Offset::gameCount() const
+{
+	return isGameIndex() ? 1u : skipped();
+}
+
+
+inline
 FileOffsets::Offset::Offset(unsigned offset, unsigned skipped)
 	:m_offset(offset)
 	,m_index(skipped)
@@ -153,6 +161,17 @@ void
 FileOffsets::append(unsigned offset, unsigned variant, unsigned gameIndex)
 {
 	m_offsets.push_back(Offset(offset, variant, gameIndex));
+}
+
+
+inline
+void
+FileOffsets::append(unsigned offset, Offset const& src)
+{
+	if (src.isGameIndex())
+		append(offset, src.variant(), src.gameIndex());
+	else
+		append(offset, src.skipped());
 }
 
 

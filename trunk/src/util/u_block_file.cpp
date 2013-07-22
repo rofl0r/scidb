@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 880 $
-// Date   : $Date: 2013-07-08 21:37:41 +0000 (Mon, 08 Jul 2013) $
+// Version: $Revision: 906 $
+// Date   : $Date: 2013-07-22 20:44:36 +0000 (Mon, 22 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -572,6 +572,16 @@ BlockFile::copy(ByteStream const& buf, unsigned offset, unsigned nbytes)
 	{
 		::memcpy(data, buf.data(), nbytes);
 	}
+}
+
+
+unsigned
+BlockFile::recordLength(unsigned offset)
+{
+	M_REQUIRE(m_mode == ReadWriteLength);
+	M_REQUIRE(offset/blockSize() < countBlocks());
+
+	return retrieve(m_view, blockNumber(offset), blockOffset(offset));
 }
 
 

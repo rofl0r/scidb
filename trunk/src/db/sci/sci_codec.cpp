@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 880 $
-// Date   : $Date: 2013-07-08 21:37:41 +0000 (Mon, 08 Jul 2013) $
+// Version: $Revision: 906 $
+// Date   : $Date: 2013-07-22 20:44:36 +0000 (Mon, 22 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2520,8 +2520,12 @@ Codec::compact(util::Progress& progress)
 
 		if (!info.isDeleted())
 		{
+			unsigned length = m_gameData->mode() == BlockFile::ReadWriteLength
+										? m_gameData->recordLength(info.gameOffset())
+										: info.gameRecordLength();
+
 			unsigned firstBlock	= m_gameData->blockNumber(info.gameOffset());
-			unsigned lastBlock	= firstBlock + m_gameData->countSpans(info.gameRecordLength());
+			unsigned lastBlock	= firstBlock + m_gameData->countSpans(length);
 
 			for ( ; firstBlock < lastBlock; ++firstBlock)
 				used.set(firstBlock);

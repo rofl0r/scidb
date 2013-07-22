@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 906 $
+// Date   : $Date: 2013-07-22 20:44:36 +0000 (Mon, 22 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -23,6 +23,23 @@
 
 using namespace util;
 
+
+namespace {
+
+struct Null : public Progress
+{
+	bool interrupted() override { return false; }
+	unsigned ticks() const override { return 0; }
+	void start(unsigned) override {}
+	void message(mstl::string const&) override {}
+	void tick(unsigned) override {}
+	void update(unsigned) override {}
+	void finish() throw() override {};
+};
+
+static Null m_null;
+
+}
 
 Progress::Progress() : m_freq(0) {}
 Progress::~Progress() throw() {}
@@ -55,6 +72,13 @@ Progress::setCount(unsigned count)
 
 	if (ticks > 0)
 		setFrequency(mstl::max(1u, count/ticks));
+}
+
+
+Progress&
+Progress::null()
+{
+	return m_null;
 }
 
 // vi:set ts=3 sw=3:

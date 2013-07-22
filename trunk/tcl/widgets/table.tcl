@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 885 $
-# Date   : $Date: 2013-07-10 18:14:19 +0000 (Wed, 10 Jul 2013) $
+# Version: $Revision: 906 $
+# Date   : $Date: 2013-07-22 20:44:36 +0000 (Mon, 22 Jul 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1131,7 +1131,11 @@ proc Highlight {table x y} {
 
 		header {
 			::TreeCtrl::ButtonPress1Header $table.t $id $x $y 0
-			$table.t configure -cursor hand2
+			if {[$table.t header dragcget -enable]} {
+				if {[$table.t column cget [lindex $id 1] -lock] eq "none"} {
+					$table.t configure -cursor hand2
+				}
+			}
 			set Vars(header) 1
 		}
 	}
@@ -1143,7 +1147,9 @@ proc Release {table x y} {
 
 	if {$Vars(header)} {
 		::TreeCtrl::Release1 $table.t $x $y
-		$table.t configure -cursor {}
+		if {[$table.t header dragcget -enable]} {
+			$table.t configure -cursor {}
+		}
 	}
 }
 
