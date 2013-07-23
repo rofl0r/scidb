@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 906 $
-# Date   : $Date: 2013-07-22 20:44:36 +0000 (Mon, 22 Jul 2013) $
+# Version: $Revision: 908 $
+# Date   : $Date: 2013-07-23 10:18:32 +0000 (Tue, 23 Jul 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1580,7 +1580,7 @@ proc DoSaveChanges {parent base} {
 	if {![file exists $base]} {
 		set msg [format $mc::FileIsRemoved [file tail $base]]
 		::dialog::error -parent $parent -message $msg
-	} else if {![file writable $base]} {
+	} elseif {![file writable $base]} {
 		set msg [format $mc::FileIsNotWritable [file tail $base]]
 		::dialog::error -parent $parent -message $msg
 	} else {
@@ -1602,7 +1602,7 @@ proc DoSaveChanges {parent base} {
 		}
 	}
 
-	destroy $dlg
+	destroy $parent
 }
 
 
