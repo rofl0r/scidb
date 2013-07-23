@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 851 $
-// Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
+// Version: $Revision: 909 $
+// Date   : $Date: 2013-07-23 15:10:14 +0000 (Tue, 23 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -276,7 +276,7 @@ public:
 	/// Return current variation number (0 for mainline)
 	unsigned variationNumber() const;
 	/// Return game flags
-	uint32_t flags() const override;
+	uint32_t gameFlags() const override;
 	/// Return subscriber.
 	Subscriber* subscriber() const;
 	/// Print current move in given notation
@@ -552,7 +552,7 @@ public:
 	/// Set game tags.
 	void setTags(TagSet const& tags);
 	/// Set game flags (should coincide with game flags in GameInfo).
-	void setFlags(unsigned flags);
+	void setGameFlags(unsigned flags);
 	/// Remove some flags from game flags.
 	void removeFlags(unsigned flags);
 	/// Reset game for next load.

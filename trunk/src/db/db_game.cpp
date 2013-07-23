@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 851 $
-// Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
+// Version: $Revision: 909 $
+// Date   : $Date: 2013-07-23 15:10:14 +0000 (Tue, 23 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1340,7 +1340,7 @@ Game::redo()
 }
 
 
-void Game::setFlags(unsigned flags)
+void Game::setGameFlags(unsigned flags)
 {
 	m_flags = flags & ~GameInfo::Flag_Special;
 }

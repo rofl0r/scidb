@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 866 $
-// Date   : $Date: 2013-07-03 16:27:30 +0000 (Wed, 03 Jul 2013) $
+// Version: $Revision: 909 $
+// Date   : $Date: 2013-07-23 15:10:14 +0000 (Tue, 23 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -272,13 +272,13 @@ private:
 	time::Mode			m_timeMode;
 	unsigned				m_significance[2];
 	Modification		m_modification;
+	Modification		m_generalModification;
 	bool					m_parsingFirstHdr;
 	bool					m_parsingTags;
 	bool					m_eof;
 	bool					m_hasNote;
 	bool					m_atStart;
 	bool					m_parsingComment;
-	bool					m_sourceIsScidb;
 	bool					m_sourceIsPossiblyChessBase;
 	bool					m_sourceIsChessOK;
 	bool					m_encodingFailed;

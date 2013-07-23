@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 909 $
+// Date   : $Date: 2013-07-23 15:10:14 +0000 (Tue, 23 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -58,7 +58,7 @@ public:
 	virtual unsigned plyCount() const = 0;
 	virtual variant::Type variant() const = 0;
 	virtual uint16_t idn() const = 0;
-	virtual uint32_t flags() const = 0;
+	virtual uint32_t gameFlags() const = 0;
 	virtual bool commentEngFlag() const = 0;
 	virtual bool commentOthFlag() const = 0;
 

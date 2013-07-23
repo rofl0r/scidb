@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 851 $
-// Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
+// Version: $Revision: 909 $
+// Date   : $Date: 2013-07-23 15:10:14 +0000 (Tue, 23 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -48,7 +48,7 @@ inline unsigned Consumer::countMarks() const							{ return m_markCount; }
 inline Line const& Consumer::openingLine() const					{ return m_line; }
 inline mstl::string const& Consumer::encoding() const				{ return m_encoding; }
 inline sys::utf8::Codec& Consumer::codec() const					{ return *m_codec; }
-inline uint32_t Consumer::flags() const								{ return m_flags; }
+inline uint32_t Consumer::gameFlags() const							{ return m_gameFlags; }
 inline MoveInfoSet const& Consumer::moveInfo() const				{ return m_moveInfoSet; }
 inline EngineList const& Consumer::engines() const					{ return m_engines; }
 inline EngineList& Consumer::engines()									{ return m_engines; }

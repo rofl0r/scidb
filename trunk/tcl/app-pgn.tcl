@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 893 $
-# Date   : $Date: 2013-07-13 17:04:36 +0000 (Sat, 13 Jul 2013) $
+# Version: $Revision: 909 $
+# Date   : $Date: 2013-07-23 15:10:14 +0000 (Tue, 23 Jul 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1504,7 +1504,7 @@ proc PrintMove {position w level key data annotation} {
 		$w tag bind $key <Any-Button> [list ::browser::hidePosition $w]
 	}
 
-	if {!$legal && $level > 0} {
+	if {!$legal} {
 		$w insert current "\u26A1" [list $key illegal] ;# alternatives: u26A0, u2716
 		if {$position < 9} {
 			$w tag bind illegal <ButtonPress-1> [namespace code [list GotoMove $position $key]]
