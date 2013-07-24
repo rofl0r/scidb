@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 901 $
-# Date   : $Date: 2013-07-15 14:33:31 +0000 (Mon, 15 Jul 2013) $
+# Version: $Revision: 910 $
+# Date   : $Date: 2013-07-24 17:42:21 +0000 (Wed, 24 Jul 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -792,9 +792,9 @@ if {[tk windowingsystem] eq "x11" && [string length [auto_execok xdg-mime]]} {
 			$dlg.cancel configure -command [list set [namespace current]::Action_ cancel]
 		}
 
+		wm withdraw $dlg
 		wm protocol $dlg WM_DELETE_WINDOW [list set [namespace current]::Action_ cancel]
 		wm transient $dlg [winfo toplevel $parent]
-		wm withdraw $dlg
 		wm title $dlg [::mc::stripAmpersand $mc::AssignFileTypes]
 		wm resizable $dlg false false
 		::util::place $dlg -parent $parent -position center
@@ -859,7 +859,6 @@ if {[tk windowingsystem] eq "x11" && [string length [auto_execok xdg-mime]]} {
 
 		destroy $dlg
 	}
-
 }
 
 
