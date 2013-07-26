@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 880 $
-// Date   : $Date: 2013-07-08 21:37:41 +0000 (Mon, 08 Jul 2013) $
+// Version: $Revision: 912 $
+// Date   : $Date: 2013-07-26 21:30:56 +0000 (Fri, 26 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1193,6 +1193,7 @@ uci::Engine::sendOption(mstl::string const& name, mstl::string const& value)
 		send("stop");
 		// XXX probably "ucinewgame" is required
 		m_waitingOn = "setoption";
+		m_state = Pause;
 		send("isready");
 		m_name = name;
 		m_value = value;

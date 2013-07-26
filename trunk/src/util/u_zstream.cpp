@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 911 $
-// Date   : $Date: 2013-07-26 19:59:47 +0000 (Fri, 26 Jul 2013) $
+// Version: $Revision: 912 $
+// Date   : $Date: 2013-07-26 21:30:56 +0000 (Fri, 26 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -19,6 +19,8 @@
 #include "u_zstream.h"
 #include "u_byte_stream.h"
 #include "u_misc.h"
+
+#include "sys_info.h"
 
 #include "m_ifstream.h"
 #include "m_stdio.h"
@@ -861,7 +863,7 @@ ZStream::isWindowsLineEnding(char const* filename)
 	Type		type;
 
 	if (!ZStream::size(filename, size, &type))
-		return false;
+		return sys::info::isWindows();
 
 	if (type != Zip)
 	{
@@ -873,7 +875,7 @@ ZStream::isWindowsLineEnding(char const* filename)
 			unsigned numBytes = mstl::min(size_t(size), sizeof(buf));
 
 			if (!strm.read(buf, sizeof(buf)))
-				return false;
+				return sys::info::isWindows();
 
 			char const* s = buf;
 			char const* e = buf + numBytes;
@@ -890,7 +892,7 @@ ZStream::isWindowsLineEnding(char const* filename)
 		}
 	}
 
-	return false;
+	return sys::info::isWindows();
 }
 
 // vi:set ts=3 sw=3:
