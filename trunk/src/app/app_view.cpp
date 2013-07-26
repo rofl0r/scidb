@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 859 $
-// Date   : $Date: 2013-06-26 21:13:52 +0000 (Wed, 26 Jun 2013) $
+// Version: $Revision: 911 $
+// Date   : $Date: 2013-07-26 19:59:47 +0000 (Fri, 26 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -801,8 +801,13 @@ View::exportGames(mstl::string const& filename,
 		else
 			useEncoding = encoding;
 
+		PgnWriter::LineEnding lineEnding = PgnWriter::Unix;
+
+		if (util::ZStream::isWindowsLineEnding(internalName))
+			lineEnding = PgnWriter::Windows;
+
 		util::ZStream strm(internalName, type, mode);
-		PgnWriter writer(format::Pgn, strm, useEncoding, flags);
+		PgnWriter writer(format::Pgn, strm, useEncoding, lineEnding, flags);
 		progress.message("write-game");
 		WriteGuard guard(m_app, filename);
 		count = exportGames(writer, copyMode, illegalRejected, log, progress);

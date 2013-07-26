@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 908 $
-# Date   : $Date: 2013-07-23 10:18:32 +0000 (Tue, 23 Jul 2013) $
+# Version: $Revision: 911 $
+# Date   : $Date: 2013-07-26 19:59:47 +0000 (Fri, 26 Jul 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1035,7 +1035,7 @@ proc Switch {filename {variant Undetermined}} {
 		set saveState disabled
 	} else {
 		switch [file extension $filename] {
-			.sci - .pgn {
+			.sci - .pgn - .pgn.gz {
 				if {[::scidb::db::get writable? $filename]} {
 					set roState normal
 				} else {

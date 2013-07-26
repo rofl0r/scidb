@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 851 $
-// Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
+// Version: $Revision: 911 $
+// Date   : $Date: 2013-07-26 19:59:47 +0000 (Fri, 26 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -65,6 +65,7 @@ public:
 	static Strings const& zipFileSuffixes();
 	static Strings zipContent(char const* filename);
 	static bool testByteOrderMark(char const* filename);
+	static bool isWindowsLineEnding(char const* filename);
 
 	// is public due to technical reasons
 	struct Handle

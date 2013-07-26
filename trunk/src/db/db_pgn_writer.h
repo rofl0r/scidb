@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 824 $
-// Date   : $Date: 2013-06-07 22:01:59 +0000 (Fri, 07 Jun 2013) $
+// Version: $Revision: 911 $
+// Date   : $Date: 2013-07-26 19:59:47 +0000 (Fri, 26 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -50,9 +50,12 @@ public:
 
 	static unsigned const Flag_Append_Games = Flag_LAST << 1;
 
+	enum LineEnding { Windows, Unix };
+
 	PgnWriter(	format::Type srcFormat,
 					mstl::ostream& strm,
 					mstl::string const& encoding,
+					LineEnding lineEnding,
 					unsigned flags = Default_Flags,
 					unsigned lineLength = 80);
 
@@ -103,8 +106,9 @@ private:
 	mstl::string	m_move;
 	mstl::string	m_annotation;
 	mstl::string	m_marks;
-	unsigned			m_lineLength;
+	mstl::string	m_eol;
 	unsigned			m_length;
+	unsigned			m_lineLength;
 	unsigned			m_pendingSpace;
 	bool				m_needPreComment;
 	bool				m_needPostComment;
