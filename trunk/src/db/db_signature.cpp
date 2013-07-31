@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 913 $
+// Date   : $Date: 2013-07-31 18:14:18 +0000 (Wed, 31 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -50,13 +50,13 @@ enum { BitMask		= (1 << BitLength) - 1 };
 
 typedef mstl::hash<uint32_t,bool> Hash;
 
-#if __GNUC_PREREQ(4,7)
+#if __GNUC_PREREQ(4,7) // internal compiler error
 __attribute__((init_priority(65534)))
 #endif
 Hash pawnStructureHash;
 
 static void
-#if __GNUC_PREREQ(4,7)
+#if __GNUC_PREREQ(4,7) // internal compiler error
 __attribute__((constructor(65535)))
 #else
 __attribute__((constructor))

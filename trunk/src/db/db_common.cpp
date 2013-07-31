@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 866 $
-// Date   : $Date: 2013-07-03 16:27:30 +0000 (Wed, 03 Jul 2013) $
+// Version: $Revision: 913 $
+// Date   : $Date: 2013-07-31 18:14:18 +0000 (Wed, 31 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -52,7 +52,7 @@ namespace tag {
 
 struct Pair { mstl::string name; ID id; };
 
-#if __GNUC_PREREQ(4,7)
+#if __GNUC_PREREQ(4,7) // internal compiler error
 __attribute__((init_priority(65534)))
 #endif
 static Pair const NameMap[] =

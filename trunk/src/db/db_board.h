@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 763 $
-// Date   : $Date: 2013-05-04 16:11:18 +0000 (Sat, 04 May 2013) $
+// Version: $Revision: 913 $
+// Date   : $Date: 2013-07-31 18:14:18 +0000 (Wed, 31 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -115,6 +115,7 @@ public:
 		NoBlackKing,					///< black king is missing
 		BothInCheck,					///< both kings are in check
 		OppositeCheck,					///< opposite king is in check
+		OppositeLosing,				///< opponent has lost all pieces
 		TooManyWhitePawns,			///< more than eight white pawns
 		TooManyBlackPawns,			///< more than eight black pawns
 		TooManyWhitePieces,			///< too many white queens, rooks, bishops, or knights

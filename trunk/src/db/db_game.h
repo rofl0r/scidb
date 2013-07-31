@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 909 $
-// Date   : $Date: 2013-07-23 15:10:14 +0000 (Tue, 23 Jul 2013) $
+// Version: $Revision: 913 $
+// Date   : $Date: 2013-07-31 18:14:18 +0000 (Wed, 31 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -167,7 +167,6 @@ public:
 		virtual void updateEditor(	DiffList const& nodes,
 											TagSet const& tags,
 											move::Notation moveStyle,
-											board::Status status,
 											termination::State termination,
 											color::ID toMove) = 0;
 	};

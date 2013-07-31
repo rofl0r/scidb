@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 904 $
-# Date   : $Date: 2013-07-18 16:26:11 +0000 (Thu, 18 Jul 2013) $
+# Version: $Revision: 913 $
+# Date   : $Date: 2013-07-31 18:14:18 +0000 (Wed, 31 Jul 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -487,8 +487,8 @@ proc showNext {w position flag} {
 }
 
 
-proc makeResult {result state toMove termination reason variant} {
-	set reasonText [::terminationbox::buildText $reason $state $result $toMove $termination $variant]
+proc makeResult {result toMove termination reason variant} {
+	set reasonText [::terminationbox::buildText $reason $result $toMove $termination $variant]
 	set result [::util::formatResult $result]
 	if {$result ne "*"} { set r1 $result } else { set r1 "" }
 	if {[string length $reasonText]} { set r2 $reasonText } else { set r2 "" }
