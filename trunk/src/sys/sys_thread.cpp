@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 914 $
-// Date   : $Date: 2013-07-31 21:04:12 +0000 (Wed, 31 Jul 2013) $
+// Version: $Revision: 915 $
+// Date   : $Date: 2013-07-31 21:14:27 +0000 (Wed, 31 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -559,7 +559,7 @@ Thread::awake()
 	if (isMainThread())
 	{
 		m_wakeUp = true;
-		Tcl_Event* ev = reinterpret_cast<Tcl_Event*>(::ckalloc(sizeof(Tcl_Event)));
+		Tcl_Event* ev = reinterpret_cast<Tcl_Event*>(ckalloc(sizeof(Tcl_Event)));
 		ev->proc = ::wakeUp;
 		Tcl_QueueEvent(ev, TCL_QUEUE_HEAD);
 	}

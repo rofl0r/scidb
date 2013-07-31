@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 914 $
-// Date   : $Date: 2013-07-31 21:04:12 +0000 (Wed, 31 Jul 2013) $
+// Version: $Revision: 915 $
+// Date   : $Date: 2013-07-31 21:14:27 +0000 (Wed, 31 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -37,7 +37,7 @@
 #include "m_stack.h"
 
 namespace sys { class Thread; }
-namespace db 	{ class Game; }
+namespace db  { class Game; }
 
 namespace app {
 
@@ -60,7 +60,7 @@ public:
 					unsigned numThreads);
 
 		Engine* createEngine() override;
-		void destroyEngine(Engine* engine) override;
+		void destroyEngine(::cql::Engine* engine) override;
 
 	private:
 

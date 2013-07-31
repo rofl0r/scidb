@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 914 $
-// Date   : $Date: 2013-07-31 21:04:12 +0000 (Wed, 31 Jul 2013) $
+// Version: $Revision: 915 $
+// Date   : $Date: 2013-07-31 21:14:27 +0000 (Wed, 31 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -97,7 +97,7 @@ Engine::Creator::createEngine()
 
 
 void
-Engine::Creator::destroyEngine(Engine* engine) override
+Engine::Creator::destroyEngine(::cql::Engine* engine)
 {
 	delete engine;
 }
