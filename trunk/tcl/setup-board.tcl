@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 913 $
-# Date   : $Date: 2013-07-31 18:14:18 +0000 (Wed, 31 Jul 2013) $
+# Version: $Revision: 914 $
+# Date   : $Date: 2013-07-31 21:04:12 +0000 (Wed, 31 Jul 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -93,7 +93,7 @@ proc setupPositionMenu {ns m} {
 		if {[info exists PositionAlt($name)]} {
 			append name " ($PositionAlt($name))"
 		}
-		$m add command -label $name -command [list ${ns}::Shuffle $idn]
+		$m add command -label "FICS - $name" -command [list ${ns}::Shuffle $idn]
 	}
 }
 

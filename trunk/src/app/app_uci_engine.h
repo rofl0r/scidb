@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 880 $
-// Date   : $Date: 2013-07-08 21:37:41 +0000 (Mon, 08 Jul 2013) $
+// Version: $Revision: 914 $
+// Date   : $Date: 2013-07-31 21:04:12 +0000 (Wed, 31 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -97,6 +97,7 @@ private:
 	mstl::string	m_waitingOn;
 	mstl::string	m_name;
 	mstl::string	m_value;
+	mstl::string	m_threads;
 	State				m_state;
 	Variant			m_variant;
 	bool				m_uciok;

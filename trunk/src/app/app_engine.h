@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 880 $
-// Date   : $Date: 2013-07-08 21:37:41 +0000 (Mon, 08 Jul 2013) $
+// Version: $Revision: 914 $
+// Date   : $Date: 2013-07-31 21:04:12 +0000 (Wed, 31 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -98,6 +98,7 @@ public:
 		Crazyhouse_Not_Supported,
 		Three_Check_Not_Supported,
 		No_Analyze_Mode,
+		Search_Mate_Not_Supported,
 		Illegal_Position,
 		Illegal_Moves,
 		Did_Not_Receive_Pong,
@@ -185,6 +186,8 @@ public:
 		unsigned numThreads() const;
 		unsigned numCores() const;
 		unsigned searchMate() const;
+		unsigned searchDepth() const;
+		unsigned searchTime() const;
 		unsigned limitedStrength() const;
 		unsigned skillLevel() const;
 		bool playOther() const;
@@ -357,6 +360,8 @@ public:
 	unsigned minThreads() const;
 	unsigned maxThreads() const;
 	unsigned searchMate() const;
+	unsigned searchDepth() const;
+	unsigned searchTime() const;
 	unsigned limitedStrength() const;
 	mstl::string const& playingStyles() const;
 	db::Game const* currentGame() const;
@@ -383,6 +388,10 @@ public:
 	unsigned changeCores(unsigned n);
 	unsigned changeStrength(unsigned elo);
 	unsigned changeSkillLevel(unsigned level);
+	void setSearchInfinity();
+	void setSearchMate(unsigned plies);
+	void setSearchDepth(unsigned depth);
+	void setSearchTime(unsigned milliseconds);
 	mstl::string const& changePlayingStyle(mstl::string const& style);
 	void resetBestInfoHasChanged();
 	bool playOther(bool flag);
@@ -545,6 +554,8 @@ private:
 	bool					m_playOther;
 	bool					m_pondering;
 	unsigned				m_searchMate;
+	unsigned				m_searchDepth;
+	unsigned				m_searchTime;
 	unsigned				m_strength;
 	unsigned				m_features;
 	unsigned				m_variants;

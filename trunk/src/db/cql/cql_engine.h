@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 794 $
-// Date   : $Date: 2013-05-22 20:19:59 +0000 (Wed, 22 May 2013) $
+// Version: $Revision: 914 $
+// Date   : $Date: 2013-07-31 21:04:12 +0000 (Wed, 31 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -53,11 +53,14 @@ public:
 
 	static bool hasCreator();
 
-	virtual void newGame() = 0;
+	virtual void newGame(::db::variant::Type variant) = 0;
 	virtual void setup(::db::Board const& board) = 0;
 	virtual void move(::db::Move const& move) = 0;
+	virtual void enterVariation() = 0;
+	virtual void leaveVariation() = 0;
 
-	virtual float searchMate(Mode mode, unsigned arg) = 0;
+	virtual bool searchMate(Mode mode, unsigned arg) = 0;
+
 	virtual float evaluate(Mode mode, unsigned arg) = 0;
 	virtual float evaluate(Mode mode, unsigned arg, ::db::Move const& move) = 0;
 

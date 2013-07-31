@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 913 $
-# Date   : $Date: 2013-07-31 18:14:18 +0000 (Wed, 31 Jul 2013) $
+# Version: $Revision: 914 $
+# Date   : $Date: 2013-07-31 21:04:12 +0000 (Wed, 31 Jul 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1080,6 +1080,7 @@
 ::application::analysis::mc::IllegalPosition				"Posizione illegale - Impossibile analizzare"
 ::application::analysis::mc::IllegalMoves					"Mosse illegali nella partita - Impossibile analizzare"
 ::application::analysis::mc::DidNotReceivePong			"Il motore non sta rispondendo al comando \"ping\" - Motore terminato"
+::application::analysis::mc::SearchMateNotSupported	"This engine is not supporting search for mate." ;# NEW
 
 ::application::analysis::mc::LinesPerVariation			"Varianti per valutazione"
 ::application::analysis::mc::BestFirstOrder				"Ordina per valutazione"

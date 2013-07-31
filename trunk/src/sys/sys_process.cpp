@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 653 $
-// Date   : $Date: 2013-02-07 17:17:24 +0000 (Thu, 07 Feb 2013) $
+// Version: $Revision: 914 $
+// Date   : $Date: 2013-07-31 21:04:12 +0000 (Wed, 31 Jul 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -17,6 +17,7 @@
 // ======================================================================
 
 #include "sys_process.h"
+#include "sys_thread.h"
 #include "sys_base.h"
 
 #include "tcl_exception.h"
@@ -240,6 +241,8 @@ Process::Process(mstl::string const& command, mstl::string const& directory)
 	,m_stopped(false)
 	,m_calledExited(false)
 {
+	M_REQUIRE(Thread::insideMainThread());
+
 #ifndef __WIN32__
 	// trap child events, e.g. crashes
 	if (!::m_childHandlerHooked)
