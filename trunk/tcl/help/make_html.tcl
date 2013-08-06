@@ -3,8 +3,8 @@
 exec tclsh "$0" "$@"
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 808 $
-# Date   : $Date: 2013-05-26 19:22:31 +0000 (Sun, 26 May 2013) $
+# Version: $Revision: 920 $
+# Date   : $Date: 2013-08-06 09:39:50 +0000 (Tue, 06 Aug 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -160,13 +160,13 @@ set HtmlMapping {
 
 switch [tk windowingsystem] {
 	x11	{
-		lappend SysMapping <x11> {} </x11> {} <win32> {<!--} </win32> {-->} <aqua> {<!--} </aqua> {-->}
+		lappend SysMapping <x11> {} </x11> {} <win32> {<!-- } </win32> { -->} <aqua> {<!-- } </aqua> { -->}
 	}
 	win32	{
-		lappend SysMapping <x11> {<!--} </x11> {-->} <win32> {} </win32> {} <aqua> {<!--} </aqua> {-->}
+		lappend SysMapping <x11> {<!-- } </x11> { -->} <win32> {} </win32> {} <aqua> {<!-- } </aqua> { -->}
 	}
 	aqua	{
-		lappend SysMapping <x11> {<!--} </x11> {-->} <win32> {<!--} </win32> {-->} <aqua> {} </aqua> {}
+		lappend SysMapping <x11> {<!-- } </x11> { -->} <win32> {<!-- } </win32> { -->} <aqua> {} </aqua> {}
 	}
 }
 
