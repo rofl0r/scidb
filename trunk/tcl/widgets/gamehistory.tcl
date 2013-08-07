@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 609 $
-# Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+# Version: $Revision: 921 $
+# Date   : $Date: 2013-08-07 19:18:00 +0000 (Wed, 07 Aug 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -89,12 +89,12 @@ proc Build {w args} {
 	$t column create -tags game
 	$t element create elemHdr text -font $boldFont -lines 1 -fill darkred
 	$t element create elemTxt text -lines 1
-	$t element create elemSel rect -fill {
-		\#ebf4f5 {selected focus}
-		\#ebf4f5 {selected hilite}
-		\#f2f2f2 {selected !focus}
-		\#f0f9fa {hilite}
-	}
+	$t element create elemSel rect -fill [list                          \
+		[::colors::lookup gamehistory selected:focus]  {selected focus}  \
+		[::colors::lookup gamehistory selected:hilite] {selected hilite} \
+		[::colors::lookup gamehistory selected!focus]  {selected !focus} \
+		[::colors::lookup gamehistory hilite]          {hilite}          \
+	]
 	$t element create elemBrd border          \
 		-filled no                             \
 		-relief raised                         \

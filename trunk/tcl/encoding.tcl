@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 813 $
-# Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
+# Version: $Revision: 921 $
+# Date   : $Date: 2013-08-07 19:18:00 +0000 (Wed, 07 Aug 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -222,10 +222,10 @@ variable BorderWidth 1
 variable List [lsort -dictionary [encoding names]]
 
 array set Colors {
-	selection	#ffdd76
-	active		#ebf4f5
-	normal		linen
-	description	#efefef
+	selection	selection
+	active		active
+	normal		normal
+	description	description
 }
 
 
@@ -440,7 +440,10 @@ proc BuildTable {table width height} {
 	$table notify bind $parent.sb <Scroll-y> { %W set %l %u }
 
 	$table element create elemTxt text
-	$table element create elemSel rect -fill [list $Colors(selection) selected $Colors(active) active]
+	$table element create elemSel rect -fill [list \
+		[::colors::lookup encoding $Colors(selection)] selected \
+		[::colors::lookup encoding $Colors(active)] active \
+	]
 	$table element create elemBrd border -filled no -relief raised -thickness 1 \
 		-background {#dbdbdb {active} {} {}}
 
@@ -481,7 +484,7 @@ proc BuildTable {table width height} {
 			-steady yes \
 			-squeeze $weight \
 			-weight $weight \
-			-itembackground [list $background white] \
+			-itembackground [list [::colors::lookup encoding $background] white] \
 			-minwidth $minwidth \
 			;
 		set trace "variable mc::$id write { [namespace current]::SetText $table $id }"

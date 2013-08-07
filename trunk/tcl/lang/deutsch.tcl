@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 914 $
-# Date   : $Date: 2013-07-31 21:04:12 +0000 (Wed, 31 Jul 2013) $
+# Version: $Revision: 921 $
+# Date   : $Date: 2013-08-07 19:18:00 +0000 (Wed, 07 Aug 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -71,6 +71,7 @@
 ::mc::Default				"Standard"
 ::mc::Delete				"Löschen"
 ::mc::Edit					"Bearbeiten"
+::mc::Empty					"Leer"
 ::mc::File					"Datei"
 ::mc::Filter				"Filter"
 ::mc::From					"Von"
@@ -223,8 +224,12 @@
 
 ### menu ###############################################################
 ::menu::mc::Theme								"Thema"
+::menu::mc::ColorScheme						"Farbschema"
 ::menu::mc::CustomStyleMenu				"Scidb's Menüstil"
 ::menu::mc::DefaultStyleMenu				"Standard-Menüstil"
+::menu::mc::OrdinaryMonitor				"Gewöhnlicher Monitor"
+::menu::mc::HighQualityMonitor			"Hochwertiger Monitor"
+::menu::mc::RestartRequired				"Ein Neustart dieser Applikation ist erforderlich bevor diese Änderung durchgehend angewendet werden kann."
 
 ::menu::mc::AllScidbFiles					"Alle Scidb Dateien"
 ::menu::mc::AllScidbBases					"Alle Scidb Datenbanken"

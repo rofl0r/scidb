@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 914 $
-# Date   : $Date: 2013-07-31 21:04:12 +0000 (Wed, 31 Jul 2013) $
+# Version: $Revision: 921 $
+# Date   : $Date: 2013-08-07 19:18:00 +0000 (Wed, 07 Aug 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -72,6 +72,7 @@
 ::mc::Default				"Standard"
 ::mc::Delete				"Radera"
 ::mc::Edit					"Redigera"
+::mc::Empty					"Empty" ;# NEW
 ::mc::File					"Arkiv"
 ::mc::Filter				"Filter" ;# NEW
 ::mc::From					"Från"
@@ -224,8 +225,12 @@
 
 ### menu ###############################################################
 ::menu::mc::Theme								"Tema"
+::menu::mc::ColorScheme						"Color Scheme" ;# NEW
 ::menu::mc::CustomStyleMenu				"Scidb's Style Menu" ;# NEW
 ::menu::mc::DefaultStyleMenu				"Default Style Menu" ;# NEW
+::menu::mc::OrdinaryMonitor				"Ordinary Monitor" ;# NEW
+::menu::mc::HighQualityMonitor			"High Quality Monitor" ;# NEW
+::menu::mc::RestartRequired				"A restart of the application is required before this change can be applied everyplace." ;# NEW
 
 ::menu::mc::AllScidbFiles					"Alla Scidb filer"
 ::menu::mc::AllScidbBases					"Alla Scidb databaser"

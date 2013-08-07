@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 813 $
-# Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
+# Version: $Revision: 921 $
+# Date   : $Date: 2013-08-07 19:18:00 +0000 (Wed, 07 Aug 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -73,6 +73,7 @@ array set Options {
 	federation		Fide
 	rating1:type	Elo
 	rating2:type	DWZ
+	stripes			stripes
 }
 
 set Priv(receiver) {}
@@ -294,10 +295,8 @@ proc open {parent args} {
 		-configurable no \
 		-popupcmd [namespace code PopupMenu] \
 		-height 25 \
-		-stripes linen \
+		-stripes [::colors::lookup playerdict $Options(stripes)] \
 	]
-#		-background #ebf4f5
-#		-stripes #cddfe2
 
 	::bind $table <<TableFill>>		[namespace code [list TableFill $table %d]]
 	::bind $table <<TableVisit>>		[namespace code [list TableVisit $table %d]]

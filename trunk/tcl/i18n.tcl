@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 844 $
-# Date   : $Date: 2013-06-16 21:24:29 +0000 (Sun, 16 Jun 2013) $
+# Version: $Revision: 921 $
+# Date   : $Date: 2013-08-07 19:18:00 +0000 (Wed, 07 Aug 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -66,6 +66,7 @@ set Database			"Database"
 set Default				"Default"
 set Delete				"Delete"
 set Edit					"Edit"
+set Empty				"Empty"
 set File					"File"
 set Filter				"Filter"
 set From					"From"

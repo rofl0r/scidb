@@ -1,7 +1,7 @@
 ln -sf ../# ====================================================================== .
 # Author : $Author$
-# Version: $Revision: 914 $
-# Date   : $Date: 2013-07-31 21:04:12 +0000 (Wed, 31 Jul 2013) $
+# Version: $Revision: 921 $
+# Date   : $Date: 2013-08-07 19:18:00 +0000 (Wed, 07 Aug 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -71,6 +71,7 @@ ln -sf ../# ====================================================================
 ::mc::Default				"Default"
 ::mc::Delete				"Delete"
 ::mc::Edit					"Edit"
+::mc::Empty					"Empty"
 ::mc::File					"File"
 ::mc::Filter				"Filter"
 ::mc::From					"From"
@@ -223,8 +224,12 @@ ln -sf ../# ====================================================================
 
 ### menu ###############################################################
 ::menu::mc::Theme								"Theme"
+::menu::mc::ColorScheme						"Color Scheme"
 ::menu::mc::CustomStyleMenu				"Scidb's Style Menu"
 ::menu::mc::DefaultStyleMenu				"Default Style Menu"
+::menu::mc::OrdinaryMonitor				"Ordinary Monitor"
+::menu::mc::HighQualityMonitor			"High Quality Monitor"
+::menu::mc::RestartRequired				"A restart of the application is required before this change can be applied everyplace."
 
 ::menu::mc::AllScidbFiles					"All Scidb files"
 ::menu::mc::AllScidbBases					"All Scidb databases"
