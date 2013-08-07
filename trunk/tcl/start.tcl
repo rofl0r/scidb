@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 921 $
-# Date   : $Date: 2013-08-07 19:18:00 +0000 (Wed, 07 Aug 2013) $
+# Version: $Revision: 922 $
+# Date   : $Date: 2013-08-07 20:49:06 +0000 (Wed, 07 Aug 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -572,7 +572,7 @@ array set Colors {
 	lite:pgn,background:nextmove			#eeff00
 	lite:pgn,hilite:comment					#7a5807
 	lite:pgn,hilite:info						#b22222
-	lite:pgn,hilite:move						#ebf4f5
+	lite:pgn,hilite:move						#dce5e6
 
 	lite:analysis,background				#ffffee
 	lite:analysis,info:background			#f5f5e4

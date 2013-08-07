@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 921 $
-# Date   : $Date: 2013-08-07 19:18:00 +0000 (Wed, 07 Aug 2013) $
+# Version: $Revision: 922 $
+# Date   : $Date: 2013-08-07 20:49:06 +0000 (Wed, 07 Aug 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1319,7 +1319,7 @@ proc SaveAsHTML {dlg} {
 		set html [string replace $html $i1 $i2 $src]
 	}
 
-	fconfigure $chan -encoding binary
+	fconfigure $chan -encoding utf-8
 	puts $chan $html
 	close $chan
 }

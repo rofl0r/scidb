@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 913 $
-// Date   : $Date: 2013-07-31 18:14:18 +0000 (Wed, 31 Jul 2013) $
+// Version: $Revision: 922 $
+// Date   : $Date: 2013-08-07 20:49:06 +0000 (Wed, 07 Aug 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -358,7 +358,7 @@ public:
 			Tcl_IncrRefCount(m_bishops			= Tcl_NewStringObj("bishops",				-1));
 			Tcl_IncrRefCount(m_threefold		= Tcl_NewStringObj("threefold",			-1));
 			Tcl_IncrRefCount(m_fifty			= Tcl_NewStringObj("fifty",				-1));
-			Tcl_IncrRefCount(m_mating			= Tcl_NewStringObj("mating",				-1));
+			Tcl_IncrRefCount(m_mating			= Tcl_NewStringObj("nomating",			-1));
 			Tcl_IncrRefCount(m_empty			= Tcl_NewStringObj("",						-1));
 			Tcl_IncrRefCount(m_number			= Tcl_NewStringObj("[",						-1));
 			Tcl_IncrRefCount(m_leave			= Tcl_NewStringObj("]",						-1));
