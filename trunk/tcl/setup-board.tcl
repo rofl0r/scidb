@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 914 $
-# Date   : $Date: 2013-07-31 21:04:12 +0000 (Wed, 31 Jul 2013) $
+# Version: $Revision: 924 $
+# Date   : $Date: 2013-08-08 15:00:04 +0000 (Thu, 08 Aug 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -237,8 +237,8 @@ proc open {parent} {
 	set edge 20
 
 #	set selectbg $::board::square::style(hilite,selected)
-	set selectbg [::theme::getSelectBackgroundColor]
-	set activebg [::theme::getActiveBackgroundColor]
+	set selectbg [::colors::lookup theme,selectbackground]
+	set activebg [::colors::lookup theme,activebackground]
 
 	# castling rights #########################################
 	set castling [ttk::labelframe $right.castling -labelwidget [ \

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 921 $
-# Date   : $Date: 2013-08-07 19:18:00 +0000 (Wed, 07 Aug 2013) $
+# Version: $Revision: 924 $
+# Date   : $Date: 2013-08-08 15:00:04 +0000 (Thu, 08 Aug 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -113,11 +113,11 @@ if {[tk windowingsystem] eq "x11"} {
 }
 
 proc fsbox::dirIsEmpty {dir} { return [::scidb::misc::dirEmpty? $dir] }
-proc fsbox::lookupColor {color} { return [::colors::lookup fsbox $color] }
+proc fsbox::lookupColor {color} { return [::colors::lookup $color] }
 
-proc tlistbox::lookupColor {color} { return [::colors::lookup tlistbox $color] }
+proc tlistbox::lookupColor {color} { return [::colors::lookup $color] }
 
-proc table::lookupColor {color} { return [::colors::lookup table $color] }
+proc table::lookupColor {color} { return [::colors::lookup $color] }
 
 set clipboard::window .application
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 922 $
-// Date   : $Date: 2013-08-07 20:49:06 +0000 (Wed, 07 Aug 2013) $
+// Version: $Revision: 924 $
+// Date   : $Date: 2013-08-08 15:00:04 +0000 (Thu, 08 Aug 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -642,7 +642,7 @@ public:
 			annotation.infix(textual);
 			annotation.suffix(textual);
 
-			Tcl_Obj* objv[5];
+			Tcl_Obj* objv[2];
 
 			objv[0] = m_annotation;
 			objv[1] = Tcl_NewStringObj(textual, textual.size());

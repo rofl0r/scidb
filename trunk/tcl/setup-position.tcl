@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 813 $
-# Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
+# Version: $Revision: 924 $
+# Date   : $Date: 2013-08-08 15:00:04 +0000 (Thu, 08 Aug 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -77,8 +77,8 @@ proc open {parent} {
 	set Vars(idn:text) ""
 
 #	set selectbg $::board::square::style(hilite,selected)
-	set selectbg [::theme::getSelectBackgroundColor]
-	set activebg [::theme::getActiveBackgroundColor]
+	set selectbg [::colors::lookup theme,selectbackground]
+	set activebg [::colors::lookup theme,activebackground]
 	if {[string length $activebg] == 0} {
 		tk::button $top.temp
 		set activebg [$top.temp cget -activebackground]

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 921 $
-# Date   : $Date: 2013-08-07 19:18:00 +0000 (Wed, 07 Aug 2013) $
+# Version: $Revision: 924 $
+# Date   : $Date: 2013-08-08 15:00:04 +0000 (Thu, 08 Aug 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -90,10 +90,10 @@ proc Build {w args} {
 	$t element create elemHdr text -font $boldFont -lines 1 -fill darkred
 	$t element create elemTxt text -lines 1
 	$t element create elemSel rect -fill [list                          \
-		[::colors::lookup gamehistory selected:focus]  {selected focus}  \
-		[::colors::lookup gamehistory selected:hilite] {selected hilite} \
-		[::colors::lookup gamehistory selected!focus]  {selected !focus} \
-		[::colors::lookup gamehistory hilite]          {hilite}          \
+		[::colors::lookup gamehistory,selected:focus]  {selected focus}  \
+		[::colors::lookup gamehistory,selected:hilite] {selected hilite} \
+		[::colors::lookup gamehistory,selected!focus]  {selected !focus} \
+		[::colors::lookup gamehistory,hilite]          {hilite}          \
 	]
 	$t element create elemBrd border          \
 		-filled no                             \

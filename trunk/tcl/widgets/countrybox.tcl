@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 921 $
-# Date   : $Date: 2013-08-07 19:18:00 +0000 (Wed, 07 Aug 2013) $
+# Version: $Revision: 924 $
+# Date   : $Date: 2013-08-08 15:00:04 +0000 (Thu, 08 Aug 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -66,8 +66,8 @@ proc Build {w args} {
 		-textvariable $opts(-textvariable) \
 		-scrollcolumn name \
 		-exportselection no \
-		-disabledbackground [::colors::lookup default disabledbackground] \
-		-disabledforeground [::colors::lookup default disabledforeground] \
+		-disabledbackground [::colors::lookup default,disabledbackground] \
+		-disabledforeground [::colors::lookup default,disabledforeground] \
 		-disabledfont $bold \
 		-state $opts(-state) \
 		;

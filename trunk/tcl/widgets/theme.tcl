@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 912 $
-# Date   : $Date: 2013-07-26 21:30:56 +0000 (Fri, 26 Jul 2013) $
+# Version: $Revision: 924 $
+# Date   : $Date: 2013-08-08 15:00:04 +0000 (Thu, 08 Aug 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -144,20 +144,16 @@ proc getToplevelBackground {} {
 }
 
 
-proc getForegroundColor {} {
-	return [ttk::style lookup [currentTheme] -foreground]
-}
+proc getColor {which} {
+	switch $which {
+		disabled {
+			return [ttk::style lookup [currentTheme] -foreground disabled]
+		}
 
-
-proc getBackgroundColor {} {
-	return [ttk::style lookup [currentTheme] -background]
-}
-
-
-proc getActiveBackgroundColor {} {
-	# for any reason the correct implementation is not
-	# working, so I'm using a workaround
-	return #efefef
+		activebackground {
+			# for any reason the correct implementation is not
+			# working, so I'm using a workaround
+			return #efefef
 
 #	correct implementation
 #	set activebg [ttk::style lookup [currentTheme] -activebackground]
@@ -175,21 +171,10 @@ proc getActiveBackgroundColor {} {
 #	}
 #
 #	return $activebg
-}
+		}
+	}
 
-
-proc getSelectForegroundColor {} {
-	return [ttk::style lookup [currentTheme] -selectforeground]
-}
-
-
-proc getSelectBackgroundColor {} {
-	return [ttk::style lookup [currentTheme] -selectbackground]
-}
-
-
-proc getDisabledColor {} {
-	return [::ttk::style lookup [currentTheme] -foreground disabled]
+	return [ttk::style lookup [currentTheme] -$which]
 }
 
 
@@ -430,7 +415,7 @@ proc ConfigureScaleBackground {scale} {
 
 	if {[$scale cget -state] eq "disabled"} {
 		$scale configure \
-			-foreground [getDisabledColor] \
+			-foreground [getColor disabled] \
 			-highlightbackground $background \
 			-background $background \
 			-troughcolor $background
