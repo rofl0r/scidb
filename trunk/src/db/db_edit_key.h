@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 925 $
+// Date   : $Date: 2013-08-17 08:31:10 +0000 (Sat, 17 Aug 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -78,7 +78,7 @@ public:
 	void addPly(unsigned ply);
 	void exchangePly(unsigned ply);
 	void removePly();
-	void incrementPly();
+	void incrementPly(unsigned n = 1);
 
 	void addVariation(unsigned varno);
 	void exchangeVariation(unsigned varno);
@@ -91,6 +91,7 @@ public:
 	bool setPosition(Game& game) const;
 	bool setBoard(MoveNode const* root, Board& board, variant::Type variant) const;
 	Key successorKey(MoveNode const* current) const;
+	Key nextKey(MoveNode const* current) const;
 	MoveNode* findPosition(MoveNode* root, unsigned startPly) const;
 
 	static bool isValid(mstl::string const& key);

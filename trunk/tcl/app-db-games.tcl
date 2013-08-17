@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 851 $
-# Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
+# Version: $Revision: 925 $
+# Date   : $Date: 2013-08-17 08:31:10 +0000 (Sat, 17 Aug 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -85,6 +85,7 @@ proc build {parent} {
 	set Vars(after)		{}
 	set Vars(resizing)	0
 	set Vars(codec)		{}
+	set Vars(base)			""
 
 	bind $tb <<TableMinSize>>		[namespace code [list TableMinSize $tb %d]]
 	bind $tb <<TableLayout>>		[namespace code [list TableLayout $tb]]
@@ -235,7 +236,11 @@ proc View {pane base variant} {
 
 
 proc Update {path id base variant {view -1} {index -1}} {
+	variable ::scidb::clipbaseName
 	variable ${path}::Vars
+
+	if {$base ne $clipbaseName && [string length [file extension $base]] == 0} { return }
+	set Vars(base) "$base:$variant"
 
 	if {$view <= 0} {
 		after cancel $Vars(after)

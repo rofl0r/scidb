@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 832 $
-// Date   : $Date: 2013-06-12 06:32:40 +0000 (Wed, 12 Jun 2013) $
+// Version: $Revision: 925 $
+// Date   : $Date: 2013-08-17 08:31:10 +0000 (Sat, 17 Aug 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2130,7 +2130,8 @@ Comment::remove(mstl::string const& lang)
 
 	if (isXml())
 	{
-		collect();
+		if (m_languageSet.empty())
+			collect();
 		m_languageSet.erase(lang);
 		strip(m_languageSet);
 	}

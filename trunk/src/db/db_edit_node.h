@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 913 $
-// Date   : $Date: 2013-07-31 18:14:18 +0000 (Wed, 31 Jul 2013) $
+// Version: $Revision: 925 $
+// Date   : $Date: 2013-08-17 08:31:10 +0000 (Sat, 17 Aug 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -279,7 +279,10 @@ private:
 
 	friend class Root;
 
-	void difference(Root const* root, Variation const* var, unsigned level, Node::List& nodes) const;
+	void difference(	Root const* root,
+							Variation const* var,
+							unsigned level,
+							Node::List& nodes) const;
 
 	List	m_list;
 	Key	m_succ;

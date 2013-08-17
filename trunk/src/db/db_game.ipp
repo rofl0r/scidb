@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 909 $
-// Date   : $Date: 2013-07-23 15:10:14 +0000 (Tue, 23 Jul 2013) $
+// Version: $Revision: 925 $
+// Date   : $Date: 2013-08-17 08:31:10 +0000 (Sat, 17 Aug 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -33,7 +33,7 @@ inline Line const& Game::openingLine() const			{ return m_line; }
 inline Eco const& Game::ecoCode() const				{ return m_eco; }
 inline uint32_t Game::gameFlags() const				{ return m_flags; }
 inline edit::Key const& Game::currentKey() const	{ return m_currentKey; }
-inline move::Notation Game::moveStyle() const		{ return m_moveStyle; }
+inline move::Notation Game::moveStyle() const		{ return m_editorOptions.m_moveStyle; }
 inline Game::Command Game::rollbackCommand() const	{ return m_rollbackCommand; }
 
 inline bool Game::isMainline() const					{ return m_currentKey.level() == 0; }
@@ -48,7 +48,7 @@ inline unsigned Game::variationLevel() const			{ return m_currentKey.level(); }
 inline color::ID Game::sideToMove() const				{ return m_currentBoard.sideToMove(); }
 inline TagSet const& Game::tags() const				{ return m_tags; }
 inline GameData const& Game::data() const				{ return *this; }
-inline unsigned Game::displayStyle() const			{ return m_displayStyle; }
+inline unsigned Game::displayStyle() const			{ return m_editorOptions.m_displayStyle; }
 
 inline void Game::setTags(TagSet const& tags)		{ m_tags = tags; }
 inline void Game::removeFlags(unsigned flags)		{ m_flags &= ~flags; }

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 819 $
-// Date   : $Date: 2013-06-03 22:58:13 +0000 (Mon, 03 Jun 2013) $
+// Version: $Revision: 925 $
+// Date   : $Date: 2013-08-17 08:31:10 +0000 (Sat, 17 Aug 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -332,11 +332,7 @@ cmdClose(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 		return TCL_ERROR;
 	}
 
-	int view;
-
-	if (Tcl_GetIntFromObj(ti, objv[objc > 3 ? 3 : 2], &view) != TCL_OK)
-		return error(CmdClose, 0, 0, "unsigned integer expected for view");
-
+	int view = intFromObj(objc, objv, objc > 3 ? 3 : 2);
 	variant::Type variant = objc > 3 ? tcl::game::variantFromObj(objv[2]) : variant::Undetermined;
 
 	scidb->cursor(Tcl_GetString(objv[1]), variant).closeView(view);

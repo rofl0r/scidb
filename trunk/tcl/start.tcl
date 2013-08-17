@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 924 $
-# Date   : $Date: 2013-08-08 15:00:04 +0000 (Thu, 08 Aug 2013) $
+# Version: $Revision: 925 $
+# Date   : $Date: 2013-08-17 08:31:10 +0000 (Sat, 17 Aug 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -32,6 +32,7 @@ set revision 83 ;# first revision ever
 
 variable clipbaseName		[::scidb::db::get clipbase name]
 variable scratchbaseName	[::scidb::db::get scratchbase name]
+variable mergebaseName		"Mergebase"
 
 namespace eval dir {
 

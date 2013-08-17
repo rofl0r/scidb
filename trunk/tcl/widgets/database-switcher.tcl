@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 924 $
-# Date   : $Date: 2013-08-08 15:00:04 +0000 (Thu, 08 Aug 2013) $
+# Version: $Revision: 925 $
+# Date   : $Date: 2013-08-17 08:31:10 +0000 (Sat, 17 Aug 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -287,7 +287,10 @@ proc WidgetProc {w command args} {
 
 
 proc UpdateInfo {w file variant} {
+	variable ::scidb::clipbaseName
 	variable ${w}::Vars
+
+	if {$file ne $clipbaseName && [string length [file extension $file]] == 0} { return }
 
 	$Vars(updatecmd)
 	UpdateSwitcher $w $file $variant

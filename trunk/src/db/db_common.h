@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 866 $
-// Date   : $Date: 2013-07-03 16:27:30 +0000 (Wed, 03 Jul 2013) $
+// Version: $Revision: 925 $
+// Date   : $Date: 2013-08-17 08:31:10 +0000 (Sat, 17 Aug 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1639,6 +1639,11 @@ namespace copy
 		OriginalSource,
 		ModifiedVersion,
 	};
+};
+
+namespace modification
+{
+	enum Position { First = 1 << 0, Last = 1 << 2, };
 };
 
 namespace country

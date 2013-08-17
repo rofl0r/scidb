@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 924 $
-# Date   : $Date: 2013-08-08 15:00:04 +0000 (Thu, 08 Aug 2013) $
+# Version: $Revision: 925 $
+# Date   : $Date: 2013-08-17 08:31:10 +0000 (Sat, 17 Aug 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1377,18 +1377,9 @@
 ::gamebar::mc::CopyThisGameToClipboard		"Copia questa partita nella Clipboard (formato PGN)"
 ::gamebar::mc::ExportThisGame					"Esporta questa partita"
 ::gamebar::mc::PasteLastClipbaseGame		"Incolla ultima partita della Clipbase"
-::gamebar::mc::MergeLastClipbaseGame		"Unisci ultima partita della Clipbase"
 ::gamebar::mc::PasteGameFrom					"Incolla partita"
-::gamebar::mc::MergeGameFrom					"Unisci partita"
 ::gamebar::mc::LoadGameNumber					"Carica partita numero"
 ::gamebar::mc::ReloadCurrentGame				"Ri-carica partita corrente"
-::gamebar::mc::MergeWithCurrentGame			"Unisci con partita corrente"
-::gamebar::mc::CreateNewGame					"Crea nuova partita"
-::gamebar::mc::StartFromCurrentPosition	"Comincia unione da posizione corrente"
-::gamebar::mc::StartFromInitialPosition	"Comincia unione da posizione iniziale"
-::gamebar::mc::NoTranspositions				"Nessuna trasposizione"
-::gamebar::mc::IncludeTranspositions		"Includi trasposizioni"
-::gamebar::mc::VariationDepth					"Profondità variante"
 ::gamebar::mc::OriginalVersion				"Versione originale dal database"
 ::gamebar::mc::ModifiedVersion				"Versione modificata nell'editor partita"
 ::gamebar::mc::WillCopyModifiedGame			"Questa operazione copierà la partita modificata nell'editor. La versione originale non può essere copiata perché il database associato non è aperto."
@@ -1409,6 +1400,24 @@
 ::gamebar::mc::Tip(Suicide)					"In caso di stallo il lato con minor pezzi vince (secondo le regole di FISC)."
 ::gamebar::mc::Tip(Giveaway)					"In caso di stallo il lato che si trova in stallo vince (secondo le regole internazionali)"
 ::gamebar::mc::Tip(Losers)						"Il re si comporta come negli scacchi ortodossi e puoi vincere prendendo scacco matto o stallo."
+
+### merge ##############################################################
+::merge::mc::MergeLastClipbaseGame		"Unisci ultima partita della Clipbase"
+::merge::mc::MergeWithCurrentGame		"Unisci con partita corrente"
+::merge::mc::MergeGameFrom					"Unisci partita"
+
+::merge::mc::MergeTitle						"Merge with games" ;# NEW
+::merge::mc::CreateNewGame					"Crea nuova partita"
+::merge::mc::StartFromCurrentPosition	"Comincia unione da posizione corrente"
+::merge::mc::StartFromInitialPosition	"Comincia unione da posizione iniziale"
+::merge::mc::NoTranspositions				"Nessuna trasposizione"
+::merge::mc::IncludeTranspositions		"Includi trasposizioni"
+::merge::mc::VariationDepth				"Profondità variante"
+::merge::mc::UpdatePreview					"Update preview" ;# NEW
+
+::merge::mc::AlreadyInUse					"Merge dialog is already in use with game #%d." ;# NEW
+::merge::mc::AlreadyInUseDetail			"Please finish merge of this game before merging into another game. This means you have to switch to game #%d for continuing." ;# NEW
+::merge::mc::CannotMerge					"Cannot merge games with different variants." ;# NEW
 
 ### validate ###########################################################
 ::validate::mc::Unlimited	"illimitato"

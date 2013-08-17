@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 909 $
-// Date   : $Date: 2013-07-23 15:10:14 +0000 (Tue, 23 Jul 2013) $
+// Version: $Revision: 925 $
+// Date   : $Date: 2013-08-17 08:31:10 +0000 (Sat, 17 Aug 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -392,15 +392,10 @@ Database::count(table::Type type) const
 	switch (type)
 	{
 		case table::Games:		return countGames();
+		case table::Annotators:	return countAnnotators();
 		case table::Players:		return m_namebases(Namebase::Player).used();
 		case table::Events:		return m_namebases(Namebase::Event).used();
 		case table::Sites:		return m_namebases(Namebase::Site).used();
-
-		case table::Annotators:
-			// NOTE: If non-empty, skip the empty entry
-			if (m_namebases(Namebase::Annotator).used() == 0)
-				return 0;
-			return m_namebases(Namebase::Annotator).used() - 1;
 	}
 
 	return 0; // satisifes the compiler

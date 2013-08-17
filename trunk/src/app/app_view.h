@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 648 $
-// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
+// Version: $Revision: 925 $
+// Date   : $Date: 2013-08-17 08:31:10 +0000 (Sat, 17 Aug 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -154,6 +154,8 @@ public:
 							StringList& result,
 							StringList& positions) const;
 
+	/// Add item to this view.
+	void add(db::table::Type type, unsigned index);
 	/// Sort database (using a selector).
 	void sort(	db::attribute::game::ID attr,
 					db::order::ID order,

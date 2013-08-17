@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 909 $
-// Date   : $Date: 2013-07-23 15:10:14 +0000 (Tue, 23 Jul 2013) $
+// Version: $Revision: 925 $
+// Date   : $Date: 2013-08-17 08:31:10 +0000 (Sat, 17 Aug 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -90,6 +90,12 @@ public:
 	{
 		UpdateGameInfo,
 		DontUpdateGameInfo,
+	};
+
+	enum ReferenceGames
+	{
+		UpdateReferenceGames,
+		DontUpdateReferenceGames,
 	};
 
 	enum FileMode
@@ -271,10 +277,10 @@ public:
 	void newGame(unsigned position, db::variant::Type variant = db::variant::Normal);
 	void deleteGame(Cursor& cursor, unsigned index, unsigned view = 0, bool flag = true);
 	void changeVariant(unsigned position, db::variant::Type variant);
-	void swapGames(unsigned position1, unsigned position2);
+	void swapGamePositions(unsigned position1, unsigned position2);
 	void setGameFlags(Cursor& cursor, unsigned index, unsigned view, unsigned flags);
 	void releaseGame(unsigned position);
-	void switchGame(unsigned position);
+	void switchGame(unsigned position, ReferenceGames updateReferenceGames);
 	void clearGame(db::Board const* startPosition = 0);
 	void setupGame(db::Board const& startPosition);
 	void setSource(unsigned position,
@@ -320,28 +326,17 @@ public:
 											Update updateMode);
 	unsigned stripTags(View& view, TagMap const& tags, util::Progress& progress, Update updateMode);
 	void viewClosed(Cursor const& cursor, unsigned viewId);
-	void exportGameToClipbase(unsigned position, ::db::copy::Source source);
+	void swapGames(unsigned sourcePosition, unsigned destinationPosition);
+	void copyGame(MultiCursor& sink, unsigned position, ::db::copy::Source source);
+	void duplicateGame(unsigned position, ::db::copy::Source source, unsigned destination);
 	void pasteLastClipbaseGame(unsigned position);
-	bool mergeLastClipbaseGame(unsigned position,
-										db::position::ID startPosition,
-										db::move::Order moveOrder,
-										unsigned variationDepth);
-	bool mergeLastClipbaseGame(unsigned position,
-										unsigned destination,
-										db::position::ID startPosition,
-										db::move::Order moveOrder,
-										unsigned variationDepth);
 	bool mergeGame(unsigned primary,
 						unsigned secondary,
 						db::position::ID startPosition,
 						db::move::Order moveOrder,
-						unsigned variationDepth);
-	bool mergeGame(unsigned primary,
-						unsigned secondary,
-						unsigned destination,
-						db::position::ID startPosition,
-						db::move::Order moveOrder,
-						unsigned variationDepth);
+						unsigned variationDepth,
+						unsigned maximalVariationLength,
+						unsigned modificationPosition);
 	void pasteGame(unsigned from, unsigned to);
 	void printGame(unsigned position,
 						TeXt::Environment& environment,

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 813 $
-# Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
+# Version: $Revision: 925 $
+# Date   : $Date: 2013-08-17 08:31:10 +0000 (Sat, 17 Aug 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -69,6 +69,7 @@ proc build {parent} {
 	set Vars(after:events) {}
 	set Vars(after:players) {}
 	set Vars(active) 0
+	set Vars(base) ""
 
 	set columns {lastName firstName type sex rating1 federation title frequency}
 	::playertable::build $lt [namespace code [list View $top]] $columns \
@@ -176,12 +177,15 @@ proc Close {path base variant} {
 	variable ${path}::Vars
 
 	array unset Vars $base:$variant:*
-	::playertable::clear $path.players
 	::playertable::forget $path.players $base $variant
-	::eventtable::clear $path.info.events
 	::eventtable::forget $path.info.events $base $variant
-	::gametable::clear $path.info.games
 	::gametable::forget $path.info.games $base $variant
+
+	if {$Vars(base) eq "$base:$variant"} {
+		::playertable::clear $path.players
+		::eventtable::clear $path.info.events
+		::gametable::clear $path.info.games
+	}
 }
 
 
@@ -316,8 +320,12 @@ proc Search {path base variant view {selected -1}} {
 
 
 proc Update {path id base variant {view -1} {index -1}} {
+	variable ::scidb::clipbaseName
 	variable [namespace parent]::${path}::Vars
 
+	if {$base ne $clipbaseName && [string length [file extension $base]] == 0} { return }
+
+	set Vars(base) "$base:$variant"
 	after cancel $Vars(after:players)
 	set Vars(after:players) [after idle [namespace code [list Update2 $id $path $base $variant]]]
 }

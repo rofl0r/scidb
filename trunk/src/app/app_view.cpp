@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 911 $
-// Date   : $Date: 2013-07-26 19:59:47 +0000 (Fri, 26 Jul 2013) $
+// Version: $Revision: 925 $
+// Date   : $Date: 2013-08-17 08:31:10 +0000 (Sat, 17 Aug 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -950,6 +950,16 @@ View::randomGameIndex() const
 	}
 
 	return m_filter[table::Games].toIndex(index);
+}
+
+
+void
+View::add(db::table::Type type, unsigned index)
+{
+	M_REQUIRE(index < total(type));
+
+	m_filter[type].add(index);
+	m_selector[type].update(m_filter[type]);
 }
 
 // vi:set ts=3 sw=3:

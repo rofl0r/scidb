@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 885 $
-# Date   : $Date: 2013-07-10 18:14:19 +0000 (Wed, 10 Jul 2013) $
+# Version: $Revision: 925 $
+# Date   : $Date: 2013-08-17 08:31:10 +0000 (Sat, 17 Aug 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -3544,6 +3544,18 @@ namespace eval 16x16 {
 		U9M4P+WoyGCbVKsjkkqehfcytrkidP0WVOUHmzz41iTbP0XtWrlUqUWfbeypz/+uqMp717sg
 		PPbu8yk8MSHTI4PidCEnXg4y/IzrshwYsSQyjf19fedhRS1V6mp5c1fVPry2b/EfwiGvPeli
 		eljwyYITDGR4wfNYAIDFkW23O2b3/k5cX6+o5IuVA/zvX1J2jKWKVLBBAAAAAElFTkSuQmCC
+	}]
+
+	set merge [image create photo -data {
+		iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QAAAAAAAD5Q7t/AAAA
+		CXBIWXMAAAsTAAALEwEAmpwYAAABgElEQVQ4y42Sv4qTQRTFf3dmviS6QpYQ1mIttN3WxX+F
+		WFip2PoQYuVDrChob7eVrSDprAQLF0FQWNfGZh9AgpuQdTL3WHwpzJds4oFpzpx77p1zx05e
+		9/YopzsCxyzl0Pn45NvlV8e9+09bMV4DCg1IMkEYTSbfUyi/7njRDZtdVpyU861LCdfNEHnA
+		MlitNrgYMAmB1QQIuRtCrIVEQPMjmuN5HFfUzBsnmG8lw/rVyA9z/qRaXWaFoRXj1Sql7aZB
+		owU83vyRXx4c7VHlUD9KIMXbu7v7FTz6Vx4W6gNGzzm+97YwGGQGgyn9/hQpm5k39QsGAK76
+		NFNfhrSEkxUI/7GEMyegmewKLExgkNqiNf4NP59j4wlsdPf9yvu7WmsgQTCud8/xptvBMUwd
+		rMCXFztfn73j1moDMxBsxcDDOd7Z2E5/4uyvrs7grLzly/kERGxdaGah3uWCfzptb35IeTQ0
+		ycHBYm0mQElQxaz25+FwmsMWBw4XJE0lmcPRX6D8oB9yDKrQAAAAAElFTkSuQmCC
 	}]
 
 } ;# namespace 16x16

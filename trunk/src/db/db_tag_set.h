@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 925 $
+// Date   : $Date: 2013-08-17 08:31:10 +0000 (Sat, 17 Aug 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -56,6 +56,7 @@ public:
 
 	TagSet& operator=(TagSet const& set);
 
+	bool isEmpty() const;
 	bool contains(tag::ID tag) const;
 	bool contains(mstl::string const& tag) const;
 	bool isUserSupplied(tag::ID tag) const;
