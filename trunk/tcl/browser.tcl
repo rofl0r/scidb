@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 925 $
-# Date   : $Date: 2013-08-17 08:31:10 +0000 (Sat, 17 Aug 2013) $
+# Version: $Revision: 926 $
+# Date   : $Date: 2013-09-04 15:57:51 +0000 (Wed, 04 Sep 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1401,6 +1401,7 @@ proc PopupMenu {parent board position {what ""}} {
 			-state $state \
 			;
 		if {[::scidb::game::current] < 9} { set state normal } else { set state disabled }
+		if {[::merge::alreadyMerged [::scidb::game::current] $position]} { set state disabled }
 		$menu add command \
 			-label " $::merge::mc::MergeGameFrom..." \
 			-image $::icon::16x16::merge \

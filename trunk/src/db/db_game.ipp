@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 925 $
-// Date   : $Date: 2013-08-17 08:31:10 +0000 (Sat, 17 Aug 2013) $
+// Version: $Revision: 926 $
+// Date   : $Date: 2013-09-04 15:57:51 +0000 (Wed, 04 Sep 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -49,11 +49,10 @@ inline color::ID Game::sideToMove() const				{ return m_currentBoard.sideToMove(
 inline TagSet const& Game::tags() const				{ return m_tags; }
 inline GameData const& Game::data() const				{ return *this; }
 inline unsigned Game::displayStyle() const			{ return m_editorOptions.m_displayStyle; }
+inline Game::SubscriberP Game::subscriber() const	{ return m_subscriber; }
 
 inline void Game::setTags(TagSet const& tags)		{ m_tags = tags; }
 inline void Game::removeFlags(unsigned flags)		{ m_flags &= ~flags; }
-
-inline Game::Subscriber* Game::subscriber() const	{ return m_subscriber.get(); }
 
 inline Game::LanguageSet const& Game::languageSet() const { return m_languageSet; }
 

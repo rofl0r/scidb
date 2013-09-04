@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 924 $
-# Date   : $Date: 2013-08-08 15:00:04 +0000 (Thu, 08 Aug 2013) $
+# Version: $Revision: 926 $
+# Date   : $Date: 2013-09-04 15:57:51 +0000 (Wed, 04 Sep 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -360,7 +360,6 @@ array set Colors {
 namespace eval si3 {
 	array set DefaultTags {
 		Board					1
-		BughouseDBGameNo	1
 		EventCountry		1
 		EventType			1
 		FICSGamesDBGameNo	1
@@ -1024,6 +1023,7 @@ proc BuildFrame {w} {
 			lappend tagList $tag
 		}
 	}
+	set tagList [lsort -ascii $tagList]
 	lappend tagList ExtraTag
 
 	ttk::label $w.header -textvar [namespace parent]::mc::SelectExportedTags

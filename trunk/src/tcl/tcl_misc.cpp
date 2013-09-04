@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 865 $
-// Date   : $Date: 2013-07-01 20:15:42 +0000 (Mon, 01 Jul 2013) $
+// Version: $Revision: 926 $
+// Date   : $Date: 2013-09-04 15:57:51 +0000 (Wed, 04 Sep 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1152,6 +1152,8 @@ cmdExtraTags(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 		if (isExtraTagFunc(::db::tag::ID(i)))
 			objs[count++] = Tcl_NewStringObj(::db::tag::toName(::db::tag::ID(i)), -1);
 	}
+
+	// XXX we have to add Bughouse tags if variant is Bughouse
 
 	setResult(count, objs);
 	return TCL_OK;

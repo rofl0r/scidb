@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 913 $
-// Date   : $Date: 2013-07-31 18:14:18 +0000 (Wed, 31 Jul 2013) $
+// Version: $Revision: 926 $
+// Date   : $Date: 2013-09-04 15:57:51 +0000 (Wed, 04 Sep 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -172,6 +172,7 @@ static Pair const NameMap[] =
 	{ "WhiteTitle",			WhiteTitle },
 	{ "WhiteType",				WhiteType },
 	{ "WhiteUSCF",				WhiteUSCF },
+	{ "~RESERVED_68",			RESERVED_68 },
 	{ "~RESERVED_69",			RESERVED_69 },
 	{ "~RESERVED_70",			RESERVED_70 },
 	{ "~RESERVED_71",			RESERVED_71 },
@@ -186,7 +187,6 @@ static Pair const NameMap[] =
 	{ "~RESERVED_80",			RESERVED_80 },
 	{ "~RESERVED_81",			RESERVED_81 },
 	{ "~RESERVED_82",			RESERVED_82 },
-	{ "~RESERVED_83",			RESERVED_83 },
 };
 
 static tag::ID Ordered[tag::BughouseTag];

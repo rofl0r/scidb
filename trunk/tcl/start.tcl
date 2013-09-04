@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 925 $
-# Date   : $Date: 2013-08-17 08:31:10 +0000 (Sat, 17 Aug 2013) $
+# Version: $Revision: 926 $
+# Date   : $Date: 2013-09-04 15:57:51 +0000 (Wed, 04 Sep 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -571,6 +571,7 @@ array set Colors {
 	lite:pgn,foreground:result				#000000
 	lite:pgn,background:current			#ffdd76
 	lite:pgn,background:nextmove			#eeff00
+	lite:pgn,background:merge				#f0f0f0
 	lite:pgn,hilite:comment					#7a5807
 	lite:pgn,hilite:info						#b22222
 	lite:pgn,hilite:move						#dce4e5
@@ -712,6 +713,7 @@ array set Colors {
 
 	lite:default,disabledbackground		#ebf4f5
 	lite:default,disabledforeground		black
+	lite:default,foreground:gray			#999999
 
 	lite:treetable,selected:focus			#ffdd76
 	lite:treetable,selected!focus			#ffdd76
@@ -753,6 +755,10 @@ array set Colors {
 array set Colors {
 	dark:pgn,hilite:move						#cddddf
 }
+# mapped from #f0f0f0
+array set Colors {
+	dark:pgn,background:merge				#e9e9e9
+}
 # mapped from #efefef
 array set Colors {
 	dark:switcher,normal:background		#e4e4e4
@@ -779,6 +785,10 @@ array set Colors {
 # mapped from #dfe7e8
 array set Colors {
 	dark:save,matchlistHeaderBackground	#d1d8d9
+}
+# mapped from #999999
+array set Colors {
+	dark:default,foreground:gray			#777777
 }
 
 set Scheme dark

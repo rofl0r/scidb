@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 802 $
-# Date   : $Date: 2013-05-26 10:04:34 +0000 (Sun, 26 May 2013) $
+# Version: $Revision: 926 $
+# Date   : $Date: 2013-09-04 15:57:51 +0000 (Wed, 04 Sep 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -411,6 +411,7 @@ proc addMove {confirmWindowType san {noMoveCmd {}} {myActions {}} {force no}} {
 	} else {
 		if {!$force} {
 			set moves [::scidb::game::next moves -ascii]
+puts "--> $moves"
 
 			for {set i 0} {$i < [llength $moves]} {incr i} {
 				if {[lindex $moves $i] eq $san} {

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 924 $
-# Date   : $Date: 2013-08-08 15:00:04 +0000 (Thu, 08 Aug 2013) $
+# Version: $Revision: 926 $
+# Date   : $Date: 2013-09-04 15:57:51 +0000 (Wed, 04 Sep 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -152,7 +152,7 @@ proc SetupList {w} {
 			if {$iso1 eq "--"} { set iso1 "" }
 			set options {}
 			if {!$active} {
-				lappend options -foreground grey60
+				lappend options -foreground [::colors::lookup default,foreground:gray]
 			}
 #			elseif {$iso1 eq ""} {
 #				lappend options -foreground darkblue

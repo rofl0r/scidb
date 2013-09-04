@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 925 $
-# Date   : $Date: 2013-08-17 08:31:10 +0000 (Sat, 17 Aug 2013) $
+# Version: $Revision: 926 $
+# Date   : $Date: 2013-09-04 15:57:51 +0000 (Wed, 04 Sep 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1403,17 +1403,20 @@
 
 ### merge ##############################################################
 ::merge::mc::MergeLastClipbaseGame		"Unisci ultima partita della Clipbase"
-::merge::mc::MergeWithCurrentGame		"Unisci con partita corrente"
 ::merge::mc::MergeGameFrom					"Unisci partita"
 
 ::merge::mc::MergeTitle						"Merge with games" ;# NEW
-::merge::mc::CreateNewGame					"Crea nuova partita"
 ::merge::mc::StartFromCurrentPosition	"Comincia unione da posizione corrente"
 ::merge::mc::StartFromInitialPosition	"Comincia unione da posizione iniziale"
 ::merge::mc::NoTranspositions				"Nessuna trasposizione"
 ::merge::mc::IncludeTranspositions		"Includi trasposizioni"
 ::merge::mc::VariationDepth				"Profondità variante"
+::merge::mc::VariationLength				"Maximal variation length (plies)" ;# NEW
 ::merge::mc::UpdatePreview					"Update preview" ;# NEW
+::merge::mc::SelectedGame					"Selected Game" ;# NEW
+::merge::mc::SaveAs							"Save as new game" ;# NEW
+::merge::mc::Save								"Merge into game" ;# NEW
+::merge::mc::GameisLocked					"Game is locked by Merge-Dialog" ;# NEW
 
 ::merge::mc::AlreadyInUse					"Merge dialog is already in use with game #%d." ;# NEW
 ::merge::mc::AlreadyInUseDetail			"Please finish merge of this game before merging into another game. This means you have to switch to game #%d for continuing." ;# NEW
@@ -2149,7 +2152,6 @@
 ::comment::mc::CopyText					"Copia testo in" ;#Copy text to
 ::comment::mc::OverwriteContent		"Sovrascrivere contenuto esistente?"
 ::comment::mc::AppendContent			"Se \"no\" il testo sarà aggiunto."
-# Note for translators: "Emoticons" can be simply translated to "Smiley
 ::comment::mc::DisplayEmoticons		"Mostra Emoticons"
 
 ::comment::mc::LanguageSelection		"Selezione lingua"
@@ -2160,7 +2162,6 @@
 ::comment::mc::Underline				"Sottolinea"
 
 ::comment::mc::InsertSymbol			"&Inserisci Simbolo..."
-# Note for translators: "Emoticon" can be simply translated to "Smiley"
 ::comment::mc::InsertEmoticon			"Inserisci &Emoticon..."
 ::comment::mc::MiscellaneousSymbols	"Simboli vari"
 ::comment::mc::Figurine					"Figurine"

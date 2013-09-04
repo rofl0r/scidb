@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 925 $
-# Date   : $Date: 2013-08-17 08:31:10 +0000 (Sat, 17 Aug 2013) $
+# Version: $Revision: 926 $
+# Date   : $Date: 2013-09-04 15:57:51 +0000 (Wed, 04 Sep 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -456,13 +456,21 @@ proc dialogFullscreenButtons {parent} {
 		-borderwidth 1 \
 		-takefocus 0 \
 		;
-	::tooltip::tooltip $parent.__control__.close [namespace current]::mc::Control(close)
+	FullscreenSetupCloseButton $parent
+
+	bind $parent.__control__.close <<LanguageChanged>> \
+		[namespace code [list FullscreenSetupCloseButton $parent]]
 
 	pack $parent.__control__.minimize -side left -fill y -expand yes
 	pack $parent.__control__.restore -side left -fill y -expand yes
 	pack $parent.__control__.close -side left -fill y -expand yes
 
 	return $parent.__control__
+}
+
+
+proc FullscreenSetupCloseButton {parent} {
+	::tooltip::tooltip $parent.__control__.close "$mc::Control(close) ($::mc::Key(Alt)+F4)"
 }
 
 

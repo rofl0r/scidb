@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 925 $
-// Date   : $Date: 2013-08-17 08:31:10 +0000 (Sat, 17 Aug 2013) $
+// Version: $Revision: 926 $
+// Date   : $Date: 2013-09-04 15:57:51 +0000 (Wed, 04 Sep 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1577,7 +1577,7 @@ cmdSubscribe(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 	}
 
 	Game&			game			= scidb->game(position);
-	Subscriber*	subscriber	= static_cast<Subscriber*>(game.subscriber());
+	Subscriber*	subscriber	= static_cast<Subscriber*>(game.subscriber().get());
 
 	if (subscriber == 0)
 	{
@@ -1617,7 +1617,7 @@ cmdUnsubscribe(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 	unsigned	position			= unsignedFromObj(objc, objv, 2);
 
 	Game&			game			= scidb->game(position);
-	Subscriber*	subscriber	= static_cast<Subscriber*>(game.subscriber());
+	Subscriber*	subscriber	= static_cast<Subscriber*>(game.subscriber().get());
 
 	if (subscriber)
 		game.setSubscriber(Game::SubscriberP(0));
