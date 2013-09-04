@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 926 $
-# Date   : $Date: 2013-09-04 15:57:51 +0000 (Wed, 04 Sep 2013) $
+# Version: $Revision: 927 $
+# Date   : $Date: 2013-09-04 17:34:29 +0000 (Wed, 04 Sep 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -976,7 +976,6 @@ proc DoLayout {position data {context editor} {w {}}} {
 
 #set clock0 [clock milliseconds]
 	foreach node $data {
-puts $node
 		switch [lindex $node 0] {
 			start {
 				$w configure -state normal
