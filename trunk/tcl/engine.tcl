@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 924 $
-# Date   : $Date: 2013-08-08 15:00:04 +0000 (Thu, 08 Aug 2013) $
+# Version: $Revision: 929 $
+# Date   : $Date: 2013-09-05 17:19:56 +0000 (Thu, 05 Sep 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -766,7 +766,8 @@ proc showEngineDictionary {parent} {
 	FillHeader $lb
 
 	if {![info exists Priv(engines)]} {
-		set engines [::scidb::misc::sort -dictionary -nopunct -unique -index 0 [::scidb::engine::list]]
+		# XXX something is broken in sorting routine (-decreasing is wrong!)
+		set engines [::scidb::misc::sort -decreasing -dictionary -nopunct -unique [::scidb::engine::list]]
 		set Priv(engines) {}
 
 		foreach name $engines {
@@ -1466,6 +1467,8 @@ proc StartEngine {list} {
 		::application::board::openAnalysis force
 		::application::analysis::startAnalysis [::application::board::anaylsisWindow]
 	}
+
+	set Vars(active:protocol) $Vars(current:protocol)
 }
 
 
@@ -2242,8 +2245,8 @@ proc OpenSetupDialog(Script) {parent} {
 		-height 10 \
 		-background white \
 		-foreground black \
-		-selectbackground [::colors::lookup selectbackground:setup] \
-		-selectforeground [::colors::lookup selectforeground:setup] \
+		-selectbackground [::colors::lookup engine,selectbackground:setup] \
+		-selectforeground [::colors::lookup engine,selectforeground:setup] \
 		-borderwidth 1 \
 		-relief sunken \
 		-setgrid on \

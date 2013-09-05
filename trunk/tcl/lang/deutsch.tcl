@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 926 $
-# Date   : $Date: 2013-09-04 15:57:51 +0000 (Wed, 04 Sep 2013) $
+# Version: $Revision: 929 $
+# Date   : $Date: 2013-09-05 17:19:56 +0000 (Thu, 05 Sep 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1078,6 +1078,7 @@
 ::application::analysis::mc::IllegalMoves					"Illegale Züge in der Partie - keine Analyse möglich"
 ::application::analysis::mc::DidNotReceivePong			"Der Motor antwortet nicht auf das \"ping\"-Kommando - Motor beendet"
 ::application::analysis::mc::SearchMateNotSupported	"Dieser Motor unterstützt nicht die Mattsuche."
+::application::analysis::mc::Stopped						"angehalten"
 
 ::application::analysis::mc::LinesPerVariation			"Zeilen per Variante"
 ::application::analysis::mc::BestFirstOrder				"Sortiere nach Bewertung"

@@ -1,7 +1,7 @@
 ln -sf ../# ====================================================================== .
 # Author : $Author$
-# Version: $Revision: 926 $
-# Date   : $Date: 2013-09-04 15:57:51 +0000 (Wed, 04 Sep 2013) $
+# Version: $Revision: 929 $
+# Date   : $Date: 2013-09-05 17:19:56 +0000 (Thu, 05 Sep 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1077,6 +1077,7 @@ ln -sf ../# ====================================================================
 ::application::analysis::mc::IllegalMoves					"Illegal moves in game - Cannot analyze"
 ::application::analysis::mc::DidNotReceivePong			"Engine is not responding to \"ping\" command - Engine aborted"
 ::application::analysis::mc::SearchMateNotSupported	"This engine is not supporting search for mate."
+::application::analysis::mc::Stopped						"stopped"
 
 ::application::analysis::mc::LinesPerVariation			"Lines per variation"
 ::application::analysis::mc::BestFirstOrder				"Sort by evaluation"
