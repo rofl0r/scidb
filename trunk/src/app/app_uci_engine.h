@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 914 $
-// Date   : $Date: 2013-07-31 21:04:12 +0000 (Wed, 31 Jul 2013) $
+// Version: $Revision: 930 $
+// Date   : $Date: 2013-09-06 12:01:22 +0000 (Fri, 06 Sep 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -98,6 +98,8 @@ private:
 	mstl::string	m_name;
 	mstl::string	m_value;
 	mstl::string	m_threads;
+	mstl::string	m_minThreads;
+	mstl::string	m_maxThreads;
 	State				m_state;
 	Variant			m_variant;
 	bool				m_uciok;

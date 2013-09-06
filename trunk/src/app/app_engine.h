@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 914 $
-// Date   : $Date: 2013-07-31 21:04:12 +0000 (Wed, 31 Jul 2013) $
+// Version: $Revision: 930 $
+// Date   : $Date: 2013-09-06 12:01:22 +0000 (Fri, 06 Sep 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -34,6 +34,7 @@
 #include "m_pvector.h"
 #include "m_list.h"
 #include "m_bitfield.h"
+#include "m_map.h"
 
 namespace mstl	{ class ostream; }
 namespace sys  { class Process; }
@@ -184,6 +185,8 @@ public:
 		unsigned numVariations() const;
 		unsigned hashSize() const;
 		unsigned numThreads() const;
+		unsigned minThreads() const;
+		unsigned maxThreads() const;
 		unsigned numCores() const;
 		unsigned searchMate() const;
 		unsigned searchDepth() const;
@@ -490,6 +493,7 @@ private:
 
 	typedef mstl::bitfield<unsigned> Selection;
 	typedef mstl::pvector<db::MoveList> Variations;
+	typedef mstl::map<mstl::string,mstl::string> UserOptions;
 	typedef int Scores[MaxNumVariations];
 	typedef unsigned Map[MaxNumVariations];
 
@@ -585,6 +589,7 @@ private:
 	int					m_exitStatus;
 	mstl::ostream*		m_logStream;
 	Options				m_options;
+	UserOptions			m_userOptions;
 	mstl::string		m_script;
 	mstl::string		m_buffer;
 	Snapshot				m_snapshot;

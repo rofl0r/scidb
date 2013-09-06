@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 914 $
-// Date   : $Date: 2013-07-31 21:04:12 +0000 (Wed, 31 Jul 2013) $
+// Version: $Revision: 930 $
+// Date   : $Date: 2013-09-06 12:01:22 +0000 (Fri, 06 Sep 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -593,7 +593,7 @@ Engine::setHashRange(unsigned minSize, unsigned maxSize)
 void
 Engine::setThreadRange(unsigned minThreads, unsigned maxThreads)
 {
-	if (maxThreads > minThreads)
+	if (maxThreads >= minThreads)
 	{
 		m_minThreads = minThreads;
 		m_maxThreads = maxThreads;
@@ -1433,7 +1433,7 @@ Engine::changeCores(unsigned n)
 	if (n != m_numCores)
 	{
 		m_numCores = n;
-		m_numThreads = n - 1;
+		m_numThreads = n;
 
 		if (isActive())
 		{
@@ -1716,10 +1716,11 @@ Engine::addOption(mstl::string const& name,
 	m_options.push_back();
 
 	Option& opt = m_options.back();
+	UserOptions::const_iterator i = m_userOptions.find(name);
 
 	opt.name	= name;
 	opt.type	= type;
-	opt.val  = dflt;
+	opt.val  = i == m_userOptions.end() ? dflt : i->second;
 	opt.dflt	= dflt;
 	opt.var	= var;
 	opt.max	= max;
@@ -1729,13 +1730,21 @@ Engine::addOption(mstl::string const& name,
 void
 Engine::setOption(mstl::string const& name, mstl::string const& value)
 {
-	for (Options::iterator i = m_options.begin(); i != m_options.end(); ++i)
+	if (isActive())
 	{
-		if (i->name == name)
+		for (Options::iterator i = m_options.begin(); i != m_options.end(); ++i)
 		{
-			i->val = value;
-			return;
+			if (i->name == name)
+			{
+				i->val = value;
+				m_userOptions[name] = value;
+				return;
+			}
 		}
+	}
+	else
+	{
+		m_userOptions[name] = value;
 	}
 }
 
