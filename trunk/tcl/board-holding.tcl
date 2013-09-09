@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 609 $
-# Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+# Version: $Revision: 932 $
+# Date   : $Date: 2013-09-09 15:39:37 +0000 (Mon, 09 Sep 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -233,6 +233,7 @@ proc StartDrag {w x y piece} {
 	set Vars(n) 0
 
 	if {[::scidb::pos::stm] ne $Vars(color)} { return }
+#	set Vars(cursor) [$w cget -cursor]
 	if {$Vars(color) eq "w"} { set piece [string toupper $piece] }
 
 	set Vars(x) $x
@@ -254,6 +255,7 @@ proc DragPiece {w x y state} {
 		if {[expr {abs($Vars(x) - $x)}] <= 3 && [expr {abs($Vars(y) - $y)}] <= 3} { return }
 
 		set Vars(dragging) 1
+#		$w configure -cursor hand2
 		set p [string tolower $Vars(piece)]
 		set img photo_Piece($Vars(color)$p,$Vars(size))
 		foreach t $Vars(targets) {
@@ -285,6 +287,8 @@ proc DragPiece {w x y state} {
 
 proc FinishDrag {w x y state} {
 	variable ${w}::Vars
+
+#	$w configure -cursor $Vars(cursor)
 
 	if {$Vars(n) == 0} {
 		deselect $w

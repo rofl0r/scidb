@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 931 $
-// Date   : $Date: 2013-09-06 17:58:11 +0000 (Fri, 06 Sep 2013) $
+// Version: $Revision: 932 $
+// Date   : $Date: 2013-09-09 15:39:37 +0000 (Mon, 09 Sep 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -425,7 +425,8 @@ void
 uci::Engine::pause()
 {
 	// XXX only working for analyzing mode
-	send("stop");
+	if (m_state != Stop)
+		send("stop");
 	m_state = Pause;
 	m_stopAnalyzeIsPending = true;
 	updateState(app::Engine::Pause);
@@ -1322,7 +1323,8 @@ uci::Engine::sendOption(mstl::string const& name, mstl::string const& value)
 {
 	if (isAnalyzing())
 	{
-		send("stop");
+		if (m_state != Stop)
+			send("stop");
 		// XXX probably "ucinewgame" is required
 		m_waitingOn = "setoption";
 		m_state = Pause;

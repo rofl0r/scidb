@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 926 $
-# Date   : $Date: 2013-09-04 15:57:51 +0000 (Wed, 04 Sep 2013) $
+# Version: $Revision: 932 $
+# Date   : $Date: 2013-09-09 15:39:37 +0000 (Mon, 09 Sep 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -342,6 +342,7 @@ proc fsbox {w type args} {
 	if {$Vars(type) eq "dir"} {
 		set Vars(multiple) 0
 		set lbl [Tr Directory]
+		set Vars(initialfile) $Vars(folder)
 	} elseif {$Vars(multiple)} {
 		set lbl [Tr Filenames]
 	} else {
