@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 926 $
-// Date   : $Date: 2013-09-04 15:57:51 +0000 (Wed, 04 Sep 2013) $
+// Version: $Revision: 933 $
+// Date   : $Date: 2013-09-10 20:25:18 +0000 (Tue, 10 Sep 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -536,6 +536,8 @@ public:
 	void redo();
 	/// Remove all moves; and possibly set new start position.
 	void clear(Board const* startPosition = 0);
+	/// Clear merge results.
+	void clearMergeResults();
 	/// Setup this game.
 	void setup(Board const& startPosition);
 	/// Transpose game.

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 926 $
-// Date   : $Date: 2013-09-04 15:57:51 +0000 (Wed, 04 Sep 2013) $
+// Version: $Revision: 933 $
+// Date   : $Date: 2013-09-10 20:25:18 +0000 (Tue, 10 Sep 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -3084,6 +3084,8 @@ Application::swapGames(unsigned sourcePosition, unsigned destinationPosition)
 	mstl::swap(src.data.encoding, dst.data.encoding);
 
 	src.data.game->swapGameSpecificData(*dst.data.game);
+	src.data.game->clearMergeResults();
+	dst.data.game->clearMergeResults();
 
 	src.data.game->refreshSubscriber(Game::UpdateAll);
 	dst.data.game->refreshSubscriber(Game::UpdateAll);

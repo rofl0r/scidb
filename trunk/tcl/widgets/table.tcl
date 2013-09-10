@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 925 $
-# Date   : $Date: 2013-08-17 08:31:10 +0000 (Sat, 17 Aug 2013) $
+# Version: $Revision: 933 $
+# Date   : $Date: 2013-09-10 20:25:18 +0000 (Tue, 10 Sep 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -593,6 +593,7 @@ proc setHeight {table height {cmd {}}} {
 	set oldHeight $Vars(height)
 	set Vars(height) $height
 	set Vars(rows) [min $Vars(rows) $height]
+	set selection $Vars(selection)
 
 	if {$height < $oldHeight} {
 		for {set row $height} {$row < $oldHeight} {incr row} {
@@ -619,6 +620,8 @@ proc setHeight {table height {cmd {}}} {
 	} else {
 		event generate $table <<TableResized>> -data $height
 	}
+
+	select $table $selection
 }
 
 

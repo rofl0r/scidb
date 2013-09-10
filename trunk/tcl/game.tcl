@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 925 $
-# Date   : $Date: 2013-08-17 08:31:10 +0000 (Sat, 17 Aug 2013) $
+# Version: $Revision: 933 $
+# Date   : $Date: 2013-09-10 20:25:18 +0000 (Tue, 10 Sep 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -352,6 +352,16 @@ proc stateChanged {position modified} {
 }
 
 
+proc setModified {position} {
+	variable List
+	variable MaxPosition
+
+	if {$position >= $MaxPosition} { return 0 }
+	::application::pgn::setModified $position
+	lset List $position 1 1
+}
+
+
 proc lock {position} {
 	variable List
 	variable MaxPosition
@@ -404,11 +414,11 @@ proc unfreeze {position} {
 
 	::application::pgn::unfreeze $position
 	lset List $position 3 0
-	set gamebar [::application::pgn::gamebar]
 
-	if {[::gamebar::size $gamebar] > 1 && ![lindex $List $position 2] && ![lindex $List $position 1]} {
-		::gamebar::remove $gamebar $position
-	}
+#	set gamebar [::application::pgn::gamebar]
+#	if {[::gamebar::size $gamebar] > 1 && ![lindex $List $position 2] && ![lindex $List $position 1]} {
+#		::gamebar::remove $gamebar $position
+#	}
 }
 
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 926 $
-// Date   : $Date: 2013-09-04 15:57:51 +0000 (Wed, 04 Sep 2013) $
+// Version: $Revision: 933 $
+// Date   : $Date: 2013-09-10 20:25:18 +0000 (Tue, 10 Sep 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -3777,7 +3777,7 @@ init(Tcl_Interp* ti)
 	createCommand(ti, CmdSwapPositions,	cmdSwapPositions);
 	createCommand(ti, CmdSwitch,			cmdSwitch);
 	createCommand(ti, CmdTags,				cmdTags);
-	createCommand(ti, CmdToPGN,				cmdToPGN);
+	createCommand(ti, CmdToPGN,			cmdToPGN);
 	createCommand(ti, CmdTranspose,		cmdTranspose);
 	createCommand(ti, CmdTrial,			cmdTrial);
 	createCommand(ti, CmdUndoSetup,		cmdUndoSetup);

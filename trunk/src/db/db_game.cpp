@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 926 $
-// Date   : $Date: 2013-09-04 15:57:51 +0000 (Wed, 04 Sep 2013) $
+// Version: $Revision: 933 $
+// Date   : $Date: 2013-09-10 20:25:18 +0000 (Tue, 10 Sep 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -4731,6 +4731,13 @@ Game::swapGameSpecificData(Game& game)
 	mstl::swap(m_subscriber, game.m_subscriber);
 	mstl::swap(m_flags, game.m_flags);
 	mstl::swap(m_editorOptions, game.m_editorOptions);
+}
+
+
+void
+Game::clearMergeResults()
+{
+	m_mergeResults.clear();
 }
 
 // vi:set ts=3 sw=3:

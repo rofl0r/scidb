@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 926 $
-# Date   : $Date: 2013-09-04 15:57:51 +0000 (Wed, 04 Sep 2013) $
+# Version: $Revision: 933 $
+# Date   : $Date: 2013-09-10 20:25:18 +0000 (Tue, 10 Sep 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -693,6 +693,11 @@ proc activate {path row} {
 
 proc select {path row} {
 	::scrolledtable::select $path $row
+}
+
+
+proc selection {path} {
+	return [::table::selection $path.top.table]
 }
 
 
