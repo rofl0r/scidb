@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 926 $
-// Date   : $Date: 2013-09-04 15:57:51 +0000 (Wed, 04 Sep 2013) $
+// Version: $Revision: 934 $
+// Date   : $Date: 2013-09-12 12:43:56 +0000 (Thu, 12 Sep 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1355,7 +1355,7 @@ cmdUrlEscape(ClientData clientData, Tcl_Interp* ti, int objc, Tcl_Obj* const obj
 		uchar code;
 		char const* q = sys::utf8::nextChar(p, code);
 
-		if (code > 127 || !(isalnum(code) || isMark(code) || code == pathDelim))
+		if (code > 127 || !(isprint(code) || isMark(code) || code == pathDelim))
 		{
 			for ( ; p < q; ++p)
 			{
