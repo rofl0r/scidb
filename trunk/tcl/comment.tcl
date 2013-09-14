@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 889 $
-# Date   : $Date: 2013-07-11 18:29:31 +0000 (Thu, 11 Jul 2013) $
+# Version: $Revision: 935 $
+# Date   : $Date: 2013-09-14 22:36:13 +0000 (Sat, 14 Sep 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -2750,7 +2750,7 @@ switch -- [tk windowingsystem] {
 
 ttk::copyBindings Text Comment
 
-bind Comment <Return>			{ comment::InvokeDefaultButton }
+bind Comment <Return>			{ comment::TextInsert %W \n }
 bind Comment <KeyPress>			{ comment::TextInsert %W %A }
 bind Comment <Shift-Tab>		{ focus [tk_focusPrev %W] }
 bind Comment <Tab>				{ focus [tk_focusNext %W] }

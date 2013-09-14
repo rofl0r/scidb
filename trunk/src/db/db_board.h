@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 913 $
-// Date   : $Date: 2013-07-31 18:14:18 +0000 (Wed, 31 Jul 2013) $
+// Version: $Revision: 935 $
+// Date   : $Date: 2013-09-14 22:36:13 +0000 (Sat, 14 Sep 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -134,6 +134,7 @@ public:
 		TooFewPiecesInHolding,		///< too few pieces in holding
 		TooManyPromotedPieces,		///< too many pieces marked as promoted
 		TooFewPromotedPieces,		///< too many pieces marked as promoted
+		IllegalCheckCount,			///< illegal check count
 	};
 
 	enum Representation

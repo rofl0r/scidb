@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 913 $
-// Date   : $Date: 2013-07-31 18:14:18 +0000 (Wed, 31 Jul 2013) $
+// Version: $Revision: 935 $
+// Date   : $Date: 2013-09-14 22:36:13 +0000 (Sat, 14 Sep 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -127,6 +127,7 @@ toError(db::Board::SetupStatus status)
 		case Board::TooManyPromotedPieces:	return "TooManyPromotedPieces";
 		case Board::TooFewPromotedPieces:	return "TooFewPromotedPieces";
 		case Board::TooFewPiecesInHolding:	return "TooFewPiecesInHolding";
+		case Board::IllegalCheckCount:		return "IllegalCheckCount";
 	}
 
 	return 0; // satisfies the compiler

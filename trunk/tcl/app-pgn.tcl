@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 927 $
-# Date   : $Date: 2013-09-04 17:34:29 +0000 (Wed, 04 Sep 2013) $
+# Version: $Revision: 935 $
+# Date   : $Date: 2013-09-14 22:36:13 +0000 (Sat, 14 Sep 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1467,7 +1467,7 @@ proc InsertMove {context position w level key data} {
 }
 
 
-proc InsertDiagram {position w level key data} {
+proc InsertDiagram {context position w level key data} {
 	variable ::pgn::${context}::Options
 	variable ::pgn::editor::Colors
 	variable Vars

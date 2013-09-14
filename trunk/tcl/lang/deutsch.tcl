@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 929 $
-# Date   : $Date: 2013-09-05 17:19:56 +0000 (Thu, 05 Sep 2013) $
+# Version: $Revision: 935 $
+# Date   : $Date: 2013-09-14 22:36:13 +0000 (Sat, 14 Sep 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1520,6 +1520,7 @@
 ::setup::board::mc::Error(InvalidEnPassant)			"Ungültige En-Passant-Line."
 ::setup::board::mc::Error(MultiPawnCheck)				"Zwei oder mehr Bauern bieten Schach."
 ::setup::board::mc::Error(TripleCheck)					"Drei oder mehr Figuren bieten Schach."
+::setup::board::mc::Error(IllegalCheckCount)			"Abwegige Schachgebotsangabe."
 
 ::setup::board::mc::Warning(TooFewPiecesInHolding)	"Zuwenige Figuren in der Rückhand. Trotzdem akzeptieren?"
 ::setup::board::mc::Warning(CastlingWithoutRook)	"Ein Rochaderecht wurde gesetzt, aber ein entsprechender Roachadeturm wird vermisst. Sollen die vergebenen Rochaderechte trotzdem akzeptiert werden?"

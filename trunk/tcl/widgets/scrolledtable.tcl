@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 932 $
-# Date   : $Date: 2013-09-09 15:39:37 +0000 (Mon, 09 Sep 2013) $
+# Version: $Revision: 935 $
+# Date   : $Date: 2013-09-14 22:36:13 +0000 (Sat, 14 Sep 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1029,7 +1029,7 @@ proc MoveRow {table x y} {
 		$table.t dragimage clear
 
 		lassign [::table::identify $table $x $y] row _
-		event generate [winfo parent $table] <<TableDropRow>> -data [list $Priv(drag:row) $row]
+		event generate [winfo parent $table] <<TableDropRow>> -data [list $Vars(drag:row) $row]
 	}
 
 	array unset Vars drag:*

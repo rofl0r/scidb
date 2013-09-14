@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 925 $
-// Date   : $Date: 2013-08-17 08:31:10 +0000 (Sat, 17 Aug 2013) $
+// Version: $Revision: 935 $
+// Date   : $Date: 2013-09-14 22:36:13 +0000 (Sat, 14 Sep 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1419,7 +1419,7 @@ Root::makeList(TagSet const& tags,
 	work.m_termination = termination;
 	work.m_linebreakMaxLineLengthVar = linebreakMaxLineLengthVar;
 	work.m_linebreakMinCommentLength = linebreakMinCommentLength;
-	work.m_isEmpty = node->isEmptyLine();
+	work.m_isEmpty = node->isEmptyLine(); // && !finalBoard.gameIsOver(variant)
 	work.m_displayStyle = displayStyle;
 	work.m_moveInfoTypes = moveInfoTypes;
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 913 $
-// Date   : $Date: 2013-07-31 18:14:18 +0000 (Wed, 31 Jul 2013) $
+// Version: $Revision: 935 $
+// Date   : $Date: 2013-09-14 22:36:13 +0000 (Sat, 14 Sep 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2272,6 +2272,18 @@ Board::validate(variant::Type variant, Handicap handicap, move::Constraint flag)
 
 		if (n < 16)
 			return TooFewPromotedPieces;
+	}
+
+	if (variant == variant::ThreeCheck)
+	{
+		if (	m_checksGiven[White] > 3
+			|| m_checksGiven[Black] > 3
+			|| (m_checksGiven[White] == 3 && m_checksGiven[Black] == 3)
+			|| (m_checksGiven[White] == 3 && !isInCheck(Black))
+			|| (m_checksGiven[Black] == 3 && !isInCheck(White)))
+		{
+			return IllegalCheckCount;
+		}
 	}
 
 	return Valid;

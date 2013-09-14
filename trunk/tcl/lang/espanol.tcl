@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 929 $
-# Date   : $Date: 2013-09-05 17:19:56 +0000 (Thu, 05 Sep 2013) $
+# Version: $Revision: 935 $
+# Date   : $Date: 2013-09-14 22:36:13 +0000 (Sat, 14 Sep 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1525,6 +1525,7 @@
 ::setup::board::mc::Error(InvalidEnPassant)			"Fila al paso no razonable."
 ::setup::board::mc::Error(MultiPawnCheck)				"Dos o más peones dando jaque."
 ::setup::board::mc::Error(TripleCheck)					"Tres o más piezas dando jaque."
+::setup::board::mc::Error(IllegalCheckCount)			"Unreasonable check count." ;# NEW (Three-check Chess)
 
 ::setup::board::mc::Warning(TooFewPiecesInHolding)	"Too few pieces marked as promoted. Are you sure that this is ok?" ;# NEW
 ::setup::board::mc::Warning(CastlingWithoutRook)	"Existen derechos de enroque pero al menos una de las torres no está. Esto sólo sucede en partidas con ventaja. ¿Está seguro que los derechos de enroque son correctos?"

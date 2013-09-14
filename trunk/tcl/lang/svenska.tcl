@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 929 $
-# Date   : $Date: 2013-09-05 17:19:56 +0000 (Thu, 05 Sep 2013) $
+# Version: $Revision: 935 $
+# Date   : $Date: 2013-09-14 22:36:13 +0000 (Sat, 14 Sep 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1528,6 +1528,7 @@
 ::setup::board::mc::Error(InvalidEnPassant)			"Ogiltig en passant-linje."
 ::setup::board::mc::Error(MultiPawnCheck)				"Två eller fler bönder ger schack."
 ::setup::board::mc::Error(TripleCheck)					"Tre eller fler pjäser ger schack."
+::setup::board::mc::Error(IllegalCheckCount)			"Unreasonable check count." ;# NEW (Three-check Chess)
 
 ::setup::board::mc::Warning(TooFewPiecesInHolding)	"Too few pieces marked as promoted. Are you sure that this is ok?" ;# NEW
 ::setup::board::mc::Warning(CastlingWithoutRook)	"Du har valt att rockad är tillåten men det saknas minst ett torn. Detta är bara möjligt i partier med handikapp. Är du säker att du valt rätt?"

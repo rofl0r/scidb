@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 929 $
-# Date   : $Date: 2013-09-05 17:19:56 +0000 (Thu, 05 Sep 2013) $
+# Version: $Revision: 935 $
+# Date   : $Date: 2013-09-14 22:36:13 +0000 (Sat, 14 Sep 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1530,6 +1530,7 @@
 ::setup::board::mc::Error(InvalidEnPassant)			"Colonna di en passant non ragionevole."
 ::setup::board::mc::Error(MultiPawnCheck)				"Due o più pedoni danno scacco."
 ::setup::board::mc::Error(TripleCheck)					"Tre o più pezzi danno scacco."
+::setup::board::mc::Error(IllegalCheckCount)			"Unreasonable check count." ;# NEW (Three-check Chess)
 
 ::setup::board::mc::Warning(TooFewPiecesInHolding)	"Troppi pochi pezzi segnati come promossi. Sei sicuro che vada bene?"
 ::setup::board::mc::Warning(CastlingWithoutRook)	"Hai segnato il diritto di arroccare, ma almeno una torre di arrocco manca. Questo può succedere solo in partite con handicap. Sei sicuro che ci sia la possibilità di arroccare?"

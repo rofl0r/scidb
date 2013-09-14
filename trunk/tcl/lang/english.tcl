@@ -1,7 +1,7 @@
 ln -sf ../# ====================================================================== .
 # Author : $Author$
-# Version: $Revision: 929 $
-# Date   : $Date: 2013-09-05 17:19:56 +0000 (Thu, 05 Sep 2013) $
+# Version: $Revision: 935 $
+# Date   : $Date: 2013-09-14 22:36:13 +0000 (Sat, 14 Sep 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1519,6 +1519,7 @@ ln -sf ../# ====================================================================
 ::setup::board::mc::Error(InvalidEnPassant)			"Unreasonable en passant file."
 ::setup::board::mc::Error(MultiPawnCheck)				"Two or more pawns give check."
 ::setup::board::mc::Error(TripleCheck)					"Three or more pieces give check."
+::setup::board::mc::Error(IllegalCheckCount)			"Unreasonable check count." ;# (Three-check Chess)
 
 ::setup::board::mc::Warning(TooFewPiecesInHolding)	"Too few pieces in holding. Are you sure that this is ok?"
 ::setup::board::mc::Warning(CastlingWithoutRook)	"You have set castling rights, but at least one rook for castling is missing. This can happen only in handicap games. Are you sure that the castling rights are ok?"

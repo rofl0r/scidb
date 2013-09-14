@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 909 $
-// Date   : $Date: 2013-07-23 15:10:14 +0000 (Tue, 23 Jul 2013) $
+// Version: $Revision: 935 $
+// Date   : $Date: 2013-09-14 22:36:13 +0000 (Sat, 14 Sep 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1744,6 +1744,10 @@ PgnReader::putLastMove()
 			{
 				::join(m_comments.begin(), m_comments.end());
 				consumer().putPrecedingComment(m_comments[0], m_annotation, m_marks);
+			}
+			else if (!m_annotation.isEmpty() || !m_marks.isEmpty())
+			{
+				consumer().putPrecedingComment(Comment(), m_annotation, m_marks);
 			}
 		}
 		else if (!m_comments.empty())

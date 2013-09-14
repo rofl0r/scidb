@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 934 $
-# Date   : $Date: 2013-09-12 12:43:56 +0000 (Thu, 12 Sep 2013) $
+# Version: $Revision: 935 $
+# Date   : $Date: 2013-09-14 22:36:13 +0000 (Sat, 14 Sep 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1364,7 +1364,7 @@ proc SetFilter {lb} {
 	::util::place $dlg -parent $parent -position center
 	::ttk::grabWindow $dlg
 	wm deiconify $dlg
-	focus $v.chess960
+	focus $v.normal
 	tkwait variable [namespace current]::Reply_
 	::ttk::releaseGrab $dlg
 	destroy $dlg
@@ -1549,7 +1549,8 @@ proc UseEngine {list item profileList} {
 	variable Options
 	variable Vars
 
-	if {[llength $item] == 0} { return }
+	if {[llength $item] == 0} { return [StartEngine $list] }
+
 	set Vars(selection) $item
 	set name [$list get name]
 	set i [FindIndex [$list get name]]
