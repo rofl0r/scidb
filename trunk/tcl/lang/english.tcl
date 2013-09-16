@@ -1,7 +1,7 @@
 ln -sf ../# ====================================================================== .
 # Author : $Author$
-# Version: $Revision: 935 $
-# Date   : $Date: 2013-09-14 22:36:13 +0000 (Sat, 14 Sep 2013) $
+# Version: $Revision: 938 $
+# Date   : $Date: 2013-09-16 21:44:49 +0000 (Mon, 16 Sep 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1814,6 +1814,11 @@ ln -sf ../# ====================================================================
 ::dialog::save::mc::CurrentGameHasTrialMode	"Current game is in trial mode and cannot be saved."
 ::dialog::save::mc::LeaveTrialModeHint			"You have to leave trial mode beforehand, use shortcut %s."
 ::dialog::save::mc::OpenPlayerDictionary		"Open Player Dictionary"
+
+::dialog::save::mc::ConfigureSelection			"Configure Selection..."
+::dialog::save::mc::SecondRating					"Second rating"
+::dialog::save::mc::PlayerSection				"Player Section"
+::dialog::save::mc::EventSection					"Event Section"
 
 ::dialog::save::mc::LocalName						"&Local Name"
 ::dialog::save::mc::EnglishName					"E&nglish Name"

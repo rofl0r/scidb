@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 880 $
-// Date   : $Date: 2013-07-08 21:37:41 +0000 (Mon, 08 Jul 2013) $
+// Version: $Revision: 938 $
+// Date   : $Date: 2013-09-16 21:44:49 +0000 (Mon, 16 Sep 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -77,7 +77,7 @@ public:
 
 	unsigned gameFlags() const override;
 
-	void filterTags(TagSet& tags, Section section) const override;
+	db::tag::TagSet tagFilter(Section section, TagSet const& tags) const override;
 	mstl::string const& extension() const override;
 	mstl::string const& encoding() const override;
 

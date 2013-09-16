@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 661 $
-// Date   : $Date: 2013-02-23 23:03:04 +0000 (Sat, 23 Feb 2013) $
+// Version: $Revision: 938 $
+// Date   : $Date: 2013-09-16 21:44:49 +0000 (Mon, 16 Sep 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -84,6 +84,8 @@ static unsigned const Arabic[] =
 
 
 char const* string::m_empty = "";
+
+__attribute__((init_priority(101)))
 string const string::empty_string(static_cast<__EMPTY__ const&>(string::__EMPTY__()));
 
 

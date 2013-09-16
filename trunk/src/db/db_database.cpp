@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 925 $
-// Date   : $Date: 2013-08-17 08:31:10 +0000 (Sat, 17 Aug 2013) $
+// Version: $Revision: 938 $
+// Date   : $Date: 2013-09-16 21:44:49 +0000 (Mon, 16 Sep 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -664,14 +664,41 @@ Database::shouldCompact() const
 
 
 void
+Database::getTags(unsigned index, TagSet& tags, bool invert) const
+{
+	M_ASSERT(isOpen());
+	M_ASSERT(index < countGames());
+
+	tags.clear();
+	setupTags(index, tags);
+
+	GameInfo const& info = gameInfo(index);
+
+	rating::Type whiteRatingType = info.ratingType(color::White);
+	rating::Type blackRatingType = info.ratingType(color::Black);
+
+	tag::TagSet infoTags = m_codec->tagFilter(
+										invert ? DatabaseCodec::InfoTags : DatabaseCodec::GameTags,
+										tags);
+
+	if (whiteRatingType != rating::Any)
+		infoTags.set(rating::toWhiteTag(whiteRatingType));
+	if (blackRatingType != rating::Any)
+		infoTags.set(rating::toBlackTag(blackRatingType));
+	if (invert)
+		infoTags.flip(0, tag::LastTag);
+
+	tags.remove(infoTags);
+}
+
+
+void
 Database::getInfoTags(unsigned index, TagSet& tags) const
 {
 	M_REQUIRE(isOpen());
 	M_REQUIRE(index < countGames());
 
-	tags.clear();
-	setupTags(index, tags);
-	m_codec->filterTags(tags, DatabaseCodec::InfoTags);
+	return getTags(index, tags, true);
 }
 
 
@@ -681,9 +708,7 @@ Database::getGameTags(unsigned index, TagSet& tags) const
 	M_REQUIRE(isOpen());
 	M_REQUIRE(index < countGames());
 
-	tags.clear();
-	setupTags(index, tags);
-	m_codec->filterTags(tags, DatabaseCodec::GameTags);
+	return getTags(index, tags, false);
 }
 
 

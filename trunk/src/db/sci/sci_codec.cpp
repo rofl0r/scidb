@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 906 $
-// Date   : $Date: 2013-07-22 20:44:36 +0000 (Mon, 22 Jul 2013) $
+// Version: $Revision: 938 $
+// Date   : $Date: 2013-09-16 21:44:49 +0000 (Mon, 16 Sep 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -609,15 +609,10 @@ Codec::setWritable()
 }
 
 
-void
-Codec::filterTags(TagSet& tags, Section section) const
+db::tag::TagSet
+Codec::tagFilter(Section, TagSet const&) const
 {
-	tag::TagSet infoTags = Encoder::infoTags();
-
-	if (section == InfoTags)
-		infoTags.flip(0, tag::LastTag);
-
-	tags.remove(infoTags);
+	return Encoder::infoTags();
 }
 
 

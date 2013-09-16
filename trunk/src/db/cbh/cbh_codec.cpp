@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 851 $
-// Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
+// Version: $Revision: 938 $
+// Date   : $Date: 2013-09-16 21:44:49 +0000 (Mon, 16 Sep 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -674,15 +674,10 @@ Codec::toUtf8(mstl::string& str)
 }
 
 
-void
-Codec::filterTags(TagSet& tags, Section section) const
+tag::TagSet
+Codec::tagFilter(Section, TagSet const&) const
 {
-	tag::TagSet infoTags = m_infoTags;
-
-	if (section == InfoTags)
-		infoTags.flip(0, tag::LastTag);
-
-	tags.remove(infoTags);
+	return m_infoTags;
 }
 
 

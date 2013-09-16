@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 880 $
-// Date   : $Date: 2013-07-08 21:37:41 +0000 (Mon, 08 Jul 2013) $
+// Version: $Revision: 938 $
+// Date   : $Date: 2013-09-16 21:44:49 +0000 (Mon, 16 Sep 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -132,7 +132,7 @@ public:
 	virtual unsigned maxDescriptionLength() const = 0;
 	virtual unsigned gameFlags() const = 0;
 
-	virtual void filterTags(TagSet& tags, Section section) const = 0;
+	virtual tag::TagSet tagFilter(Section section, TagSet const& tags) const = 0;
 	virtual mstl::string const& extension() const = 0;
 	virtual mstl::string const& encoding() const = 0;
 	virtual Time modified() const;

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 872 $
-// Date   : $Date: 2013-07-04 13:07:56 +0000 (Thu, 04 Jul 2013) $
+// Version: $Revision: 938 $
+// Date   : $Date: 2013-09-16 21:44:49 +0000 (Mon, 16 Sep 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -439,6 +439,7 @@ Namebase::insertPlayer(	mstl::string const& name,
 		{
 			p = Player::insertPlayer(fideID, name);
 		}
+#if 0
 		else
 		{
 			type = species::Unspecified;
@@ -449,6 +450,7 @@ Namebase::insertPlayer(	mstl::string const& name,
 			if (federation == p->federation())
 				federation = country::Unknown;
 		}
+#endif
 	}
 	else
 	{
@@ -969,7 +971,6 @@ Namebase::update()
 
 	if (used != m_used || maxUsage != m_maxUsage || maxFreq != m_maxFreq)
 		m_isModified = true;
-
 }
 
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 938 $
+// Date   : $Date: 2013-09-16 21:44:49 +0000 (Mon, 16 Sep 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -20,8 +20,13 @@
 
 # if __WORDSIZE == 32 || !__GNUC_PREREQ(4,4)
 
+__attribute__((init_priority(101)))
 uint128_t const mstl::bitfield<uint128_t>::m_zero(0u);
+
+__attribute__((init_priority(101)))
 uint128_t const mstl::bitfield<uint128_t>::m_one(1u);
+
+__attribute__((init_priority(101)))
 uint128_t const mstl::bitfield<uint128_t>::m_inverse(~uint64_t(0), ~uint64_t(0));
 
 #endif // __WORDSIZE == 32

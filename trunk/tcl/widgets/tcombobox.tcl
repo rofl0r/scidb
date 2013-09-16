@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 609 $
-# Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+# Version: $Revision: 938 $
+# Date   : $Date: 2013-09-16 21:44:49 +0000 (Mon, 16 Sep 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -297,8 +297,13 @@ proc WidgetProc {w command args} {
 				error "value for \"[lindex $args end]\" missing"
 			}
 			array set opts $args
-			if {[info exists opts(-background)]} {
+			if {[info exists opts(-state)] && $opts(-state) eq "disabled"} {
+				set bg [::ttk::style lookup $::ttk::currentTheme -background]
+				$w.__image__ configure -background $bg
+			} elseif {[info exists opts(-background)]} {
 				$w.__image__ configure -background $opts(-background)
+			} elseif {[info exists opts(-state)]} {
+				$w.__image__ configure -background [$w.__combobox__ cget -background]
 			}
 			foreach opt {-maxwidth -minwidth -width -height} {
 				if {[info exists opts($opt)]} {

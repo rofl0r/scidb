@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 872 $
-// Date   : $Date: 2013-07-04 13:07:56 +0000 (Thu, 04 Jul 2013) $
+// Version: $Revision: 938 $
+// Date   : $Date: 2013-09-16 21:44:49 +0000 (Mon, 16 Sep 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -385,18 +385,14 @@ Codec::encoding() const
 }
 
 
-void
-Codec::filterTags(TagSet& tags, Section section) const
+db::tag::TagSet
+Codec::tagFilter(Section section, TagSet const& tags) const
 {
 	tag::TagSet infoTags = Encoder::infoTags();
 
 	infoTags.set(tag::EventDate);
 
-	if (section == InfoTags)
-	{
-		infoTags.flip(0, tag::LastTag);
-	}
-	else if (tags.contains(tag::Date) && tags.contains(tag::EventDate))
+	if (section == GameTags && tags.contains(tag::Date) && tags.contains(tag::EventDate))
 	{
 		unsigned dy = Date(tags.value(tag::Date)).year();
 		unsigned ey = Date(tags.value(tag::EventDate)).year();
@@ -405,7 +401,7 @@ Codec::filterTags(TagSet& tags, Section section) const
 			infoTags.reset(tag::EventDate);
 	}
 
-	tags.remove(infoTags);
+	return infoTags;
 }
 
 

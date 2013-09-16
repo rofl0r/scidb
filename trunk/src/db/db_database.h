@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 880 $
-// Date   : $Date: 2013-07-08 21:37:41 +0000 (Mon, 08 Jul 2013) $
+// Version: $Revision: 938 $
+// Date   : $Date: 2013-09-16 21:44:49 +0000 (Mon, 16 Sep 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -346,6 +346,7 @@ private:
 	/// Read the given gzipped PGN file
 	bool open(mstl::string const& name, mstl::fstream& stream);
 
+	void getTags(unsigned index, TagSet& tags, bool invert) const;
 	void setEncodingFailed(bool flag) const;
 	load::State loadGame(unsigned index, Game& game, mstl::string* encoding, mstl::string const* fen);
 

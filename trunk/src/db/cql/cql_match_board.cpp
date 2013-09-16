@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 819 $
-// Date   : $Date: 2013-06-03 22:58:13 +0000 (Mon, 03 Jun 2013) $
+// Version: $Revision: 938 $
+// Date   : $Date: 2013-09-16 21:44:49 +0000 (Mon, 16 Sep 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -148,7 +148,7 @@ struct RayHorizontal
 	}
 
 	Board const&	m_board;
-	List const&			m_designators;
+	List const&		m_designators;
 };
 
 
@@ -251,7 +251,7 @@ struct RayVertical
 	}
 
 	Board const&	m_board;
-	List const&			m_designators;
+	List const&		m_designators;
 };
 
 
@@ -351,7 +351,7 @@ struct RayDiagonal
 	}
 
 	Board const&	m_board;
-	List const&			m_designators;
+	List const&		m_designators;
 };
 
 } // namespace bits
