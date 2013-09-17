@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 933 $
-// Date   : $Date: 2013-09-10 20:25:18 +0000 (Tue, 10 Sep 2013) $
+// Version: $Revision: 941 $
+// Date   : $Date: 2013-09-17 22:43:22 +0000 (Tue, 17 Sep 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2771,9 +2771,24 @@ Application::compact(Cursor& cursor, util::Progress& progress)
 {
 	Database const& database = cursor.base();
 	mstl::bitset map(database.countGames());
+	mstl::vector<unsigned> deleted;
 
 	for (unsigned i = 0; i < map.size(); ++i)
 		map.put(i, !database.isDeleted(i));
+
+	for (GameMap::iterator i = m_gameMap.begin(); i != m_gameMap.end(); ++i)
+	{
+		EditGame& g = *i->second;
+
+		if (g.sink.cursor == &cursor)
+		{
+			if (cursor.base().isDeleted(g.sink.index))
+			{
+				moveGameToScratchbase(*i, true);
+				deleted.push_back(i->first);
+			}
+		}
+	}
 
 	bool rc = cursor.compact(progress);
 
@@ -2791,10 +2806,6 @@ Application::compact(Cursor& cursor, util::Progress& progress)
 
 					if (g.link.databaseName == cursor.name())
 						g.link.index = g.sink.index;
-				}
-				else
-				{
-					moveGameToScratchbase(*i, true);
 				}
 
 				if (m_subscriber)
@@ -2815,6 +2826,14 @@ Application::compact(Cursor& cursor, util::Progress& progress)
 				if (m_subscriber)
 					m_subscriber->updateGameInfo(i->first);
 			}
+		}
+
+		if (m_subscriber)
+		{
+			for (unsigned i = 0; i < deleted.size(); ++i)
+				m_subscriber->updateGameInfo(deleted[i]);
+
+			m_subscriber->updateList(m_updateCount++, cursor.name(), cursor.variant());
 		}
 	}
 

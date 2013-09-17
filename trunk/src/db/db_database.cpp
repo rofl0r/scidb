@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 938 $
-// Date   : $Date: 2013-09-16 21:44:49 +0000 (Mon, 16 Sep 2013) $
+// Version: $Revision: 941 $
+// Date   : $Date: 2013-09-17 22:43:22 +0000 (Tue, 17 Sep 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -122,6 +122,7 @@ Database::Database(Database const& db, mstl::string const& name)
 	try
 	{
 		m_codec->open(this, m_encoding);
+		m_namebases.setModified(true);
 		::sys::file::changed(m_name, m_fileTime);
 	}
 	catch (mstl::ios_base::failure const& exc)
@@ -429,7 +430,7 @@ Database::save(util::Progress& progress)
 	M_REQUIRE(isMemoryOnly() || isWritable());
 	M_REQUIRE(!usingAsyncReader());
 
-	if (m_size == m_gameInfoList.size())
+	if (!m_namebases.isModified() && m_size == m_gameInfoList.size())
 		return;
 
 	unsigned start = m_size;
