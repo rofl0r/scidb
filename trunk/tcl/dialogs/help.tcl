@@ -1,7 +1,7 @@
 ## ======================================================================
 # Author : $Author$
-# Version: $Revision: 924 $
-# Date   : $Date: 2013-08-08 15:00:04 +0000 (Thu, 08 Aug 2013) $
+# Version: $Revision: 940 $
+# Date   : $Date: 2013-09-17 21:18:30 +0000 (Tue, 17 Sep 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1985,8 +1985,8 @@ proc Parse {file {wantedFile {}} {match {}} {position {}}} {
 					-overrelief raised \
 					-variable [namespace current]::Options(piecelang) \
 					-value $opts(piecelang) \
-					 -text "$opts(text) " \
-					 -command [namespace current]::RefreshPieceLetters \
+					-text "$opts(text) " \
+					-command [namespace current]::RefreshPieceLetters \
 				]
 			}
 			append newcontent "htmlwidget='$btn'"

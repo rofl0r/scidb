@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 889 $
-# Date   : $Date: 2013-07-11 18:29:31 +0000 (Thu, 11 Jul 2013) $
+# Version: $Revision: 940 $
+# Date   : $Date: 2013-09-17 21:18:30 +0000 (Tue, 17 Sep 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -80,7 +80,8 @@ proc Build {w args} {
 	bind $w.m <Enter> [namespace code [list EnterArrow $w]]
 	bind $w.m <Leave> [namespace code [list LeaveArrow $w]]
 	bind $w.m <<MenuWillPost>> [namespace code [list BuildMenu $w]]
-	bind $w.m <<MenuWillUnpost>> [namespace code [list ReleaseMenu $w]]
+	bind $w.m <<MenuWillUnpost>> [namespace code [list ReleaseMenu $w 0]]
+	bind $w.m <<MenuAlreadyPosted>> [namespace code [list ReleaseMenu $w 1]]
 
 	grid $w.b -row 0 -column 0 -sticky ns
 	grid $w.m -row 0 -column 1 -sticky ns
@@ -280,8 +281,10 @@ proc BuildMenu {w} {
 }
 
 
-proc ReleaseMenu {w} {
+proc ReleaseMenu {w unpost} {
 	variable ${w}::Priv
+
+	if {$unpost} { ::tk::MenuUnpost $w.m.__dropdownbutton__ }
 
 	$w.m configure \
 		-background $Priv(arrowbackground) \

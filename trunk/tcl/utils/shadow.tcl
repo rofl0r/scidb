@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 609 $
-# Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+# Version: $Revision: 940 $
+# Date   : $Date: 2013-09-17 21:18:30 +0000 (Tue, 17 Sep 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -198,6 +198,7 @@ proc grab {args} {
 	# therefore we will kill all shadows as soon as
 	# a grab is released.
 	if {[lindex $args 0] eq "release"} { shadow::kill }
+	if {[llength $args] == 2 && ![winfo exists [lindex $args 1]]} { return }
 
 	return [__grab__shadow {*}$args]
 }

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 609 $
-# Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+# Version: $Revision: 940 $
+# Date   : $Date: 2013-09-17 21:18:30 +0000 (Tue, 17 Sep 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -161,6 +161,7 @@ proc WidgetProc {w command args} {
 
 
 proc Select {w key sym var} {
+	if {[winfo class $w] ne "TTCombobox"} { return }
 	if {[$w popdown?]} { return }
 	if {![info exists [winfo parent $w]::Ratings]} { return }
 

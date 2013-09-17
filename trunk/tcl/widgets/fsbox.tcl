@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 932 $
-# Date   : $Date: 2013-09-09 15:39:37 +0000 (Mon, 09 Sep 2013) $
+# Version: $Revision: 940 $
+# Date   : $Date: 2013-09-17 21:18:30 +0000 (Tue, 17 Sep 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -3909,7 +3909,7 @@ proc FilterFiles {w files} {
 	set filelist {}
 
 	# NOTE: we don't want -dictionary
-	foreach entry [[namespace parent]::mySort -nocase -unique -index 0 $files] {
+	foreach entry [[namespace parent]::mySort -nocase -index 0 $files] {
 		set match 0
 
 		if {[llength $Vars(extensions)] == 0} {

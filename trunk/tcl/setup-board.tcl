@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 935 $
-# Date   : $Date: 2013-09-14 22:36:13 +0000 (Sat, 14 Sep 2013) $
+# Version: $Revision: 940 $
+# Date   : $Date: 2013-09-17 21:18:30 +0000 (Tue, 17 Sep 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -605,7 +605,9 @@ proc open {parent} {
 
 		set Vars(widget:checks:w) $checks.valw
 		set Vars(widget:checks:b) $checks.valb
-	} else {
+	}
+
+	if {![info exists Vars(checks:w)]} {
 		set Vars(checks:w) 0
 		set Vars(checks:b) 0
 	}
