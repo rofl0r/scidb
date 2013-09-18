@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 937 $
-# Date   : $Date: 2013-09-15 14:42:00 +0000 (Sun, 15 Sep 2013) $
+# Version: $Revision: 942 $
+# Date   : $Date: 2013-09-18 15:08:28 +0000 (Wed, 18 Sep 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -350,7 +350,7 @@ proc add {position base variant tags {at -1}} {
 	variable Vars
 
 	if {$at >= 0} {
-		::gamebar::insert $Vars(gamebar) $position $tags $at
+		::gamebar::insert $Vars(gamebar) $at $position $tags
 	} else {
 		::gamebar::add $Vars(gamebar) $position $tags
 	}

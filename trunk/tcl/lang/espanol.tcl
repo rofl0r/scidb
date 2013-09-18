@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 938 $
-# Date   : $Date: 2013-09-16 21:44:49 +0000 (Mon, 16 Sep 2013) $
+# Version: $Revision: 942 $
+# Date   : $Date: 2013-09-18 15:08:28 +0000 (Wed, 18 Sep 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -495,6 +495,8 @@
 ::application::database::mc::FileIsNotWritable				"File '%s' is not writeable. Please use the export dialog if you like to save this database, or set this file writeable." ;# NEW
 ::application::database::mc::OverwriteOriginalFile			"Important note: The original file '%s' will be overwritten." ;# NEW
 ::application::database::mc::SetupPgnOptions					"Probably the PGN options should be set before saving." ;# NEW
+::application::database::mc::CloseAllDeletedGames			"Close all deleted games of database '%s'?" ;# NEW
+::application::database::mc::CannotCompactDatabase			"Cannot compact database because the following games belonging to this database are modified:" ;# NEW
 
 ::application::database::mc::RecodingDatabase				"Recodificar %base de %from a %to"
 ::application::database::mc::RecodedGames						"%s partida(s) recodificadas"
