@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 941 $
-// Date   : $Date: 2013-09-17 22:43:22 +0000 (Tue, 17 Sep 2013) $
+// Version: $Revision: 944 $
+// Date   : $Date: 2013-09-19 13:01:48 +0000 (Thu, 19 Sep 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -189,7 +189,6 @@ Database::Database(	mstl::string const& name,
 
 	m_memoryOnly = storage == storage::MemoryOnly;
 	m_temporary = false;
-	m_created = sys::time::time();
 	m_readOnly = m_temporary;
 
 	switch (m_codec->format())
@@ -294,7 +293,6 @@ Database::Database(mstl::string const& name, Producer& producer, util::Progress&
 {
 	// NOTE: we assume normalized (unique) file names.
 
-	m_created = sys::time::time();
 	m_codec = DatabaseCodec::makeCodec(name, DatabaseCodec::Existing);
 	M_ASSERT(m_codec->isWritable());
 

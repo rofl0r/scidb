@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 855 $
-// Date   : $Date: 2013-06-24 21:01:19 +0000 (Mon, 24 Jun 2013) $
+// Version: $Revision: 944 $
+// Date   : $Date: 2013-09-19 13:01:48 +0000 (Thu, 19 Sep 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -60,7 +60,6 @@ inline TreeCache const& Database::treeCache() const		{ return m_treeCache; }
 inline TreeCache& Database::treeCache()						{ return m_treeCache; }
 inline Namebases& Database::namebases()						{ return m_namebases; }
 inline Time Database::created() const							{ return m_created; }
-inline uint32_t Database::creationTimestamp() const		{ return m_created; }
 inline unsigned Database::size() const							{ return m_size; }
 
 inline void Database::resetInitialSize()						{ resetInitialSize(m_size); }

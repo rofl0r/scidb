@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 859 $
-// Date   : $Date: 2013-06-26 21:13:52 +0000 (Wed, 26 Jun 2013) $
+// Version: $Revision: 944 $
+// Date   : $Date: 2013-09-19 13:01:48 +0000 (Thu, 19 Sep 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -744,7 +744,7 @@ Time
 DatabaseCodec::modified() const
 {
 	uint32_t time;
-	sys::file::changed(m_db->m_rootname + "." + extension(), time);
+	sys::file::changed(m_db->m_rootname + "." + m_db->m_suffix, time);
 	return Time(time);
 }
 

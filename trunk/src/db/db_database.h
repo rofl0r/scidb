@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 938 $
-// Date   : $Date: 2013-09-16 21:44:49 +0000 (Mon, 16 Sep 2013) $
+// Version: $Revision: 944 $
+// Date   : $Date: 2013-09-19 13:01:48 +0000 (Thu, 19 Sep 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -167,8 +167,6 @@ public:
 	Time modified() const;
 	/// Returns time of creation.
 	Time created() const;
-	/// Return timestamp of creation.
-	uint32_t creationTimestamp() const;
 	/// Returns statistic of database
 	Statistic const& statistic() const;
 	/// Returh maximal length of description.
