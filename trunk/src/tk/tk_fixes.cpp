@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 671 $
-// Date   : $Date: 2013-03-13 09:49:26 +0000 (Wed, 13 Mar 2013) $
+// Version: $Revision: 949 $
+// Date   : $Date: 2013-09-25 22:13:20 +0000 (Wed, 25 Sep 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -25,7 +25,7 @@
 
 #ifndef DISCARD_TK_FIXES
 
-//#define FIX_TK_POINTER_EVENTS
+#define FIX_TK_POINTER_EVENTS
 #define FIX_TK_GRAB_STATE
 
 
@@ -291,6 +291,10 @@ TkPointerEvent(
 	if (dispPtr->grabWinPtr != NULL) {
 	    if (outsideGrabTree && appGrabbed) {
 		if (!ancestorOfGrab) {
+		    /* FIX: Allow menu buttons events */
+		    const char* cls = (const char*)Tk_Class(winPtr);
+		    if (cls == NULL || ::strcmp((char*)Tk_Class(winPtr), "Menubutton"))
+		    /* FIX end */
 		    return 0;
 		}
 		switch (eventPtr->xcrossing.detail) {

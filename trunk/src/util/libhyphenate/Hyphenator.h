@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 949 $
+// Date   : $Date: 2013-09-25 22:13:20 +0000 (Wed, 25 Sep 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -56,13 +56,13 @@ namespace hyphenate
 
 		struct String
 		{
-			mstl::string s;
+			mstl::string m_s;
 
 			String() {}
-			String(mstl::string const& t) :s(t) {}
+			String(mstl::string const& s) :m_s(s) {}
 
-			char const* begin() const	{ return s.begin(); }
-			char const* end() const		{ return s.end(); }
+			char const* begin() const	{ return m_s.begin(); }
+			char const* end() const		{ return m_s.end(); }
 		};
 
 		typedef mstl::set<String> Lookup;
@@ -73,6 +73,7 @@ namespace hyphenate
 
 		mstl::auto_ptr<HyphenationTree> m_dictionary;
 		mstl::auto_ptr<Lookup> m_lookup;
+		bool m_is_german;
 
 		result hyphenate_word(mstl::string const& word, mstl::string const& hyphen);
 		void try_to_load(rfc_3066::Language const& lang, mstl::string const& path);
@@ -105,6 +106,7 @@ namespace hyphenate
 		/// Return whether a pattern directory was found.
 		bool has_dictionary() const	{ return m_dictionary; }
 		bool has_lookup() const			{ return m_lookup; }
+		bool is_german() const			{ return m_is_german; }
 
 		// Dump the content.
 		void dump_dictionary(mstl::ostream& strm) const;

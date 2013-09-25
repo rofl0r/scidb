@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 934 $
-// Date   : $Date: 2013-09-12 12:43:56 +0000 (Thu, 12 Sep 2013) $
+// Version: $Revision: 949 $
+// Date   : $Date: 2013-09-25 22:13:20 +0000 (Wed, 25 Sep 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -108,7 +108,7 @@ static unsigned cacheCount = 0;
 inline bool
 isMark(char c)
 {
-	static char const* Marks = "-_.!~*'()";
+	static char const* Marks = "-_.!~*'():";
 	return bool(strchr(Marks, c));
 }
 
@@ -1348,14 +1348,18 @@ cmdUrlEscape(ClientData clientData, Tcl_Interp* ti, int objc, Tcl_Obj* const obj
 	char const* e = p + ::strlen(p);
 
 	mstl::string url;
-	char pathDelim = sys::file::pathDelim();
 
 	while (p < e)
 	{
 		uchar code;
 		char const* q = sys::utf8::nextChar(p, code);
 
-		if (code > 127 || !(isprint(code) || isMark(code) || code == pathDelim))
+		if (code < 128 && (isalnum(code) || isMark(code) || code == '/'))
+		{
+			url += char(code);
+			p = q;
+		}
+		else
 		{
 			for ( ; p < q; ++p)
 			{
@@ -1363,11 +1367,6 @@ cmdUrlEscape(ClientData clientData, Tcl_Interp* ti, int objc, Tcl_Obj* const obj
 				url += valToXDigit(byte(*p & 0xf0) >> 4);
 				url += valToXDigit(byte(*p) & 0x0f);
 			}
-		}
-		else
-		{
-			url += char(code);
-			p = q;
 		}
 	}
 

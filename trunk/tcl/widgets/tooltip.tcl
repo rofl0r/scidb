@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 609 $
-# Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+# Version: $Revision: 949 $
+# Date   : $Date: 2013-09-25 22:13:20 +0000 (Wed, 25 Sep 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -229,6 +229,7 @@ proc init {} {
 proc background	{} { return [set [namespace current]::G(background)] }
 proc delay			{} { return [set [namespace current]::G(delay)] }
 proc enabled		{} { return [set [namespace current]::G(enabled)] }
+proc disabled		{} { return [expr {![set [namespace current]::G(enabled)]}] }
 proc font			{} { return [set [namespace current]::G(font)] }
 
 

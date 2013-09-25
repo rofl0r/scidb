@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 942 $
-# Date   : $Date: 2013-09-18 15:08:28 +0000 (Wed, 18 Sep 2013) $
+# Version: $Revision: 949 $
+# Date   : $Date: 2013-09-25 22:13:20 +0000 (Wed, 25 Sep 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1806,7 +1806,7 @@
 ::dialog::save::mc::Event							"Tävling"
 
 ::dialog::save::mc::MatchesExtraTags			"Matcher / Extra Taggar"
-::dialog::save::mc::PressToSelect				"Tryck Ctrl+0 till Ctrl+9 (eller vänster musknapp) för att välja"
+::dialog::save::mc::PressToSelect				"Tryck Ctrl-0 till Ctrl-9 (eller vänster musknapp) för att välja"
 ::dialog::save::mc::PressForWhole				"Tryck Alt-0 till Alt-9 (eller mellersta musknappen) för helt dataset"
 ::dialog::save::mc::EditTags						"Bearbeta taggar"
 ::dialog::save::mc::RemoveThisTag				"Radera tag '%s'?"

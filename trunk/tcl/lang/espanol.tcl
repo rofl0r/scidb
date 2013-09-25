@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 942 $
-# Date   : $Date: 2013-09-18 15:08:28 +0000 (Wed, 18 Sep 2013) $
+# Version: $Revision: 949 $
+# Date   : $Date: 2013-09-25 22:13:20 +0000 (Wed, 25 Sep 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1803,7 +1803,7 @@
 ::dialog::save::mc::Event							"Evento"
 
 ::dialog::save::mc::MatchesExtraTags			"Etiquetas iguales / Extra Etiquetas"
-::dialog::save::mc::PressToSelect				"Presione Ctrl+0 a Ctrl+9 (o el botón izquierdo del ratón) para seleccionar"
+::dialog::save::mc::PressToSelect				"Presione Ctrl-0 a Ctrl-9 (o el botón izquierdo del ratón) para seleccionar"
 ::dialog::save::mc::PressForWhole				"Presione Alt-0 a Alt-9 (o el botón medio del ratón) para grupo de datos completo"
 ::dialog::save::mc::EditTags						"Editar etiquetas"
 ::dialog::save::mc::RemoveThisTag				"Eliminar etiqueta '%s'?"

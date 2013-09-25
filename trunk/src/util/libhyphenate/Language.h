@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 949 $
+// Date   : $Date: 2013-09-25 22:13:20 +0000 (Wed, 25 Sep 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -46,7 +46,7 @@ namespace rfc_3066
 
 		// This is a list of the components, all in lowercase; for example,
 		// for de-AT the list would have the two elements "de" and "at".
-		mstl::list<mstl::string> components;
+		mstl::list<mstl::string> m_components;
 
 	public:
 
@@ -59,6 +59,9 @@ namespace rfc_3066
 
 		/// Re-string to a RFC-3066-compliant string.
 		operator mstl::string() const;
+
+		/// Check whether it's the German language (may use eszet)
+		bool is_german() const;
 
 		/// Concat only the first 'elements' elements of the language 
 		/// identifier and seperate them with the separator.

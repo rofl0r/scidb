@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 887 $
-# Date   : $Date: 2013-07-10 20:36:15 +0000 (Wed, 10 Jul 2013) $
+# Version: $Revision: 949 $
+# Date   : $Date: 2013-09-25 22:13:20 +0000 (Wed, 25 Sep 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -255,6 +255,7 @@ proc BuildContributionsFrame {w} {
 	}
 
 	::html $w.t \
+		-background lightgoldenrod \
 		-imagecmd [namespace code GetImage] \
 		-center yes \
 		-fittowidth yes \

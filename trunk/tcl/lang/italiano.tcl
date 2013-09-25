@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 942 $
-# Date   : $Date: 2013-09-18 15:08:28 +0000 (Wed, 18 Sep 2013) $
+# Version: $Revision: 949 $
+# Date   : $Date: 2013-09-25 22:13:20 +0000 (Wed, 25 Sep 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1808,7 +1808,7 @@
 ::dialog::save::mc::Event							"Evento"
 
 ::dialog::save::mc::MatchesExtraTags			"Concordanze Tag / Estranee"
-::dialog::save::mc::PressToSelect				"Premi da Ctrl+0 a Ctrl+9 (o tasto sinistro del mouse) per selezionare"
+::dialog::save::mc::PressToSelect				"Premi da Ctrl-0 a Ctrl-9 (o tasto sinistro del mouse) per selezionare"
 ::dialog::save::mc::PressForWhole				"Premi da Alt-0 a Alt-9 (o tasto centrale del mouse) per l'intera selezione dati"
 ::dialog::save::mc::EditTags						"Modifica Tag"
 ::dialog::save::mc::RemoveThisTag				"Eliminare tag '%s'?"

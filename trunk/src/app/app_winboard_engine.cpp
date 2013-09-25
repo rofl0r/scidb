@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 914 $
-// Date   : $Date: 2013-07-31 21:04:12 +0000 (Wed, 31 Jul 2013) $
+// Version: $Revision: 949 $
+// Date   : $Date: 2013-09-25 22:13:20 +0000 (Wed, 25 Sep 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -592,7 +592,7 @@ winboard::Engine::sendStartAnalysis()
 	}
 	else if (searchTime())
 	{
-		send("time " + ::toStr((searchTime() + 5)/10));
+		send("time " + ::toStr((searchTime() + 9)/10));
 	}
 	else if (hasFeature(app::Engine::Feature_Analyze))
 	{

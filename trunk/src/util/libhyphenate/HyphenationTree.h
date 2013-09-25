@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 949 $
+// Date   : $Date: 2013-09-25 22:13:20 +0000 (Wed, 25 Sep 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -52,8 +52,8 @@ namespace hyphenate
 
 		class HyphenationNode;
 
-		HyphenationNode* root;
-		unsigned start_safe, end_safe;
+		HyphenationNode* m_root;
+		unsigned m_start_safe, m_end_safe;
 
 	public:
 

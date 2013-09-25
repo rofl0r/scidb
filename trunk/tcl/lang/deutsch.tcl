@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 942 $
-# Date   : $Date: 2013-09-18 15:08:28 +0000 (Wed, 18 Sep 2013) $
+# Version: $Revision: 949 $
+# Date   : $Date: 2013-09-25 22:13:20 +0000 (Wed, 25 Sep 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1798,7 +1798,7 @@
 ::dialog::save::mc::Event							"Turnier"
 
 ::dialog::save::mc::MatchesExtraTags			"Entsprechungen / Zusätzliche Tags"
-::dialog::save::mc::PressToSelect				"Drücke Strg+0 bis Strg+9 zur Auswahl (oder linker Mausklick)"
+::dialog::save::mc::PressToSelect				"Drücke Strg-0 bis Strg-9 zur Auswahl (oder linker Mausklick)"
 ::dialog::save::mc::PressForWhole				"Drücke Alt-0 bis Alt-9 für ganzen Datensatz (oder mittlerer Mausklick)"
 ::dialog::save::mc::EditTags						"Tags bearbeiten"
 ::dialog::save::mc::RemoveThisTag				"Tag '%s' entfernen?"

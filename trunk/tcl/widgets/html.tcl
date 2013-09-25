@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 872 $
-# Date   : $Date: 2013-07-04 13:07:56 +0000 (Thu, 04 Jul 2013) $
+# Version: $Revision: 949 $
+# Date   : $Date: 2013-09-25 22:13:20 +0000 (Wed, 25 Sep 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -62,10 +62,10 @@ proc hyphenate {lang content} {
 			if {[string length $dictFilenames]} { append dictFilenames ";" }
 			append dictFilenames $filename
 		}
-		if {$lang eq "de"} {
-			# we cannot hyphenate "ß" properly
-			set content [string map {"ß" "ss"} $content]
-		}
+#		if {$lang eq "de"} {
+#			# don't use German eszet:
+#			set content [string map {"ß" "ss"} $content]
+#		}
 		set content [::scidb::misc::html hyphenate $patternFilename $dictFilenames $content]
 	}
 
@@ -152,7 +152,7 @@ proc Build {w args} {
 	array set opts {
 		-width				800
 		-height				600
-		-background			white
+		-background			{}
 		-borderwidth		{}
 		-relief				{}
 		-exportselection	no
@@ -174,6 +174,14 @@ proc Build {w args} {
 	}
 
 	array set opts $args
+
+	if {[llength $opts(-background)] == 0} {
+		set opts(-background) white
+	} else { 
+		set script "html { background: $opts(-background); }\n"
+		append script $opts(-css)
+		set opts(-css) $script
+	}
 
 	set options {}
 	set htmlOptions {}

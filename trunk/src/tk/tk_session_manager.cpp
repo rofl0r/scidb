@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 814 $
-// Date   : $Date: 2013-05-31 23:15:11 +0000 (Fri, 31 May 2013) $
+// Version: $Revision: 949 $
+// Date   : $Date: 2013-09-25 22:13:20 +0000 (Wed, 25 Sep 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -308,7 +308,7 @@ callbackSaveYourself(SmcConn smcConn,
 							int saveStyle,
 							Bool shutdown,
 							int interactStyle,
-							Bool fast) // ignored, no one is using this flag
+							Bool fast __attribute((unused))) // ignored, no one is using this flag
 {
 	if (m_setProps)
 	{

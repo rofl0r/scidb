@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 851 $
-// Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
+// Version: $Revision: 949 $
+// Date   : $Date: 2013-09-25 22:13:20 +0000 (Wed, 25 Sep 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1575,7 +1575,7 @@ Decoder::searchForPosition(Board const& position, bool skipVariations)
 					{
 						m_position.push();
 						m_position.board().undoMove(move, m_variant);
-						move = findExactPosition(position, false);
+						move = searchForPosition(position, false);
 						m_position.pop();
 
 						if (move)

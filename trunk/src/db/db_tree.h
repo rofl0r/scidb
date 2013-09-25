@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 949 $
+// Date   : $Date: 2013-09-25 22:13:20 +0000 (Wed, 25 Sep 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -103,6 +103,7 @@ public:
 	Database& database() const;
 	Filter const& filter() const;
 	unsigned countGames() const;
+	unsigned prevGameCount() const;
 #ifndef NDEBUG
 	unsigned numGamesParsed() const;
 #endif
@@ -217,6 +218,7 @@ private:
 	Key				m_key;
 	unsigned			m_index;
 	unsigned			m_last;
+	unsigned			m_prevGameCount;
 	bool				m_complete;
 	InfoList			m_infoList;
 	TreeInfo			m_total;

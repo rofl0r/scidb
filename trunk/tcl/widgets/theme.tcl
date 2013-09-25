@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 924 $
-# Date   : $Date: 2013-08-08 15:00:04 +0000 (Thu, 08 Aug 2013) $
+# Version: $Revision: 949 $
+# Date   : $Date: 2013-09-25 22:13:20 +0000 (Wed, 25 Sep 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -826,6 +826,7 @@ bind Button <Map> {
 # well if it is called twice (this may happen under some circumstances).
 
 rename tk::ButtonEnter tk::ButtonEnter_theme_orig_
+rename tk::MbEnter     tk::MbEnter_theme_orig_
 rename ttk::entry::CharSelect ttk::entry::CharSelect_theme_orig_
 rename ttk::entry::WordSelect ttk::entry::WordSelect_theme_orig_
 rename ttk::entry::LineSelect ttk::entry::LineSelect_theme_orig_

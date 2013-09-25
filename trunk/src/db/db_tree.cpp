@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 844 $
-// Date   : $Date: 2013-06-16 21:24:29 +0000 (Sun, 16 Jun 2013) $
+// Version: $Revision: 949 $
+// Date   : $Date: 2013-09-25 22:13:20 +0000 (Wed, 25 Sep 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -646,6 +646,7 @@ Tree::makeTree(TreeP tree,
 		}
 
 		progress.update(tree->m_index);
+		tree->m_prevGameCount = tree->m_filter.size();
 	}
 	else
 	{
@@ -654,6 +655,7 @@ Tree::makeTree(TreeP tree,
 		tree->m_key.set(mode, ratingType, myPosition.hash(), myPosition.exactZHPosition());
 		tree->m_index = 0;
 		tree->m_last = mstl::numeric_limits<unsigned>::max();
+		tree->m_prevGameCount = 0;
 		tree->m_complete = false;
 		tree->m_base = &base;
 		tree->m_variant = base.variant();
