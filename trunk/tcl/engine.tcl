@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 935 $
-# Date   : $Date: 2013-09-14 22:36:13 +0000 (Sat, 14 Sep 2013) $
+# Version: $Revision: 951 $
+# Date   : $Date: 2013-09-25 22:45:13 +0000 (Wed, 25 Sep 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -776,8 +776,7 @@ proc showEngineDictionary {parent} {
 	FillHeader $lb
 
 	if {![info exists Priv(engines)]} {
-		# XXX something is broken in sorting routine (-decreasing is wrong!)
-		set engines [::scidb::misc::sort -decreasing -dictionary -nopunct -unique [::scidb::engine::list]]
+		set engines [::scidb::misc::sort -dictionary -nopunct -unique [::scidb::engine::list]]
 		set Priv(engines) {}
 
 		foreach name $engines {
