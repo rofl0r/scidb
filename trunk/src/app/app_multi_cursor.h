@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 906 $
-// Date   : $Date: 2013-07-22 20:44:36 +0000 (Mon, 22 Jul 2013) $
+// Version: $Revision: 957 $
+// Date   : $Date: 2013-09-30 15:11:24 +0000 (Mon, 30 Sep 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -102,6 +102,8 @@ public:
 	void setClipbase();
 	/// Mark this database as a scratchbase.
 	void setScratchbase();
+	/// Change readonly flag.
+	bool setReadonly(bool flag);
 	/// Close all databases.
 	void close();
 	/// Change the variant; requires an empty database.

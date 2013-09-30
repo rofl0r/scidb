@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 957 $
+// Date   : $Date: 2013-09-30 15:11:24 +0000 (Mon, 30 Sep 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -37,6 +37,8 @@ inline bool Cursor::hasTreeView() const			{ return m_treeView != -1; }
 inline int Cursor::treeViewIdentifier() const			{ return m_treeView; }
 inline unsigned Cursor::maxViewNumber() const			{ return m_viewList.size() - 1; }
 inline Cursor::SubscriberP Cursor::subscriber() const	{ return m_subscriber; }
+inline MultiCursor const& Cursor::multiCursor() const	{ return m_cursor; }
+inline MultiCursor& Cursor::multiCursor()					{ return m_cursor; }
 
 inline void Cursor::setReferenceBase(bool flag)	{ m_isRefBase = flag; }
 inline void Cursor::setActive(bool flag)			{ m_isActive = flag; }

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 925 $
-// Date   : $Date: 2013-08-17 08:31:10 +0000 (Sat, 17 Aug 2013) $
+// Version: $Revision: 957 $
+// Date   : $Date: 2013-09-30 15:11:24 +0000 (Mon, 30 Sep 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -228,6 +228,13 @@ MultiCursor::countGames() const
 {
 	M_REQUIRE(isOpen());
 	return m_base->countGames();
+}
+
+
+bool
+MultiCursor::setReadonly(bool flag)
+{
+	return m_leader->base().setReadonly(flag);
 }
 
 

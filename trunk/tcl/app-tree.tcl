@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 924 $
-# Date   : $Date: 2013-08-08 15:00:04 +0000 (Thu, 08 Aug 2013) $
+# Version: $Revision: 957 $
+# Date   : $Date: 2013-09-30 15:11:24 +0000 (Mon, 30 Sep 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1513,7 +1513,6 @@ proc PopupMenu {table x y} {
 		-compound left \
 		;
 	::theme::configureCheckEntry $m
-	$m add separator
 	$m add checkbutton \
 		-label $mc::LockReferenceBase \
 		-variable [namespace current]::Options(base:lock) \

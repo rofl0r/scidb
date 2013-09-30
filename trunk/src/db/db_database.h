@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 944 $
-// Date   : $Date: 2013-09-19 13:01:48 +0000 (Thu, 19 Sep 2013) $
+// Version: $Revision: 957 $
+// Date   : $Date: 2013-09-30 15:11:24 +0000 (Mon, 30 Sep 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -167,6 +167,8 @@ public:
 	Time modified() const;
 	/// Returns time of creation.
 	Time created() const;
+	/// Returns time of creation.
+	uint32_t creationTime() const;
 	/// Returns statistic of database
 	Statistic const& statistic() const;
 	/// Returh maximal length of description.
@@ -303,8 +305,8 @@ public:
 	void setType(Type type);
 	/// Set variant of database games.
 	void setVariant(variant::Type variant);
-	/// Set description of database.
-	void setupDescription(mstl::string const& description);
+	/// Set description (and creation time) of database.
+	void setupDescription(mstl::string const& description, uint32_t creationTime = 0);
 	/// Change description of database.
 	void updateDescription(mstl::string const& description);
 	/// Set/unset read-only flag.

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 949 $
-// Date   : $Date: 2013-09-25 22:13:20 +0000 (Wed, 25 Sep 2013) $
+// Version: $Revision: 957 $
+// Date   : $Date: 2013-09-30 15:11:24 +0000 (Mon, 30 Sep 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -106,9 +106,12 @@ static unsigned cacheCount = 0;
 
 
 inline bool
-isMark(char c)
+doNotEscape(char c)
 {
-	static char const* Marks = "-_.!~*'():";
+	if (isalnum(c))
+		return true;
+
+	static char const* Marks = "-_.!~*'():%/";
 	return bool(strchr(Marks, c));
 }
 
@@ -1354,7 +1357,7 @@ cmdUrlEscape(ClientData clientData, Tcl_Interp* ti, int objc, Tcl_Obj* const obj
 		uchar code;
 		char const* q = sys::utf8::nextChar(p, code);
 
-		if (code < 128 && (isalnum(code) || isMark(code) || code == '/'))
+		if (code < 128 && doNotEscape(code))
 		{
 			url += char(code);
 			p = q;

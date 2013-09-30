@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 925 $
-// Date   : $Date: 2013-08-17 08:31:10 +0000 (Sat, 17 Aug 2013) $
+// Version: $Revision: 957 $
+// Date   : $Date: 2013-09-30 15:11:24 +0000 (Mon, 30 Sep 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -236,6 +236,8 @@ public:
 	int getLastGameIndex(unsigned position = InvalidPosition) const;
 	int getRandomGameIndex(unsigned position = InvalidPosition) const;
 
+	MultiCursor& multiCursor();
+	MultiCursor const& multiCursor() const;
 	MultiCursor& multiCursor(mstl::string const& name);
 	MultiCursor const& multiCursor(mstl::string const& name) const;
 	db::MultiBase& multiBase(mstl::string const& name);
@@ -288,7 +290,7 @@ public:
 						unsigned index,
 						checksum_t crcIndex,
 						checksum_t crcMoves);
-	bool setReadonly(Cursor& cursor, bool flag);
+	bool setReadonly(MultiCursor& cursor, bool flag);
 	void setIsWriting(mstl::string const& name = mstl::string::empty_string);
 	db::save::State writeGame(	unsigned position,
 										mstl::string const& filename,

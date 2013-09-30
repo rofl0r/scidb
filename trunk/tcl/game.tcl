@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 942 $
-# Date   : $Date: 2013-09-18 15:08:28 +0000 (Wed, 18 Sep 2013) $
+# Version: $Revision: 957 $
+# Date   : $Date: 2013-09-30 15:11:24 +0000 (Mon, 30 Sep 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1068,7 +1068,7 @@ proc openGame {parent index} {
 	set rc 1
 	set parent [winfo toplevel $parent]
 
-	if {[::application::database::openBase $parent $base no -encoding $encoding]} {
+	if {[::application::database::openBase $parent $base no -encoding $encoding -variant $variant]} {
 		if {$variant ni [::scidb::db::get variants $base]} {
 			::dialog::warning -buttons {ok} -parent $parent -message $mc::VariantHasChanged
 			set rc 0

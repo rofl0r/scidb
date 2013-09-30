@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 949 $
-# Date   : $Date: 2013-09-25 22:13:20 +0000 (Wed, 25 Sep 2013) $
+# Version: $Revision: 957 $
+# Date   : $Date: 2013-09-30 15:11:24 +0000 (Mon, 30 Sep 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -313,7 +313,7 @@ proc ReleaseMenu {w unpost} {
 		-activebackground $Priv(arrowactivebackground) \
 		-image $Priv(arrow:icon:normal) \
 		;
-	if {[incr Locked -1] == 0} {
+	if {$Locked == 0 || [incr Locked -1] == 0} {
 		set Active ""
 		::tooltip::enable
 	}

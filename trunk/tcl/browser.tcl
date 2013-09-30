@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 937 $
-# Date   : $Date: 2013-09-15 14:42:00 +0000 (Sun, 15 Sep 2013) $
+# Version: $Revision: 957 $
+# Date   : $Date: 2013-09-30 15:11:24 +0000 (Mon, 30 Sep 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -451,7 +451,7 @@ proc refresh {{unused -1}} {
 
 	foreach position [array names Active] {
 		variable ${position}::Vars
-		::pgn::setup::setupStyle browser $pos
+		::pgn::setup::setupStyle browser $position
 		::pgn::setup::configureText $Vars(frame)
 		::scidb::game::refresh $position -immediate
 	}

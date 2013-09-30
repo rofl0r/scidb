@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 925 $
-# Date   : $Date: 2013-08-17 08:31:10 +0000 (Sat, 17 Aug 2013) $
+# Version: $Revision: 957 $
+# Date   : $Date: 2013-09-30 15:11:24 +0000 (Mon, 30 Sep 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1135,12 +1135,13 @@ proc Mouse3Down {dlg node} {
 			-command [namespace code [list Open $dlg pgn $gameIndex]] \
 			;
 		if {[::scidb::game::current] < 9} { set state normal } else { set state disabled }
+		variable ${dlg}::Vars
 		set secondary [list $Vars(base) $Vars(variant) $Vars(viewId) $gameIndex]
-		$menu add command \
+		$m add command \
 			-compound left \
 			-image $::icon::16x16::merge \
 			-label " $::browser::mc::MergeGame..." \
-			-command [list gamebar::mergeGame $path $secondary] \
+			-command [list gamebar::mergeGame $dlg $secondary] \
 			-state $state \
 		;
 	}

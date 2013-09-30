@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 880 $
-// Date   : $Date: 2013-07-08 21:37:41 +0000 (Mon, 08 Jul 2013) $
+// Version: $Revision: 957 $
+// Date   : $Date: 2013-09-30 15:11:24 +0000 (Mon, 30 Sep 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -85,6 +85,9 @@ public:
 
 	db::format::Type format() const;
 	db::variant::Type variant() const;
+
+	MultiCursor const& multiCursor() const;
+	MultiCursor& multiCursor();
 
 	/// Count number of loaded items.
 	unsigned count(db::table::Type type) const;

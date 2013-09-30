@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 942 $
-# Date   : $Date: 2013-09-18 15:08:28 +0000 (Wed, 18 Sep 2013) $
+# Version: $Revision: 957 $
+# Date   : $Date: 2013-09-30 15:11:24 +0000 (Mon, 30 Sep 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -572,6 +572,14 @@ proc openMarksPalette {{position -1} {key {}}} {
 
 proc scroll {args} {
 	::widget::textLineScroll [set [namespace current]::Vars(pgn:[::scidb::game::current])] scroll {*}$args
+}
+
+
+proc flipTrialMode {} {
+	variable Vars
+
+	set Vars(current:[::scidb::game::current]) ""
+	::game::flipTrialMode
 }
 
 
@@ -1189,7 +1197,7 @@ proc ProcessGoto {position w key succKey} {
 
 	if {$Vars(current:$position) ne $key} {
 		::scidb::game::variation unfold
-		foreach k $Vars(next:$position) {#
+		foreach k $Vars(next:$position) {
 			$w tag configure $k -background [::colors::lookup $Colors(background)] }
 		set Vars(next:$position) [::scidb::game::next keys $position]
 		if {$Vars(active:$position) eq $key} { $w configure -cursor {} }
@@ -2172,7 +2180,7 @@ proc PopupMenu {parent position} {
 			-label " $mc::StopTrialMode" \
 			-image $::icon::16x16::delete \
 			-compound left \
-			-command ::game::flipTrialMode \
+			-command [namespace code flipTrialMode] \
 			-accel "$::mc::Key(Ctrl)-[set [namespace parent]::board::mc::Accel(trial-mode)]" \
 			;
 		$menu add separator

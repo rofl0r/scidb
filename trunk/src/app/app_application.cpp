@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 941 $
-// Date   : $Date: 2013-09-17 22:43:22 +0000 (Tue, 17 Sep 2013) $
+// Version: $Revision: 957 $
+// Date   : $Date: 2013-09-30 15:11:24 +0000 (Mon, 30 Sep 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1012,16 +1012,16 @@ Application::setSource(	unsigned position,
 
 
 bool
-Application::setReadonly(Cursor& cursor, bool flag)
+Application::setReadonly(MultiCursor& cursor, bool flag)
 {
-	if (flag != cursor.base().isReadonly())
+	if (flag != cursor.isReadonly())
 	{
 		// flag=true: may fail if the modification time of the database has changed
-		if (!cursor.base().setReadonly(flag))
+		if (!cursor.setReadonly(flag))
 			return false;
 
 		if (m_subscriber)
-			m_subscriber->updateDatabaseInfo(cursor.name(), cursor.variant());
+			m_subscriber->updateDatabaseInfo(cursor.name(), cursor.cursor().variant());
 	}
 
 	return true;
@@ -2549,6 +2549,22 @@ Application::multiBase(mstl::string const& name) const
 {
 	M_REQUIRE(contains(name));
 	return m_cursorMap.find(name)->second->multiBase();
+}
+
+
+MultiCursor const&
+Application::multiCursor() const
+{
+	M_REQUIRE(haveCurrentBase());
+	return m_current->multiCursor();
+}
+
+
+MultiCursor&
+Application::multiCursor()
+{
+	M_REQUIRE(haveCurrentBase());
+	return m_current->multiCursor();
 }
 
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 925 $
-// Date   : $Date: 2013-08-17 08:31:10 +0000 (Sat, 17 Aug 2013) $
+// Version: $Revision: 957 $
+// Date   : $Date: 2013-09-30 15:11:24 +0000 (Mon, 30 Sep 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -629,6 +629,7 @@ cmdExport(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 	int n = v.exportGames(	sys::file::internalName(filename),
 									encoding,
 									db.description(),
+									0,
 									type,
 									flags,
 									excludeIllegal ? ::db::copy::ExcludeIllegal : ::db::copy::AllGames,

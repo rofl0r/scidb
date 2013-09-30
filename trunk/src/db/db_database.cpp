@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 944 $
-// Date   : $Date: 2013-09-19 13:01:48 +0000 (Thu, 19 Sep 2013) $
+// Version: $Revision: 957 $
+// Date   : $Date: 2013-09-30 15:11:24 +0000 (Mon, 30 Sep 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1651,15 +1651,18 @@ Database::updateDescription(mstl::string const& description)
 
 
 void
-Database::setupDescription(mstl::string const& description)
+Database::setupDescription(mstl::string const& description, uint32_t creationTime)
 {
 	M_REQUIRE(isOpen());
 	M_REQUIRE(isMemoryOnly() || !isReadonly());
 	M_REQUIRE(isMemoryOnly() || isWritable());
 
-	if (m_description != description)
+	if (m_description != description || (creationTime && m_created != creationTime))
 	{
 		m_description = description;
+
+		if (creationTime)
+			m_created = creationTime;
 
 		if (m_codec->maxDescriptionLength() < m_description.size())
 			m_description.set_size(m_codec->maxDescriptionLength());

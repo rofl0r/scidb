@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 949 $
-# Date   : $Date: 2013-09-25 22:13:20 +0000 (Wed, 25 Sep 2013) $
+# Version: $Revision: 957 $
+# Date   : $Date: 2013-09-30 15:11:24 +0000 (Mon, 30 Sep 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -326,7 +326,7 @@ proc build {w width height} {
 	set Vars(cmd:add-new-game)			[namespace code [list SaveGame add]]
 	set Vars(cmd:replace-game)			[namespace code [list SaveGame replace]]
 	set Vars(cmd:replace-moves)		[namespace code [list SaveGame moves]]
-	set Vars(cmd:trial-mode)			::game::flipTrialMode
+	set Vars(cmd:trial-mode)			[namespace parent]::pgn::flipTrialMode
 
 	LanguageChanged
 	BuildBoard $canv

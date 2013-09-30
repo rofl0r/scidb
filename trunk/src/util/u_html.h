@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 957 $
+// Date   : $Date: 2013-09-30 15:11:24 +0000 (Mon, 30 Sep 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -40,6 +40,7 @@ public:
 
 	unsigned countMatches() const;
 	unsigned matchPosition(unsigned i) const;
+
 	mstl::string const& title() const;
 
 	bool parse(char const* document, unsigned length, char const* search, unsigned searchLen);
