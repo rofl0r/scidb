@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 961 $
-# Date   : $Date: 2013-10-06 08:30:53 +0000 (Sun, 06 Oct 2013) $
+# Version: $Revision: 964 $
+# Date   : $Date: 2013-10-06 17:50:26 +0000 (Sun, 06 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -2041,6 +2041,7 @@
 ::help::mc::HideIndex			"Tárgymutató elrejtése"
 ::help::mc::ShowIndex			"Tárgymutató mutatása"
 ::help::mc::All				"All" ;# NEW
+::help::mc::DefaultFont			"Default font" ;# NEW
 
 ::help::mc::FileNotFound		"Fájl nem található."
 ::help::mc::CantFindFile		"Fájl nem található %s könyvtárban."

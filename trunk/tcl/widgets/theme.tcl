@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 949 $
-# Date   : $Date: 2013-09-25 22:13:20 +0000 (Wed, 25 Sep 2013) $
+# Version: $Revision: 964 $
+# Date   : $Date: 2013-10-06 17:50:26 +0000 (Sun, 06 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -609,7 +609,7 @@ option add *Listbox.selectForeground black
 option add *Panedwindow.sashWidth 4
 option add *Panedwindow.sashRelief raised
 
-option add *Menu.TearOff 0
+option add *Menu.tearOff 0
 option add *Menu.activeBackground #678db2
 #option add *Menu.activeBackground #437597
 option add *Menu.activeForeground white

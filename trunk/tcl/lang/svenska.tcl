@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 961 $
-# Date   : $Date: 2013-10-06 08:30:53 +0000 (Sun, 06 Oct 2013) $
+# Version: $Revision: 964 $
+# Date   : $Date: 2013-10-06 17:50:26 +0000 (Sun, 06 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -2041,6 +2041,7 @@
 ::help::mc::HideIndex				"Dölj index"
 ::help::mc::ShowIndex				"Visa index"
 ::help::mc::All						"Alla"
+::help::mc::DefaultFont				"Default font" ;# NEW
 
 ::help::mc::FileNotFound			"Hittar ej filen."
 ::help::mc::CantFindFile			"Kan inte hitta filen på %s."

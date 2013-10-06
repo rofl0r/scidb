@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 961 $
-# Date   : $Date: 2013-10-06 08:30:53 +0000 (Sun, 06 Oct 2013) $
+# Version: $Revision: 964 $
+# Date   : $Date: 2013-10-06 17:50:26 +0000 (Sun, 06 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -2033,6 +2033,7 @@
 ::help::mc::HideIndex				"Index ausblenden"
 ::help::mc::ShowIndex				"Index einblenden"
 ::help::mc::All						"Alle"
+::help::mc::DefaultFont				"Standardfont"
 
 ::help::mc::FileNotFound			"Datei nicht gefunden."
 ::help::mc::CantFindFile			"Die Datei %s kann nicht gefunden werden."

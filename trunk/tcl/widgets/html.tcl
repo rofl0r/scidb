@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 949 $
-# Date   : $Date: 2013-09-25 22:13:20 +0000 (Wed, 25 Sep 2013) $
+# Version: $Revision: 964 $
+# Date   : $Date: 2013-10-06 17:50:26 +0000 (Sun, 06 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -524,6 +524,15 @@ proc WidgetProc {w command args} {
 			}
 			$w.sub.html configure -fonttable {*}$args
 			set Priv(fontsize) "body { font-size: [lindex $args 0 3]pt; }"
+			SetupCSS $w
+			return
+		}
+
+		css {
+			if {[llength $args] != 1} {
+				error "wrong # args: should be \"[namespace current] $command <script>"
+			}
+			set Priv(css) [lindex $args 0]
 			SetupCSS $w
 			return
 		}

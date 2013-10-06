@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 961 $
-# Date   : $Date: 2013-10-06 08:30:53 +0000 (Sun, 06 Oct 2013) $
+# Version: $Revision: 964 $
+# Date   : $Date: 2013-10-06 17:50:26 +0000 (Sun, 06 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -2048,6 +2048,7 @@
 ::help::mc::HideIndex				"Nascondi Indice"
 ::help::mc::ShowIndex				"Mostra Indice"
 ::help::mc::All						"Tutti"
+::help::mc::DefaultFont				"Default font" ;# NEW
 
 ::help::mc::FileNotFound			"File non trovato."
 ::help::mc::CantFindFile			"Impossibile trovare file a %s."
