@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 813 $
-# Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
+# Version: $Revision: 962 $
+# Date   : $Date: 2013-10-06 15:32:47 +0000 (Sun, 06 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -147,6 +147,7 @@ array set fontFamilies {
 	}
 
 	Helvetica {
+		{Abel}
 		{Bitstream Vera Sans}
 		{DejaVu Sans}
 		{DejaVu LGC Sans}

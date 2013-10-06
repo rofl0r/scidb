@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 894 $
-# Date   : $Date: 2013-07-13 23:02:30 +0000 (Sat, 13 Jul 2013) $
+# Version: $Revision: 962 $
+# Date   : $Date: 2013-10-06 15:32:47 +0000 (Sun, 06 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -51,7 +51,7 @@ set DefaultHtmlFixedFamilies {
 	{Arial Monospaced} {Bitstream Vera Sans Mono} TkFixedFont {Nimbus Monoe L} {Lucida Typewriter}
 }
 set DefaultHtmlTextFamilies {
-	Arial {Bitstream Vera Sans} TkTextFont {Helvetica Neue} {Helvetica Neue LT Std} {Nimbus Sans L} Verdana {Lucida Grande} Lucida {DejaVu Sans}
+	Abel Arial {Bitstream Vera Sans} TkTextFont {Helvetica Neue} {Helvetica Neue LT Std} {Nimbus Sans L} Verdana {Lucida Grande} Lucida {DejaVu Sans}
 } 
 
 array set mapCodeToNag {
