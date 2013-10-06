@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 957 $
-// Date   : $Date: 2013-09-30 15:11:24 +0000 (Mon, 30 Sep 2013) $
+// Version: $Revision: 961 $
+// Date   : $Date: 2013-10-06 08:30:53 +0000 (Sun, 06 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -693,6 +693,8 @@ View::exportGames(mstl::string const& filename,
 
 	mstl::string	ext	= util::misc::file::suffix(filename);
 	unsigned			count	= 0;
+
+	ext.tolower();
 
 	if (ext == "sci")
 	{

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 909 $
-// Date   : $Date: 2013-07-23 15:10:14 +0000 (Tue, 23 Jul 2013) $
+// Version: $Revision: 961 $
+// Date   : $Date: 2013-10-06 08:30:53 +0000 (Sun, 06 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -147,15 +147,15 @@ private:
 
 	int get(bool allowEndOfInput = false);
 	void putback(int c);
-	void skipLine();
+	void skipLine(mstl::string* str = 0);
 	void findNextEmptyLine();
-	void findNextEmptyLine(mstl::string& str);
 	Token skipToEndOfVariation(Token token);
 	void setLinePos(char* pos);
 	void advanceLinePos(int n = 1);
 	variant::Type getVariant() const;
+	void setUtf8Codec();
 
-	Token searchTag();
+	Token searchTag(mstl::string* str = 0);
 	Token nextToken(Token prevToken);
 	Token resultToken(result::ID result);
 
@@ -287,6 +287,7 @@ private:
 	bool					m_isICS;
 	bool					m_hasCastled;
 	bool					m_resultCorrection;
+	bool					m_isAscii;
 	unsigned				m_countRejected;
 	unsigned				m_postIndex;
 	uint16_t				m_idn;
@@ -296,10 +297,10 @@ private:
 	mstl::string		m_figurine;
 	mstl::string		m_description;
 	mstl::string		m_encoding;
-	sys::utf8::Codec*	m_codec;
 	Count					m_accepted;
 	Count					m_rejected;
 	Variants				m_variants;
+	sys::utf8::Codec*	m_codec;
 };
 
 } // namespace db

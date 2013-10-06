@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 949 $
-# Date   : $Date: 2013-09-25 22:13:20 +0000 (Wed, 25 Sep 2013) $
+# Version: $Revision: 961 $
+# Date   : $Date: 2013-10-06 08:30:53 +0000 (Sun, 06 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -379,6 +379,31 @@ proc showvar {w var {i cursor} {font {}}} {
 		if {[llength $font] == 0} { set font $G(font) }
 		set G(afterId) [after $G(delay) [namespace code [list Show $w $var {} $i $font]]]
 	}
+}
+
+
+proc updatePosition {w b} {
+	set screenw [winfo screenwidth $w]
+	set screenh [winfo screenheight $w]
+	set reqw [winfo reqwidth $b]
+	set reqh [winfo reqheight $b]
+
+	set py [winfo pointery $w]
+	set y [expr {$py + 20}]
+	if {$py < $screenh && $y + $reqh > $screenh} {
+		# show above if we would be offscreen
+		set y [expr {[winfo pointery $w] - $reqh - 5}]
+	}
+
+	set x [winfo pointerx $w]
+	# only readjust when we would appear right on the screen edge
+	if {$x < 0 && ($x + $reqw) > 0} {
+		set x 0
+	} elseif {($x < $screenw) && ($x + $reqw) > $screenw} {
+		set x [expr {$screenw - $reqw}]
+	}
+
+	wm geometry $b +${x}+${y}
 }
 
 

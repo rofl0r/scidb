@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 949 $
-# Date   : $Date: 2013-09-25 22:13:20 +0000 (Wed, 25 Sep 2013) $
+# Version: $Revision: 961 $
+# Date   : $Date: 2013-10-06 08:30:53 +0000 (Sun, 06 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1827,11 +1827,6 @@
 ::dialog::save::mc::CurrentGameHasTrialMode	"L'attuale partita è in modalità di prova e non può essere salvata."
 ::dialog::save::mc::LeaveTrialModeHint			"Prima devi uscire dalla modalità di prova, usa la scorciatoia %s."
 ::dialog::save::mc::OpenPlayerDictionary		"Apri Dizionario Giocatore"
-
-::dialog::save::mc::ConfigureSelection			"Configure Selection..." ;# NEW
-::dialog::save::mc::SecondRating					"Second rating" ;# NEW
-::dialog::save::mc::PlayerSection				"Player Section" ;# NEW
-::dialog::save::mc::EventSection					"Event Section" ;# NEW
 
 ::dialog::save::mc::LocalName						"&Nome locale"
 ::dialog::save::mc::EnglishName					"Nome &Inglese"

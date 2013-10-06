@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 925 $
-# Date   : $Date: 2013-08-17 08:31:10 +0000 (Sat, 17 Aug 2013) $
+# Version: $Revision: 961 $
+# Date   : $Date: 2013-10-06 08:30:53 +0000 (Sun, 06 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1607,7 +1607,7 @@ proc Properties {w id popup} {
 	$f.tgames		configure -text $ngames
 	$f.treadonly	configure -text [expr {$readOnly ? $::mc::Yes : $::mc::No}]
 
-	set txt [::scidb::db::get encoding $file]
+	set txt [::scidb::db::get usedencoding $file]
 	if {[::scidb::db::get encodingState $file] ne "ok"} { append txt " ($mc::Failed)" }
 	$f.tencoding configure -text $txt
 

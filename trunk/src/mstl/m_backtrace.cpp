@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 961 $
+// Date   : $Date: 2013-10-06 08:30:53 +0000 (Sun, 06 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -65,7 +65,11 @@ void backtrace::text_write(ostringstream&, size_t) const {}
 #  include <sys/socket.h>
 #  include <sys/wait.h>
 
-#  define USE_GDB	// addr2line is not working properly (wrong line numbers)
+#  ifndef DONT_USE_GDB
+// addr2line is not working properly (wrong line numbers),
+// but on Ubuntu the call of gdb is often crashing.
+#   define USE_GDB
+#  endif
 
 
 # define M_HAVE_THREADS

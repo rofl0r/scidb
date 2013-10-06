@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 859 $
-// Date   : $Date: 2013-06-26 21:13:52 +0000 (Wed, 26 Jun 2013) $
+// Version: $Revision: 961 $
+// Date   : $Date: 2013-10-06 08:30:53 +0000 (Sun, 06 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -173,7 +173,7 @@ public:
 
 protected:
 
-	static void parseDescription(mstl::istream& strm, mstl::string& result);
+	static void parseDescription(mstl::istream& strm, mstl::string& result, mstl::string* encoding = 0);
 
 private:
 

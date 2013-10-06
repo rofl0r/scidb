@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 889 $
-# Date   : $Date: 2013-07-11 18:29:31 +0000 (Thu, 11 Jul 2013) $
+# Version: $Revision: 961 $
+# Date   : $Date: 2013-10-06 08:30:53 +0000 (Sun, 06 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1523,7 +1523,7 @@ proc Finish {parent} {
 }
 
 
-proc DoAlignment {tbf} {
+proc DoAlignment {tbf} 
 	variable Specs
 
 	set slaves [pack slaves $tbf.frame.scrolled]

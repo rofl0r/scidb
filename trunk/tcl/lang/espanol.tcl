@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 949 $
-# Date   : $Date: 2013-09-25 22:13:20 +0000 (Wed, 25 Sep 2013) $
+# Version: $Revision: 961 $
+# Date   : $Date: 2013-10-06 08:30:53 +0000 (Sun, 06 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1822,11 +1822,6 @@
 ::dialog::save::mc::CurrentGameHasTrialMode	"El juego actual está en modo de prueba y no puede ser guardado."
 ::dialog::save::mc::LeaveTrialModeHint			"You have to leave trial mode beforehand, use shortcut %s." ;# NEW
 ::dialog::save::mc::OpenPlayerDictionary		"Open Player Dictionary" ;# NEW
-
-::dialog::save::mc::ConfigureSelection			"Configure Selection..." ;# NEW
-::dialog::save::mc::SecondRating					"Second rating" ;# NEW
-::dialog::save::mc::PlayerSection				"Player Section" ;# NEW
-::dialog::save::mc::EventSection					"Event Section" ;# NEW
 
 ::dialog::save::mc::LocalName						"&Nombre local"
 ::dialog::save::mc::EnglishName					"Nombre I&nglés"

@@ -3,8 +3,8 @@
 exec tclsh "$0" "$@"
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 957 $
-# Date   : $Date: 2013-09-30 15:11:24 +0000 (Mon, 30 Sep 2013) $
+# Version: $Revision: 961 $
+# Date   : $Date: 2013-10-06 08:30:53 +0000 (Sun, 06 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -157,13 +157,13 @@ set HtmlMapping {
 	&n;				{<span class='piece'>&#x265e;</span>}
 	&p;				{<span class='piece'>&#x265f;</span>}
 
-	&A;				{<span class='cqlpiece'>&#x2b1c;</span>}
-	&a;				{<span class='cqlpiece'>&#x2b1b;</span>}
+	&A;				{<span class='cqlpiece'>&#x25cb;</span>}
+	&a;				{<span class='cqlpiece'>&#x25cf;</span>}
 	&M;				{<span class='cqlpiece'>&#x25b3;</span>}
 	&m;				{<span class='cqlpiece'>&#x25b2;</span>}
 	&I;				{<span class='cqlpiece'>&#x25bd;</span>}
 	&i;				{<span class='cqlpiece'>&#x25bc;</span>}
-	&U;				{<span class='cqlpiece'>&#x25e8;</span>}
+	&U;				{<span class='cqlpiece'>&#x25d1;</span>}
 }
 
 switch [tk windowingsystem] {

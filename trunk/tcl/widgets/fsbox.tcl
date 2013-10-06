@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 949 $
-# Date   : $Date: 2013-09-25 22:13:20 +0000 (Wed, 25 Sep 2013) $
+# Version: $Revision: 961 $
+# Date   : $Date: 2013-10-06 08:30:53 +0000 (Sun, 06 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -5620,6 +5620,15 @@ bind FSBox <Leave> {
     TreeCtrl::CursorCancel %W
     TreeCtrl::MotionInHeader %W
     TreeCtrl::MotionInItems %W
+}
+
+switch [tk windowingsystem] {
+	x11 {
+		bind FSBox <4> { %W yview scroll -5 units }
+		bind FSBox <5> { %W yview scroll +5 units }
+	}
+	aqua	{ bind FSBox <MouseWheel> { %W yview scroll [expr {-(%D)}] units } }
+	win32	{ bind FSBox <MouseWheel> { %W yview scroll [expr {-(%D/120)*4}] units } }
 }
 
 # vi:set ts=3 sw=3:

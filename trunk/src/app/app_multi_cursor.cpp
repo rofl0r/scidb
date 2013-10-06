@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 957 $
-// Date   : $Date: 2013-09-30 15:11:24 +0000 (Mon, 30 Sep 2013) $
+// Version: $Revision: 961 $
+// Date   : $Date: 2013-10-06 08:30:53 +0000 (Sun, 06 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -30,6 +30,7 @@
 
 #include "db_multi_base.h"
 #include "db_database.h"
+#include "db_producer.h"
 
 #include "sys_utf8_codec.h"
 #include "sys_fam.h"
@@ -148,12 +149,14 @@ MultiCursor::MultiCursor(	Application& app,
 																type));
 
 	WriteGuard guard(m_app, *base->database());
+
 	unsigned n = base->importGames(producer, progress);
+
 	if (n)
 		base->save(progress);
+
 	base->resetInitialSize();
 	guard.release();
-
 	m_base = base.release();
 
 	if (n)
@@ -163,8 +166,12 @@ MultiCursor::MultiCursor(	Application& app,
 			if (!m_base->isEmpty(v))
 			{
 				(m_cursor[v] = new Cursor(*this, m_base->database(v)))->database().setReadonly();
+
 				if (m_leader == 0)
 					m_leader = m_cursor[v];
+
+				if (producer.encoding() != sys::utf8::Codec::automatic())
+					m_base->database(v)->setUsedEncoding(producer.encoding());
 			}
 		}
 	}

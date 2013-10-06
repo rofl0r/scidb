@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 957 $
-// Date   : $Date: 2013-09-30 15:11:24 +0000 (Mon, 30 Sep 2013) $
+// Version: $Revision: 961 $
+// Date   : $Date: 2013-10-06 08:30:53 +0000 (Sun, 06 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1125,7 +1125,7 @@ cmdOpen(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 	char const*		option		= stringFromObj(objc, objv, objc - 2);
 	bool				description	= false;
 
-	if (*option == '-')
+	while (objc >= 6 && *option == '-')
 	{
 		if (::strcmp(option, "-encoding") == 0)
 		{
@@ -1142,12 +1142,7 @@ cmdOpen(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 		}
 
 		objc -= 2;
-	}
-
-	if (objc < 6)
-	{
-		Tcl_WrongNumArgs(ti, 1, objv, Usage);
-		return TCL_ERROR;
+		option = stringFromObj(objc, objv, objc - 2);
 	}
 
 	mstl::string	dst(stringFromObj(objc, objv, 1));
@@ -1540,6 +1535,16 @@ getEncoding(char const* database, variant::Type variant)
 	M_ASSERT(database == 0 || Scidb->contains(database, variant));
 	Cursor const& cursor = database ? Scidb->cursor(database, variant) : Scidb->cursor();
 	::tcl::setResult(cursor.database().encoding());
+	return TCL_OK;
+}
+
+
+static int
+getUsedEncoding(char const* database, variant::Type variant)
+{
+	M_ASSERT(database == 0 || Scidb->contains(database, variant));
+	Cursor const& cursor = database ? Scidb->cursor(database, variant) : Scidb->cursor();
+	::tcl::setResult(cursor.database().usedEncoding());
 	return TCL_OK;
 }
 
@@ -2792,7 +2797,7 @@ cmdGet(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 		"gameFlags", "gameNumber", "minYear", "maxYear", "maxUsage", "tags", "checksum", "idn",
 		"eco", "ratingTypes", "lookupPlayer", "lookupEvent", "lookupSite", "writable?",
 		"upgrade?", "memoryOnly?", "compact?", "playerKey", "eventKey", "siteKey", "variants",
-		"changed?", "unsaved?", "changes", 0
+		"changed?", "unsaved?", "changes", "usedencoding", 0
 	};
 	static char const* args[] =
 	{
@@ -2848,6 +2853,7 @@ cmdGet(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 		/* changed?			*/ "<index> ?<view>? ?<database>? ?<variant>?",
 		/* unsaved?			*/ "<database>",
 		/* changes			*/ "<database>",
+		/* usedencoding	*/ "?<database>?",
 		0
 	};
 	enum
@@ -2860,7 +2866,7 @@ cmdGet(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 		Cmd_MinYear, Cmd_MaxYear, Cmd_MaxUsage, Cmd_Tags, Cmd_Checksum, Cmd_Idn, Cmd_Eco, Cmd_RatingTypes,
 		Cmd_LookupPlayer, Cmd_LookupEvent, Cmd_LookupSite, Cmd_Writable, Cmd_Upgrade, Cmd_MemoryOnly,
 		Cmd_Compact, Cmd_PlayerKey, Cmd_EventKey, Cmd_SiteKey, Cmd_Variants, Cmd_Changed, Cmd_Unsaved,
-		Cmd_Changes,
+		Cmd_Changes, Cmd_UsedEncoding,
 	};
 
 	if (objc < 2)
@@ -2902,6 +2908,10 @@ cmdGet(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 		case Cmd_Encoding:
 			return getEncoding(	objc > 2 ? stringFromObj(objc, objv, 2) : 0,
 										tcl::game::variantFromObj(objc, objv, 3));
+
+		case Cmd_UsedEncoding:
+			return getUsedEncoding(	objc > 2 ? stringFromObj(objc, objv, 2) : 0,
+											tcl::game::variantFromObj(objc, objv, 3));
 
 		case Cmd_Created:
 			if (objc < 3)

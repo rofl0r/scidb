@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 957 $
-// Date   : $Date: 2013-09-30 15:11:24 +0000 (Mon, 30 Sep 2013) $
+// Version: $Revision: 961 $
+// Date   : $Date: 2013-10-06 08:30:53 +0000 (Sun, 06 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -99,6 +99,15 @@ Database::encoding() const
 {
 	M_REQUIRE(isOpen());
 	return m_encoding;
+}
+
+
+inline
+mstl::string const&
+Database::usedEncoding() const
+{
+	M_REQUIRE(isOpen());
+	return m_usedEncoding;
 }
 
 

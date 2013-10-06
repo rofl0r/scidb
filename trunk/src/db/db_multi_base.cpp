@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 911 $
-// Date   : $Date: 2013-07-26 19:59:47 +0000 (Fri, 26 Jul 2013) $
+// Version: $Revision: 961 $
+// Date   : $Date: 2013-10-06 08:30:53 +0000 (Sun, 06 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -429,6 +429,8 @@ MultiBase::importGames(Producer& producer, util::Progress& progress, GameCount* 
 
 					if (count)
 						(*count)[i] = cnt;
+
+					base->setEncodingFailed(producer.encodingFailed());
 				}
 			}
 		}

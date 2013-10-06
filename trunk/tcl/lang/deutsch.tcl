@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 949 $
-# Date   : $Date: 2013-09-25 22:13:20 +0000 (Wed, 25 Sep 2013) $
+# Version: $Revision: 961 $
+# Date   : $Date: 2013-10-06 08:30:53 +0000 (Sun, 06 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1817,11 +1817,6 @@
 ::dialog::save::mc::CurrentGameHasTrialMode	"Die aktuelle Partie befindet sich im Variantentest und kann nicht gespeichert werden."
 ::dialog::save::mc::LeaveTrialModeHint			"Der Variantentest sollte zuvor verlassen werden, dazu kann das Tastaturkürzel %s verwendet werden."
 ::dialog::save::mc::OpenPlayerDictionary		"Spielerlexikon öffnen"
-
-::dialog::save::mc::ConfigureSelection			"Auswahl konfigurieren..."
-::dialog::save::mc::SecondRating					"Zweite Wertung"
-::dialog::save::mc::PlayerSection				"Spielersektion"
-::dialog::save::mc::EventSection					"Turniersektion"
 
 ::dialog::save::mc::LocalName						"&Heimatl. Name"
 ::dialog::save::mc::EnglishName					"E&nglischer Name"

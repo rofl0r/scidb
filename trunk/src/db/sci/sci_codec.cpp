@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 938 $
-// Date   : $Date: 2013-09-16 21:44:49 +0000 (Mon, 16 Sep 2013) $
+// Version: $Revision: 961 $
+// Date   : $Date: 2013-10-06 08:30:53 +0000 (Sun, 06 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -498,6 +498,7 @@ unsigned Codec::maxYear() const					{ return Date::MaxYear; }
 unsigned Codec::maxDescriptionLength() const	{ return 107u; }
 mstl::string const& Codec::extension() const	{ return Extension; }
 mstl::string const& Codec::encoding() const	{ return sys::utf8::Codec::utf8(); }
+mstl::string const& Codec::defaultEncoding() const { return sys::utf8::Codec::utf8(); }
 bool Codec::encodingFailed() const				{ return false; }
 void Codec::reset()									{}
 

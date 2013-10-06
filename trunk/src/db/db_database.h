@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 957 $
-// Date   : $Date: 2013-09-30 15:11:24 +0000 (Mon, 30 Sep 2013) $
+// Version: $Revision: 961 $
+// Date   : $Date: 2013-10-06 08:30:53 +0000 (Sun, 06 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -163,6 +163,8 @@ public:
 	Format format() const;
 	/// Returns the encoding of database
 	mstl::string const& encoding() const;
+	/// Returns the encoding of database which is used for reading.
+	mstl::string const& usedEncoding() const;
 	/// Returns date of last modification.
 	Time modified() const;
 	/// Returns time of creation.
@@ -305,6 +307,10 @@ public:
 	void setType(Type type);
 	/// Set variant of database games.
 	void setVariant(variant::Type variant);
+	/// Set encoding used when reading database.
+	void setUsedEncoding(mstl::string const& encoding);
+	/// Setup whether encoding of character set has failed.
+	void setEncodingFailed(bool flag) const;
 	/// Set description (and creation time) of database.
 	void setupDescription(mstl::string const& description, uint32_t creationTime = 0);
 	/// Change description of database.
@@ -347,7 +353,6 @@ private:
 	bool open(mstl::string const& name, mstl::fstream& stream);
 
 	void getTags(unsigned index, TagSet& tags, bool invert) const;
-	void setEncodingFailed(bool flag) const;
 	load::State loadGame(unsigned index, Game& game, mstl::string* encoding, mstl::string const* fen);
 
 	NamebaseEntry const* insertPlayer(mstl::string const& name);
@@ -357,6 +362,7 @@ private:
 
 	DatabaseCodec*	m_codec;
 	mstl::string	m_name;
+	mstl::string	m_usedEncoding;
 	unsigned			m_id;
 	unsigned			m_size;
 	unsigned			m_initialSize;

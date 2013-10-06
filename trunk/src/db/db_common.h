@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 926 $
-// Date   : $Date: 2013-09-04 15:57:51 +0000 (Wed, 04 Sep 2013) $
+// Version: $Revision: 961 $
+// Date   : $Date: 2013-10-06 08:30:53 +0000 (Sun, 06 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1289,7 +1289,7 @@ namespace nag
 
 	char const* toSymbol(ID nag);
 	ID fromSymbol(mstl::string const& symbol);
-	ID fromSymbol(char const* symbol);
+	ID fromSymbol(char const* symbol, unsigned* len = 0);
 	ID fromSymbol(char const* symbol, unsigned len);
 
 	namespace prefix

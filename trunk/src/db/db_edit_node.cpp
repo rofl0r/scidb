@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 935 $
-// Date   : $Date: 2013-09-14 22:36:13 +0000 (Sat, 14 Sep 2013) $
+// Version: $Revision: 961 $
+// Date   : $Date: 2013-10-06 08:30:53 +0000 (Sun, 06 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -172,15 +172,16 @@ Node::Spacing::incrPlyCount()
 void
 Node::Spacing::pushOpen(bool istFirstVar, unsigned number)
 {
-	Type type;
-
 	while (m_tokenList.top() == Space || m_tokenList.top() == Break || m_tokenList.top() == Para)
 		m_tokenList.pop();
 
-	if (m_level > 1 || m_tokenList.top() == Close || !(m_displayStyle & display::ParagraphSpacing))
+	Type type = m_level > 1 || !(m_displayStyle & display::ParagraphSpacing) ? Break : Para;
+
+#if 0
+	// don't use paragraph spacing between variations
+	if (m_tokenList.pop() == Close)
 		type = Break;
-	else
-		type = Para;
+#endif
 
 	m_tokenList.push(Token(m_level, type));
 	m_tokenList.push(Token(m_level, Open, number, istFirstVar));
@@ -1523,8 +1524,6 @@ Root::makeList(Work& work,
 
 			if (node->hasVariation())
 			{
-				work.pushParagraph(Spacing::StartVariation);
-
 				for (unsigned i = 0; i < node->variationCount(); ++i)
 				{
 					Board	board(work.m_board);
@@ -1541,7 +1540,7 @@ Root::makeList(Work& work,
 					}
 
 					work.m_key.addVariation(i);
-					work.pushBreak();
+					work.pushParagraph(Spacing::StartVariation);
 					work.m_needMoveNo = true;
 
 					Variation* var = new Variation(work.m_key, succKey);

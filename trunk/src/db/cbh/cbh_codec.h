@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 938 $
-// Date   : $Date: 2013-09-16 21:44:49 +0000 (Mon, 16 Sep 2013) $
+// Version: $Revision: 961 $
+// Date   : $Date: 2013-10-06 08:30:53 +0000 (Sun, 06 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -76,6 +76,7 @@ public:
 	unsigned minYear() const override;
 	unsigned maxYear() const override;
 	unsigned maxDescriptionLength() const override;
+	mstl::string const& defaultEncoding() const override;
 
 	unsigned gameFlags() const override;
 

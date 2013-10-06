@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 957 $
-# Date   : $Date: 2013-09-30 15:11:24 +0000 (Mon, 30 Sep 2013) $
+# Version: $Revision: 961 $
+# Date   : $Date: 2013-10-06 08:30:53 +0000 (Sun, 06 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -425,22 +425,42 @@ proc showPosition {parent position flip key {state 0}} {
 		pack $w.board
 	}
 
+	updatePosition $parent $position $flip $key $state
+	::tooltip::popup $parent $w cursor
+}
+
+
+proc updatePosition {parent position flip key {state 0}} {
+	set w .application.showboard
+
+	if {![winfo exists $w]} { 
+		return [showPosition $parent $position $flip $key $state]
+	}
+
 	if {[llength $key] == 0} { set key [::scidb::game::query start] }
 	set fen [::scidb::game::board $position $key]
 	# show pawn structure if shift key is held down (or shift key is locked)
-	if {($state & 3) == 1 || ($state & 3) == 2} {
+	set mask [expr {$::util::ShiftMask | $::util::LockMask}]
+	if {($state & $mask) == $::util::ShiftMask || ($state & $mask) == $::util::LockMask} {
 		set fen [string map {K . Q . R . B . N . k . q . r . b . n .} $fen]
 	}
 	if {$flip != [::board::diagram::rotated? $w.board]} {
 		::board::diagram::rotate $w.board
 	}
 	::board::diagram::update $w.board $fen
-	::tooltip::popup $parent $w cursor
+	::tooltip::updatePosition $parent $w
 }
 
 
 proc hidePosition {parent} {
-	::tooltip::popdown .application.showboard
+	if {[winfo exists .application.showboard]} {
+		::tooltip::popdown .application.showboard
+	}
+}
+
+
+proc showPosition? {parent} {
+	return [winfo exists .application.showboard]
 }
 
 

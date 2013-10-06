@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 957 $
-# Date   : $Date: 2013-09-30 15:11:24 +0000 (Mon, 30 Sep 2013) $
+# Version: $Revision: 961 $
+# Date   : $Date: 2013-10-06 08:30:53 +0000 (Sun, 06 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -308,6 +308,8 @@ proc build {w width height} {
 	bind <Control-KP_Add>		[list ::application::pgn::changeFontSize +1]
 	bind <Control-minus>			[list ::application::pgn::changeFontSize -1]
 	bind <Control-KP_Subtract>	[list ::application::pgn::changeFontSize -1]
+	bind <Any-KeyPress>			[list ::application::pgn::checkKey press %K %s]
+	bind <Any-KeyRelease>		[list ::application::pgn::checkKey release %K %s]
 	bind <<LanguageChanged>>	[namespace code LanguageChanged]
 
 	for {set i 1} {$i <= 9} {incr i} {
