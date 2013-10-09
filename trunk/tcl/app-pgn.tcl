@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 964 $
-# Date   : $Date: 2013-10-06 17:50:26 +0000 (Sun, 06 Oct 2013) $
+# Version: $Revision: 968 $
+# Date   : $Date: 2013-10-09 22:39:52 +0000 (Wed, 09 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -2253,7 +2253,7 @@ proc PopupMenu {parent position} {
 
 	set menu $parent.__menu__
 	catch { destroy $menu }
-	menu $menu -type popup_menu
+	menu $menu
 	catch { wm attributes $m -type popup_menu }
 
 	if {[::game::trialMode?]} {
