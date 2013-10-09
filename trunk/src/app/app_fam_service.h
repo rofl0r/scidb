@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 906 $
-// Date   : $Date: 2013-07-22 20:44:36 +0000 (Mon, 22 Jul 2013) $
+// Version: $Revision: 967 $
+// Date   : $Date: 2013-10-09 08:10:22 +0000 (Wed, 09 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -44,6 +44,7 @@ public:
 		virtual void signalChanged(unsigned id, mstl::string const& path);
 		virtual void signalDeleted(unsigned id, mstl::string const& path);
 		virtual void signalCreated(unsigned id, mstl::string const& path);
+		virtual void signalUnmounted(unsigned id, mstl::string const& path);
 	};
 
 	void hook(mstl::string const& path, Callback& callback);

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 906 $
-// Date   : $Date: 2013-07-22 20:44:36 +0000 (Mon, 22 Jul 2013) $
+// Version: $Revision: 967 $
+// Date   : $Date: 2013-10-09 08:10:22 +0000 (Wed, 09 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -43,6 +43,7 @@ struct FAMService::FileAlterationMonitor : public sys::FileAlterationMonitor
 	void signalChanged(unsigned id, mstl::string const& path) override;
 	void signalDeleted(unsigned id, mstl::string const& path) override;
 	void signalCreated(unsigned id, mstl::string const& path) override;
+	void signalUnmounted(unsigned id, mstl::string const& path) override;
 
 	typedef mstl::map<mstl::string, FAMService::Callback*> Map;
 
@@ -83,6 +84,15 @@ FAMService::FileAlterationMonitor::signalCreated(unsigned id, mstl::string const
 	Map::iterator i = m_map.find(path);
 	if (i != m_map.end())
 		(*i).second->signalCreated(id, path);
+}
+
+
+void
+FAMService::FileAlterationMonitor::signalUnmounted(unsigned id, mstl::string const& path)
+{
+	Map::iterator i = m_map.find(path);
+	if (i != m_map.end())
+		(*i).second->signalUnmounted(id, path);
 }
 
 

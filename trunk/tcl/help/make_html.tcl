@@ -3,8 +3,8 @@
 exec tclsh "$0" "$@"
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 961 $
-# Date   : $Date: 2013-10-06 08:30:53 +0000 (Sun, 06 Oct 2013) $
+# Version: $Revision: 967 $
+# Date   : $Date: 2013-10-09 08:10:22 +0000 (Wed, 09 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -157,8 +157,8 @@ set HtmlMapping {
 	&n;				{<span class='piece'>&#x265e;</span>}
 	&p;				{<span class='piece'>&#x265f;</span>}
 
-	&A;				{<span class='cqlpiece'>&#x25cb;</span>}
-	&a;				{<span class='cqlpiece'>&#x25cf;</span>}
+	&A;				{<span class='cqlpiece'>&#x25ef;</span>}
+	&a;				{<span class='cqlpiece'>&#x2b24;</span>}
 	&M;				{<span class='cqlpiece'>&#x25b3;</span>}
 	&m;				{<span class='cqlpiece'>&#x25b2;</span>}
 	&I;				{<span class='cqlpiece'>&#x25bd;</span>}
