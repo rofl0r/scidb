@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 957 $
-# Date   : $Date: 2013-09-30 15:11:24 +0000 (Mon, 30 Sep 2013) $
+# Version: $Revision: 969 $
+# Date   : $Date: 2013-10-13 15:33:12 +0000 (Sun, 13 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -857,8 +857,7 @@ proc recover {parent} {
 	foreach file $files {
 		if {![::process::testOption dont-recover]} {
 			if {[file readable $file]} {
-				set position [string range [file tail $file] 5 end-4]
-				lappend Vars(slots) $position
+				set position [string range [file tail $file] 5 5]
 				set chan [open $file r]
 				fconfigure $chan -encoding utf-8
 				set content [read $chan]
@@ -886,6 +885,7 @@ proc recover {parent} {
 						-detail [format $mc::RenamedFile $file] \
 						;
 				} else {
+					lappend Vars(slots) $position
 					lassign $line3 time key crc crcLink encoding
 					lassign $key base _ index variant
 					if {$base ne $scratchbaseName && [lsearch -exact -index 0 $bases $base] == -1} {

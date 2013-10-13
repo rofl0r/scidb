@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 909 $
-// Date   : $Date: 2013-07-23 15:10:14 +0000 (Tue, 23 Jul 2013) $
+// Version: $Revision: 969 $
+// Date   : $Date: 2013-10-13 15:33:12 +0000 (Sun, 13 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -236,7 +236,11 @@ Consumer::startGame(TagSet const& tags, Board const* board, uint16_t* idn)
 	}
 	else if (m_setupBoard)
 	{
-		setup(Board::standardBoard());
+		// In this case we have to use Crazyhouse setup,
+		// because we don't know yet whether its's standard
+		// chess or Crazyhouse. The hash code of the board
+		// doesn't matter here.
+		setup(Board::standardBoard(variant::Crazyhouse));
 		m_idn = variant::Standard;
 	}
 

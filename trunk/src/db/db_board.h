@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 935 $
-// Date   : $Date: 2013-09-14 22:36:13 +0000 (Sat, 14 Sep 2013) $
+// Version: $Revision: 969 $
+// Date   : $Date: 2013-10-13 15:33:12 +0000 (Sun, 13 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -181,8 +181,6 @@ public:
 	char const* setup(char const* fen, variant::Type variant);
 	/// Setup board from given IDN (unique IDentification Number)
 	void setup(unsigned idn, variant::Type variant);
-	/// Setup board from given position (only usable for standard chess).
-	void setup(ExactPosition const& position);
 	/// Setup board from given position
 	void setup(ExactZHPosition const& position);
 	/// Set En Passant fyle
@@ -493,7 +491,7 @@ public:
 	void dump() const;
 
 	/// Return the standard position
-	static Board const& standardBoard();
+	static Board const& standardBoard(variant::Type variant);
 	/// Return an empty board
 	static Board const& emptyBoard();
 	/// Return whether FEN is valid
@@ -580,6 +578,8 @@ private:
 	Move setMoveColor(Move move) const;
 	/// set move legal
 	Move setLegalMove(Move move) const;
+	/// Reset holding.
+	void resetHolding();
 
 	// pawn progressing
 	void pawnProgressMove(unsigned color, unsigned from, unsigned to);

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 661 $
-// Date   : $Date: 2013-02-23 23:03:04 +0000 (Sat, 23 Feb 2013) $
+// Version: $Revision: 969 $
+// Date   : $Date: 2013-10-13 15:33:12 +0000 (Sun, 13 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -53,7 +53,9 @@ struct Line
 	bool operator==(Line const& line) const;
 	bool operator!=(Line const& line) const;
 	bool operator<=(Line const& line) const;
+
 	bool partialMatch(Line const& line) const;
+	bool contains(uint16_t move) const;
 
 	uint16_t operator[](unsigned n) const;
 
@@ -65,6 +67,7 @@ struct Line
 
 	void copy(Line const& line);
 	void copy(Line const& line, unsigned maxLength);
+	void copy(uint16_t const* line, unsigned maxLength);
 	Line& transpose(Line& dst) const;
 	Line& transpose();
 

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 835 $
-# Date   : $Date: 2013-06-14 08:38:02 +0000 (Fri, 14 Jun 2013) $
+# Version: $Revision: 969 $
+# Date   : $Date: 2013-10-13 15:33:12 +0000 (Sun, 13 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -278,7 +278,8 @@ if {[file exists [file join $::scidb::dir::user themes BlueTheme.dat]]} {
 }
 if {	![file exists [file join $::scidb::dir::user themes Primus.dat]]
 	|| ![file exists [file join $::scidb::dir::user themes Country-Style.dat]]
-	|| ![file exists [file join $::scidb::dir::user themes Blackjack.dat]]} {
+	|| ![file exists [file join $::scidb::dir::user themes Blackjack.dat]]
+	|| ![file exists [file join $::scidb::dir::user themes VirtualColored.dat]]} {
 	set update 1
 }
 if {[::process::testOption first-time]} {

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 949 $
-// Date   : $Date: 2013-09-25 22:13:20 +0000 (Wed, 25 Sep 2013) $
+// Version: $Revision: 969 $
+// Date   : $Date: 2013-10-13 15:33:12 +0000 (Sun, 13 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -225,7 +225,7 @@ private:
 	Filter			m_filter;
 
 #ifdef SHOW_TREE_INFO
-	unsigned		m_numGamesParsed;
+	unsigned			m_numGamesParsed;
 #endif
 };
 

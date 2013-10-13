@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 930 $
-// Date   : $Date: 2013-09-06 12:01:22 +0000 (Fri, 06 Sep 2013) $
+// Version: $Revision: 969 $
+// Date   : $Date: 2013-10-13 15:33:12 +0000 (Sun, 13 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1198,6 +1198,7 @@ Engine::startAnalysis(Game* game)
 		if (!(supportedVariants() & ::toVariant(game->variant())))
 		{
 			error(::toError(game->variant()));
+			m_gameId = unsigned(-1);
 			return false;
 		}
 
@@ -1212,6 +1213,7 @@ Engine::startAnalysis(Game* game)
 				if (!hasVariant(Variant_Chess_960))
 				{
 					error(Chess_960_Not_Supported);
+					m_gameId = unsigned(-1);
 					return false;
 				}
 
@@ -1222,6 +1224,7 @@ Engine::startAnalysis(Game* game)
 		if (m_currentVariant == Variant_Standard && !hasVariant(Variant_Standard))
 		{
 			error(Standard_Chess_Not_Supported);
+			m_gameId = unsigned(-1);
 			return false;
 		}
 	}
@@ -1240,7 +1243,10 @@ Engine::startAnalysis(Game* game)
 	if (m_engine->isReady())
 	{
 		if (isAnalyzing() && !m_engine->stopAnalysis(true))
+		{
+			m_gameId = unsigned(-1);
 			return false;
+		}
 
 		int score = color::isWhite(game->currentBoard().sideToMove()) ? INT_MIN : INT_MAX;
 
@@ -1266,6 +1272,7 @@ Engine::startAnalysis(Game* game)
 
 		if (!variant::isAntichessExceptLosers(game->variant()) && game->currentBoard().givesCheck())
 		{
+			m_gameId = unsigned(-1);
 			error(Illegal_Position);
 			return false;
 		}
@@ -1292,10 +1299,10 @@ Engine::startAnalysis(Game* game)
 			m_engine->stopAnalysis(false);
 			updateInfo(game->currentBoard().sideToMove(), board::Losing);
 		}
-		else
+		else if (!m_engine->startAnalysis(isNew))
 		{
-			if (!m_engine->startAnalysis(isNew))
-				return false;
+			m_gameId = unsigned(-1);
+			return false;
 		}
 	}
 

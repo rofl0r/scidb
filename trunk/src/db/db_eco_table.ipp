@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 969 $
+// Date   : $Date: 2013-10-13 15:33:12 +0000 (Sun, 13 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -27,6 +27,11 @@
 #include "m_assert.h"
 
 namespace db {
+
+inline EcoTable::MoveOrder::MoveOrder() :m_buffer(0) {}
+inline EcoTable::MoveOrder::~MoveOrder() { delete m_buffer; }
+inline bool EcoTable::MoveOrder::isEmpty() const { return m_buffer == 0; }
+inline Line const& EcoTable::MoveOrder::line() const { return m_line; }
 
 inline EcoTable::Successors::Successor::Successor() : move(0) {}
 inline EcoTable::Successors::Successors() : length(0) {}

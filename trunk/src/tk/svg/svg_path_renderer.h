@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 969 $
+// Date   : $Date: 2013-10-13 15:33:12 +0000 (Sun, 13 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -85,6 +85,7 @@ public:
 		agg::line_cap_e		line_cap;
 		double					miter_limit;
 		double					stroke_width;
+		bool						use_gradient;
 		agg::trans_affine		transform;
 		gradient					linearGradient;
 		coordinates				coords;
@@ -192,6 +193,7 @@ protected:
 	void fill_rule(agg::filling_rule_e rule);
 	void line_cap(agg::line_cap_e cap);
 	void miter_limit(double ml);
+	void use_gradient(bool flag);
 	agg::trans_affine& transform();
 
 	// Make all polygons CCW-oriented

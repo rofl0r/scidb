@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 921 $
-# Date   : $Date: 2013-08-07 19:18:00 +0000 (Wed, 07 Aug 2013) $
+# Version: $Revision: 969 $
+# Date   : $Date: 2013-10-13 15:33:12 +0000 (Sun, 13 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -76,6 +76,7 @@ set Left					"Left"
 set Lite					"Light"
 set Low					"Low"
 set Modify				"Modify"
+set Monospaced			"Monospaced"
 set No					"No"
 set Normal				"Normal"
 set Number				"Number"

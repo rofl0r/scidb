@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 964 $
-# Date   : $Date: 2013-10-06 17:50:26 +0000 (Sun, 06 Oct 2013) $
+# Version: $Revision: 969 $
+# Date   : $Date: 2013-10-13 15:33:12 +0000 (Sun, 13 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -81,6 +81,7 @@
 ::mc::Lite					"Light"
 ::mc::Low					"Low"
 ::mc::Modify				"Modify"
+::mc::Monospaced			"Monospaced"
 ::mc::No						"no"
 ::mc::Normal				"Normal"
 ::mc::Number				"Number"
@@ -703,6 +704,8 @@
 ::application::tree::mc::Searching							"Searching"
 ::application::tree::mc::VariantsNotYetSupported		"Chess variants not yet supported."
 ::application::tree::mc::End									"end"
+::application::tree::mc::ShowMoveTree						"Show move tree"
+::application::tree::mc::ShowMoveOrders					"Show move orders"
 
 ::application::tree::mc::FromWhitesPerspective			"From whites perspective"
 ::application::tree::mc::FromBlacksPerspective			"From blacks perspective"
@@ -2359,7 +2362,6 @@
 ::dialog::choosefont::mc::Filter				"Filter"
 ::dialog::choosefont::mc::Sample				"Sample"
 ::dialog::choosefont::mc::SearchTitle		"Searching for monospaced fonts"
-::dialog::choosefont::mc::SeveralMinutes	"This operation may take about %d minute(s)."
 ::dialog::choosefont::mc::FontSelection	"Font Selection"
 ::dialog::choosefont::mc::Wait				"Wait"
 

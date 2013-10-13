@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 851 $
-// Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
+// Version: $Revision: 969 $
+// Date   : $Date: 2013-10-13 15:33:12 +0000 (Sun, 13 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -41,6 +41,9 @@ inline typename vector<T>::iterator vector<T>::end()						{ return this->m_finis
 
 template <typename T>
 inline typename vector<T>::const_iterator vector<T>::end() const		{ return this->m_finish; }
+
+template <typename T>
+inline typename vector<T>::const_pointer vector<T>::data() const		{ return this->m_start; }
 
 
 template <typename T>

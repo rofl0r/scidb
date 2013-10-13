@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 926 $
-# Date   : $Date: 2013-09-04 15:57:51 +0000 (Wed, 04 Sep 2013) $
+# Version: $Revision: 969 $
+# Date   : $Date: 2013-10-13 15:33:12 +0000 (Sun, 13 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -410,6 +410,15 @@ proc insert {gamebar at id tags} {
 
 	if {$Specs(size:$gamebar) == 1 && $Options(separateColumn)} {
 		PrepareAsHeader $gamebar -1
+	}
+
+	if {$at >= 0} {
+		set n $at
+		while {$n < $Specs(size:$gamebar)} {
+			set i $Specs(lookup:$n:$gamebar)
+			set Specs(lookup:[incr n]:$gamebar) $i
+			$gamebar itemconfigure digit$i -image $digit([expr {$n + 1}])
+		}
 	}
 
 	set Specs(lookup:$at:$gamebar) $id
@@ -2290,7 +2299,6 @@ proc Layout {gamebar} {
 
 		if {$Specs(size:$gamebar) > 1} {
 			set id $Specs(lookup:0:$gamebar)
-
 			if {$id eq $Specs(selected:$gamebar)} { set id $Specs(lookup:1:$gamebar) }
 			lassign [$gamebar bbox white$id] x1 y1 x2 y2
 

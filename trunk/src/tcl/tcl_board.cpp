@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 935 $
-// Date   : $Date: 2013-09-14 22:36:13 +0000 (Sat, 14 Sep 2013) $
+// Version: $Revision: 969 $
+// Date   : $Date: 2013-10-13 15:33:12 +0000 (Sun, 13 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -304,8 +304,7 @@ cmdMakeFen(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 	color::ID		toMove	= ::tolower(*stm) == 'w' ? color::White : color::Black;
 	variant::Type	variant	= Scidb->game().variant();
 
-	Board pos;
-	pos.clear();
+	Board pos(Board::emptyBoard());
 
 	if (::strlen(board) != 64)
 		return error(CmdMakeFen, nullptr, nullptr, "invalid board: %s", board);

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 969 $
+// Date   : $Date: 2013-10-13 15:33:12 +0000 (Sun, 13 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -72,21 +72,24 @@ void path_renderer::render(PixFmt& pixf, agg::trans_affine const& mtx, ColorType
 
 			gradient const* gradient = 0;
 
-			if (attr.linearGradient.id.empty())
+			if (attr.use_gradient && !overrideFillColor())
 			{
-				if (!hasGradients)
+				if (attr.linearGradient.id.empty())
+				{
+					if (!hasGradients)
+						gradient = get_linear_gradient();
+				}
+				else if (get_linear_gradient() == 0)
+				{
+					gradient = &attr.linearGradient;
+				}
+				else
+				{
 					gradient = get_linear_gradient();
-			}
-			else if (get_linear_gradient() == 0)
-			{
-				gradient = &attr.linearGradient;
-			}
-			else
-			{
-				gradient = get_linear_gradient();
+				}
 			}
 
-			if (!gradient || overrideFillColor())
+			if (!gradient)
 			{
 				if (fabs(m_curved_trans_contour.width()) < 0.0001)
 				{

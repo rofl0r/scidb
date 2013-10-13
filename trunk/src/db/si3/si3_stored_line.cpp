@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 969 $
+// Date   : $Date: 2013-10-13 15:33:12 +0000 (Sun, 13 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -315,7 +315,7 @@ StoredLine::initialize()
 
 	for (unsigned i = 0; i < U_NUMBER_OF(StoredLines); ++i)
 	{
-		Board			board	= Board::standardBoard();
+		Board			board	= Board::standardBoard(variant::Normal);
 		char const*	text	= StoredLines[i];
 		StoredLine&	line	= StoredLine::m_lines[i];
 

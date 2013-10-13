@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 657 $
-// Date   : $Date: 2013-02-08 22:07:00 +0000 (Fri, 08 Feb 2013) $
+// Version: $Revision: 969 $
+// Date   : $Date: 2013-10-13 15:33:12 +0000 (Sun, 13 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -32,7 +32,7 @@ using namespace db;
 
 GameData::GameData()
 	:m_startNode(new MoveNode)
-	,m_startBoard(Board::standardBoard())
+	,m_startBoard(Board::standardBoard(variant::Normal)) // it doesn't matter
 	,m_variant(variant::Normal)
 	,m_idn(variant::Standard)
 {

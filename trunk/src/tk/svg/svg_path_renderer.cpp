@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 969 $
+// Date   : $Date: 2013-10-13 15:33:12 +0000 (Sun, 13 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -52,6 +52,7 @@ path_renderer::path_attributes::path_attributes()
 	,line_cap(agg::butt_cap)
 	,miter_limit(4.0)
 	,stroke_width(1.0)
+	,use_gradient(true)
 {
 	// no action
 }
@@ -402,6 +403,13 @@ void
 path_renderer::miter_limit(double ml)
 {
 	cur_attr().miter_limit = ml;
+}
+
+
+void
+path_renderer::use_gradient(bool flag)
+{
+	cur_attr().use_gradient = flag;
 }
 
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 969 $
+// Date   : $Date: 2013-10-13 15:33:12 +0000 (Sun, 13 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -34,7 +34,9 @@
 
 #include "m_map.h"
 #include "m_hash.h"
+#include "m_list.h"
 #include "m_string.h"
+#include "m_vector.h"
 #include "m_bitset.h"
 #include "m_chunk_allocator.h"
 
@@ -56,7 +58,29 @@ public:
 	class Node;
 	class StoredLineNode;
 
+	class MoveOrder
+	{
+	public:
+
+		MoveOrder();
+		MoveOrder(MoveOrder const& line);
+		~MoveOrder();
+
+		bool isEmpty() const;
+
+		Line const& line() const;
+		void assign(uint16_t const* line1, unsigned length1, uint16_t const* line2, unsigned length2);
+
+	private:
+		
+		MoveOrder& operator=(MoveOrder const&);
+
+		Line			m_line;
+		uint16_t*	m_buffer;
+	};
+
 	typedef mstl::bitset EcoSet;
+	typedef mstl::list<MoveOrder> Lines;
 
 	struct Successors
 	{
@@ -88,6 +112,8 @@ public:
 
 	variant::Type variant() const;
 
+	// this function is reserved for tree lookup; use getEco() if the
+	// real ECO code is wanted for given line
 	Eco lookup(	Line const& line,
 					unsigned* length = 0,
 					Successors* successors = 0,
@@ -105,6 +131,7 @@ public:
 							mstl::string& openingShort,
 							mstl::string& variation,
 							mstl::string& subVar) const;
+	void getMoveOrders(Line const& line, Lines& result) const;
 
 	void print() const;
 	void dump() const;
@@ -124,6 +151,7 @@ private:
 	typedef mstl::map<uint64_t,Node*>		Map;
 	typedef mstl::hash<Eco,Entry*>			Lookup;
 	typedef mstl::chunk_allocator<Entry>	Allocator;
+	typedef mstl::vector<uint16_t>			Trace;
 
 	class Branch;
 	class Loader;
@@ -135,6 +163,7 @@ private:
 	EcoTable& operator=(EcoTable const&);
 
 	Entry const& getEntry(Eco code) const;
+	void getMoveOrders(Eco code, Node* node, Line const& rest, Trace& trace, Lines& result) const;
 	void parse(mstl::istream& strm);
 
 	variant::Type	m_variant;

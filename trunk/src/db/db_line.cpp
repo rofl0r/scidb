@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 661 $
-// Date   : $Date: 2013-02-23 23:03:04 +0000 (Sat, 23 Feb 2013) $
+// Version: $Revision: 969 $
+// Date   : $Date: 2013-10-13 15:33:12 +0000 (Sun, 13 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -36,6 +36,19 @@
 using namespace db;
 
 
+bool
+Line::contains(uint16_t move) const
+{
+	for (unsigned i = 0; i < length; ++i)
+	{
+		if (moves[i] == move)
+			return true;
+	}
+
+	return false;
+}
+
+
 Line&
 Line::transpose(Line& dst) const
 {
@@ -58,7 +71,7 @@ Line::print(mstl::string& result,
 				protocol::ID protocol,
 				encoding::CharSet charSet) const
 {
-	Board board = Board::standardBoard();
+	Board board = Board::standardBoard(variant);
 
 	for (unsigned i = 0; i < length; ++i)
 	{

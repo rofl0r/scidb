@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 851 $
-// Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
+// Version: $Revision: 969 $
+// Date   : $Date: 2013-10-13 15:33:12 +0000 (Sun, 13 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -36,6 +36,7 @@
 #include "db_game.h"
 #include "db_database.h"
 #include "db_namebase_entry.h"
+#include "db_eco_table.h"
 
 #include "u_piped_progress.h"
 
@@ -345,7 +346,7 @@ cmdFinish(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 		if (tree->isEmpty())
 		{
 			result = "empty";
-			m_key.clear();
+			m_key.clear(); // it doesn't matter
 		}
 		else if (tree->isTreeFor(Scidb->referenceBase().database(), m_key))
 		{

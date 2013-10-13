@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 933 $
-// Date   : $Date: 2013-09-10 20:25:18 +0000 (Tue, 10 Sep 2013) $
+// Version: $Revision: 969 $
+// Date   : $Date: 2013-10-13 15:33:12 +0000 (Sun, 13 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -576,7 +576,7 @@ public:
 	/// Remove some flags from game flags.
 	void removeFlags(unsigned flags);
 	/// Reset game for next load.
-	void resetForNextLoad();
+	void resetForNextLoad(variant::Type variant);
 	/// Set current language set.
 	void setLanguages(LanguageSet const& set);
 	/// Select all languages.

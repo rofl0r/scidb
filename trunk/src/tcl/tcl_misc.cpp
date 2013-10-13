@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 957 $
-// Date   : $Date: 2013-09-30 15:11:24 +0000 (Mon, 30 Sep 2013) $
+// Version: $Revision: 969 $
+// Date   : $Date: 2013-10-13 15:33:12 +0000 (Sun, 13 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -111,7 +111,7 @@ doNotEscape(char c)
 	if (isalnum(c))
 		return true;
 
-	static char const* Marks = "-_.!~*'():%/";
+	static char const* Marks = "-_.!~*'():%/?=";
 	return bool(strchr(Marks, c));
 }
 

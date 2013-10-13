@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 932 $
-# Date   : $Date: 2013-09-09 15:39:37 +0000 (Mon, 09 Sep 2013) $
+# Version: $Revision: 969 $
+# Date   : $Date: 2013-10-13 15:33:12 +0000 (Sun, 13 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -452,6 +452,7 @@ proc doAction {action san {noMoveCmd {}}} {
 		}
 
 		trial {
+			::game::flipTrialMode
 			::scidb::game::trial $san
 			::scidb::game::go 1
 		}

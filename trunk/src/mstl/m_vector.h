@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 851 $
-// Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
+// Version: $Revision: 969 $
+// Date   : $Date: 2013-10-13 15:33:12 +0000 (Sun, 13 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -89,6 +89,8 @@ public:
 	reverse_iterator rend();
 	const_reverse_iterator rbegin() const;
 	const_reverse_iterator rend() const;
+
+	const_pointer data() const;
 
 	void push_back(const_reference v);
 	void push_back();

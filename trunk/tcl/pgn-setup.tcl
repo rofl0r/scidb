@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 961 $
-# Date   : $Date: 2013-10-06 08:30:53 +0000 (Sun, 06 Oct 2013) $
+# Version: $Revision: 969 $
+# Date   : $Date: 2013-10-13 15:33:12 +0000 (Sun, 13 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1102,7 +1102,7 @@ proc BuildFrame(MoveStyle) {w position context} {
 
 
 proc BuildFrame(Font) {w position context} {
-	::dialog::choosefont::embedFrame $w ::font::text(setup:normal)
+	::dialog::choosefont $w ::font::text(setup:normal)
 	return $w
 }
 
