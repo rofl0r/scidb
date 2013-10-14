@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 969 $
-# Date   : $Date: 2013-10-13 15:33:12 +0000 (Sun, 13 Oct 2013) $
+# Version: $Revision: 971 $
+# Date   : $Date: 2013-10-14 09:02:40 +0000 (Mon, 14 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1151,9 +1151,9 @@
 ::gametable::mc::Long						"Lang"
 ::gametable::mc::Short						"Kurz"
 
-::gametable::mc::AccelBrowse				"R"
-::gametable::mc::AccelOverview			"U"
-::gametable::mc::AccelTournTable			"T"
+::gametable::mc::Accel(browse)			"R"
+::gametable::mc::Accel(overview)			"U"
+::gametable::mc::Accel(tourntable)		"T"
 ::gametable::mc::Space						"Leertaste"
 
 ::gametable::mc::F_Number					"#"
@@ -2413,7 +2413,7 @@
 ::fsbox::mc::Download						"Download"
 ::fsbox::mc::Home								"Heimverzeichnis"
 
-::fsbox::mc::SelectEncoding				"Auswahl der Zeichenkodierung für die Datenbank (öffnet einen Dialog)"
+::fsbox::mc::SelectEncoding				"Auswahl der Zeichenkodierung für die Datenbank"
 ::fsbox::mc::SelectWhichType				"Auswahl der anzuzeigenden Dateitypen"
 ::fsbox::mc::TimeFormat						"%d.%m.%Y %H:%M"
 

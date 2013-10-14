@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 969 $
-// Date   : $Date: 2013-10-13 15:33:12 +0000 (Sun, 13 Oct 2013) $
+// Version: $Revision: 971 $
+// Date   : $Date: 2013-10-14 09:02:40 +0000 (Mon, 14 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -566,6 +566,11 @@ parser::parse_attr(char const* name, char const* value)
 		{
 			parse_style(value);
 		}
+		else if (::match(name, "scidb:usergradient"))
+		{
+			if (::match(value, "ignore"))
+				m_path.use_gradient(false);
+		}
 		else if (::match(name, "fill"))
 		{
 			if (::match(value, "none"))
@@ -574,11 +579,6 @@ parser::parse_attr(char const* name, char const* value)
 				m_path.fill(lookup_gradient(value + 5));
 			else
 				m_path.fill(parse_color(value));
-		}
-		else if (::match(name, "use-gradient"))
-		{
-			if (::match(value, "never"))
-				m_path.use_gradient(false);
 		}
 		else if (::match(name, "fill-opacity"))
 		{

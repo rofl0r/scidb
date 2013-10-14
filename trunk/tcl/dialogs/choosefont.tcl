@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 969 $
-# Date   : $Date: 2013-10-13 15:33:12 +0000 (Sun, 13 Oct 2013) $
+# Version: $Revision: 971 $
+# Date   : $Date: 2013-10-14 09:02:40 +0000 (Mon, 14 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -976,6 +976,7 @@ proc BuildFrame {w font isDialog options} {
 
 	if {!$opts(usestyle)} {
 		$w.estyle configure -state disabled
+		$w.lstyles configure -state disabled
 	}
 
 	if {!$isDialog} {
@@ -1271,7 +1272,6 @@ proc Filter {w} {
 	if {$S(monospaced)} {
 		if {[llength $Vars(fonts,fixed)] == 0} {
 			if {[llength $SystemFonts(fonts,fixed)] == 0} {
-				# NOTE: estimated time per font: 0.3s (probed under Linux)
 				variable Stop_
 				set Stop_ 0
 				set S(progress) 0
@@ -1300,6 +1300,7 @@ proc Filter {w} {
 		set S(fonts,lcase) $Vars(fonts,lcase)
 	}
 
+	$w.lfonts see 0
 	Tracer $w
 	Show $w
 

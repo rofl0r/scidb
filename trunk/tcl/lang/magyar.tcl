@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 969 $
-# Date   : $Date: 2013-10-13 15:33:12 +0000 (Sun, 13 Oct 2013) $
+# Version: $Revision: 971 $
+# Date   : $Date: 2013-10-14 09:02:40 +0000 (Mon, 14 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1162,9 +1162,9 @@
 ::gametable::mc::Long						"Hosszú"
 ::gametable::mc::Short						"Rövid"
 
-::gametable::mc::AccelBrowse				"W"
-::gametable::mc::AccelOverview			"O"
-::gametable::mc::AccelTournTable			"T"
+::gametable::mc::Accel(browse)			"W"
+::gametable::mc::Accel(overview)		"O"
+::gametable::mc::Accel(tourntable)		"T"
 ::gametable::mc::Space						"Space"
 
 ::gametable::mc::F_Number					"#"
