@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 969 $
-// Date   : $Date: 2013-10-13 15:33:12 +0000 (Sun, 13 Oct 2013) $
+// Version: $Revision: 973 $
+// Date   : $Date: 2013-10-15 18:17:14 +0000 (Tue, 15 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1694,8 +1694,11 @@ Engine::setVariation(unsigned no, db::MoveList const& moves)
 	M_REQUIRE(no < numVariations());
 	M_REQUIRE(!moves.isEmpty());
 
-	if (m_wantedMultiPV > m_maxMultiPV)
+	if (	m_wantedMultiPV > m_maxMultiPV	// support of multipv in winboard engines
+		|| no > m_usedMultiPV)					// bug in uci engine
+	{
 		no = insertPV(moves);
+	}
 
 	m_usedMultiPV = mstl::max(m_usedMultiPV, no + 1);
 	m_lines[no] = moves;

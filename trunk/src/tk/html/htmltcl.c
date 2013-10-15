@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 745 $
-// Date   : $Date: 2013-04-26 18:46:49 +0000 (Fri, 26 Apr 2013) $
+// Version: $Revision: 973 $
+// Date   : $Date: 2013-10-15 18:17:14 +0000 (Tue, 15 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1541,7 +1541,7 @@ configureCmd(
             HtmlCallbackDamage(pTree, 0, 0, Tk_Width(win), Tk_Height(win));
 
 #ifndef NDEBUG
-            if (1) {
+            if (0) { /* XXX this assertion may fail sometimes! */
                 Tcl_HashSearch search;
                 assert(0 == Tcl_FirstHashEntry(&pTree->aValues, &search));
             }

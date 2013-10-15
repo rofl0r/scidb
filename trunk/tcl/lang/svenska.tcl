@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 971 $
-# Date   : $Date: 2013-10-14 09:02:40 +0000 (Mon, 14 Oct 2013) $
+# Version: $Revision: 973 $
+# Date   : $Date: 2013-10-15 18:17:14 +0000 (Tue, 15 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1365,6 +1365,7 @@
 ::font::mc::ChooseSymbolFont						"Choose symbol font" ;# NEW
 ::font::mc::IncreaseFontSize						"Öka fontstorlek"
 ::font::mc::DecreaseFontSize						"Minska fontstorlek"
+::font::mc::DefaultFont								"Default font" ;# NEW
 
 ### gamebar ############################################################
 ::gamebar::mc::StartPosition					"Startposition"
@@ -2047,7 +2048,6 @@
 ::help::mc::HideIndex				"Dölj index"
 ::help::mc::ShowIndex				"Visa index"
 ::help::mc::All						"Alla"
-::help::mc::DefaultFont				"Default font" ;# NEW
 
 ::help::mc::FileNotFound			"Hittar ej filen."
 ::help::mc::CantFindFile			"Kan inte hitta filen på %s."

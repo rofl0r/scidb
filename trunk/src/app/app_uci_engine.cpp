@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 940 $
-// Date   : $Date: 2013-09-17 21:18:30 +0000 (Tue, 17 Sep 2013) $
+// Version: $Revision: 973 $
+// Date   : $Date: 2013-10-15 18:17:14 +0000 (Tue, 15 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -584,7 +584,7 @@ uci::Engine::processMessage(mstl::string const& message)
 					break;
 
 				case 'n':
-					if ((isAnalyzing() || m_stopAnalyzeIsPending) && ::strncmp(message, "info ", 5) == 0)
+					if (isAnalyzing() && !m_stopAnalyzeIsPending && ::strncmp(message, "info ", 5) == 0)
 						parseInfo(::skipSpaces(message.c_str() + 5));
 					break;
 			}

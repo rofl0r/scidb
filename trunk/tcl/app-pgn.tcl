@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 969 $
-# Date   : $Date: 2013-10-13 15:33:12 +0000 (Sun, 13 Oct 2013) $
+# Version: $Revision: 973 $
+# Date   : $Date: 2013-10-15 18:17:14 +0000 (Tue, 15 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -475,12 +475,10 @@ proc historyChanged {} {
 }
 
 
-proc changeFontSize {incr} {
-	if {[::font::changeSize editor $incr]} {
-		refresh
-		SetAlignment
-		UpdateScrollbar
-	}
+proc fontSizeChanged {} {
+	refresh
+	SetAlignment
+	UpdateScrollbar
 }
 
 
@@ -2636,20 +2634,7 @@ proc PopupMenu {parent position} {
 		;
 	array unset state
 
-	$menu.display add command \
-		-label " $::font::mc::IncreaseFontSize" \
-		-image $::icon::16x16::font(incr) \
-		-compound left \
-		-command [namespace code [list changeFontSize +1]] \
-		-accel "$::mc::Key(Ctrl) +" \
-		;
-	$menu.display add command \
-		-label " $::font::mc::DecreaseFontSize" \
-		-image $::icon::16x16::font(decr) \
-		-compound left \
-		-command [namespace code [list changeFontSize -1]] \
-		-accel "$::mc::Key(Ctrl) \u2212" \
-		;
+	::font::addChangeFontSizeToMenu editor $menu.display [namespace current]::fontSizeChanged
 	$menu.display add separator
 
 	foreach {label var} {ParLayout(column-style) style:column

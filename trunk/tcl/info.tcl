@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 949 $
-# Date   : $Date: 2013-09-25 22:13:20 +0000 (Wed, 25 Sep 2013) $
+# Version: $Revision: 973 $
+# Date   : $Date: 2013-10-15 18:17:14 +0000 (Tue, 15 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -218,7 +218,7 @@ proc Mouse1Up {w node} {
 
 
 proc BuildContributionsFrame {w} {
-	set css [::html::defaultCSS [::font::htmlFixedFamilies] [::font::htmlTextFamilies]]
+	set css [::html::defaultCSS [::font::html::fixedFonts] [::font::html::textFonts]]
 
 	append css {
 		h1 {

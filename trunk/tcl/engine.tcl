@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 951 $
-# Date   : $Date: 2013-09-25 22:45:13 +0000 (Wed, 25 Sep 2013) $
+# Version: $Revision: 973 $
+# Date   : $Date: 2013-10-15 18:17:14 +0000 (Tue, 15 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -391,7 +391,7 @@ proc openAdmininstration {parent} {
 
 	### Tab: Features #####################################################
 	set features $nb.features
-	set css [::html::defaultCSS [::font::htmlFixedFamilies] [::font::htmlTextFamilies]]
+	set css [::html::defaultCSS [::font::html::fixedFonts] [::font::html::textFonts]]
 	::html $nb.features \
 		-imagecmd [namespace code GetImage] \
 		-center no \

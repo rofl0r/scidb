@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 971 $
-# Date   : $Date: 2013-10-14 09:02:40 +0000 (Mon, 14 Oct 2013) $
+# Version: $Revision: 973 $
+# Date   : $Date: 2013-10-15 18:17:14 +0000 (Tue, 15 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1366,6 +1366,7 @@
 ::font::mc::ChooseSymbolFont			"Choose symbol font" ;# NEW
 ::font::mc::IncreaseFontSize			"Betűméret növelése"
 ::font::mc::DecreaseFontSize			"Betűméret csökkentése"
+::font::mc::DefaultFont				"Default font" ;# NEW
 
 ### gamebar ############################################################
 ::gamebar::mc::StartPosition			"kiinduló állás"
@@ -2047,7 +2048,6 @@
 ::help::mc::HideIndex			"Tárgymutató elrejtése"
 ::help::mc::ShowIndex			"Tárgymutató mutatása"
 ::help::mc::All				"All" ;# NEW
-::help::mc::DefaultFont			"Default font" ;# NEW
 
 ::help::mc::FileNotFound		"Fájl nem található."
 ::help::mc::CantFindFile		"Fájl nem található %s könyvtárban."

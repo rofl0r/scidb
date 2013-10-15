@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 971 $
-# Date   : $Date: 2013-10-14 09:02:40 +0000 (Mon, 14 Oct 2013) $
+# Version: $Revision: 973 $
+# Date   : $Date: 2013-10-15 18:17:14 +0000 (Tue, 15 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1354,6 +1354,7 @@
 ::font::mc::ChooseSymbolFont						"Choose symbol font"
 ::font::mc::IncreaseFontSize						"Increase Font Size"
 ::font::mc::DecreaseFontSize						"Decrease Font Size"
+::font::mc::DefaultFont								"Default font"
 
 ### gamebar ############################################################
 ::gamebar::mc::StartPosition					"Start Position"
@@ -2035,7 +2036,6 @@
 ::help::mc::HideIndex				"Hide index"
 ::help::mc::ShowIndex				"Show index"
 ::help::mc::All						"All"
-::help::mc::DefaultFont				"Default font"
 
 ::help::mc::FileNotFound			"File not found."
 ::help::mc::CantFindFile			"Can't find the file at %s."
