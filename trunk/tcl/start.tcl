@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 971 $
-# Date   : $Date: 2013-10-14 09:02:40 +0000 (Mon, 14 Oct 2013) $
+# Version: $Revision: 975 $
+# Date   : $Date: 2013-10-16 17:27:36 +0000 (Wed, 16 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -467,13 +467,19 @@ proc doAccelCmd {accel keyState cmd} {
 
 proc shiftIsHeldDown? {state} {
 	variable ShiftMask
-	return [expr {$state & $ShiftMask}]
+	return [expr {($state & $ShiftMask) != 0}]
 }
 
 
 proc altIsHeldDown? {state} {
 	variable AltMask
-	return [expr {$state & $AltMask}]
+	return [expr {($state & $AltMask) != 0}]
+}
+
+
+proc shiftIsLocked? {state} {
+	variable LockMask
+	return [expr {($state & $LockMask) != 0}]
 }
 
 
