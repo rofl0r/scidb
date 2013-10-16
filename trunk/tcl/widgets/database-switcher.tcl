@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 961 $
-# Date   : $Date: 2013-10-06 08:30:53 +0000 (Sun, 06 Oct 2013) $
+# Version: $Revision: 974 $
+# Date   : $Date: 2013-10-16 14:17:54 +0000 (Wed, 16 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -167,6 +167,8 @@ proc Build {w args} {
 	bind $canv <Up>				 [namespace code [list Traverse $w -line]]
 	bind $canv <Down>				 [namespace code [list Traverse $w +line]]
 	bind $canv <space>			 [namespace code [list ActivateBase $w]]
+bind $canv <Any-Key> {+ puts "Key: %K"}
+bind $canv <Alt-Key> {+ puts "Alt: %K"}
 
 	rename ::$w $w.__switcher__
 	proc ::$w {command args} "[namespace current]::WidgetProc $w \$command {*}\$args"
@@ -279,6 +281,10 @@ proc WidgetProc {w command args} {
 
 		activate {
 			return [RegisterDragDropEvents $w]
+		}
+
+		focus {
+			return [focus $w.content]
 		}
 	}
 

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 961 $
-# Date   : $Date: 2013-10-06 08:30:53 +0000 (Sun, 06 Oct 2013) $
+# Version: $Revision: 974 $
+# Date   : $Date: 2013-10-16 14:17:54 +0000 (Wed, 16 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -683,7 +683,7 @@ proc selectPlayer {base variant index} {
 
 
 proc setFocus {} {
-	focus [set [namespace current]::Vars(switcher)]
+	[set [namespace current]::Vars(switcher)] focus
 }
 
 

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 973 $
-# Date   : $Date: 2013-10-15 18:17:14 +0000 (Tue, 15 Oct 2013) $
+# Version: $Revision: 974 $
+# Date   : $Date: 2013-10-16 14:17:54 +0000 (Wed, 16 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -314,6 +314,7 @@ proc build {w width height} {
 
 	foreach w $Vars(need-binding) {
 		::font::addChangeFontSizeBindings editor $w ::application::pgn::fontSizeChanged
+		::bind $w <Alt-Key> {+ if {1} {} } ;# this little trick enabled Alt-Key traversal
 	}
 
 	for {set i 1} {$i <= 9} {incr i} {

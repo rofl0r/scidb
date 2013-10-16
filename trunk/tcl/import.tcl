@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 924 $
-# Date   : $Date: 2013-08-08 15:00:04 +0000 (Thu, 08 Aug 2013) $
+# Version: $Revision: 974 $
+# Date   : $Date: 2013-10-16 14:17:54 +0000 (Wed, 16 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -196,7 +196,7 @@ proc openEdit {parent position args} {
 	set main [tk::panedwindow $top.main -orient vertical -opaqueresize true]
 
 	set specialfont [list [list $::font::figurine(text:normal) 9812 9823]]
-	$fig addcol text  -id fig -font TkFixedFont -specialfont $specialfont]
+	$fig addcol text  -id fig -font TkFixedFont -specialfont $specialfont
 	$fig addcol image -id flag
 	$fig addcol text  -id lang
 	bind $fig <<ComboboxCurrent>> [namespace code [list ShowCountry $fig $position]]

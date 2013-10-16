@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 964 $
-# Date   : $Date: 2013-10-06 17:50:26 +0000 (Sun, 06 Oct 2013) $
+# Version: $Revision: 974 $
+# Date   : $Date: 2013-10-16 14:17:54 +0000 (Wed, 16 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -842,7 +842,7 @@ proc ButtonEnter {w} {
 }
 
 
-# we want a fixed Alt key handling
+# we have to tweak the Alt key handling
 proc FindAltKeyTarget {path char} {
 	switch -- [winfo class $path] {
 		Button - Label - TButton - TLabel - TCheckbutton - TRadiobutton {
@@ -869,7 +869,7 @@ proc FindAltKeyTarget {path char} {
 }
 
 
-# we want a fixed Alt key handling
+# we have to tweak the Alt key handling
 proc AltKeyInDialog {path key} {
 	set target [tk::FindAltKeyTarget $path $key]
 	if {[llength $target] == 0} { return }
