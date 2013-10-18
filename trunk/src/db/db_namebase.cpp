@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 938 $
-// Date   : $Date: 2013-09-16 21:44:49 +0000 (Mon, 16 Sep 2013) $
+// Version: $Revision: 976 $
+// Date   : $Date: 2013-10-18 22:15:24 +0000 (Fri, 18 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1079,7 +1079,7 @@ Namebase::finishRenaming()
 	delete m_stringAllocator2;
 	m_stringAllocator2 = 0;
 
-	int (*cmpFunc)(void const*, void const*);
+	int (*cmpFunc)(void const*, void const*) = 0; // prevent compiler warning
 
 	switch (m_type)
 	{

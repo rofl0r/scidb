@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 961 $
-// Date   : $Date: 2013-10-06 08:30:53 +0000 (Sun, 06 Oct 2013) $
+// Version: $Revision: 976 $
+// Date   : $Date: 2013-10-18 22:15:24 +0000 (Fri, 18 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -301,6 +301,8 @@ private:
 	Count					m_rejected;
 	Variants				m_variants;
 	sys::utf8::Codec*	m_codec;
+	mstl::string		m_buffer;
+	mstl::string		m_content;
 };
 
 } // namespace db

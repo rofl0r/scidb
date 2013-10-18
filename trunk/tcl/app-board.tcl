@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 975 $
-# Date   : $Date: 2013-10-16 17:27:36 +0000 (Wed, 16 Oct 2013) $
+# Version: $Revision: 976 $
+# Date   : $Date: 2013-10-18 22:15:24 +0000 (Fri, 18 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -58,6 +58,7 @@ set Accel(add-new-game)		"S"
 set Accel(replace-game)		"R"
 set Accel(replace-moves)	"V"
 set Accel(trial-mode)		"T"
+set Accel(export-game)		"E"
 
 } ;# namespace mc
 
@@ -333,6 +334,7 @@ proc build {w width height} {
 	set Vars(cmd:replace-game)			[namespace code [list SaveGame replace]]
 	set Vars(cmd:replace-moves)		[namespace code [list SaveGame moves]]
 	set Vars(cmd:trial-mode)			[namespace parent]::pgn::flipTrialMode
+	set Vars(cmd:export-game)			[list ::gamebar::exportGame .application]
 
 	LanguageChanged
 	BuildBoard $canv

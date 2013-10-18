@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 794 $
-// Date   : $Date: 2013-05-22 20:19:59 +0000 (Wed, 22 May 2013) $
+// Version: $Revision: 976 $
+// Date   : $Date: 2013-10-18 22:15:24 +0000 (Fri, 18 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1472,7 +1472,7 @@ Position::parsePieceCount(Match& match, char const* s, Error& error)
 
 	if (error == No_Error)
 	{
-		unsigned min, max;
+		unsigned min(0), max(0); // prevent compiler warnings
 		s = parseUnsignedRange(s, error, min, max);
 		m_boardMatchList.push_back(new cql::board::PieceCount(designator, min, max));
 	}
@@ -1504,7 +1504,7 @@ Position::parsePower(Match& match, char const* s, Error& error)
 
 	if (error == No_Error)
 	{
-		unsigned min, max;
+		unsigned min(0), max(0); // prevent compiler warnings
 		s = parseUnsignedRange(s, error, min, max);
 		m_boardMatchList.push_back(new cql::board::Power(designator, min, max));
 	}
@@ -1523,7 +1523,7 @@ Position::parsePowerDifference(Match& match, char const* s, Error& error)
 
 	if (error == No_Error)
 	{
-		int min, max;
+		int min(0), max(0); // prevent compiler warnings
 		s = parseSignedRange(s, error, min, max);
 		m_boardMatchList.push_back(new cql::board::PowerDifference(designator, min, max));
 	}

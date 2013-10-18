@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 971 $
-# Date   : $Date: 2013-10-14 09:02:40 +0000 (Mon, 14 Oct 2013) $
+# Version: $Revision: 976 $
+# Date   : $Date: 2013-10-18 22:15:24 +0000 (Fri, 18 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -544,6 +544,11 @@ proc build {path getViewCmd {visibleColumns {}} {args {}}} {
 	::bind $path <<LanguageChanged>>  [namespace code [list BindAccelerators $path]]
 	::bind $path <<LanguageChanged>> +[namespace code [list RefreshHeader $path 1]]
 	::bind $path <<LanguageChanged>> +[namespace code [list RefreshHeader $path 2]]
+
+	set specialfont [list [list $::font::figurine(text:normal) 9812 9823]]
+	foreach col {white black event} {
+		::scrolledtable::configure $path $col -specialfont $specialfont
+	}
 
 	set Vars(viewcmd) $getViewCmd
 

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 973 $
-# Date   : $Date: 2013-10-15 18:17:14 +0000 (Tue, 15 Oct 2013) $
+# Version: $Revision: 976 $
+# Date   : $Date: 2013-10-18 22:15:24 +0000 (Fri, 18 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -443,6 +443,7 @@
 ::application::board::mc::Accel(replace-game)		"R" 
 ::application::board::mc::Accel(replace-moves)		"V" 
 ::application::board::mc::Accel(trial-mode)			"T" 
+::application::board::mc::Accel(export-game)			"E"
 
 ### application::database ##############################################
 ::application::database::mc::FileOpen							"Abrir Base"
@@ -2048,6 +2049,10 @@
 ::help::mc::IncompleteHelpFiles	"Lo sentimos pero parece que los archivos de ayuda aún estan incompletos."
 ::help::mc::ProbablyTheHelp		"Probablemente la página de ayuda en un lenguaje diferente puede ser una alternativa para usted"
 ::help::mc::PageNotAvailable		"Esta página no se encuentra disponible"
+
+::help::mc::TextAlignment			"Text alignment" ;# NEW
+::help::mc::FullJustification		"Full justification" ;# NEW
+::help::mc::LeftJustification		"Left justification" ;# NEW
 
 ### crosstable #########################################################
 ::crosstable::mc::TournamentTable			"Tabla del torneo"

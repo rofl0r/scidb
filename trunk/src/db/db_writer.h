@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 824 $
-// Date   : $Date: 2013-06-07 22:01:59 +0000 (Fri, 07 Jun 2013) $
+// Version: $Revision: 976 $
+// Date   : $Date: 2013-10-18 22:15:24 +0000 (Fri, 18 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -139,7 +139,7 @@ protected:
 
 private:
 
-	mstl::string const& conv(mstl::string const& comment);
+	mstl::string const& encode(mstl::string const& comment);
 
 	void writeMove(Move const& move,
 						Annotation const& annotation,
@@ -155,7 +155,8 @@ private:
 	bool				m_needMoveNumber;
 	bool				m_needSpace;
 	result::ID		m_result;
-	mstl::string	m_stringBuf;
+	mstl::string	m_stringBuf1;
+	mstl::string	m_stringBuf2;
 };
 
 } // namespace db

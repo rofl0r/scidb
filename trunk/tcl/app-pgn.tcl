@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 975 $
-# Date   : $Date: 2013-10-16 17:27:36 +0000 (Wed, 16 Oct 2013) $
+# Version: $Revision: 976 $
+# Date   : $Date: 2013-10-18 22:15:24 +0000 (Fri, 18 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1472,14 +1472,12 @@ proc InsertMove {context position w level key data} {
 
 			ply {
 				PrintMove $context $position $w $level $key [lindex $node 1] $prefixAnnotation
-				set needSpace 0
 				if {[llength $suffixAnnotation]} {
 					PrintNumericalAnnotation $context $position $w $level $key $suffixAnnotation 0 1
 					set suffixAnnotation {}
-					set needSpace 1
 				}
 				if {[llength $textualAnnotation]} {
-					PrintTextualAnnotation $position $w $level $key $textualAnnotation $needSpace
+					PrintTextualAnnotation $position $w $level $key $textualAnnotation 1
 					set textualAnnotation {}
 				}
 				set havePly 1
@@ -1855,12 +1853,16 @@ proc PrintNumericalAnnotation {context position w level key nags isPrefix afterP
 		} elseif {$value <= 6} {
 			if {$count > 1} { $w insert current "\u2005" }
 			set prevSym 1
+			set needSpace 1
 		} elseif {$value == 155 || $value == 156} {
+			if {$count > 1 || $value > 6} { $w insert current "\u2005" }
 			if {$isPrefix || $afterPly} { $w insert current "\u2005" }
 			set prevSym $sym
 		} elseif {!$sym && !$isPrefix} {
 			$w insert current "\u2005"
 			set prevSym $sym
+		} elseif {$count > 1 || $value > 6} {
+			$w insert current "\u2005"
 		}
 		if {[string length $nag]} {
 			$w insert current $nag [list nag$value $nagTag $tag]

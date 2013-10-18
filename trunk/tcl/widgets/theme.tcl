@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 974 $
-# Date   : $Date: 2013-10-16 14:17:54 +0000 (Wed, 16 Oct 2013) $
+# Version: $Revision: 976 $
+# Date   : $Date: 2013-10-18 22:15:24 +0000 (Fri, 18 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -366,6 +366,7 @@ proc SetupCurrentTheme {} {
 #	option add *Button.background $background
 	option add *Spinbox.selectBackground [::ttk::style lookup [currentTheme] -selectbackground]
 	option add *Spinbox.disabledBackground $background
+	option add *Entry.selectBackground [::ttk::style lookup [currentTheme] -selectbackground]
 	option add *Scale.highlightBackground $background
 	option add *Scale.background $background
 	option add *Scale.troughColor [GetTroughColor]

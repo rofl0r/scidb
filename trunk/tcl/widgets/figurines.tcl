@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 648 $
-# Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
+# Version: $Revision: 976 $
+# Date   : $Date: 2013-10-18 22:15:24 +0000 (Fri, 18 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -123,6 +123,20 @@ variable unicodeMap {
 	"\u2657" B
 	"\u2658" N
 	"\u2659" P
+}
+
+
+proc mapToLocal {str lang} {
+	variable Map_
+	variable langSet
+
+	if {![info exists Map_($lang)]} {
+		foreach loc $langSet($lang) uni $langSet(graphic) {
+			lappend Map_($lang) $uni $loc
+		}
+	}
+
+	return [string map $Map_($lang) $str]
 }
 
 

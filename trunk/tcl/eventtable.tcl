@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 972 $
-# Date   : $Date: 2013-10-14 11:39:09 +0000 (Mon, 14 Oct 2013) $
+# Version: $Revision: 976 $
+# Date   : $Date: 2013-10-18 22:15:24 +0000 (Fri, 18 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -179,6 +179,10 @@ proc build {path getViewCmd {visibleColumns {}} {args {}}} {
 	set Vars(table) [::scrolledtable::build $path $columns {*}$args]
 	pack $path -fill both -expand yes
 	RefreshEventType $path
+
+	::scrolledtable::configure $path event \
+		-specialfont [list [list $::font::figurine(text:normal) 9812 9823]] \
+		;
 
 	::bind $path <<TableFill>>			[namespace code [list TableFill $path %d]]
 	::bind $path <<TableSelected>>	[namespace code [list TableSelected $path %d]]

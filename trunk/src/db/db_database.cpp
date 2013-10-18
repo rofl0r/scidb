@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 961 $
-// Date   : $Date: 2013-10-06 08:30:53 +0000 (Sun, 06 Oct 2013) $
+// Version: $Revision: 976 $
+// Date   : $Date: 2013-10-18 22:15:24 +0000 (Fri, 18 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1393,8 +1393,17 @@ Database::exportGames(	Destination& destination,
 
 	if (format::isScidFormat(dstFormat))
 		copyMode = copy::ExcludeIllegal;
+	
+	unsigned minFrequency;
 
-	unsigned frequency	= mstl::min(1000u, mstl::max(gameFilter.count()/100, 1u));
+	if (dstFormat == Format::Pgn)
+		minFrequency = 25;
+	else if (format::isChessBaseFormat(srcFormat))
+		minFrequency = 50;
+	else
+		minFrequency = 300;
+
+	unsigned frequency	= mstl::min(minFrequency, mstl::max(gameFilter.count()/100u, 1u));
 	unsigned reportAfter	= frequency;
 	unsigned count			= 0;
 	unsigned numGames		= 0;
@@ -2077,7 +2086,7 @@ bool
 Database::setReadonly(bool flag)
 {
 	M_REQUIRE(isOpen());
-	M_REQUIRE(!flag || isWritable());
+	M_REQUIRE(flag || isWritable());
 
 	if (flag != m_readOnly)
 	{
