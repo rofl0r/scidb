@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 974 $
-# Date   : $Date: 2013-10-16 14:17:54 +0000 (Wed, 16 Oct 2013) $
+# Version: $Revision: 977 $
+# Date   : $Date: 2013-10-19 00:07:38 +0000 (Sat, 19 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -29,8 +29,8 @@
 namespace eval import {
 namespace eval mc {
 
-set ImportingPgnFile						"Importing PGN file '%s'"
-set ImportingDatabase					"Importing database '%s'"
+set ImportingPgnFile						"Importing PGN files"
+set ImportingDatabase					"Importing databases"
 set Line										"Line"
 set Column									"Column"
 set GameNumber								"Game"

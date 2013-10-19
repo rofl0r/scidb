@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 976 $
-# Date   : $Date: 2013-10-18 22:15:24 +0000 (Fri, 18 Oct 2013) $
+# Version: $Revision: 977 $
+# Date   : $Date: 2013-10-19 00:07:38 +0000 (Sat, 19 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -665,7 +665,10 @@ proc SetupCSS {w} {
 	if {$Priv(textalign) ne "left"} {
 		append css "\np { text-align: $Priv(textalign); }"
 		append css "\nli { text-align: $Priv(textalign); }"
-		append css "\nspan.annotation { text-align: $Priv(textalign); }"
+		append css "\nspan.justification { text-align: $Priv(textalign); }"
+		append css "\ndiv.annotation { text-align: $Priv(textalign); }"
+		append css "\ntd.justification { text-align: $Priv(textalign); }"
+		append css "\ntd.standard-justification { text-align: $Priv(textalign); }"
 	}
 	set css [string trim $css]
 	if {[string length $css]} { $w.sub.html style -id user $css }

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 976 $
-# Date   : $Date: 2013-10-18 22:15:24 +0000 (Fri, 18 Oct 2013) $
+# Version: $Revision: 977 $
+# Date   : $Date: 2013-10-19 00:07:38 +0000 (Sat, 19 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1545,8 +1545,8 @@
 ::setup::board::mc::Warning(UnsupportedVariant)		"Position is a start position but not a Shuffle Chess position. Are you sure?"
 
 ### import #############################################################
-::import::mc::ImportingPgnFile			"'%s' PGN file importálása"
-::import::mc::ImportingDatabase			"Importing database '%s'" ;# NEW
+::import::mc::ImportingPgnFile			"PGN file importálása" ;# NEW change tp 'Importing PGN files'
+::import::mc::ImportingDatabase			"Importing databases" ;# NEW
 ::import::mc::Line				"Sor"
 ::import::mc::Column				"Oszlop"
 ::import::mc::GameNumber			"Játszma"
