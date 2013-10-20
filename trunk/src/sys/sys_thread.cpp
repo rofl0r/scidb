@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 915 $
-// Date   : $Date: 2013-07-31 21:14:27 +0000 (Wed, 31 Jul 2013) $
+// Version: $Revision: 979 $
+// Date   : $Date: 2013-10-20 21:03:29 +0000 (Sun, 20 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -332,7 +332,7 @@ void
 Thread::doSleep()
 {
 	InitializeConditionVariable(&m_condition);
-	EnterCriticalSection(&m_condMutext);
+	EnterCriticalSection(&m_condMutex);
 	m_wakeUp = false;
 	while (!m_wakeUp)
 		SleepConditionVariableCS(&m_condition, &m_condMutext);

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 979 $
+// Date   : $Date: 2013-10-20 21:03:29 +0000 (Sun, 20 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -28,6 +28,7 @@
 #include "db_game_info.h"
 #include "db_namebase_entry.h"
 #include "db_tournament_table.h"
+#include "db_line.h"
 
 #ifdef SUPPORT_TREE_INFO_FILTER
 # include "db_selector.h"
@@ -56,7 +57,8 @@ TreeInfo::Pair::operator+=(Pair const& pair)
 
 
 TreeInfo::TreeInfo()
-	:m_frequency(0)
+	:m_line(0)
+	,m_frequency(0)
 	,m_lastYear(0)
 	,m_bestRating(0)
 #ifdef SUPPORT_TREE_INFO_FILTER
@@ -74,6 +76,7 @@ TreeInfo::TreeInfo()
 
 TreeInfo::TreeInfo(Eco eco, Move const& move, unsigned filterSize)
 	:m_move(move)
+	,m_line(0)
 	,m_eco(eco)
 	,m_frequency(0)
 	,m_lastYear(0)
@@ -85,6 +88,28 @@ TreeInfo::TreeInfo(Eco eco, Move const& move, unsigned filterSize)
 {
 	::memset(m_scoreCount, 0, sizeof(m_scoreCount));
 }
+
+
+TreeInfo::TreeInfo(Eco eco, Line const& line, unsigned firstGameIndex)
+	:m_line(new Line(line))
+	,m_eco(eco)
+	,m_frequency(0)
+	,m_lastYear(0)
+	,m_bestRating(0)
+	,m_firstGameIndex(::Invalid)
+	,m_filter(filterSize)
+	,m_bestPlayer(&g_player)
+	,m_mostFrequentPlayer(&g_player)
+{
+}
+
+
+TreeInfo::~TreeInfo()
+{
+	M_ASSERT(m_line == 0);
+	delete m_line;
+}
+
 
 unsigned
 TreeInfo::firstGameIndex() const
@@ -137,6 +162,7 @@ TreeInfo::uncompressFilter()
 
 TreeInfo::TreeInfo(Eco eco, Move const& move, unsigned firstGameIndex)
 	:m_move(move)
+	,m_line(0)
 	,m_eco(eco)
 	,m_frequency(0)
 	,m_lastYear(0)

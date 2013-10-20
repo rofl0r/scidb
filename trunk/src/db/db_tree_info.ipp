@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 979 $
+// Date   : $Date: 2013-10-20 21:03:29 +0000 (Sun, 20 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -24,13 +24,16 @@
 // (at your option) any later version.
 // ======================================================================
 
+#include "m_assert.h"
+
 namespace db {
 
 inline TreeInfo::Pair::Pair() : count(0), sum(0.0) {}
 
-inline TreeInfo::Pair::operator bool () const { return count > 0; }
+inline TreeInfo::Pair::operator bool () const	{ return count > 0; }
 
-inline double TreeInfo::Pair::average() const { return sum/count; }
+inline double TreeInfo::Pair::average() const	{ return sum/count; }
+inline bool TreeInfo::hasLine() const				{ return m_line; }
 
 
 inline
@@ -67,6 +70,24 @@ inline void TreeInfo::setEco(Eco code) { m_eco = code; }
 #ifdef SUPPORT_TREE_INFO_FILTER
 inline void TreeInfo::addGame(unsigned index) { m_filter.add(index); }
 #endif
+
+
+inline
+Line const&
+TreeInfo::line() const
+{
+	M_REQUIRE(hasLine());
+	return *m_line;
+}
+
+
+inline
+Line&
+TreeInfo::line()
+{
+	M_REQUIRE(hasLine());
+	return *m_line;
+}
 
 
 inline

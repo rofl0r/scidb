@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 961 $
-// Date   : $Date: 2013-10-06 08:30:53 +0000 (Sun, 06 Oct 2013) $
+// Version: $Revision: 979 $
+// Date   : $Date: 2013-10-20 21:03:29 +0000 (Sun, 20 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -34,6 +34,7 @@
 #include "db_pgn_writer.h"
 #include "db_latex_writer.h"
 #include "db_log.h"
+#include "db_exception.h"
 
 #include "sci_codec.h"
 #include "sci_consumer.h"
@@ -810,10 +811,23 @@ View::exportGames(mstl::string const& filename,
 			lineEnding = PgnWriter::Windows;
 
 		util::ZStream strm(internalName, type, mode);
-		PgnWriter writer(format::Pgn, strm, useEncoding, lineEnding, flags);
-		progress.message("write-game");
-		WriteGuard guard(m_app, filename);
-		count = exportGames(writer, copyMode, illegalRejected, log, progress);
+		strm.exceptions(mstl::ios_base::badbit | mstl::ios_base::failbit);
+
+		try
+		{
+			PgnWriter writer(format::Pgn, strm, useEncoding, lineEnding, flags);
+			progress.message("write-game");
+			WriteGuard guard(m_app, filename);
+			count = exportGames(writer, copyMode, illegalRejected, log, progress);
+		}
+		catch (mstl::ios_base::failure const& exc)
+		{
+			static uint32_t const MaxFileSize = (uint32_t(2) << 31) - 1;
+			IOException::ErrorType error = IOException::Write_Failed;
+			if (unsigned(sys::file::size(internalName)) == MaxFileSize)
+				error = IOException::Max_File_Size_Exceeded;
+			M_THROW(IOException(IOException::PgnFile, error, "write failed"));
+		}
 	}
 	else
 	{

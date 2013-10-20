@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 979 $
+// Date   : $Date: 2013-10-20 21:03:29 +0000 (Sun, 20 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -42,6 +42,7 @@ namespace db {
 class Selector;
 #endif
 
+class Line;
 class GameInfo;
 class NamebasePlayer;
 
@@ -55,6 +56,7 @@ public:
 #else
 	TreeInfo(Eco eco, Move const& move, unsigned firstGameIndex);
 #endif
+	TreeInfo(Eco eco, Line const& line, unsigned firstGameIndex);
 
 	struct Pair
 	{
@@ -73,9 +75,11 @@ public:
 		double	sum;
 	};
 
+	bool hasLine() const;
 	bool isLessThan(TreeInfo const& info, rating::Type ratingType, attribute::tree::ID column) const;
 
 	Move const& move() const;
+	Line const& line() const;
 	Eco eco() const;
 	unsigned frequency() const;
 	unsigned score() const;
@@ -93,6 +97,7 @@ public:
 #endif
 
 	Move& move();
+	Line& line();
 	void setEco(Eco code);
 
 	void add(GameInfo const& info, color::ID sideToMove, rating::Type ratingType);
@@ -111,6 +116,7 @@ private:
 	unsigned perMille(unsigned value) const;
 
 	Move			m_move;				// move
+	Line*			m_line;				// line
 	Eco			m_eco;				// ECO code for this move
 	unsigned		m_frequency;		// frequency of this move
 	unsigned		m_scoreCount[5];	// count result scores
