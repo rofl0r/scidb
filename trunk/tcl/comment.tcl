@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 976 $
-# Date   : $Date: 2013-10-18 22:15:24 +0000 (Fri, 18 Oct 2013) $
+# Version: $Revision: 978 $
+# Date   : $Date: 2013-10-20 18:30:04 +0000 (Sun, 20 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -977,6 +977,7 @@ proc LanguageChanged {dlg w} {
 	}
 	foreach fig $langSet($::mc::langID) eng $langSet(en) {
 		bind $t <Control-Shift-$fig> [namespace code [list InsertFigurine $t $eng]]
+		bind $t <Control-Shift-$fig> {+ break }
 	}
 	set Vars(mc) $::mc::langID
 

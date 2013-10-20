@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 969 $
-# Date   : $Date: 2013-10-13 15:33:12 +0000 (Sun, 13 Oct 2013) $
+# Version: $Revision: 978 $
+# Date   : $Date: 2013-10-20 18:30:04 +0000 (Sun, 20 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1805,6 +1805,9 @@ proc SetState {toolbar v w state} {
 				-activebackground $activebackground \
 				-command $command \
 				;
+			if {[winfo class $w] eq "DropdownButton"} {
+				$w configure -arrowstate $state
+			}
 		}
 
 		default {

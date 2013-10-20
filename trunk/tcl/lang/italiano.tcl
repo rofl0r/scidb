@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 977 $
-# Date   : $Date: 2013-10-19 00:07:38 +0000 (Sat, 19 Oct 2013) $
+# Version: $Revision: 978 $
+# Date   : $Date: 2013-10-20 18:30:04 +0000 (Sun, 20 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -421,6 +421,7 @@
 ::application::board::mc::InsertNullMove				"Inserisci mossa nulla"
 ::application::board::mc::SelectStartPosition		"Seleziona Posizione Iniziale"
 ::application::board::mc::LoadRandomGame				"Carica partita casualmente"
+::application::board::mc::AddNewGame					"Aggiunti nuova partita..."
 
 ::application::board::mc::Tools							"Strumenti"
 ::application::board::mc::Control						"Controllo"
@@ -1401,11 +1402,10 @@
 ::gamebar::mc::UnlockGame						"Sblocca Partita"
 ::gamebar::mc::CloseGame						"Chiudi Partita"
 
-<<<<<<< .mine
 ::gamebar::mc::GameNew							"Nuova Partita"
-::gamebar::mc::AddNewGame						"Salva: Aggiunti nuova partita a %s..."
-::gamebar::mc::ReplaceGame						"Salva: Rimpiazza partita in %s..."
-::gamebar::mc::ReplaceMoves					"Salva: Sostituisci solo mosse nella partita..."
+::gamebar::mc::AddNewGame						"Aggiunti nuova partita a %s..."
+::gamebar::mc::ReplaceGame						"Rimpiazza partita in %s..."
+::gamebar::mc::ReplaceMoves					"Sostituisci solo mosse nella partita..."
 
 ::gamebar::mc::Tip(Antichess)					"Non ci sono scacchi né arrocchi, il re viene catturato come un pezzo qualunque"
 ::gamebar::mc::Tip(Suicide)					"In caso di stallo il lato con minor pezzi vince (secondo le regole di FISC)."

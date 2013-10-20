@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 977 $
-# Date   : $Date: 2013-10-19 00:07:38 +0000 (Sat, 19 Oct 2013) $
+# Version: $Revision: 978 $
+# Date   : $Date: 2013-10-20 18:30:04 +0000 (Sun, 20 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -420,6 +420,7 @@
 ::application::board::mc::InsertNullMove				"Nullzug einfügen"
 ::application::board::mc::SelectStartPosition		"Startposition wählen"
 ::application::board::mc::LoadRandomGame				"Zufällige Partie laden"
+::application::board::mc::AddNewGame					"Partie hinzufügen..."
 
 ::application::board::mc::Tools							"Werkzeuge"
 ::application::board::mc::Control						"Steuerung"

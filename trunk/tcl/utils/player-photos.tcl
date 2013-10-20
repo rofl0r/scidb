@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 973 $
-# Date   : $Date: 2013-10-15 18:17:14 +0000 (Tue, 15 Oct 2013) $
+# Version: $Revision: 978 $
+# Date   : $Date: 2013-10-20 18:30:04 +0000 (Sun, 20 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -283,8 +283,8 @@ proc checkForUpdate {informProc} {
 	catch {
 		::http::geturl http://scidb-player-photos.googlecode.com/svn/trunk/TIMESTAMP \
 			-binary 1 \
-			-timeout 5000 \
 			-command [namespace code [list CheckForUpdateResponse $informProc]] \
+			;
 	}
 }
 
