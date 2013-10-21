@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 978 $
-# Date   : $Date: 2013-10-20 18:30:04 +0000 (Sun, 20 Oct 2013) $
+# Version: $Revision: 980 $
+# Date   : $Date: 2013-10-21 15:49:38 +0000 (Mon, 21 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -291,9 +291,10 @@ proc BuildMenu {w} {
 	variable Locked
 	variable Active
 
-	if {$Priv(arrow:state) eq "disabled"} { return }
 	set m $w.m.__dropdownbutton__
 	catch { destroy $m }
+	$w.m configure -menu ""
+	if {$Priv(arrow:state) eq "disabled"} { return }
 	menu $m -tearoff 0
 
 	if {[string length $Priv(menucmd)]} {
