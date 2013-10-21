@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 969 $
-# Date   : $Date: 2013-10-13 15:33:12 +0000 (Sun, 13 Oct 2013) $
+# Version: $Revision: 983 $
+# Date   : $Date: 2013-10-21 21:48:22 +0000 (Mon, 21 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -945,11 +945,14 @@ proc SearchResultAvailable {table} {
 proc FetchResult {table {force false}} {
 	variable Options
 	variable Vars
+	variable Priv
 
 ### VARIANTS ####################################
 if {[::scidb::game::query mainvariant?] ne "Normal"} { return }
 if {$Vars(force)} { set force true }
 #################################################
+
+	$Vars(progress) configure -background [::colors::lookup $Priv(progress:finished)]
 
 	set options {}
 	if {[llength $Options(sort:column)]} {
