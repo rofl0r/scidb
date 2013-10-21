@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 979 $
-// Date   : $Date: 2013-10-20 21:03:29 +0000 (Sun, 20 Oct 2013) $
+// Version: $Revision: 981 $
+// Date   : $Date: 2013-10-21 19:37:46 +0000 (Mon, 21 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -30,6 +30,7 @@
 #include "db_database.h"
 #include "db_game.h"
 #include "db_line.h"
+#include "db_exception.h"
 
 #include "u_piped_progress.h"
 
@@ -183,7 +184,13 @@ TreeAdmin::startUpdate(	db::Database& referenceBase,
 	}
 
 	m_runnable = new Runnable(tree, game, referenceBase, mode, ratingType, progress);
-	m_thread.start(mstl::function<void ()>(&Runnable::operator(), m_runnable));
+
+	if (!m_thread.start(mstl::function<void ()>(&Runnable::operator(), m_runnable)))
+	{
+		delete m_runnable;
+		m_runnable = 0;
+		IO_RAISE(Unspecified, Cannot_Create_Thread, "start of tree update failed");
+	}
 
 	return false;
 }

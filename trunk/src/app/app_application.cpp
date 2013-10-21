@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 979 $
-// Date   : $Date: 2013-10-20 21:03:29 +0000 (Sun, 20 Oct 2013) $
+// Version: $Revision: 981 $
+// Date   : $Date: 2013-10-21 19:37:46 +0000 (Mon, 21 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2722,9 +2722,6 @@ Application::save(mstl::string const& name, util::Progress& progress)
 			dst.save(progress);
 			cursor->updateViews();
 
-			if (m_subscriber && m_referenceBase && !m_treeIsFrozen)
-				m_subscriber->updateTree(m_referenceBase->name(), m_referenceBase->variant());
-
 			if (m_subscriber)
 			{
 				m_subscriber->updateDatabaseInfo(dst.name(), dst.variant());
@@ -2740,8 +2737,12 @@ Application::save(mstl::string const& name, util::Progress& progress)
 
 				++m_updateCount;
 			}
+
 		}
 	}
+
+	if (m_subscriber && m_referenceBase && !m_treeIsFrozen)
+		m_subscriber->updateTree(m_referenceBase->name(), m_referenceBase->variant());
 }
 
 
@@ -2756,6 +2757,7 @@ Application::save(mstl::string const& name,
 	MultiCursor&	multiCursor(*m_cursorMap.find(name)->second);
 	MultiBase&		multiBase(multiCursor.multiBase());
 	WriteGuard		guard(*this, multiBase);
+	Cursor*			referenceBase(0);
 
 	file::State state = multiBase.save(encoding, flags, progress);
 
@@ -2771,13 +2773,16 @@ Application::save(mstl::string const& name,
 						m_subscriber->updateList(m_updateCount++, cursor->name(), cursor->variant());
 
 					if (cursor->isReferenceBase() && !m_treeIsFrozen)
-						m_subscriber->updateTree(m_referenceBase->name(), m_referenceBase->variant());
+						referenceBase = m_referenceBase;
 				}
 
 				m_subscriber->updateDatabaseInfo(name, variant::fromIndex(v));
 			}
 		}
 	}
+
+	if (m_subscriber && referenceBase)
+		m_subscriber->updateTree(referenceBase->name(), referenceBase->variant());
 
 	return state;
 }

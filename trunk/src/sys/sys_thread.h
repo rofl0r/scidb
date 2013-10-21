@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 914 $
-// Date   : $Date: 2013-07-31 21:04:12 +0000 (Wed, 31 Jul 2013) $
+// Version: $Revision: 981 $
+// Date   : $Date: 2013-10-21 19:37:46 +0000 (Mon, 21 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -68,7 +68,7 @@ public:
 
 	ThreadId threadId() const;
 
-	void start(Runnable runnable);
+	bool start(Runnable runnable);
 
 	void sleep();
 	void awake();
@@ -85,7 +85,7 @@ private:
 
 	typedef mstl::exception Exception;
 
-	void createThread();
+	bool createThread();
 	bool cancelThread();
 
 	void doSleep();
@@ -111,6 +111,10 @@ private:
 
 	mutable lock_t		m_lock;
 	mutable atomic_t	m_cancel;
+
+#ifndef NDEBUG
+	mutable unsigned m_count;
+#endif
 };
 
 } // namespace sys

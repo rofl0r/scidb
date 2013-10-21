@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 978 $
-# Date   : $Date: 2013-10-20 18:30:04 +0000 (Sun, 20 Oct 2013) $
+# Version: $Revision: 981 $
+# Date   : $Date: 2013-10-21 19:37:46 +0000 (Mon, 21 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -296,14 +296,10 @@ proc build {w width height} {
 	bind <End>							[namespace code GoEnd]
 	bind <Down>							[namespace code GoDown]
 	bind <Up>							[namespace code GoUp]
-	bind <Control-Down>				[namespace code [list LoadGame(list) next]]
-	bind <Control-Up>					[namespace code [list LoadGame(list) prev]]
-	bind <Control-Home>				[namespace code [list LoadGame(list) first]]
-	bind <Control-End>				[namespace code [list LoadGame(list) last]]
-	bind <Shift-Control-Down>		[namespace code [list LoadGame(base) next]]
-	bind <Shift-Control-Up>			[namespace code [list LoadGame(base) prev]]
-	bind <Shift-Control-Home>		[namespace code [list LoadGame(base) first]]
-	bind <Shift-Control-End>		[namespace code [list LoadGame(base) last]]
+	bind <Control-Down>				[namespace code [list LoadGame(any) next]]
+	bind <Control-Up>					[namespace code [list LoadGame(any) prev]]
+	bind <Control-Home>				[namespace code [list LoadGame(any) first]]
+	bind <Control-End>				[namespace code [list LoadGame(any) last]]
 	bind <Shift-Up>					[list [namespace parent]::pgn::scroll -1 units]
 	bind <Shift-Down>					[list [namespace parent]::pgn::scroll +1 units]
 	bind <Shift-Prior>				[list [namespace parent]::pgn::scroll -1 pages]

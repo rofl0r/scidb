@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 851 $
-// Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
+// Version: $Revision: 981 $
+// Date   : $Date: 2013-10-21 19:37:46 +0000 (Mon, 21 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -81,6 +81,7 @@ public:
 		Max_File_Size_Exceeded,
 		Load_Failed,
 		Not_Original_Version,
+		Cannot_Create_Thread,
 	};
 
 	IOException(FileType fileType,

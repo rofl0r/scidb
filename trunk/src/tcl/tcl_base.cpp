@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 851 $
-// Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
+// Version: $Revision: 981 $
+// Date   : $Date: 2013-10-21 19:37:46 +0000 (Mon, 21 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -802,6 +802,7 @@ safeCall(void* clientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 			case IOException::Max_File_Size_Exceeded:	error = "MaxFileSizeExceeded"; break;
 			case IOException::Load_Failed:				error = "LoadFailed"; break;
 			case IOException::Not_Original_Version:	error = "NotOriginalVersion"; break;
+			case IOException::Cannot_Create_Thread:	error = "CannotCreateThread"; break;
 		}
 
 		rc = tcl::ioError(file, error, exc.what());
