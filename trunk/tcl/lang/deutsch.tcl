@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 981 $
-# Date   : $Date: 2013-10-21 19:37:46 +0000 (Mon, 21 Oct 2013) $
+# Version: $Revision: 982 $
+# Date   : $Date: 2013-10-21 19:41:10 +0000 (Mon, 21 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -195,6 +195,7 @@
 ::util::mc::IOError(MaxFileSizeExceeded)	"die maximale Dateigrösse wurde erreicht"
 ::util::mc::IOError(LoadFailed)				"das Laden schlug fehl (zuviele Turnier-Einträge)"
 ::util::mc::IOError(NotOriginalVersion)	"die Datei wurde seit dem Öffnen ausserhalb dieser Anwendung verändert"
+::util::mc::IOError(CannotCreateThread)	"Thread konnte nicht gestartet werden (wenig freier Speicher?)"
 
 ::util::mc::SelectionOwnerDidntRespond		"Zeitüberschreitung während der Drop-Aktion: der Eigentümer des Drop-Inhalts antwortete nicht."
 

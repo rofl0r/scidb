@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 975 $
-# Date   : $Date: 2013-10-16 17:27:36 +0000 (Wed, 16 Oct 2013) $
+# Version: $Revision: 982 $
+# Date   : $Date: 2013-10-21 19:41:10 +0000 (Mon, 21 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -385,6 +385,7 @@ set IOError(EncodingFailed)		"cannot write namebase file"
 set IOError(MaxFileSizeExceeded)	"maximal file size reached"
 set IOError(LoadFailed)				"load failed (too many event entries)"
 set IOError(NotOriginalVersion)	"file has changed outside from this session since last open"
+set IOError(CannotCreateThread)	"cannot create thread (low memory?)"
 
 set SelectionOwnerDidntRespond   "Timeout during drop action: selection owner didn't respond."
 

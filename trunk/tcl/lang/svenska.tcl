@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 978 $
-# Date   : $Date: 2013-10-20 18:30:04 +0000 (Sun, 20 Oct 2013) $
+# Version: $Revision: 982 $
+# Date   : $Date: 2013-10-21 19:41:10 +0000 (Mon, 21 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -196,6 +196,7 @@
 ::util::mc::IOError(MaxFileSizeExceeded)	"maximal filstorlek uppnådd"
 ::util::mc::IOError(LoadFailed)				"inläsningen misslyckades  (för många tävlingar)"
 ::util::mc::IOError(NotOriginalVersion)	"filen har ändrats av annat program sedan den öppnades"
+::util::mc::IOError(CannotCreateThread)	"cannot create thread (low memory?)" ;# NEW
 
 ::util::mc::SelectionOwnerDidntRespond		"Inget svar vid släpp: markerad ägare svarade inte."
 

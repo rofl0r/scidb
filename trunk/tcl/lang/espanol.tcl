@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 978 $
-# Date   : $Date: 2013-10-20 18:30:04 +0000 (Sun, 20 Oct 2013) $
+# Version: $Revision: 982 $
+# Date   : $Date: 2013-10-21 19:41:10 +0000 (Mon, 21 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -197,6 +197,7 @@
 ::util::mc::IOError(MaxFileSizeExceeded)	"se alcanzó el tamaño máximo de archivo" 
 ::util::mc::IOError(LoadFailed)				"carga fallida (demasiadas entradas de evento)" 
 ::util::mc::IOError(NotOriginalVersion)	"file has changed outside from this session since last open" ;# NEW
+::util::mc::IOError(CannotCreateThread)	"cannot create thread (low memory?)" ;# NEW
 
 ::util::mc::SelectionOwnerDidntRespond		"Tiempo excedido durante la operación: el propietario de la selección no respondió."
 
