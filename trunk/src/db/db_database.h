@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 961 $
-// Date   : $Date: 2013-10-06 08:30:53 +0000 (Sun, 06 Oct 2013) $
+// Version: $Revision: 984 $
+// Date   : $Date: 2013-10-22 13:00:30 +0000 (Tue, 22 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -265,7 +265,7 @@ public:
 	/// Attach database to a file.
 	void attach(mstl::string const& filename, util::Progress& progress);
 	/// Update database files.
-	void save(util::Progress& progress);
+	unsigned save(util::Progress& progress);
 	/// Compact database on disk.
 	void compact(Database& destination, util::Progress& progress);
 	/// Compact database in memory.

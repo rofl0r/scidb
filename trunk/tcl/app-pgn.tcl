@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 976 $
-# Date   : $Date: 2013-10-18 22:15:24 +0000 (Fri, 18 Oct 2013) $
+# Version: $Revision: 984 $
+# Date   : $Date: 2013-10-22 13:00:30 +0000 (Tue, 22 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -490,7 +490,6 @@ proc importGame {parent} {
 
 proc saveGame {mode} {
 	variable ::scidb::scratchbaseName
-	variable ::scidb::clipbaseName
 	variable Vars
 
 	set position [::scidb::game::current]
@@ -503,7 +502,6 @@ proc saveGame {mode} {
 		set base [::scidb::db::get name]
 	}
 
-	if {$base eq $clipbaseName} { return }
 	if {[::scidb::db::get readonly? $base $variant]} { return }
 	if {$variant ni [::scidb::db::get variants $base]} { return }
 

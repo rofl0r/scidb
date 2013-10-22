@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 981 $
-# Date   : $Date: 2013-10-21 19:37:46 +0000 (Mon, 21 Oct 2013) $
+# Version: $Revision: 984 $
+# Date   : $Date: 2013-10-22 13:00:30 +0000 (Tue, 22 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1616,6 +1616,7 @@ proc SaveGame {{mode ""}} {
 	variable ::scidb::clipbaseName
 	variable Vars
 
+	::tooltip::hide
 	set position [::scidb::game::current]
 
 	if {0 <= $position && $position < 9} {

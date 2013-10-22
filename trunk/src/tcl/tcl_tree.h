@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 984 $
+// Date   : $Date: 2013-10-22 13:00:30 +0000 (Tue, 22 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -36,6 +36,8 @@ namespace tcl {
 namespace tree {
 
 void referenceBaseChanged();
+void clearCache();
+
 Tcl_Obj* variantToString(::db::variant::Type variant);
 
 } // namespace tree

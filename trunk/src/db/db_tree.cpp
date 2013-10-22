@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 979 $
-// Date   : $Date: 2013-10-20 21:03:29 +0000 (Sun, 20 Oct 2013) $
+// Version: $Revision: 984 $
+// Date   : $Date: 2013-10-22 13:00:30 +0000 (Tue, 22 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -716,7 +716,7 @@ Tree::makeTree(TreeP tree,
 }
 
 
-#if 0
+#ifdef VARIATIONS
 Tree*
 Tree::makeTree(TreeP tree,
 					Board myPosition,
@@ -742,19 +742,6 @@ Tree::makeTree(TreeP tree,
 												unsigned,
 												unsigned);
 
-	BuildMeth buildMeth;
-
-	if (myIdn == 0)
-		buildMeth = &Tree::buildTree0;
-	else if (myPosition.isStandardPosition(base.variant()))
-		buildMeth = &Tree::buildTreeStandard;
-	else if (myPosition.isStartPosition())
-		buildMeth = &Tree::buildTreeStart;
-	else if (myIdn == variant::Standard)
-		buildMeth = &Tree::buildTree518;
-	else
-		buildMeth = &Tree::buildTree960;
-
 	util::ProgressWatcher watcher(progress, base.countGames());
 
 	unsigned frequency = progress.frequency(base.countGames());
@@ -763,11 +750,6 @@ Tree::makeTree(TreeP tree,
 		frequency = mstl::min(1000u, mstl::max(base.countGames()/1000u, 1u));
 
 	ReachableFunc reachableFunc;
-
-	if (mode == tree::Exact || base.format() != format::Scidb)
-		reachableFunc = Signature::isReachablePosition;
-	else
-		reachableFunc = Signature::isReachable;
 
 	::memset(::moveCache, 0, sizeof(::moveCache));
 

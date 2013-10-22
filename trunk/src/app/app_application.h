@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 957 $
-// Date   : $Date: 2013-09-30 15:11:24 +0000 (Mon, 30 Sep 2013) $
+// Version: $Revision: 984 $
+// Date   : $Date: 2013-10-22 13:00:30 +0000 (Tue, 22 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -143,8 +143,9 @@ public:
 		virtual void gameSwitched(unsigned position) = 0;
 		virtual void gameClosed(unsigned position) = 0;
 		virtual void databaseSwitched(mstl::string const& name, db::variant::Type variant) = 0;
-		virtual void updateTree(mstl::string const& name, db::variant::Type variant) = 0;
 		virtual void closeDatabase(mstl::string const& name, db::variant::Type variant) = 0;
+		virtual void updateTree(mstl::string const& name, db::variant::Type variant) = 0;
+		virtual void clearTreeCache() = 0;
 	};
 
 	typedef mstl::ref_counted_ptr<Subscriber> SubscriberP;
@@ -504,6 +505,7 @@ private:
 	void updateGameInfo(Cursor const& cursor, db::Database& database);
 	bool compact(Cursor& cursor, util::Progress& progress);
 	bool compact(Cursor& cursor);
+	void clearTreeCache();
 
 	Cursor*			m_current;
 	Cursor*			m_clipbase;

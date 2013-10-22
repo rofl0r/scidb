@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 969 $
-// Date   : $Date: 2013-10-13 15:33:12 +0000 (Sun, 13 Oct 2013) $
+// Version: $Revision: 984 $
+// Date   : $Date: 2013-10-22 13:00:30 +0000 (Tue, 22 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -132,6 +132,13 @@ static Tree::Key m_key;
 
 void
 tcl::tree::referenceBaseChanged()
+{
+	m_key.clear();
+}
+
+
+void
+tcl::tree::clearCache()
 {
 	m_key.clear();
 }
@@ -350,7 +357,7 @@ cmdFinish(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 		}
 		else if (tree->isTreeFor(Scidb->referenceBase().database(), m_key))
 		{
-			result = "unchanged";
+			result = "changed";
 		}
 		else
 		{

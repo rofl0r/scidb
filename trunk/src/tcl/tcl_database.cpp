@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 961 $
-// Date   : $Date: 2013-10-06 08:30:53 +0000 (Sun, 06 Oct 2013) $
+// Version: $Revision: 984 $
+// Date   : $Date: 2013-10-22 13:00:30 +0000 (Tue, 22 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -640,6 +640,11 @@ struct Subscriber : public Application::Subscriber
 		}
 
 		Tcl_DecrRefCount(file);
+	}
+
+	void clearTreeCache() override
+	{
+		tcl::tree::clearCache();
 	}
 };
 

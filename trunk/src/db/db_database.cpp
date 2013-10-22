@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 976 $
-// Date   : $Date: 2013-10-18 22:15:24 +0000 (Fri, 18 Oct 2013) $
+// Version: $Revision: 984 $
+// Date   : $Date: 2013-10-22 13:00:30 +0000 (Tue, 22 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -438,7 +438,7 @@ Database::attach(mstl::string const& filename, util::Progress& progress)
 }
 
 
-void
+unsigned
 Database::save(util::Progress& progress)
 {
 	M_REQUIRE(isOpen());
@@ -447,7 +447,7 @@ Database::save(util::Progress& progress)
 	M_REQUIRE(!usingAsyncReader());
 
 	if (!m_namebases.isModified() && m_size == m_gameInfoList.size())
-		return;
+		return 0;
 
 	unsigned start = m_size;
 
@@ -470,6 +470,8 @@ Database::save(util::Progress& progress)
 								const_cast<GameInfoList const&>(m_gameInfoList).end(),
 								start == 0 ? Statistic::Reset : Statistic::Continue);
 	m_statistic.added = m_size - m_initialSize;
+
+	return m_statistic.added;
 }
 
 
