@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 985 $
-# Date   : $Date: 2013-10-29 14:52:42 +0000 (Tue, 29 Oct 2013) $
+# Version: $Revision: 986 $
+# Date   : $Date: 2013-10-29 16:13:10 +0000 (Tue, 29 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -437,6 +437,16 @@ proc databaseName {base {withExtension 1}} {
 proc formatResult {result} {
 	if {$result eq "1/2-1/2"} { return "\u00bd-\u00bd" }
 	return $result
+}
+
+
+proc charToInt {c} {
+   return [expr {int([scan [string toupper [string index $c 0]] "%c"]) - 65}]
+}
+
+
+proc intToChar {n} {
+	return [format "%c" [expr {$n + 65}]]
 }
 
 
