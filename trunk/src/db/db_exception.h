@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 981 $
-// Date   : $Date: 2013-10-21 19:37:46 +0000 (Mon, 21 Oct 2013) $
+// Version: $Revision: 985 $
+// Date   : $Date: 2013-10-29 14:52:42 +0000 (Tue, 29 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -63,6 +63,7 @@ public:
 		Namebase,
 		Annotation,
 		PgnFile,
+		BookFile,
 	};
 
 	enum ErrorType
@@ -106,7 +107,7 @@ class DecodingFailedException : public Exception
 {
 public:
 
-	DecodingFailedException();
+	DecodingFailedException(char const* fmt, ...) __attribute__((__format__(__printf__, 2, 3)));
 };
 
 } // namespace db

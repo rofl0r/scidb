@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 957 $
-// Date   : $Date: 2013-09-30 15:11:24 +0000 (Mon, 30 Sep 2013) $
+// Version: $Revision: 985 $
+// Date   : $Date: 2013-10-29 14:52:42 +0000 (Tue, 29 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1033,7 +1033,7 @@ Decoder::decodeMoves(MoveNode* root, unsigned& count)
 				}
 				else
 				{
-					throw DecodingFailedException();
+					throw DecodingFailedException("corrupted data");
 				}
 				break;
 
@@ -1132,7 +1132,7 @@ Decoder::decodeMoves(MoveNode* root, unsigned& count, MoveNodeAllocator& allocat
 				}
 				else
 				{
-					throw DecodingFailedException();
+					throw DecodingFailedException("corrupted data");
 				}
 				break;
 

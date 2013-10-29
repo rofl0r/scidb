@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 976 $
-// Date   : $Date: 2013-10-18 22:15:24 +0000 (Fri, 18 Oct 2013) $
+// Version: $Revision: 985 $
+// Date   : $Date: 2013-10-29 14:52:42 +0000 (Tue, 29 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -75,6 +75,7 @@ namespace sq
 
 	ID make(Square fyle, Square rank);
 	ID make(char const* s);
+	ID makeEnPassant(Fyle fyle, color::ID color);
 
 	Fyle fyle(Square square);
 	Rank rank(Square square);
@@ -876,6 +877,7 @@ namespace piece
 		BlackKnight	= Knight	| (1 << 3),	BN = BlackKnight,
 		BlackPawn	= Pawn	| (1 << 3),	BP = BlackPawn,
 
+		First = WhiteKing,
 		Last = BlackPawn,
 	};
 
@@ -976,8 +978,8 @@ namespace position
 namespace mark
 {
 	enum Command	{ None, Draw, Diagram };
-	enum Type	{ Text, Full, Square, Arrow, Circle, Disk };
-	enum Color	{ Red, Orange, Yellow, Green, Blue, DarkBlue, Purple, White, Black };
+	enum Type		{ Text, Full, Square, Arrow, Circle, Disk };
+	enum Color		{ Red, Orange, Yellow, Green, Blue, DarkBlue, Purple, White, Black };
 
 	char const* commandName(Command cmd);
 	char const* colorName(Color color);

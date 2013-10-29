@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 982 $
-# Date   : $Date: 2013-10-21 19:41:10 +0000 (Mon, 21 Oct 2013) $
+# Version: $Revision: 985 $
+# Date   : $Date: 2013-10-29 14:52:42 +0000 (Tue, 29 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -76,6 +76,7 @@
 ::mc::Filter			"Filter" ;# NEW
 ::mc::From			"From" ;# NEW
 ::mc::Game			"Játszma"
+::mc::Hidden			"Hidden" ;# NEW
 ::mc::Layout			"Layout"
 ::mc::Left			"Bal"
 ::mc::Lite			"Világos"
@@ -423,6 +424,8 @@
 ::application::board::mc::SelectStartPosition		"Select Start Position" ;# NEW
 ::application::board::mc::LoadRandomGame		"Load random game" ;# NEW
 ::application::board::mc::AddNewGame			"új játszma hozzáadása..."
+::application::board::mc::SlidingVarPanePosition	"Sliding variation pane position" ;# NEW
+::application::board::mc::ShowVariationArrows		"Show variation arrows" ;# NEW
 
 ::application::board::mc::Tools				"Eszközök"
 ::application::board::mc::Control			"Kezelés"

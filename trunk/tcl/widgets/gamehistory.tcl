@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 978 $
-# Date   : $Date: 2013-10-20 18:30:04 +0000 (Sun, 20 Oct 2013) $
+# Version: $Revision: 985 $
+# Date   : $Date: 2013-10-29 14:52:42 +0000 (Tue, 29 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -75,7 +75,7 @@ proc Build {w args} {
 		-class GHist          \
 		-borderwidth 0        \
 		-highlightthickness 0 \
-		-takefocus 0          \
+		-takefocus 1          \
 		-showroot no          \
 		-showheader no        \
 		-showbuttons no       \
@@ -84,7 +84,7 @@ proc Build {w args} {
 		-font $font           \
 		-background white     \
 		;
-	::scrolledframe::bindMousewheel $parent $t
+	::scrolledframe::bindMouseWheel $parent $t
 	$t state define hilite
 	$t column create -tags game
 	$t element create elemHdr text -font $boldFont -lines 1 -fill darkred

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 985 $
-// Date   : $Date: 2013-10-29 14:52:42 +0000 (Tue, 29 Oct 2013) $
+// Version: $Revision: 957 $
+// Date   : $Date: 2013-09-30 17:11:24 +0200 (Mon, 30 Sep 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -24,12 +24,34 @@
 // (at your option) any later version.
 // ======================================================================
 
+#ifndef _app_chessbase_book_included
+#define _app_chessbase_book_included
+
+#include "app_book.h"
+
 namespace app {
+namespace chessbase {
 
-inline bool TreeAdmin::isRunning() const			{ return m_runnable; }
-inline TreeAdmin::TreeP TreeAdmin::tree() const	{ return m_currentTree; }
-inline sys::Thread& TreeAdmin::thread()			{ return m_thread; }
+class Book : public app::Book
+{
+public:
 
+	Book(mstl::string const& filename);
+
+	bool isReadonly() const override;
+	Format format() const override;
+
+	db::Move probeNextMove(db::Board const& position, db::variant::Type variant) override;
+	bool probePosition(db::Board const& position, db::variant::Type variant, Entry& result) override;
+
+	bool remove(db::Board const& position, db::variant::Type variant) override;
+	bool modify(db::Board const& position, db::variant::Type variant, Entry const& entry) override;
+	bool add(db::Board const& position, db::variant::Type variant, Entry const& entry) override;
+};
+
+} // namespace chessbase
 } // namespace app
+
+#endif // _app_chessbase_book_included
 
 // vi:set ts=3 sw=3:

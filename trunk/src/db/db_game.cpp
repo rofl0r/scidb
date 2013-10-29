@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 969 $
-// Date   : $Date: 2013-10-13 15:33:12 +0000 (Sun, 13 Oct 2013) $
+// Version: $Revision: 985 $
+// Date   : $Date: 2013-10-29 14:52:42 +0000 (Tue, 29 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1657,6 +1657,16 @@ Move const&
 Game::nextMove() const
 {
 	return isBeforeLineEnd() ? m_currentNode->next()->move() : Move::empty();
+}
+
+
+Move const&
+Game::nextMove(unsigned varno) const
+{
+	if (!isBeforeLineEnd() || varno >= m_currentNode->next()->variationCount())
+		return Move::empty();
+		
+	return m_currentNode->next()->variation(varno)->next()->move();
 }
 
 

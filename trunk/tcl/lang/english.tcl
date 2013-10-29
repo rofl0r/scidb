@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 982 $
-# Date   : $Date: 2013-10-21 19:41:10 +0000 (Mon, 21 Oct 2013) $
+# Version: $Revision: 985 $
+# Date   : $Date: 2013-10-29 14:52:42 +0000 (Tue, 29 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -76,6 +76,7 @@
 ::mc::Filter				"Filter"
 ::mc::From					"From"
 ::mc::Game					"Game"
+::mc::Hidden				"Hidden"
 ::mc::Layout				"Layout"
 ::mc::Left					"Left"
 ::mc::Lite					"Light"
@@ -421,6 +422,8 @@
 ::application::board::mc::SelectStartPosition		"Select Start Position"
 ::application::board::mc::LoadRandomGame				"Load random game"
 ::application::board::mc::AddNewGame					"Add New Game..."
+::application::board::mc::SlidingVarPanePosition	"Sliding variation pane position"
+::application::board::mc::ShowVariationArrows		"Show variation arrows"
 
 ::application::board::mc::Tools							"Tools"
 ::application::board::mc::Control						"Control"

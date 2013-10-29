@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 973 $
-# Date   : $Date: 2013-10-15 18:17:14 +0000 (Tue, 15 Oct 2013) $
+# Version: $Revision: 985 $
+# Date   : $Date: 2013-10-29 14:52:42 +0000 (Tue, 29 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -2500,7 +2500,7 @@ proc OpenSetupDialog(Options) {parent} {
 #	if {$vertical} { set expand x } else { set expand y }
 #	set scrolled [::scrolledframe $dlg.top -expand $expand]
 	set scrolled [::scrolledframe $dlg.top]
-	::scrolledframe::bindMousewheel $scrolled $dlg
+	::scrolledframe::bindMouseWheel $scrolled $dlg
 	pack $dlg.top
 	set top [ttk::frame $scrolled.f -borderwidth 0 -takefocus 0]
 	grid $scrolled.f -sticky nsew

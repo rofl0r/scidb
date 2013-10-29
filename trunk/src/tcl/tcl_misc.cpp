@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 969 $
-// Date   : $Date: 2013-10-13 15:33:12 +0000 (Sun, 13 Oct 2013) $
+// Version: $Revision: 985 $
+// Date   : $Date: 2013-10-29 14:52:42 +0000 (Tue, 29 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -62,6 +62,11 @@
 #include <tk.h>
 #include <string.h>
 #include <ctype.h>
+
+#ifdef CODEBLOCKS
+# define SCIDB_VERSION	"1.0 BETA"
+# define SCIDB_REVISION	"978"
+#endif
 
 using namespace tcl;
 using namespace util;

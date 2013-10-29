@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 961 $
-// Date   : $Date: 2013-10-06 08:30:53 +0000 (Sun, 06 Oct 2013) $
+// Version: $Revision: 985 $
+// Date   : $Date: 2013-10-29 14:52:42 +0000 (Tue, 29 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2466,7 +2466,7 @@ Codec::startDecoding(ByteStream& gameStream,
 
 	if (word & 0x80000000)
 	{
-		throw DecodingFailedException();
+		throw DecodingFailedException("cannot decode");
 
 		// TODO: we have something special to do, but what?
 		// look at Big2010, #1964391, Giffard, Nicalas - Castlagliola, Marina

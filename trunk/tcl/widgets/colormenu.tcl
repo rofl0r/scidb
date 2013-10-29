@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 833 $
-# Date   : $Date: 2013-06-13 17:27:21 +0000 (Thu, 13 Jun 2013) $
+# Version: $Revision: 985 $
+# Date   : $Date: 2013-10-29 14:52:42 +0000 (Tue, 29 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -148,7 +148,7 @@ proc popup {parent args} {
 	set top [winfo toplevel $parent]${point}__colormenu__
 	if {[winfo exists $top]} { return }
 	
-	menu $top
+	menu $top -tearoff false
 	wm withdraw $top
 	tk::frame $top.f -relief raised -borderwidth 2
 	set bg [$top.f cget -background]

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 949 $
-// Date   : $Date: 2013-09-25 22:13:20 +0000 (Wed, 25 Sep 2013) $
+// Version: $Revision: 985 $
+// Date   : $Date: 2013-10-29 14:52:42 +0000 (Tue, 29 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -132,6 +132,14 @@ void
 Tree::clearCache(Database& base)
 {
 	base.treeCache().clear();
+}
+
+
+inline
+void
+Tree::invalidateCache(Database& base, unsigned gameIndex)
+{
+	base.treeCache().setIncomplete(gameIndex);
 }
 
 } // namespace db

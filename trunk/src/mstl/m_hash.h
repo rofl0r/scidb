@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 985 $
+// Date   : $Date: 2013-10-29 14:52:42 +0000 (Tue, 29 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -99,11 +99,11 @@ public:
 	const_iterator begin() const;
 	const_iterator end() const;
 
-	const_pointer find(key_type const& key) const;
+	pointer find(key_type const& key) const;
 	reference find_or_insert(key_type const& key, const_reference value);
 
 	bool insert_unique(key_type const& key, const_reference value);
-	void remove(key_type const& key);
+	bool remove(key_type const& key);
 
 	void clear() throw();
 	void rehash();
@@ -123,7 +123,7 @@ private:
 
 	bool fullness() const;
 
-	dict_node const* find_node(key_type const& key) const;
+	dict_node* find_node(key_type const& key) const;
 	dict_node* find_node(dict_node* node, key_type const& key) const;
 
 	static size_type bucket_length(dict_node const* node);

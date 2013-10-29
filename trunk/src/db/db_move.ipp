@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 657 $
-// Date   : $Date: 2013-02-08 22:07:00 +0000 (Fri, 08 Feb 2013) $
+// Version: $Revision: 985 $
+// Date   : $Date: 2013-10-29 14:52:42 +0000 (Tue, 29 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -52,7 +52,6 @@ inline Square Move::enPassantSquare() const		{ return from() > 31 ? to() - 8 : t
 
 inline uint32_t Move::prevHalfMoves() const		{ return u & Mask_HalfMoveClock; }
 inline Square Move::prevEpSquare() const			{ return u >> Shift_EpSquare; }
-inline bool Move::prevEpSquareExists() const		{ return u & Bit_EpSquareExists; }
 inline bool Move::prevCapturePromoted() const	{ return u & Bit_CapturePromoted; }
 
 inline
@@ -482,14 +481,12 @@ inline
 void
 Move::setUndo(	uint32_t halfMoves,
 					uint32_t epSquare,
-					uint32_t epSquareExists,
 					uint32_t castlingRights,
 					uint32_t capturePromoted)
 {
 	u &= Clear_Undo;
 	u |=	(	(halfMoves & Mask_HalfMoveClock)
 			 | epSquare << Shift_EpSquare
-			 | epSquareExists << Shift_EpSquareExists
 			 | castlingRights << Shift_CastlingRights
 			 | capturePromoted << Shift_CapturePromoted
 			 | uint32_t(Bit_Prepared)

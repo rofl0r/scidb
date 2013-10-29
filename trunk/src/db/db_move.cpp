@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 661 $
-// Date   : $Date: 2013-02-23 23:03:04 +0000 (Sat, 23 Feb 2013) $
+// Version: $Revision: 985 $
+// Date   : $Date: 2013-10-29 14:52:42 +0000 (Tue, 29 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -65,7 +65,6 @@ Move::transpose()
 
 		setUndo(	prevHalfMoves(),
 					epSquare,
-					prevEpSquareExists(),
 					castling::transpose(prevCastlingRights()),
 					prevCapturePromoted());
 	}

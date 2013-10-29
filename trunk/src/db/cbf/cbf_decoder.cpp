@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 657 $
-// Date   : $Date: 2013-02-08 22:07:00 +0000 (Fri, 08 Feb 2013) $
+// Version: $Revision: 985 $
+// Date   : $Date: 2013-10-29 14:52:42 +0000 (Tue, 29 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -228,7 +228,7 @@ Decoder::decodeVariation(ByteStream& moves, ByteStream& text)
 					throwCorruptData();
 
 				m_position.push();
-				m_position.board().undoMove(move, variant::Normal);
+				m_position.undoMove(move);
 				current->addVariation(m_currentNode = new MoveNode);
 				decodeVariation(moves, text);
 				m_currentNode = current;
@@ -280,7 +280,7 @@ Decoder::decodeVariation(Consumer& consumer, ByteStream& moves, ByteStream& text
 					throwCorruptData();
 
 				m_position.push();
-				m_position.board().undoMove(move, variant::Normal);
+				m_position.undoMove(move);
 				consumer.startVariation();
 				decodeVariation(consumer, moves, text);
 				consumer.finishVariation();

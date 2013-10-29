@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 719 $
-// Date   : $Date: 2013-04-19 16:40:59 +0000 (Fri, 19 Apr 2013) $
+// Version: $Revision: 985 $
+// Date   : $Date: 2013-10-29 14:52:42 +0000 (Tue, 29 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -26,7 +26,8 @@
 
 #include "m_bit_functions.h"
 
-inline uint64_t db::board::setBit(int s)					{ return uint64_t(1) << s; }
+inline constexpr uint64_t db::board::set1Bit(int s)	{ return uint64_t(1) << s; }
+inline constexpr uint64_t db::board::set2Bit(int s)	{ return uint64_t(3) << s; }
 
 inline uint64_t db::board::shiftDown(uint64_t m)		{ return m >> 8; }
 inline uint64_t db::board::shift2Down(uint64_t m)		{ return m >> 16; }

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 985 $
-// Date   : $Date: 2013-10-29 14:52:42 +0000 (Tue, 29 Oct 2013) $
+// Version: $Revision: 957 $
+// Date   : $Date: 2013-09-30 17:11:24 +0200 (Mon, 30 Sep 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -24,12 +24,53 @@
 // (at your option) any later version.
 // ======================================================================
 
-namespace app {
+#include "app_chessbase_book.h"
 
-inline bool TreeAdmin::isRunning() const			{ return m_runnable; }
-inline TreeAdmin::TreeP TreeAdmin::tree() const	{ return m_currentTree; }
-inline sys::Thread& TreeAdmin::thread()			{ return m_thread; }
+using namespace db;
+using namespace app::chessbase;
 
-} // namespace app
+
+Book::Book(mstl::string const& filename)
+{
+}
+
+
+bool Book::isReadonly() const			{ return true; }
+Book::Format Book::format() const	{ return ChessBase; }
+
+
+Move
+Book::probeNextMove(::db::Board const& position, variant::Type variant)
+{
+	return Move();
+}
+
+
+bool
+Book::probePosition(::db::Board const& position, variant::Type variant, Entry& result)
+{
+	return false;
+}
+
+
+bool
+Book::remove(::db::Board const& position, variant::Type variant)
+{
+	return false;
+}
+
+
+bool
+Book::modify(::db::Board const& position, variant::Type variant, Entry const& entry)
+{
+	return false;
+}
+
+
+bool
+Book::add(::db::Board const& position, variant::Type variant, Entry const& entry)
+{
+	return false;
+}
 
 // vi:set ts=3 sw=3:

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 979 $
-// Date   : $Date: 2013-10-20 21:03:29 +0000 (Sun, 20 Oct 2013) $
+// Version: $Revision: 985 $
+// Date   : $Date: 2013-10-29 14:52:42 +0000 (Tue, 29 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -824,7 +824,7 @@ View::exportGames(mstl::string const& filename,
 		{
 			static uint32_t const MaxFileSize = (uint32_t(2) << 31) - 1;
 			IOException::ErrorType error = IOException::Write_Failed;
-			if (unsigned(sys::file::size(internalName)) == MaxFileSize)
+			if (unsigned(sys::file::size(filename)) == MaxFileSize)
 				error = IOException::Max_File_Size_Exceeded;
 			M_THROW(IOException(IOException::PgnFile, error, "write failed"));
 		}

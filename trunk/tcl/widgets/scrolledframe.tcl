@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 609 $
-# Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+# Version: $Revision: 985 $
+# Date   : $Date: 2013-10-29 14:52:42 +0000 (Tue, 29 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -182,14 +182,14 @@ proc scrolledframe {w args} {
 	array unset opts -wheelunits
 	set args [array get opts]
 	if {[llength $args]} [list uplevel 1 [namespace current]::Config $w $args]
-	BindMousewheel $w $w 
-	BindMousewheel $w $w.scrolled
+	BindMouseWheel $w $w 
+	BindMouseWheel $w $w.scrolled
 	return $w
 }
 
 
-proc bindMousewheel {w recv} {
-	BindMousewheel [winfo parent $w] $recv
+proc bindMouseWheel {w recv} {
+	BindMouseWheel [winfo parent $w] $recv
 }
 
 
@@ -578,7 +578,7 @@ proc Yview {w {cmd ""} args} {
 }
 
 
-proc BindMousewheel {w recv} {
+proc BindMouseWheel {w recv} {
 	variable {}
 
 	set units $($w:wheelunits)

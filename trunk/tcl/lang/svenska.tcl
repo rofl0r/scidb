@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 982 $
-# Date   : $Date: 2013-10-21 19:41:10 +0000 (Mon, 21 Oct 2013) $
+# Version: $Revision: 985 $
+# Date   : $Date: 2013-10-29 14:52:42 +0000 (Tue, 29 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -77,6 +77,7 @@
 ::mc::Filter				"Filter" ;# NEW
 ::mc::From					"Från"
 ::mc::Game					"Parti"
+::mc::Hidden				"Hidden" ;# NEW
 ::mc::Layout				"Layout"
 ::mc::Left					"Vänster"
 ::mc::Lite					"Ljus"
@@ -422,6 +423,8 @@
 ::application::board::mc::SelectStartPosition		"Välj startposition"
 ::application::board::mc::LoadRandomGame				"Ladda slumpvis parti"
 ::application::board::mc::AddNewGame					"Lägg till nytt parti..."
+::application::board::mc::SlidingVarPanePosition	"Sliding variation pane position" ;# NEW
+::application::board::mc::ShowVariationArrows		"Show variation arrows" ;# NEW
 
 ::application::board::mc::Tools							"Verktyg"
 ::application::board::mc::Control						"Kontroll"

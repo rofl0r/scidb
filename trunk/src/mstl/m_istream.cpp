@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 653 $
-// Date   : $Date: 2013-02-07 17:17:24 +0000 (Thu, 07 Feb 2013) $
+// Version: $Revision: 985 $
+// Date   : $Date: 2013-10-29 14:52:42 +0000 (Tue, 29 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -181,6 +181,30 @@ istream::seek_and_read(uint64_t pos, unsigned char* buf, size_t size)
 	{
 		flockfile(m_fp);
 		size_t n = fseek(m_fp, pos, SEEK_SET) ? 0 : fread_unlocked(buf, 1, size, m_fp);
+		funlockfile(m_fp);
+
+		if (n < size)
+		{
+			if (ferror(m_fp))
+				setstate(badbit);
+			else if (feof(m_fp))
+				setstate(eofbit | failbit);
+			else
+				setstate(failbit);
+		}
+	}
+
+	return *this;
+}
+
+
+istream&
+istream::seek_and_read(int64_t pos, seekdir dir, unsigned char* buf, size_t size)
+{
+	if (size > 0)
+	{
+		flockfile(m_fp);
+		size_t n = fseek(m_fp, pos, fdir(dir)) ? 0 : fread_unlocked(buf, 1, size, m_fp);
 		funlockfile(m_fp);
 
 		if (n < size)

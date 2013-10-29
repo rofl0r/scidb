@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 969 $
-// Date   : $Date: 2013-10-13 15:33:12 +0000 (Sun, 13 Oct 2013) $
+// Version: $Revision: 985 $
+// Date   : $Date: 2013-10-29 14:52:42 +0000 (Tue, 29 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -273,6 +273,8 @@ public:
 	Move const& currentMove() const;
 	/// Return next move (empty if none available)
 	Move const& nextMove() const;
+	/// Return next move of given variation (empty if none available)
+	Move const& nextMove(unsigned varno) const;
 	/// Return side to move
 	color::ID sideToMove() const;
 	/// Return current move number

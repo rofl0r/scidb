@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 985 $
+// Date   : $Date: 2013-10-29 14:52:42 +0000 (Tue, 29 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -41,6 +41,7 @@ public:
 	istream& read(char* buf, size_t size);
 	istream& read(unsigned char* buf, size_t size);
 	istream& seek_and_read(uint64_t pos, unsigned char* buf, size_t size);
+	istream& seek_and_read(int64_t pos, seekdir dir, unsigned char* buf, size_t size);
 	istream& ignore(unsigned long n, int delim = traits::eof);
 
 	size_t readsome(char* buf, size_t size);

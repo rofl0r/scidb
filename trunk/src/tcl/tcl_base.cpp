@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 981 $
-// Date   : $Date: 2013-10-21 19:37:46 +0000 (Mon, 21 Oct 2013) $
+// Version: $Revision: 985 $
+// Date   : $Date: 2013-10-29 14:52:42 +0000 (Tue, 29 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -784,6 +784,7 @@ safeCall(void* clientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 			case IOException::Namebase:		file = "Namebase"; break;
 			case IOException::Annotation:		file = "Annotation"; break;
 			case IOException::PgnFile:			file = "PGN File"; break;
+			case IOException::BookFile:		file = "Book File"; break;
 		}
 
 		switch (exc.errorType())

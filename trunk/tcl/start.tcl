@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 982 $
-# Date   : $Date: 2013-10-21 19:41:10 +0000 (Mon, 21 Oct 2013) $
+# Version: $Revision: 985 $
+# Date   : $Date: 2013-10-29 14:52:42 +0000 (Tue, 29 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -748,6 +748,9 @@ array set Colors {
 	lite:gamehistory,hilite					#ebf4f5
 
 	lite:playerdict,stripes					linen
+
+	lite:varslider,background				#ffdd76
+	lite:varslider,active					#ffc618
 }
 # mapped from #ebf4f5
 array set Colors {

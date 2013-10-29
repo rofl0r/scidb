@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 985 $
+// Date   : $Date: 2013-10-29 14:52:42 +0000 (Tue, 29 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -87,6 +87,13 @@ IOException::FileType IOException::fileType() const	{ return m_fileType; }
 IOException::ErrorType IOException::errorType() const	{ return m_errorType; }
 
 
-DecodingFailedException::DecodingFailedException() :Exception() {}
+DecodingFailedException::DecodingFailedException(char const* fmt, ...)
+	:Exception()
+{
+	va_list args;
+	va_start(args, fmt);
+	set_message(fmt, args);
+	va_end(args);
+}
 
 // vi:set ts=3 sw=3:

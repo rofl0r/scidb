@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 984 $
-// Date   : $Date: 2013-10-22 13:00:30 +0000 (Tue, 22 Oct 2013) $
+// Version: $Revision: 985 $
+// Date   : $Date: 2013-10-29 14:52:42 +0000 (Tue, 29 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -138,7 +138,7 @@ tcl::tree::referenceBaseChanged()
 
 
 void
-tcl::tree::clearCache()
+tcl::tree::invalidateCache()
 {
 	m_key.clear();
 }

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 984 $
-// Date   : $Date: 2013-10-22 13:00:30 +0000 (Tue, 22 Oct 2013) $
+// Version: $Revision: 985 $
+// Date   : $Date: 2013-10-29 14:52:42 +0000 (Tue, 29 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -642,9 +642,9 @@ struct Subscriber : public Application::Subscriber
 		Tcl_DecrRefCount(file);
 	}
 
-	void clearTreeCache() override
+	void invalidateTreeCache() override
 	{
-		tcl::tree::clearCache();
+		tcl::tree::invalidateCache();
 	}
 };
 
@@ -4237,7 +4237,7 @@ cmdUpgrade(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 		::db::sci::Codec::remove(filename); // to be sure
 		unsigned illegalRejected = 0;
 
-		setResult(v.exportGames(sys::file::internalName(filename),
+		setResult(v.exportGames(filename,
 										sys::utf8::Codec::utf8(),
 										db.description(),
 										db.creationTime(),

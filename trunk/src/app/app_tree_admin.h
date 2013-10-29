@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 810 $
-// Date   : $Date: 2013-05-27 22:24:12 +0000 (Mon, 27 May 2013) $
+// Version: $Revision: 985 $
+// Date   : $Date: 2013-10-29 14:52:42 +0000 (Tue, 29 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -61,6 +61,7 @@ public:
 	sys::Thread& thread();
 
 	bool isUpToDate(db::Database const& referenceBase, db::Game const& game, Key const& key) const;
+	bool isRunning() const;
 
 	bool startUpdate(	db::Database& referenceBase,
 							db::Game& game,

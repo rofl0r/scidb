@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 657 $
-// Date   : $Date: 2013-02-08 22:07:00 +0000 (Fri, 08 Feb 2013) $
+// Version: $Revision: 985 $
+// Date   : $Date: 2013-10-29 14:52:42 +0000 (Tue, 29 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -56,6 +56,7 @@ public:
 	Board& board();
 
 	::db::Move doMove(unsigned moveNumber);
+	void undoMove(::db::Move const& move);
 
 private:
 
@@ -63,8 +64,10 @@ private:
 	{
 		Entry();
 
-		Board	board;
-		bool	epFake;
+		Board		board;
+		Square	epSquare;
+		Square	prevEpSquare;
+		bool		epFake;
 	};
 
 	typedef mstl::stack<Entry> Stack;

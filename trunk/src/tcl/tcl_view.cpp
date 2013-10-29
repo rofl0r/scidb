@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 957 $
-// Date   : $Date: 2013-09-30 15:11:24 +0000 (Mon, 30 Sep 2013) $
+// Version: $Revision: 985 $
+// Date   : $Date: 2013-10-29 14:52:42 +0000 (Tue, 29 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -626,7 +626,7 @@ cmdExport(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 	if (type == type::PGNFile)
 		type = type::Unspecific;
 
-	int n = v.exportGames(	sys::file::internalName(filename),
+	int n = v.exportGames(	filename,
 									encoding,
 									db.description(),
 									0,

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 985 $
+// Date   : $Date: 2013-10-29 14:52:42 +0000 (Tue, 29 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -22,10 +22,12 @@
 namespace mstl {
 namespace bf {
 
-template <class T> unsigned count_bits(T x);
-template <class T> unsigned msb_index(T x);
-template <class T> unsigned lsb_index(T x);
-template <class T> T reverse(T x);
+template <typename T> unsigned count_bits(T x);
+template <typename T> unsigned msb_index(T x);
+template <typename T> unsigned lsb_index(T x);
+template <typename T> T reverse(T x);
+template <typename T> T rotate_left(T x, unsigned shift);
+template <typename T> T rotate_right(T x, unsigned shift);
 
 } // namespace bf
 } // namespace mstl

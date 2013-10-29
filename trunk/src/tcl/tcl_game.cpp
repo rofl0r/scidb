@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 979 $
-// Date   : $Date: 2013-10-20 21:03:29 +0000 (Sun, 20 Oct 2013) $
+// Version: $Revision: 985 $
+// Date   : $Date: 2013-10-29 14:52:42 +0000 (Tue, 29 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1737,9 +1737,13 @@ cmdGo(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 
 		case 't': // trykey
 		{
-			::db::edit::Key key(stringFromObj(objc, objv, index + 1));
-			if (game.isValidKey(key))
-				game.goTo(key);
+			char const* s = stringFromObj(objc, objv, index + 1);
+			if (::db::edit::Key::isValid(s))
+			{
+				::db::edit::Key key(s);
+				if (game.isValidKey(key))
+					game.goTo(key);
+			}
 			break;
 		}
 

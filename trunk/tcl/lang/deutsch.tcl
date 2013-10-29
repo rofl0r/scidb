@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 982 $
-# Date   : $Date: 2013-10-21 19:41:10 +0000 (Mon, 21 Oct 2013) $
+# Version: $Revision: 985 $
+# Date   : $Date: 2013-10-29 14:52:42 +0000 (Tue, 29 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -76,6 +76,7 @@
 ::mc::Filter				"Filter"
 ::mc::From					"Von"
 ::mc::Game					"Partie"
+::mc::Hidden				"Versteckt"
 ::mc::Layout				"Layout"
 ::mc::Left					"Links"
 ::mc::Lite					"Hell"
@@ -422,6 +423,8 @@
 ::application::board::mc::SelectStartPosition		"Startposition wählen"
 ::application::board::mc::LoadRandomGame				"Zufällige Partie laden"
 ::application::board::mc::AddNewGame					"Partie hinzufügen..."
+::application::board::mc::SlidingVarPanePosition	"Position der gleitenden Variantenanzeige"
+::application::board::mc::ShowVariationArrows		"Pfeile für Variantenauswahl"
 
 ::application::board::mc::Tools							"Werkzeuge"
 ::application::board::mc::Control						"Steuerung"

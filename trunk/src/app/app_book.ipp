@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 985 $
-// Date   : $Date: 2013-10-29 14:52:42 +0000 (Tue, 29 Oct 2013) $
+// Version: $Revision: 957 $
+// Date   : $Date: 2013-09-30 17:11:24 +0200 (Mon, 30 Sep 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -26,9 +26,9 @@
 
 namespace app {
 
-inline bool TreeAdmin::isRunning() const			{ return m_runnable; }
-inline TreeAdmin::TreeP TreeAdmin::tree() const	{ return m_currentTree; }
-inline sys::Thread& TreeAdmin::thread()			{ return m_thread; }
+inline bool Book::isWriteable() const { return !isReadonly(); }
+
+inline mstl::string const& Book::filename() const { return m_filename; }
 
 } // namespace app
 

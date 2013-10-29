@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 813 $
-# Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
+# Version: $Revision: 985 $
+# Date   : $Date: 2013-10-29 14:52:42 +0000 (Tue, 29 Oct 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -226,23 +226,22 @@ proc isOpen {} {
 
 
 proc hsv2rgb {hue sat val} {
+	set v [expr {round(255.0*$val)}]
+
 	if {$sat < 5.0e-6} {			;# the color is on the bw center line
-		set v [expr {round(255.0*$val)}]
 		return [list $v $v $v]	;# achromatic (grey)
 	}
-
-	set v [expr {round(255.0*$val)}]
 
 	if {$hue >= 360.0} {
 		set hue [expr {$hue - 360.0}]
 	}
 
-	set h [expr {$hue*0.01666666666667}]	;# 6/360
+	set h [expr {$hue*0.01666666666667}]	;# 6.0/360.0
 	set i [expr {int($h)}]
 	set f [expr {$h - $i}]
-	set p [expr {round(255.0*$val*(1 - $sat))}]
-	set q [expr {round(255.0*$val*(1 - ($sat*$f)))}]
-	set t [expr {round(255.0*$val*(1 - ($sat*(1 - $f))))}]
+	set p [expr {round(255.0*$val*(1.0 - $sat))}]
+	set q [expr {round(255.0*$val*(1.0 - ($sat*$f)))}]
+	set t [expr {round(255.0*$val*(1.0 - ($sat*(1.0 - $f))))}]
 
 	switch $i {
 		0 { return [list $v $t $p] }
