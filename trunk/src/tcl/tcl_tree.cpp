@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 985 $
-// Date   : $Date: 2013-10-29 14:52:42 +0000 (Tue, 29 Oct 2013) $
+// Version: $Revision: 991 $
+// Date   : $Date: 2013-10-30 13:32:32 +0000 (Wed, 30 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -558,7 +558,7 @@ cmdPosition(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 		variant::Type variant = Scidb->game().variant();
 
 		Board board;
-		board.setup(tree->position());
+		board.setup(tree->position(), variant);
 
 		if (move)
 		{
