@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 992 $
-// Date   : $Date: 2013-10-30 15:07:27 +0000 (Wed, 30 Oct 2013) $
+// Version: $Revision: 993 $
+// Date   : $Date: 2013-10-30 15:47:03 +0000 (Wed, 30 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -7441,9 +7441,8 @@ Board::initialize()
 #endif // CHECK_HASH_KEYS
 
 #define CHECK_PTR(p) \
-	static_assert(	rand64::p + rand64::Num_##p##_Entries \
-							<= rand64::RandomTable + U_NUMBER_OF(rand64::RandomTable), \
-						"pointer is exceeding table");
+	assert(rand64::p + rand64::Num_##p##_Entries \
+				<= rand64::RandomTable + U_NUMBER_OF(rand64::RandomTable));
 
 	CHECK_PTR(Pieces);
 	CHECK_PTR(Promoted);
