@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 985 $
-// Date   : $Date: 2013-10-29 14:52:42 +0000 (Tue, 29 Oct 2013) $
+// Version: $Revision: 990 $
+// Date   : $Date: 2013-10-30 08:51:46 +0000 (Wed, 30 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -50,7 +50,11 @@ inline unsigned clz(unsigned long long x)	{ return __builtin_clzll(x); }
 inline unsigned ctz(unsigned short x)		{ return __builtin_ctz(x); }
 inline unsigned ctz(unsigned int x)			{ return __builtin_ctz(x); }
 inline unsigned ctz(unsigned long x)		{ return __builtin_ctzl(x); }
+#if defined(VALGRIND) && __WORDSIZE == 32
+unsigned ctz(unsigned long long x);
+#else
 inline unsigned ctz(unsigned long long x)	{ return __builtin_ctzll(x); }
+#endif
 
 inline unsigned pc(unsigned short x)		{ return __builtin_popcount(x); }
 inline unsigned pc(unsigned int x)			{ return __builtin_popcount(x); }
