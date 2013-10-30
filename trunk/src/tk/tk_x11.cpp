@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 992 $
+// Date   : $Date: 2013-10-30 15:07:27 +0000 (Wed, 30 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -192,6 +192,7 @@ handleXErrorMessage(Display* dpy, XErrorEvent* event)
 		return 0;
 	}
 
+#if 0 // crashing!
 	mstl::backtrace bt;
 	mstl::ostringstream strm;
 
@@ -200,6 +201,7 @@ handleXErrorMessage(Display* dpy, XErrorEvent* event)
 	bt.text_write(strm, 3);
 	strm.format("==========================================================\n");
 	fprintf(stderr, "%s", strm.str().c_str());
+#endif
 
 	xErrorHandler(dpy, event);
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 991 $
-// Date   : $Date: 2013-10-30 13:32:32 +0000 (Wed, 30 Oct 2013) $
+// Version: $Revision: 992 $
+// Date   : $Date: 2013-10-30 15:07:27 +0000 (Wed, 30 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -3035,7 +3035,7 @@ Board::setup(char const* fen, variant::Type variant)
 			m_occupiedL45 |= MaskL45[s];
 			m_occupiedR45 |= MaskR45[s];
 
-			unsigned pieceMask = set1Bit(s);
+			uint64_t pieceMask = set1Bit(s);
 
 			switch (*p)
 			{
