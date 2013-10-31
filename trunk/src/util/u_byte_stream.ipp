@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 994 $
+// Date   : $Date: 2013-10-31 10:10:47 +0000 (Thu, 31 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -56,6 +56,10 @@ inline ByteStream& ByteStream::operator>>(uint24_t& i)	{ i = uint24(); return *t
 inline ByteStream& ByteStream::operator>>(uint48_t& i)	{ i = uint48(); return *this; }
 inline ByteStream& ByteStream::operator>>(uint32_t& i)	{ i = uint32(); return *this; }
 inline ByteStream& ByteStream::operator>>(uint64_t& i)	{ i = uint64(); return *this; }
+
+inline ByteStream& ByteStream::operator>>(int16_t& i)		{ i = uint16(); return *this; }
+inline ByteStream& ByteStream::operator>>(int32_t& i)		{ i = uint32(); return *this; }
+inline ByteStream& ByteStream::operator>>(int64_t& i)		{ i = uint64(); return *this; }
 
 inline void ByteStream::resetp() { m_putp = m_base; }
 inline void ByteStream::resetg() { m_getp = m_base; }
@@ -133,6 +137,14 @@ ByteStream::put(char const* p, unsigned size)
 
 inline
 ByteStream& ByteStream::operator>>(uint8_t& i)
+{
+	i = get();
+	return *this;
+}
+
+
+inline
+ByteStream& ByteStream::operator>>(int8_t& i)
 {
 	i = get();
 	return *this;

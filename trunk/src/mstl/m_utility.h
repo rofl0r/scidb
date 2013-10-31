@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 994 $
+// Date   : $Date: 2013-10-31 10:10:47 +0000 (Thu, 31 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -65,9 +65,12 @@ template <typename T> constexpr T signum(T x);
 
 template <typename T> constexpr T div2(T x);
 template <typename T> constexpr T div4(T x);
+template <typename T> constexpr T div8(T x);
 template <typename T> constexpr T mod2(T x);
 template <typename T> constexpr T mod4(T x);
+template <typename T> constexpr T mod8(T x);
 template <typename T> constexpr T mul2(T x);
+template <typename T> constexpr T mul4(T x);
 template <typename T> constexpr T mul4(T x);
 
 template <typename T> unsigned log2_floor(T x);

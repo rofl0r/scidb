@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 969 $
-// Date   : $Date: 2013-10-13 15:33:12 +0000 (Sun, 13 Oct 2013) $
+// Version: $Revision: 994 $
+// Date   : $Date: 2013-10-31 10:10:47 +0000 (Thu, 31 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -358,7 +358,7 @@ union InotifyEvent
 {
 	InotifyEvent(char* buf) :p(buf) {}
 
-	bool operator<=(InotifyEvent const& ev) { return p <= ev.p; }
+	bool operator<(InotifyEvent const& ev) { return p < ev.p; }
 
 	union
 	{
@@ -405,7 +405,7 @@ inotifyHandler(ClientData clientData, int)
 	InotifyEvent event(eventBuf);
 	InotifyEvent last(eventBuf + nbytes);
 
-	while (event.next() <= last)
+	while (event < last)
 	{
 		Request* const* req = inotifyMap.find(event.e->wd);
 
@@ -444,7 +444,7 @@ inotifyHandler(ClientData clientData, int)
 		event = event.next();
 	}
 
-	delete eventBuf;
+	delete [] eventBuf;
 	++inotifyId;
 }
 
@@ -724,7 +724,7 @@ fcntlSignalHandler(int signum, siginfo_t* info, void*)
 		event = event.next();
 	}
 
-	delete eventBuf;
+	delete [] eventBuf;
 	++signalId;
 }
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 643 $
-// Date   : $Date: 2013-01-29 13:15:54 +0000 (Tue, 29 Jan 2013) $
+// Version: $Revision: 994 $
+// Date   : $Date: 2013-10-31 10:10:47 +0000 (Thu, 31 Oct 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -86,6 +86,11 @@ public:
 	ByteStream& operator>>(uint32_t& i);
 	ByteStream& operator>>(uint48_t& i);
 	ByteStream& operator>>(uint64_t& i);
+
+	ByteStream& operator>>(int8_t& i);
+	ByteStream& operator>>(int16_t& i);
+	ByteStream& operator>>(int32_t& i);
+	ByteStream& operator>>(int64_t& i);
 
 	ByteStream& operator<<(uint8_t i);
 	ByteStream& operator<<(uint16_t i);
