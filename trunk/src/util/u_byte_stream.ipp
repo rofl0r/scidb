@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 994 $
-// Date   : $Date: 2013-10-31 10:10:47 +0000 (Thu, 31 Oct 2013) $
+// Version: $Revision: 996 $
+// Date   : $Date: 2013-11-02 18:52:29 +0000 (Sat, 02 Nov 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -31,6 +31,9 @@ inline ByteStream::uint24_t& ByteStream::uint24_t::operator=(uint32_t n) { i = n
 inline ByteStream::uint48_t::uint48_t(uint64_t n) : i(n) {}
 inline ByteStream::uint48_t::operator uint64_t () const { return i; }
 inline ByteStream::uint48_t& ByteStream::uint48_t::operator=(uint64_t n) { i = n; return *this; }
+
+inline uint32_t ByteStream::uint24_t::operator*() const { return i; }
+inline uint64_t ByteStream::uint48_t::operator*() const { return i; }
 
 inline bool ByteStream::isEmpty() const			{ return m_getp == m_endp; }
 inline bool ByteStream::isFull() const				{ return m_putp == m_endp; }

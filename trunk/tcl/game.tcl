@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 978 $
-# Date   : $Date: 2013-10-20 18:30:04 +0000 (Sun, 20 Oct 2013) $
+# Version: $Revision: 996 $
+# Date   : $Date: 2013-11-02 18:52:29 +0000 (Sat, 02 Nov 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -293,6 +293,7 @@ proc verify {parent position number} {
 	set sink [lindex [::scidb::game::link? $position] 0]
 	if {$sink eq $scratchbaseName && ![::scidb::game::verify $position]} {
 		set msg [format $mc::ReallyReplaceGame $number]
+		set detail [format $mc::ReallyReplaceGameDetail $number]
 		return [::dialog::question -parent $parent -message $msg -detail $detail -default no]
 	}
 

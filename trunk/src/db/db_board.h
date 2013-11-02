@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 991 $
-// Date   : $Date: 2013-10-30 13:32:32 +0000 (Wed, 30 Oct 2013) $
+// Version: $Revision: 996 $
+// Date   : $Date: 2013-11-02 18:52:29 +0000 (Sat, 02 Nov 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -398,6 +398,8 @@ public:
 	Square castlingRookSquare(castling::Index index) const;
 	/// Return square of king.
 	Square kingSquare(color::ID color) const;
+	/// Return square of king.
+	Square kingSquare() const;
 	/// Return whether the move is valid
 	bool checkMove(Move const& move,
 						variant::Type variant,

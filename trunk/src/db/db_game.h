@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 985 $
-// Date   : $Date: 2013-10-29 14:52:42 +0000 (Tue, 29 Oct 2013) $
+// Version: $Revision: 996 $
+// Date   : $Date: 2013-11-02 18:52:29 +0000 (Sat, 02 Nov 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -391,7 +391,7 @@ public:
 	/// Return next move.
 	mstl::string getNextMove(unsigned flags = ExportFormat);
 	/// Get next moves (mainline and sub-variations)
-	void getNextMoves(StringList& result, unsigned flags = ExportFormat) const;
+	void getNextMoves(StringList& result, move::Notation form, unsigned flags = ExportFormat) const;
 	/// Get current key.
 	edit::Key const& currentKey() const;
 	/// Get next keys (mainline and sub-variations).
@@ -666,7 +666,7 @@ private:
 	void goToCurrentMove(bool forward) const;
 	void tryMoveTo(edit::Key const& key);
 
-	void getMoves(StringList& resul, unsigned flags);
+	void getMoves(StringList& result, unsigned flags, move::Notation form);
 	void getKeys(StringList& result);
 
 	Undo& newUndo(UndoAction action, Command command);

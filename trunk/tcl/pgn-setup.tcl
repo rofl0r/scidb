@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 974 $
-# Date   : $Date: 2013-10-16 14:17:54 +0000 (Wed, 16 Oct 2013) $
+# Version: $Revision: 996 $
+# Date   : $Date: 2013-11-02 18:52:29 +0000 (Sat, 02 Nov 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -589,8 +589,8 @@ proc ApplyOptions {context position close} {
 	::font::registerFigurineFonts $context
 	::font::registerSymbolFonts $context
 
-	set Options(show:opening) $show:opening
-	set Options(show:result) $show:result
+	set Options(show:opening) ${show:opening}
+	set Options(show:result) ${show:result}
 	foreach cxt $ContextList { ::pgn::${cxt}::refresh yes }
 
 	if {$close} {

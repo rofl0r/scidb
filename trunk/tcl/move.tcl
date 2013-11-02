@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 985 $
-# Date   : $Date: 2013-10-29 14:52:42 +0000 (Tue, 29 Oct 2013) $
+# Version: $Revision: 996 $
+# Date   : $Date: 2013-11-02 18:52:29 +0000 (Sat, 02 Nov 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -315,6 +315,10 @@ proc releaseSquare {x y state} {
 	set selected $Square(selected)
 	set dragged [::board::diagram::isDragged? $board]
 	set square [::board::diagram::getSquare $board $x $y]
+
+	if {$dragged} {
+		::board::diagram::finishDrag $board
+	}
 
 	if {$hilite(show-suggested) || $square != $Square(selected)} {
 		set Square(selected) -1

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 985 $
-// Date   : $Date: 2013-10-29 14:52:42 +0000 (Tue, 29 Oct 2013) $
+// Version: $Revision: 996 $
+// Date   : $Date: 2013-11-02 18:52:29 +0000 (Sat, 02 Nov 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -146,6 +146,15 @@ Board::kingSquare(color::ID color) const
 {
 	M_REQUIRE(kingOnBoard());
 	return m_ksq[color];
+}
+
+
+inline
+Square
+Board::kingSquare() const
+{
+	M_REQUIRE(kingOnBoard());
+	return m_ksq[m_stm];
 }
 
 

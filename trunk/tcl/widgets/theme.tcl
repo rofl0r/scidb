@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 976 $
-# Date   : $Date: 2013-10-18 22:15:24 +0000 (Fri, 18 Oct 2013) $
+# Version: $Revision: 996 $
+# Date   : $Date: 2013-11-02 18:52:29 +0000 (Sat, 02 Nov 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -846,26 +846,36 @@ proc ButtonEnter {w} {
 # we have to tweak the Alt key handling
 proc FindAltKeyTarget {path char} {
 	switch -- [winfo class $path] {
-		Button - Label - TButton - TLabel - TCheckbutton - TRadiobutton {
+		Button - Label - Menubutton - TButton - TLabel - TCheckbutton - TRadiobutton {
 			if {[string equal -nocase $char [string index [$path cget -text] [$path cget -underline]]]} {
 				return $path
 			}
+			return
 		}
 		TNotebook {
+			foreach tab [$path tabs] {
+				set i [$path index $tab]
+				set text [$path tab $i -text]
+				set ul [$path tab $i -underline]
+				if {[string equal -nocase $char [string index $text $ul]]} {
+					ttk::notebook::ActivateTab $path [$path index $i]
+					return {}
+				}
+			}
 			set target [FindAltKeyTarget [$path select] $char]
 			if {$target ne ""} {
 				return $target
 			}
 		}
-		default {
-			foreach child [concat [grid slaves $path] [pack slaves $path] [place slaves $path]] {
-				set target [FindAltKeyTarget $child $char]
-				if {$target ne ""} {
-					return $target
-				}
-			}
+	}
+
+	foreach child [concat [grid slaves $path] [pack slaves $path] [place slaves $path]] {
+		set target [FindAltKeyTarget $child $char]
+		if {$target ne ""} {
+			return $target
 		}
 	}
+
 	return {}
 }
 
@@ -875,13 +885,17 @@ proc AltKeyInDialog {path key} {
 	set target [tk::FindAltKeyTarget $path $key]
 	if {[llength $target] == 0} { return }
 
-	if {[winfo class $target] eq "TButton"} {
-		set w [focus]
-		focus $target
-		event generate $target <Key-space> -when head
-		after idle "if {[winfo exists $w]} { focus $w }"
-	} else {
-		event generate $target <<AltUnderlined>> -when head
+	switch [winfo class $target] {
+		TButton {
+			ttk::button::activate $target
+		}
+		Menubutton {
+			tk::MbPost $target
+			tk::MenuFirstEntry [$target cget -menu]
+		}
+		default {
+			event generate $target <<AltUnderlined>> -when head
+		}
 	}
 }
 

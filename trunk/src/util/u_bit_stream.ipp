@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 996 $
+// Date   : $Date: 2013-11-02 18:52:29 +0000 (Sat, 02 Nov 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -25,7 +25,7 @@ inline
 unsigned
 BitStream::bitsLeft() const
 {
-	return (m_size << 3) + m_bitsLeft;
+	return mstl::div8(m_size) + m_bitsLeft;
 }
 
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 994 $
-// Date   : $Date: 2013-10-31 10:10:47 +0000 (Thu, 31 Oct 2013) $
+// Version: $Revision: 996 $
+// Date   : $Date: 2013-11-02 18:52:29 +0000 (Sat, 02 Nov 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -39,17 +39,19 @@ public:
 
 	struct uint24_t
 	{
-		uint24_t(uint32_t n);
+		uint24_t(uint32_t n = 0);
 		uint24_t& operator=(uint32_t n);
 		operator uint32_t () const;
+		uint32_t operator*() const;
 		uint32_t i;
 	};
 
 	struct uint48_t
 	{
-		uint48_t(uint64_t n);
+		uint48_t(uint64_t n = 0);
 		uint48_t& operator=(uint64_t n);
 		operator uint64_t () const;
+		uint64_t operator*() const;
 		uint64_t i;
 	};
 

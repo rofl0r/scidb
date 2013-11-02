@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 926 $
-// Date   : $Date: 2013-09-04 15:57:51 +0000 (Wed, 04 Sep 2013) $
+// Version: $Revision: 996 $
+// Date   : $Date: 2013-11-02 18:52:29 +0000 (Sat, 02 Nov 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -67,9 +67,9 @@ Game::hasMoveInfo(unsigned moveInfoTypes) const
 
 inline
 void
-Game::getNextMoves(StringList& result, unsigned flags) const
+Game::getNextMoves(StringList& result, move::Notation form, unsigned flags) const
 {
-	const_cast<Game*>(this)->getMoves(result, flags);
+	const_cast<Game*>(this)->getMoves(result, flags, form);
 }
 
 

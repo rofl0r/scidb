@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 973 $
-// Date   : $Date: 2013-10-15 18:17:14 +0000 (Tue, 15 Oct 2013) $
+// Version: $Revision: 996 $
+// Date   : $Date: 2013-11-02 18:52:29 +0000 (Sat, 02 Nov 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -450,6 +450,8 @@ Engine::Engine(Protocol protocol, mstl::string const& command, mstl::string cons
 	,m_selDepth(0)
 	,m_time(0.0)
 	,m_nodes(0)
+	,m_nps(0)
+	,m_tbhits(0)
 	,m_active(false)
 	,m_probe(false)
 	,m_probeAnalyze(false)
@@ -1712,7 +1714,9 @@ Engine::resetInfo()
 	m_depth = 0;
 	m_selDepth = 0;
 	m_time = 0.0;
+	m_tbhits = 0;
 	m_nodes = 0;
+	m_nps = 0;
 }
 
 

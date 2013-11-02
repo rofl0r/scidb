@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 946 $
-# Date   : $Date: 2013-09-21 14:05:35 +0000 (Sat, 21 Sep 2013) $
+# Version: $Revision: 996 $
+# Date   : $Date: 2013-11-02 18:52:29 +0000 (Sat, 02 Nov 2013) $
 # Url    : $URL$
 # ======================================================================
 
@@ -223,6 +223,13 @@ if {[catch {
 		unset ::setup::board::History
 		set ::setup::board::History(Normal) $history_
 		unset history_
+	}
+
+	if {[info exists application::analysis::Options(engine:multiPV)]} {
+		if {[set application::analysis::Options(engine:multiPV)] == 1} {
+			set application::analysis::Options(engine:singlePV) 1
+			set application::analysis::Options(engine:multiPV) 4
+		}
 	}
 
 	if {$::scidb::revision < [::scidb::misc::revision]} {
