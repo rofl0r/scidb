@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 996 $
-// Date   : $Date: 2013-11-02 18:52:29 +0000 (Sat, 02 Nov 2013) $
+// Version: $Revision: 997 $
+// Date   : $Date: 2013-11-03 09:12:28 +0000 (Sun, 03 Nov 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -3758,9 +3758,9 @@ Game::historyIsLegal(Constraint constraint) const
 {
 	Board board(m_currentBoard);
 
-	MoveNode* succ = m_currentNode->next();
+	MoveNode const* succ = m_currentNode->next();
 
-	for (MoveNode* node = m_currentNode; node; succ = node, node = node->prev())
+	for (MoveNode const* node = m_currentNode; node; succ = node, node = node->prev())
 	{
 		if (!node->atLineStart() && !node->atLineEnd() && node->next() == succ)
 		{

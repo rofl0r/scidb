@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 704 $
-// Date   : $Date: 2013-04-04 22:19:12 +0000 (Thu, 04 Apr 2013) $
+// Version: $Revision: 997 $
+// Date   : $Date: 2013-11-03 09:12:28 +0000 (Sun, 03 Nov 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -113,18 +113,21 @@ sys::info::memFree()
 int64_t
 sys::info::memAvail()
 {
+	// TODO: probably use better MemFree + Buffers + Inactive
+
 	int64_t free		= ::readProcInfo("MemFree:");
 	int64_t cached		= ::readProcInfo("Cached:");
+	int64_t buffers	= ::readProcInfo("Buffers:");
 
-	if (free <= 0 || cached <= 0)
+	if (free <= 0 || cached <= 0 || buffers <= 0)
 		return -1;
 
 	int64_t limit		= ::readProcInfo("CommitLimit:");
 
 	if (limit <= 0)
-		return free + cached;
+		return free + cached + buffers;
 
-	return mstl::min(limit, free + cached);
+	return mstl::min(limit, free + cached + buffers);
 }
 
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 995 $
-// Date   : $Date: 2013-10-31 10:35:25 +0000 (Thu, 31 Oct 2013) $
+// Version: $Revision: 997 $
+// Date   : $Date: 2013-11-03 09:12:28 +0000 (Sun, 03 Nov 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -5830,6 +5830,7 @@ Board::undoMove(Move const& m, variant::Type variant)
 
 			m_piece[from] = piece::King;
 			m_occupied = m_occupiedBy[White] | m_occupiedBy[Black];
+			m_kingHasMoved = m.prevKingHasMoved();
 			restoreCastlingRights(m.prevCastlingRights());
 			restoreStates(m);
 			swapToMove();
@@ -5934,6 +5935,7 @@ Board::undoMove(Move const& m, variant::Type variant)
 			m_occupiedR45 ^= MaskR45[to];
 			m_occupiedBy[sntm] ^= toMask;
 			m_occupied = m_occupiedBy[White] | m_occupiedBy[Black];
+			m_kingHasMoved = m.prevKingHasMoved();
 			restoreCastlingRights(m.prevCastlingRights());
 			restoreStates(m);
 			swapToMove();
@@ -6031,8 +6033,8 @@ Board::undoMove(Move const& m, variant::Type variant)
 	m_occupiedL45 ^= MaskL45[from];
 	m_occupiedR45 ^= MaskR45[from];
 	m_occupied = m_occupiedBy[White] | m_occupiedBy[Black];
+	m_kingHasMoved = m.prevKingHasMoved();
 	restoreCastlingRights(m.prevCastlingRights());
-
 	restoreStates(m);
 	swapToMove();
 	--m_plyNumber;
