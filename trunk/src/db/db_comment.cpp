@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 976 $
-// Date   : $Date: 2013-10-18 22:15:24 +0000 (Fri, 18 Oct 2013) $
+// Version: $Revision: 999 $
+// Date   : $Date: 2013-11-09 14:47:00 +0000 (Sat, 09 Nov 2013) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2494,7 +2494,7 @@ Comment::convertCommentToXml(	mstl::string const& comment,
 		else if (::isalnum(*s) && (!specialExpected || *s != 'o'))
 		{
 			do
-				++s;
+				result.m_content.append(*s++);
 			while (::isalnum(*s));
 		}
 		else if (::isspace(*s))
