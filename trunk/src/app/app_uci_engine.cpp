@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 996 $
-// Date   : $Date: 2013-11-02 18:52:29 +0000 (Sat, 02 Nov 2013) $
+// Version: $Revision: 1001 $
+// Date   : $Date: 2014-05-21 18:41:00 +0000 (Wed, 21 May 2014) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1223,6 +1223,9 @@ uci::Engine::sendOptions()
 	{
 		app::Engine::Option const& opt = *i;
 		mstl::string id(::toId(opt.name));
+
+		if (opt.type == "button")
+			continue; // we shouldn't trigger any button
 
 		if (opt.name == m_threads || opt.name == m_minThreads || opt.name == m_maxThreads)
 			continue; // should not be sent here

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 949 $
-// Date   : $Date: 2013-09-25 22:13:20 +0000 (Wed, 25 Sep 2013) $
+// Version: $Revision: 1001 $
+// Date   : $Date: 2014-05-21 18:41:00 +0000 (Wed, 21 May 2014) $
 // Url    : $URL$
 // ======================================================================
 
@@ -288,6 +288,9 @@ winboard::Engine::sendOptions()
 	for (app::Engine::Options::const_iterator i = opts.begin(); i != opts.end(); ++i)
 	{
 		app::Engine::Option const& opt = *i;
+
+		if (opt.type == "button")
+			continue; // we shouldn't trigger any button
 
 		if (	!hasFeature(app::Engine::Feature_SMP)
 			|| (opt.type != "spin" && opt.type != "slider")

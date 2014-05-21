@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 969 $
-// Date   : $Date: 2013-10-13 15:33:12 +0000 (Sun, 13 Oct 2013) $
+// Version: $Revision: 1001 $
+// Date   : $Date: 2014-05-21 18:41:00 +0000 (Wed, 21 May 2014) $
 // Url    : $URL$
 // ======================================================================
 
@@ -451,7 +451,7 @@ Consumer::afterSendMove(Entry& entry)
 	{
 		if (!m_sendTimeTable.isEmpty())
 		{
-			MoveInfoSet const& m_moveInfoSet = m_sendTimeTable[m_line.length];
+			MoveInfoSet const& m_moveInfoSet = m_sendTimeTable[plyCount()];
 			sendMoveInfo(m_moveInfoSet);
 			m_moveInfoCount += m_moveInfoSet.count();
 		}

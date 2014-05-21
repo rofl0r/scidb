@@ -2,8 +2,8 @@
 #define HTML_DEFAULT_TCL \
         "# ======================================================================\n" \
         "# Author : $Author$\n" \
-        "# Version: $Revision: 766 $\n" \
-        "# Date   : $Date: 2013-05-09 14:10:11 +0000 (Thu, 09 May 2013) $\n" \
+        "# Version: $Revision: 1001 $\n" \
+        "# Date   : $Date: 2014-05-21 18:41:00 +0000 (Wed, 21 May 2014) $\n" \
         "# Url    : $URL$\n" \
         "# ======================================================================\n" \
         "\n" \
@@ -183,8 +183,8 @@
 #define HTML_DEFAULT_CSS \
         "/* ======================================================================\n" \
         " * Author : $Author$\n" \
-        " * Version: $Revision: 766 $\n" \
-        " * Date   : $Date: 2013-05-09 14:10:11 +0000 (Thu, 09 May 2013) $\n" \
+        " * Version: $Revision: 1001 $\n" \
+        " * Date   : $Date: 2014-05-21 18:41:00 +0000 (Wed, 21 May 2014) $\n" \
         " * Url    : $URL$\n" \
         " * ======================================================================\n" \
         " */\n" \
@@ -327,8 +327,8 @@
         "KBD, SAMP       { font-family: courier }\n" \
         "BIG             { font-size: 1.17em }\n" \
         "SMALL           { font-size: .83em }\n" \
-        "SUB             { font-size: 0.83em; vertical-align: sub }\n" \
-        "SUP             { font-size: 0.83em; vertical-align: super }\n" \
+        "SUB             { font-size: 0.67em; vertical-align: sub }\n" \
+        "SUP             { font-size: 0.67em; vertical-align: super }\n" \
         "S, STRIKE, DEL  { text-decoration: line-through }\n" \
         "OL              { list-style-type: decimal }\n" \
         "OL UL, UL OL,\n" \
@@ -540,8 +540,8 @@
 #define HTML_DEFAULT_QUIRKS \
         "/* ======================================================================\n" \
         " * Author : $Author$\n" \
-        " * Version: $Revision: 766 $\n" \
-        " * Date   : $Date: 2013-05-09 14:10:11 +0000 (Thu, 09 May 2013) $\n" \
+        " * Version: $Revision: 1001 $\n" \
+        " * Date   : $Date: 2014-05-21 18:41:00 +0000 (Wed, 21 May 2014) $\n" \
         " * Url    : $URL$\n" \
         " * ======================================================================\n" \
         " */\n" \
