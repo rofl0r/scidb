@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 961 $
-// Date   : $Date: 2013-10-06 08:30:53 +0000 (Sun, 06 Oct 2013) $
+// Version: $Revision: 1003 $
+// Date   : $Date: 2014-08-16 10:50:59 +0000 (Sat, 16 Aug 2014) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1901,8 +1901,11 @@ Codec::readNamebase(	ByteIStream& bstrm,
 			bstrm.get(buf + prefix, length - prefix);
 		}
 
+		unsigned stripped	= ::strippedLength(str, length);
+		char remember = str.c_str()[stripped];
+
 		// Bug in Scid: it is possible to enter trailing spaces.
-		str.set_size(::strippedLength(str, length));
+		str.set_size(stripped);
 		m_codec->toUtf8(str, name);
 
 		if (!sys::utf8::validate(name))
@@ -1982,6 +1985,8 @@ Codec::readNamebase(	ByteIStream& bstrm,
 				shadowBase.append(str, index, base.insert(name, index, limit), *m_codec);
 				break;
 		}
+
+		str.data()[stripped] = remember; // because needed for next entry
 
 #ifdef DEBUG_SI4
 		shadowBase.back()->entry->m_orig_freq = freq;

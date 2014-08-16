@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 786 $
-// Date   : $Date: 2013-05-21 21:27:38 +0000 (Tue, 21 May 2013) $
+// Version: $Revision: 1003 $
+// Date   : $Date: 2014-08-16 10:50:59 +0000 (Sat, 16 Aug 2014) $
 // Url    : $URL$
 // ======================================================================
 
@@ -534,6 +534,36 @@ struct HtmlTreeState {
     int isCdataInHead;      /* True if previous token was <title> */
 };
 
+#ifdef USE_DOUBLE_BUFFERING
+
+typedef struct HtmlRectangle HtmlRectangle;
+
+struct HtmlRectangle {
+    int x, y;
+    int width, height;
+};
+
+extern void
+SetRect(
+    HtmlRectangle* r,
+    int x, int y, int width, int height);
+extern int
+IntersectRect(
+    HtmlRectangle *r3,
+    const HtmlRectangle *r1,
+    const HtmlRectangle *r2) ;
+extern void
+UnionRectWithRegion(
+    const HtmlRectangle *rect,
+    struct TkRegion_ *srcRegion,
+    struct TkRegion_ *destRegion);
+extern int
+RectInRegion(
+    struct TkRegion_ *region,
+    int x, int y, int width, int height);
+
+#endif
+
 struct HtmlTree {
 
     /*
@@ -684,8 +714,9 @@ struct HtmlTree {
 
 #ifdef USE_DOUBLE_BUFFERING
     Pixmap buffer;
-    XRectangle bufferRect;
-    XRectangle docRect;
+    HtmlRectangle bufferRect;
+    int bufferScrollX;
+    int bufferScrollY;
     struct TkRegion_ *bufferRegion;
 #endif
 
