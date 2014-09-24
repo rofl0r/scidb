@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 985 $
-// Date   : $Date: 2013-10-29 14:52:42 +0000 (Tue, 29 Oct 2013) $
+// Version: $Revision: 1004 $
+// Date   : $Date: 2014-09-24 22:20:35 +0000 (Wed, 24 Sep 2014) $
 // Url    : $URL$
 // ======================================================================
 
@@ -383,9 +383,9 @@ Database::resetChangedStatus()
 {
 	::sys::file::changed(m_name, m_fileTime);
 	m_descriptionHasChanged = false;
-	m_initialSize = m_size;
+	m_initialSize = m_size = m_gameInfoList.size();
 
-	for (unsigned i = 0; i < m_gameInfoList.size(); ++i)
+	for (unsigned i = 0; i < m_size; ++i)
 		m_gameInfoList[i]->setUnchanged();
 
 	m_statistic.added = 0;

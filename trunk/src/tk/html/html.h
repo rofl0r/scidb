@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1003 $
-// Date   : $Date: 2014-08-16 10:50:59 +0000 (Sat, 16 Aug 2014) $
+// Version: $Revision: 1004 $
+// Date   : $Date: 2014-09-24 22:20:35 +0000 (Wed, 24 Sep 2014) $
 // Url    : $URL$
 // ======================================================================
 
@@ -551,7 +551,12 @@ extern int
 IntersectRect(
     HtmlRectangle *r3,
     const HtmlRectangle *r1,
-    const HtmlRectangle *r2) ;
+    const HtmlRectangle *r2);
+extern int
+SubtractRect(
+    const HtmlRectangle *r1,
+    const HtmlRectangle *r2,
+    HtmlRectangle rest[4]);
 extern void
 UnionRectWithRegion(
     const HtmlRectangle *rect,

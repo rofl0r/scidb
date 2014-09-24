@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 782 $
-// Date   : $Date: 2013-05-19 16:31:08 +0000 (Sun, 19 May 2013) $
+// Version: $Revision: 1004 $
+// Date   : $Date: 2014-09-24 22:20:35 +0000 (Wed, 24 Sep 2014) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1580,9 +1580,8 @@ TournamentTable::ratingChange(int elo, int oppAvg, int percentage, int numGames)
 {
 	M_REQUIRE(percentage <= 100);
 
-	int diff = mstl::abs(elo - oppAvg);
-	unsigned const* i = mstl::upper_bound(::EloDiff, ::EloDiff + U_NUMBER_OF(::EloDiff), unsigned(diff));
-	int expected = i - ::EloDiff;
+	unsigned diff = mstl::abs(elo - oppAvg);
+	int expected = mstl::lower_bound(::EloDiff, ::EloDiff + U_NUMBER_OF(::EloDiff), diff) - ::EloDiff;
 
 	if (elo > oppAvg)
 		expected += 50;

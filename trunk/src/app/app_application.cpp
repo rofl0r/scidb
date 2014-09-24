@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 985 $
-// Date   : $Date: 2013-10-29 14:52:42 +0000 (Tue, 29 Oct 2013) $
+// Version: $Revision: 1004 $
+// Date   : $Date: 2014-09-24 22:20:35 +0000 (Wed, 24 Sep 2014) $
 // Url    : $URL$
 // ======================================================================
 
@@ -178,6 +178,8 @@ Application::Iterator::Iterator(CursorMap::const_iterator begin, CursorMap::cons
 	,m_end(end)
 	,m_variant(0)
 {
+	if (m_current != m_end && (*m_current->second)[m_variant] == 0)
+		++(*this);
 }
 
 

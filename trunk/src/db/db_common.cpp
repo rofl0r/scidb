@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 976 $
-// Date   : $Date: 2013-10-18 22:15:24 +0000 (Fri, 18 Oct 2013) $
+// Version: $Revision: 1004 $
+// Date   : $Date: 2014-09-24 22:20:35 +0000 (Wed, 24 Sep 2014) $
 // Url    : $URL$
 // ======================================================================
 
@@ -541,13 +541,13 @@ static CommentToken const Map[] =
 	{ "<=",		WorseMove																},	// 143
 	{ "<=/=>",	Counterplay																},	// 180
 	{ "<=>",		Counterplay																},	// 180
-	{ "=",		EqualChancesQuietPosition											},	//  11
+	{ "=",		DrawishPosition														},	//  10
 	{ "=&",		EqualChancesActivePosition											},	//  12
 	{ "=+",		BlackHasASlightAdvantage											},	//  15
 	{ "=/&",		WithCompensationForMaterial										}, // 181
 	{ "=/+",		BlackHasASlightAdvantage											},	//  15
 	{ "=/~",		WithCompensationForMaterial										}, // 181
-	{ "==",		DrawishPosition														}, //  10
+	{ "==",		EqualChancesQuietPosition											}, //  11
 	{ "=>",		Attack																	},	// 178
 	{ "=>/<=",	Counterplay																},	// 180
 	{ "=~",		EqualChancesActivePosition											},	//  12

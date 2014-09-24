@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 961 $
-// Date   : $Date: 2013-10-06 08:30:53 +0000 (Sun, 06 Oct 2013) $
+// Version: $Revision: 1004 $
+// Date   : $Date: 2014-09-24 22:20:35 +0000 (Wed, 24 Sep 2014) $
 // Url    : $URL$
 // ======================================================================
 
@@ -763,7 +763,12 @@ MultiBase::save(mstl::string const& encoding, unsigned flags, util::Progress& pr
 	writer.release();
 	if (ostrm->filename() != internalName)
 		sys::file::rename(ostrm->filename(), m_leader->name());
-	m_leader->resetChangedStatus();
+
+	for (unsigned variant = 0; variant < variant::NumberOfVariants; ++variant)
+	{
+		if (Database* database = m_bases[variant])
+			database->resetChangedStatus();
+	}
 
 	delete m_fileOffsets;
 	m_fileOffsets = newFileOffsets.release();
