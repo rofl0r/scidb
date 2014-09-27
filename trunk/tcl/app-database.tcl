@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 974 $
-# Date   : $Date: 2013-10-16 14:17:54 +0000 (Wed, 16 Oct 2013) $
+# Version: $Revision: 1005 $
+# Date   : $Date: 2014-09-27 09:21:29 +0000 (Sat, 27 Sep 2014) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1654,6 +1654,7 @@ proc SetDescription {dlg file} {
 
 	if {$length == 0} {
 		CheckSaveState $file
+		RefreshSwitcher
 		destroy $dlg
 	} else {
 		::dialog::error \

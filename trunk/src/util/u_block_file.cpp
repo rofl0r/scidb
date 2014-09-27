@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 906 $
-// Date   : $Date: 2013-07-22 20:44:36 +0000 (Mon, 22 Jul 2013) $
+// Version: $Revision: 1005 $
+// Date   : $Date: 2014-09-27 09:21:29 +0000 (Sat, 27 Sep 2014) $
 // Url    : $URL$
 // ======================================================================
 
@@ -423,7 +423,7 @@ BlockFile::removeBlocks(unsigned firstBlockNo, unsigned lastBlockNo)
 	m_sizeInfo.erase(	m_sizeInfo.begin() + firstBlockNo,
 							m_sizeInfo.begin() + lastBlockNo - firstBlockNo + 1);
 	m_cache.erase(	m_cache.begin() + firstBlockNo,
-						m_cache.end() + lastBlockNo - firstBlockNo + 1);
+						m_cache.begin() + lastBlockNo - firstBlockNo + 1);
 
 	if (mstl::is_between(m_view.m_buffer.m_number, firstBlockNo, lastBlockNo))
 		m_view.m_buffer.m_number = InvalidBlock;
