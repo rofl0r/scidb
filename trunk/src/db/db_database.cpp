@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1004 $
-// Date   : $Date: 2014-09-24 22:20:35 +0000 (Wed, 24 Sep 2014) $
+// Version: $Revision: 1006 $
+// Date   : $Date: 2014-10-04 06:48:39 +0000 (Sat, 04 Oct 2014) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1946,7 +1946,8 @@ Database::playerStatistic(NamebasePlayer const& player, PlayerStats& stats) cons
 			stats.addDate(info->date());
 			stats.addScore(color, info->result());
 if (m_variant == variant::Normal) { // XXX
-			if (info->idn() == variant::Standard)
+			// NOTE: in .si4 databases the ECO code may be undefined
+			if (info->idn() == variant::Standard && info->eco())
 				stats.addEco(color, info->eco());
 }
 		}

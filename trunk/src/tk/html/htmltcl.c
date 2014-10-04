@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1004 $
-// Date   : $Date: 2014-09-24 22:20:35 +0000 (Wed, 24 Sep 2014) $
+// Version: $Revision: 1006 $
+// Date   : $Date: 2014-10-04 06:48:39 +0000 (Sat, 04 Oct 2014) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1010,7 +1010,8 @@ copyFromBuffer(HtmlTree* pTree, const XExposeEvent *e)
                 GC gc;
                 XGCValues gc_values;
                 HtmlRectangle rest[4];
-                unsigned i, k = SubtractRect(&exposed, &rect, rest);
+                unsigned k = SubtractRect(&exposed, &rect, rest);
+                unsigned i;
 
                 memset(&gc_values, 0, sizeof(XGCValues));
                 gc = Tk_GetGC(win, 0, &gc_values);

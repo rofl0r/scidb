@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1004 $
-# Date   : $Date: 2014-09-24 22:20:35 +0000 (Wed, 24 Sep 2014) $
+# Version: $Revision: 1006 $
+# Date   : $Date: 2014-10-04 06:48:39 +0000 (Sat, 04 Oct 2014) $
 # Url    : $URL$
 # ======================================================================
 
@@ -21,7 +21,6 @@ namespace eval web {
 proc open {parent url} {
 	variable Escape
 
-puts "'$url' --> '[::scidb::misc::url escape $url]'"
 	set url [::scidb::misc::url escape $url]
 	::widget::busyCursor on
 
