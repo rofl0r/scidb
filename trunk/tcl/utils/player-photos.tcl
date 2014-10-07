@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1007 $
-# Date   : $Date: 2014-10-07 12:25:49 +0000 (Tue, 07 Oct 2014) $
+# Version: $Revision: 1008 $
+# Date   : $Date: 2014-10-07 13:35:19 +0000 (Tue, 07 Oct 2014) $
 # Url    : $URL$
 # ======================================================================
 
@@ -87,7 +87,7 @@ set Log(updated:N)				"%s file(s) updated."
 array set Options {
 	url:player-photos	http://sourceforge.net/projects/scidb/Files
 	notify:timeout		7000
-	use-gksu				1
+	use-gksudo			0
 }
 
 array set Priv {
@@ -366,9 +366,9 @@ proc OpenPipe {informProc shared parent} {
 	set passwd ""
 
 	if {$shared && $tcl_platform(platform) eq "unix" && [exec id -u] != 0} {
-		if {$Options(use-gksu) && [string length [set gksu [auto_execok gksu]]]} {
+		if {$Options(use-gksudo) && [string length [set gksudo [auto_execok gksudo]]]} {
 			set msg [lindex [split $mc::RequiresSuperuserRights \n] 0]
-			set cmd "$gksu -g -k -m \"$msg\" $script"
+			set cmd "$gksudo -g -k -m \"$msg\" $script"
 			set Priv(vwait) 1
 		} else {
 			variable Result_
@@ -457,6 +457,7 @@ proc ProcessUpdate {parent} {
 
 	set data ""
 	catch { set data [gets $Priv(pipe)] }
+puts "ProcessUpdate: $data"
 
 	lassign {"" "" ""} reason arg url
 	lassign $data reason arg url
