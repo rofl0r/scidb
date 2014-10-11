@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 996 $
-# Date   : $Date: 2013-11-02 18:52:29 +0000 (Sat, 02 Nov 2013) $
+# Version: $Revision: 1009 $
+# Date   : $Date: 2014-10-11 15:05:49 +0000 (Sat, 11 Oct 2014) $
 # Url    : $URL$
 # ======================================================================
 
@@ -110,6 +110,11 @@ if {[tk windowingsystem] eq "x11"} {
 	proc fsbox::makeFrameless {w} { update idletasks; ::scidb::tk::wm frameless $w }
 	proc tooltip::x11DropShadow {args} { ::x11::dropShadow {*}$args }
 	proc dialog::messagebox::changeDesktop {w type} { ::x11::changeDesktop $w }
+}
+
+
+proc dialog::messagebox::tokenize {msg} {
+	return [scidb::misc::xml tokenize [append expr <xml> $msg </xml>]]
 }
 
 proc fsbox::dirIsEmpty {dir} { return [::scidb::misc::dirEmpty? $dir] }
