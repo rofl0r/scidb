@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 985 $
-// Date   : $Date: 2013-10-29 14:52:42 +0000 (Tue, 29 Oct 2013) $
+// Version: $Revision: 1010 $
+// Date   : $Date: 2014-10-18 15:12:33 +0000 (Sat, 18 Oct 2014) $
 // Url    : $URL$
 // ======================================================================
 
@@ -134,17 +134,16 @@ namespace material
 				uint32_t rook  :5;
 				uint32_t queen :5;
 				uint32_t king  :5;
-				uint32_t _rest1:5;
+				uint32_t _rest1:2;
 			};
 
 			struct
 			{
-				uint32_t value :30;
-				uint32_t _rest2: 2;
+				uint32_t piece :25;
+				uint32_t _rest3: 7;
 			};
 
-			uint32_t piece :25;
-			uint32_t _rest3: 7;
+			uint32_t value;
 		};
 
 		unsigned minor() const;

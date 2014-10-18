@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 985 $
-// Date   : $Date: 2013-10-29 14:52:42 +0000 (Tue, 29 Oct 2013) $
+// Version: $Revision: 1010 $
+// Date   : $Date: 2014-10-18 15:12:33 +0000 (Sat, 18 Oct 2014) $
 // Url    : $URL$
 // ======================================================================
 
@@ -88,6 +88,17 @@ db::board::msbClear(uint64_t& n)
 	int r = msb(n);
 	n &= ~(uint64_t(1) << r);
 	return r;
+}
+
+
+inline
+uint64_t
+db::board::allSquaresBetween(Square from, Square to)
+{
+	M_REQUIRE(from <= sq::h8);
+	M_REQUIRE(to <= sq::h8);
+
+	return Obstructed[from][to];
 }
 
 // vi:set ts=3 sw=3:

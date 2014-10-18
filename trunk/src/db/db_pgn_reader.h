@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 976 $
-// Date   : $Date: 2013-10-18 22:15:24 +0000 (Fri, 18 Oct 2013) $
+// Version: $Revision: 1010 $
+// Date   : $Date: 2014-10-18 15:12:33 +0000 (Sat, 18 Oct 2014) $
 // Url    : $URL$
 // ======================================================================
 
@@ -35,6 +35,7 @@
 #include "db_move_list.h"
 #include "db_comment.h"
 #include "db_file_offsets.h"
+#include "db_eco.h"
 
 #include "m_string.h"
 #include "m_vector.h"
@@ -175,6 +176,7 @@ private:
 	bool parseFinalComment(mstl::string const& comment);
 	void filterFinalComments();
 	bool parseVariant();
+	void setupEcoPosition();
 
 	void putNag(nag::ID nag);
 	void putNag(nag::ID whiteNag, nag::ID blackNag);
@@ -303,6 +305,7 @@ private:
 	sys::utf8::Codec*	m_codec;
 	mstl::string		m_buffer;
 	mstl::string		m_content;
+	Eco					m_eco;
 };
 
 } // namespace db

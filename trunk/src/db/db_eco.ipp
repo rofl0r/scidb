@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 1010 $
+// Date   : $Date: 2014-10-18 15:12:33 +0000 (Sat, 18 Oct 2014) $
 // Url    : $URL$
 // ======================================================================
 
@@ -48,6 +48,8 @@ inline bool Eco::isRoot() const { return m_code == m_root; }
 inline bool Eco::operator< (Eco const& eco) const { return m_code <  eco.m_code; }
 inline bool Eco::operator==(Eco const& eco) const { return m_code == eco.m_code; }
 inline bool Eco::operator!=(Eco const& eco) const { return m_code != eco.m_code; }
+
+inline void Eco::clear() { m_code = 0; }
 
 
 inline

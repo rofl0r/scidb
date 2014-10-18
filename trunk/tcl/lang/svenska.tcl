@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1009 $
-# Date   : $Date: 2014-10-11 15:05:49 +0000 (Sat, 11 Oct 2014) $
+# Version: $Revision: 1010 $
+# Date   : $Date: 2014-10-18 15:12:33 +0000 (Sat, 18 Oct 2014) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1513,7 +1513,6 @@
 ::setup::board::mc::FICSPosition					"FICS startposition..."
 ::setup::board::mc::StandardPosition			"Standardposition" ;# NEW
 ::setup::board::mc::Chess960Castling			"Schack960 rockad"
-::setup::board::mc::InvalidFen					"Ogiltigt FEN"
 
 ::setup::board::mc::ChangeToFormat(xfen)				"Ändra till X-Fen format"
 ::setup::board::mc::ChangeToFormat(shredder)			"Ändra till Shredder format"

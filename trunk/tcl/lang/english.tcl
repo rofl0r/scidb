@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1009 $
-# Date   : $Date: 2014-10-11 15:05:49 +0000 (Sat, 11 Oct 2014) $
+# Version: $Revision: 1010 $
+# Date   : $Date: 2014-10-18 15:12:33 +0000 (Sat, 18 Oct 2014) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1501,7 +1501,6 @@
 ::setup::board::mc::FICSPosition					"FICS Start Position..."
 ::setup::board::mc::StandardPosition			"Standard Position"
 ::setup::board::mc::Chess960Castling			"Chess 960 castling"
-::setup::board::mc::InvalidFen					"Invalid FEN"
 
 ::setup::board::mc::ChangeToFormat(xfen)				"Change to X-Fen format"
 ::setup::board::mc::ChangeToFormat(shredder)			"Change to Shredder format"

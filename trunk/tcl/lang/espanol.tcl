@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1009 $
-# Date   : $Date: 2014-10-11 15:05:49 +0000 (Sat, 11 Oct 2014) $
+# Version: $Revision: 1010 $
+# Date   : $Date: 2014-10-18 15:12:33 +0000 (Sat, 18 Oct 2014) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1507,7 +1507,6 @@
 ::setup::board::mc::FICSPosition					"FICS Start Position..." ;# NEW
 ::setup::board::mc::StandardPosition			"Posición estándar"
 ::setup::board::mc::Chess960Castling			"Enroque en Chess 960"
-::setup::board::mc::InvalidFen					"FEN no válido"
 
 ::setup::board::mc::ChangeToFormat(xfen)				"Cambiar a formato X-Fen"
 ::setup::board::mc::ChangeToFormat(shredder)			"Cambiar a formato Shredder"
@@ -1828,6 +1827,9 @@
 ::dialog::save::mc::CurrentGameHasTrialMode	"El juego actual está en modo de prueba y no puede ser guardado."
 ::dialog::save::mc::LeaveTrialModeHint			"You have to leave trial mode beforehand, use shortcut %s." ;# NEW
 ::dialog::save::mc::OpenPlayerDictionary		"Open Player Dictionary" ;# NEW
+::dialog::save::mc::TagName						"Etiqueta '%s'"
+::dialog::save::mc::InSection						"in section '%s'" ;# NEW
+::dialog::save::mc::StringTooLong				"La cadena <small><fixed>%value%</fixed></small> es demasiado larga y se cortará a <small><fixed>%trunc%</fixed></small>"
 
 ::dialog::save::mc::LocalName						"&Nombre local"
 ::dialog::save::mc::EnglishName					"Nombre I&nglés"
@@ -1835,9 +1837,6 @@
 ::dialog::save::mc::EcoCode						"Código &ECO"
 ::dialog::save::mc::Matches						"&Matches"
 ::dialog::save::mc::Tags							"E&tiquetas"
-::dialog::save::mc::TagName						"Etiqueta '%s'"
-::dialog::save::mc::InSection						"in section '%s'" ;# NEW
-::dialog::save::mc::StringTooLong				"La cadena <small><fixed>%value%</fixed></small> es demasiado larga y se cortará a <small><fixed>%trunc%</fixed></small>"
 
 ::dialog::save::mc::Section(game)				"Datos de la partida"
 ::dialog::save::mc::Section(event)				"Evento"

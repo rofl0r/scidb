@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1009 $
-# Date   : $Date: 2014-10-11 15:05:49 +0000 (Sat, 11 Oct 2014) $
+# Version: $Revision: 1010 $
+# Date   : $Date: 2014-10-18 15:12:33 +0000 (Sat, 18 Oct 2014) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1502,7 +1502,6 @@
 ::setup::board::mc::FICSPosition					"FICS-Startposition..."
 ::setup::board::mc::StandardPosition			"Standardposition"
 ::setup::board::mc::Chess960Castling			"Schach-960-Rochade"
-::setup::board::mc::InvalidFen					"Ungültige FEN"
 
 ::setup::board::mc::ChangeToFormat(xfen)				"Zum X-Fen-Format wechseln"
 ::setup::board::mc::ChangeToFormat(shredder)			"Zum Shredder-Format wechseln"

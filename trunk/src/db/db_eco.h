@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 648 $
-// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
+// Version: $Revision: 1010 $
+// Date   : $Date: 2014-10-18 15:12:33 +0000 (Sat, 18 Oct 2014) $
 // Url    : $URL$
 // ======================================================================
 
@@ -69,6 +69,7 @@ public:
 	void setup(char letter, uint16_t number);
 	mstl::string asString() const;
 	mstl::string asShortString() const;
+	void clear();
 
 	static Eco root();
 	static Eco fromShort(uint16_t code);

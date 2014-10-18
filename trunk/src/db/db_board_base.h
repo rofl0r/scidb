@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 985 $
-// Date   : $Date: 2013-10-29 14:52:42 +0000 (Tue, 29 Oct 2013) $
+// Version: $Revision: 1010 $
+// Date   : $Date: 2014-10-18 15:12:33 +0000 (Sat, 18 Oct 2014) $
 // Url    : $URL$
 // ======================================================================
 
@@ -183,6 +183,8 @@ int lsbClear(uint8_t& n);
 int msbClear(uint8_t& n);
 int lsbClear(uint64_t& n);
 int msbClear(uint64_t& n);
+
+uint64_t allSquaresBetween(Square from, Square to);
 
 namespace base { void initialize(); }
 
