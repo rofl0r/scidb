@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1006 $
-// Date   : $Date: 2014-10-04 06:48:39 +0000 (Sat, 04 Oct 2014) $
+// Version: $Revision: 1012 $
+// Date   : $Date: 2014-10-25 11:15:33 +0000 (Sat, 25 Oct 2014) $
 // Url    : $URL$
 // ======================================================================
 
@@ -850,7 +850,9 @@ Database::loadGame(unsigned index, Game& game, mstl::string* encoding, mstl::str
 
 	setEncodingFailed(m_codec->encodingFailed());
 	game.moveToMainlineStart();
-	load::State state = game.finishLoad(variant, fen) ? load::Ok : load::Corrupted;
+	load::State state = game.finishLoad(variant) ? load::Ok : load::Corrupted;
+	if (state == load::Ok && fen)
+		game.goToPosition(*fen);
 	setupTags(index, game.m_tags);
 
 	return state;

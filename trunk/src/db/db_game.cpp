@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1011 $
-// Date   : $Date: 2014-10-25 10:55:25 +0000 (Sat, 25 Oct 2014) $
+// Version: $Revision: 1012 $
+// Date   : $Date: 2014-10-25 11:15:33 +0000 (Sat, 25 Oct 2014) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2071,6 +2071,7 @@ Game::goToPosition(mstl::string const& fen)
 
 	moveToMainlineStart();
 
+	// TODO: also search in variations
 	while (!atMainlineEnd() && !position.isEqualZHPosition(m_currentBoard))
 		forward();
 
