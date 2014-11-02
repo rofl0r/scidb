@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 996 $
-# Date   : $Date: 2013-11-02 18:52:29 +0000 (Sat, 02 Nov 2013) $
+# Version: $Revision: 1014 $
+# Date   : $Date: 2014-11-02 13:52:24 +0000 (Sun, 02 Nov 2014) $
 # Url    : $URL$
 # ======================================================================
 
@@ -106,8 +106,11 @@ proc build {w width height} {
 	set boardc [::board::diagram::canvas $board]
 	::variation::build $canv [namespace code SelectAlternative]
 
-	set Vars(holding:w) [::board::holding::new $canv.holding-w w $Dim(squaresize) $boardc $border $canv]
-	set Vars(holding:b) [::board::holding::new $canv.holding-b b $Dim(squaresize) $boardc $border $canv]
+	set pieces {q r b n p}
+	set Vars(holding:w) \
+		[::board::holding::new $canv.holding-w w $Dim(squaresize) $pieces $boardc $border $canv]
+	set Vars(holding:b) \
+		[::board::holding::new $canv.holding-b b $Dim(squaresize) $pieces $boardc $border $canv]
 	::bind $Vars(holding:w) <<InHandSelection>> { ::move::inHandSelected %W %d }
 	::bind $Vars(holding:b) <<InHandSelection>> { ::move::inHandSelected %W %d }
 	::bind $Vars(holding:w) <<InHandPieceDrop>> { ::move::inHandPieceDrop %W %x %y %s %d }

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 996 $
-# Date   : $Date: 2013-11-02 18:52:29 +0000 (Sat, 02 Nov 2013) $
+# Version: $Revision: 1014 $
+# Date   : $Date: 2014-11-02 13:52:24 +0000 (Sun, 02 Nov 2014) $
 # Url    : $URL$
 # ======================================================================
 
@@ -149,8 +149,9 @@ proc open {parent base variant info view index {fen {}}} {
 	grid $board -column 3 -row 1 -sticky nsew
 
 	if {$variant eq "Crazyhouse"} {
-		set Vars(holding:w) [::board::holding::new $lt.holding-w w $squareSize]
-		set Vars(holding:b) [::board::holding::new $lt.holding-b b $squareSize]
+		set pieces {q r b n p}
+		set Vars(holding:w) [::board::holding::new $lt.holding-w w $squareSize $pieces]
+		set Vars(holding:b) [::board::holding::new $lt.holding-b b $squareSize $pieces]
 		grid $Vars(holding:b) -column 1 -row 1 -sticky n
 		grid $Vars(holding:w) -column 5 -row 1 -sticky s
 		grid columnconfigure $lt {2 4} -minsize $Options(holding:distance)
