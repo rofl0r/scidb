@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 985 $
-// Date   : $Date: 2013-10-29 14:52:42 +0000 (Tue, 29 Oct 2013) $
+// Version: $Revision: 1015 $
+// Date   : $Date: 2014-11-23 16:43:22 +0000 (Sun, 23 Nov 2014) $
 // Url    : $URL$
 // ======================================================================
 
@@ -393,14 +393,20 @@ convPlayerName(mstl::string& str)
 }
 
 
-inline static unsigned
+inline
+static unsigned
 convertEco(unsigned code)
 {
-	return code ? (code >> 7) & 0x1ff : 0;
+	code = (code >> 7) & 0x1ff;
+
+	// Sometimes the ECO code is invalid. Either this is
+	// an CB error, or an unknown "feature".
+	return code <= 500 ? code : 0;
 }
 
 
-inline static void
+inline
+static void
 setDate(Date& result, uint32_t value)
 {
 	result.setYMD((value >> 9) & 4095, (value >> 5) & 15, value & 31);
