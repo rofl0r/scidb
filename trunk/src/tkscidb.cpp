@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1016 $
-// Date   : $Date: 2015-01-12 18:48:54 +0000 (Mon, 12 Jan 2015) $
+// Version: $Revision: 1017 $
+// Date   : $Date: 2015-01-12 18:49:54 +0000 (Mon, 12 Jan 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -88,11 +88,6 @@ init(Tcl_Interp* ti)
 
 #endif
 
-db::Board board;
-db::MoveList moves;
-board.setStandardPosition(db::variant::Normal);
-board.doMoves("a3 f6 Ra2");
-board.generateMoves(db::variant::Normal, moves);
 		tcl::app::setup(new app::Application);
 
 #ifdef __WIN32__
