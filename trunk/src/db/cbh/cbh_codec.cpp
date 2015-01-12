@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1015 $
-// Date   : $Date: 2014-11-23 16:43:22 +0000 (Sun, 23 Nov 2014) $
+// Version: $Revision: 1016 $
+// Date   : $Date: 2015-01-12 18:48:54 +0000 (Mon, 12 Jan 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -278,7 +278,7 @@ static country::Code NationMap[] =
 	Cambodia,									// 203 CMB
 	Cayman_Islands,							// 204 CAY
 	Central_African_Republic,				// 205 CAR
-	Jersey,										// 206 CIB Channel Islands
+	Great_Britain,								// 206 CIB Channel Islands
 	Christmas_Island,							// 207 CIA
 	Cocos_Islands,								// 208 COA
 	Cook_Islands,								// 209 CIN

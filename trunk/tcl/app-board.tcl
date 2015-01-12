@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1014 $
-# Date   : $Date: 2014-11-02 13:52:24 +0000 (Sun, 02 Nov 2014) $
+# Version: $Revision: 1016 $
+# Date   : $Date: 2015-01-12 18:48:54 +0000 (Mon, 12 Jan 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -276,17 +276,17 @@ proc build {w width height} {
 		-menucmd ::gamebar::addDestinationsForSaveToMenu \
 	]
 
-	foreach {action key} {	GotoStart Home
-									FastBack  Prior
-									Back      Left
-									Fwd       Right
-									FastFwd   Next
-									GotoEnd   End} {
+	foreach {action key} {	GotoStart start
+									FastBack  -10
+									Back      -1
+									Fwd       +1
+									FastFwd   +10
+									GotoEnd   end} {
 		set Vars(control:[string tolower $action 0]) \
 			[::toolbar::add $tbControl button \
 				-state disabled \
 				-image [set ::icon::toolbarCtrl${action}] \
-				-command [namespace code Go$key]]
+				-command [namespace code [list Goto $key]]]
 	}
 
 	::toolbar::addSeparator $tbControl

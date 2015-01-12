@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 617 $
-// Date   : $Date: 2013-01-08 11:41:26 +0000 (Tue, 08 Jan 2013) $
+// Version: $Revision: 1016 $
+// Date   : $Date: 2015-01-12 18:48:54 +0000 (Mon, 12 Jan 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -25,6 +25,7 @@
 // ======================================================================
 
 #include "app_application.h"
+#include "db_board.h"
 
 #include "tk_init.h"
 #include "tcl_base.h"
@@ -87,6 +88,11 @@ init(Tcl_Interp* ti)
 
 #endif
 
+db::Board board;
+db::MoveList moves;
+board.setStandardPosition(db::variant::Normal);
+board.doMoves("a3 f6 Ra2");
+board.generateMoves(db::variant::Normal, moves);
 		tcl::app::setup(new app::Application);
 
 #ifdef __WIN32__
