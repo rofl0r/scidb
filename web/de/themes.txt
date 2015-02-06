@@ -1,0 +1,131 @@
+STYLES
+
+  <link type="text/css"
+        href="../css/star-rating.css"
+       media="all"
+         rel="stylesheet" />
+  <link type="text/css"
+        href="../css/theme.css"
+       media="all"
+         rel="stylesheet" />
+
+SCRIPTS
+
+  <script type="text/javascript"
+           src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script type="text/javascript"
+           src="../js/star-rating.js"></script>
+  <script type="text/javascript">
+    jQuery(document).ready(function () {
+      $(".vote").rating({
+        showCaption: true,
+        showClear: false,
+        readonly: true,
+        stars: 5,
+        min: 0,
+        max: 5,
+        step: 1,
+        size: 'xxs',
+        symbol: '\u265a',
+        space: '',
+        glyphicon: false,
+        starCaptions: {
+          1: '{STAR_CAPTION_1}',
+          2: '{STAR_CAPTION_2}',
+          3: '{STAR_CAPTION_3}',
+          4: '{STAR_CAPTION_4}',
+          5: '{STAR_CAPTION_5}'
+        }
+      });
+      /* we need a special handling for browsers != Firefox */
+      if (navigator.userAgent.indexOf("Firefox") == -1) {
+        $('.caption').css('vertical-align', 'baseline');
+      }
+    });
+    function showResults() {
+      setCookie('display-votes', '', 0);
+    }
+  </script>
+
+TITLE
+
+  Themen einstufen
+
+CONTENT
+
+<div class="block">
+
+  <p>
+    Die Graphik spielt in Scidb eine sehr große Rolle, es werden in der nächsten
+    Version 41 Brettthemen vorhanden sein, sowie 30 Figurensätze. Auf den nächsten
+    Seiten werden alle vorkonfigurierten Brettthemen vorgestellt, und sie können
+    eingestuft werden.
+  </p>
+
+  <p>
+    Die Einstufung erfolgt in der Vergabe von 1 bis 5 Königen, wobei der Königsrang
+    folgende Bedeutung hat:
+  </p>
+
+  <ul style="list-style-type: none;">
+    <li><p>
+      <input type="number" class="vote" value="1" />
+      Uninteressant, kommt niemals in meine Wahl.
+    </p></li>
+    <li><p>
+      <input type="number" class="vote" value="2" />
+      Relativ uninteressant, aber nicht völlig aus der Wahl.
+    </p></li>
+    <li><p>
+      <input type="number" class="vote" value="3" />
+      Unentschieden, könnte möglicherweise mal eine Alternative sein.
+    </p></li>
+    <li><p>
+      <input type="number" class="vote" value="4" />
+      Eine interessante Alternative.
+    </p></li>
+    <li><p>
+      <input type="number" class="vote" value="5" />
+      Eine meiner klaren Favoriten.
+    </p></li>
+  </ul>
+
+  <p>
+    Sobald eine Wahl gesendet wurde können die Ergebnisse aller
+    Wahlteilnehmer gesehen werden. Eine Wahl kann nachträglich korrigiert werden.
+  </p>
+
+  <p>
+    Hinweis: Ohne Javascript-Aktivierung ist keine Wahl möglich.
+  </p>
+
+  <p>
+    Hinweis: Nicht das 'Senden' vergessen, dies ist auch möglich nach Seitenwechsel.
+  </p>
+
+  <p style="text-align:center;">
+    <button class="button green" onclick="window.location='theme-standard.html'">Tour starten</button>
+  </p>
+
+  <p>
+    Möglicherweise sind die Daten der eigenen Wahl verlorengegangen (weil die Cookies
+    nicht mehr vorhanden sind), dann können die Ergebnisse der anderen Wahlteilnehmer
+    auch ohne erneute Wahl freigeschaltet werden.
+  </p>
+
+  <p style="text-align:center;">
+    <button onclick="showResults()">Wahlresultate freischalten</button>
+  </p>
+
+  <p>
+    Hinweis: Es werden Cookies zur Speicherung der eigenen Wahl verwendet.
+  </p>
+
+</div>
+
+FOOTER
+
+  <li><a href="index.html">Scidb</a>&nbsp;|&nbsp;</li>
+  <li><a href="themes.html" lang="en">Vote themes</a>&nbsp;|&nbsp;</li>
+
+# vi:set ts=2 sw=2 et filetype=html fileencoding=latin1:

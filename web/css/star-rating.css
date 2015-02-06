@@ -1,0 +1,278 @@
+/*!
+ * @copyright Kartik Visweswaran, Krajee.com, 2014
+ * @version 3.5.0
+ *
+ * A simple yet powerful JQuery star rating plugin that allows rendering
+ * fractional star ratings and supports Right to Left (RTL) input.
+ *
+ * For more JQuery/Bootstrap plugins and demos visit http://plugins.krajee.com
+ * For more Yii related demos visit http://demos.krajee.com
+ */
+
+/*
+ * Some modifications by Gregor Cramer, 2015.
+ */
+
+/*
+@font-face {
+	font-family: 'FontAwesome';
+
+	src: url('http://netdna.bootstrapcdn.com/font-awesome/4.2.0/fonts/fontawesome-webfont.eot');
+	src: url('http://netdna.bootstrapcdn.com/font-awesome/4.2.0/fonts/fontawesome-webfont.eot?#iefix') format('embedded-opentype'),
+		  url('http://netdna.bootstrapcdn.com/font-awesome/4.2.0/fonts/fontawesome-webfont.woff') format('woff'),
+		  url('http://netdna.bootstrapcdn.com/font-awesome/4.2.0/fonts/fontawesome-webfont.ttf') format('truetype'),
+		  url('http://netdna.bootstrapcdn.com/font-awesome/4.2.0/fonts/fontawesome-webfont.svg#fontawesomeregular') format('svg');
+}
+*/
+
+@font-face {
+	font-family: 'Scidb Chess Standard';
+
+	src: url('../font/scidbchessstandard.eot');
+	src: url('../font/scidbchessstandard.eot?#iefix') format('embedded-opentype'),
+        url('../font/scidbchessstandard.woff') format('woff'),
+        url('../font/scidbchessstandard.ttf') format('truetype'),
+        url('../font/scidbchessstandard.svg#ScidbChessStandardRegular') format('svg');
+}
+
+.glyphicon {
+	position: relative;
+	top: 1px;
+	display: inline-block;
+	font-family: 'FontAwesome';
+	font-style: normal;
+	font-weight: normal;
+	line-height: normal;
+	vertical-align: baseline;
+
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.glyphicon-star:before {
+	content: "\f005";
+}
+
+.glyphicon-minus-sign:before {
+	content: "\f056";
+}
+
+.label {
+	display: inline;
+	padding: .2em .6em .3em;
+	font-size: 75%;
+	font-weight: bold;
+	color: #ffffff;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: baseline;
+	border-radius: .25em;
+}
+a.label:hover,
+a.label:focus {
+	color: #ffffff;
+	text-decoration: none;
+	cursor: pointer;
+}
+.label:empty {
+	display: none;
+}
+.label {
+	position: relative;
+	top: -1px;
+}
+
+.label-0 { background-color: #777777; } /* default */
+.label-1 { background-color: #d9534f; } /* danger */
+.label-2 { background-color: #f0ad4e; } /* warning */
+.label-3 { background-color: #5bc0de; } /* info */
+.label-4 { background-color: #428bca; } /* primary */
+.label-5 { background-color: #5cb85c; } /* success */
+
+/*.label-0[href]:hover, .label-0[href]:focus { background-color: #5e5e5e; }*/
+/*.label-1[href]:hover, .label-1[href]:focus { background-color: #c9302c; }*/
+/*.label-2[href]:hover, .label-2[href]:focus { background-color: #ec971f; }*/
+/*.label-3[href]:hover, .label-3[href]:focus { background-color: #31b0d5; }*/
+/*.label-4[href]:hover, .label-4[href]:focus { background-color: #3071a9; }*/
+/*.label-5[href]:hover, .label-5[href]:focus { background-color: #449d44; }*/
+
+.color-0 { color: #775050; }
+.color-1 { color: #ee3633; }
+.color-2 { color: #f08d00; }
+.color-3 { color: #00abde; }
+.color-4 { color: #006cca; }
+.color-5 { color: #00b800; }
+
+input {
+	margin: 0;
+	font: inherit;
+	color: inherit;
+}
+html input[disabled] {
+	cursor: default;
+}
+input::-moz-focus-inner {
+	padding: 0;
+	border: 0;
+}
+input {
+	line-height: normal;
+}
+
+.hide {
+  display: none !important;
+}
+.show {
+  display: block !important;
+}
+.invisible {
+  visibility: hidden;
+}
+
+.rating-loading {
+	width: 25px;
+	height: 25px;
+	font-size: 0px;
+	color: #ffffff;
+	background: transparent url('../images/loading.gif') top left no-repeat;
+	border: none;
+}
+
+/*
+ * Stars
+ */
+.rating-gly {
+	font-family: 'FontAwesome';
+	/* padding-left: 2px; */
+}
+
+.rating-gly-star {
+	font-family: 'FontAwesome';
+	/* padding-left: 2px; */
+}
+
+.rating-gly-star .rating-stars:before {
+	/* padding-left: 2px; */
+}
+
+.rating-lg .rating-gly-star, .rating-lg .rating-gly-star .rating-stars:before {
+	padding-left: 4px;
+}
+
+.rating-xl .rating-gly-star, .rating-xl .rating-gly-star .rating-stars:before {
+	padding-left: 2px;
+}
+
+.rating-active {
+	cursor: default;
+}
+
+.rating-disabled {
+	cursor: not-allowed;
+}
+
+.rating-uni {
+	font-family: 'Scidb Chess Standard';
+	font-size: 90%;
+	margin-top: -0px;
+	top: 1px;
+	line-height: normal;
+}
+
+.rating-container {
+	position: relative;
+	vertical-align: middle;
+	display: inline-block;
+	/*color: #e3e3e3;*/
+	color: #d3d3d3;
+	overflow: hidden;
+}
+
+.rating-container:before {
+	content: attr(data-content);
+}
+
+.rating-stars-hover {
+	color: #f7b519;
+}
+
+.rating-container .rating-stars {
+	position: absolute;
+	left: 0;
+	top: 0;
+	white-space: nowrap;
+	overflow: hidden;
+	/*color: #fde16d;*/
+	color: #cc9900;
+	transition: all 0.25s ease-out;
+	-o-transition: all 0.25s ease-out;
+	-moz-transition: all 0.25s ease-out;
+	-webkit-transition: all 0.25s ease-out;
+}
+
+.rating-container .rating-stars:before {
+	content: attr(data-content);
+  /*text-shadow: 0 0 1px rgba(0, 0, 0, 0.7);*/
+}
+
+/**
+ * Rating sizes
+ */
+.rating-xl {
+	font-size: 68px;
+}
+
+.rating-lg {
+	font-size: 56px;
+}
+
+.rating-md {
+	font-size: 44px;
+}
+
+.rating-sm {
+	font-size: 36px;
+}
+
+.rating-xs {
+	font-size: 28px;
+}
+
+.rating-xxs {
+	font-size: 22px;
+}
+
+/**
+ * Clear rating button
+ */
+.star-rating .clear-rating {
+	color: #aaaaaa;
+	/* cursor: not-allowed; */
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 60%;
+}
+
+.clear-rating-active {
+	cursor: pointer !important;
+}
+
+.clear-rating-active:hover {
+	color: #843534;
+}
+
+.star-rating .clear-rating {
+	padding-right: 5px;
+}
+
+/**
+ * Caption
+ */
+.star-rating .caption {
+	color: #999999;
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 55%;
+	padding-left: 5px;
+	cursor: default !important;
+}

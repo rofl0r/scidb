@@ -1,8 +1,76 @@
 TITLE
 
-	Scidb - Release History
+	Release History
 
 CONTENT
+
+<div class="block">
+
+  <div class="header">
+    Fourth public preview version (October 2013) <hr />
+  </div>
+
+  <p>
+    The fourth public preview version is based on <acronym>SVN</acronym> revision 960.
+  </p>
+
+  <div class="box">
+    <p>
+      <b><font color="#8B0000">Specific problems on <acronym>Ubuntu</acronym>
+      as of version 11.10</font></b>
+    </p>
+
+    <p>
+      The pre-installed <acronym>Tk</acronym> library (all versions) is crippled,
+      some windows will freeze (this means not responding to mouse or keyboard
+      events).
+    </p>
+
+    <p>
+      All <acronym>Ubuntu</acronym> editions as of version 11.10 are definitely broken
+      &ndash; a result of the security pananoia of the Ubuntu team &ndash;
+      and the developer has spent some weeks for work-arounds. It is possible that
+      succeeding editions of <acronym>Ubuntu</acronym> will not be supported anymore.
+      The <acronym>Ubuntu</acronym> team believes that any software is an attacker and
+      is eliminating so called <i>security holes</i>. This leads to crippled
+      and defect systems, not Unix conform anymore. But <acronym>Scidb</acronym> is
+      quite ambitious and requires a fully operational Unix system. Moreover,
+      <acronym>Scidb</acronym> is definitively not an attacker.
+    </p>
+
+    <p>
+      There does not exist known work-arounds for these problems with the <acronym>Tk</acronym>
+      library, except the installation of a home-made <acronym>Tk</acronym> library.
+    </p>
+  </div>
+
+  <div class="box">
+
+    <p><b><font color="#8B0000">
+    <acronym>Ubuntu</acronym> &gt;= 11.10 is presenting another specific problem:
+    </font></b></p>
+
+    <p>
+      Sub-processes are in general not working (for further details see
+      <a target="_blank" href="http://sourceforge.net/mailarchive/forum.php?thread_name=20111118143650.38280%40gmx.net&amp;forum_name=scidb-users">Scidb's Users List<link/></a>), this may cause
+      crashes, in case no proposed solution (see link) is applied.
+    </p>
+  </div>
+
+  <div class="box">
+    <p>
+      <b><font color="#8B0000">Specific problems on all Debian based distributions, like
+      Ubuntu and Linux Mint</font></b>
+    </p>
+
+    <p>
+      Debian has changed some system paths. This change is user-unfriendly, and
+      results in compilation problems with newer compiler versions. Please consult
+      file INSTALL in this case.
+    </p>
+  </div>
+
+</div>
 
 <div class="block">
 
@@ -57,7 +125,7 @@ CONTENT
 
     <p>
     Sub-processes are in general not working (for further details see
-    <a target="_blank" href="http://sourceforge.net/mailarchive/forum.php?thread_name=20111118143650.38280%40gmx.net&amp;forum_name=scidb-users" target="_blank">Scidb's Users List<link/></a>), this may cause
+    <a target="_blank" href="http://sourceforge.net/mailarchive/forum.php?thread_name=20111118143650.38280%40gmx.net&amp;forum_name=scidb-users">Scidb's Users List<link/></a>), this may cause
     crashes, in case no proposed solution (see link) is applied.
     </p>
 

@@ -4,8 +4,9 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:og="http://ogp.me/ns#"
    xml:lang="en"
-       lang="%LANG%">
+       lang="{LANG}">
 
 <head>
 
@@ -25,13 +26,22 @@
   <meta name="description"
      content="A free chess database application" />
   <meta name="keywords"
-     content="Scidb, Scid, chess, chess database, Schach, Schachdatenbank, GPL" />
+     content="Scidb, chess, database, Schach, Schachdatenbank, CQL, GPL" />
+
+  <meta property="og:title" content="Scidb" />
+  <meta property="og:type" content="website" /> <!-- product -->
+  <meta property="og:image" content="http://scidb.sourceforge.net/images/Scidb-Logo-128x128.png" />
+  <meta property="og:url" content="http://scidb.sourceforge.net" />
+  <meta property="og:site_name" content="Scidb" />
+  <meta property="og:description" content="{DESCRIPTION}" />
 
   <link rel="icon"
        href="http://scidb.sourceforge.net/favicon.ico"
        type="image/x-icon" />
   <link rel="shortcut icon"
        href="http://scidb.sourceforge.net/favicon.ico" />
+
+  {STYLES}
 
   <link rel="stylesheet"
        type="text/css"
@@ -41,8 +51,6 @@
        type="text/css"
       media="screen"
        href="css/links.css" />
-
-  %STYLES%
 
   <!--[if IE]>
     <style type="text/css"> 
@@ -55,9 +63,9 @@
     </style> 
   <![endif]-->
         
-  <title>%TITLE%</title>
+  <title>{TITLE}</title>
 
-  %SCRIPTS%
+  {SCRIPTS}
 
   <script type="text/javascript"
            src="js/selectLanguage.js">
@@ -66,10 +74,36 @@
            src="js/external_links.js">
   </script>
 
+@iffile index
+  <script type="text/javascript"
+           src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js">
+  </script>
+  <style type="text/css">
+    #a2apage_BROWSER { display:none !important; }
+    #a2apage_any_email { display:none !important; }
+    #a2amail_any_email { display:none !important; } 
+  </style>
+@endif
+
   <link rel="alternate"
        type="application/rss+xml"
       title="Scidb News"
        href="http://scidb.sourceforge.net/rss/news.xml" />
+
+  <!--
+  <link href="//fonts.googleapis.com/css?family=Ubuntu:regular"
+         rel="stylesheet"
+        type="text/css">
+  <style type="text/css">
+      @font-face {
+        font-family: "Pictos";
+        src: url('http://a.fsdn.com/con/css/fonts/sftheme/pictos-web.eot');
+        src: url('http://a.fsdn.com/con/css/fonts/sftheme/pictos-web.woff') format('woff'),
+             url('http://a.fsdn.com/con/css/fonts/sftheme/pictos-web.ttf') format('truetype'),
+             url('http://a.fsdn.com/con/css/fonts/sftheme/pictos-web.svg') format('svg');
+      }
+  </style>
+  -->
 
   <!--
   <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -88,7 +122,7 @@
 
 </head>
 
-<body %ONLOAD%>
+<body {ONLOAD}>
 
 <div id="wrapper">
 
@@ -100,32 +134,9 @@
 
   <table width="100%" style="padding-top: 5px">
     <tr>
-      <td width="20" valign="top" align="center">
-        <div class="britishFlagLink">
-          <img src="images/United-Kingdom-Flag-20x16.png" alt="" class="preload"/>
-          <a href="%ENGLISH%"
-            title="To English-language side"
-             lang="en"
-        onmouseup="setLang(event, 'en');">
-            <img src="images/United-Kingdom-Flag-16x16.png" alt="en" width="16" height="16"/>
-          </a>
-        </div>
-      </td>
-      <td width="20" valign="top" align="center">
-        <div class="germanFlagLink">
-          <img src="images/Germany-Flag-20x16.png" alt="" class="preload"/>
-          <a href="%GERMAN%"
-            title="Zur deutschsprachigen Seite"
-             lang="de"
-        onmouseup="setLang(event, 'de');">
-            <img src="images/Germany-Flag-16x16.png" alt="de" width="16" height="16"/>
-          </a>
-        </div>
-      </td>
       <td align="center">
         <img src="images/logo.png" alt="Scidb Logo" width="64" height="64"/>
       </td>
-      <td width="40"></td>
     </tr>
   </table>
 
@@ -137,31 +148,34 @@
             <a href="index.html">Scidb</a>
           </li>
           <li class="primary">
-            <a href="download.html">%GUIDE_DOWNLOAD%</a>
+            <a href="download.html">{GUIDE_DOWNLOAD}</a>
           </li>
           <li class="primary">
-            <a href="screenshots.html">%GUIDE_SCREENSHOTS%</a>
+            <a href="screenshots.html">{GUIDE_SCREENSHOTS}</a>
           </li>
           <li class="primary">
-            <a href="moreinfo.html">%GUIDE_MOREINFO%</a>
-          </li>
-          <li class="secondary">
-            <a href="links.html">%GUIDE_LINKS%</a>
-          </li>
-          <li class="secondary">
-            <a href="wanted.html">%GUIDE_WANTED%</a>
+            <a href="themes.html">{GUIDE_VOTE_THEMES}</a>
           </li>
           <li class="primary">
-            <a href="project.html">%GUIDE_PROJECT%</a>
+            <a href="moreinfo.html">{GUIDE_MOREINFO}</a>
           </li>
           <li class="secondary">
-            <a href="releasehistory.html">%GUIDE_RELEASEHISTORY%</a>
+            <a href="links.html">{GUIDE_LINKS}</a>
           </li>
           <li class="secondary">
-            <a href="roadmap.html">%GUIDE_ROADMAP%</a>
+            <a href="wanted.html">{GUIDE_WANTED}</a>
+          </li>
+          <li class="primary">
+            <a href="project.html">{GUIDE_PROJECT}</a>
           </li>
           <li class="secondary">
-            <a href="help/%LANG%/Overview.html">%GUIDE_HELPPAGES%</a>
+            <a href="releasehistory.html">{GUIDE_RELEASEHISTORY}</a>
+          </li>
+          <li class="secondary">
+            <a href="roadmap.html">{GUIDE_ROADMAP}</a>
+          </li>
+          <li class="secondary">
+            <a href="help/{LANG}/Overview.html">{GUIDE_HELPPAGES}</a>
           </li>
         </ul>
       </div>
@@ -174,7 +188,7 @@
         <div class="reviewLink">
           <a href="http://sourceforge.net/projects/scidb/reviews"
            target="_blank"
-            title="%REVIEW%"
+            title="{REVIEW}"
                id="ReviewLink">
             <img src="images/thumbs_up-32x32.png"
                  alt="Review"
@@ -188,7 +202,7 @@
         <div class="signGuestBookLink">
           <a href="http://sourceforge.net/apps/aguestbook/scidb/sign.php"
            target="_blank"
-            title="%GUESTBOOK%"
+            title="{GUESTBOOK}"
                id="SignGuestBookLink">
             <img src="images/sign-up-48x38.png"
                  alt="Sign Guestbook"
@@ -202,7 +216,7 @@
         <div class="featureRequestLink">
           <a href="http://sourceforge.net/tracker/?atid=1294800&amp;group_id=307371&amp;func=browse"
            target="_blank"
-            title="%FEATUREREQUEST%"
+            title="{FEATUREREQUEST}"
                id="FeatureRequestLink">
             <img src="images/question_block-32x32.png"
                  alt="Feature Request"
@@ -216,7 +230,7 @@
         <div class="rssLink">
           <a href="http://scidb.sourceforge.net/rss/news.xml"
            target="_blank"
-            title="%SUBSCRIBE%"
+            title="{SUBSCRIBE}"
                id="RSSLink">
             <img src="images/feed-icon-orange-32x32.png"
                  alt="RSS-Feed"
@@ -227,12 +241,12 @@
       </td>
     </tr></table>
 
-    %TRANSLATOR%
+    {TRANSLATOR}
 
     <div align="center" style="margin-top: 15pt;" class="sourceforgeLink">
       <img src="images/sflogo-blue-159x64.png" alt="" class="preload" />
       <a href="http://sourceforge.net/projects/scidb/"
-        title="%SOURCEFORGE%"
+        title="{SOURCEFORGE}"
        target="_blank">
         <img src="images/sflogo-blue-149x61.png"
              alt="Scidb at SourceForge.net"
@@ -241,7 +255,7 @@
       </a>
     </div>
 
-    <div align="center" style="margin-top: 15pt;">
+    <div align="center" style="margin-top: 8pt; margin-bottom: 15pt">
       <table border="0" align="center" cellspacing="0"><tr>
           <td align="center" valign="bottom" width="93">
             <a href="http://validator.w3.org/check?uri=referer" target="_blank">
@@ -263,43 +277,171 @@
         </tr></table>
     </div>
 
-    %SIDEBAR%
+    <div id="visitors" class="block">
+      <ul class="header">
+        <li class="header">{VISITOR}</li>
+      </ul>
+      <ul class="body">
+        <li>
+          <a href="http://www2.clustrmaps.com/counter/maps.php?url=http://scidb.sourceforge.net/"
+           target="_blank"
+               id="clustrMapsLink">
+            <img src="http://www2.clustrmaps.com/counter/index2.php?url=http://scidb.sourceforge.net/"
+               style="border:0px;"
+                 alt="Locations of visitors to this page"
+               title="{LOCATION_OF_VISITORS}"
+                  id="clustrMapsImg"
+               width="160"
+              height="106" />
+          </a>
+          <script type="text/javascript">
+            function cantload() {
+              img = document.getElementById("clustrMapsImg");
+              img.onerror = null;
+              img.src = "http://clustrmaps.com/images/clustrmaps-back-soon.jpg";
+              document.getElementById("clustrMapsLink").href = "http://clustrmaps.com";
+            }
+            img = document.getElementById("clustrMapsImg");
+            img.onerror = cantload;
+          </script>
+        </li>
+      </ul>
+    </div><!-- visitors -->
+
+    {SIDEBAR}
 
   </div><!-- sidebar -->
 
   <div id="contentarea">
-    %CONTENT%
+    <div class="social_buttons">
+      <table style="border:none;margin:3px 0px 2px 0px" width="100%" cellpadding="0" cellspacing="0">
+        <tr style="border:none">
+@iffile index
+          <td valign="bottom" height="25" style="padding-left:3px;padding-right:0px;">
+            <table style="border:none;margin:0px" cellpadding="0" cellspacing="0">
+              <tr style="border:none">
+                <td valign="middle" height="25" >
+                  <!-- LikeBtn.com BEGIN -->
+                  <span class="likebtn-wrapper"
+                      title="{LIKE}"
+                      data-style="black"
+                      data-identifier="scidb.sourceforge.net"
+                      data-dislike_enabled="false"
+                      data-unlike_allowed="false"
+                      data-tooltip_enabled="false"
+                      data-item_url="http://scidb.sourceforge.net"
+                      data-item_title="Scidb"
+                      data-item_description="{DESCRIPTION}"
+                      data-item_image="http://scidb.sourceforge.net/images/logo.png">
+                  </span>
+                  <script type="text/javascript"
+                           src="//w.likebtn.com/js/w/widget.js"
+                         async="true">
+                  </script>
+                  <!-- LikeBtn.com END -->
+                </td>
+                <td valign="middle" height="25" style="padding-left:0px;padding-right:2px;">
+                  <!-- AddToAny -->
+                  <script type="text/javascript">
+                    // Setup AddToAny "onReady" callback
+                    var a2a_config = a2a_config || {};
+                    a2a_config.linkurl = 'http://scidb.sourceforge.net';
+                    a2a_config.num_services = 10;
+                    a2a_config.prioritize = [
+                      'linkedin', 'twitter', 'google_plus', 'tumblr', 'pinterest',
+                      'stumbleupon', 'google_bookmarks', 'pinboard', 'delicious',
+                    ];
+                    a2a_config.locale = '{LOCALE}';
+                    a2a_config.tracking_callback = {
+                    ready: function () {
+                        a2a.init('page', { target: '.share-this' });
+                      }
+                    };
+                    // Load AddToAny script asynchronously
+                    (function () {
+                    var a = document.createElement('script');
+                    a.type = 'text/javascript';
+                    a.async = true;
+                    a.src = 'http://static.addtoany.com/menu/page.js';
+                    var s = document.getElementsByTagName('script')[0];
+                    s.parentNode.insertBefore(a, s);
+                    })();
+                  </script>  
+                  <!-- AddToAny BEGIN -->
+                  <div class="a2a_kit a2a_default_style a2a_target share-this">
+                    <span class="a2a_divider"></span>
+                    <a class="a2a_dd" href="http://www.addtoany.com/share_save">{SHARE}</a>
+                    <span class="a2a_divider"></span>
+                    <a class="a2a_button_tumblr" title="Tumblr"></a>
+                    <a class="a2a_button_google_plus" title="Google+"></a>
+                    <a class="a2a_button_linkedin" title="LinkedIn"></a>
+                    <a class="a2a_button_twitter" title="Twitter"></a>
+                    <a class="a2a_button_email" title="Email"></a>
+                    <span class="a2a_divider"></span>
+                  </div>
+                  <!-- AddToAny END -->
+                </td>
+                <td valign="middle" height="25" style="padding-left:2px;padding-right:0px;">
+                  <!-- Tumblr Blog BEGIN -->
+                  <script type="text/javascript"
+                           src="http://platform.tumblr.com/v1/share.js"
+                         async="true">
+                  </script>
+                  <iframe class="btn"
+                         border="0"
+                      scrolling="no"
+              allowtransparency="true"
+                            src="http://platform.tumblr.com/v1/follow_button.html?button_type=2&amp;tumblelog=scidb&amp;color_scheme=dark"
+                    frameborder="0"
+                         height="25"
+                          width="120">
+                  </iframe>
+                  <!-- Tumblr Blog END -->
+                </td>
+              </tr>
+            </table>
+          </td>
+@else
+          <td valign="middle" height="25" style="padding-left:3px;padding-right:0px;">
+            <span class="header">{HEADER}</span>
+          </td>
+@endif
+          <td width="25" height="25" valign="middle" align="center">
+            <div class="britishFlagLink">
+              <img src="images/United-Kingdom-Flag-20x16.png" alt="" class="preload"/>
+              <a href="{ENGLISH}"
+                title="To English-language side"
+                 lang="en"
+            onmouseup="setLang(event, 'en');">
+                <img src="images/United-Kingdom-Flag-16x16.png" alt="en" width="16" height="16"/>
+              </a>
+            </div>
+          </td>
+          <td width="25" height="25" valign="middle" align="center" style="padding-right:0px;">
+            <div class="germanFlagLink">
+              <img src="images/Germany-Flag-20x16.png" alt="" class="preload"/>
+              <a href="{GERMAN}"
+                title="Zur deutschsprachigen Seite"
+                 lang="de"
+            onmouseup="setLang(event, 'de');">
+                <img src="images/Germany-Flag-16x16.png" alt="de" width="16" height="16"/>
+              </a>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    {CONTENT}
   </div><!-- contentarea -->
 
   <div id="footer">
     <ul>
-      %FOOTER%
+      {FOOTER}
     </ul>
   </div><!-- footer -->
 
 </div><!-- wrapper -->
-
-<!-- Piwik -->
-<script type="text/javascript">
-   var pkBaseURL = (("https:" == document.location.protocol) ? "https://sourceforge.net/apps/piwik/scidb/" : "http://sourceforge.net/apps/piwik/scidb/");
-   document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-  try {
-    var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 1);
-    piwikTracker.setDocumentTitle(document.title);
-    piwikTracker.trackPageView();
-    piwikTracker.enableLinkTracking();
-  } catch( err ) {}
-</script>
-<noscript>
-  <p>
-    <img src="http://sourceforge.net/apps/piwik/scidb/piwik.php?idsite=1"
-       style="border:0"
-         alt=""/>
-  </p>
-</noscript>
-<!-- End Piwik Tag -->
 
 </body>
 </html>

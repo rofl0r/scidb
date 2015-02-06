@@ -6,39 +6,6 @@ SCRIPTS
 
   <script type="text/javascript" src="js/forwarding.js"></script>
 
-SIDEBAR
-
-  <div id="visitors" class="block">
-    <ul class="header">
-      <li class="header">Visitors</li>
-    </ul>
-    <ul class="body">
-      <li>
-        <a href="http://www2.clustrmaps.com/counter/maps.php?url=http://scidb.sourceforge.net/"
-         target="_blank"
-             id="clustrMapsLink">
-          <img src="http://www2.clustrmaps.com/counter/index2.php?url=http://scidb.sourceforge.net/"
-             style="border:0px;"
-               alt="Locations of visitors to this page"
-             title="Locations of visitors to this page"
-                id="clustrMapsImg"
-             width="160"
-            height="106" />
-        </a>
-        <script type="text/javascript">
-          function cantload() {
-            img = document.getElementById("clustrMapsImg");
-            img.onerror = null;
-            img.src = "http://clustrmaps.com/images/clustrmaps-back-soon.jpg";
-            document.getElementById("clustrMapsLink").href = "http://clustrmaps.com";
-          }
-          img = document.getElementById("clustrMapsImg");
-          img.onerror = cantload;
-        </script>
-      </li>
-    </ul>
-  </div><!-- visitors -->
-
 CONTENT
 
 <div class="block">
@@ -50,9 +17,9 @@ CONTENT
   <p>
   <!-- google_ad_section_start -->
   Scidb ("Scidb is a Chess Information Data Base")
-  <!-- google_ad_section_end -->
   is a chess database application for Linux/Unix and Windows. Scidb is inspired by Scid
   ("Shane's Chess Information Database"), but it is a completely new development.</p>
+  <!-- google_ad_section_end -->
 
   <p>
   The principal features of this chess database application:
@@ -63,11 +30,15 @@ CONTENT
       Support of various chess variants:
       <ul>
         <li><a target="_blank" href="http://en.wikipedia.org/wiki/Three-check_chess">Three-Check chess<link/></a></li>
+        <li><a target="_blank" href="http://de.lichess.org/king-of-the-hill">King of the Hill<link/></a></li>
         <li><a target="_blank" href="http://en.wikipedia.org/wiki/Antichess">Antichess<link/></a>
-            (<a target="_blank" href="http://suicidechess.ca/index.php?lg=en">Suicide<link/></a>,
+            (<a target="_blank" href="http://suicidechess.ca/index.php">Suicide<link/></a>,
             <a target="_blank" href="http://www6.chessclub.com/help/Giveaway">Giveaway<link/></a>,
-            <a target="_blank" href="http://loserschess.org/">Losers<link/></a>)</li>
-        <li><a target="_blank" href="http://en.wikipedia.org/wiki/Crazyhouse">Crazyhouse<link/></a></li>
+            <!-- <a target="_blank" href="http://loserschess.org/">Losers<link/></a>)</li> n-->
+            <a target="_blank" href="http://en.wikipedia.org/wiki/Losing_chess">Losers<link/></a>)</li>
+        <li><a target="_blank" href="http://en.wikipedia.org/wiki/Crazyhouse">Drop Chess<link/></a>
+            (<a target="_blank" href="http://www.chessvariants.org/other.dir/crazyhouse.html">Crazyhouse<link/></a>,
+            <a target="_blank" href="http://www.chessvariants.org/other.dir/chessgi.html">Chessgi</a>)</li>
         <li><a target="_blank" href="http://en.wikipedia.org/wiki/Bughouse_chess">Bughouse<link/></a>
             (in preparation)</li>
         </ul>
@@ -79,15 +50,30 @@ CONTENT
     </li>
 
     <li>
-      Support of various database and file formats:
-      <dir>
-        <table>
-          <tr><td>Scidb:</td>     <td>.sci, .scv</td></tr>
-          <tr><td>Scid:</td>      <td>.si3, .si4</td></tr>
-          <tr><td>ChessBase:</td> <td>.cbh, .cbf (read-only)</td></tr>
-          <tr><td>PGN:</td>       <td>.pgn, .pgn.gz, .zip</td></tr>
-        </table>
-      </dir>
+      Support of various database and archive formats:
+      <table style="margin-left:20px;">
+        <tr><td>Scidb:</td>     <td>.sci, .scv</td></tr>
+        <tr><td>Scid:</td>      <td>.si3, .si4</td></tr>
+        <tr><td>ChessBase:</td> <td>.cbh, .cbf (read-only)</td></tr>
+        <tr><td>CIF:</td>       <td>.cif, .ccif</td></tr>
+        <tr><td>PGN:</td>       <td>.pgn, .pgn.gz, .zip</td></tr>
+      </table>
+    </li>
+
+    <li>
+      <a href="help/en/CQL-Index.html">CQL</a> based search functions (in development)
+    </li>
+
+    <li>
+      Player base with online update
+    </li>
+
+    <li>
+      Children chess support (input and storage of games with invalid moves)
+    </li>
+
+    <li>
+      PGN archives are modifiable (also compressed ones)
     </li>
 
     <li>
@@ -96,10 +82,7 @@ CONTENT
 
     <li>
       User-configurable chess board themes (based on SVG)
-    </li>
-
-    <li>
-      <a href="help/en/CQL-Index.html">CQL</a> based search functions (in development)
+      38 are already pre-installed
     </li>
 
     <li>
@@ -112,15 +95,38 @@ CONTENT
 <div class="block">
 
   <div class="header">
+    Scidb still in progress<hr />
+  </div>
+
+  <p>
+  Scidb is still active in development, although the repository has only a
+  few bug fix updates since last 9 months. Currently complex overworks are
+  in progress, and it will still take some time until the next major release
+  will be done.
+  </p>
+  <p>
+  For more precise information have a look at
+  <a href="https://sourceforge.net/p/scidb/mailman/message/32581104/">Scidb - Mailing List</a>.
+  </p>
+  <p>
+  To be informed perodically about Scidb you may subscribe the blog on
+  <a target="_blank" href="https://www.tumblr.com/blog/scidb">Tumblr<link/></a>,
+  but an user account is required.
+  </p>
+</div>
+
+<div class="block">
+
+  <div class="header">
     News <hr />
   </div>
 
   <p>
-  The third public preview version is released
+  The fourth public preview version is released
   (see <a href="download.html">Download</a>).
-  This version contains many, many bug-fixes, and also many novelties.
-  Some time will pass until the first stable version, but it's not far anymore.
-  The most important missing goals are:
+  This version contains many important bug-fixes, and also some novelties.
+  Further on some important functionalities are missing for the first full
+  version:
   </p>
 
   <dir>
@@ -157,98 +163,50 @@ CONTENT
     </li>
   </dir>
 
+  <p>
+  Currently volunteers for Mac OS X porting are wanted (see
+  <a target="_blank"
+  href="http://talkchess.com/forum/viewtopic.php?topic_view=threads&amp;p=536042&amp;t=49492">
+  talkchess.com<link/></a>).
+  </p>
+
 </div><!-- block -->
 
 <div class="block">
 
   <div class="header">
-    What's new in third version? <hr />
+    What's new in fourth version? <hr />
   </div>
 
-  <p>
-  The most important novelties are:
-  </p>
-
   <dir>
-    <li>
-      Support of different chess variants: Crazyhouse, Antichess (Suicide, Giveaway, Losers),
-      and Three-Check. In current version the support is still a bit experimentally, but
-      with full functionality.
-    </li>
-    <li>
-      Analysis window with support of external chess engines. Due to the lack of
-      the still missing window layout a standalone window will be opened for analysis.
-    </li>
-    <li>
-      Dialog for setup of external chess engines. Two chess engines are already
-      pre-installed:
+    <li>Installation problems with Ubuntu fixed (Ubuntu is quite unfriendly to self-installed software packages)</li>
+    <li>PGN archives now can be modified and saved (.pgn and .pgn.gz)</li>
+    <li>Important fixes in ChessBase decoder</li>
+    <li>Many fixes in support of chess engines</li>
+    <li>Color scheme for ordinary displays as default added, until now the color scheme was designed for high quality display</li>
+    <li>File selection dialog is finished, especially Drag &amp; Drop</li>
+    <li>Merge dialog extended: now any number of games can be merged with the help of a preview display</li>
+    <li>PGN setup for export options now is a separate dialog; this is important for PGN export, which is available in different menues</li>
+    <li>Language dependent sorting implemented</li>
+    <li>New themes added: "Blackjack" and "Country Style" (thanks to José Carlos Martins)</li>
+    <li>Problem with slow down in game editor eliminated</li>
+    <li>Upgrade of engine Stockfish to version 4</li>
+    <li>Session management implemented: now Scidb will intervene if the user is doing a session shutdown while Scidb is writing/updating a database</li>
+    <li>Copy game to clipboard implemented</li>
+    <li>Export of current game implemented (for example to PGN file)</li>
+    <li>New option in tree window: show next game move with bold font</li>
+    <li>Comment editor overworked</li>
+    <li>Game editor now detects and displays Smileys (optional)</li>
+    <li>Help dialog: CQL help pages completed</li>
+    <li>freedesktop.org requirements implemented (only KDE, GNOME, and Xfce are fulfilling
+        these requirements):
       <ul>
-        <li>Stockfish (supports <i>Chess 960</i>, and <i>Three-Check</i>)</li>
-        <li>Sjeng (supports Crazyhouse, Antichess, and later Bughouse)</li>
+        <li>Desktop menu entry for Scidb will be installed</li>
+        <li>Opening databases with a file manager is possible</li>
       </ul>
     </li>
-    <li>
-      Automatic update of supplements via the Internet, currently these are the
-      player photo files.
-    </li>
-    <li>
-      Integration of format independent database archives. Among other things
-      this facilitates an easier shipping of databases via Internet.
-    </li>
-    <li>
-      Drag&amp;Drop between databases.
-    </li>
-    <li>
-      Mouse wheel support for all list windows and the chess board.
-    </li>
-    <li>
-      Serious performance problem when opening ChessBase databases is solved.
-    </li>
-    <li>
-      Merge of games, optionally takes into account move transitions.
-    </li>
-    <li>
-      Game editor now features various settings.
-    </li>
-    <li>
-      There exists a player dictionary (with sorting and filtering functionality)
-      and an engine dictionary.
-    </li>
-  </dir>
-
-  <p>
-  More novelties:
-  </p>
-
-  <dir>
-    <li>Move input: pressing middle mouse button (or spacebar) alternates the move suggestion</li>
-    <li>New database tab: list of sites</li>
-    <li>Full-screen mode tweaked</li>
-    <li>Command line tool cdb2sci added for conversion of databases to Scidb format (.sci)</li>
-    <li>HTML widget reworked: saving resources in a highly significant way</li>
-    <li>Swedish localization integrated (thanks to Lars Ekman)</li>
-    <li>Spanish translation reactivated (thanks to Juan Carlos Vásquez)</li>
-    <li>Spanish help pages added (thanks to Carlos Fernando González)</li>
-    <li>HTML file export of tournament table</li>
-    <li>New piece sets: "Free Staunton", and "Virtual"</li>
-    <li>New board themes: "Blue Theme", "Staunton", and "Virtual"</li>
-    <li>Automatic detection of character set when encoding games (only for si3/si4/cbh)</li>
-    <li>Game browser: full-screen mode integrated, and also maximize/minimize board</li>
-    <li>File selection dialog improved; Drag&amp;Drop among other things</li>
-    <li>Game-Save/Replace dialog improved</li>
-    <li>Player notecards implemented</li>
-    <li>Database window: docking/undocking of list tabs integrated</li>
-    <li>Move input with mouse overworked (if move suggestion is disabled)</li>
-    <li>Menu bar removed: instead a simple main menu exists; this is state-of-the-art,
-        and the layout will be improved</li>
-    <li>Compacting database (.sci only) integrated; required for the physical removal of
-        games marked for deletion</li>
-    <li>Tournament table: optional display of win/draw/loss</li>
-    <li>Algebraic (normal, short, and long), English, Correspondence, and Telegraphic move notations available</li>
-    <li>Now it is possible to import databases without to open beforehand</li>
-    <li>Severe problem with Tcl version 8.6 solved</li>
-    <li>More help pages</li>
-    <li>Some icons newly designed</li>
+    <li>Custom menu check/radio-buttons implemented (as default)</li>
+    <li>Toolbar now has drop-down buttons</li>
   </dir>
 </div><!-- block -->
 

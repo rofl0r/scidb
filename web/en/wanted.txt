@@ -1,14 +1,10 @@
 TITLE
 
-	Scidb - Wanted
+	Wanted
 
 CONTENT
 
 <div class="block">
-
-  <div class="header">
-    Wanted <hr />
-  </div>
 
   <p>Testers are welcome for the preliminary version. Volunteers should
   sign up, so that the testing can be coordinated. Please send a

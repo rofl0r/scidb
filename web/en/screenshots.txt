@@ -1,209 +1,104 @@
 TITLE
 
-	Scidb - Screenshots
+	Screenshots
 
 SCRIPTS
 
-<link rel="stylesheet" type="text/css" media="screen" href="css/popup.css" />
-<script type="text/javascript" src="js/popup.js"> </script>
+  <script type="text/javascript"
+           src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js">
+  </script>
+  <script type="text/javascript"
+           src="http://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.js">
+  </script>
 
-ONLOAD
+  <link rel="stylesheet"
+       type="text/css"
+       href="http://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.css"
+      media="screen" />
 
-  prepareThumbnails()
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('.fancybox').fancybox();
+      $(".fancybox").fancybox({
+        // show title only if image is hovered
+        afterShow: function() {
+          $(".fancybox-title").wrapInner('<div />').show();
+          $(".fancybox-wrap").hover(function() { $(".fancybox-title").show(); },
+          function() { $(".fancybox-title").hide(); });
+        },
+        helpers: {
+          title : { type : 'over' },  // show title over image
+          overlay : { speedOut : 0 }  // overlay closing speed
+        },
+        openEffect  : 'none',         // disable opening animation
+        closeEffect : 'none',         // disable closing animation
+        closeClick : true,            // close if clicked
+        padding: 0,                   // remove padding
+        margin: 15,                   // overlay margin
+        aspectRatio: true,            // resizing is constrained by the original aspect ratio
+        fitToView: false              // don't resize image
+      });
+    });
+  </script>
 
 CONTENT
-
-  <div id="imageBlanket"></div>
-  <div id="imagePopup"><img width="0" height="0" alt="" src="" /></div>
-
-  <div class="header">
-    Screenshots <hr />
-  </div>
 
   <table width="100%" cellspacing="15" id="thumbnails">
     <tbody>
       <tr align="center">
         <td>
-          <a href="screenshots/board-standard.png">
-            <img src="screenshots/thumbs/board-standard.png"
-                 alt="Default Theme"
-               title="Default Theme"
-               class="bordersOff"
-               width="120"
-              height="97"
-                name="987x799" />
-           </a>
+          <image data="board-standard.png:Default Theme:Standard-Thema"/>
         </td>
         <td>
-					<a href="screenshots/board-arena.png">
-            <img src="screenshots/thumbs/board-arena.png"
-                 alt="Theme Arena"
-               title="Theme Arena"
-               class="bordersOff"
-               width="120"
-              height="97"
-                name="987x799" />
-           </a>
+          <image data="board-arena.png:Theme Arena:Thema Arena"/>
         </td>
         <td>
-					<a href="screenshots/board-burnett.png">
-            <img src="screenshots/thumbs/board-burnett.png"
-                 alt="Theme Burnett"
-               title="Theme Burnett"
-               class="bordersOff"
-               width="120"
-              height="97"
-                name="987x799" />
-           </a>
+          <image data="board-burnett.png:Theme Burnett:Thema Burnett"/>
         </td>
         <td>
-					<a href="screenshots/board-blue-theme.png">
-            <img src="screenshots/thumbs/board-blue-theme.png"
-                 alt="Blue-Theme"
-               title="Blue-Theme"
-               class="bordersOff"
-               width="120"
-              height="97"
-                name="987x799" />
-           </a>
+          <image data="board-blue-theme.png:Blue-Theme:Thema Blue-Theme"/>
         </td>
       </tr>
       <tr align="center">
         <td>
-					<a href="screenshots/board-sand.png">
-            <img src="screenshots/thumbs/board-sand.png"
-                 alt="Theme Sand"
-               title="Theme Sand"
-               class="bordersOff"
-               width="120"
-              height="97"
-                name="987x799" />
-           </a>
+          <image data="board-sand.png:Theme Sand:Thema Sand"/>
         </td>
         <td>
-					<a href="screenshots/game-browser.png">
-            <img src="screenshots/thumbs/game-browser.png"
-                 alt="Game browser"
-               title="Game browser"
-               class="bordersOff"
-               width="120"
-              height="97"
-                name="987x799" />
-           </a>
+          <image data="game-browser.png:Game browser:Partienbrowser"/>
         </td>
         <td>
-					<a href="screenshots/game-list.png">
-            <img src="screenshots/thumbs/game-list.png"
-                 alt="HGame list"
-               title="Game list"
-               class="bordersOff"
-               width="120"
-              height="97"
-                name="987x799" />
-           </a>
+          <image data="game-list.png:Game list:Partienliste"/>
         </td>
         <td>
-					<a href="screenshots/player-list.png">
-            <img src="screenshots/thumbs/player-list.png"
-                 alt="Player list"
-               title="Player list"
-               class="bordersOff"
-               width="120"
-              height="74"
-                name="987x687" />
-           </a>
+          <image data="player-list.png:Player list:Spielerliste"/>
         </td>
       </tr>
       <tr align="center">
         <td>
-					<a href="screenshots/log+engine-setup.png">
-            <img src="screenshots/thumbs/log+engine-setup.png"
-                 alt="Log- and engine setup dialog"
-               title="Log- and engine setup dialog"
-               class="bordersOff"
-               width="120"
-              height="97"
-                name="987x799" />
-           </a>
+          <image data="log+engine-setup.png:Log- and engine setup dialog:Log- und Motoren-Setup-Dialog"/>
         </td>
         <td>
-					<a href="screenshots/board-setup.png">
-            <img src="screenshots/thumbs/board-setup.png"
-                 alt="Set start board"
-               title="Set start board"
-               class="bordersOff"
-               width="120"
-              height="89"
-                name="808x599" />
-           </a>
+          <image data="board-setup.png:Setup start board:Stellungseingabe"/>
         </td>
         <td>
-					<a href="screenshots/save-dialog.png">
-            <img src="screenshots/thumbs/save-dialog.png"
-                 alt="Save game"
-               title="Save game"
-               class="bordersOff"
-               width="120"
-              height="71"
-                name="992x583" />
-           </a>
+          <image data="save-dialog.png:Save game:Partie speichern"/>
         </td>
         <td>
-					<a href="screenshots/player-dictionary.png">
-            <img src="screenshots/thumbs/player-dictionary.png"
-                 alt="Player dictionary"
-               title="Player dictionary"
-               class="bordersOff"
-               width="120"
-              height="92"
-                name="796x612" />
-           </a>
+          <image data="player-dictionary.png:Player dictionary:Spielerverzeichnis"/>
         </td>
       </tr>
       <tr align="center">
         <td>
-					<a href="screenshots/player-card.png">
-            <img src="screenshots/thumbs/player-card.png"
-                 alt="Player card"
-               title="Player card"
-               class="bordersOff"
-               width="120"
-              height="121"
-                name="843x848" />
-           </a>
+          <image data="player-card.png:Player card:Spielerkarteikarte"/>
         </td>
         <td>
-					<a href="screenshots/crosstable.png">
-            <img src="screenshots/thumbs/crosstable.png"
-                 alt="Tournament table"
-               title="Tournament table"
-               class="bordersOff"
-               width="120"
-              height="78"
-                name="1089x710" />
-           </a>
+          <image data="crosstable.png:Tournament table:Turniertabelle"/>
         </td>
         <td>
-					<a href="screenshots/help-window.png">
-            <img src="screenshots/thumbs/help-window.png"
-                 alt="Help dialog"
-               title="Help dialog"
-               class="bordersOff"
-               width="120"
-              height="104"
-                name="965x837" />
-           </a>
+          <image data="help-window.png:Help dialog:Hilfe-Dialog"/>
         </td>
         <td>
-					<a href="screenshots/board-theme-setup.png">
-            <img src="screenshots/thumbs/board-theme-setup.png"
-                 alt="Board setup"
-               title="Board setup"
-               class="bordersOff"
-               width="120"
-              height="92"
-                name="1202x923" />
-           </a>
+          <image data="board-theme-setup.png:Board setup:Brettkonfiguration"/>
         </td>
       </tr>
     </tbody>

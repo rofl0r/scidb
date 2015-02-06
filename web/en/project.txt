@@ -1,14 +1,10 @@
 TITLE
 
-	Scidb - Project
+	The Scidb Project
 
 CONTENT
 
 <div class="block">
-
-  <div class="header">
-    The Scidb Project <hr />
-  </div>
 
   <p>In February of 2010 the Scidb project on SourceForge was created. Click on the
   SourceForge icon on the right to learn more about SourceForge.</p>
@@ -16,6 +12,8 @@ CONTENT
   <p>In February 2012 the second public preview version is released.</p>
 
   <p>In April 2013 the third public preview version is released.</p>
+
+  <p>In October 2013 the fourth public preview version is released.</p>
 
   <p>If you wish to contribute your talents to the Scidb project, please visit the
   SourceForge page and send a note to the project admin. Thanks!</p>

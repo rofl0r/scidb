@@ -1,14 +1,10 @@
 TITLE
 
-	Scidb - Projekt
+	Das Scidb-Projekt
 
 CONTENT
 
 <div class="block">
-
-  <div class="header">
-    Das Scidb-Projekt <hr />
-  </div>
 
   <p>Im Februar 2010 wurde das Projeckt Scidb auf Sourceforge angelegt. Klicke
   auf das SourceForge-Symbol auf der rechten Seite um mehr über Sourceforge zu
@@ -18,7 +14,9 @@ CONTENT
 
   <p>Im April 2013 erschien die dritte öffentliche Vorschau-Version.</p>
 
-  <p>Wenn ein Interesse besteht, an der Entwicklung von Scidb teilzuhaben, dann
+  <p>Im Oktober 2013 erschien die vierte öffentliche Vorschau-Version.</p>
+
+  <p>Wenn ein Interesse besteht an der Entwicklung von Scidb teilzuhaben, dann
   besuche bitte die SourceForge-Seite und sende eine Nachricht an den Projektadministrator.
   Danke!</p>
 

@@ -2,39 +2,6 @@ TITLE
 
 	Scidb
 
-SIDEBAR
-
-  <div id="visitors" class="block">
-    <ul class="header">
-      <li class="header">Besucher</li>
-    </ul>
-    <ul class="body">
-      <li>
-        <a href="http://www2.clustrmaps.com/counter/maps.php?url=http://scidb.sourceforge.net/"
-         target="_blank"
-             id="clustrMapsLink">
-          <img src="http://www2.clustrmaps.com/counter/index2.php?url=http://scidb.sourceforge.net/"
-             style="border:0px;"
-               alt="Locations of visitors to this page"
-             title="Standorte der Besucher dieser Seite"
-                id="clustrMapsImg"
-             width="160"
-            height="106" />
-        </a>
-        <script type="text/javascript">
-          function cantload() {
-            img = document.getElementById("clustrMapsImg");
-            img.onerror = null;
-            img.src = "http://clustrmaps.com/images/clustrmaps-back-soon.jpg";
-            document.getElementById("clustrMapsLink").href = "http://clustrmaps.com";
-          }
-          img = document.getElementById("clustrMapsImg");
-          img.onerror = cantload;
-        </script>
-      </li>
-    </ul>
-  </div><!-- visitors -->
-
 CONTENT
 
 <div class="block">
@@ -60,13 +27,16 @@ CONTENT
       <ul>
         <li>Dreimal-Schach
             (<a target="_blank" href="http://en.wikipedia.org/wiki/Three-check_chess">Three-Check chess<link/></a>)</li>
+        <li>König auf dem Hügel
+            (<a target="_blank" href="http://de.lichess.org/king-of-the-hill">King of the Hill<link/></a>)</li>
         <li><a target="_blank" href="http://de.wikipedia.org/wiki/R%C3%A4uberschach">Schlagschach<link/></a>
-            (<a target="_blank" href="http://suicidechess.ca/index.php?lg=en">Suicide<link/></a>,
+            (<a target="_blank" href="http://suicidechess.ca/index.php">Suicide<link/></a>,
             <a target="_blank" href="http://www6.chessclub.com/help/Giveaway">Giveaway<link/></a>,
-            <a target="_blank" href="http://loserschess.org/">Losers<link/></a>)</li>
-        <li><a target="_blank" href="http://de.wikipedia.org/wiki/Schachvarianten#Crazyhouse_oder_Einsetzschach">
-            Einsetzschach<link/></a>
-            (<a target="_blank" href="http://en.wikipedia.org/wiki/Crazyhouse">Crazyhouse<link/></a>)</li>
+            <!-- <a target="_blank" href="http://loserschess.org/">Losers<link/></a>)</li> -->
+            <a target="_blank" href="http://en.wikipedia.org/wiki/Losing_chess">Losers<link/></a>)</li>
+        <li><a target="_blank" href="http://de.wikipedia.org/wiki/Schachvarianten#Crazyhouse_oder_Einsetzschach">Einsetzschach<link/></a>
+            (<a target="_blank" href="http://en.wikipedia.org/wiki/Crazyhouse">Crazyhouse<link/></a>,
+            <a target="_blank" href="http://www.chessvariants.org/other.dir/chessgi.html">Chessgi</a>)</li>
         <li><a target="_blank" href="https://de.wikipedia.org/wiki/Tandemschach">Tandem-Schach<link/></a>
             (in Vorbereitung)</li>
         </ul>
@@ -78,13 +48,30 @@ CONTENT
     </li>
 
     <li>
-      Unterstützt mehrere Datenbank- bzw. Dateiformate:
-      <table style="margin-left:30px;">
+      Unterstützt zahlreiche Datenbank- bzw. Archivformate:
+      <table style="margin-left:20px;">
         <tr><td>Scidb:</td>     <td>.sci, .scv</td></tr>
         <tr><td>Scid:</td>      <td>.si3, .si4</td></tr>
         <tr><td>ChessBase:</td> <td>.cbh, .cbf (nur lesend)</td></tr>
+        <tr><td>CIF:</td>       <td>.cif, .ccif</td></tr>
         <tr><td>PGN:</td>       <td>.pgn, .pgn.gz, .zip</td></tr>
       </table>
+    </li>
+    
+    <li>
+      <a href="help/de/CQL-Index.html">CQL-S</a>-basierte Suchfunktionen (in Entwicklung)
+    </li>
+
+    <li>
+      Spielerdatenbank mit Online-Aktualisierung
+    </li>
+
+    <li>
+      Kinderschachunterstützung (Eingabe und Speicherung von Partien mit unerlaubten Zügen)
+    </li>
+
+    <li>
+      PGN-Archive sind modifizierbar (auch komprimierte)
     </li>
 
     <li>
@@ -92,11 +79,8 @@ CONTENT
     </li>
 
     <li>
-      Benutzerkonfigurierbare Schachbrettthemen (SVG-basiert)
-    </li>
-
-    <li>
-      <a target="_blank" href="http://www.rbnn.com/cql/">CQL<link/></a>-basierte Suchfunktionen (in Entwicklung)
+      Benutzerkonfigurierbare Schachbrettthemen (SVG-basiert)<br />
+      38 sind bereits vorinstalliert
     </li>
 
     <li>
@@ -109,22 +93,48 @@ CONTENT
 <div class="block">
 
   <div class="header">
+    Scidb ist weiterhin am Fortschreiten<hr />
+  </div>
+
+  <p>
+  Scidb ist noch aktiv in Entwicklung, obwohl im Repository außer wenigen
+  Fehlerbereinigungen keine Aktualisierungen in den letzten 9 Monaten
+  geschahen. Zur Zeit wird an komplexen Überarbeitungen entwickelt, und es
+  wird noch einige Zeit vergehen bis zur nächsten wesentlichen
+  Veröffentlichung.
+  </p>
+  <p>
+  Für genauere Informationen siehe
+  <a href="https://sourceforge.net/p/scidb/mailman/message/32581104/">Scidb - Mailing List</a>
+  (allerdings auf Englisch).
+  </p>
+  <p>
+  Um periodisch Informationen über Scidb zu erhalten kann der Blog auf
+  <a target="_blank" href="https://www.tumblr.com/blog/scidb">Tumblr<link/></a>
+  (Englisch) subskribiert werden, allerdings erfordert dies dort ein
+  Benutzerkonto.
+  </p>
+</div>
+
+<div class="block">
+
+  <div class="header">
     Neuigkeiten <hr />
   </div>
 
   <p>
-  Die dritte öffentliche Vorschau-Version wurde freigegeben
+  Die vierte öffentliche Vorschau-Version wurde freigegeben
   (siehe <a href="download.html" lang="en">Download</a>).
-  Sie enthält viele, viele Fehlerbereinigungen, aber auch wieder viele
-  Neuerungen. Bis zur ersten stabilen Version wird noch etwas Zeit vergehen,
-  aber es fehlt nicht mehr viel. Die wichtigsten noch fehlenden Punkte sind:
+  Sie enthält insbesondere viele wichtige Fehlerbereinigungen, aber auch einige
+  Neuerungen. Weiterhin fehlen jedoch einige Funktionalitäten für die erste
+  Vollversion:
   </p>
 
   <dir>
     <li>Ein flexibles Fensterlayout (leider sehr aufwendig)</li>
     <li>Suchfunktionen bzw. Filterfunktionen: Partiedatensuche, Positionssuche, etc.
         Die Suchfunktionen sollen auf CQL (Chess Query Language) basieren (siehe
-        <a target="_blank" href="http://www.rbnn.com/cql/">CQL Manual<link/></a>).</li>
+        <a href="help/de/CQL-Index.html">CQL Handbuch</a>).</li>
     <li>Mehrfach-Selektion in der Partienliste</li>
     <li>Unterstützung von Tandem-Partien</li>
     <li>Unterstützung von anderen Schachformen in der Eröffnungsbaumsuche
@@ -157,99 +167,55 @@ CONTENT
     </li>
   </dir>
 
+  <p>
+  Zur Zeit wird nach Freiwilligen für die Mac OS X Portierung gesucht (siehe
+  <a target="_blank"
+  href="http://talkchess.com/forum/viewtopic.php?topic_view=threads&amp;p=536042&amp;t=49492">
+  talkchess.com<link/></a>).
+  </p>
+
 </div>
 
 <div class="block">
 
   <div class="header">
-    Was ist neu in der dritten Version? <hr />
+    Was ist neu in der vierten Version? <hr />
   </div>
 
-  <p>
-  Die wichtigsten Neuerungen sind:
-  </p>
-
   <dir>
-    <li>
-      Die Unterstützung anderer Schachformen: Einsetzschach (Crazyhouse), Schlagschach
-      (Suicide, Giveaway, Losers) und Dreimal-Schach (Three-Check).
-      In dieser Version ist diese Unterstützung noch etwas experimentell, aber voll
-      funktionsfähig.
-    </li>
-    <li>
-      Ein Analyse-Fenster, daß externe Schachprogramme unterstützt. Aufgrund des noch
-      fehlenden Fensterlayouts wird ein neues Fenster für die Analyse geöffnet.
-    </li>
-    <li>
-      Ein Setup-Dialog zum Einrichten neuer Schachprogramme. Es sind bereits zwei
-      Schachprogramme vorinstalliert:
+    <li>Installationsprobleme auf Ubuntu behoben (Ubuntu ist sehr unfreundlich zu
+        eigeninstallierten Software-Paketen)</li>
+    <li>PGN-Archive können nun modifiziert und gespeichert werden (.pgn und .pgn.gz)</li>
+    <li>Wesentliche Fehlerbereinigungen in der ChessBase-Dekodierung</li>
+    <li>Viele Fehlerbereinigungen in der Unterstützung von externen Schachprogrammen</li>
+    <li>Farbschema für gewöhnliche Monitore als Standard hinzugefügt, bisher war das
+        Farbschema auf die hochwertigen Monitore ausgelegt</li>
+    <li>Der Dateiauswahldialog wurde fertiggestellt, insbesondere Drag &amp; Drop</li>
+    <li>Der Merge-Dialog wurde erweitert: es könne beliebige viele Partien mit Hilfe einer
+        Vorschauanzeige eingefügt werden</li>
+    <li>PGN-Einstellungen für die Exportoptionen ist nun ein separater Dialog; dies ist
+        wichtig für die PGN-Exportmöglichkeit, die in verschiedenen Menüs möglich ist</li>
+    <li>Sprachabhängige Sortierung wurde implemented</li>
+    <li>Neue Schachbrettthemen; "Blackjack" und "Country Style" (Dank an José Carlos Martins)</li>
+    <li>Problem mit der Verlangsamung im Partieneditor eliminiert</li>
+    <li>Anhebung des Stockfish-Motors auf Version 4</li>
+    <li>Sessionmanagement implementiert: nun wird Scidb intervenieren, wenn der Anwender
+        die Sitzung herunterfährt während Datenbanken geschrieben/modifiziert werden</li>
+    <li>Partie in die Ablage kopieren</li>
+    <li>Export der aktuellen Partie (z.B. in eine PGN-Datei)</li>
+    <li>Neue Option im Eröffnungsbaumfenster: den nächsten Partiezug mit Fettschrift anzeigen</li>
+    <li>Kommentareditor überarbeitet</li>
+    <li>Der Partieneditor erkennt nun Smileys und zeigt sie grafisch an (optional)</li>
+    <li>Hilfedialog: Die CQL-Hilfeseiten sind nun komplett</li>
+    <li>Die Anforderungen von freedesktop.org wurden implementiert (nur KDE, GNOME, und Xfce
+        erfüllen diese Anforderungen):
       <ul>
-        <li>Stockfish (unterstützt Schach-960 und Dreimal-Schach)</li>
-        <li>Sjeng (unterstützt Einsetzschach, Schlagschach, und später
-        Tandemschach)</li>
+        <li>Ein Desktopmenüeintrag für Scidb wird eingerichtet</li>
+        <li>Datenbanken können nun mit einem Dateimanager geöffnet werden</li>
       </ul>
     </li>
-    <li>
-      Automatisches Update von Ergänzungen über das Internet, z. Zt. sind dies die
-      Spielerphotodateien.
-    </li>
-    <li>
-      Die Integrierung von formatunabhängigen Datenbankarchiven. Dies erlaubt unter
-      anderem eine leichtere Versendung von Datenbanken über das Internet.
-    </li>
-    <li>
-      Drag&amp;Drop von Datenbanken in andere Datenbanken.
-    </li>
-    <li>
-      Mausradunterstützung für alle Listen und das Schachbrett.
-    </li>
-    <li>
-      Ein schwerwiegendes Peformanceproblem beim Öffnen von ChessBase-Datenbanken wurde
-      bereinigt.
-    </li>
-    <li>
-      Verschmelzen von Partien mit optionaler Einbezugnahme von Zugumstellungen.
-    </li>
-    <li>
-      Der Partieneditor verfügt nun über vielfältige Einstellungsmöglichkeiten.
-    </li>
-    <li>
-      Es exisitieren ein Spielerlexikon (mit Sortierungs- und Filterfunktionen) sowie
-      ein Motorenlexikon (Schachprogrammlexikon).
-    </li>
-  </dir>
-
-  <p>
-  Weitere Neuerungen sind:
-  </p>
-
-  <dir>
-    <li>Zugeingabe: Mittlere Maustaste (oder Leertaste) wechselt zu einem alternativen Zugvorschlag</li>
-    <li>Neuer Datenbankreiter: Orte-Liste</li>
-    <li>Vollbild-Modus verbessert</li>
-    <li>Kommandozeilen-Hilfsprogramm cdb2sci zur Konvertierung von Datenbanken ins Scidb-Format (.sci)</li>
-    <li>HTML-Widget überarbeitet: es werden auf signifikante Weise Ressourcen geschont</li>
-    <li>Schwedische Lokalisierung integriert (Dank an Lars Ekman)</li>
-    <li>Spanische Lokalisierung reaktiviert (Dank an Juan Carlos Vásquez)</li>
-    <li>Spanische Hilfeseiten hinzugefügt (Dank an Carlos Fernando González)</li>
-    <li>HTML-Dateiexport der Turniertabelle</li>
-    <li>Neue Figurensätze: "Free Staunton" und "Virtual"</li>
-    <li>Neue Schachbrettthemen: "Blue Theme", "Staunton" und "Virtual"</li>
-    <li>Automatische Erkennung des Zeichensatzes beim Laden von Partien (betrifft si3/si4/cbh)</li>
-    <li>Partien-Browser: Vollbild-Modus, sowie Maximieren/Minimieren des Brettes, hinzugefügt</li>
-    <li>Dateiauswahldialog erweitert und verbessert, unter anderem Drag&amp;Drop</li>
-    <li>Partie-Speichern/Ersetzen-Dialog verbessert</li>
-    <li>Spieler-Karteikarten implementiert</li>
-    <li>Datenbankfenster: Andocken/Abkopplen der Listen-Reiter integriert</li>
-    <li>Zugeingabe mit der Maus überarbeitet (wenn Zugvorschlag abgeschaltet ist)</li>
-    <li>Menüleiste entfernt, stattdessen exisitiert ein simples Hauptmenü; dies ist zeitgemäß und verbessert das Layout</li>
-    <li>Kompaktieren von Datenbanken (nur .sci) integriert; notwendig um zur Löschung vorgesehene Partien physikalisch zu entfernen</li>
-    <li>Turniertabelle: Optionale Anzeige von Gewinn/Remis/Verlust</li>
-    <li>Algebraische- (Normal-, Kurz- und Langform), Englische, Korrespondenz- und telegrafische Notation verfügbar</li>
-    <li>Es können nun ungeöffnete Datenbanken importiert werden</li>
-    <li>Ein schwerwiegendes Problem mit Tcl-Version 8.6 behoben</li>
-    <li>Mehr Hilfeseiten</li>
-    <li>Einige Icons neu gestaltet</li>
+    <li>Maßgefertigte Check/Radio-Schaltflächen für Menüs gestaltet</li>
+    <li>Die Funktionsleisten verfügen nun über Dropdown-Schaltflächen</li>
   </dir>
 
 </div>

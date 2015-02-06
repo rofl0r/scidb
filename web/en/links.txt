@@ -1,6 +1,6 @@
 TITLE
 
-	Scidb - Links
+	Links
 
 CONTENT
 
@@ -19,18 +19,31 @@ CONTENT
   <p>
   Mark Crowther's <a target="_blank" href="http://www.theweekinchess.com">The Week in Chess<link/></a>
   is providing daily chess news and games. Furthermore this site provides
-  chess archives with high quality:
+  <a target="_blank" href="http://theweekinchess.com/twic">chess archives<link/></a> with high quality.
   </p>
-
-  <ul>
-    <li><a target="_blank" href="http://www.chess.co.uk/twic/twicp1.html">TWIC 211-400<link/></a>: 11/23/1998 to 7/8/2002</li>
-    <li><a target="_blank" href="http://www.chess.co.uk/twic/twicp.html">TWIC 400...<link/></a>: 7/8/2002 until today</li>
-  </ul>
 
   <p>
   The site <a target="_blank" href="http://www.nowinchess.com/games.php">Now In Chess<link/></a> by
   Gerardo Fernandez is tracking games of high quality not contained in TWIC
-  archives.
+  archives. But it seems that this page is abondened.
+  </p>
+
+  <p>
+  <a target="_blank" href="http://ficsgames.org">FICS<link/></a> is providing a huge archive
+  with Internet games of different variants:
+  Normal chess, Chess 960 (wild/fr), Giveaway Chess (wild/26), Losers Chess (wild/17),
+  Three-check Chess (wild/25), Bughouse (wild/24), and Crazyhouse (wild/23).
+  </p>
+
+  <p>
+  "PGN Mentor" provides PGN archives of
+  <a target="_blank" href="http://www.pgnmentor.com/files.html#players">individual players<link/></a>
+  and
+  <a target="_blank" href="http://www.pgnmentor.com/files.html#events">different tournaments<link/></a>.
+  </p>
+
+  <p>
+  <a target="_blank" href="http://www.365chess.com/">365Chess.com</a> provides an opening explorer and allows to search for games in the database.
   </p>
 
   <div class="header">
@@ -50,9 +63,8 @@ CONTENT
   <dir>
     <li>
     <a target="_blank" href="http://stockfishchess.org">Stockfish<link/></a>:
-    This engine is pre-installed in Scidb. Not recommended is the original
-    version, because of significant programming errors (crashes). Scidb's version
-    is providing an unique feature, the support of variant
+    This engine is pre-installed in Scidb.
+    Scidb's version is providing an unique feature, the support of variant
     <a target="_blank" href="http://en.wikipedia.org/wiki/Three-check_chess">Three-Check Chess<link/></a>.
     </li>
 
@@ -66,9 +78,15 @@ CONTENT
     This engine - also pre-installed in Scidb - is supporting the chess variants
     <a target="_blank" href="http://en.wikipedia.org/wiki/Crazyhouse">Crazyhouse<link/></a> and
     <a target="_blank" href="http://en.wikipedia.org/wiki/Antichess">Antichess<link/></a>
-    (<a target="_blank" href="http://suicidechess.ca/index.php?lg=en">Suicide<link/></a>,
+    (<a target="_blank" href="http://suicidechess.ca/index.php">Suicide<link/></a>,
     <a target="_blank" href="http://www6.chessclub.com/help/Giveaway">Giveaway<link/></a>,
-    <a target="_blank" href="http://loserschess.org/">Losers<link/></a>).
+    <!-- <a target="_blank" href="http://loserschess.org/">Losers<link/></a>). HACKED -->
+    <a target="_blank" href="http://en.wikipedia.org/wiki/Losing_chess">Losers<link/></a>).
+    </li>
+
+    <li>
+    <a href="http://firenzina.wikispaces.com/">Firenzina<link/></a>:
+    Also a remarkable chess engine.
     </li>
   </dir>
 
@@ -83,7 +101,7 @@ CONTENT
   </p>
 
   <p>
-  <a target="_blank" href="scidvspc.sourceforge.net">Scid vs. PC<link/></a>, developed by
+  <a target="_blank" href="scidvspc.sourceforge.net">Scid vs. PC<link/></a>, maintained by
   Steven Atkinson, is a bug-fixed version of Scid, with focus on
   greater usability.
   </p>
@@ -104,6 +122,15 @@ CONTENT
   No longer in development, but still of interest, is the Java application
   <a target="_blank" href="http://jose-chess.sourceforge.net">José<link/></a>.
   </p>
+
+  <div class="header">
+  Videos about Scidb
+  </div>
+
+  <ul>
+	 <li><a target="_blank" href="http://www.youtube.com/watch?v=erLITi_nldQ">
+	   Short video about Scidb on YouTube<link/></a></li>
+  </ul>
 
   <div class="header">
   Articles about Scidb

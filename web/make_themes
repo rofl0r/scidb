@@ -1,0 +1,184 @@
+#!/bin/sh
+#
+# Usage: make_themes pattern.txt image...
+# \
+exec tclsh "$0" "$@"
+
+# read .txt file ###########################
+
+set fd [open [lindex $argv 0] r]
+set section ""
+set lang [expr {[string match */de [pwd]] ? "de" : "en"}]
+chan configure $fd -encoding iso8859-1
+set pattern [read $fd]
+close $fd
+
+if {$lang == "de"} {
+# G E R M A N ##############################
+
+  set content(LANG)             "de"
+  set content(LOCALE)           "de-DE"
+  set content(DESCRIPTION)      "Schachdatenbank-Applikation"
+  set content(TITLE)            "Themen einstufen"
+  set content(AUTHOR)           "Autor"
+  set content(RESULT)           "Abstimmungsresultat"
+  set content(MY_VOTE)          "Mein Votum"
+  set content(VOTE)             "Stimme"
+  set content(VOTES)            "Stimmen"
+  set content(SUBMIT)           "Senden"
+  set content(TOTAL)            "Insgesamt"
+
+  set content(NEXT)             "Nächstes"
+  set content(PREV)             "Voriges"
+  set content(BACK)             "Zurück zur Startseite"
+
+  set content(STAR_CAPTION_1)   "Niemals"
+  set content(STAR_CAPTION_2)   "Mag ich nicht"
+  set content(STAR_CAPTION_3)   "Unentscheidbar"
+  set content(STAR_CAPTION_4)   "Mag ich"
+  set content(STAR_CAPTION_5)   "Favorit"
+  set content(CLEAR_CAPTION)    "Nicht eingestuft"
+  set content(CLEAR_TITLE)      "Löschen"
+  set content(RESTORE_TITLE)    "Wiederherstellen"
+
+  set content(ERROR_TIMOUT)     "Zeitüberschreitung, bitte boch einmal probieren."
+  set content(ERROR_FAILED)     "Fehlgeschlagen: Daten konnten nicht geschrieben werden."
+  set content(ERROR_INTERNAL)   "Ein interner Fehler trat auf."
+  set content(ERROR_UNEXPECTED) "Unerwarteter Fehler"
+
+############################################
+} else {
+# E N G L I S H ############################
+
+  set content(LANG)             "en"
+  set content(LOCALE)           "en-US"
+  set content(DESCRIPTION)      "Chess database application"
+  set content(TITLE)            "Vote Themes"
+  set content(AUTHOR)           "Author"
+  set content(RESULT)           "Vote result"
+  set content(MY_VOTE)          "My vote"
+  set content(VOTE)             "vote"
+  set content(VOTES)            "votes"
+  set content(SUBMIT)           "Submit"
+  set content(TOTAL)            "In total"
+
+  set content(NEXT)             "Next"
+  set content(PREV)             "Previous"
+  set content(BACK)             "Back to start page"
+
+  set content(STAR_CAPTION_1)   "Never"
+  set content(STAR_CAPTION_2)   "Don\\' t like"
+  set content(STAR_CAPTION_3)   "Undecidedly"
+  set content(STAR_CAPTION_4)   "I like"
+  set content(STAR_CAPTION_5)   "Favorite"
+  set content(CLEAR_CAPTION)    "Not Rated"
+  set content(CLEAR_TITLE)      "Clear"
+  set content(RESTORE_TITLE)    "Restore"
+
+  set content(ERROR_TIMOUT)     "Timeout occured, please try again."
+  set content(ERROR_FAILED)     "Failed: couldn\\'t write data."
+  set content(ERROR_INTERNAL)   "Internal error has occurred."
+  set content(ERROR_UNEXPECTED) "Unexpected error"
+
+############################################
+}
+
+set content(TITLE) [string trim $content(TITLE)]
+
+if {![string match Scidb* $content(TITLE)]} {
+  set content(TITLE) "Scidb - $content(TITLE)"
+}
+
+# write .html file #########################
+
+proc Filename {img} {
+  return "theme-[string tolower [file tail [file rootname $img]]].html"
+}
+
+set args [lsort [lrange $argv 1 end]]
+set i [lsearch -glob $args {*/Standard.jpg}]
+set images [lindex $args $i]
+lappend images {*}[lrange $args 0 [expr {$i - 1}]]
+lappend images {*}[lrange $args [expr {$i + 1}] end]
+
+set prev $content(PREV)
+set next $content(NEXT)
+set back $content(BACK)
+
+set content(BACK) ""
+append content(BACK) "<button class='button orange fill' onclick='window.location=\""
+append content(BACK) "themes.html"
+append content(BACK) "\"'>$back</button>"
+set content(PAD_BACK) 4
+
+for {set i 0} {$i < [llength $images]} {incr i} {
+  set image [lindex $images $i]
+  set content(IMAGE) $image
+  set content(NAME) [file tail [file rootname $image]]
+  if {$lang == "en"} { set content(IMAGE) [string range $content(IMAGE) 3 end ] }
+
+  set content(PREV) ""
+  set content(PAD_PREV) 0
+  if {$i > 0} {
+    append content(PREV) "<button class='button green fill' onclick='window.location=\""
+    append content(PREV) [Filename [lindex $images [expr {$i - 1}]]]
+    append content(PREV) "\"'>&laquo; $prev</button>"
+    set content(PAD_PREV) 4
+  }
+  set content(NEXT) ""
+  if {$i < [llength $images] - 1} {
+    append content(NEXT) "<button class='button green fill' onclick='window.location=\""
+    append content(NEXT) [Filename [lindex $images [expr {$i + 1}]]]
+    append content(NEXT) "\"'>$next &raquo;</button>"
+  }
+  set info [exec jpeginfo $image]
+  regexp { ([0-9]+) x ([0-9]+) } $info -> content(WIDTH) content(HEIGHT)
+
+  set theme [file tail [file rootname $image]]
+  set theme [regsub -- {-and-} $theme { \& }]
+  set theme [regsub -- {-} $theme { - }]
+  set theme [regsub {_} $theme { }]
+  set theme [regsub {Jose} $theme {José}]
+  set content(THEME) $theme
+
+  if {$theme eq "Country Style"} {
+    set content(AUTHOR_NAME) "José Carlos Martins"
+  } else {
+    set content(AUTHOR_NAME) "Gregor Cramer"
+  }
+
+  set filename [Filename $image]
+  set fd [open $filename w]
+  chan configure $fd -encoding iso8859-1
+
+  foreach line [split $pattern \n] {
+    set indices [regexp -indices -inline -- {\{[A-Z0-9_]+\}} $line]
+
+    while {[llength $indices]} {
+      set j [lindex [lindex $indices 0] 0]
+      set k [lindex [lindex $indices 0] 1]
+      set section [string range $line [expr {$j + 1}] [expr {$k - 1}]]
+      set line [string replace $line $j $k $content($section)]
+      set indices [regexp -indices -inline -- {\{[A-Z0-9_]+\}} $line]
+    }
+
+    if {$lang != "en"} {
+      set line [regsub -all {href="css} $line {href="../css}]
+      set line [regsub -all {src="js} $line {src="../js}]
+      set line [regsub -all {url: 'php} $line {url: '../php}]
+    }
+
+    puts $fd $line
+  }
+
+  close $fd
+
+# set fname ../data/$content(NAME)
+# if {![file exists $fname]} {
+#   set fd [open $fname "w" 0600]
+#   puts -nonewline $fd "0,0,0,0,0"
+#   close $fd
+# }
+}
+
+# vi:set ts=2 sw=2 et:

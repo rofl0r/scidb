@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:og="http://ogp.me/ns#"
+   xml:lang="en"
+       lang="{LANG}">
+
+<head>
+
+  <meta http-equiv="content-type"
+           content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="content-language"
+           content="en" />
+  <meta http-equiv="content-style-type"
+           content="text/css" />
+
+  <meta name="author"
+     content="scidb.sourceforge.net" />
+  <meta name="generator"
+     content="scidb.sourceforge.net" />
+  <meta name="robots"
+     content="index,follow" />
+  <meta name="description"
+     content="A free chess database application" />
+  <meta name="keywords"
+     content="Scidb, chess, database, Schach, Schachdatenbank, CQL, GPL" />
+
+  <meta property="og:title" content="Scidb" />
+  <meta property="og:type" content="website" /> <!-- product -->
+  <meta property="og:image" content="http://scidb.sourceforge.net/images/Scidb-Logo-128x128.png" />
+  <meta property="og:url" content="http://scidb.sourceforge.net" />
+  <meta property="og:site_name" content="Scidb" />
+  <meta property="og:description" content="{DESCRIPTION}" />
+
+  <link rel="icon"
+       href="http://scidb.sourceforge.net/favicon.ico"
+       type="image/x-icon" />
+  <link rel="shortcut icon"
+       href="http://scidb.sourceforge.net/favicon.ico" />
+
+  <link rel="stylesheet"
+       type="text/css"
+       media="all"
+        href="css/star-rating.css" />
+  <link rel="stylesheet"
+       type="text/css"
+      media="screen"
+       href="css/theme.css" />
+
+  <title>{TITLE}</title>
+
+  <script type="text/javascript"
+           src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script type="text/javascript"
+           src="js/star-rating.js"></script>
+  <script type="text/javascript"
+           src="js/cookies.js"></script>
+
+  <script type="text/javascript">
+    jQuery(document).ready(function() {
+      values = getCookie('{NAME}');
+      self.xhr = null;
+      $(window).bind('beforeunload', function() {
+        if (self.xhr != null) { self.xhr.abort(); }
+      });
+      if (values == null) {
+        self.vote = 0;
+        self.submitted = 0;
+      } else {
+        arr = values.split(',');
+        self.vote = parseInt(arr[0]);
+        self.submitted = parseInt(arr[1]);
+      }
+      self.displayVotes = getCookie('display-votes') != null;
+      $('#clear-vote-text').html(self.vote == 0 && self.submitted > 0 ? '{RESTORE_TITLE}' : '{CLEAR_TITLE}');
+      $('#clear-vote').prop('disabled', self.vote == 0 && self.submitted == 0);
+      $('#submit-vote').prop('disabled', self.vote == 0 || self.submitted == self.vote);
+      $('.vote').rating({
+        showCaption: true,
+        showClear: false,
+        readonly: false,
+        stars: 5,
+        min: 0,
+        max: 5,
+        step: 1,
+        size: 'xs',
+        clearCaption: '{CLEAR_CAPTION}',
+        initialValue: self.vote,
+        symbol: '\u265a',
+        glyphicon: false,
+        starCaptions: {
+          1: '{STAR_CAPTION_1}',
+          2: '{STAR_CAPTION_2}',
+          3: '{STAR_CAPTION_3}',
+          4: '{STAR_CAPTION_4}',
+          5: '{STAR_CAPTION_5}'
+        }
+      });
+      $('.result').rating({
+        showCaption: true,
+        showClear: false,
+        readonly: true,
+        stars: 5,
+        min: 0,
+        max: 5,
+        step: 1,
+        size: 'xs',
+        clearCaption: '{CLEAR_CAPTION}',
+        symbol: '\u265a',
+        glyphicon: false,
+        starCaptions: function(val) {
+          return val;
+        },
+        starCaptionClasses: function(val) {
+          switch (Math.floor(val + 0.5)) {
+            case 1: return 'label label-1';
+            case 2: return 'label label-2';
+            case 3: return 'label label-3';
+            case 4: return 'label label-4';
+            case 5: return 'label label-5';
+          }
+          return '';
+        }
+      });
+      var newVote = function() {
+        setCookie('{NAME}', self.vote.toString() + ',' + self.submitted.toString(), 10000);
+      }
+      var showResult = function(result) {
+        var avg = 0.0;
+        var count = 0;
+        values = result.split(',');
+        if (values.length == 5) {
+          for (var i = 0; i < 5; ++i) {
+            var val = parseInt(values[i]);
+            $('#result-' + (i + 1).toString()).html(val.toString());
+            /*$('#result-' + (i + 1).toString() + '-text').html(val == 1 ? '{VOTE}' : '{VOTES}');*/
+            avg += (i + 1)*val;
+            count += val;
+          }
+          var val = Math.round(10.0*(avg/count))/10.0;
+          $('#myresult').rating('update', val);
+          $('#vote-result').removeClass('hide');
+          if (count > 0) {
+            var capt = $('#vote-result .caption');
+            capt.html(capt.html() + ' (' + count.toString() + ')');
+          }
+        }
+      }
+      var showError = function(status, err) {
+        switch (status) {
+          case 'timeout':   alert('{ERROR_TIMOUT}'); break;
+          case 'failed':    alert('{ERROR_FAILED}'); break;
+          case 'error':     /*alert('{ERROR_INTERNAL}');*/ break;
+          case 'abort':      break;
+          default:          alert('{ERROR_UNEXPECTED}' + ': ' + status); break;
+        }
+      }
+      $('.submit-vote').on('click', function() {
+        $('#submit-vote').prop('disabled', true);
+        if (self.vote !== self.submitted) {
+          $('body').css('cursor', 'wait');
+          $('#clear-vote').prop('disabled', true);
+          $.ajax({
+            type: 'POST',
+            async: true, /* 'false' is not supported */
+            url: 'php/increase_count.php',
+            data: ({
+              theme: '{NAME}',
+              vote: self.vote,
+              value: self.submitted
+            }),
+            success: function(data, status, xhr) {
+              self.submitted = self.vote;
+              newVote();
+              if (/^\d/.test(data)) {
+                showResult(data);
+              } else {
+                showError(data, xhr);
+              }
+            },
+            error: function(xhr, status, thrown) {
+              showError(status, xhr);
+            },
+            complete: function(xhr, status) {
+              $('#clear-vote').prop('disabled', false);
+              $('body').css('cursor', 'auto');
+            }
+          });
+        }
+      })
+      $('.clear-vote').on('click', function() {
+        if (self.vote == 0) {
+          $('#myvote').rating('update', self.vote = self.submitted);
+        } else {
+          $('#myvote').rating('clear');
+          $('#clear-vote').prop('disabled', self.submitted == 0);
+          $('#submit-vote').prop('disabled', true);
+          self.vote = 0;
+        }
+        newVote();
+        $('#clear-vote-text').html(self.vote == 0 && self.submitted > 0 ? '{RESTORE_TITLE}' : '{CLEAR_TITLE}');
+      })
+      $('#myvote').on('rating.change', function(event, value, caption) {
+        $('#clear-vote').prop('disabled', false);
+        $('#clear-vote-text').html('{CLEAR_TITLE}');
+        if (value !== self.vote) {
+          self.vote = value;
+          newVote();
+        }
+        $('#submit-vote').prop('disabled', self.vote == self.submitted);
+      })
+      if (self.submitted || self.displayVotes) {
+        $.ajax({
+          type: 'POST',
+          async: true,
+          url: 'php/get_count.php',
+          data: ({ theme: '{NAME}' }),
+          beforeSend: function(xhr, settings) { self.xhr = xhr; },
+          success: function(data, status, xhr) { showResult(data); },
+          error: function(xhr, status, thrown) { showError(status, xhr); },
+          complete: function(xhr, status) { self.xhr = null; }
+        });
+      }
+      /* we need a special handling for browser == Firefox under Linux */
+      if (  navigator.userAgent.indexOf('Firefox') == -1
+        || navigator.platform.toUpperCase().indexOf('LINUX') == -1) {
+        $('.caption').css('vertical-align', 'baseline');
+      }
+    });
+  </script>
+</head>
+
+<body>
+
+  <div class='center'>
+    <table class="vote-theme" cellspacing="0" style="margin-left:2px; margin-right:2px;">
+      <tr>
+        <td>
+          <div style="margin: 2px; border: 1px solid black;">
+            <img src="{IMAGE}" alt="" width="{WIDTH}" height="{HEIGHT}" />
+          </div>
+        </td>
+        <td class="theme-text">
+          <div style="height:{HEIGHT}px; width: 100%; position: relative;">
+            <div>
+              <div class="vote-header theme">{THEME}<hr/></div>
+              <div style="padding-top: 3px"></div>
+              <div>{AUTHOR}: {AUTHOR_NAME}</div>
+              <div class="section">
+                <div class="vote-header">{MY_VOTE}<hr/></div>
+                <div style="padding-top: 1px"></div>
+                <input id="myvote" type="number" class="vote" />
+                <div style="padding-top: 10px"></div>
+                <div>
+                  <button disabled id="submit-vote" class="submit-vote">{SUBMIT}</button>
+                  <button disabled id="clear-vote" class="clear-vote"><span id="clear-vote-text">{CLEAR_TITLE}</span></button>
+                </div>
+              </div>
+              <div id="vote-result" class="section hide">
+                <div class="vote-header">{RESULT}<hr/></div>
+                <div style="padding-top: 1px"></div>
+                <input id="myresult" type="number" class="result" />
+                <div style="padding-top: 15px"></div>
+                <table style="border-collapse: collapse;">
+                  <tr>
+                    <td><span class="piece color-1">&#x265a;</span></td>
+                    <td class="snd color-1" id="result-1"></td>
+                    <!-- <td class="thd color-1" id="result-1-text"></td> -->
+                  </tr>
+                  <tr>
+                    <td><span class="piece color-2">&#x265a;&#x265a;</span></td>
+                    <td class="snd color-2" id="result-2"></td>
+                    <!-- <td class="thd color-2" id="result-2-text"></td> -->
+                  </tr>
+                  <tr>
+                    <td><span class="piece color-3">&#x265a;&#x265a;&#x265a;</span></td>
+                    <td class="snd color-3" id="result-3"></td>
+                    <!-- <td class="thd color-3" id="result-3-text"></td> -->
+                  </tr>
+                  <tr>
+                    <td><span class="piece color-4">&#x265a;&#x265a;&#x265a;&#x265a;</span></td>
+                    <td class="snd color-4" id="result-4"></td>
+                    <!-- <td class="thd color-4" id="result-4-text"></td> -->
+                  </tr>
+                  <tr>
+                    <td><span class="piece color-5">&#x265a;&#x265a;&#x265a;&#x265a;&#x265a;</span></td>
+                    <td class="snd color-5" id="result-5"></td>
+                    <!-- <td class="thd color-5" id="result-5-text"></td> -->
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div style="position: absolute; bottom: 0px; width: 100%;">
+              <table width="100%" style="border-collapse: collapse;">
+                <tr><td>{NEXT}</td></tr>
+                <tr><td style="padding-top: {PAD_BACK}px;">{BACK}</td></tr>
+                <tr><td style="padding-top: {PAD_PREV}px;">{PREV}</td></tr>
+              </table>
+            </div>
+          </div>
+        </td>
+        </table>
+      </tr>
+    </table>
+  </div>
+
+</body>
+</html>
+
+<!-- vi:set ts=2 sw=2 et filetype=html: -->

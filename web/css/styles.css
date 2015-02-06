@@ -2,16 +2,22 @@
 
 @font-face {
   font-family: 'FontAwesome';
+/*
   src: url('../font/fontawesome-webfont.eot?v=3.0.1');
   src: url('../font/fontawesome-webfont.eot?#iefix&v=3.0.1') format('embedded-opentype'),
        url('../font/fontawesome-webfont.woff?v=3.0.1') format('woff'),
        url('../font/fontawesome-webfont.ttf?v=3.0.1') format('truetype');
-  font-weight: normal;
-  font-style: normal;
+*/
+	src: url('http://netdna.bootstrapcdn.com/font-awesome/4.2.0/fonts/fontawesome-webfont.eot');
+	src: url('http://netdna.bootstrapcdn.com/font-awesome/4.2.0/fonts/fontawesome-webfont.eot?#iefix') format('embedded-opentype'),
+		  url('http://netdna.bootstrapcdn.com/font-awesome/4.2.0/fonts/fontawesome-webfont.woff') format('woff'),
+		  url('http://netdna.bootstrapcdn.com/font-awesome/4.2.0/fonts/fontawesome-webfont.ttf') format('truetype'),
+		  url('http://netdna.bootstrapcdn.com/font-awesome/4.2.0/fonts/fontawesome-webfont.svg#fontawesomeregular') format('svg');
 }
 
 html {
   background-color: #b8d2e2;
+  overflow-y:       scroll;
 }
 
 body {
@@ -46,7 +52,11 @@ h5 {
   font-size: 110%;
 }
 
-/* applies to all images in content area of any page */
+span.header {
+  font-size:   17px;
+  font-weight: bold;
+}
+
 .imagestyle {
   border: 0;
 }
@@ -56,6 +66,15 @@ img {
 
 a img {
   border: 0;
+}
+
+a.fancybox {
+  float:left;
+}
+
+a.fancybox:hover {
+  border:solid 1px #5555cc;
+  margin:-1px;
 }
 
 b, strong {
@@ -202,6 +221,26 @@ p {
 /*text-align:    justify; */ /* Blocksatz */
 }
 
+#contentarea div.social_buttons {
+  margin-top:       12px;
+  margin-bottom:    0px;
+  padding-left:     10px;
+  padding-right:    10px;
+
+  background-color: #fad857;
+/*background-color: #fecb65;*/
+/*background-color: #fed032;*/
+  border-top:       1px solid #437597;
+  border-bottom:    1px solid #437597;
+  border-left:      1px solid #437597;
+  border-right:     1px solid #437597;
+
+  -moz-border-radius:     9px; /* Firefox 3.6 */
+  -webkit-border-radius:  9px; /* Safari 4 */
+  -khtml-border-radius:   9px; /* Konquerer */
+  border-radius:          9px; /* Opera 10.5, IE 9, Safari 5, Chrome 4, Firefox 4 */
+}
+
 #contentarea div.header {
   font-size:    125%;
   font-weight:  bold;
@@ -220,11 +259,11 @@ p {
   border-bottom:    1px solid #437597;
   border-left:      1px solid #437597;
   border-right:     1px solid #437597;
-  margin-top:       15px;
-  margin-bottom:    15px;
+  margin-top:       10px;
+  margin-bottom:    10px;
   padding-left:     15px;
   padding-right:    15px;
-  overflow:         hidden;    /* should help in case of overflow problems */
+  overflow:         hidden;
 
   -moz-border-radius:     9px; /* Firefox 3.6 */
   -webkit-border-radius:  9px; /* Safari 4 */

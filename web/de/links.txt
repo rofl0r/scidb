@@ -1,6 +1,6 @@
 TITLE
 
-	Scidb - Links
+	Links
 
 CONTENT
 
@@ -19,18 +19,27 @@ CONTENT
   <p>
   Mark Crowther's <a target="_blank" href="http://www.theweekinchess.com">The Week in Chess<link/></a>
   bietet täglich Schachneuigkeiten und Partien. Diese Seite bietet zudem große
-  Archive mit Schachpartien hoher Qualität:
+  <a target="_blank" href="http://theweekinchess.com/twic">Archive mit Schachpartien<link/></a> hoher Qualität.
   </p>
-
-  <ul>
-    <li><a target="_blank" href="http://www.chess.co.uk/twic/twicp1.html">TWIC 211-400<link/></a>: 23.11.1998 bis 8.7.2002</li>
-    <li><a target="_blank" href="http://www.chess.co.uk/twic/twicp.html">TWIC 400...<link/></a>: 8.7.2002 bis heute</li>
-  </ul>
 
   <p>
   Die Seite <a target="_blank" href="http://www.nowinchess.com/games.php">Now In Chess<link/></a> von
   Gerardo Fernandez bietet weitere Partien hoher Qualität, die nicht in den TWIC
-  Archiven enthalten sind.
+  Archiven enthalten sind. Allerdings scheint diese Seite nicht mehr gepflegt zu werden.
+  </p>
+
+  <p>
+  <a target="_blank" href="http://ficsgames.org">FICS<link/></a> bietet ein großes Archiv
+  mit Live-Partien verschiedener Schachformen:
+  Normalschach, Schach-960 (wild/fr), Giveaway (wild/26), Losers (wild/17),
+  Dreimal-Schach (wild/25), Tandem (wild/24) und Einsetzschach (wild/23).
+  </p>
+
+  <p>
+  Die Webseite von "PGN Mentor" bietet PGN-Archive von 
+  <a target="_blank" href="http://www.pgnmentor.com/files.html#players">einzelnen Spielern<link/></a>
+  sowie
+  <a target="_blank" href="http://www.pgnmentor.com/files.html#events">verschiedener Turniere<link/></a>.
   </p>
 
   <div class="header">
@@ -51,9 +60,8 @@ CONTENT
   <dir>
     <li>
     <a target="_blank" href="http://stockfishchess.org">Stockfish<link/></a>:
-    Dieser Motor ist in Scidb bereits vorinstalliert. Zu der Originalversion ist
-    nicht zu raten, sie enthält signifikante Programmfehler (Abstürze). Die
-    vorinstallierte Scidb-Version weist zudem eine einzigartige Besonderheit auf,
+    Dieser Motor ist in Scidb bereits vorinstalliert.
+    Die vorinstallierte Scidb-Version weist eine einzigartige Besonderheit auf,
     sie unterstützt auch die Schachform Dreimal-Schach
     (<a target="_blank" href="http://en.wikipedia.org/wiki/Three-check_chess">Three-Check chess<link/></a>).
     </li>
@@ -70,9 +78,15 @@ CONTENT
     Einsetzschach<link/></a>
     (<a target="_blank" href="http://en.wikipedia.org/wiki/Crazyhouse">Crazyhouse<link/></a>)
     und <a target="_blank" href="http://de.wikipedia.org/wiki/R%C3%A4uberschach">Schlagschach<link/></a>
-    (<a target="_blank" href="http://suicidechess.ca/index.php?lg=en">Suicide<link/></a>,
+    (<a target="_blank" href="http://suicidechess.ca/index.php">Suicide<link/></a>,
     <a target="_blank" href="http://www6.chessclub.com/help/Giveaway">Giveaway<link/></a>,
-    <a target="_blank" href="http://loserschess.org/">Losers<link/></a>).
+    <!-- <a target="_blank" href="http://loserschess.org/">Losers<link/></a>). HACKED -->
+    <a target="_blank" href="http://en.wikipedia.org/wiki/Losing_chess">Losers<link/></a>).
+    </li>
+
+    <li>
+    <a href="http://firenzina.wikispaces.com/">Firenzina<link/></a>:
+    Auch dies ist ein bemerkenswertes Schachprogramm.
     </li>
   </dir>
 
@@ -81,8 +95,8 @@ CONTENT
   </div>
 
   <p>
-  <a target="_blank" href="http://scid.sourceforge.net">Scid<link/></a> ist die wohl bekannteste freie
-  Schachdatenbank, ursprünglich entwickelt von Shane Hudson. Die heutige Version
+  <a target="_blank" href="http://scid.sourceforge.net">Scid<link/></a> ist die wohl bekannteste
+  freie Schachdatenbank, ursprünglich entwickelt von Shane Hudson. Die heutige Version
   von Scid ist recht fehlerhaft.
   </p>
 
@@ -95,7 +109,7 @@ CONTENT
   <p>
   Gerhard Kalab bietet mit
   <a target="_blank" href="http://code.google.com/p/scidonthego/">Scid on the Go<link/></a>
-  eine Scid-Version für das Android Tablet.
+  eine Scid-Version für das Android-Tablet.
   </p>
 
   <p>
@@ -106,9 +120,18 @@ CONTENT
   </p>
 
   <p>
-  Nicht mehr in Entwicklung, aber immer noch interessant ist
+  Nicht mehr in Entwicklung, aber immer noch interessant, ist
   die Java-Anwendung <a target="_blank" href="http://jose-chess.sourceforge.net">José<link/></a>.
   </p>
+
+  <div class="header">
+  Videos über Scidb
+  </div>
+
+  <ul>
+	 <li><a target="_blank" href="http://www.youtube.com/watch?v=erLITi_nldQ">
+	   Ein kurzes Video über Scidb auf YouTube (Englisch)<link/></a></li>
+  </ul>
 
   <div class="header">
   Artikel über Scidb

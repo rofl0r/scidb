@@ -32,18 +32,21 @@
          url('../../font/scidbchessstandard.woff') format('woff'),
          url('../../font/scidbchessstandard.ttf') format('truetype'),
          url('../../font/scidbchessstandard.svg#ScidbChessStandardRegular') format('svg');
-    font-weight: normal;
-    font-style: normal;
 }
 
 @font-face {
   font-family: 'FontAwesome';
+/*
   src: url('../../font/fontawesome-webfont.eot?v=3.0.1');
   src: url('../../font/fontawesome-webfont.eot?#iefix&v=3.0.1') format('embedded-opentype'),
        url('../../font/fontawesome-webfont.woff?v=3.0.1') format('woff'),
        url('../../font/fontawesome-webfont.ttf?v=3.0.1') format('truetype');
-  font-weight: normal;
-  font-style: normal;
+*/
+	src: url('http://netdna.bootstrapcdn.com/font-awesome/4.2.0/fonts/fontawesome-webfont.eot');
+	src: url('http://netdna.bootstrapcdn.com/font-awesome/4.2.0/fonts/fontawesome-webfont.eot?#iefix') format('embedded-opentype'),
+		  url('http://netdna.bootstrapcdn.com/font-awesome/4.2.0/fonts/fontawesome-webfont.woff') format('woff'),
+		  url('http://netdna.bootstrapcdn.com/font-awesome/4.2.0/fonts/fontawesome-webfont.ttf') format('truetype'),
+		  url('http://netdna.bootstrapcdn.com/font-awesome/4.2.0/fonts/fontawesome-webfont.svg#fontawesomeregular') format('svg');
 }
 
 #wrapper_0815 {
@@ -86,7 +89,7 @@
 }
 
 html {
-  font-family:      'Bitstream Vera Sans', Arial, 'Helvetica Neue', Helvetica,
+  font-family:      Abel, 'Bitstream Vera Sans', Arial, 'Helvetica Neue', Helvetica,
                     Verdana, 'DejaVu Sans', 'Lucida Grande', 'Lucida Sans';
   background-color: #b8d2e2;
 }
@@ -98,10 +101,10 @@ a.backlink:visited  { text-decoration: none; color: black; }
 
 body { text-align: left; }
 
-h1 { font-size: 140%; background: #eeffff; }
-h2 { font-size: 140%; background-color: #e5eeff; }
-h3 { font-size: 110%; background-color: #e5eeff; }
-h4 { background-color: #e5eeff; }
+h1 { font-size: 140%; background-color: #dce4e5; } /* #e5eeff */
+h2 { font-size: 140%; background-color: #dce4e5; }
+h3 { font-size: 110%; background-color: #dce4e5; }
+h4 { background-color: #dce4e5; }
 
 h1.title {
   text-align: center;
@@ -121,6 +124,12 @@ span.chess {
 
 span.piece {
   font-family: 'Scidb Chess Standard';
+}
+
+span.cqlpiece {
+	font-weight: normal;
+	font-style: normal;
+	font-size: 140%;
 }
 
 span.awesome {

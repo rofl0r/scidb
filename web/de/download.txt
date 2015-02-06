@@ -1,52 +1,286 @@
 TITLE
 
-	Scidb - Download
+	Download
 
 CONTENT
 
 <div class="block">
 
-  <div class="header" lang="en">
-    Download <hr /> 
-  </div>
+  <p>
+  Die vierte öffentliche Vorschauversion ist bereit für den <span lang="en">Download</span>:
+  <p>
+
+  <ul>
+    <li>
+      <b>Ubuntu/Debian/Mint</b><br/>
+      <p></p>
+      <b>32 bit</b>: <a target="_blank" href="http://sourceforge.net/projects/scidb/files/scidb-beta_1.0-r960_i386.deb/download">scidb-beta_1.0-r960_i386.deb<link/></a><br/>
+      Dieses Paket wurde unter Ubuntu 12.04.3 LTS erstellt (mit checkinstall).<br/>
+      Installation: <code>sudo dpkg -i <nobr>scidb-beta_1.0-r960_i386.deb</nobr></code><br/>
+      Deinstallation: <code>sudo dpkg --purge <nobr>scidb-beta</nobr></code><br/>
+      <p></p>
+      <b>64 bit</b>: <a target="_blank" href="http://sourceforge.net/projects/scidb/files/scidb-beta_1.0-r960_amd64.deb/download">scidb-beta_1.0-r960_amd64.deb<link/></a><br/>
+      Dieses Paket wurde unter Ubuntu 12.04 LTS 64 bit erstellt (mit checkinstall).<br/>
+      Installation: <code>sudo dpkg -i <nobr>scidb-beta_1.0-r960_amd64.deb</nobr></code><br/>
+      Deinstallation: <code>sudo dpkg --purge <nobr>scidb-beta</nobr></code>
+      <p></p>
+    </li>
+    <li>
+      <b>RPM</b><br/>
+      <p></p>
+      <b>32 bit</b>: <a target="_blank" href="http://sourceforge.net/projects/scidb/files/scidb-beta-1.0-r960.i386.rpm/download">scidb-beta-1.0-r960.i386.rpm<link/></a><br/>
+      Dieses Paket wurde unter Ubuntu 12.04.3 LTS erstellt (mit checkinstall), es existiert
+      noch keine Erfahrung ob es auf Red Hat, Fedora, bzw. openSUSE auch laufen wird. Wenn
+      nicht, bitte den Quellcode verwenden.<br/>
+      Installation: <code>rpm -Uvh <nobr>scidb-beta-1.0-r960.i386.rpm</nobr></code><br/>
+      Deinstallation: <code>rpm -e <nobr>scidb-beta_1.0-r960</nobr></code><br/>
+      <p></p>
+      <b>64 bit</b>: <a target="_blank" href="http://sourceforge.net/projects/scidb/files/scidb-beta-1.0-r960.x86_64.rpm/download">scidb-beta-1.0-r960.x86_64.rpm<link/></a><br/>
+      Dieses Paket wurde unter Fedora 19 64 bit erstellt (mit checkinstall).<br/>
+      Installation: <code>rpm -Uvh <nobr>scidb-beta-1.0-r960.x86_64.rpm</nobr></code><br/>
+      Deinstallation: <code>rpm -e <nobr>scidb-beta-1.0-r960</nobr></code>
+      <p></p>
+    </li>
+    <li>
+      <b>Slackware</b><br/>
+      <p></p>
+      <b>32 bit</b>: <a target="_blank" href="http://sourceforge.net/projects/scidb/files/scidb-beta-1.0-i386-r960-slackware.tgz/download">scidb-beta-1.0-i386-r960-slackware.tgz<link/></a><br/>
+      Dieses Paket wurde unter Ubuntu 12.04.3 LTS erstellt (mit checkinstall), es existiert
+      noch keine Erfahrung ob es auf Slackware auch laufen wird. Wenn nicht, bitte den Quellcode
+      verwenden.<br/>
+      Installation: <code>installpkg <nobr>scidb-beta-1.0-i386-r960-slackware.tgz</nobr></code><br/>
+      Deinstallation: <code>removepkg <nobr>scidb-beta-1.0-i386-r960-slackware</nobr></code><br/>
+      <p></p>
+      <b>64 bit</b>: <a target="_blank" href="http://sourceforge.net/projects/scidb/files/scidb-beta-1.0-x86_64-r960-slackware.tgz/download">scidb-beta-1.0-x86_64-r960-slackware.tgz<link/></a><br/>
+      Dieses Paket wurde unter Slackware 14 64bit erstellt (mit checkinstall).<br/>
+      Installation: <code>installpkg <nobr>scidb-beta-1.0-x86_64-r960-slackware.tgz</nobr></code><br/>
+      Deinstallation: <code>removepkg <nobr>scidb-beta-1.0-x86_64-r960-slackware</nobr></code><br/>
+      <p></p>
+    </li>
+    <li>
+      <b>Arch Linux</b><br/>
+      <p></p>
+      Arch Linux bietet bereits das Paket scidb-svn an, kompiliert aus der Version r945.<br/>
+      Installation: <code>pacman -S <nobr>scidb-svn</nobr></code><br/>
+      Deinstallation: <code>pacman -Rs <nobr>scidb-svn</nobr></code><br/>
+      Unglücklicherweise wurde vom Arch-Linux-Team keine sehr stabile Version verwendet,
+      deshalb wird eine Installation aus dem Quellcode empfohlen (siehe weiter unten).
+      <p></p>
+    </li>
+    <li>
+      <b>Quellcode</b><br/>
+      <p></p>
+      <a target="_blank" href="http://sourceforge.net/projects/scidb/files/scidb-beta-code-r960.tar.gz/download">scidb-beta-code-r960.tar.gz<link/></a><br/>
+      Für alle Linux/Unix Betriebssystem, jedoch ist das Installationsverfahren noch
+      nicht auf allen Systemen gestest. Siehe weiter unten, wie die Installation verläuft.
+    </li>
+  </ul>
 
   <p>
-  Die dritte öffentliche Vorschauversion ist bereit für den <span lang="en">Download</span>:
-  <a href="http://sourceforge.net/projects/scidb/files/scidb-beta--2013-04-01--rev701.tar.gz/download">scidb-beta--2013-04-01--rev701.tar.gz<link/></a>.
-  Diese Version ist nur für Linux/Unix Betriebssysteme. Die Windows-Version wird später
-  veröffentlicht, eventuell am Ende des Jahres 2013 (hat sich leider wieder verschoben, die
-  Implementierung dauert doch länger als erwartet).
+  Alle Pakete werden in <code>/usr/local</code> installiert (um mit vorangegangenen
+  Installationen konform zu sein).
+  Diese Pakete sind nur für Linux/Unix Betriebssysteme. Die Windows-Version wird später
+  veröffentlicht. Zur Zeit wird nach Freiwilligen für die Mac OS X Portierung gesucht (siehe
+  <a target="_blank"
+  href="http://talkchess.com/forum/viewtopic.php?topic_view=threads&amp;p=536042&amp;t=49492">
+  talkchess.com<link/></a>).
   </p>
 
   <p>
-  Möglicherweise sollten zuerst die Tcl/Tk Pakete installiert werden, bevor Scidb gebaut
-  werden kann. Unter Ubuntu/Debian-Distributionen wird Tcl/Tk folgendermassen installiert:
-  </p>
-
-	<p><code>
-	&nbsp;&nbsp;&gt; sudo apt-get install tcl8.5<br />
-	&nbsp;&nbsp;&gt; sudo apt-get install tk8.5<br />
-	</code></p>
-
-  <p>Scidb wird wie gewöhnlich gebaut:</p>
-	
-	<p><code>
-	&nbsp;&nbsp;&gt; tar -xzf scidb-beta--2013-04-01--rev701.tar.gz<br />
-	&nbsp;&nbsp;&gt; cd scidb-beta--2013-04-01--rev701<br />
-	&nbsp;&nbsp;&gt; ./configure<br />
-	&nbsp;&nbsp;&gt; make<br />
-	&nbsp;&nbsp;&gt; sudo make install
-	</code></p>
-
-	<p>
   Nach einer erfolgreichen Installation steht <code>scidb-beta</code> zur Ausführung bereit.
   </p>
 
   <p>
-  Es sollten die spezifischen Probleme unter den Ubuntu Editionen ab
-  Version 11.10 beachtet werden (siehe
-  <a href="releasehistory.html">Freigabehistorie</a>),
+  Sollten in den Installationsbeschreibungen Fehler sein, dann bitte an
+  <a href="mailto:gcramer@users.sourceforge.net">gcramer@users.sourceforge.net</a>
+  melden.
   </p>
+
+  <p>
+  Es sollten die spezifischen Probleme unter den Ubuntu Editionen ab
+  Version 11.10 beachtet werden (siehe <a href="releasehistory.html">Freigabehistorie</a>),
+  </p>
+
+  <p>
+  Danke an José Carlos Martins für seine wertvolle Unterstützung.
+  </p>
+
+</div>
+
+<div class="block">
+
+  <div class="header" lang="en">
+    Installation aus dem Quellcode<hr /> 
+  </div>
+
+  <p>
+  Für eine erfolgreiche Kompilierung sind folgende Pakete vonnöten:
+  (Auf älteren Distributionen sind manche von ihnen nicht vorhanden, in diesem
+  Fall werden die fehlenden auch nicht benötigt.)
+  </p>
+
+  <ul>
+    <li>
+      <b>Ubuntu/Debian/Mint</b><br/>
+      <code>
+      &nbsp;&nbsp;&gt; sudo <nobr>apt-get</nobr>
+        <nobr>install</nobr>
+        <nobr>libexpat1-dev</nobr>
+        <nobr>libfontconfig1-dev</nobr>
+        <nobr>libfreetype6-dev</nobr>
+        <nobr>libxft-dev</nobr>
+        <nobr>libxcursor-dev</nobr>
+        <nobr>tcl8.5</nobr>
+        <nobr>tcl8.5-dev</nobr>
+        <nobr>tk8.5</nobr>
+        <nobr>tk8.5-dev</nobr>
+        <nobr>zlib1g-dev</nobr>
+      <br/>
+      </code>
+      <p></p>
+    </li>
+    <li>
+      <b>Red Hat/Fedora/openSUSE</b><br/>
+      <code>
+      &nbsp;&nbsp;&gt; yum install
+        <nobr>expat-devel</nobr>
+        <nobr>fontconfig-devel</nobr>
+        <nobr>freetype-devel</nobr>
+        <nobr>glibc-devel</nobr>
+        <nobr>glibc-headers</nobr>
+        <nobr>libICE-devel</nobr>
+        <nobr>libSM-devel</nobr>
+        <nobr>libstdc</nobr>++-<nobr>devel</nobr>
+        <nobr>libX11-devel</nobr>
+        <nobr>libXcursor-devel</nobr>
+        <nobr>libXft-devel</nobr>
+        <nobr>tcl</nobr>
+        <nobr>tcl-devel</nobr>
+        <nobr>tk</nobr>
+        <nobr>tk-devel</nobr>
+        <nobr>zlib-devel</nobr>
+      <br/>
+      </code>
+      <p></p>
+    </li>
+    <li>
+      <b>Arch Linux</b><br/>
+      <code>
+      &nbsp;&nbsp;&gt; pacman -S
+        <nobr>libsm</nobr>
+        <nobr>libxcursor</nobr>
+        <nobr>minizip</nobr>
+        <nobr>tcl</nobr>
+        <nobr>tk</nobr>
+      </code>
+    </li>
+  </ul>
+
+  <p>
+  Zudem werden die folgenden Pakete empfohlen, wenn auch nicht zwingend erforderlich:
+  </p>
+
+  <ul>
+    <li>
+      <b>Ubuntu/Debian/Mint</b><br/>
+      <code>
+      &nbsp;&nbsp;&gt; sudo <nobr>apt-get</nobr> install
+        <nobr>libudev-dev</nobr>
+        <nobr>libgdbm-dev</nobr>
+        <nobr>libzzip-dev</nobr>
+      <br/>
+      </code>
+      <p></p>
+    </li>
+    <li>
+      <b>Red Hat/Fedora/openSUSE</b><br/>
+      <code>
+      &nbsp;&nbsp;&gt; yum install
+        <nobr>udev-devel</nobr>
+        <nobr>gdbm-devel</nobr>
+        <nobr>zziplib-devel</nobr>
+      <br/>
+      </code>
+      <p></p>
+    </li>
+    <li>
+      <b>Arch Linux</b><br/>
+      <code>
+      &nbsp;&nbsp;&gt; pacman -S
+        <nobr>gdbm</nobr>
+        <nobr>zziplib</nobr>
+      </code>
+    </li>
+  </ul>
+
+  <p>
+  Damit die Desktopverknüpfungen erstellt werden, sollten auch folgende Pakete installiert
+  sein (nicht zwingend erforderlich, aber empfehlenswert, wenn <acronym>KDE</acronym>,
+  <acronym>GNOME</acronym>, oder <acronym>Xfce</acronym> verwendet wird):
+  </p>
+
+  <ul>
+    <li>
+      <b>Ubuntu/Debian/Mint</b><br/>
+      <code>
+      &nbsp;&nbsp;&gt; sudo <nobr>apt-get</nobr> install
+        <nobr>desktop-file-utils</nobr>
+        <nobr>hicolor-icon-theme</nobr>
+        <nobr>shared-mime-info</nobr>
+        <nobr>xdg-utils</nobr>
+      <br/>
+      </code>
+      <p></p>
+    </li>
+    <li>
+      <b>Red Hat/Fedora/openSUSE</b><br/>
+      <code>
+      &nbsp;&nbsp;&gt; yum install
+        <nobr>desktop-file-utils</nobr>
+        <nobr>hicolor-icon-theme</nobr>
+        <nobr>shared-mime-info</nobr>
+        <nobr>xdg-utils</nobr>
+      <br/>
+      </code>
+      <p></p>
+    </li>
+    <li>
+      <b>Arch Linux</b><br/>
+      <code>
+      &nbsp;&nbsp;&gt; pacman -S
+        <nobr>desktop-file-utils</nobr>
+        <nobr>hicolor-icon-theme</nobr>
+        <nobr>shared-mime-info</nobr>
+        <nobr>xdg-utils</nobr>
+      <br/>
+      </code>
+    </li>
+  </ul>
+
+  <p>
+  Scidb wird wie gewöhnlich gebaut:
+  </p>
+  
+  <p><code>
+  &nbsp;&nbsp;&gt; tar -xzf scidb-beta-code-r960.tar.gz<br/>
+  &nbsp;&nbsp;&gt; cd scidb-beta-code-r960<br/>
+  &nbsp;&nbsp;&gt; ./configure<br/>
+  &nbsp;&nbsp;&gt; make<br/>
+  &nbsp;&nbsp;&gt; sudo make install
+  </code></p>
+
+  <p>
+  Bei Problemen sollte die Datei INSTALL konsultiert werden.
+  </p>
+
+  <p>
+  Eine Deinstallation kann folgendermaßen geschehen:
+  </p>
+
+  <p><code>
+  &nbsp;&nbsp;&gt; cd scidb-beta-code-r960<br/>
+  &nbsp;&nbsp;&gt; sudo make uninstall<br/>
+  </code></p>
 
 </div>
 

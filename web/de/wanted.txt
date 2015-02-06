@@ -1,14 +1,10 @@
 TITLE
 
-	Scidb - Gesucht
+	Gesucht
 
 CONTENT
 
 <div class="block">
-
-  <div class="header">
-    Gesucht <hr />
-  </div>
 
   <p>
   Gesucht werden Interessierte für das Testen von Scidb.

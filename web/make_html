@@ -9,10 +9,13 @@ exec tclsh "$0" "$@"
 set filename [lindex $argv 1]
 set fd [open $filename]
 set section ""
+set lang [expr {[string match */de [pwd]] ? "de" : "en"}]
 chan configure $fd -encoding iso8859-1
 
 set Mapping {
   <link/> {<span class="link">&nbsp;&#xf08e;</span>}
+  <nobr>  {<span style='white-space:nowrap;'>}
+  </nobr> {</span>}
 }
 
 array set content {
@@ -24,6 +27,8 @@ array set content {
   TITLE       ""
   TRANSLATE   "Translate"
   TRANSLATOR  ""
+  VISITOR     ""
+  LOCATIONS_OF_VISITORS ""
 
   SCRIPTS     {<script type="text/javascript" src="js/cookies.js"></script>
   }
@@ -42,7 +47,33 @@ while {[gets $fd line] >= 0} {
 
       default {
         if {[string length [string trim $line]] > 0} {
-          append content($section) [string map $Mapping $line] "\n"
+          if {[regexp {^(\s*)<image data="(.*)"} $line _ spaces data]} {
+            lassign [split $data :] img title(en) title(de)
+            set thumbnail "screenshots/thumbs/$img"
+            set image "screenshots/$img"
+            regexp {\(([0-9]+)x([0-9]+),} [exec pngcheck ../$thumbnail] _ thumbwidth thumbheight
+            regexp {\(([0-9]+)x([0-9]+),} [exec pngcheck ../$image] _ width height
+            if {$lang != "en"} {
+              set thumbnail "../$thumbnail"
+              set image "../$image"
+            }
+            set line ""
+            append line "$spaces<a class='fancybox'\n"
+            append line "$spaces   href='$image'\n"
+            append line "$spaces   data-fancybox-group='gallery'\n"
+            append line "$spaces   title='$title($lang)'>\n"
+            append line "$spaces  <img src='$thumbnail'\n"
+            append line "$spaces       alt='$title($lang)'\n"
+            append line "$spaces       title='$title($lang)'\n"
+            append line "$spaces       class='bordersOff'\n"
+            append line "$spaces       width='$thumbwidth'\n"
+            append line "$spaces       height='$thumbheight'\n"
+            append line "$spaces       name='${width}x${height}' />\n"
+            append line "$spaces</a>\n"
+            append content($section) $line
+          } else {
+            append content($section) [string map $Mapping $line] "\n"
+          }
         }
       }
     }
@@ -53,19 +84,19 @@ if {$filename ne "screenshots.txt"} {
   set content(TRANSLATOR) {
     <div id="translator" class="block">
       <ul class="header">
-        <li class="header">%TRANSLATE%</li>
+        <li class="header">{TRANSLATE}</li>
       </ul>
       <ul class="body">
         <li class="tiny-notes">
-          <noscript>(%JSREQUIRED%)</noscript>
-          <div id="google_translate_element" lang="%LANG%"></div>
+          <noscript>({JSREQUIRED})</noscript>
+          <div id="google_translate_element" lang="{LANG}"></div>
           <script type="text/javascript">
             function googleTranslateElementInit()
             {
               new google.translate.TranslateElement(
                 {
-                  pageLanguage: '%LANG%',
-                  autoDisplay: %AUTODISPLAY%,
+                  pageLanguage: '{LANG}',
+                  autoDisplay: {AUTODISPLAY},
                   multilanguagePage: true,
                   layout: google.translate.TranslateElement.InlineLayout.SIMPLE
                 },
@@ -81,14 +112,17 @@ if {$filename ne "screenshots.txt"} {
 }
 
 close $fd
-set subdir 1
 
-if {[string match */de [pwd]]} {
+if {$lang == "de"} {
 # G E R M A N ##############################
 
   set content(LANG)                 "de"
+  set content(LOCALE)               "de-DE"
   set content(TRANSLATE)            "Übersetzen"
   set content(JSREQUIRED)           "Javascript erforderlich"
+  set content(DESCRIPTION)          "Schachdatenbank-Applikation"
+  set content(LIKE)                 "Ich mag dies"
+  set content(SHARE)                "Teilen"
 
   set content(REVIEW)               "Ein Review abgeben"
   set content(GUESTBOOK)            "Ins Gästebuch eintragen"
@@ -96,9 +130,12 @@ if {[string match */de [pwd]]} {
   set content(SUBSCRIBE)            "Diese Seite subskribieren"
 
   set content(SOURCEFORGE)          "Scidb auf SourceForge.net"
+  set content(VISITOR)              "Besucher"
+  set content(LOCATION_OF_VISITORS) "Standorte der Besucher dieser Seite"
 
   set content(GUIDE_DOWNLOAD)       "Download"
   set content(GUIDE_SCREENSHOTS)    "Screenshots"
+  set content(GUIDE_VOTE_THEMES)    "Themen einstufen"
   set content(GUIDE_HELPPAGES)      "Hilfeseiten"
   set content(GUIDE_MOREINFO)       "Weitere Informationen"
   set content(GUIDE_LINKS)          "Scidb-Links"
@@ -107,11 +144,21 @@ if {[string match */de [pwd]]} {
   set content(GUIDE_RELEASEHISTORY) "Freigabehistorie"
   set content(GUIDE_ROADMAP)        "Roadmap"
 
+  set content(STAR_CAPTION_1)       "Niemals"
+  set content(STAR_CAPTION_2)       "Mag ich nicht"
+  set content(STAR_CAPTION_3)       "Unentscheidbar"
+  set content(STAR_CAPTION_4)       "Mag ich"
+  set content(STAR_CAPTION_5)       "Favorit"
+
 ############################################
 } else {
 # E N G L I S H ############################
 
   set content(LANG)                 "en"
+  set content(LOCALE)               "en-US"
+  set content(DESCRIPTION)          "Chess database application"
+  set content(LIKE)                 "I like this"
+  set content(SHARE)                "Share"
 
   set content(REVIEW)               "Review"
   set content(GUESTBOOK)            "Sign Guestbook"
@@ -119,9 +166,12 @@ if {[string match */de [pwd]]} {
   set content(SUBSCRIBE)            "Subscribe to this page"
 
   set content(SOURCEFORGE)          "Scidb at SourceForge.net"
+  set content(VISITOR)              "Visitor"
+  set content(LOCATION_OF_VISITORS) "Locations of visitors to this page"
 
   set content(GUIDE_DOWNLOAD)       "Download"
   set content(GUIDE_SCREENSHOTS)    "Screenshots"
+  set content(GUIDE_VOTE_THEMES)    "Vote Themes"
   set content(GUIDE_HELPPAGES)      "Help Pages"
   set content(GUIDE_MOREINFO)       "More Info"
   set content(GUIDE_LINKS)          "Scidb Links"
@@ -130,14 +180,25 @@ if {[string match */de [pwd]]} {
   set content(GUIDE_RELEASEHISTORY) "Release History"
   set content(GUIDE_ROADMAP)        "Roadmap"
 
-  set content(AUTODISPLAY)          "true"
+  set content(STAR_CAPTION_1)       "Never"
+  set content(STAR_CAPTION_2)       "Don\\'t like"
+  set content(STAR_CAPTION_3)       "Undecidedly"
+  set content(STAR_CAPTION_4)       "I like"
+  set content(STAR_CAPTION_5)       "Favorite"
 
-  set subdir 0
+  set content(AUTODISPLAY)          "true"
 
   set content(ENGLISH)              "%%$content(FILENAME).html"
   set content(GERMAN)               "%%de/$content(FILENAME).html"
 
 ############################################
+}
+
+set content(TITLE) [string trim $content(TITLE)]
+set content(HEADER) $content(TITLE)
+
+if {![string match Scidb* $content(TITLE)]} {
+  set content(TITLE) "Scidb - $content(TITLE)"
 }
 
 set content(ONLOAD) [string trim $content(ONLOAD)]
@@ -148,34 +209,48 @@ set content(ONLOAD) "onload=\"setCookie('lang', '$content(LANG)', 720);$content(
 set fd [open "[lindex $argv 0]"]
 chan configure $fd -encoding iso8859-1
 chan configure stdout -encoding iso8859-1
+set cond "@iffile $content(FILENAME)"
+set skip 0
 
+set f [lindex $argv 0]
 while {[gets $fd line] >= 0} {
-  set indicies [regexp -indices -inline -- {%[A-Z_]+%} $line]
+  if {[string match @iffile* $line]} {
+    set skip [expr {$line != $cond}]
+  } elseif {$line == "@else"} {
+    set skip [expr {!$skip}]
+  } elseif {$line == "@endif"} {
+    set skip 0
+  } elseif {!$skip} {
+    set indices [regexp -indices -inline -- {\{[A-Z0-9_]+\}} $line]
 
-  while {[llength $indicies]} {
-    set i [lindex [lindex $indicies 0] 0]
-    set k [lindex [lindex $indicies 0] 1]
-    set section [string range $line [expr {$i + 1}] [expr {$k - 1}]]
-    set line [string replace $line $i $k $content($section)]
-    set indicies [regexp -indices -inline -- {%[A-Z_]+%} $line]
-  }
+    while {[llength $indices]} {
+      set i [lindex [lindex $indices 0] 0]
+      set k [lindex [lindex $indices 0] 1]
+      set section [string range $line [expr {$i + 1}] [expr {$k - 1}]]
+      set line [string replace $line $i $k $content($section)]
+      set indices [regexp -indices -inline -- {\{[A-Z0-9_]+\}} $line]
+    }
 
-  if {$subdir} {
-    foreach {rexp len} {{src=\"[a-z]+/} 5 {href=\"[a-z]+/} 6 {import \"[a-z]+/} 8} {
-      set indicies [regexp -indices -inline -- $rexp $line]
+    if {$lang != "en"} {
+      foreach {rexp len} {  {src=\"[a-z]+/} 5
+                            {href=\"[a-z]+/} 6
+                            {url: '[a-z]+/} 6
+                            {import \"[a-z]+/} 8} {
+        set indices [regexp -indices -inline -- $rexp $line]
 
-      while {[llength $indicies]} {
-        set i [expr {[lindex [lindex $indicies 0] 0] + $len}]
-        set str [string range $line 0 [expr {$i - 1}]]
-        append str "../"
-        append str  [string range $line $i end]
-        set line $str
-        set indicies [regexp -indices -inline -- $rexp $line]
+        while {[llength $indices]} {
+          set i [expr {[lindex [lindex $indices 0] 0] + $len}]
+          set str [string range $line 0 [expr {$i - 1}]]
+          append str "../"
+          append str  [string range $line $i end]
+          set line $str
+          set indices [regexp -indices -inline -- $rexp $line]
+        }
       }
     }
-  }
 
-  puts [string map {%% {}} $line]
+    puts [string map {%% {}} $line]
+  }
 }
 
 close $fd

@@ -1,6 +1,6 @@
 TITLE
 
-	Scidb - Weitere Informationen
+	Weitere Informationen
 
 CONTENT
 

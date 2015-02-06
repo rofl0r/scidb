@@ -1,8 +1,82 @@
 TITLE
 
-	Scidb - Freigabehistorie
+	Freigabehistorie
 
 CONTENT
+
+<div class="block">
+
+  <div class="header">
+    Vierte öffentliche Vorschau-Version (Oktober 2013) <hr />
+  </div>
+
+  <p>Die vierte öffentliche Vorschau-Version basiert auf der
+  <acronym>SVN</acronym>-Revisionsnummer 960.</p>
+
+  <div class="box">
+    <p>
+      <b><font color="#8B0000">Spezifische Probbleme aller <acronym>Ubuntu</acronym>
+      Editionen ab Version 11.10</font></b>
+    </p>
+
+    <p>
+      Die vorinstallierte <acronym>Tk</acronym>-Bibliothek (jede Version) ist verkrüppelt,
+      dies führt dazu das einige Fenster festfrieren (d.h. sie reagieren nicht auf Maus- oder
+      Tastaturereignisse).
+    </p>
+
+    <p>
+      Alle <acronym>Ubuntu</acronym> Editionen &gt;= 11.10 sind definitiv defekt
+      &ndash; ein Resultat der Sicherheitsparanoia des Ubuntu-Teams &ndash;
+      und der Entwickler, der einige Wochen mit der Suche nach Notlösungen verbrachte,
+      wird möglicherweise zukünftige Versionen dieser Edition nicht mehr unterstützen.
+      Das <acronym>Ubuntu</acronym>-Team nimnmt an, daß jegliche Software ein Angreifer ist,
+      und entfernt die sogenannten <i>Sicherheitslöcher</i>. Dies führt zu verkrüppelten und
+      defekten Systemen, die nicht mehr Unix-konform sind. <acronym>Scidb</acronym> ist sehr
+      anspruchsvoll und setzt ein voll funktionsfähiges Unix-System voraus.
+      <acronym>Scidb</acronym> ist zudem definitiv kein Angreifer.
+    </p>
+
+    <p>
+      Es existieren keine bekannten Workarounds (Umgehungen) für die Probleme mit der
+      <acronym>Tk</acronym>-Bibliothek, außer der Installation einer selbstgebauten
+      <acronym>Tk</acronym>-Bibliothek.
+    </p>
+
+  </div>
+
+  <div class="box">
+
+    <p>
+      <b><font color="#8B0000">
+      <acronym>Ubuntu</acronym> &gt;= 11.10 hält noch ein spezifisches Problem bereit:
+      </font></b>
+    </p>
+
+    <p>
+      Sub-Prozesse arbeiten im allgemeinen nicht (für weitere Details siehe
+      <a target="_blank" href="http://sourceforge.net/mailarchive/forum.php?thread_name=20111118143650.38280%40gmx.net&amp;forum_name=scidb-users">
+      Scidb's Users List<link/></a>),
+      dies kann zu Abstürzen führen, sofern nicht die (unter dem Link) vorgeschlagenen Lösungen
+      angewendet werden.
+    </p>
+
+  </div>
+
+  <div class="box">
+    <p>
+      <b><font color="#8B0000">Spezifische Probbleme aller Debian-basierten Distribution,
+      u.a. Ubuntu und Linux Mint</font></b>
+    </p>
+
+    <p>
+      Debian änderte einige Systempfade. Diese Änderung ist benutzerunfreundlich,
+      und resultiert zu Problemen mit neueren Compiler-Versionen. Bei Übersetzungproblemen
+      bitte die Datei INSTALL heranziehen.
+    </p>
+  </div>
+
+</div>
 
 <div class="block">
 
@@ -60,7 +134,7 @@ CONTENT
 
     <p>
     Sub-Prozesse arbeiten im allgemeinen nicht (für weitere Details siehe
-    <a target="_blank" href="http://sourceforge.net/mailarchive/forum.php?thread_name=20111118143650.38280%40gmx.net&amp;forum_name=scidb-users" target="_blank">
+    <a target="_blank" href="http://sourceforge.net/mailarchive/forum.php?thread_name=20111118143650.38280%40gmx.net&amp;forum_name=scidb-users">
     Scidb's Users List<link/></a>),
     dies kann zu Abstürzen führen, sofern nicht die (unter dem Link) vorgeschlagenen Lösungen
     angewendet werden.
@@ -92,7 +166,7 @@ CONTENT
       </li>
       <li>
         Sub-Prozesse arbeiten im allgemeinen nicht (für weitere Details siehe
-        <a target="_blank" href="http://sourceforge.net/mailarchive/forum.php?thread_name=20111118143650.38280%40gmx.net&amp;forum_name=scidb-users" target="_blank">
+        <a target="_blank" href="http://sourceforge.net/mailarchive/forum.php?thread_name=20111118143650.38280%40gmx.net&amp;forum_name=scidb-users">
         Scidb's Users List<link/></a>).
       </li>
       <li>

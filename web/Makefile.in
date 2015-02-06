@@ -12,6 +12,7 @@ lang:
 	done
 	@make -f Makefile.tmp targets
 	@rm -f Makefile.tmp
+	@../make_themes ../Theme.txt `ls ../themes/*.jpg | tr '\n' ' '`
 
 targets: $(TARGETS)
 
