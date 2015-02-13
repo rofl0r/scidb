@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1010 $
-# Date   : $Date: 2014-10-18 15:12:33 +0000 (Sat, 18 Oct 2014) $
+# Version: $Revision: 1020 $
+# Date   : $Date: 2015-02-13 10:00:28 +0000 (Fri, 13 Feb 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -877,7 +877,7 @@
 ::board::square::mc::Borderline			"Borderline"
 ::board::square::mc::Width					"Width"
 ::board::square::mc::Opacity				"Opacity"
-::board::square::mc::GapBetweenSquares	"Gap between squares"
+::board::square::mc::GapBetweenSquares	"Show always gap between squares"
 ::board::square::mc::Highlighting		"Highlighting"
 ::board::square::mc::Selected				"Selected"
 ::board::square::mc::SuggestedMove		"Suggested move"
@@ -2139,6 +2139,8 @@
 ::info::mc::Development			"Development"
 ::info::mc::Programming			"Programming"
 ::info::mc::Head					"Head"
+::info::mc::AllOthers			"all others"
+::info::mc::TheMissingOnes		"the missing ones"
 
 ::info::mc::Version				"Version"
 ::info::mc::Distributed			"This program is distributed under the terms of the GNU General Public License."

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 971 $
-// Date   : $Date: 2013-10-14 09:02:40 +0000 (Mon, 14 Oct 2013) $
+// Version: $Revision: 1020 $
+// Date   : $Date: 2015-02-13 10:00:28 +0000 (Fri, 13 Feb 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1097,8 +1097,21 @@ parser::parse_color(char const* str)
 	}
 	else
 	{
+		char buf[200];
+		unsigned k = 0;
+		char const* s = str;
+
+		for (	unsigned i = 0;
+				k < sizeof(buf) - 1 && (::isalnum(*s) || (*s == ' ' && ::isalpha(s[1])));
+				++i, ++s)
+		{
+			if (::isalnum(*s))
+				buf[k++] = ::tolower(*s);
+		}
+		buf[k] = '\0';
+
 		named_color c;
-		c.name = str;
+		c.name = buf;
 
 		void const* p = ::bsearch(	&c,
 											::Colors,

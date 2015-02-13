@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 609 $
-# Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+# Version: $Revision: 1020 $
+# Date   : $Date: 2015-02-13 10:00:28 +0000 (Fri, 13 Feb 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -28,7 +28,7 @@
 # Maurizio Monge <maurizio.monge@gmail.com>
 # http://poisson.phc.unipi.it/~monge/chess_art.php
 
-lappend board_PieceSet { Spatial svg {contour 50} {sampling 50} }
+lappend board_PieceSet { Spatial svg {contour {50 40}} {sampling 50} }
 
 set svg_Spatial(wk) {
 <svg

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1014 $
-# Date   : $Date: 2014-11-02 13:52:24 +0000 (Sun, 02 Nov 2014) $
+# Version: $Revision: 1020 $
+# Date   : $Date: 2015-02-13 10:00:28 +0000 (Fri, 13 Feb 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -126,7 +126,7 @@ proc setTargets {w args} {
 proc resize {w size args} {
    variable ${w}::Board
 
-	array set opts { -bordersize 0 }
+	array set opts [list -bordersize $Board(bordersize)]
 	array set opts $args
 
    if {$size != $Board(size)} {
@@ -381,6 +381,12 @@ proc rebuild {w} {
 
 proc flipped? {w} {
 	return [set [namespace current]::${w}::Board(flip)]
+}
+
+
+proc size {w} {
+	variable ${w}::Board
+	return $Board(size)
 }
 
 

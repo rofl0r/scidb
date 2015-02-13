@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 994 $
-// Date   : $Date: 2013-10-31 10:10:47 +0000 (Thu, 31 Oct 2013) $
+// Version: $Revision: 1020 $
+// Date   : $Date: 2015-02-13 10:00:28 +0000 (Fri, 13 Feb 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -761,14 +761,12 @@ mstl::backtrace::symbols()
 
 # ifdef __unix__
 
-#if 0
 	if (is_debug_mode())
 		return;
 
-# ifdef USE_GDB
+#ifdef USE_GDB
 	if (symbols_gdb())
 		return;
-# endif
 #endif
 
 	if (symbols_linux())

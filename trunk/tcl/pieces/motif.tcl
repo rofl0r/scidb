@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 609 $
-# Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+# Version: $Revision: 1020 $
+# Date   : $Date: 2015-02-13 10:00:28 +0000 (Fri, 13 Feb 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -27,7 +27,7 @@
 # Font by Armando H. Marroquin
 # <http://www.enpassant.dk/chess/fonteng.htm>
 
-lappend board_PieceSet { Motif truetype {stroke 5} {contour 80} {sampling 100} {overstroke 10} }
+lappend board_PieceSet { Motif truetype {stroke {5 0}} {contour 80} {sampling 100} {overstroke 10} }
 
 set truetype_Motif(wk) {
 <g

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 980 $
-# Date   : $Date: 2013-10-21 15:49:38 +0000 (Mon, 21 Oct 2013) $
+# Version: $Revision: 1020 $
+# Date   : $Date: 2015-02-13 10:00:28 +0000 (Fri, 13 Feb 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -861,8 +861,6 @@ proc validateCharacters {path} {
 
 
 proc validatePath {path} {
-	variable reservedChars
-
 	if {[string length $path] == 0} { return 1 }
 	# hyphen must not be the first character
 	if {[string index $path 0] eq "-"} { return 0 }

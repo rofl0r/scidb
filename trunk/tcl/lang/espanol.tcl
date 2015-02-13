@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1010 $
-# Date   : $Date: 2014-10-18 15:12:33 +0000 (Sat, 18 Oct 2014) $
+# Version: $Revision: 1020 $
+# Date   : $Date: 2015-02-13 10:00:28 +0000 (Fri, 13 Feb 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -880,7 +880,7 @@
 ::board::square::mc::Borderline			"Borde"
 ::board::square::mc::Width					"Ancho"
 ::board::square::mc::Opacity				"Opacidad"
-::board::square::mc::GapBetweenSquares	"Espacio entre casillas"
+::board::square::mc::GapBetweenSquares	"Espacio entre casillas" ;# NEW text: "Show always gap between squares"
 ::board::square::mc::Highlighting		"Resaltar"
 ::board::square::mc::Selected				"Elegido"
 ::board::square::mc::SuggestedMove		"Jugada sugerida"
@@ -2145,6 +2145,8 @@
 ::info::mc::Development			"Desarrollo"
 ::info::mc::Programming			"Programación"
 ::info::mc::Head					"Líder"
+::info::mc::AllOthers			"all others" ;# NEW
+::info::mc::TheMissingOnes		"the missing ones" ;# NEW
 
 ::info::mc::Version				"Versión"
 ::info::mc::Distributed			"Este programa se distribuye bajo los términos de la Licencia Pública General GNU."

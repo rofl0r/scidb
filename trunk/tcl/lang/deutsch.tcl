@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1010 $
-# Date   : $Date: 2014-10-18 15:12:33 +0000 (Sat, 18 Oct 2014) $
+# Version: $Revision: 1020 $
+# Date   : $Date: 2015-02-13 10:00:28 +0000 (Fri, 13 Feb 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -879,7 +879,7 @@
 ::board::square::mc::Borderline			"Abgrenzung"
 ::board::square::mc::Width					"Breite"
 ::board::square::mc::Opacity				"Opazität"
-::board::square::mc::GapBetweenSquares	"Lücke zwischen den Feldern"
+::board::square::mc::GapBetweenSquares	"Immer eine Lücke zwischen den Feldern"
 ::board::square::mc::Highlighting		"Hervorhebung"
 ::board::square::mc::Selected				"Ausgewähltes Feld"
 ::board::square::mc::SuggestedMove		"Vorgeschlagener Zug"
@@ -2140,6 +2140,8 @@
 ::info::mc::Development			"Entwicklung"
 ::info::mc::Programming			"Programmierung"
 ::info::mc::Head					"Leitung"
+::info::mc::AllOthers			"alle anderen"
+::info::mc::TheMissingOnes		"die fehlenden"
 
 ::info::mc::Version				"Version"
 ::info::mc::Distributed			"Dieses Program wurde unter den Bedingungen der GNU General Public License verbreitet."
