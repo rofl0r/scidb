@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 974 $
-# Date   : $Date: 2013-10-16 14:17:54 +0000 (Wed, 16 Oct 2013) $
+# Version: $Revision: 1025 $
+# Date   : $Date: 2015-02-23 13:14:03 +0000 (Mon, 23 Feb 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -615,7 +615,7 @@ proc OpenDialog {font options} {
 		grid $buttons.apply	-row 4 -sticky ew
 		grid $buttons.reset	-row 6 -sticky ew
 
-		grid rowconfigure $buttons 3 -minsize 10
+		grid rowconfigure $buttons 3 -minsize 15
 		grid rowconfigure $buttons 5 -minsize 5
 	}
 

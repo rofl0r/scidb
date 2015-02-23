@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1001 $
-// Date   : $Date: 2014-05-21 18:41:00 +0000 (Wed, 21 May 2014) $
+// Version: $Revision: 1025 $
+// Date   : $Date: 2015-02-23 13:14:03 +0000 (Mon, 23 Feb 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -144,6 +144,9 @@ static bool
 isNumeric(char const* s)
 {
 	char const* p = s;
+
+	if (*p == '-' || *p == '+')
+		++p;
 
 	while (isdigit(*p))
 		++p;
@@ -1068,7 +1071,7 @@ uci::Engine::parseOption(char const* msg)
 			case 'V':
 				if (name == "UCI_VariantThreeCheck")
 					addVariant(app::Engine::Variant_Three_Check);
-				break;
+				break; 
 		}
 	}
 	else if (type == "check")

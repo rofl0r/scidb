@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 977 $
-# Date   : $Date: 2013-10-19 00:07:38 +0000 (Sat, 19 Oct 2013) $
+# Version: $Revision: 1025 $
+# Date   : $Date: 2015-02-23 13:14:03 +0000 (Mon, 23 Feb 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -641,12 +641,23 @@ proc WidgetProc {w command args} {
 			if {[llength $args] % 2 == 1} {
 				return error -code "value for \"[lindex $args end]\" missing"
 			}
+			set reparse 0
+			set showhyphens [$w.sub.html cget -showhyphens]
 			array set opts $args
 			if {[info exists opts(-textalign)]} {
 				set Priv(textalign) $opts(-textalign)
-				SetupCSS $w
-				$w parse $Priv(script)
+				set reparse 1
 				array unset opts -textalign
+			}
+			if {[info exists opts(-showhyphens)]} {
+				set reparse 1
+				set showhyphens $opts(-showhyphens)
+				array unset opts -showhyphens
+			}
+			if {$reparse} {
+				SetupCSS $w
+				$w.sub.html configure -showhyphens $showhyphens
+				$w parse $Priv(script)
 			}
 			if {[array size opts] == 0} { return }
 			set args [array get opts]
