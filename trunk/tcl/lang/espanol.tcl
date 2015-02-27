@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1020 $
-# Date   : $Date: 2015-02-13 10:00:28 +0000 (Fri, 13 Feb 2015) $
+# Version: $Revision: 1026 $
+# Date   : $Date: 2015-02-27 13:46:18 +0000 (Fri, 27 Feb 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -2098,6 +2098,7 @@
 ::crosstable::mc::Match							"Match"
 ::crosstable::mc::Knockout						"Knockout"
 ::crosstable::mc::RankingList					"Lista de Ranking"
+::crosstable::mc::Simultan						"Simultaneous" ;# NEW
 
 ::crosstable::mc::Order							"Orden"
 ::crosstable::mc::Type							"Tipo tabla"

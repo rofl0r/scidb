@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1006 $
-// Date   : $Date: 2014-10-04 06:48:39 +0000 (Sat, 04 Oct 2014) $
+// Version: $Revision: 1026 $
+// Date   : $Date: 2015-02-27 13:46:18 +0000 (Fri, 27 Feb 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1665,10 +1665,10 @@ configureCmd(
             HtmlCallbackLayout(pTree, pTree->pRoot);
         }
 
-#ifndef USE_DOUBLE_BUFFERING
+#ifdef USE_DOUBLE_BUFFERING
         if (mask & D_MASK) {
-            if (!pTree->option.doubleBuffer)
-                deleteBuffer();
+            if (!pTree->options.doublebuffer)
+                deleteBuffer(pTree);
         }
 #endif
 

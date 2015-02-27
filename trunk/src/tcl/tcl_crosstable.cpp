@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 851 $
-// Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
+// Version: $Revision: 1026 $
+// Date   : $Date: 2015-02-27 13:46:18 +0000 (Fri, 27 Feb 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -163,6 +163,7 @@ cmdGet(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 				case TournamentTable::Match:			setResult("Match"); break;
 				case TournamentTable::Knockout:		setResult("Knockout"); break;
 				case TournamentTable::RankingList:	setResult("RankingList"); break;
+				case TournamentTable::Simultan:		setResult("Simultan"); break;
 				case TournamentTable::Auto:			M_ASSERT("unexpected result"); break;
 			}
 			break;

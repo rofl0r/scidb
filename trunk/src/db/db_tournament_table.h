@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 1026 $
+// Date   : $Date: 2015-02-27 13:46:18 +0000 (Fri, 27 Feb 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -58,6 +58,7 @@ public:
 		Match,
 		Knockout,
 		RankingList,
+		Simultan,
 	};
 
 	enum Order
@@ -163,6 +164,7 @@ private:
 	void emitCrossTable(TeXt::Receptacle& receptacle, bool isScheveningen);
 	void emitSwissTable(TeXt::Receptacle& receptacle);
 	void emitMatchTable(TeXt::Receptacle& receptacle);
+	void emitSimultanTable(TeXt::Receptacle& receptacle);
 	void emitKnockoutTable(TeXt::Receptacle& receptacle, KnockoutOrder order);
 
 	NamebaseEvent const& m_event;
