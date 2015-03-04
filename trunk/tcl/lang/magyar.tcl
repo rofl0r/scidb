@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1026 $
-# Date   : $Date: 2015-02-27 13:46:18 +0000 (Fri, 27 Feb 2015) $
+# Version: $Revision: 1027 $
+# Date   : $Date: 2015-03-04 10:56:25 +0000 (Wed, 04 Mar 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -613,7 +613,6 @@
 ### application::database::players #####################################
 ::application::database::players::mc::EditPlayer				"Játékos adatok szerkesztése"
 ::application::database::players::mc::Score						"Pont"
-::application::database::players::mc::TooltipRating			"Értékszám: %s"
 
 ### application::database::annotators ##################################
 ::application::database::annotators::mc::F_Annotator		"Elemző"
@@ -1304,6 +1303,8 @@
 ::playertable::mc::ClearEntries			"Bejegyzések törlése"
 ::playertable::mc::NotFound			"Nem található."
 ::playertable::mc::UsePlayerBase		"Use Player Base" ;# NEW
+::playertable::mc::DisablePlayerBase    	"Disable use of player base" ;# NEW
+::playertable::mc::TooltipRating         	"Értékszám: %s"
 
 ::playertable::mc::Name				"Név"
 ::playertable::mc::HighestRating		"Legmagasabb ELO pontszám"

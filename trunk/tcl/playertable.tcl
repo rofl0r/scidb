@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 872 $
-# Date   : $Date: 2013-07-04 13:07:56 +0000 (Thu, 04 Jul 2013) $
+# Version: $Revision: 1027 $
+# Date   : $Date: 2015-03-04 10:56:25 +0000 (Wed, 04 Mar 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -36,6 +36,7 @@ set ClearEntries				"Clear entries"
 set NotFound					"Not found."
 set EnablePlayerBase			"Enable use of player base"
 set DisablePlayerBase		"Disable use of player base"
+set TooltipRating				"Score: %s"
 
 set Name							"Name"
 set HighestRating				"Highest rating"
@@ -281,9 +282,10 @@ proc build {path getViewCmd {visibleColumns {}} {args {}}} {
 	set Vars(table) [::scrolledtable::build $table $columns {*}$args]
 	pack $table -fill both -expand yes
 
-	::bind $table <<TableFill>>		[namespace code [list TableFill $path %d]]
-	::bind $table <<TableSelected>>	[namespace code [list TableSelected $path %d]]
-	::bind $table <<TableVisit>>		[namespace code [list TableVisit $path %d]]
+	::bind $table <<TableFill>>			[namespace code [list TableFill $path %d]]
+	::bind $table <<TableSelected>>		[namespace code [list TableSelected $path %d]]
+	::bind $table <<TableVisit>>			[namespace code [list TableVisit $path %d]]
+	::bind $table <<LanguageChanged>>	[namespace code RefreshHeaders]
 
 	set Vars(viewcmd) $getViewCmd
 
@@ -520,9 +522,15 @@ proc popupMenu {menu base variant info {playerCard {}}} {
 proc RefreshHeader {number} {
 	variable Options
 
-	set tip $::application::database::players::mc::TooltipRating
+	set tip $mc::TooltipRating
 	set mc::F_Rating$number $Options(rating$number:type)
 	set mc::T_Rating$number [format $tip $Options(rating$number:type)]
+}
+
+
+proc RefreshHeaders {} {
+	RefreshHeader 1
+	RefreshHeader 2
 }
 
 

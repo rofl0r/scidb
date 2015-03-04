@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1026 $
-# Date   : $Date: 2015-02-27 13:46:18 +0000 (Fri, 27 Feb 2015) $
+# Version: $Revision: 1027 $
+# Date   : $Date: 2015-03-04 10:56:25 +0000 (Wed, 04 Mar 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -612,7 +612,6 @@
 ### application::database::players #####################################
 ::application::database::players::mc::EditPlayer				"Redigera spelare"
 ::application::database::players::mc::Score						"Poäng"
-::application::database::players::mc::TooltipRating			"Rating: %s"
 
 ### application::database::annotators ##################################
 ::application::database::annotators::mc::F_Annotator		"Kommentator"
@@ -1303,6 +1302,8 @@
 ::playertable::mc::ClearEntries				"Rensa"
 ::playertable::mc::NotFound					"Saknas."
 ::playertable::mc::UsePlayerBase				"Use Player Base" ;# NEW
+::playertable::mc::DisablePlayerBase      "Disable use of player base" ;# NEW
+::playertable::mc::TooltipRating          "Rating: %s" ;# NEW
 
 ::playertable::mc::Name							"Namn"
 ::playertable::mc::HighestRating				"Högsta rating"
