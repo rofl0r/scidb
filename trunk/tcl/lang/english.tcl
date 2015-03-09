@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1028 $
-# Date   : $Date: 2015-03-09 13:07:49 +0000 (Mon, 09 Mar 2015) $
+# Version: $Revision: 1029 $
+# Date   : $Date: 2015-03-09 13:11:23 +0000 (Mon, 09 Mar 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -464,7 +464,7 @@
 ::application::database::mc::FileStripPGNTags				"Strip PGN Tags"
 ::application::database::mc::HelpSwitcher						"Help for Database Switcher"
 
-::application::database::mc::Overview							"&Overview"
+::application::database::mc::Information						"&Information"
 ::application::database::mc::Games								"&Games"
 ::application::database::mc::Players							"&Players"
 ::application::database::mc::Events								"&Events"

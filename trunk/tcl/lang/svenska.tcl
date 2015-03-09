@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1028 $
-# Date   : $Date: 2015-03-09 13:07:49 +0000 (Mon, 09 Mar 2015) $
+# Version: $Revision: 1029 $
+# Date   : $Date: 2015-03-09 13:11:23 +0000 (Mon, 09 Mar 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -465,7 +465,7 @@
 ::application::database::mc::FileStripPGNTags				"Rensa PGN-taggar"
 ::application::database::mc::HelpSwitcher						"Hjälp om databasväljare"
 
-::application::database::mc::Overview                    "&Overview" ;# NEW
+::application::database::mc::Information						"&Information" ;# NEW
 ::application::database::mc::Games								"&Partier"
 ::application::database::mc::Players							"&Spelare"
 ::application::database::mc::Events								"&Tävlingar"
