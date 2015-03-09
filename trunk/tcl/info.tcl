@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1020 $
-# Date   : $Date: 2015-02-13 10:00:28 +0000 (Fri, 13 Feb 2015) $
+# Version: $Revision: 1028 $
+# Date   : $Date: 2015-03-09 13:07:49 +0000 (Mon, 09 Mar 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -189,32 +189,35 @@ proc LinkHandler {w node} {
 }
 
 
-proc MouseEnter {w node} {
-	if {[llength $node] == 0} { return }
-	set href [$node attribute -default {} href]
-	if {[llength $href]} {
-		$node dynamic set hover
-		[$w drawable] configure -cursor hand2
+proc MouseEnter {w nodes} {
+	foreach node $nodes {
+		set href [$node attribute -default {} href]
+		if {[llength $href]} {
+			$node dynamic set hover
+			[$w drawable] configure -cursor hand2
+		}
 	}
 }
 
 
-proc MouseLeave {w node} {
-	if {[llength $node] == 0} { return }
-	set href [$node attribute -default {} href]
-	if {[llength $href]} {
-		$node dynamic clear hover
-		[$w drawable] configure -cursor {}
+proc MouseLeave {w nodes} {
+	foreach node $nodes {
+		set href [$node attribute -default {} href]
+		if {[llength $href]} {
+			$node dynamic clear hover
+			[$w drawable] configure -cursor {}
+		}
 	}
 }
 
 
-proc Mouse1Up {w node} {
-	if {[llength $node] == 0} { return }
-	set href [$node attribute -default {} href]
-	if {[llength $href]} {
-		::web::open $w $href
-		$node dynamic set visited
+proc Mouse1Up {w nodes} {
+	foreach node $nodes {
+		set href [$node attribute -default {} href]
+		if {[llength $href]} {
+			::web::open $w $href
+			$node dynamic set visited
+		}
 	}
 }
 

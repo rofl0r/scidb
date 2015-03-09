@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1027 $
-# Date   : $Date: 2015-03-04 10:56:25 +0000 (Wed, 04 Mar 2015) $
+# Version: $Revision: 1028 $
+# Date   : $Date: 2015-03-09 13:07:49 +0000 (Mon, 09 Mar 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -464,6 +464,7 @@
 ::application::database::mc::FileStripPGNTags				"Strip PGN Tags"
 ::application::database::mc::HelpSwitcher						"Help for Database Switcher"
 
+::application::database::mc::Overview							"&Overview"
 ::application::database::mc::Games								"&Games"
 ::application::database::mc::Players							"&Players"
 ::application::database::mc::Events								"&Events"
@@ -592,6 +593,11 @@
 ::application::database::mc::MoveInfo(clockTime)			"Clock Time"
 ::application::database::mc::MoveInfo(corrChessSent)		"Correspondence Chess Sent"
 ::application::database::mc::MoveInfo(videoTime)			"Video Time"
+
+### application::database::information #################################
+::application::database::information::mc::RecentlyUsed				"Recently used"
+::application::database::information::mc::RemoveSelectedDatabase	"Remove selected database from history"
+::application::database::information::mc::NewsAvailable				"There are news available"
 
 ### application::database::games #######################################
 ::application::database::games::mc::Control						"Control"

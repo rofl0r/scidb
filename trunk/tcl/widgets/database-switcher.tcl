@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 975 $
-# Date   : $Date: 2013-10-16 17:27:36 +0000 (Wed, 16 Oct 2013) $
+# Version: $Revision: 1028 $
+# Date   : $Date: 2015-03-09 13:07:49 +0000 (Mon, 09 Mar 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -97,6 +97,7 @@ set Options(iconsize) 48
 
 array set Defaults {
 	symbol-padding			4
+	background				switcher,background
 	selected:background	switcher,selected:background
 	normal:background		switcher,normal:background
 	normal:foreground		switcher,normal:foreground
@@ -110,6 +111,7 @@ array set Defaults {
 
 proc Build {w args} {
 	variable Options
+	variable Defaults
 
 	namespace eval [namespace current]::${w} {}
 	variable ${w}::Vars
@@ -144,14 +146,15 @@ proc Build {w args} {
 	trace add variable [namespace current]::Options(iconsize) write \
 		[namespace code [list UpdateIconSize $w]]
 
+	set background [::colors::lookup $Defaults(background)]
 	set height $Options(iconsize)
 	incr height 14
 	set canv $w.content
 	set sb $w.sb
 
 	ttk::frame $w -borderwidth 1 -relief sunken
-	tk::canvas $canv -takefocus 1 -height $height -background white -yscrollcommand [list $w.sb set]
-	$canv configure -background white
+	tk::canvas $canv -takefocus 1 -height $height -background $background -yscrollcommand [list $w.sb set]
+	$canv configure -background $background
 	pack $canv -fill both -expand yes -side left
 	ttk::scrollbar $sb -orient vertical -takefocus 0 -command [list $canv yview]
 
@@ -362,7 +365,6 @@ proc Select {w file} {
 	}
 
 	set Vars(selection) $id
-	set background [::theme::getToplevelBackground]
 
 	CheckVariant $w $file 
 	UpdateSwitcher $w $file
@@ -1136,7 +1138,7 @@ proc HighlightDropRegion {w x y action} {
 			}
 			leave {
 				if {$Vars(drop-item) == -1} {
-					$canv configure -background white
+					$canv configure -background [::colors::lookup $Defaults(background)]
 				}
 			}
 			position {

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1008 $
-# Date   : $Date: 2014-10-07 13:35:19 +0000 (Tue, 07 Oct 2014) $
+# Version: $Revision: 1028 $
+# Date   : $Date: 2015-03-09 13:07:49 +0000 (Mon, 09 Mar 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -284,9 +284,7 @@ proc checkForUpdate {informProc} {
 	if {$i >= 0} {
 		set host [string range $http_proxy 0 [expr {$i - 1}]]
 		set port [string range $http_proxy [expr {$i + 1}] end]
-		if {[string is integer -strict $port]} {
-			::http::config -proxyhost $host -proxyport $port
-		}
+		if {[string is integer -strict $port]} { ::http::config -proxyhost $host -proxyport $port }
 	}
 	::http::config -urlencoding utf-8
 	catch {

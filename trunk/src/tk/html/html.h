@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1004 $
-// Date   : $Date: 2014-09-24 22:20:35 +0000 (Wed, 24 Sep 2014) $
+// Version: $Revision: 1028 $
+// Date   : $Date: 2015-03-09 13:07:49 +0000 (Mon, 09 Mar 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -421,6 +421,7 @@ struct HtmlOptions {
     int       yscrollincrement;
     Tcl_Obj  *yscrollcommand;
     Tcl_Obj  *xscrollcommand;
+    Tcl_Obj  *class;
     Tk_Cursor cursor;
 
     Tcl_Obj  *defaultstyle;

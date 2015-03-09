@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 976 $
-# Date   : $Date: 2013-10-18 22:15:24 +0000 (Fri, 18 Oct 2013) $
+# Version: $Revision: 1028 $
+# Date   : $Date: 2015-03-09 13:07:49 +0000 (Mon, 09 Mar 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -193,6 +193,15 @@ proc geometry {class {whichPart size}} {
 proc currentDialog {} {
 	variable Priv
 	return $Priv(dialog)
+}
+
+
+proc extensions {} {
+	variable FileIcons
+
+	set extensions {}
+	foreach {ext icon} $FileIcons { lappend extensions $ext }
+	return $extensions
 }
 
 

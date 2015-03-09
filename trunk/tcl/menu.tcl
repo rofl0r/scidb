@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 935 $
-# Date   : $Date: 2013-09-14 22:36:13 +0000 (Sat, 14 Sep 2013) $
+# Version: $Revision: 1028 $
+# Date   : $Date: 2015-03-09 13:07:49 +0000 (Mon, 09 Mar 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -439,7 +439,7 @@ if {0} {
 		-underline $ul \
 		-command [namespace code [list featureRequest .application]] \
 		;
-
+	
 	### fullscreen ###########################################################
 	$menu add separator
 	if {$Fullscreen} { set var LeaveFullscreen } else { set var Fullscreen }

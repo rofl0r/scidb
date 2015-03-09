@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1027 $
-# Date   : $Date: 2015-03-04 10:56:25 +0000 (Wed, 04 Mar 2015) $
+# Version: $Revision: 1028 $
+# Date   : $Date: 2015-03-09 13:07:49 +0000 (Mon, 09 Mar 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -465,6 +465,7 @@
 ::application::database::mc::FileStripPGNTags				"Rensa PGN-taggar"
 ::application::database::mc::HelpSwitcher						"Hjälp om databasväljare"
 
+::application::database::mc::Overview                    "&Overview" ;# NEW
 ::application::database::mc::Games								"&Partier"
 ::application::database::mc::Players							"&Spelare"
 ::application::database::mc::Events								"&Tävlingar"
@@ -595,6 +596,11 @@
 ::application::database::mc::MoveInfo(clockTime)			"Clock Time" ;# NEW
 ::application::database::mc::MoveInfo(corrChessSent)		"Correspondence Chess Sent" ;# NEW
 ::application::database::mc::MoveInfo(videoTime)			"Video Time" ;# NEW
+
+### application::database::information #################################
+::application::database::information::mc::RecentlyUsed "Recently used" ;# NEW
+::application::database::information::mc::RemoveSelectedDatabase "Remove selected database from history" ;# NEW
+::application::database::information::mc::NewsAvailable          "There are news available" ;# NEW
 
 ### application::database::games #######################################
 ::application::database::games::mc::Control						"Kontroll"
