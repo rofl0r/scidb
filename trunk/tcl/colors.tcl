@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author: gcramer $
-# Version: $Revision: 1028 $
-# Date   : $Date: 2015-03-09 13:07:49 +0000 (Mon, 09 Mar 2015) $
+# Version: $Revision: 1032 $
+# Date   : $Date: 2015-03-09 17:33:00 +0000 (Mon, 09 Mar 2015) $
 # Url    : $URL: https://svn.code.sf.net/p/scidb/code/trunk/tcl/colors.tcl $
 # ======================================================================
 
@@ -56,6 +56,15 @@ array set Colors {
 	lite:analysis,active:background		#f5f5e4
 
 	lite:database,selected					#ffdd76
+
+	lite:information,html:hover			#ebf4f5
+	lite:information,html:color			white
+	lite:information,html:header			yellow
+	lite:information,html:link				yellow
+	lite:information,html:visited			#ffb432
+	lite:information,html:menu				#ffdd76
+	lite:information,background:news		orange
+	lite:information,background:html		#014b72
 
 	lite:tree,background						white
 	lite:tree,emphasize						linen
@@ -213,6 +222,7 @@ array set Colors {
 	dark:variation,stripes					#dce4e5
 	dark:import,background					#dce4e5
 	dark:browser,background:header		#dce4e5
+	dark:information,hover					#dce4e5
 	dark:overview,background:normal		#dce4e5
 	dark:crosstable,highlighted			#dce4e5
 	dark:fsbox,selectionbackground		#dce4e5

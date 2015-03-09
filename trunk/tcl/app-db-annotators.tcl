@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 925 $
-# Date   : $Date: 2013-08-17 08:31:10 +0000 (Sat, 17 Aug 2013) $
+# Version: $Revision: 1032 $
+# Date   : $Date: 2015-03-09 17:33:00 +0000 (Mon, 09 Mar 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -192,6 +192,11 @@ proc overhang {parent} {
 
 proc linespace {parent} {
 	return [::scrolledtable::linespace $parent.top.names]
+}
+
+
+proc setActive {} {
+	# no action
 }
 
 

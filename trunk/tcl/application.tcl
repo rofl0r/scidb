@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1028 $
-# Date   : $Date: 2015-03-09 13:07:49 +0000 (Mon, 09 Mar 2015) $
+# Version: $Revision: 1032 $
+# Date   : $Date: 2015-03-09 17:33:00 +0000 (Mon, 09 Mar 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -144,6 +144,7 @@ array set Attr {
 array set Vars {
 	tabs:changed	0
 	exit:save		1
+	active			1
 
 	menu:locked			0
 	menu:state			normal
@@ -308,6 +309,8 @@ if {[::process::testOption use-clock]} {
 
 	bind $nb <<NotebookTabChanged>> [namespace code [list TabChanged $nb $app]]
 	bind $app <Destroy> [namespace code { Exit %W }]
+	bind $app <FocusIn> [namespace code Activate]
+	bind $app <FocusOut> [namespace code Deactivate]
 	ComputeMinSize $main
 
 	if {[tk windowingsystem] eq "x11"} {
@@ -531,6 +534,22 @@ proc InformAboutUpdates {item} {
 	lappend Vars(updates) $item
 	BuildUpdatesButton
 }
+
+
+proc Activate {} {
+	variable Vars
+
+	if {!$Vars(active)} {
+		set Vars(active) 1
+		database::setActive
+	}
+}	
+
+
+proc Deactivate {} {
+	variable Vars
+	set Vars(active) 0
+}	
 
 
 proc EnterSettings {w} {

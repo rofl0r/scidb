@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1028 $
-# Date   : $Date: 2015-03-09 13:07:49 +0000 (Mon, 09 Mar 2015) $
+# Version: $Revision: 1032 $
+# Date   : $Date: 2015-03-09 17:33:00 +0000 (Mon, 09 Mar 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -422,6 +422,12 @@ proc activate {w flag} {
 	[namespace current]::${tab}::activate $Vars($tab) $flag
 	::annotation::hide $flag
 	::marks::hide $flag
+}
+
+
+proc setActive {} {
+	variable Vars
+	${Vars(current:tab)}::setActive
 }
 
 
