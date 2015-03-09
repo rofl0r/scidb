@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1028 $
-# Date   : $Date: 2015-03-09 13:07:49 +0000 (Mon, 09 Mar 2015) $
+# Version: $Revision: 1033 $
+# Date   : $Date: 2015-03-09 17:53:44 +0000 (Mon, 09 Mar 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -599,7 +599,7 @@
 ### application::database::information #################################
 ::application::database::information::mc::RecentlyUsed				"Zuletzt geöffnet"
 ::application::database::information::mc::RemoveSelectedDatabase	"Die selektierte Datenbank aus der Historie entfernen"
-::application::database::information::mc::NewsAvailable				"Es sind Neuigkeiten verfügbar"
+::application::database::information::mc::NewsAvailable				"Es sind aktuelle Informationen verfügbar"
 
 ### application::database::games #######################################
 ::application::database::games::mc::Control						"Steuerung"

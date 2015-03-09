@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1029 $
-# Date   : $Date: 2015-03-09 13:11:23 +0000 (Mon, 09 Mar 2015) $
+# Version: $Revision: 1033 $
+# Date   : $Date: 2015-03-09 17:53:44 +0000 (Mon, 09 Mar 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -601,7 +601,7 @@
 ### application::database::information #################################
 ::application::database::information::mc::RecentlyUsed "Recently used" ;# NEW
 ::application::database::information::mc::RemoveSelectedDatabase "Remove selected database from history" ;# NEW
-::application::database::information::mc::NewsAvailable          "There are news available" ;# NEW
+::application::database::information::mc::NewsAvailable          "There are updatednews available" ;# NEW
 
 ### application::database::games #######################################
 ::application::database::games::mc::Control						"Controllo"

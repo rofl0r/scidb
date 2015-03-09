@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author: gcramer $
-# Version: $Revision: 1032 $
-# Date   : $Date: 2015-03-09 17:33:00 +0000 (Mon, 09 Mar 2015) $
+# Version: $Revision: 1033 $
+# Date   : $Date: 2015-03-09 17:53:44 +0000 (Mon, 09 Mar 2015) $
 # Url    : $URL: https://svn.code.sf.net/p/scidb/code/trunk/tcl/app-db-information.tcl $
 # ======================================================================
 
@@ -33,7 +33,7 @@ namespace eval mc {
 
 set RecentlyUsed				"Recently used"
 set RemoveSelectedDatabase	"Remove selected database from history"
-set NewsAvailable				"There are news available"
+set NewsAvailable				"There are updated news available"
 
 }
 
