@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 880 $
-// Date   : $Date: 2013-07-08 21:37:41 +0000 (Mon, 08 Jul 2013) $
+// Version: $Revision: 1034 $
+// Date   : $Date: 2015-03-10 19:04:25 +0000 (Tue, 10 Mar 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -280,7 +280,7 @@ Cursor::index(db::table::Type type, unsigned index, unsigned view) const
 
 
 Database&
-Cursor::database()
+Cursor::getDatabase()
 {
 	if (m_isRefBase)
 		m_cursor.app().stopUpdateTree();
@@ -417,7 +417,7 @@ Cursor::clearBase()
 {
 	M_REQUIRE(!isReadonly());
 
-	database().clear();
+	getDatabase().clear();
 	updateViews();
 }
 

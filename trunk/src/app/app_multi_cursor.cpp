@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 961 $
-// Date   : $Date: 2013-10-06 08:30:53 +0000 (Sun, 06 Oct 2013) $
+// Version: $Revision: 1034 $
+// Date   : $Date: 2015-03-10 19:04:25 +0000 (Tue, 10 Mar 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -165,7 +165,7 @@ MultiCursor::MultiCursor(	Application& app,
 		{
 			if (!m_base->isEmpty(v))
 			{
-				(m_cursor[v] = new Cursor(*this, m_base->database(v)))->database().setReadonly();
+				(m_cursor[v] = new Cursor(*this, m_base->database(v)))->base().setReadonly();
 
 				if (m_leader == 0)
 					m_leader = m_cursor[v];
@@ -179,7 +179,7 @@ MultiCursor::MultiCursor(	Application& app,
 	{
 		m_leader = m_cursor[variant::Index_Normal] =
 			new Cursor(*this, m_base->database(variant::Index_Normal));
-		m_leader->database().setReadonly();
+		m_leader->base().setReadonly();
 	}
 }
 
@@ -286,7 +286,7 @@ MultiCursor::copyGames(	MultiCursor& destination,
 				Cursor& cursor = *m_cursor[v];
 
 				count = cursor.base().copyGames(
-					destination.m_cursor[v]->database(),
+					destination.m_cursor[v]->base(),
 					cursor.view(0).filter(table::Games),
 					cursor.view(0).selector(table::Games),
 					allowedTags,

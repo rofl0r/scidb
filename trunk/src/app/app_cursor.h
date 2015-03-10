@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 957 $
-// Date   : $Date: 2013-09-30 15:11:24 +0000 (Mon, 30 Sep 2013) $
+// Version: $Revision: 1034 $
+// Date   : $Date: 2015-03-10 19:04:25 +0000 (Tue, 10 Mar 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -125,8 +125,10 @@ public:
 
 	/// Return database object.
 	db::Database const& database() const;
-	/// Return database object.
-	db::Database& database();
+	/// Return database object, call signal(stop).
+	db::Database& getDatabase();
+	/// Return database object, do not call signal(stop).
+	db::Database& databaseObject();
 	/// Return default view,
 	View const& view() const;
 	/// Return default view,

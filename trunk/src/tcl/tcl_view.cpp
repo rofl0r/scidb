@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 985 $
-// Date   : $Date: 2013-10-29 14:52:42 +0000 (Tue, 29 Oct 2013) $
+// Version: $Revision: 1034 $
+// Date   : $Date: 2015-03-10 19:04:25 +0000 (Tue, 10 Mar 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -615,13 +615,13 @@ cmdExport(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 	bool				excludeIllegal	= boolFromObj(objc, objv, 8);
 	bool				extraTags		= tcl::view::buildTagSet(ti, CmdExport, objv[9], tagBits);
 
-	Progress			progress(objv[10], objv[11]);
-	tcl::Log			log(objv[12], objv[13]);
-	Cursor&			cursor(scidb->cursor(database, variant));
-	Database&		db(cursor.database());
-	View&				v(cursor.view(view));
-	type::ID			type(db.type());
-	unsigned			illegalRejected(0);
+	Progress				progress(objv[10], objv[11]);
+	tcl::Log				log(objv[12], objv[13]);
+	Cursor&				cursor(scidb->cursor(database, variant));
+	Database const&	db(cursor.database());
+	View&					v(cursor.view(view));
+	type::ID				type(db.type());
+	unsigned				illegalRejected(0);
 
 	if (type == type::PGNFile)
 		type = type::Unspecific;

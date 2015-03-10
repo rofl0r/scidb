@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 985 $
-// Date   : $Date: 2013-10-29 14:52:42 +0000 (Tue, 29 Oct 2013) $
+// Version: $Revision: 1034 $
+// Date   : $Date: 2015-03-10 19:04:25 +0000 (Tue, 10 Mar 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -621,7 +621,7 @@ View::copyGames(	Cursor& destination,
 
 	WriteGuard guard(m_app, destination.database());
 
-	unsigned count = m_cursor.m_db->copyGames(destination.database(),
+	unsigned count = m_cursor.m_db->copyGames(destination.base(),
 															m_filter[table::Games],
 															m_selector[table::Games],
 															allowedTags,

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 957 $
-// Date   : $Date: 2013-09-30 15:11:24 +0000 (Mon, 30 Sep 2013) $
+// Version: $Revision: 1034 $
+// Date   : $Date: 2015-03-10 19:04:25 +0000 (Tue, 10 Mar 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -47,6 +47,15 @@ inline void Cursor::setActive(bool flag)			{ m_isActive = flag; }
 inline
 db::Database const&
 Cursor::database() const
+{
+	M_REQUIRE(isOpen());
+	return *m_db;
+}
+
+
+inline
+db::Database&
+Cursor::databaseObject()
 {
 	M_REQUIRE(isOpen());
 	return *m_db;
