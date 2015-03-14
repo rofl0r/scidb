@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1028 $
-# Date   : $Date: 2015-03-09 13:07:49 +0000 (Mon, 09 Mar 2015) $
+# Version: $Revision: 1035 $
+# Date   : $Date: 2015-03-14 18:46:54 +0000 (Sat, 14 Mar 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -476,7 +476,9 @@ proc WidgetProc {w command args} {
 			}
 			if {$Priv(fittoheight)} {
 				lassign [$w.sub.html bbox] x y wd ht
-				$w.sub configure -height [expr {$ht + 2*$y}]
+				set height [expr {$ht + 2*$y}]
+				$w.sub configure -height $height
+				$w.sub.html configure -height $height
 			}
 			if {$Priv(center)} {
 				update idletasks
@@ -779,7 +781,10 @@ proc Place {w} {
 	set ydelta [expr {max(0, ($height - $htmlHeight)/2)}]
 	if {$ydelta > 0} { set height $htmlHeight }
 	if {$xdelta > 0} { set width $htmlWidth }
-	if {$width < $htmlWidth || $height < $htmlHeight || $width != [$w.html cget -width]} {
+	if {	$width < $htmlWidth
+		|| $height < $htmlHeight
+		|| $width != [$w.html cget -width]
+		|| $height != [$w.html cget -height]} {
 		$w.html configure -forcewidth 0 -width $width -height $height
 	}
 	place $w.html -x $xdelta -y $ydelta

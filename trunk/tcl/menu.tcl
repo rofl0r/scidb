@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1028 $
-# Date   : $Date: 2015-03-09 13:07:49 +0000 (Mon, 09 Mar 2015) $
+# Version: $Revision: 1035 $
+# Date   : $Date: 2015-03-14 18:46:54 +0000 (Sat, 14 Mar 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -526,7 +526,7 @@ proc setupPgnOptions {parent} {
 proc dbNew {parent variant} {
 	variable FileSelBoxInUse
 
-	if {$FileSelBoxInUse} { return }
+	if {$FileSelBoxInUse} { return 0 }
 	set FileSelBoxInUse 1
 
 	set filetypes [list [list $mc::ScidbBases {.sci}]]
@@ -546,16 +546,15 @@ proc dbNew {parent variant} {
 	]
 	set FileSelBoxInUse 0
 
-	if {[llength $result]} {
-		::application::database::newBase $parent $variant {*}$result
-	}
+	if {[llength $result] == 0} { return 0 }
+	return [::application::database::newBase $parent $variant {*}$result]
 }
 
 
 proc dbOpen {parent} {
 	variable FileSelBoxInUse
 
-	if {$FileSelBoxInUse} { return }
+	if {$FileSelBoxInUse} { return 0 }
 	set FileSelBoxInUse 1
 
 #		[list $mc::AllScidbFiles	{.sci .si4 .si3 .cbh .cbf .scv .pgn .pgn.gz .bpgn .bpgn.gz .zip} \
@@ -586,10 +585,10 @@ proc dbOpen {parent} {
 	]
 	set FileSelBoxInUse 0
 
-	if {[llength $result]} {
-		lassign $result file encoding
-		::application::database::openBase $parent $file yes -encoding $encoding
-	}
+	if {[llength $result] == 0} { return 0 }
+
+	lassign $result file encoding
+	return [::application::database::openBase $parent $file yes -encoding $encoding]
 }
 
 

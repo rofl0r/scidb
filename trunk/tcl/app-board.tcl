@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1016 $
-# Date   : $Date: 2015-01-12 18:48:54 +0000 (Mon, 12 Jan 2015) $
+# Version: $Revision: 1035 $
+# Date   : $Date: 2015-03-14 18:46:54 +0000 (Sat, 14 Mar 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -401,6 +401,11 @@ proc activate {w flag} {
 	}
 
 	[namespace parent]::pgn::activate $w $flag
+}
+
+
+proc setActive {flag} {
+	# no action
 }
 
 

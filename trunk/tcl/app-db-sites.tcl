@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1032 $
-# Date   : $Date: 2015-03-09 17:33:00 +0000 (Mon, 09 Mar 2015) $
+# Version: $Revision: 1035 $
+# Date   : $Date: 2015-03-14 18:46:54 +0000 (Sat, 14 Mar 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -119,7 +119,7 @@ proc linespace {parent} {
 }
 
 
-proc setActive {} {
+proc setActive {flag} {
 	# no action
 }
 

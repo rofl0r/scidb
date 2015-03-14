@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 977 $
-# Date   : $Date: 2013-10-19 00:07:38 +0000 (Sat, 19 Oct 2013) $
+# Version: $Revision: 1035 $
+# Date   : $Date: 2015-03-14 18:46:54 +0000 (Sat, 14 Mar 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -93,6 +93,7 @@ set Warning(InvalidRating)							"Invalid rating value"
 set Warning(InvalidNag)								"Invalid NAG"
 set Warning(BraceSeenOutsideComment)			"\"\}\" seen outside a comment in game"
 set Warning(MissingFen)								"Missing FEN (variant tag will be ignored)"
+set Warning(FixedInvalidFen)						"Fixed castle rights in FEN"
 set Warning(UnknownEventType)						"Unknown event type"
 set Warning(UnknownTitle)							"Unknown title (ignored)"
 set Warning(UnknownPlayerType)					"Unknown player type (ignored)"

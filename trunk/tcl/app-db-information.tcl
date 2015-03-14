@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author: gcramer $
-# Version: $Revision: 1033 $
-# Date   : $Date: 2015-03-09 17:53:44 +0000 (Mon, 09 Mar 2015) $
+# Version: $Revision: 1035 $
+# Date   : $Date: 2015-03-14 18:46:54 +0000 (Sat, 14 Mar 2015) $
 # Url    : $URL: https://svn.code.sf.net/p/scidb/code/trunk/tcl/app-db-information.tcl $
 # ======================================================================
 
@@ -46,6 +46,7 @@ array set Priv {
 	lock			0
 	news			""
 	checksum		0
+	stimulated	{}
 }
 
 array set Options {
@@ -239,9 +240,14 @@ proc update {} {
 }
 
 
-proc setActive {} {
+proc setActive {flag} {
 	variable Priv
-	$Priv(html) stimulate
+
+	if {$flag} {
+		$Priv(html) stimulate
+	} elseif {[llength $Priv(stimulated)]} {
+		MouseLeave $Priv(stimulated)
+	}
 }
 
 
@@ -313,10 +319,12 @@ proc MouseEnter {nodes} {
 			}
 			if {[string length $title]} { ::tooltip::show $Priv(html) $title }
 			[$Priv(html) drawable] configure -cursor hand2
+			set Priv(stimulated) $node
 			return
 		} elseif {[string length [$node attribute -default {} href]]} {
 			$node dynamic set hover
 			[$Priv(html) drawable] configure -cursor hand2
+			set Priv(stimulated) $node
 			return
 		}
 	}
@@ -330,14 +338,18 @@ proc MouseLeave {nodes} {
 	::tooltip::hide
 
 	foreach node $nodes {
-		if {[string length [$node attribute -default {} id]]} {
-			foreach n [[$node parent] children] { $n attribute class bases }
-			[$Priv(html) drawable] configure -cursor {}
-			return
-		} elseif {[string length [$node attribute -default {} href]]} {
-			$node dynamic clear hover
-			[$Priv(html) drawable] configure -cursor {}
-			return
+		if {![catch { $node parent }]} {
+			if {[string length [$node attribute -default {} id]]} {
+				foreach n [[$node parent] children] { $n attribute class bases }
+				[$Priv(html) drawable] configure -cursor {}
+				set Priv(stimulated) {}
+				return
+			} elseif {[string length [$node attribute -default {} href]]} {
+				$node dynamic clear hover
+				[$Priv(html) drawable] configure -cursor {}
+				set Priv(stimulated) {}
+				return
+			}
 		}
 	}
 }
@@ -349,16 +361,18 @@ proc Mouse1Down {nodes} {
 	::tooltip::hide
 
 	foreach node $nodes {
-		set id [$node attribute -default {} id]
+		if {![catch { $node parent }]} {
+			set id [$node attribute -default {} id]
 
-		if {[string length $id]} {
-			lassign [lindex [[namespace parent]::recentFiles] $id] type file name encoding readonly
-			[namespace parent]::openBase $Priv(html) $file no \
-				-encoding $encoding \
-				-readonly $readonly \
-				-switchToBase yes \
-				;
-			return
+			if {[string length $id]} {
+				lassign [lindex [[namespace parent]::recentFiles] $id] type file name encoding readonly
+				[namespace parent]::openBase $Priv(html) $file no \
+					-encoding $encoding \
+					-readonly $readonly \
+					-switchToBase yes \
+					;
+				return
+			}
 		}
 	}
 }

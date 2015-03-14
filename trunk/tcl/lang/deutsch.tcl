@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1033 $
-# Date   : $Date: 2015-03-09 17:53:44 +0000 (Mon, 09 Mar 2015) $
+# Version: $Revision: 1035 $
+# Date   : $Date: 2015-03-14 18:46:54 +0000 (Sat, 14 Mar 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -390,6 +390,7 @@
 ::util::photos::mc::Log(updated:N)				"%s Dateien wurden erneuert."
 
 ### application ########################################################
+::application::mc::Information				"&Information"
 ::application::mc::Database					"Datenba&nk"
 ::application::mc::Board						"&Brett"
 ::application::mc::MainMenu					"&Hauptmenü"
@@ -449,6 +450,11 @@
 ::application::board::mc::Accel(trial-mode)			"V"
 ::application::board::mc::Accel(export-game)			"E"
 
+### application::information ###########################################
+::application::information::mc::RecentlyUsed					"Zuletzt geöffnet"
+::application::information::mc::RemoveSelectedDatabase	"Die selektierte Datenbank aus der Historie entfernen"
+::application::information::mc::NewsAvailable				"Es sind aktuelle Informationen verfügbar"
+
 ### application::database ##############################################
 ::application::database::mc::FileOpen							"Datenbank öffnen"
 ::application::database::mc::FileOpenRecent					"Öffne zuvorige"
@@ -465,7 +471,6 @@
 ::application::database::mc::FileStripPGNTags				"PGN-Tags entfernen"
 ::application::database::mc::HelpSwitcher						"Hilfe zum Datenbankumschalter"
 
-::application::database::mc::Information						"&Information"
 ::application::database::mc::Games								"&Partien"
 ::application::database::mc::Players							"Spie&ler"
 ::application::database::mc::Events								"&Turniere"
@@ -595,11 +600,6 @@
 ::application::database::mc::MoveInfo(clockTime)			"Uhrzeit"
 ::application::database::mc::MoveInfo(corrChessSent)		"Korrespondenzschach versendet"
 ::application::database::mc::MoveInfo(videoTime)			"Video-Time"
-
-### application::database::information #################################
-::application::database::information::mc::RecentlyUsed				"Zuletzt geöffnet"
-::application::database::information::mc::RemoveSelectedDatabase	"Die selektierte Datenbank aus der Historie entfernen"
-::application::database::information::mc::NewsAvailable				"Es sind aktuelle Informationen verfügbar"
 
 ### application::database::games #######################################
 ::application::database::games::mc::Control						"Steuerung"
@@ -1609,6 +1609,7 @@
 ::import::mc::Warning(InvalidNag)							"Ungültiges NAG"
 ::import::mc::Warning(BraceSeenOutsideComment)			"\"\}\" ausserhalb eines Partiekommentars (wird ignoriert)"
 ::import::mc::Warning(MissingFen)							"Keine Startposition vorhanden für diese Schach-960/Shuffle-Partie; wird als Standardschach interpretiert"
+::import::mc::Warning(FixedInvalidFen)						"Rochaderechte in FEN wurden korrigiert"
 ::import::mc::Warning(UnknownEventType)					"Unbekannter Ereignistyp"
 ::import::mc::Warning(UnknownTitle)							"Unbekannter Titel (wird ignoriert)"
 ::import::mc::Warning(UnknownPlayerType)					"Unbekannter Spielertyp (wird ignoriert)"

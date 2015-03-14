@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 857 $
-// Date   : $Date: 2013-06-24 23:28:35 +0000 (Mon, 24 Jun 2013) $
+// Version: $Revision: 1035 $
+// Date   : $Date: 2015-03-14 18:46:54 +0000 (Sat, 14 Mar 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -126,6 +126,7 @@ PgnReader::warning(	Warning code,
 		case InvalidNag:							msg = "InvalidNag"; break;
 		case BraceSeenOutsideComment:			msg = "BraceSeenOutsideComment"; break;
 		case MissingFen:							msg = "MissingFen"; break;
+		case FixedInvalidFen:					msg = "FixedInvalidFen"; break;
 		case UnknownEventType:					msg = "UnknownEventType"; break;
 		case UnknownTitle:						msg = "UnknownTitle"; break;
 		case UnknownPlayerType:					msg = "UnknownPlayerType"; break;

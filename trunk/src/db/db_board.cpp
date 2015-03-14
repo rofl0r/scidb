@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1025 $
-// Date   : $Date: 2015-02-23 13:14:03 +0000 (Mon, 23 Feb 2015) $
+// Version: $Revision: 1035 $
+// Date   : $Date: 2015-03-14 18:46:54 +0000 (Sat, 14 Mar 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2656,6 +2656,7 @@ Board::fixBadCastlingRights()
 {
 	// NOTE: usable only for standard chess positions.
 	// NOTE: mainly used to fix bad FEN's from Scid.
+	// NOTE: mainly used to fix bad FEN's from FICS.
 
 	if (m_ksq[White] != e1)
 	{

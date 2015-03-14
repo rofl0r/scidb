@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 961 $
-// Date   : $Date: 2013-10-06 08:30:53 +0000 (Sun, 06 Oct 2013) $
+// Version: $Revision: 1035 $
+// Date   : $Date: 2015-03-14 18:46:54 +0000 (Sat, 14 Mar 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -111,6 +111,7 @@ public:
 		InvalidNag,
 		BraceSeenOutsideComment,
 		MissingFen,
+		FixedInvalidFen,
 		UnknownEventType,
 		UnknownTitle,
 		UnknownPlayerType,
