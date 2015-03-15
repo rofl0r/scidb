@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1040 $
-# Date   : $Date: 2015-03-15 08:33:47 +0000 (Sun, 15 Mar 2015) $
+# Version: $Revision: 1041 $
+# Date   : $Date: 2015-03-15 09:28:50 +0000 (Sun, 15 Mar 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1021,8 +1021,7 @@ proc GenerateEvent {w event nodes} {
 	}
 
 	if {[llength $nodeList] || $emptyNode} {
-		foreach script $Priv($event) {
-		{*}$script $nodeList }
+		foreach script $Priv($event) { {*}$script $nodeList }
 	}
 }
 

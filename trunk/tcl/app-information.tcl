@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author: gcramer $
-# Version: $Revision: 1038 $
-# Date   : $Date: 2015-03-14 23:19:53 +0000 (Sat, 14 Mar 2015) $
+# Version: $Revision: 1041 $
+# Date   : $Date: 2015-03-15 09:28:50 +0000 (Sun, 15 Mar 2015) $
 # Url    : $URL: https://svn.code.sf.net/p/scidb/code/trunk/tcl/app-information.tcl $
 # ======================================================================
 
@@ -215,10 +215,10 @@ proc activate {w flag} {
 	append content "</tr>"
 	append content "</table>"
 
-	append css "h1       { font-size:160%; color:${color-header}; }\n"
-	append css "td.h1    { font-size:160%; color:${color-header}; padding-top:20px; }\n"
-	append css "td.h2    { font-size:160%; color:${color-header}; padding-top:10px; }\n"
-	append css "td.bases { font-size:18px; color:black; background-color:${color-menu}; }\n"
+	append css "h1       { font-size:22px; color:${color-header}; }\n"
+	append css "td.h1    { font-size:22px; color:${color-header}; padding-top:20px; }\n"
+	append css "td.h2    { font-size:22px; color:${color-header}; padding-top:5px; }\n"
+	append css "td.bases { font-size:17px; color:black; background-color:${color-menu}; }\n"
 	append css "td.bases { padding-left:7px; padding-right:7px; }\n"
 	append css "td.left  { padding-right:15px; }\n"
 	append css "td.right { border-left: solid 1px white; padding-left:15px; }\n"
