@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1026 $
-# Date   : $Date: 2015-02-27 13:46:18 +0000 (Fri, 27 Feb 2015) $
+# Version: $Revision: 1039 $
+# Date   : $Date: 2015-03-15 08:11:10 +0000 (Sun, 15 Mar 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -489,8 +489,8 @@ proc activeParents {} {
 	foreach entry [array names Specs activated:*] {
 		set parent [string range $entry 10 end]
 		if {$Specs(activated:$parent)} {
+			set use 0
 			if {[winfo ismapped $parent]} {
-				set use 0
 				foreach dir {top left right bottom} {
 					set tbf [Join $parent __tbf__$dir]
 					if {[info exists Specs(childs:$tbf)]} {
