@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author: gcramer $
-# Version: $Revision: 1042 $
-# Date   : $Date: 2015-03-15 16:49:22 +0000 (Sun, 15 Mar 2015) $
+# Version: $Revision: 1043 $
+# Date   : $Date: 2015-03-15 18:13:58 +0000 (Sun, 15 Mar 2015) $
 # Url    : $URL: https://svn.code.sf.net/p/scidb/code/trunk/tcl/app-information.tcl $
 # ======================================================================
 
@@ -177,11 +177,11 @@ proc activate {w flag} {
 	append content "<table style='white-space:nowrap;'>"
 	append content "<tr>"
 	set lbl [set [namespace parent]::database::mc::FileOpen]
-	append content "<td class='h1'><img src='$::icon::32x32::databaseOpen'/></td>"
+	append content "<td class='h1'><img src='[set ::icon::${size}x${size}::databaseOpen]'/></td>"
 	append content "<td class='h1'>&nbsp;<a href='OPEN'>$lbl</td>"
 	append content "<tr></tr>"
 	set lbl [set [namespace parent]::database::mc::FileNew]
-	append content "<td class='h2'><img src='$::icon::32x32::databaseNew'/></td>"
+	append content "<td class='h2'><img src='[set ::icon::${size}x${size}::databaseNew]'/></td>"
 	append content "<td class='h2'>&nbsp;<a href='OPEN'>$lbl</td>"
 	append content "</tr>"
 	append content "</table>"

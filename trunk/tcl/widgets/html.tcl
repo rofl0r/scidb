@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1041 $
-# Date   : $Date: 2015-03-15 09:28:50 +0000 (Sun, 15 Mar 2015) $
+# Version: $Revision: 1043 $
+# Date   : $Date: 2015-03-15 18:13:58 +0000 (Sun, 15 Mar 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -791,7 +791,6 @@ proc Place {w} {
 	place $w.html -x $xdelta -y $ydelta
 	$w.html xview scroll 0 units
 	$w.html yview scroll 0 units
-	after idle [list [winfo parent $w] stimulate]
 }
 
 
@@ -952,6 +951,8 @@ proc Motion {w x y state} {
 
 
 proc HandleMotion {w nodelist} {
+	if {![winfo exists $w]} { return }
+
 	variable [winfo parent [winfo parent $w]]::HoverNodes
 	variable [winfo parent [winfo parent $w]]::Priv
 
@@ -1214,6 +1215,8 @@ proc SelectionExtend {w x y {node {}}} {
 
 
 proc SelectionContinueMotion {w} {
+	if {![winfo exists $w]} { return }
+
 	variable [winfo parent [winfo parent $w]]::Priv
 
 	set Priv(sel:ignore) 0

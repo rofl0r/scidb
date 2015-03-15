@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 985 $
-# Date   : $Date: 2013-10-29 14:52:42 +0000 (Tue, 29 Oct 2013) $
+# Version: $Revision: 1043 $
+# Date   : $Date: 2015-03-15 18:13:58 +0000 (Sun, 15 Mar 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -362,6 +362,13 @@ proc stripped {var} {
 
 proc stripAmpersand {str} {
 	return [string map {& {}} $str]
+}
+
+
+proc extractAccelerator {str} {
+	set i [string first "&" $str]
+	if {$i == -1} { return "" }
+	return [string index $str [expr {$i + 1}]]
 }
 
 
