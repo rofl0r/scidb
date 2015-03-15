@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 996 $
-# Date   : $Date: 2013-11-02 18:52:29 +0000 (Sat, 02 Nov 2013) $
+# Version: $Revision: 1042 $
+# Date   : $Date: 2015-03-15 16:49:22 +0000 (Sun, 15 Mar 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -801,11 +801,6 @@ proc ConfirmReplaceMove {confirmWindowType extraActions} {
 	if {$Leave < 0} { leaveSquare [expr {-($Leave - 1)}] }
 	set Leave 1
 	after idle [namespace code [list Unlock $action_]]
-
-	if {$action_ eq "trial"} {
-		::game::flipTrialMode
-	}
-
 	return $action_
 }
 

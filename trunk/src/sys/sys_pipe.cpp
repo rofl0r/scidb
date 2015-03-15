@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 1042 $
+// Date   : $Date: 2015-03-15 16:49:22 +0000 (Sun, 15 Mar 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -110,11 +110,11 @@ Pipe::createPipe()
 
 #endif
 
-void
+bool
 Pipe::send(unsigned char c)
 {
 	M_REQUIRE(!isClosed());
-	::write(m_fd[1], &c, 1);
+	return ::write(m_fd[1], &c, 1) == 1;
 }
 
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 991 $
-// Date   : $Date: 2013-10-30 13:32:32 +0000 (Wed, 30 Oct 2013) $
+// Version: $Revision: 1042 $
+// Date   : $Date: 2015-03-15 16:49:22 +0000 (Sun, 15 Mar 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -280,7 +280,7 @@ cmdUpdate(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 	}
 
 	rating::Type ratingType;
-	::db::tree::Mode mode;
+	::db::tree::Mode mode = db::tree::Exact; // satisifies the compiler
 
 	int rc = parseArguments(objc, objv, ratingType, mode);
 
@@ -334,7 +334,7 @@ cmdFinish(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 	}
 
 	rating::Type ratingType;
-	::db::tree::Mode mode;
+	::db::tree::Mode mode = db::tree::Exact; // satisifies the compiler
 
 	int rc = parseArguments(objc, objv, ratingType, mode);
 

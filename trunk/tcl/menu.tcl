@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1040 $
-# Date   : $Date: 2015-03-15 08:33:47 +0000 (Sun, 15 Mar 2015) $
+# Version: $Revision: 1042 $
+# Date   : $Date: 2015-03-15 16:49:22 +0000 (Sun, 15 Mar 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -817,7 +817,7 @@ if {[tk windowingsystem] eq "x11" && [string length [auto_execok xdg-mime]]} {
 		}
 
 		grid rowconfigure $top 0 -minsize $::theme::pady
-		grid columnconfigure $top {0 2 4 6} -minsize $::theme::padx
+		grid columnconfigure $top {0 2 4 6 8} -minsize $::theme::padx
 
 		if {$count == 0} {
 			::widget::dialogButtons $dlg {close}

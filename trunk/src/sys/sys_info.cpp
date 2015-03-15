@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 997 $
-// Date   : $Date: 2013-11-03 09:12:28 +0000 (Sun, 03 Nov 2013) $
+// Version: $Revision: 1042 $
+// Date   : $Date: 2015-03-15 16:49:22 +0000 (Sun, 15 Mar 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -83,7 +83,9 @@ readProcInfo(char const* attr)
 
 	char buf[1024];
 	buf[0] = '\0';
-	::fread(buf, 1, sizeof(buf), proc);
+
+	// suppress compiler warningm we do not expect errors
+	size_t n __attribute__((unused)) = ::fread(buf, 1, sizeof(buf), proc);
 
 	char const* s = ::strstr(buf, attr);
 

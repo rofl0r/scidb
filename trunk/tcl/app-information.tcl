@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author: gcramer $
-# Version: $Revision: 1041 $
-# Date   : $Date: 2015-03-15 09:28:50 +0000 (Sun, 15 Mar 2015) $
+# Version: $Revision: 1042 $
+# Date   : $Date: 2015-03-15 16:49:22 +0000 (Sun, 15 Mar 2015) $
 # Url    : $URL: https://svn.code.sf.net/p/scidb/code/trunk/tcl/app-information.tcl $
 # ======================================================================
 
@@ -131,7 +131,7 @@ proc activate {w flag} {
 	set html $Priv(html)
 	set width [winfo width $w]
 	if {$width <= 1} { set width [winfo reqwidth $w] }
-	set maxWidth [expr {int((920.0*[::font::html::fontSize info])/11.0)}]
+	set maxWidth [expr {int((600.0*[::font::html::fontSize info])/11.0) + 400}]
 	$html configure -fixedwidth [expr {min($maxWidth, $width - 40)}]
 	set recentFiles [[namespace parent]::database::recentFiles]
 	append content "<html><body style='color:${color-color};'>"
@@ -218,7 +218,7 @@ proc activate {w flag} {
 	append css "h1       { font-size:22px; color:${color-header}; }\n"
 	append css "td.h1    { font-size:22px; color:${color-header}; padding-top:20px; }\n"
 	append css "td.h2    { font-size:22px; color:${color-header}; padding-top:5px; }\n"
-	append css "td.bases { font-size:17px; color:black; background-color:${color-menu}; }\n"
+	append css "td.bases { font-size:16px; color:black; background-color:${color-menu}; }\n"
 	append css "td.bases { padding-left:7px; padding-right:7px; }\n"
 	append css "td.left  { padding-right:15px; }\n"
 	append css "td.right { border-left: solid 1px white; padding-left:15px; }\n"
