@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1035 $
-# Date   : $Date: 2015-03-14 18:46:54 +0000 (Sat, 14 Mar 2015) $
+# Version: $Revision: 1040 $
+# Date   : $Date: 2015-03-15 08:33:47 +0000 (Sun, 15 Mar 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -243,6 +243,7 @@ proc build {menu} {
 	::theme::configureRadioEntry $m
 
 	### toolbars #############################################################
+	set activeParents [::toolbar::activeParents]
 	set m [menu $menu.mToolbars]
 	lassign [::tk::UnderlineAmpersand $mc::Toolbars] text ul
 	$menu add cascade \
@@ -251,8 +252,9 @@ proc build {menu} {
 		-underline [incr ul] \
 		-image $::icon::16x16::none \
 		-compound left \
+		-state [expr {[llength $activeParents] ? "normal" : "disabled"}] \
 		;
-	foreach parent [::toolbar::activeParents] {
+	foreach parent $activeParents {
 		::toolbar::addToolbarMenu $m $parent none
 	}
 
