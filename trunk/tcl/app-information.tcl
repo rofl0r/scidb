@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author: gcramer $
-# Version: $Revision: 1043 $
-# Date   : $Date: 2015-03-15 18:13:58 +0000 (Sun, 15 Mar 2015) $
+# Version: $Revision: 1044 $
+# Date   : $Date: 2015-03-16 15:10:42 +0000 (Mon, 16 Mar 2015) $
 # Url    : $URL: https://svn.code.sf.net/p/scidb/code/trunk/tcl/app-information.tcl $
 # ======================================================================
 
@@ -137,12 +137,13 @@ proc activate {w flag} {
 	append content "<html><body style='color:${color-color};'>"
 	append css [::font::html::defaultTextFonts info] \n
 	append css [::font::html::defaultFixedFonts info] \n
-
 	set size 32
 
-	append content "<table cellspacing='0' cellpadding='0' border='0' width='100%'>"
-	append content "<tr>"
-	append content "<td valign='top' class='left'>"
+	if {[string length $Priv(news)] || $Options(welcome)} {
+		append content "<table cellspacing='0' cellpadding='0' border='0' width='100%'>"
+		append content "<tr>"
+		append content "<td valign='top' class='left'>"
+	}
 
 	if {[llength $recentFiles]} {
 		append content "<h1>$mc::RecentlyUsed</h1>"
@@ -211,9 +212,11 @@ proc activate {w flag} {
 		append content $Priv(news)
 	}
 
-	append content "</td>"
-	append content "</tr>"
-	append content "</table>"
+	if {[string length $Priv(news)] || $Options(welcome)} {
+		append content "</td>"
+		append content "</tr>"
+		append content "</table>"
+	}
 
 	append css "h1       { font-size:22px; color:${color-header}; }\n"
 	append css "td.h1    { font-size:22px; color:${color-header}; padding-top:20px; }\n"

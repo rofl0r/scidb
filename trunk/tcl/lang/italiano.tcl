@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1035 $
-# Date   : $Date: 2015-03-14 18:46:54 +0000 (Sat, 14 Mar 2015) $
+# Version: $Revision: 1044 $
+# Date   : $Date: 2015-03-16 15:10:42 +0000 (Mon, 16 Mar 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1463,6 +1463,7 @@
 ::browser::mc::MinimizeBoardSize	"Minimizza dimensione scacchiera"
 ::browser::mc::LoadPrevGame		"Carica partita precedente"
 ::browser::mc::LoadNextGame		"Carica partita successiva"
+::browser::mc::HandicapGame      "Handicap game" ;# NEW
 
 ::browser::mc::GotoGame(first)  	"Vai alla prima partita"
 ::browser::mc::GotoGame(last)   	"Vai all'ultima partita"

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 985 $
-# Date   : $Date: 2013-10-29 14:52:42 +0000 (Tue, 29 Oct 2013) $
+# Version: $Revision: 1044 $
+# Date   : $Date: 2015-03-16 15:10:42 +0000 (Mon, 16 Mar 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -623,7 +623,7 @@ proc setHeight {table height {cmd {}}} {
 		event generate $table <<TableResized>> -data $height
 	}
 
-	select $table $selection
+	catch { select $table $selection }
 }
 
 

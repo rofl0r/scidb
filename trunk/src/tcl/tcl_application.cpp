@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 851 $
-// Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
+// Version: $Revision: 1044 $
+// Date   : $Date: 2015-03-16 15:10:42 +0000 (Mon, 16 Mar 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -238,14 +238,19 @@ cmdLookup(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 		case Cmd_EcoCode:
 			{
 				char const* code = stringFromObj(objc, objv, 2);
-				mstl::string opening[4];
-				Tcl_Obj* objs[4];
+				Tcl_Obj* objs[EcoTable::Num_Name_Parts];
+				unsigned objc = 0;
 
-				EcoTable::specimen(variant::Index_Normal).getOpening(
-					Eco(code), opening[0], opening[1], opening[2], opening[3]);
-				for (unsigned i = 0; i < 4; ++i)
-					objs[i] = Tcl_NewStringObj(opening[i], opening[i].size());
-				setResult(U_NUMBER_OF(objs), objs);
+				EcoTable const& ecoTable = EcoTable::specimen(variant::Index_Normal);
+				EcoTable::Opening const& opening = ecoTable.getOpening(Eco(code));
+
+				objs[objc++] = Tcl_NewStringObj(opening.part[0], opening.part[0].size());
+				objs[objc++] = Tcl_NewStringObj(opening.part[1], opening.part[1].size());
+
+				for ( ; objc < EcoTable::Num_Name_Parts && opening.part[objc].size(); ++objc)
+					objs[objc] = Tcl_NewStringObj(opening.part[objc], opening.part[objc].size());
+
+				setResult(objc, objs);
 			}
 			break;
 

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1035 $
-# Date   : $Date: 2015-03-14 18:46:54 +0000 (Sat, 14 Mar 2015) $
+# Version: $Revision: 1044 $
+# Date   : $Date: 2015-03-16 15:10:42 +0000 (Mon, 16 Mar 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1456,6 +1456,7 @@
 ::browser::mc::MinimizeBoardSize	"Minimizar el tamaño del tablero"
 ::browser::mc::LoadPrevGame		"Load previous game" ;# NEW
 ::browser::mc::LoadNextGame		"Load next game" ;# NEW
+::browser::mc::HandicapGame      "Handicap game" ;# NEW
 
 ::browser::mc::GotoGame(first)	"Ir a la primera partida"
 ::browser::mc::GotoGame(last)		"Ir a la última partida"

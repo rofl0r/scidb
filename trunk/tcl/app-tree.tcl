@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 983 $
-# Date   : $Date: 2013-10-21 21:48:22 +0000 (Mon, 21 Oct 2013) $
+# Version: $Revision: 1044 $
+# Date   : $Date: 2015-03-16 15:10:42 +0000 (Mon, 16 Mar 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -809,15 +809,12 @@ proc VisitItem {table data} {
 			}
 
 			eco {
-				lassign [::scidb::app::lookup ecoCode $value] long short var subvar
-				if {[string length $var] || [string length $subvar]} {
+				set opening [::scidb::app::lookup ecoCode $value]
+				lassign $opening long short
+				set vars [lrange $opening 2 end]
+				if {[llength $vars]} {
 					set item [::mc::translateEco $short]
-					append item ", "
-					append item [::mc::translateEco $var]
-					if {[string length $subvar]} {
-						append item ", "
-						append item [::mc::translateEco $subvar]
-					}
+					foreach var $vars { append item ", " [::mc::translateEco $var] }
 				} else {
 					set item [::mc::translateEco $long]
 				}

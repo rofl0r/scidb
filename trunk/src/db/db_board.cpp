@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1035 $
-// Date   : $Date: 2015-03-14 18:46:54 +0000 (Sat, 14 Mar 2015) $
+// Version: $Revision: 1044 $
+// Date   : $Date: 2015-03-16 15:10:42 +0000 (Mon, 16 Mar 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -6956,6 +6956,40 @@ Board::toFen(variant::Type variant, Format format) const
 {
 	mstl::string fen;
 	return toFen(fen, variant, format);
+}
+
+
+Square
+Board::handicap() const
+{
+	Square square = sq::Null;
+
+	for (unsigned i = 0; i < 2; ++i)
+	{
+		Square from	= i == 0 ? sq::a1 : sq::a7;
+		Square to	= i == 0 ? sq::h2 : sq::h8;
+
+		for (Square sq = from; sq <= to; ++sq)
+		{
+			piece::ID piece = pieceAt(sq);
+
+			if (piece == piece::Empty)
+			{
+				if (square != sq::Null)
+					return sq::Null;
+
+				square = sq;
+			}
+		}
+	}
+
+	Board board(*this);
+	board.setAt(square, m_standardBoard.pieceAt(square), variant::Normal);
+
+	if (!board.isStandardPosition(variant::Normal))
+		square = sq::Null;
+
+	return square;
 }
 
 

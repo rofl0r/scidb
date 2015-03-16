@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 997 $
-// Date   : $Date: 2013-11-03 09:12:28 +0000 (Sun, 03 Nov 2013) $
+// Version: $Revision: 1044 $
+// Date   : $Date: 2015-03-16 15:10:42 +0000 (Mon, 16 Mar 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -368,6 +368,8 @@ public:
 	piece::ID pieceAt(Square s) const;
 	/// Return piece type sitting at given square on the board (None if Null is given)
 	piece::Type piece(Square s) const;
+	/// Return target of handicap, or Null if this is not a handicap start position
+	Square handicap() const;
 	/// Return color at given square on the board
 	color::ID color(Square s) const;
 	/// Return square where en passant capture may occur, or null square

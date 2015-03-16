@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1035 $
-// Date   : $Date: 2015-03-14 18:46:54 +0000 (Sat, 14 Mar 2015) $
+// Version: $Revision: 1044 $
+// Date   : $Date: 2015-03-16 15:10:42 +0000 (Mon, 16 Mar 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2172,7 +2172,7 @@ PgnReader::checkFen()
 		}
 		else if (m_eco)
 		{
-			if (EcoTable::specimen(variant::Normal).getEco(board) == m_eco)
+			if (EcoTable::specimen(variant::Index_Normal).getEco(board) == m_eco)
 			{
 				m_idn = variant::Standard;
 				m_tags.remove(SetUp);
@@ -2194,7 +2194,7 @@ PgnReader::setupEcoPosition()
 	M_ASSERT(m_variant = variant::Normal);
 
 	Board const&	board	= consumer().board();
-	Line const&		line	= EcoTable::specimen(variant::Normal).getLine(m_eco);
+	Line const&		line	= EcoTable::specimen(variant::Index_Normal).getLine(m_eco);
 
 	for (unsigned i = 0; i < line.length; ++i)
 	{

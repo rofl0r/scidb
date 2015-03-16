@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1009 $
-// Date   : $Date: 2014-10-11 15:05:49 +0000 (Sat, 11 Oct 2014) $
+// Version: $Revision: 1044 $
+// Date   : $Date: 2015-03-16 15:10:42 +0000 (Mon, 16 Mar 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1108,16 +1108,16 @@ cmdLookup(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 	{
 		::db::Eco eco(stringFromObj(objc, objv, 2));
 		::db::variant::Type variant = tcl::game::variantFromObj(objectFromObj(objc, objv, 3));
-		mstl::string opening, shortOpening, variation, subVariation;
-		::db::EcoTable::specimen(variant).getOpening(
-			eco, opening, shortOpening, variation, subVariation);
+		::db::EcoTable::Opening const& opening = ::db::EcoTable::specimen(variant).getOpening(eco);
+		Tcl_Obj* objs[::db::EcoTable::Num_Name_Parts];
+		unsigned objc = 0;
 
-		Tcl_Obj* objs[4];
-		objs[0] = Tcl_NewStringObj(opening, opening.size());
-		objs[1] = Tcl_NewStringObj(shortOpening, shortOpening.size());
-		objs[2] = Tcl_NewStringObj(variation, variation.size());
-		objs[3] = Tcl_NewStringObj(subVariation, subVariation.size());
-		setResult(U_NUMBER_OF(objs), objs);
+		objs[objc++] = Tcl_NewStringObj(opening.part[0], opening.part[0].size());
+		objs[objc++] = Tcl_NewStringObj(opening.part[1], opening.part[1].size());
+
+		for ( ; objc < ::db::EcoTable::Num_Name_Parts; ++objc)
+			objs[objc] = Tcl_NewStringObj(opening.part[objc], opening.part[objc].size());
+		setResult(objc, objs);
 	}
 
 	return TCL_OK;

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1043 $
-# Date   : $Date: 2015-03-15 18:13:58 +0000 (Sun, 15 Mar 2015) $
+# Version: $Revision: 1044 $
+# Date   : $Date: 2015-03-16 15:10:42 +0000 (Mon, 16 Mar 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -686,6 +686,10 @@ proc WidgetProc {w command args} {
 			if {[info exists opts(-fixedwidth)]} {
 				set Priv(fixedwidth) $opts(-fixedwidth)
 				array unset opts -fixedwidth
+			}
+			if {[info exists opts(-fittowidth)]} {
+				set Priv(fittowidth) $opts(-fittowidth)
+				array unset opts -fittowidth
 			}
 			set args {}
 			foreach {attr value} [array get opts] {
