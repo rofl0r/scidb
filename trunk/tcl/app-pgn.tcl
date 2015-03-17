@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1045 $
-# Date   : $Date: 2015-03-17 12:16:27 +0000 (Tue, 17 Mar 2015) $
+# Version: $Revision: 1047 $
+# Date   : $Date: 2015-03-17 22:30:16 +0000 (Tue, 17 Mar 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1060,7 +1060,6 @@ proc DoLayout {position data {context editor} {w {}}} {
 			}
 
 			languages {
-puts "languages: '[lindex $node 1]'"
 				UpdateLanguages $position [lindex $node 1]
 			}
 
