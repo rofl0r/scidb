@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1009 $
-# Date   : $Date: 2014-10-11 15:05:49 +0000 (Sat, 11 Oct 2014) $
+# Version: $Revision: 1046 $
+# Date   : $Date: 2015-03-17 22:14:12 +0000 (Tue, 17 Mar 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -3052,7 +3052,7 @@ proc CheckFields {top title fields} {
 					}
 
 					if {[llength $error] == 0} {
-						set Tags($tagName) [TruncateValue $top $tag $value]
+						set Tags($tag) [TruncateValue $top $tag $value]
 					}
 				}
 
