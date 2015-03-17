@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 924 $
-# Date   : $Date: 2013-08-08 15:00:04 +0000 (Thu, 08 Aug 2013) $
+# Version: $Revision: 1045 $
+# Date   : $Date: 2015-03-17 12:16:27 +0000 (Tue, 17 Mar 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -121,6 +121,7 @@ set Encoding				"Encoding"
 set Description			"Description"
 set Languages				"Languages (Fonts)"
 set UseAutoDetection		"Use Auto-Detection"
+set AllLanguages			"All Languages"
 
 set ChooseEncodingTitle	"Choose Encoding"
 
@@ -390,6 +391,7 @@ proc select {path encoding} {
 proc languageName {lang} {
 	variable Lang
 
+	if {$lang eq "xx"} { return $mc::AllLanguages }
 	if {[info exists mc::Lang($lang)]} { return $mc::Lang($lang) }
 	return $lang
 }

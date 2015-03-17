@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1044 $
-# Date   : $Date: 2015-03-16 15:10:42 +0000 (Mon, 16 Mar 2015) $
+# Version: $Revision: 1045 $
+# Date   : $Date: 2015-03-17 12:16:27 +0000 (Tue, 17 Mar 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -650,6 +650,7 @@
 ::application::pgn::mc::Command(strip:info)				"Drag information"
 ::application::pgn::mc::Command(strip:marks)				"Markering"
 ::application::pgn::mc::Command(strip:comments)			"Kommentarer"
+::application::pgn::mc::Command(strip:language)       "Language" ;# NEW
 ::application::pgn::mc::Command(strip:variations)		"Varianter"
 ::application::pgn::mc::Command(copy:comments)			"Kopiera kommentarer"
 ::application::pgn::mc::Command(move:comments)			"Flytta kommentarer"
@@ -1488,6 +1489,7 @@
 ::encoding::mc::Description			"Beskriving"
 ::encoding::mc::Languages				"Språk (fonter)"
 ::encoding::mc::UseAutoDetection		"Use Auto-Detection"
+::encoding::mc::AllLanguages			"Alla språk"
 
 ::encoding::mc::ChooseEncodingTitle	"Välj kodning"
 
@@ -1698,7 +1700,6 @@
 ::export::mc::IncludeAllTags				"Markera allt"
 ::export::mc::ExtraTags						"Alla andra extra taggar"
 ::export::mc::NoComments					"Ingen kommentar"
-::export::mc::AllLanguages					"Alla språk"
 ::export::mc::Significant					"Signifikant"
 ::export::mc::LanguageSelection			"Val av språk"
 ::export::mc::MapTo							"Avbilda till"

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1044 $
-# Date   : $Date: 2015-03-16 15:10:42 +0000 (Mon, 16 Mar 2015) $
+# Version: $Revision: 1045 $
+# Date   : $Date: 2015-03-17 12:16:27 +0000 (Tue, 17 Mar 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -651,6 +651,7 @@
 ::application::pgn::mc::Command(strip:info)				"Informazioni Mossa"
 ::application::pgn::mc::Command(strip:marks)				"Codici"
 ::application::pgn::mc::Command(strip:comments)			"Commenti"
+::application::pgn::mc::Command(strip:language)       "Language" ;# NEW
 ::application::pgn::mc::Command(strip:variations)		"Varianti"
 ::application::pgn::mc::Command(copy:comments)			"Copia Commenti"
 ::application::pgn::mc::Command(move:comments)			"Muovi Commenti"
@@ -1489,6 +1490,7 @@
 ::encoding::mc::Description			"Descrizione"
 ::encoding::mc::Languages				"Lingue (Fonts)"
 ::encoding::mc::UseAutoDetection		"Usa rilevazione automatica"
+::encoding::mc::AllLanguages			"Tutte le lingue"
 
 ::encoding::mc::ChooseEncodingTitle	"Scegli codifica"
 
@@ -1699,7 +1701,6 @@
 ::export::mc::IncludeAllTags				"Includi tutti i tag"
 ::export::mc::ExtraTags						"Tutti gli altri tag"
 ::export::mc::NoComments					"Nessun commento"
-::export::mc::AllLanguages					"Tutte le lingue"
 ::export::mc::Significant					"Significativo"
 ::export::mc::LanguageSelection			"Selezione Lingua"
 ::export::mc::MapTo							"Mappa NAG a" ;# (map to)

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1044 $
-// Date   : $Date: 2015-03-16 15:10:42 +0000 (Mon, 16 Mar 2015) $
+// Version: $Revision: 1045 $
+// Date   : $Date: 2015-03-17 12:16:27 +0000 (Tue, 17 Mar 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -567,10 +567,7 @@ public:
 		Tcl_Obj** p(&objv_1[0]);
 
 		for (LanguageSet::const_iterator i = languages.begin(), e = languages.end(); i != e; ++i)
-		{
-			if (!i->first.empty())
-				*p++ = Tcl_NewStringObj(i->first, i->first.size());
-		}
+			*p++ = Tcl_NewStringObj(i->first, i->first.size());
 
 		Tcl_Obj* objv_2[2];
 

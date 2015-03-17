@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 938 $
-# Date   : $Date: 2013-09-16 21:44:49 +0000 (Mon, 16 Sep 2013) $
+# Version: $Revision: 1045 $
+# Date   : $Date: 2015-03-17 12:16:27 +0000 (Tue, 17 Mar 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -166,6 +166,8 @@ proc Build {w args} {
 
 
 proc WidgetProc {w command args} {
+	if {![winfo exists $w]} { return }
+
 	switch -- $command {
 		listinsert {
 			return [$w.popdown.l insert {*}$args]
@@ -468,6 +470,8 @@ proc Unposted {w focus} {
 
 
 proc PlaceIcon {w icon} {
+	if {![winfo exists $w]} { return }
+
 	update idletasks
 	$w placeicon $icon
 	bind $w <Map> {#}

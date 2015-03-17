@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1044 $
-# Date   : $Date: 2015-03-16 15:10:42 +0000 (Mon, 16 Mar 2015) $
+# Version: $Revision: 1045 $
+# Date   : $Date: 2015-03-17 12:16:27 +0000 (Tue, 17 Mar 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -651,6 +651,7 @@
 ::application::pgn::mc::Command(strip:info)				"Lépés információ"
 ::application::pgn::mc::Command(strip:marks)				"Jelölések"
 ::application::pgn::mc::Command(strip:comments)			"Megjegyzések"
+::application::pgn::mc::Command(strip:language)       "Language" ;# NEW
 ::application::pgn::mc::Command(strip:variations)		"Változatok"
 ::application::pgn::mc::Command(copy:comments)			"Megjegyzések másolása"
 ::application::pgn::mc::Command(move:comments)			"Megjegyzések áthelyezése"
@@ -1487,7 +1488,8 @@
 ::encoding::mc::Encoding		"Kódolás"
 ::encoding::mc::Description		"Leírás"
 ::encoding::mc::Languages		"Nyelvek (Betűtípusok)"
-::encoding::mc::UseAutoDetection		"Automatikus felismerés használata"
+::encoding::mc::UseAutoDetection	"Automatikus felismerés használata"
+::encoding::mc::AllLanguages		"Minden nyelv"
 
 ::encoding::mc::ChooseEncodingTitle	"Kódolás válastása"
 
@@ -1698,7 +1700,6 @@
 ::export::mc::IncludeAllTags				"Minden cimke kiválasztása"
 ::export::mc::ExtraTags						"Minden más további cimkék"
 ::export::mc::NoComments					"No comments" ;# NEW
-::export::mc::AllLanguages					"Minden nyelv"
 ::export::mc::Significant					"Jelentős"
 ::export::mc::LanguageSelection			"Nyelv választás"
 ::export::mc::MapTo							"Map to" ;# NEW
