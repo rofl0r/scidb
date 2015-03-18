@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1049 $
-# Date   : $Date: 2015-03-18 18:19:33 +0000 (Wed, 18 Mar 2015) $
+# Version: $Revision: 1051 $
+# Date   : $Date: 2015-03-18 23:25:34 +0000 (Wed, 18 Mar 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1038,7 +1038,6 @@ proc EnterNode {id} {
 			$node hilite [::colors::lookup $Colors(highlighted)]
 		}
 		incr Highlighted($node)
-if {$Highlighted($node) > 1} { puts "---------> $node: $Highlighted($node)" }
 	}
 }
 
@@ -1374,7 +1373,7 @@ proc ApplyFont {dlg} {
 	variable ${dlg}::Vars
 
 	$Vars(html) css [DefaultCSS]
-	$Vars(html) fontsize $size
+	$Vars(html) fontsize [::font::html::fontSize crosstable]
 	$Vars(html) parse $Vars(output:html)
 }
 

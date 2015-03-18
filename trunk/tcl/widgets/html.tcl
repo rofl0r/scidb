@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1049 $
-# Date   : $Date: 2015-03-18 18:19:33 +0000 (Wed, 18 Mar 2015) $
+# Version: $Revision: 1051 $
+# Date   : $Date: 2015-03-18 23:25:34 +0000 (Wed, 18 Mar 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -962,18 +962,20 @@ proc HandleMotion {w nodelist} {
 	set events(onmouseover) {}
 
 	foreach node $nodelist {
-		if {[string length [$node tag]] == 0} { set node [$node parent] }
+		if {![catch { set tag [$node tag] }]} {
+			if {[string length $tag] == 0} { set node [$node parent] }
 
-		for {set n $node} {[string length $n] > 0} {set n [$n parent]} {
-			if {[info exists hoverNodes($n)]} { break }
+			for {set n $node} {[string length $n] > 0} {set n [$n parent]} {
+				if {[info exists hoverNodes($n)]} { break }
 
-			if {[info exists HoverNodes($n)]} {
-				array unset HoverNodes $n
-			} else {
-				lappend events(onmouseover) $n
+				if {[info exists HoverNodes($n)]} {
+					array unset HoverNodes $n
+				} else {
+					lappend events(onmouseover) $n
+				}
+
+				set hoverNodes($n) 1
 			}
-
-			set hoverNodes($n) 1
 		}
 	}
 
