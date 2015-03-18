@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1048 $
-# Date   : $Date: 2015-03-18 17:31:45 +0000 (Wed, 18 Mar 2015) $
+# Version: $Revision: 1049 $
+# Date   : $Date: 2015-03-18 18:19:33 +0000 (Wed, 18 Mar 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -915,7 +915,7 @@ proc Destroy {dlg w unsubscribe} {
 }
 
 
-proc Open {dlg which gameIndex {stimulate 0}} {
+proc Open {dlg which gameIndex} {
 	variable ${dlg}::Vars
 
 	Tooltip $dlg hide
@@ -933,10 +933,6 @@ proc Open {dlg which gameIndex {stimulate 0}} {
 		set info [::scidb::db::get gameInfo $index $viewId $base $variant]
 		set Vars(${which}Id) [::widget::busyOperation \
 			[list ::${which}::load $path $base $variant $info $viewId $index $Vars(${which}Id)]]
-	}
-
-	if {$stimulate} {
-		after idle [list $Vars(html) stimulate]
 	}
 }
 
@@ -1103,8 +1099,8 @@ proc Mouse1Down {dlg nodes} {
 	foreach node $nodes {
 		set gameIndex [$node attribute -default {} game]
 		if {[string length $gameIndex]} {
-			after idle [namespace code [list Open $dlg browser $gameIndex 1]]
 			::tooltip::hide
+			Open $dlg browser $gameIndex
 		}
 
 		# don't use because Button-1 is used for highlighting
