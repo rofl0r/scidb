@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1045 $
-# Date   : $Date: 2015-03-17 12:16:27 +0000 (Tue, 17 Mar 2015) $
+# Version: $Revision: 1048 $
+# Date   : $Date: 2015-03-18 17:31:45 +0000 (Wed, 18 Mar 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -2287,32 +2287,33 @@
 ::colormenu::mc::Close				"Bezár"
 
 ### table ##############################################################
-::table::mc::Ok							"&Ok"
-::table::mc::Cancel						"&Mégse"
-::table::mc::Column						"Oszlop"
-::table::mc::Table						"Tábla"
-::table::mc::Configure					"Beállítás"
-::table::mc::Hide							"Elrejt"
-::table::mc::ShowColumn					"Oszlopok mutatása"
-::table::mc::Foreground					"Előtér"
-::table::mc::Background					"Háttér"
+::table::mc::Ok				"&Ok"
+::table::mc::Cancel			"&Mégse"
+::table::mc::Column			"Oszlop"
+::table::mc::Table			"Tábla"
+::table::mc::Configure			"Beállítás"
+::table::mc::Hide			"Elrejt"
+::table::mc::ShowColumn			"Oszlopok mutatása"
+::table::mc::Foreground			"Előtér"
+::table::mc::Background			"Háttér"
 ::table::mc::DisabledForeground		"Előtér letiltása"
-::table::mc::SelectionForeground		"Előtér kiválasztása"
-::table::mc::SelectionBackground		"Háttér kiválasztása"
-::table::mc::HighlightColor			"Háttér kijelölése"
-::table::mc::Stripes				"Csíkok"
-::table::mc::MinWidth				"Minimális szélesség"
-::table::mc::MaxWidth					"Maximális szélesség"
-::table::mc::Separator					"Elválasztó"
+::table::mc::SelectionForeground	"Előtér kiválasztása"
+::table::mc::SelectionBackground	"Háttér kiválasztása"
+::table::mc::HighlightColor		"Háttér kijelölése"
+::table::mc::Stripes			"Csíkok"
+::table::mc::MinWidth			"Minimális szélesség"
+::table::mc::MaxWidth			"Maximális szélesség"
+::table::mc::Separator			"Elválasztó"
 ::table::mc::AutoStretchColumn		"Oszlop automatikus méretezése"
-::table::mc::FillColumn					"- Oszlop kitöltése -"
-::table::mc::Preview						"Előnézet"
-::table::mc::OptimizeColumn			"Oszlopszélesség optimalizálása"
-::table::mc::OptimizeColumns			"Minden oszlop optimalizálása"
-::table::mc::FitColumnWidth			"Fit column width"
-::table::mc::FitColumns				"Fit all columns"
-::table::mc::ExpandColumn			"Oszlopszélesség növelése"
-::table::mc::SqueezeColumns			"Oszlopszélesség csökkentése (Squeeze)"
+::table::mc::FillColumn			"- Oszlop kitöltése -"
+::table::mc::Preview			"Előnézet"
+::table::mc::OptimizeColumn		"Oszlopszélesség optimalizálása"
+::table::mc::OptimizeColumns		"Minden oszlop optimalizálása"
+::table::mc::FitColumnWidth		"Fit column width"
+::table::mc::FitColumns			"Fit all columns"
+::table::mc::ExpandColumn		"Oszlopszélesség növelése"
+::table::mc::ShrinkColumn		"Shrink column width" ;# NEW
+::table::mc::SqueezeColumns		"Oszlopszélesség csökkentése (Squeeze)"
 ::table::mc::AccelFitColumns			"Ctrl+,"
 ::table::mc::AccelOptimizeColumns		"Ctrl+."
 ::table::mc::AccelSqueezeColumns		"Ctrl+#"

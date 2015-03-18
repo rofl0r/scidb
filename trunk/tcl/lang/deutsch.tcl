@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1045 $
-# Date   : $Date: 2015-03-17 12:16:27 +0000 (Tue, 17 Mar 2015) $
+# Version: $Revision: 1048 $
+# Date   : $Date: 2015-03-18 17:31:45 +0000 (Wed, 18 Mar 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -2300,6 +2300,7 @@
 ::table::mc::FitColumnWidth			"Spaltenbreite anpassen"
 ::table::mc::FitColumns					"Alle Spalten anpassen"
 ::table::mc::ExpandColumn				"Spaltenbreite expandieren"
+::table::mc::ShrinkColumn				"Spaltenbreite verdichten"
 ::table::mc::SqueezeColumns			"Alle Spalten verdichten"
 ::table::mc::AccelFitColumns			"Strg-,"
 ::table::mc::AccelOptimizeColumns	"Strg-."

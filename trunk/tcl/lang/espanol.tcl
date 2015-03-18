@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1045 $
-# Date   : $Date: 2015-03-17 12:16:27 +0000 (Tue, 17 Mar 2015) $
+# Version: $Revision: 1048 $
+# Date   : $Date: 2015-03-18 17:31:45 +0000 (Wed, 18 Mar 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -2307,6 +2307,7 @@
 ::table::mc::FitColumnWidth			"Ajustar el ancho de columna"
 ::table::mc::FitColumns					"Ajustar todas las columnas"
 ::table::mc::ExpandColumn				"Expandir el ancho de columna"
+::table::mc::ShrinkColumn				"Shrink column width" ;# NEW
 ::table::mc::SqueezeColumns			"Comprimir todas las columnas"
 ::table::mc::AccelFitColumns			"Ctrl+,"
 ::table::mc::AccelOptimizeColumns	"Ctrl+."

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author: gcramer $
-# Version: $Revision: 1044 $
-# Date   : $Date: 2015-03-16 15:10:42 +0000 (Mon, 16 Mar 2015) $
+# Version: $Revision: 1048 $
+# Date   : $Date: 2015-03-18 17:31:45 +0000 (Wed, 18 Mar 2015) $
 # Url    : $URL: https://svn.code.sf.net/p/scidb/code/trunk/tcl/app-information.tcl $
 # ======================================================================
 
@@ -391,19 +391,6 @@ proc Mouse1Down {nodes} {
 
 	foreach node $nodes {
 		if {![catch { $node parent }]} {
-			set id [$node attribute -default {} id]
-
-			if {[string length $id]} {
-				lassign [lindex [[namespace parent]::database::recentFiles] $id] \
-					type file name encoding readonly
-				[namespace parent]::database::openBase $Priv(html) $file no \
-					-encoding $encoding \
-					-readonly $readonly \
-					-switchToBase yes \
-					;
-				return
-			}
-
 			set cmd {}
 
 			switch [$node attribute -default {} href] {
@@ -423,6 +410,20 @@ proc Mouse1Up {nodes} {
 	variable Priv
 
 	foreach node $nodes {
+		set id [$node attribute -default {} id]
+
+		# NOTE: we must use mouse up because the progress window is grabbing the mouse
+		if {[string length $id]} {
+			lassign [lindex [[namespace parent]::database::recentFiles] $id] \
+				type file name encoding readonly
+			[namespace parent]::database::openBase $Priv(html) $file no \
+				-encoding $encoding \
+				-readonly $readonly \
+				-switchToBase yes \
+				;
+			return
+		}
+
 		set href [$node attribute -default {} href]
 
 		if {[string match http* $href]} {
