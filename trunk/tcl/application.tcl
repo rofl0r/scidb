@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1035 $
-# Date   : $Date: 2015-03-14 18:46:54 +0000 (Sat, 14 Mar 2015) $
+# Version: $Revision: 1052 $
+# Date   : $Date: 2015-03-19 19:57:44 +0000 (Thu, 19 Mar 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -29,6 +29,7 @@
 namespace eval application {
 namespace eval mc {
 
+set Information				"&Information"
 set Database					"&Database"
 set Board						"&Board"
 set MainMenu					"&Main Menu"
