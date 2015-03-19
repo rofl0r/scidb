@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1052 $
-// Date   : $Date: 2015-03-19 19:57:44 +0000 (Thu, 19 Mar 2015) $
+// Version: $Revision: 1053 $
+// Date   : $Date: 2015-03-19 22:19:26 +0000 (Thu, 19 Mar 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1010,7 +1010,7 @@ PgnReader::process(Progress& progress)
 						break;
 
 					default:
-						sendError(UnexpectedEndOfGame, m_currPos);
+						sendError(UnexpectedSymbol, m_currPos);
 						break;
 				}
 
