@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author: gcramer $
-# Version: $Revision: 1032 $
-# Date   : $Date: 2015-03-09 17:33:00 +0000 (Mon, 09 Mar 2015) $
+# Version: $Revision: 1055 $
+# Date   : $Date: 2015-03-25 07:45:42 +0000 (Wed, 25 Mar 2015) $
 # Url    : $URL: https://svn.code.sf.net/p/scidb/code/trunk/tcl/colors.tcl $
 # ======================================================================
 
@@ -242,7 +242,7 @@ array set Colors {
 	dark:gamehistory,hilite					#dce4e5
 	dark:fsbox,activebackground			#dce4e5
 	dark:switcher,background				#dce4e5
-	lite:switcher,hidden:background		#dce4e5
+	dark:switcher,hidden:background		#dce4e5
 }
 # mapped from #dce4e5
 array set Colors {
