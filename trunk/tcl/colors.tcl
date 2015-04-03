@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author: gcramer $
-# Version: $Revision: 1055 $
-# Date   : $Date: 2015-03-25 07:45:42 +0000 (Wed, 25 Mar 2015) $
+# Version: $Revision: 1056 $
+# Date   : $Date: 2015-04-03 17:33:31 +0000 (Fri, 03 Apr 2015) $
 # Url    : $URL: https://svn.code.sf.net/p/scidb/code/trunk/tcl/colors.tcl $
 # ======================================================================
 
@@ -28,6 +28,7 @@ namespace eval colors {
 
 array set Colors {
 	lite:pgn,background						#ffffff
+	lite:pgn,foreground:main				#000000
 	lite:pgn,foreground:variation			#0000ee
 	lite:pgn,foreground:bracket			#0000ee
 	lite:pgn,foreground:numbering			#aa0acd

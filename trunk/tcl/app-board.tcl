@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1035 $
-# Date   : $Date: 2015-03-14 18:46:54 +0000 (Sat, 14 Mar 2015) $
+# Version: $Revision: 1056 $
+# Date   : $Date: 2015-04-03 17:33:31 +0000 (Fri, 03 Apr 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -186,13 +186,13 @@ proc build {w width height} {
 							-hide 1 \
 							-id board-control \
 							-tooltipvar [namespace current]::mc::Control \
-							-orientation bottom \
+							-side bottom \
 							-alignment center]
 	set tbGame		[::toolbar::toolbar $w \
 							-hide 1 \
 							-id board-game \
 							-tooltipvar [namespace current]::mc::Game \
-							-orientation top \
+							-side top \
 						]
 
 	set main [winfo parent $w]
