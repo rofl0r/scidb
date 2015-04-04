@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1051 $
-# Date   : $Date: 2015-03-18 23:25:34 +0000 (Wed, 18 Mar 2015) $
+# Version: $Revision: 1057 $
+# Date   : $Date: 2015-04-04 07:29:59 +0000 (Sat, 04 Apr 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -118,13 +118,14 @@ proc formatUrl {url} {
 
 proc defaultCSS {monoFamilies textFamilies} {
 	append css \n
-	append css ":link    { color: blue2; text-decoration: none; }" \n
-	append css ":visited { color: purple; text-decoration: none; }" \n
-	append css ":user    { color: blue2; text-decoration: none; }   /* http link */" \n
-	append css ":user2   { color: purple; text-decoration: none; }  /* http visited */" \n
-	append css ":user3   { color: black; text-decoration: none; }   /* invalid link */" \n
-	append css ":hover   { text-decoration: underline; background: yellow; }" \n
-	append css ".match   { background: yellow; color: black; }" \n
+	append css ":link    { color: blue2; text-decoration: none; }\n"
+	append css ":visited { color: purple; text-decoration: none; }\n"
+	append css ":user    { color: blue2; text-decoration: none; }   /* http link */\n"
+	append css ":user2   { color: purple; text-decoration: none; }  /* http visited */\n"
+	append css ":user3   { color: black; text-decoration: none; }   /* invalid link */\n"
+	append css ":hover   { text-decoration: underline; background: yellow; }\n"
+	append css ".match   { background: yellow; color: black; }\n"
+	append css "body     { color: black; }\n"
 	append css [monoStyle $monoFamilies] \n
 	append css [textStyle $textFamilies] \n
 	return $css
