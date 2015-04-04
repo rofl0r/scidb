@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1057 $
-# Date   : $Date: 2015-04-04 07:29:59 +0000 (Sat, 04 Apr 2015) $
+# Version: $Revision: 1058 $
+# Date   : $Date: 2015-04-04 08:39:58 +0000 (Sat, 04 Apr 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -624,16 +624,35 @@ option add *Text.background white
 option add *Text.foreground black
 #option add *Text.selectBackground #678db2
 
+option add *Label.foreground black
+option add *Labelframe.foreground black
+
 option add *Button.foreground black
 option add *Button.highlightThickness 0
 
+option add *Radiobutton.foreground black
+option add *Checkbutton.foreground black
+option add *Menubutton.foreground black
+
 option add *Canvas.highlightThickness 0
 
+option add *Scale.foreground black
+
 option add *TreeCtrl.highlightThickness 0
+option add *TreeCtrl.foreground black
+
+option add *TButton.foreground black
+option add *TRadiobutton.foreground black
+option add *TCheckbutton.foreground black
+option add *TMenubutton.foreground black
+option add *TLabel.foreground black
+option add *TScale.foreground black
+option add *TNotebook.foreground black
 
 option add *TCombobox.exportSelection 0
 
 option add *TSpinbox.wrap 0
+option add *TSpinbox.foreground black
 
 option add *TEntry.exportSelection 0
 option add *TEntry.background white

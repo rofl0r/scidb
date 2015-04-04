@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author: gcramer $
-# Version: $Revision: 1048 $
-# Date   : $Date: 2015-03-18 17:31:45 +0000 (Wed, 18 Mar 2015) $
+# Version: $Revision: 1058 $
+# Date   : $Date: 2015-04-04 08:39:58 +0000 (Sat, 04 Apr 2015) $
 # Url    : $URL: https://svn.code.sf.net/p/scidb/code/trunk/tcl/app-information.tcl $
 # ======================================================================
 
@@ -33,9 +33,6 @@ namespace eval mc {
 set RecentlyUsed				"Recently used"
 set RemoveSelectedDatabase	"Remove selected database from history"
 set NewsAvailable				"There are updated news available"
-
-set OpenBase					"Open database"
-set NewBase						"New database"
 
 }
 
@@ -183,7 +180,7 @@ proc activate {w flag} {
 	append content "<tr></tr>"
 	set lbl [set [namespace parent]::database::mc::FileNew]
 	append content "<td class='h2'><img src='[set ::icon::${size}x${size}::databaseNew]'/></td>"
-	append content "<td class='h2'>&nbsp;<a href='OPEN'>$lbl</td>"
+	append content "<td class='h2'>&nbsp;<a href='NEW'>$lbl</td>"
 	append content "</tr>"
 	append content "</table>"
 
