@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 872 $
-// Date   : $Date: 2013-07-04 13:07:56 +0000 (Thu, 04 Jul 2013) $
+// Version: $Revision: 1059 $
+// Date   : $Date: 2015-04-04 21:10:23 +0000 (Sat, 04 Apr 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -240,8 +240,8 @@ class NamebasePlayer : public NamebaseEntry
 {
 public:
 
-	static uint32_t const KeyMask		= 0x01ffffff;
-	static uint32_t const SortMask	= 0x001fffff;
+	static uint32_t const KeyMask		= 0x00ffffff;
+	static uint32_t const SortMask	= 0x000fffff;
 
 	union Value
 	{
