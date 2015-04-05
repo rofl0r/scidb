@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1044 $
-// Date   : $Date: 2015-03-16 15:10:42 +0000 (Mon, 16 Mar 2015) $
+// Version: $Revision: 1060 $
+// Date   : $Date: 2015-04-05 17:25:57 +0000 (Sun, 05 Apr 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1095,6 +1095,10 @@ cmdImport(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 										objv[4],
 										tcl::PgnReader::Normalize,
 										tcl::PgnReader::File);
+
+		::db::MultiBase::GameCount gameNumbers;
+		destination.countGames(gameNumbers);
+		reader.setupGameNumbers(gameNumbers);
 
 		count = destination.importGames(reader, progress);
 		stream.close();

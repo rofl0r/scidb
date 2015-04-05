@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1048 $
-# Date   : $Date: 2015-03-18 17:31:45 +0000 (Wed, 18 Mar 2015) $
+# Version: $Revision: 1060 $
+# Date   : $Date: 2015-04-05 17:25:57 +0000 (Sun, 05 Apr 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1559,8 +1559,8 @@
 ::setup::board::mc::Warning(UnsupportedVariant)		"Positionen är en startposition men ingen Shuffle schackposition. Är du säker?"
 
 ### import #############################################################
-::import::mc::ImportingPgnFile					"Importerar PGN-fil" ;# NEW change to 'Importing PGN files'
-::import::mc::ImportingDatabase					"Importerar databasen"
+::import::mc::ImportingFile(pgn)					"Importerar PGN-fil"
+::import::mc::ImportingFile(pgn)					"Importerar databasen"
 ::import::mc::Line									"Rad"
 ::import::mc::Column									"Spalt"
 ::import::mc::GameNumber							"Parti"

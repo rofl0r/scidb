@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1048 $
-# Date   : $Date: 2015-03-18 17:31:45 +0000 (Wed, 18 Mar 2015) $
+# Version: $Revision: 1060 $
+# Date   : $Date: 2015-04-05 17:25:57 +0000 (Sun, 05 Apr 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1560,8 +1560,8 @@
 ::setup::board::mc::Warning(UnsupportedVariant)		"La posizione è una posizione iniziale ma non di Scacchi Mischiati - Shuffle Chess. Sei sicuro?"
 
 ### import #############################################################
-::import::mc::ImportingPgnFile					"Importando file PGN" ;# NEW: change to 'Importing PGN files'
-::import::mc::ImportingDatabase					"Importando database" ;# NEW: change to 'Importing databases'
+::import::mc::ImportingFile(pgn)					"Importando file PGN"
+::import::mc::ImportingFile(db)					"Importando database"
 ::import::mc::Line									"Linea"
 ::import::mc::Column									"Colonna"
 ::import::mc::GameNumber							"Partita"

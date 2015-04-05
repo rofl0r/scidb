@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1048 $
-# Date   : $Date: 2015-03-18 17:31:45 +0000 (Wed, 18 Mar 2015) $
+# Version: $Revision: 1060 $
+# Date   : $Date: 2015-04-05 17:25:57 +0000 (Sun, 05 Apr 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1548,8 +1548,8 @@
 ::setup::board::mc::Warning(UnsupportedVariant)		"Diese Position ist zwar eine Startposition, jedoch keine Shuffle-Schach-Startposition. Trotzdem akzeptieren?"
 
 ### import #############################################################
-::import::mc::ImportingPgnFile					"PGN-Dateien importieren"
-::import::mc::ImportingDatabase					"Datenbanken importieren"
+::import::mc::ImportingFile(pgn)					"PGN-Datei importieren"
+::import::mc::ImportingFile(db)					"Datenbank importieren"
 ::import::mc::Line									"Zeile"
 ::import::mc::Column									"Spalte"
 ::import::mc::GameNumber							"Partie"

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 857 $
-// Date   : $Date: 2013-06-24 23:28:35 +0000 (Mon, 24 Jun 2013) $
+// Version: $Revision: 1060 $
+// Date   : $Date: 2015-04-05 17:25:57 +0000 (Sun, 05 Apr 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -56,6 +56,8 @@ public:
 					unsigned lineOffset = 0,
 					bool trialMode = false);
 	~PgnReader() throw();
+
+	using ::db::PgnReader::setupGameNumbers;
 
 	unsigned countErrors() const;
 	unsigned countWarnings() const;
