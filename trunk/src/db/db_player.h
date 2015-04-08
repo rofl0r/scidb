@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 624 $
-// Date   : $Date: 2013-01-08 21:46:21 +0000 (Tue, 08 Jan 2013) $
+// Version: $Revision: 1061 $
+// Date   : $Date: 2015-04-08 20:50:18 +0000 (Wed, 08 Apr 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -282,7 +282,8 @@ private:
 										unsigned region,
 										mstl::string const& ascii,
 										country::Code federation = country::Unknown,
-										sex::ID sex = sex::Unspecified);
+										sex::ID sex = sex::Unspecified,
+										bool forceNewPlayer = false);
 	static bool newAlias(mstl::string const& name, mstl::string const& ascii, Player* player);
 	static bool replaceName(mstl::string const& name, mstl::string const& ascii, Player* player);
 
@@ -292,7 +293,8 @@ private:
 	static Player* insertPlayer(	mstl::string& name,
 											unsigned region,
 											country::Code federation = country::Unknown,
-											sex::ID sex = sex::Unspecified);
+											sex::ID sex = sex::Unspecified,
+											bool forceNewPlayer = false);
 	static bool insertAlias(mstl::string& name, Player* player);
 	static bool insertAlias(mstl::string& name, unsigned region, Player* player);
 	static bool replaceName(mstl::string& name, unsigned region, Player* player);

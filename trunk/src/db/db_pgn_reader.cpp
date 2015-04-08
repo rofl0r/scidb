@@ -1,7 +1,7 @@
 # // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1060 $
-// Date   : $Date: 2015-04-05 17:25:57 +0000 (Sun, 05 Apr 2015) $
+// Version: $Revision: 1061 $
+// Date   : $Date: 2015-04-08 20:50:18 +0000 (Wed, 08 Apr 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2826,6 +2826,8 @@ PgnReader::checkTag(ID tag, mstl::string& value)
 			{
 				// often seen in TWIC files
 				if (value == "--")
+					return true;
+				if (value[0] == 0xC2) // 0xC2 0xA0 'NO-BREAK SPACE'
 					return true;
 				if (value == "MF")
 					value = "FM"; // in Portuguese it's "MF"
