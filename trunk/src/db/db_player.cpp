@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1061 $
-// Date   : $Date: 2015-04-08 20:50:18 +0000 (Wed, 08 Apr 2015) $
+// Version: $Revision: 1063 $
+// Date   : $Date: 2015-04-10 15:31:54 +0000 (Fri, 10 Apr 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1492,7 +1492,7 @@ Player::insertPlayer(mstl::string& name,
 	standardizeNames(name);
 
 	if (sys::utf8::Codec::is7BitAscii(name))
-		return newPlayer(name, 0, name, federation, sex);
+		return newPlayer(name, 0, name, federation, sex, forceNewPlayer);
 
 	if (region == 0)
 	{
@@ -1786,6 +1786,16 @@ Player::loadDone()
 	{
 		if (number[k])
 			::printf("### Ratings %u: %u\n", k, number[k]);
+	}
+#endif
+#if 0
+	for (PlayerDict::const_iterator i = ::fidePlayerDict.begin(); i != ::fidePlayerDict.end(); ++i)
+	{
+		if (i->first != i->second->fideID())
+		{
+			fprintf(stderr, "error in FIDE dictionary, %u -- %u\n", i->first, i->second->fideID());
+			M_ASSERT(!"corrupted FIDE map");
+		}
 	}
 #endif
 }
@@ -2242,8 +2252,16 @@ Player::parseFideRating(mstl::istream& stream)
 					if (!(player = insertPlayer(name, country, sex)))
 						continue;
 
-					::fidePlayerDict.insert_unique(fideID, player);
+					if (player->fideID() && player->fideID() != fideID)
+					{
+						if (!(player = insertPlayer(name, player->region(), country, sex, true)))
+							continue;
+
+						M_ASSERT(player->fideID() == 0);
+					}
+
 					player->setFideID(fideID);
+					::fidePlayerDict.insert_unique(fideID, player);
 					player->setType(species::Human);
 					TRACE(++count);
 				}
