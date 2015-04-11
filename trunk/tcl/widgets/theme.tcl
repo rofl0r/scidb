@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1058 $
-# Date   : $Date: 2015-04-04 08:39:58 +0000 (Sat, 04 Apr 2015) $
+# Version: $Revision: 1065 $
+# Date   : $Date: 2015-04-11 20:12:49 +0000 (Sat, 11 Apr 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -650,6 +650,7 @@ option add *TScale.foreground black
 option add *TNotebook.foreground black
 
 option add *TCombobox.exportSelection 0
+option add *TCombobox.foreground black
 
 option add *TSpinbox.wrap 0
 option add *TSpinbox.foreground black
