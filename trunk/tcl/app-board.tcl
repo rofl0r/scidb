@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1056 $
-# Date   : $Date: 2015-04-03 17:33:31 +0000 (Fri, 03 Apr 2015) $
+# Version: $Revision: 1064 $
+# Date   : $Date: 2015-04-11 20:06:54 +0000 (Sat, 11 Apr 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -405,7 +405,8 @@ proc activate {w flag} {
 
 
 proc setActive {flag} {
-	# no action
+	::move::enable ;# required here because <<ControlOff>> might fail
+	::marks::releaseSquare
 }
 
 
