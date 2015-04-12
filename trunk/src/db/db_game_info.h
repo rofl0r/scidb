@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 880 $
-// Date   : $Date: 2013-07-08 21:37:41 +0000 (Mon, 08 Jul 2013) $
+// Version: $Revision: 1067 $
+// Date   : $Date: 2015-04-12 22:06:33 +0000 (Sun, 12 Apr 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -34,8 +34,6 @@
 #include "u_crc.h"
 
 #include "m_string.h"
-
-namespace sys  { namespace utf8 { class Codec; } }
 
 namespace db {
 
@@ -315,6 +313,7 @@ private:
 	void setupRating(TagSet const& tags, color::ID color, rating::Type rtType, tag::ID tag);
 
 	static void setupVariant(TagSet& tags, variant::Type variant, uint16_t idn);
+	static void addOpening(TagSet& tags, variant::Type variant, Eco const& eco, bool inclusiveVar);
 
 	NamebaseEvent*		m_event;
 	NamebasePlayer*	m_player[2];
