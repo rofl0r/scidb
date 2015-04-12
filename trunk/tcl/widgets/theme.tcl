@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1065 $
-# Date   : $Date: 2015-04-11 20:12:49 +0000 (Sat, 11 Apr 2015) $
+# Version: $Revision: 1066 $
+# Date   : $Date: 2015-04-12 07:35:45 +0000 (Sun, 12 Apr 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -594,7 +594,7 @@ option add *inactiveSelectBackground darkgrey
 option add *inactiveSelectForeground white
 
 option add *Spinbox.background white
-option add *Spinbox.foreground white
+option add *Spinbox.foreground black
 option add *Spinbox.selectForeground white
 option add *Spinbox.readonlyBackground white
 
