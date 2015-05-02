@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1046 $
-# Date   : $Date: 2015-03-17 22:14:12 +0000 (Tue, 17 Mar 2015) $
+# Version: $Revision: 1068 $
+# Date   : $Date: 2015-05-02 08:50:45 +0000 (Sat, 02 May 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -860,7 +860,6 @@ proc Build {dlg base variant position number} {
 					-highlightforeground $Colors(matchlistHeaderForeground) \
 					-highlightfont $bold \
 					-height 12 \
-					-takefocus 0 \
 					-focusmodel hover \
 					-borderwidth 0 \
 					-showfocus 0 \
