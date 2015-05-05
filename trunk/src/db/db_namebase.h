@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 872 $
-// Date   : $Date: 2013-07-04 13:07:56 +0000 (Thu, 04 Jul 2013) $
+// Version: $Revision: 1069 $
+// Date   : $Date: 2015-05-05 17:11:23 +0000 (Tue, 05 May 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -75,7 +75,7 @@ public:
 	Type type() const;
 
 	unsigned size() const;
-	unsigned previousSize() const;
+//	unsigned previousSize() const;
 	unsigned used() const;
 	unsigned maxFrequency() const;
 	unsigned maxUsage() const;
@@ -256,12 +256,12 @@ private:
 	unsigned	m_maxUsage;
 	unsigned	m_used;
 	List		m_list;
-	IdSet		m_freeSet;
-	IdSet		m_reuseSet;
+//	IdSet		m_freeSet;
+//	IdSet		m_reuseSet;
 	Map		m_map;
 	bool		m_isConsistent;
 	bool		m_isPrepared;
-	bool		m_freeSetIsEmpty;
+//	bool		m_freeSetIsEmpty;
 	bool		m_isModified;
 	bool		m_isOriginal;
 	bool		m_isReadonly;

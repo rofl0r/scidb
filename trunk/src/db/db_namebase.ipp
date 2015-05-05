@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 1069 $
+// Date   : $Date: 2015-05-05 17:11:23 +0000 (Tue, 05 May 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -31,7 +31,7 @@ namespace db {
 inline bool Namebase::isEmpty() const					{ return m_list.empty(); }
 inline Namebase::Type Namebase::type() const			{ return m_type; }
 inline unsigned Namebase::size() const					{ return m_list.size(); };
-inline unsigned Namebase::previousSize() const		{ return m_freeSet.size(); }
+//inline unsigned Namebase::previousSize() const		{ return m_freeSet.size(); }
 inline unsigned Namebase::maxFrequency() const		{ return m_maxFreq; }
 inline unsigned Namebase::maxUsage() const			{ return m_maxUsage; }
 inline unsigned Namebase::nextId() const				{ return m_nextId; }
