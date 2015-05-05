@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1069 $
-// Date   : $Date: 2015-05-05 17:11:23 +0000 (Tue, 05 May 2015) $
+// Version: $Revision: 1070 $
+// Date   : $Date: 2015-05-05 17:53:46 +0000 (Tue, 05 May 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -863,7 +863,7 @@ Namebase::update()
 {
 	M_REQUIRE(!isReadonly());
 
-	IdSet	usedSet(mstl::max(List::size_type(m_nextId), m_list.size()));
+//	IdSet	usedSet(mstl::max(List::size_type(m_nextId), m_list.size()));
 //	List	prepareSet;
 
 	if (m_isModified)
@@ -904,6 +904,7 @@ Namebase::update()
 		}
 		else
 		{
+			m_nextId = mstl::max(m_nextId, id + 1);
 //			m_freeSet.set(id);
 //			m_freeSetIsEmpty = false;
 		}
