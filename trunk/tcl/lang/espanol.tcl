@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1060 $
-# Date   : $Date: 2015-04-05 17:25:57 +0000 (Sun, 05 Apr 2015) $
+# Version: $Revision: 1073 $
+# Date   : $Date: 2015-06-20 08:50:30 +0000 (Sat, 20 Jun 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -844,7 +844,7 @@
 ::board::options::mc::IsWriteProtected		"El archivo '%s' está protegido contra escritura."
 ::board::options::mc::ConfirmDelete			"¿Está seguro que desea eliminar '%s'?"
 ::board::options::mc::NoPermission			"No se puede eliminar '%s'.\nPermiso denegado."
-::board::options::mc::BoardSetup				"Disposición del tablero"
+::board::options::mc::BoardSetup				"Disposición del tablero" ;# NEW changed to "Board Options / Select Theme"
 ::board::options::mc::OpenTextureDialog	"Abrir diálogo de texturas"
 
 ::board::options::mc::YouCannotReverse		"No puede revertir esta acción. El archivo '%s' será removido físicamente."

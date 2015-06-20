@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1060 $
-# Date   : $Date: 2015-04-05 17:25:57 +0000 (Sun, 05 Apr 2015) $
+# Version: $Revision: 1073 $
+# Date   : $Date: 2015-06-20 08:50:30 +0000 (Sat, 20 Jun 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -847,7 +847,7 @@
 ::board::options::mc::IsWriteProtected		"Fil '%s' är skrivskyddat."
 ::board::options::mc::ConfirmDelete			"Är du säker du vill radera '%s'?"
 ::board::options::mc::NoPermission			"Kan inte radera '%s'.\nÅtkomst nekad."
-::board::options::mc::BoardSetup				"Brädesinställningar"
+::board::options::mc::BoardSetup				"Brädesinställningar" ;# NEW changed to "Board Options / Select Theme"
 ::board::options::mc::OpenTextureDialog	"Öppna texturdialog"
 
 ::board::options::mc::YouCannotReverse		"Du kan inte ta tillbaka den här handlingen. Filen '%s' kommer fysiskt raderas."

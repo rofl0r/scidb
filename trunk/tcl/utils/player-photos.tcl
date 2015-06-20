@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1028 $
-# Date   : $Date: 2015-03-09 13:07:49 +0000 (Mon, 09 Mar 2015) $
+# Version: $Revision: 1073 $
+# Date   : $Date: 2015-06-20 08:50:30 +0000 (Sat, 20 Jun 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -653,8 +653,8 @@ proc A_NodeHandler {node} {
 }
 
 
-proc MouseEnter {w node} {
-	if {[llength $node]} {
+proc MouseEnter {w nodes} {
+	foreach node $nodes {
 		set href [$node attribute -default {} href]
 		if {[string length $href]} {
 			$node dynamic set user
@@ -664,8 +664,8 @@ proc MouseEnter {w node} {
 }
 
 
-proc MouseLeave {w node} {
-	if {[llength $node]} {
+proc MouseLeave {w nodes} {
+	foreach node $nodes {
 		set href [$node attribute -default {} href]
 		if {[string length $href]} {
 			$node dynamic clear user
@@ -675,8 +675,8 @@ proc MouseLeave {w node} {
 }
 
 
-proc Mouse1Up {w node} {
-	if {[llength $node]} {
+proc Mouse1Up {w nodes} {
+	foreach node $nodes {
 		set href [$node attribute -default {} href]
 		if {[string length $href]} {
 			::web::open $w $href
