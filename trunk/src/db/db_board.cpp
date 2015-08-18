@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1044 $
-// Date   : $Date: 2015-03-16 15:10:42 +0000 (Mon, 16 Mar 2015) $
+// Version: $Revision: 1074 $
+// Date   : $Date: 2015-08-18 15:52:10 +0000 (Tue, 18 Aug 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -4331,7 +4331,7 @@ Board::generateNonCapturingPieceMoves(variant::Type variant, MoveList& result) c
 	}
 	else
 	{
-		uint64_t moves = kingAttacks(m_ksq[m_stm]) & ~m_occupiedBy[m_stm];
+		uint64_t moves = kingAttacks(m_ksq[m_stm]) & ~m_occupiedBy[m_stm] & ~m_kings;
 
 		while (moves)
 		{

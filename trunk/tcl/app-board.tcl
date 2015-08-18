@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1064 $
-# Date   : $Date: 2015-04-11 20:06:54 +0000 (Sat, 11 Apr 2015) $
+# Version: $Revision: 1074 $
+# Date   : $Date: 2015-08-18 15:52:10 +0000 (Tue, 18 Aug 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -809,7 +809,7 @@ proc PopupMenu {w} {
 	$m add command \
 		-compound left \
 		-image $::icon::16x16::rotateBoard \
-		-label $::overview::mc::RotateBoard \
+		-label " $::overview::mc::RotateBoard" \
 		-command [namespace code [list Rotate $Vars(widget:frame)]] \
 		;
 	set pos [menu $m.pos -tearoff false]

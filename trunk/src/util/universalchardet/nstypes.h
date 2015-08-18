@@ -1,7 +1,7 @@
 /* ======================================================================
  * Author : $Author$
- * Version: $Revision: 102 $
- * Date   : $Date: 2011-11-10 14:04:49 +0000 (Thu, 10 Nov 2011) $
+ * Version: $Revision: 1074 $
+ * Date   : $Date: 2015-08-18 15:52:10 +0000 (Tue, 18 Aug 2015) $
  * Url    : $URL$
  * ====================================================================== */
 
@@ -9,6 +9,7 @@
 #define nstypes_h___
 
 #include <stdint.h>
+#include <stddef.h>
 
 extern "C" {
 

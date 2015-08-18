@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1073 $
-# Date   : $Date: 2015-06-20 08:50:30 +0000 (Sat, 20 Jun 2015) $
+# Version: $Revision: 1074 $
+# Date   : $Date: 2015-08-18 15:52:10 +0000 (Tue, 18 Aug 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -454,6 +454,7 @@
 ::application::information::mc::RecentlyUsed           "Recently used" ;# NEW
 ::application::information::mc::RemoveSelectedDatabase "Remove selected database from history" ;# NEW
 ::application::information::mc::NewsAvailable          "There are updatednews available" ;# NEW
+::application::information::mc::NoInternetConnection   "Information: Scidb cannot connect to Internet." ;# NEW
 
 ### application::database ##############################################
 ::application::database::mc::FileOpen							"Öppna databas"
