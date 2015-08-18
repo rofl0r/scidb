@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1074 $
-# Date   : $Date: 2015-08-18 15:52:10 +0000 (Tue, 18 Aug 2015) $
+# Version: $Revision: 1075 $
+# Date   : $Date: 2015-08-18 19:07:15 +0000 (Tue, 18 Aug 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -426,6 +426,9 @@
 ::application::board::mc::AddNewGame					"Partie hinzufügen..."
 ::application::board::mc::SlidingVarPanePosition	"Position der gleitenden Variantenanzeige"
 ::application::board::mc::ShowVariationArrows		"Pfeile für Variantenauswahl"
+::application::board::mc::ShowAnnotation				"Anmerkungssymbol anzeigen"
+::application::board::mc::ShowAnnotationTimeout		"Zeitbeschränkung for Anmerkungssymbol"
+::application::board::mc::None							"Keine"
 
 ::application::board::mc::Tools							"Werkzeuge"
 ::application::board::mc::Control						"Steuerung"

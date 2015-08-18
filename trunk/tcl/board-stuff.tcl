@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1020 $
-# Date   : $Date: 2015-02-13 10:00:28 +0000 (Fri, 13 Feb 2015) $
+# Version: $Revision: 1075 $
+# Date   : $Date: 2015-08-18 19:07:15 +0000 (Tue, 18 Aug 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -761,7 +761,7 @@ proc drawText {canv squareSize color x y text} {
 	set font [list [font configure TkFixedFont -family] $size bold]
 	set x1 [expr {$x0 + 1}]
 	set y1 [expr {$y0 + 1}]
-	set tags {mark text}
+	set tags [list mark text]
 	if {$luma < 50} {
 		$canv create text $x0 $y0 -fill white  -font $font -text $text -anchor center -tags $tags
 		$canv create text $x1 $y1 -fill $color -font $font -text $text -anchor center -tags $tags

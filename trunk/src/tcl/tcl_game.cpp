@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1045 $
-// Date   : $Date: 2015-03-17 12:16:27 +0000 (Tue, 17 Mar 2015) $
+// Version: $Revision: 1075 $
+// Date   : $Date: 2015-08-18 19:07:15 +0000 (Tue, 18 Aug 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2545,14 +2545,14 @@ cmdQuery(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 
 		case 'a':	// annotation
 			{
-				mstl::string s;
+				mstl::string s, t, u;
 
 				Game const&	game = Scidb->game(pos);
 				Tcl_Obj*		objs[3];
 
 				objs[0] = Tcl_NewStringObj(game.prefix(s), -1);
-				objs[1] = Tcl_NewStringObj(game.infix(s),  -1);
-				objs[2] = Tcl_NewStringObj(game.suffix(s), -1);
+				objs[1] = Tcl_NewStringObj(game.infix(t),  -1);
+				objs[2] = Tcl_NewStringObj(game.suffix(u), -1);
 
 				setResult(3, objs);
 			}

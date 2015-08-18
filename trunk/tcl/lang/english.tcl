@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1074 $
-# Date   : $Date: 2015-08-18 15:52:10 +0000 (Tue, 18 Aug 2015) $
+# Version: $Revision: 1075 $
+# Date   : $Date: 2015-08-18 19:07:15 +0000 (Tue, 18 Aug 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -425,6 +425,9 @@
 ::application::board::mc::AddNewGame					"Add New Game..."
 ::application::board::mc::SlidingVarPanePosition	"Sliding variation pane position"
 ::application::board::mc::ShowVariationArrows		"Show variation arrows"
+::application::board::mc::ShowAnnotation				"Show annotation glyph"
+::application::board::mc::ShowAnnotationTimeout		"Timeout for annoation glyph"
+::application::board::mc::None							"None"
 
 ::application::board::mc::Tools							"Tools"
 ::application::board::mc::Control						"Control"
