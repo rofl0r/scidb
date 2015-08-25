@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 985 $
-// Date   : $Date: 2013-10-29 14:52:42 +0000 (Tue, 29 Oct 2013) $
+// Version: $Revision: 1077 $
+// Date   : $Date: 2015-08-25 18:43:01 +0000 (Tue, 25 Aug 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -449,6 +449,29 @@ namespace tag {
 
 inline bool isValid(ID tag)		{ return tag <= LastTag || (BughouseTag <= tag && tag < ExtraTag); }
 inline bool isMandatory(ID tag)	{ return Event <= tag && tag <= Result; }
+
+inline
+bool
+isWhiteRatingTag(ID tag)
+{
+	return WhiteRatingFirst <= int(tag) && int(tag) <= WhiteRatingLast;
+}
+
+inline
+bool
+isBlackRatingTag(ID tag)
+{
+	return BlackRatingFirst <= int(tag) && int(tag) <= BlackRatingLast;
+}
+
+inline
+bool
+isRatingTag(ID tag)
+{
+	return RatingFirst <= int(tag) && int(tag) <= RatingLast;
+}
+
+//bool tag::isBughouseTag(ID tag)	{ TODO }
 
 } // namespace tag
 

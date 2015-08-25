@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1010 $
-// Date   : $Date: 2014-10-18 15:12:33 +0000 (Sat, 18 Oct 2014) $
+// Version: $Revision: 1077 $
+// Date   : $Date: 2015-08-25 18:43:01 +0000 (Tue, 25 Aug 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -440,6 +440,13 @@ namespace tag
 		BlackDWZ,		///< Deutsche Wertungszahl
 		BlackECF,		///< English Chess Federation
 		BlackIPS,		///< Individual Player Strength (Chess 960 Rating)
+
+		WhiteRatingFirst	= WhiteElo,
+		WhiteRatingLast	= WhiteIPS,
+		BlackRatingFirst	= BlackElo,
+		BlackRatingLast	= BlackIPS,
+		RatingFirst			= WhiteRatingFirst,
+		RatingLast			= BlackRatingLast,
 
 		// team related information
 		WhiteTeam,				BlackTeam,			///< ChessBase team information
