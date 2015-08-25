@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1009 $
-# Date   : $Date: 2014-10-11 15:05:49 +0000 (Sat, 11 Oct 2014) $
+# Version: $Revision: 1076 $
+# Date   : $Date: 2015-08-25 16:35:27 +0000 (Tue, 25 Aug 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -284,6 +284,8 @@ proc alert {args} {
 	wm iconname $w Dialog
 	wm protocol $w WM_DELETE_WINDOW {#}
 	bind $w <Alt-Key> [list tk::AltKeyInDialog $w %A]
+	bind $w <Right> [list event generate $w <Tab>]
+	bind $w <Left> [list event generate $w <Shift-Tab>]
 
 	if {[winfo viewable [winfo toplevel $parent]] } {
 		wm transient $w [winfo toplevel $parent]

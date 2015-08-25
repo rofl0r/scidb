@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1047 $
-# Date   : $Date: 2015-03-17 22:30:16 +0000 (Tue, 17 Mar 2015) $
+# Version: $Revision: 1076 $
+# Date   : $Date: 2015-08-25 16:35:27 +0000 (Tue, 25 Aug 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -122,6 +122,8 @@ proc build {parent width height} {
 	set games [::tk::multiwindow $main.games -borderwidth 0 -background white]
 	set logo  [::tk::frame $main.logo -borderwidth 0 -background white -cursor left_ptr]
 	set hist  [::game::history $main.hist -cursor left_ptr]
+
+	# TODO: we need key bindings of board
 
 	pack $top -fill both -expand yes
 	pack $main -fill both -expand yes
@@ -297,6 +299,9 @@ proc build {parent width height} {
 
 	set Vars(lang:set) {}
 	set Vars(edit:comment) 0
+
+	[namespace parent]::board::needBinding $main
+	[namespace parent]::board::bindKeys
 
 	::scidb::db::subscribe gameSwitch [namespace current]::GameSwitched
 	::pgn::setup::setupNags editor
@@ -484,7 +489,7 @@ proc fontSizeChanged {} {
 
 
 proc importGame {parent} {
-	set pos [::game::new $parent]
+	set pos [::game::replace $parent]
 	if {$pos >= 0} { ::import::openEdit $parent $pos }
 }
 

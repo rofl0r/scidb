@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1075 $
-# Date   : $Date: 2015-08-18 19:07:15 +0000 (Tue, 18 Aug 2015) $
+# Version: $Revision: 1076 $
+# Date   : $Date: 2015-08-25 16:35:27 +0000 (Tue, 25 Aug 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1946,6 +1946,8 @@
 ::game::mc::ReallyReplaceGameDetail		"It is recommended to have a look on game #%s before doing this action."
 ::game::mc::ReopenLockedGames				"Re-open locked games from previous session?"
 ::game::mc::OpenAssociatedDatabases		"Open all associated databases?"
+::game::mc::OverwriteCurrentGame			"Overwrite current game?"
+::game::mc::OverwriteCurrentGameDetail	"A new game will be opened if answered with '%s'."
 
 ### languagebox ########################################################
 ::languagebox::mc::AllLanguages	"All languages"

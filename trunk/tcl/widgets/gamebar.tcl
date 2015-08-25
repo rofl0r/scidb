@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1041 $
-# Date   : $Date: 2015-03-15 09:28:50 +0000 (Sun, 15 Mar 2015) $
+# Version: $Revision: 1076 $
+# Date   : $Date: 2015-08-25 16:35:27 +0000 (Tue, 25 Aug 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1462,6 +1462,7 @@ proc AddGameMenuEntries {gamebar m addSaveMenu addGameHistory clearHistory remov
 		-image $::icon::16x16::filetypePGN \
 		-compound left \
 		-command [list ::application::pgn::importGame $parent] \
+		-accel "$::mc::Key(Ctrl)-$::application::board::mc::Accel(import-game)" \
 		;
 	
 	if {$addSaveMenu && ![::game::trialMode?]} {
