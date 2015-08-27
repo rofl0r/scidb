@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1012 $
-// Date   : $Date: 2014-10-25 11:15:33 +0000 (Sat, 25 Oct 2014) $
+// Version: $Revision: 1078 $
+// Date   : $Date: 2015-08-27 14:18:39 +0000 (Thu, 27 Aug 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -4176,13 +4176,22 @@ Game::setFolded(edit::Key const& key, bool flag)
 	MoveNode*	node		= key.findPosition(m_startNode, m_startBoard.plyNumber())->getLineStart();
 	unsigned		update	= UpdatePgn;
 
-	if (flag && node->contains(m_currentNode))
+	node->setFolded(flag);
+
+	if (flag && variationLevel() > 0 && node != m_currentNode && node->contains(m_currentNode))
 	{
-		goToFirst();
+		backward(mstl::numeric_limits<unsigned>::max());
+
+		while (variationLevel() > 0 && node != m_currentNode && node->contains(m_currentNode))
+		{
+			exitVariation();
+			backward(mstl::numeric_limits<unsigned>::max());
+		}
+
+		forward();
 		update |= UpdateBoard;
 	}
 
-	node->setFolded(flag);
 	updateSubscriber(update);
 }
 
@@ -4193,28 +4202,18 @@ Game::toggleFolded(edit::Key const& key)
 	M_REQUIRE(isValidKey(key));
 	M_REQUIRE(key.level() > 0);
 
-	MoveNode*	node		= key.findPosition(m_startNode, m_startBoard.plyNumber())->getLineStart();
-	bool			flag		= !node->isFolded();
-	unsigned		update	= UpdatePgn;
-
-	if (flag && node->contains(m_currentNode))
-	{
-		goToFirst();
-		update |= UpdateBoard;
-	}
-
-	node->setFolded(flag);
-	updateSubscriber(update);
+	setFolded(key, !isFolded(key));
 }
 
 
 void
 Game::setFolded(bool flag)
 {
-	if (flag && isVariation())
-		goToFirst();
-
 	m_startNode->fold(flag);
+
+	for (MoveNode* node = m_currentNode; node; node = node->prev())
+		(node = node->getLineStart())->unfold();
+
 	updateSubscriber(UpdatePgn | UpdateBoard);
 }
 
