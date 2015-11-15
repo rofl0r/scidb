@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1020 $
-# Date   : $Date: 2015-02-13 10:00:28 +0000 (Fri, 13 Feb 2015) $
+# Version: $Revision: 1080 $
+# Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -385,6 +385,26 @@ proc require {myNamespace requiredNamespaces} {
 			puts "WARNING($myNamespace): namespace ::$ns required"
 		}
 	}
+}
+
+
+proc lremove {list elem} {
+	set result {}
+	foreach k $list {
+		if {$k ne $elem} { lappend result $k }
+	}
+	return $result
+}
+
+
+proc lsubst {list elem arg} {
+	upvar $list l
+	set result {}
+	foreach k $l {
+		if {$k eq $elem} { lappend result $arg } else { lappend result $k }
+	}
+	set l $result
+	return $result
 }
 
 namespace eval util {

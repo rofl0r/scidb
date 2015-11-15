@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1078 $
-# Date   : $Date: 2015-08-27 14:18:39 +0000 (Thu, 27 Aug 2015) $
+# Version: $Revision: 1080 $
+# Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -542,8 +542,11 @@ proc Import {parent base files msg encoding} {
 			.sci - .si3 - .si4	{ set encoding utf-8 }
 			default					{ set encoding auto }
 		}
+		# TODO: set flag whether illegal games will be included
+		set illegal 1
 
-		set cmd [list ::progress::start $parent $cmd [list -encoding $encoding] $options 0]
+		set cmd [list ::progress::start $parent $cmd \
+			[list -encoding $encoding -illegal $illegal] $options 0]
 		if {[catch { ::util::catchException $cmd result } rc opts]} {
 			::log::error $mc::AbortedDueToInternalError
 			::progress::close

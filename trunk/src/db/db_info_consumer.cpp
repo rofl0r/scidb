@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 661 $
-// Date   : $Date: 2013-02-23 23:03:04 +0000 (Sat, 23 Feb 2013) $
+// Version: $Revision: 1080 $
+// Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -34,8 +34,10 @@ using namespace db;
 InfoConsumer::InfoConsumer(format::Type srcFormat,
 									mstl::string const& encoding,
 									TagBits const& allowedTags,
-									bool allowExtraTags)
-	:Consumer(srcFormat, encoding, allowedTags, allowExtraTags)
+									bool allowExtraTags,
+									LanguageList const* languages,
+									unsigned significantLanguages)
+	:Consumer(srcFormat, encoding, allowedTags, allowExtraTags, languages, significantLanguages)
 {
 }
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 969 $
-// Date   : $Date: 2013-10-13 15:33:12 +0000 (Sun, 13 Oct 2013) $
+// Version: $Revision: 1080 $
+// Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -65,6 +65,8 @@ public:
 
 	bool operator==(vector const& v) const;
 	bool operator!=(vector const& v) const;
+
+	vector& operator+=(vector const& v);
 
 	reference operator[](size_type n);
 	const_reference operator[](size_type n) const;

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 831 $
-// Date   : $Date: 2013-06-11 16:53:48 +0000 (Tue, 11 Jun 2013) $
+// Version: $Revision: 1080 $
+// Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -79,7 +79,9 @@ public:
 	Consumer(format::Type srcFormat,
 				Codecs const& codecs,
 				TagBits const& allowedTags,
-				bool allowExtraTags);
+				bool allowExtraTags,
+				LanguageList const* languages = nullptr,
+				unsigned significantLanguages = 0);
 
 	format::Type format() const override;
 

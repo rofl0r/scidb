@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1034 $
-// Date   : $Date: 2015-03-10 19:04:25 +0000 (Tue, 10 Mar 2015) $
+// Version: $Revision: 1080 $
+// Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -386,7 +386,7 @@ Cursor::importGames(Producer& producer, util::Progress& progress)
 
 unsigned
 Cursor::importGames(	db::Database const& src,
-							unsigned& illegalRejected,
+							unsigned* illegalRejected,
 							Log& log,
 							util::Progress& progress)
 {

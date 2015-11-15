@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 1080 $
+// Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -58,7 +58,9 @@ public:
 				Codec& codec,
 				mstl::string const& encoding,
 				TagBits const& allowedTags,
-				bool allowExtraTags);
+				bool allowExtraTags,
+				LanguageList const* languages = nullptr,
+				unsigned significantLanguages = 0);
 
 	format::Type format() const override;
 

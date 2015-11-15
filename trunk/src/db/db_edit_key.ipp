@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 1080 $
+// Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -41,8 +41,11 @@ inline bool operator!=(mstl::string const& lhs, Key const& rhs) { return lhs != 
 inline bool operator==(Key const& lhs, mstl::string const& rhs) { return lhs.id() == rhs; }
 inline bool operator!=(Key const& lhs, mstl::string const& rhs) { return lhs.id() != rhs; }
 
+inline Key const& Key::emptyKey() { return m_emptyKey; }
 
-#if HAVE_0X_MOVE_CONSTRCUTOR_AND_ASSIGMENT_OPERATOR
+inline bool Key::isValid() const { return isValid(m_id); }
+
+#if HAVE_C11_MOVE_CONSTRCUTOR_AND_ASSIGMENT_OPERATOR
 
 inline
 Key::Key(Key&& key)

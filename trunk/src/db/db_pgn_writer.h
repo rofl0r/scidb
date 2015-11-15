@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 911 $
-// Date   : $Date: 2013-07-26 19:59:47 +0000 (Fri, 26 Jul 2013) $
+// Version: $Revision: 1080 $
+// Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -57,6 +57,8 @@ public:
 					mstl::string const& encoding,
 					LineEnding lineEnding,
 					unsigned flags = Default_Flags,
+					LanguageList const* languages = nullptr,
+					unsigned significantLanguages = 0,
 					unsigned lineLength = 80);
 
 	format::Type format() const override;

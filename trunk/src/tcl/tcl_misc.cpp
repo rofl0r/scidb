@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1044 $
-// Date   : $Date: 2015-03-16 15:10:42 +0000 (Mon, 16 Mar 2015) $
+// Version: $Revision: 1080 $
+// Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -885,7 +885,8 @@ Parser::parse()
 
 	m_xml.append("</xml>", 6);
 
-	::db::Comment comment(m_xml, false, false);
+	// cannot use ::db::i18n::None due to a g++ bug
+	::db::Comment comment(m_xml, 0);
 	comment.normalize(::db::Comment::PreserveEmoticons);
 
 	return comment.content();
@@ -925,7 +926,8 @@ cmdToAscii(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 static int
 cmdXmlToList(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 {
-	::db::Comment comment(stringFromObj(objc, objv, 1), false, false); // language flags not needed
+	// cannot use ::db::i18n::None due to a g++ bug
+	::db::Comment comment(stringFromObj(objc, objv, 1), 0);
 
 	bool detectEmoticons = false;
 	bool expandEmoticons = false;

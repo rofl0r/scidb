@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 969 $
-// Date   : $Date: 2013-10-13 15:33:12 +0000 (Sun, 13 Oct 2013) $
+// Version: $Revision: 1080 $
+// Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -702,6 +702,16 @@ vector<T>::fill(value_type const& value)
 		mstl::uninitialized_fill_n(this->m_start, size(), value);
 	else
 		mstl::fill_n(this->m_start, size(), value);
+}
+
+
+template <typename T>
+inline
+vector<T>&
+vector<T>::operator+=(vector const& v)
+{
+	insert(end(), v.begin(), v.end());
+	return *this;
 }
 
 

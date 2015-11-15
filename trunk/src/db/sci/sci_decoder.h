@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 773 $
-// Date   : $Date: 2013-05-12 16:51:25 +0000 (Sun, 12 May 2013) $
+// Version: $Revision: 1080 $
+// Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -33,6 +33,8 @@
 #include "db_move.h"
 #include "db_eco.h"
 
+#include "m_map.h"
+
 //#define SCI_IGNORE_DECODING_ERRORS
 
 namespace mstl { template <typename T, typename U> class map; }
@@ -58,6 +60,7 @@ class Decoder
 public:
 
 	typedef mstl::map<mstl::string,unsigned> TagMap;
+	typedef mstl::map<mstl::string,unsigned> LanguageSet;
 
 	Decoder(util::ByteStream& strm, variant::Type variant);
 	Decoder(util::ByteStream& strm, unsigned guaranteedStreamSize, variant::Type variant);
@@ -102,6 +105,8 @@ private:
 	static void decodeEngines(util::ByteStream& strm, EngineList& engines);
 	static void decodeTags(util::ByteStream& strm, TagSet& tags);
 	static void decodeTimeTable(util::ByteStream& strm, TimeTable& timeTable);
+
+	static void collectLanguages(LanguageSet& langs, util::ByteStream text);
 
 #ifdef SCI_IGNORE_DECODING_ERRORS
 	void skipEndOfVariation(util::ByteStream& data);

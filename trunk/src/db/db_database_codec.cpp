@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 944 $
-// Date   : $Date: 2013-09-19 13:01:48 +0000 (Thu, 19 Sep 2013) $
+// Version: $Revision: 1080 $
+// Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -834,7 +834,12 @@ DatabaseCodec::getGameRecord(GameInfo const& info, util::BlockFileReader& reader
 
 
 void
-DatabaseCodec::doEncoding(util::ByteStream&, GameData const&, Signature const&, TagBits const&, bool)
+DatabaseCodec::doEncoding(	util::ByteStream&,
+									GameData const&,
+									Signature const&,
+									unsigned,
+									TagBits const&,
+									bool)
 {
 	M_RAISE("should not be used");
 }
@@ -859,13 +864,14 @@ void
 DatabaseCodec::encodeGame(	util::ByteStream& strm,
 									GameData const& data,
 									Signature const& signature,
+									unsigned langFlags,
 									TagBits const& allowedTags,
 									bool allowExtraTags)
 {
 	M_REQUIRE(isOpen());
 	M_REQUIRE(!format::isChessBaseFormat(format()));
 
-	doEncoding(strm, data, signature, allowedTags, allowExtraTags);
+	doEncoding(strm, data, signature, langFlags, allowedTags, allowExtraTags);
 }
 
 

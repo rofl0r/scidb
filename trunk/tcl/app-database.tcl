@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1046 $
-# Date   : $Date: 2015-03-17 22:14:12 +0000 (Tue, 17 Mar 2015) $
+# Version: $Revision: 1080 $
+# Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1314,7 +1314,7 @@ proc PopupMenu {parent x y {base ""}} {
 			-command [list ::export::open $parent \
 							-base $base \
 							-variant $Vars(variant) \
-							-type $type \
+							-extension [$Vars(switcher) extension $base] \
 							-name $name \
 							-view 0] \
 			;

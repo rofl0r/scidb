@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 1080 $
+// Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -29,10 +29,17 @@
 extern "C" { struct Tcl_Interp; }
 extern "C" { struct Tcl_Obj; }
 
+namespace mstl { template <typename T> class vector; }
+
 namespace tcl {
 namespace view {
 
 bool buildTagSet(Tcl_Interp* ti, char const* cmd, Tcl_Obj* allowedTags, ::db::tag::TagSet& tagBits);
+
+unsigned makeLangList(	Tcl_Interp* ti,
+								char const* cmd,
+								Tcl_Obj* languageList,
+								mstl::vector<mstl::string>& langs);
 
 } // namespace view
 } // namespace tcl

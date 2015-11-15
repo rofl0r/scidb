@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1028 $
-# Date   : $Date: 2015-03-09 13:07:49 +0000 (Mon, 09 Mar 2015) $
+# Version: $Revision: 1080 $
+# Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1055,7 +1055,7 @@ proc HandleDropEvent {w action types actions x y} {
 	switch $action {
 		enter {
 			if {!$Vars(dragging)} {
-				array set Vars { drop-item -1 drag-item -1 curr-item -1 }
+				array set Vars { drop-item -1 curr-item -1 }
 			}
 			HighlightDropRegion $w $x $y enter
 			::tooltip::tooltip exclude $w.content
@@ -1099,6 +1099,7 @@ proc HandleDropPosition {w actions x y} {
 		return refuse_drop
 	}
 
+	if {$Vars(curr-item) == -1} { return refuse_drop }
 	return copy
 }
 
@@ -1113,7 +1114,9 @@ proc FindDragItem {w x y} {
 	if {0 <= $x && $x < [winfo width $canv] && 0 <= $y && $y < [winfo height $canv]} {
 		foreach tag [$canv gettags [$canv find closest $x $y]] {
 			if {[string is integer -strict $tag]} {
-				if {!$Vars(dragging) || $tag in $Vars(drop-targets)} { return $tag }
+				if {!$Vars(dragging) || $tag in $Vars(drop-targets) || $tag == $Vars(drag-item)} {
+					return $tag
+				}
 			}
 		}
 	}

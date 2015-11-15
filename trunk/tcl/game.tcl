@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1076 $
-# Date   : $Date: 2015-08-25 16:35:27 +0000 (Tue, 25 Aug 2015) $
+# Version: $Revision: 1080 $
+# Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1130,7 +1130,8 @@ proc openGame {parent index} {
 			::dialog::warning -buttons {ok} -parent $parent -message $mc::VariantHasChanged
 			set rc 0
 		} elseif {$number >= [::scidb::db::count games $base $variant]} {
-			set msg [string map [list %number [expr {$number + 1}] %base $base] $mc::GameNumberDoesNotExist]
+			set map [list %number [expr {$number + 1}] %base $base]
+			set msg [string map $map $mc::GameNumberDoesNotExist]
 			::dialog::error -parent $parent -message $msg
 			set rc 0
 		} else {
@@ -1399,7 +1400,7 @@ proc UpdateHistory {_ base variant index} {
 
 			lset History $i 0 $info
 			lset History $i 2 [list [::scidb::db::get checksum $index $base $variant] [lindex $crcHist 1]]
-			lset History $i 3 [::scidb::db::get encoding $base]
+			lset History $i 3 [::scidb::db::get usedencoding $base]
 		}
 	}
 }
@@ -1420,7 +1421,7 @@ proc UpdateHistoryEntry {pos base variant tags} {
 		set lookup($name) $value
 	}
 	set info {}
-	set encoding [::scidb::db::get encoding $base]
+	set encoding [::scidb::db::get usedencoding $base]
 	foreach name {Event Site Date Round White Black Result} { lappend info $lookup($name) }
 	set entry [list $info [lindex $List $pos 4] [lindex $List $pos 5] $encoding]
 

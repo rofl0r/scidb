@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 925 $
-// Date   : $Date: 2013-08-17 08:31:10 +0000 (Sat, 17 Aug 2013) $
+// Version: $Revision: 1080 $
+// Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -125,8 +125,6 @@ public:
 	bool fiftyMoveRule() const;
 	bool containsIllegalCastlings(bool inCheck) const;
 	bool containsIllegalMoves(bool inCheck) const;
-	bool containsEnglishLang() const;
-	bool containsOtherLang() const;
 	bool contains(MoveNode const* node) const;
 	bool isFolded() const;
 	bool isEmptyLine() const;
@@ -144,11 +142,12 @@ public:
 	unsigned countComments() const;
 	unsigned countComments(mstl::string const& lang) const;
 	unsigned countVariations() const;
+	unsigned langFlags() const;
 	unsigned moveNumber() const;
 
-	MoveNode* getLineStart();
-	MoveNode* getLineEnd();
-	MoveNode* getOneBeforeLineEnd();
+	MoveNode* getLineStart() const;
+	MoveNode* getLineEnd() const;
+	MoveNode* getOneBeforeLineEnd() const;
 
 	Move& move();
 	Move const& move() const;
@@ -173,6 +172,7 @@ public:
 	void setMove(Board const& board, Move const& move, variant::Type variant);
 	void setNext(MoveNode* next);
 	void addVariation(MoveNode* variation);
+	void insertVariation(MoveNode* variation, unsigned varNo);
 	void addAnnotation(nag::ID nag);
 	void addMark(Mark const& mark);
 	void addMoveInfo(MoveInfo const& moveInfo);

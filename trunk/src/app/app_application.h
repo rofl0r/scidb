@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 985 $
-// Date   : $Date: 2013-10-29 14:52:42 +0000 (Tue, 29 Oct 2013) $
+// Version: $Revision: 1080 $
+// Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -31,6 +31,7 @@
 
 #include "db_common.h"
 #include "db_tree.h"
+#include "db_comment.h"
 
 #include "u_crc.h"
 #include "u_rkiss.h"
@@ -81,7 +82,8 @@ public:
 	typedef mstl::bitfield<uint32_t> Variants;
 	typedef mstl::map<mstl::string,unsigned> TagMap;
 	typedef db::Byte NagMap[db::nag::Scidb_Last];
-	typedef mstl::string Languages[4];
+	typedef mstl::vector<mstl::string> Languages;
+	typedef db::Comment::LanguageSet LanguageSet;
 
 	static unsigned const InvalidPosition	= unsigned(-1);
 	static unsigned const ReservedPosition	= unsigned(-2);
@@ -250,6 +252,8 @@ public:
 
 	db::Game& game(unsigned position = InvalidPosition);
 	db::Game const& game(unsigned position = InvalidPosition) const;
+	void setupLanguageSet(LanguageSet const& langSet, unsigned position = InvalidPosition);
+	void setupAllLanguages(unsigned position = InvalidPosition);
 	mstl::string const& encoding(unsigned position = InvalidPosition) const;
 	db::GameInfo const& gameInfo(unsigned index, unsigned view = 0) const;
 	db::GameInfo const& gameInfoAt(unsigned position = InvalidPosition) const;
@@ -297,6 +301,7 @@ public:
 										mstl::string const& filename,
 										mstl::string const& encoding,
 										mstl::string const& comment,
+										Languages const& languages,
 										unsigned flags,
 										FileMode fmode);
 	::db::save::State exportGame(	unsigned position,
@@ -526,6 +531,8 @@ private:
 	bool				m_treeIsFrozen;
 	mstl::string	m_isWriting;
 	TreeAdmin		m_treeAdmin;
+	LanguageSet		m_langSet;
+	bool				m_allLanguages;
 
 	mutable util::RKiss m_rand;
 

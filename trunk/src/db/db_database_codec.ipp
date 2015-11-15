@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 880 $
-// Date   : $Date: 2013-07-08 21:37:41 +0000 (Mon, 08 Jul 2013) $
+// Version: $Revision: 1080 $
+// Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -145,9 +145,12 @@ DatabaseCodec::CustomFlags::get(unsigned n) const
 
 inline
 void
-DatabaseCodec::encodeGame(util::ByteStream& strm, GameData const& data, Signature const& signature)
+DatabaseCodec::encodeGame(	util::ByteStream& strm,
+									GameData const& data,
+									Signature const& signature,
+									unsigned langFlags)
 {
-	encodeGame(strm, data, signature, TagBits(true), true);
+	encodeGame(strm, data, signature, langFlags, TagBits(true), true);
 }
 
 } // namespace db

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1076 $
-# Date   : $Date: 2015-08-25 16:35:27 +0000 (Tue, 25 Aug 2015) $
+# Version: $Revision: 1080 $
+# Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -369,6 +369,7 @@
 ::util::photos::mc::Message(crcerror)			"Checksum error occurred. Possibly the file server is currently in maintenance mode."
 ::util::photos::mc::Message(maintenance)		"Photo file server maintenance is currently in progress."
 ::util::photos::mc::Message(notfound)			"Download aborted because photo file server maintenance is currently in progress."
+::util::photos::mc::Message(noreply)			"Server is not replying."
 ::util::photos::mc::Message(aborted)			"User has aborted download."
 ::util::photos::mc::Message(killed)				"Unexpected termination of download. The sub-process has died."
 
@@ -1692,7 +1693,8 @@
 ::export::mc::IncludeAllTags				"Include all tags"
 ::export::mc::ExtraTags						"All other extra tags"
 ::export::mc::NoComments					"No comments"
-::export::mc::Significant					"Significant"
+::export::mc::AllLanguages					"All languages"
+::export::mc::SelectLanguages				"Selected languages"
 ::export::mc::LanguageSelection			"Language selection"
 ::export::mc::MapTo							"Map to"
 ::export::mc::MapNagsToComment			"Map annotations to comments"
@@ -1701,6 +1703,9 @@
 ::export::mc::UseColumnStyle				"Use column style"
 ::export::mc::MainlineStyle				"Main Line Style"
 ::export::mc::HideVariations				"Hide variations"
+::export::mc::GameDoesNotHaveComments	"This game does not contain comments."
+
+::export::mc::LanguageSelectionDescr	"The checkbox (right side from combo box) has the meaning 'significant'.\n\nLanguages marked as 'significant' will always be exported.\n\nIf the game includes none of the languages marked as 'significant' then the first available language will be exported."
 
 ::export::mc::PdfFiles						"PDF Files"
 ::export::mc::HtmlFiles						"HTML Files"

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 819 $
-// Date   : $Date: 2013-06-03 22:58:13 +0000 (Mon, 03 Jun 2013) $
+// Version: $Revision: 1080 $
+// Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -118,7 +118,9 @@ memblock<T>::memblock(memblock&& mb)
 	,m_finish(mb.m_finish)
 	,m_end_of_storage(mb.m_end_of_storage)
 {
-	mb.m_start = 0;
+	mb.m_start = nullptr;
+	mb.m_finish = nullptr;
+	mb.m_end_of_storage = nullptr;
 }
 
 

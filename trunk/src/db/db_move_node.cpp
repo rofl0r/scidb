@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 925 $
-// Date   : $Date: 2013-08-17 08:31:10 +0000 (Sat, 17 Aug 2013) $
+// Version: $Revision: 1080 $
+// Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -394,6 +394,16 @@ MoveNode::addVariation(MoveNode* variation)
 	M_REQUIRE(!variation->move());
 
 	m_variations.push_back(variation);
+	variation->m_prev = this;
+	m_flags |= HasVariation;
+}
+
+
+void
+MoveNode::insertVariation(MoveNode* variation, unsigned varNo)
+{
+	M_REQUIRE(varNo <= variationCount());
+	m_variations.insert(m_variations.begin() + varNo, variation);
 	variation->m_prev = this;
 	m_flags |= HasVariation;
 }
@@ -1046,26 +1056,20 @@ MoveNode::contains(MoveNode const* node) const
 }
 
 
-bool
-MoveNode::containsEnglishLang() const
+unsigned
+MoveNode::langFlags() const
 {
+	unsigned langFlags = 0;
+
 	for (MoveNode const* p = this; p; p = p->m_next)
 	{
-		if (p->m_comment[0].engFlag() || p->m_comment[1].engFlag())
-			return true;
-	}
+		langFlags |= p->m_comment[0].langFlags() || p->m_comment[1].langFlags();
 
-	return false;
-}
-
-
-bool
-MoveNode::containsOtherLang() const
-{
-	for (MoveNode const* p = this; p; p = p->m_next)
-	{
-		if (p->m_comment[0].othFlag() || p->m_comment[1].othFlag())
-			return true;
+		if (p->hasVariation())
+		{
+			for (unsigned i = 0; i < p->variationCount(); ++i)
+				langFlags |= p->variation(i)->langFlags();
+		}
 	}
 
 	return false;
@@ -1080,9 +1084,9 @@ MoveNode::unfold()
 
 
 MoveNode*
-MoveNode::getLineStart()
+MoveNode::getLineStart() const
 {
-	MoveNode* node = this;
+	MoveNode* node = const_cast<MoveNode*>(this);
 
 	while (node->isAfterLineStart())
 		node = node->m_prev;
@@ -1092,9 +1096,9 @@ MoveNode::getLineStart()
 
 
 MoveNode*
-MoveNode::getLineEnd()
+MoveNode::getLineEnd() const
 {
-	MoveNode* node = this;
+	MoveNode* node = const_cast<MoveNode*>(this);
 
 	while (node->isBeforeLineEnd())
 		node = node->m_next;
@@ -1104,9 +1108,9 @@ MoveNode::getLineEnd()
 
 
 MoveNode*
-MoveNode::getOneBeforeLineEnd()
+MoveNode::getOneBeforeLineEnd() const
 {
-	MoveNode* node = this;
+	MoveNode* node = const_cast<MoveNode*>(this);
 
 	while (node->isBeforeLineEnd())
 		node = node->m_next;

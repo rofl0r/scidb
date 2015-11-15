@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1003 $
-// Date   : $Date: 2014-08-16 10:50:59 +0000 (Sat, 16 Aug 2014) $
+// Version: $Revision: 1080 $
+// Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2003,6 +2003,7 @@ void
 Codec::doEncoding(util::ByteStream& strm,
 						GameData const& data,
 						Signature const& signature,
+						unsigned langFlags,
 						TagBits const& allowedTags,
 						bool allowExtraTags)
 {
@@ -2013,7 +2014,7 @@ Codec::doEncoding(util::ByteStream& strm,
 	M_ASSERT(namebase(Namebase::Round).size() <= ::MaxRoundCount);
 
 	Encoder encoder(strm, *m_codec);
-	encoder.doEncoding(signature, data, allowedTags, allowExtraTags);
+	encoder.doEncoding(signature, langFlags, data, allowedTags, allowExtraTags);
 }
 
 

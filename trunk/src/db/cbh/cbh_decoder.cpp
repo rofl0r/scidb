@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1016 $
-// Date   : $Date: 2015-01-12 18:48:54 +0000 (Mon, 12 Jan 2015) $
+// Version: $Revision: 1080 $
+// Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -732,11 +732,13 @@ Decoder::decodeComment(MoveNode* node, unsigned length, move::Position position)
 		if (!sys::utf8::validate(str))
 			m_codec.forceValidUtf8(str);
 
-		bool isEnglish	= lang && ::strcmp(lang, "en") == 0;
-		bool isOther	= lang && !isEnglish;
+		unsigned langFlags = 0;
+
+		if (lang)
+			langFlags |= (::strcmp(lang, "en") == 0) ? i18n::English : i18n::Other_Lang;
 
 		Comment comment;
-		comment.swap(str, isEnglish, isOther);
+		comment.swap(str, langFlags);
 
 		if (node->hasComment(position))
 		{

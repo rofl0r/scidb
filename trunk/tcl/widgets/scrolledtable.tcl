@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1027 $
-# Date   : $Date: 2015-03-04 10:56:25 +0000 (Wed, 04 Mar 2015) $
+# Version: $Revision: 1080 $
+# Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -784,9 +784,9 @@ proc TableSelected {table number} {
 }
 
 
-proc TableInvoked {table number} {
+proc TableInvoked {table shiftIsHeldDown} {
 	variable ${table}::Vars
-	event generate [winfo parent [winfo parent $table]] <<TableInvoked>> -data $Vars(selection)
+	event generate [winfo parent [winfo parent $table]] <<TableInvoked>> -data $shiftIsHeldDown
 }
 
 

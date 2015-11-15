@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 851 $
-// Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
+// Version: $Revision: 1080 $
+// Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -391,7 +391,10 @@ Decoder::decodeVariation(Consumer& consumer, util::ByteStream& data, ByteStream&
 
 						buf.clear();
 						text.get(buf);
-						comment.swap(buf, bool(flag & comm::Ante_Eng), bool(flag & comm::Ante_Oth));
+						comment.swap(
+							buf,
+								(flag & comm::Ante_Eng ? i18n::English : 0)
+							 | (flag & comm::Ante_Oth ? i18n::Other_Lang : 0));
 						consumer.putTrailingComment(comment);
 					}
 					return;
@@ -452,14 +455,20 @@ Decoder::decodeVariation(Consumer& consumer, util::ByteStream& data, ByteStream&
 						{
 							buf.clear();
 							text.get(buf);
-							preComment.swap(buf, bool(flag & comm::Ante_Eng), bool(flag & comm::Ante_Oth));
+							preComment.swap(
+								buf,
+								(flag & comm::Ante_Eng ? i18n::English : 0)
+							 | (flag & comm::Ante_Oth ? i18n::Other_Lang : 0));
 						}
 
 						if (flag & comm::Post)
 						{
 							buf.clear();
 							text.get(buf);
-							comment.swap(buf, bool(flag & comm::Post_Eng), bool(flag & comm::Post_Oth));
+							comment.swap(
+								buf,
+									(flag & comm::Ante_Eng ? i18n::English : 0)
+								 | (flag & comm::Ante_Oth ? i18n::Other_Lang : 0));
 						}
 
 						hasNote = true;
@@ -533,14 +542,20 @@ Decoder::decodeComments(MoveNode* node, ByteStream& data)
 				if (flag & comm::Ante)
 				{
 					m_strm.get(buf);
-					comment.swap(buf, bool(flag & comm::Ante_Eng), bool(flag & comm::Ante_Oth));
+					comment.swap(
+						buf,
+							(flag & comm::Ante_Eng ? i18n::English : 0)
+						 | (flag & comm::Ante_Oth ? i18n::Other_Lang : 0));
 					node->swapComment(comment, move::Ante);
 				}
 
 				if (flag & comm::Post)
 				{
 					m_strm.get(buf);
-					comment.swap(buf,  bool(flag & comm::Post_Eng), bool(flag & comm::Post_Oth));
+					comment.swap(
+						buf,
+							(flag & comm::Ante_Eng ? i18n::English : 0)
+						 | (flag & comm::Ante_Oth ? i18n::Other_Lang : 0));
 					node->swapComment(comment, move::Post);
 				}
 				else

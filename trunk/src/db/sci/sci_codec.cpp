@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1071 $
-// Date   : $Date: 2015-06-13 07:41:14 +0000 (Sat, 13 Jun 2015) $
+// Version: $Revision: 1080 $
+// Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -808,6 +808,7 @@ void
 Codec::doEncoding(util::ByteStream& strm,
 						GameData const& data,
 						Signature const& signature,
+						unsigned langFlags,				// will be ignored
 						TagBits const& allowedTags,
 						bool allowExtraTags)
 {

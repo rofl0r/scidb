@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 1080 $
+// Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2356,6 +2356,9 @@ TreeSeeCmd(
 
 	/* Scroll vertically a minimal amount. */
 	} else if ((C2Wy(y) > maxY) || (C2Wy(y + h) <= minY) || (h <= visHeight)) {
+//////////////////////////////////////////////////////////////////////
+// Problem: Tk_Height(tree->tkwin) is 1
+//////////////////////////////////////////////////////////////////////
 		if ((C2Wy(y) < minY) || (h > visHeight)) {
 			index = Increment_FindY(tree, y);
 			offset = Increment_ToOffsetY(tree, index);

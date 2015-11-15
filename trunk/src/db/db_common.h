@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1077 $
-// Date   : $Date: 2015-08-25 18:43:01 +0000 (Tue, 25 Aug 2015) $
+// Version: $Revision: 1080 $
+// Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -295,6 +295,17 @@ namespace tb
 
 	bool isError(int score);
 	bool isScore(int score);
+}
+
+namespace i18n
+{
+	enum
+	{
+		Undetermined	= 0,			None = Undetermined,
+		Multilingual	= 1 << 0,
+		English			= 1 << 1,
+		Other_Lang		= 1 << 2,
+	};
 }
 
 namespace result
@@ -1638,12 +1649,6 @@ namespace order
 
 namespace copy
 {
-	enum Mode
-	{
-		AllGames,
-		ExcludeIllegal,
-	};
-
 	enum Source
 	{
 		OriginalSource,

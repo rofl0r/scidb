@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 957 $
-// Date   : $Date: 2013-09-30 15:11:24 +0000 (Mon, 30 Sep 2013) $
+// Version: $Revision: 1080 $
+// Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -94,7 +94,7 @@ public:
 								GameCount& rejected,
 								TagBits const& allowedTags,
 								bool allowExtraTags,
-								unsigned& illegalRejected,
+								unsigned* illegalRejected,
 								db::Log& log,
 								util::Progress& progress) const;
 

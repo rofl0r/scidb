@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 961 $
-// Date   : $Date: 2013-10-06 08:30:53 +0000 (Sun, 06 Oct 2013) $
+// Version: $Revision: 1080 $
+// Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -173,10 +173,14 @@ public:
 	unsigned importGames(Producer& producer, util::Progress& progress, int startIndex = -1);
 
 	void decodeGame(GameData& data, GameInfo& info, unsigned gameIndex, mstl::string* encoding = 0);
-	void encodeGame(util::ByteStream& strm, GameData const& data, Signature const& signature);
 	void encodeGame(	util::ByteStream& strm,
 							GameData const& data,
 							Signature const& signature,
+							unsigned langFlags);
+	void encodeGame(	util::ByteStream& strm,
+							GameData const& data,
+							Signature const& signature,
+							unsigned langFlags,
 							TagBits const& allowedTags,
 							bool allowExtraTags);
 
@@ -256,6 +260,7 @@ protected:
 	virtual void doEncoding(util::ByteStream& strm,
 									GameData const& data,
 									Signature const& signature,
+									unsigned langFlags,
 									TagBits const& allowedTags,
 									bool allowExtraTags);
 	virtual unsigned putGame(util::ByteStream const& data);

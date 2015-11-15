@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 980 $
-# Date   : $Date: 2013-10-21 15:49:38 +0000 (Mon, 21 Oct 2013) $
+# Version: $Revision: 1080 $
+# Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -463,7 +463,7 @@ proc Init {parent lang} {
 	LanguageChanged $Vars(dialog) $Vars(dialog)
 
 	set Vars(comment) [GetComment]
-	set Vars(langSet) [::scidb::game::query langSet]
+	set Vars(langSet) [lremove [::scidb::game::query langSet] ""]
 
 	SwitchLanguage $lang
 	MakeLanguageButtons
@@ -2161,7 +2161,7 @@ proc TextInsert {w s} {
 	set compound 0
 
 	if {[llength [set range [$w tag ranges sel]]]} {
-		if {[$w compare [lindex $range 0] <= insert] && [$w compare [lindex $range end] >= insert]} {
+		if {[$w compare insert <= [lindex $range end]] && [$w compare [lindex $range 0] <= insert]} {
 			SetUndoPoint $w
 			$w delete [lindex $range 0] [lindex $range end]
 		}

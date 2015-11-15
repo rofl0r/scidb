@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 635 $
-// Date   : $Date: 2013-01-20 22:09:56 +0000 (Sun, 20 Jan 2013) $
+// Version: $Revision: 1080 $
+// Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -256,6 +256,8 @@ BpgnReader::process(util::Progress& progress)
 				m_parsingTags = true;
 				token = searchTag();
 			}
+
+			consumer.finalizeGame();
 		}
 	}
 	catch (Termination const&)

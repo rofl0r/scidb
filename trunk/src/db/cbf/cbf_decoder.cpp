@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 985 $
-// Date   : $Date: 2013-10-29 14:52:42 +0000 (Tue, 29 Oct 2013) $
+// Version: $Revision: 1080 $
+// Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -204,7 +204,7 @@ Decoder::decodeAnnotation(ByteStream& strm)
 		if (!sys::utf8::validate(str))
 			m_codec.forceValidUtf8(str);
 
-		m_currentNode->setComment(Comment(str, false, false), move::Post);
+		m_currentNode->setComment(Comment(str, i18n::None), move::Post);
 	}
 }
 
@@ -379,7 +379,6 @@ Decoder::doDecoding(Consumer& consumer, TagSet& tags)
 	consumer.startMoveSection();
 	decodeVariation(consumer, moves, text);
 	consumer.finishMoveSection(result::fromString(tags.value(tag::Result)));
-
 	return consumer.finishGame(tags);
 }
 

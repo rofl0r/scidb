@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1062 $
-# Date   : $Date: 2015-04-09 09:47:59 +0000 (Thu, 09 Apr 2015) $
+# Version: $Revision: 1080 $
+# Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
 # Url    : $URL$
 # ======================================================================
 
@@ -882,19 +882,23 @@ proc TableSelected {path index} {
 	if {[llength $Vars(selectcmd)]} {
 		{*}$Vars(selectcmd) $base $variant $number $fen
 	} else {
-		::widget::busyOperation { ::game::new $path \
-			-base $base \
-			-variant $variant \
-			-view $view \
-			-number $number \
-			-fen $fen \
+		::widget::busyOperation { \
+			::game::new $path \
+				-base $base \
+				-variant $variant \
+				-view $view \
+				-number $number \
+				-fen $fen \
+				;
 		}
 	}
 }
 
 
-proc TableInvoked {path index} {
-	::application::switchTab board
+proc TableInvoked {path shiftIsHeldDown} {
+	if {!$shiftIsHeldDown} {
+		::application::switchTab board
+	}
 }
 
 

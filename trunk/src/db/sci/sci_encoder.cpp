@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 769 $
-// Date   : $Date: 2013-05-10 22:26:18 +0000 (Fri, 10 May 2013) $
+// Version: $Revision: 1080 $
+// Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -520,19 +520,23 @@ Encoder::encodeComment(MoveNode const* node)
 
 	if (node->hasComment(move::Ante))
 	{
+		unsigned langFlags = node->comment(move::Ante).langFlags();
+
 		flag |= comm::Ante;
-		if (node->comment(move::Ante).engFlag())
+		if (langFlags & i18n::English)
 			flag |= comm::Ante_Eng;
-		if (node->comment(move::Ante).othFlag())
+		if (langFlags & i18n::Other_Lang)
 			flag |= comm::Ante_Oth;
 	}
 
 	if (node->hasComment(move::Post))
 	{
+		unsigned langFlags = node->comment(move::Post).langFlags();
+
 		flag |= comm::Post;
-		if (node->comment(move::Post).engFlag())
+		if (langFlags & i18n::English)
 			flag |= comm::Post_Eng;
-		if (node->comment(move::Post).othFlag())
+		if (langFlags & i18n::Other_Lang)
 			flag |= comm::Post_Oth;
 	}
 

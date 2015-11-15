@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author: gcramer $
-# Version: $Revision: 1074 $
-# Date   : $Date: 2015-08-18 15:52:10 +0000 (Tue, 18 Aug 2015) $
+# Version: $Revision: 1080 $
+# Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
 # Url    : $URL: https://svn.code.sf.net/p/scidb/code/trunk/tcl/app-information.tcl $
 # ======================================================================
 
@@ -166,7 +166,7 @@ proc activate {w flag} {
 				set name [string trim $name]
 			}
 			append content "<td class='bases' id='$id'><img src='$icon'/></td>"
-			append content "<td class='bases' id='$id' $title>$name</td>"
+			append content "<td class='bases' id='$id' width='220' $title>$name</td>"
 			set icon [::dialog::fsbox::fileIcon $ext]
 			append content "<td class='bases' id='$id'><img src='$icon'/></td>"
 			append content "</tr>"
@@ -540,8 +540,10 @@ proc FetchNewsResponse {lang update token} {
 	switch $state {
 		error		{ return }
 		timeout	{ set retry 1 }
+		eof		{ set retry 1 }
 
 		ok {
+			if {[string length $code] == 0} { set code 100 }
 			switch $code {
 				404 {
 					if {$lang == "en" || $update} { return }
@@ -555,7 +557,10 @@ proc FetchNewsResponse {lang update token} {
 	}
 
 	if {$retry} {
-		if {[incr Priv(retry)] == 3} { return }
+		if {[incr Priv(retry)] == 3} {
+			set Priv(welcome) 1
+			update
+		}
 		after [expr {$Priv(retry)*1000}] [namespace code [list GetUrl $lang $update]]
 	} else {
 		variable Counter

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 1080 $
+// Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -25,6 +25,7 @@
 // ======================================================================
 
 // IMPORTANT NOTE: keep the entries normalized!
+__attribute__((unused))
 static char const* Phrases200[] =
 {
 	/* 200 */	0,
@@ -664,6 +665,7 @@ static char const* Phrases200[] =
 
 
 // IMPORTANT NOTE: keep the entries normalized!
+__attribute__((unused))
 static char const* Phrases500[] =
 {
 	/* 500 */	0,
@@ -776,6 +778,29 @@ static char const* Phrases500[] =
 					"<:it>Questa mossa sta diventando sempre piu impopolare.</:it>"
 					"<:ru>Ход становится непопулярным.</:ru>"
 					"<:sv>Det här draget blir mer och mer impopulärt.</:sv>"
+					"</xml>",
+};
+
+__attribute__((unused))
+static char const* Phrases[] =
+{
+	/* 0 */		"<xml>"
+					"<:de>Die Partie wurde für beide Seiten verloren erklärt.</:de>"
+					"<:en>The game was declared lost for both players.</:en>"
+//					"<:es></:es>"
+//					"<:fr></:fr>"
+//					"<:hy></:hy>"
+//					"<:it></:it>"
+//					"<:sv></:sv>"
+					"</xml>",
+	/* 1 */		"<xml>"
+					"<:de>Unerlaubter Zug</:de>"
+					"<:en>Invalid move</:en>"
+//					"<:es></:es>"
+//					"<:fr></:fr>"
+//					"<:hy></:hy>"
+//					"<:it></:it>"
+//					"<:sv></:sv>"
 					"</xml>",
 };
 

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author: gcramer $
-# Version: $Revision: 1056 $
-# Date   : $Date: 2015-04-03 17:33:31 +0000 (Fri, 03 Apr 2015) $
+# Version: $Revision: 1080 $
+# Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
 # Url    : $URL: https://svn.code.sf.net/p/scidb/code/trunk/tcl/colors.tcl $
 # ======================================================================
 
@@ -110,7 +110,7 @@ array set Colors {
 	lite:switcher,hidden:background		#ebf4f5
 	lite:switcher,hidden:foreground		black
 	lite:switcher,emph:foreground			darkgreen
-	lite:switcher,drop:background			LemonChiffon
+	lite:switcher,drop:background			#98c187
 	lite:switcher,prop:background			#aee239
 
 	lite:fsbox,menu:headerbackground		#ffdd76

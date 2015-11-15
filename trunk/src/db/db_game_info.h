@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1067 $
-// Date   : $Date: 2015-04-12 22:06:33 +0000 (Sun, 12 Apr 2015) $
+// Version: $Revision: 1080 $
+// Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -162,9 +162,10 @@ public:
 	unsigned subround() const;
 	mstl::string roundAsString() const;
 	mstl::string const& site() const;
-	mstl::string const& annotator() const;				// Scid: n/a
+	unsigned langFlags() const;
 	bool containsEnglishLanguage() const;
 	bool containsOtherLanguage() const;
+	mstl::string const& annotator() const;				// Scid: n/a
 	uint8_t countComments() const;						// ChessBase: very roughly
 	uint8_t countAnnotations() const;					// ChessBase: very roughly
 	uint8_t countVariations() const;						// ChessBase: very roughly

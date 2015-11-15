@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 904 $
-// Date   : $Date: 2013-07-18 16:26:11 +0000 (Thu, 18 Jul 2013) $
+// Version: $Revision: 1080 $
+// Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
 // Url    : $URL$
 // ======================================================================
 
@@ -497,8 +497,11 @@ MODULE_SCOPE int Tree_StateFromListObj(TreeCtrl *tree, Tcl_Obj *obj, int states[
 	tree->inset.top
 #define Tree_BorderRight(tree) \
 	(Tk_Width(tree->tkwin) - tree->inset.right)
+/* Changed by GC
 #define Tree_BorderBottom(tree) \
-	(Tk_Height(tree->tkwin) - tree->inset.bottom)
+	(Tk_Height(tree->tkwin) - tree->inset.bottom) */
+#define Tree_BorderBottom(tree) \
+	((Tk_Height(tree->tkwin) == 1 ? Tk_ReqHeight(tree->tkwin) : Tk_Height(tree->tkwin)) - tree->inset.bottom)
 
 #define Tree_HeaderLeft(tree) \
 	Tree_BorderLeft(tree)
