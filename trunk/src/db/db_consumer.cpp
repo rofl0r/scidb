@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1080 $
-// Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
+// Version: $Revision: 1085 $
+// Date   : $Date: 2016-02-29 17:11:08 +0000 (Mon, 29 Feb 2016) $
 // Url    : $URL$
 // ======================================================================
 
@@ -74,16 +74,13 @@ Consumer::Consumer(	format::Type srcFormat,
 	,m_producer(0)
 	,m_setupBoard(true)
 	,m_haveUsedLangs(false)
-	,m_noComments(false)
+	,m_noComments(languages && languages->empty())
 	,m_significantLangs(significantLanguages)
 {
 	M_REQUIRE(!languages || significantLanguages <= languages->size());
 
 	if (languages)
-	{
 		m_wantedLanguages = *languages;
-		m_noComments = m_wantedLanguages.empty();
-	}
 }
 
 
@@ -127,6 +124,9 @@ Consumer::setVariant(variant::Type variant)
 void
 Consumer::setUsedLanguages(LanguageSet languages)
 {
+	if (m_noComments)
+		return;
+
 	m_usedLanguages.swap(languages);
 	m_haveUsedLangs = true;
 

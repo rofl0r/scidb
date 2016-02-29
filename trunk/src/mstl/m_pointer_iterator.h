@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 782 $
-// Date   : $Date: 2013-05-19 16:31:08 +0000 (Sun, 19 May 2013) $
+// Version: $Revision: 1085 $
+// Date   : $Date: 2016-02-29 17:11:08 +0000 (Mon, 29 Feb 2016) $
 // Url    : $URL$
 // ======================================================================
 
@@ -83,6 +83,8 @@ public:
 	pointer_const_iterator(T const* elems = 0);
 	pointer_const_iterator(iterator const& it);
 
+	pointer_const_iterator& operator=(iterator const& it);
+
 	bool operator==(pointer_const_iterator const& it) const;
 	bool operator!=(pointer_const_iterator const& it) const;
 
@@ -110,6 +112,12 @@ private:
 
 	T const* m_elems;
 };
+
+template <typename T>
+bool operator==(pointer_const_iterator<T> const& lhs, pointer_iterator<T> const& rhs);
+
+template <typename T>
+bool operator!=(pointer_iterator<T> const& lhs, pointer_const_iterator<T> const& rhs);
 
 } // namespace mstl
 

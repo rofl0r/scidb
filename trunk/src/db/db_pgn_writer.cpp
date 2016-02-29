@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1080 $
-// Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
+// Version: $Revision: 1085 $
+// Date   : $Date: 2016-02-29 17:11:08 +0000 (Mon, 29 Feb 2016) $
 // Url    : $URL$
 // ======================================================================
 
@@ -527,9 +527,6 @@ PgnWriter::putComment(Comment const& comment)
 				n = text.find_first_of("{}", n + 5);
 			}
 			while (n != mstl::string::npos);
-
-			text.insert(mstl::string::size_type(0), "<html>", 6);
-			text.append("</html>", 7);
 		}
 	}
 	else if (codec().isUtf8())

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1080 $
-// Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
+// Version: $Revision: 1085 $
+// Date   : $Date: 2016-02-29 17:11:08 +0000 (Mon, 29 Feb 2016) $
 // Url    : $URL$
 // ======================================================================
 
@@ -216,41 +216,56 @@ append(mstl::string& result, char const* s, unsigned len)
 	{
 		switch (*s)
 		{
+			case '&':
+				switch (s[1])
+				{
+					case 'a':
+						if (len >= 5 && strncmp("&amp;", s, 5) == 0)
+						{
+							result += '&';
+							s += 5;
+							continue;
+						}
+						if (len >= 6 && strncmp("&apos;", s, 6) == 0)
+						{
+							result += '\'';
+							s += 6;
+							continue;
+						}
+						// fallthru
+					case 'g':
+						if (len >= 4 && strncmp("&gt;", s, 4) == 0)
+						{
+							result += '>';
+							s += 4;
+							continue;
+						}
+						// fallthru
+					case 'l':
+						if (len >= 4 && strncmp("&lt;", s, 4) == 0)
+						{
+							result += '<';
+							s += 4;
+							continue;
+						}
+						// fallthru
+					case 'q':
+						if (len >= 6 && strncmp("&quot;", s, 6) == 0)
+						{
+							result += '"';
+							s += 6;
+							continue;
+						}
+						// fallthru
+					default:
+						result += *s++;
+						break;
+				}
+				break;
+
 			case '{':
 				result += "<brace/>";
 				++s;
-				break;
-
-			case '&':
-				if (strncmp("&lt;", s, 4) == 0)
-				{
-					result += '<';
-					s += 4;
-				}
-				else if (strncmp("&gt;", s, 4) == 0)
-				{
-					result += '>';
-					s += 4;
-				}
-				else if (strncmp("&amp;", s, 4) == 0)
-				{
-					result += '&';
-					s += 5;
-				}
-				else if (strncmp("&apos;", s, 6) == 0)
-				{
-					result += '\'';
-					s += 6;
-				}
-				else if (strncmp("&quot;", s, 4) == 0)
-				{
-					result += '"';
-					s += 6;
-				}
-				else
-				{
-					result += *s++;
-				}
 				break;
 
 			default:

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1005 $
-// Date   : $Date: 2014-09-27 09:21:29 +0000 (Sat, 27 Sep 2014) $
+// Version: $Revision: 1085 $
+// Date   : $Date: 2016-02-29 17:11:08 +0000 (Mon, 29 Feb 2016) $
 // Url    : $URL$
 // ======================================================================
 
@@ -510,7 +510,8 @@ MultiBase::save(mstl::string const& encoding, unsigned flags, util::Progress& pr
 	unsigned reportAfter	= frequency;
 	unsigned count			= 0;
 
-	if (ZStream::testByteOrderMark(internalName))
+	if (	(newFile && (flags & PgnWriter::Flag_Use_UTF8))
+		|| ZStream::testByteOrderMark(internalName))
 	{
 		flags |= PgnWriter::Flag_Use_UTF8;
 		myEncoding = sys::utf8::Codec::utf8();
@@ -539,7 +540,7 @@ MultiBase::save(mstl::string const& encoding, unsigned flags, util::Progress& pr
 		if (!*ostrm)
 			IO_RAISE(PgnFile, Create_Failed, "no permissions to create file");
 
-		writer.reset(new PgnWriter(format::Scidb, *ostrm, encoding, lineEnding, flags));
+		writer.reset(new PgnWriter(format::Scidb, *ostrm, myEncoding, lineEnding, flags));
 		ZStream istrm(internalName);
 
 		istrm.setBufsize(::ChunkSize);
@@ -745,7 +746,7 @@ MultiBase::save(mstl::string const& encoding, unsigned flags, util::Progress& pr
 	else
 	{
 		ostrm.reset(new ZStream(internalName, fileType, mstl::ofstream::app));
-		writer.reset(new PgnWriter(format::Scidb, *ostrm, encoding, lineEnding, flags));
+		writer.reset(new PgnWriter(format::Scidb, *ostrm, myEncoding, lineEnding, flags));
 		ostrm->writenl(mstl::string::empty_string);
 		newFileOffsets.reset(new FileOffsets(*m_fileOffsets));
 

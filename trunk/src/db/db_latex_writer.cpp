@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 826 $
-// Date   : $Date: 2013-06-08 18:28:18 +0000 (Sat, 08 Jun 2013) $
+// Version: $Revision: 1085 $
+// Date   : $Date: 2016-02-29 17:11:08 +0000 (Mon, 29 Feb 2016) $
 // Url    : $URL$
 // ======================================================================
 
@@ -38,7 +38,7 @@ LaTeXWriter::LaTeXWriter(	format::Type srcFormat,
 									unsigned flags,
 									unsigned options,
 									NagMap const& nagMap,
-									Languages const& languages,
+									Languages const* languages,
 									unsigned significantLanguages,
 									Environment& env)
 	:DocumentWriter(srcFormat, flags, options, nagMap, languages, significantLanguages)

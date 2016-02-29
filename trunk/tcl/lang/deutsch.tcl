@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1081 $
-# Date   : $Date: 2015-11-15 10:35:38 +0000 (Sun, 15 Nov 2015) $
+# Version: $Revision: 1085 $
+# Date   : $Date: 2016-02-29 17:11:08 +0000 (Mon, 29 Feb 2016) $
 # Url    : $URL$
 # ======================================================================
 
@@ -2002,11 +2002,11 @@
 ::terminationbox::mc::Termination(stalemate)			"%s ist patt"
 ::terminationbox::mc::Termination(three-checks)		"%s erhielt drei Schachgebote"
 ::terminationbox::mc::Termination(material)			"%s gewinnt durch Verlust aller Figuren"
-::terminationbox::mc::Termination(equal-material)	"Parte remis durch patt (gleiches Material)"
+::terminationbox::mc::Termination(equal-material)	"Partie remis durch patt (gleiches Material)"
 ::terminationbox::mc::Termination(less-material)	"%s gewinnt aufgrund weniger Figurenmaterial (patt)"
-::terminationbox::mc::Termination(bishops)			"Parte remis durch patt (verschiedenfarbige Läufer)"
-::terminationbox::mc::Termination(fifty)				"Parte remis aufgrund der 50-Züge-Regel"
-::terminationbox::mc::Termination(threefold)			"Parte remis aufgrund dreifacher Stellungswiederholung"
+::terminationbox::mc::Termination(bishops)			"Partie remis durch patt (verschiedenfarbige Läufer)"
+::terminationbox::mc::Termination(fifty)				"Partie remis aufgrund der 50-Züge-Regel"
+::terminationbox::mc::Termination(threefold)			"Partie remis aufgrund dreifacher Stellungswiederholung"
 ::terminationbox::mc::Termination(nomating)			"Kein Spieler hat noch Mattmaterial"
 ::terminationbox::mc::Termination(nocheck)			"Kein Spieler kann noch Schachgebote geben"
 

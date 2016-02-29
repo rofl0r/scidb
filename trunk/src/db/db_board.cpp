@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1074 $
-// Date   : $Date: 2015-08-18 15:52:10 +0000 (Tue, 18 Aug 2015) $
+// Version: $Revision: 1085 $
+// Date   : $Date: 2016-02-29 17:11:08 +0000 (Mon, 29 Feb 2016) $
 // Url    : $URL$
 // ======================================================================
 
@@ -3466,6 +3466,7 @@ Board::setup(ExactZHPosition const& position, variant::Type variant)
 	::memset(m_unambiguous, true, sizeof(m_unambiguous));
 
 	m_castle = position.m_castle;
+	m_stm = position.m_stm;
 
 	if (isZhouse(variant))
 	{

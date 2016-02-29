@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 824 $
-// Date   : $Date: 2013-06-07 22:01:59 +0000 (Fri, 07 Jun 2013) $
+// Version: $Revision: 1085 $
+// Date   : $Date: 2016-02-29 17:11:08 +0000 (Mon, 29 Feb 2016) $
 // Url    : $URL$
 // ======================================================================
 
@@ -40,7 +40,7 @@ DocumentWriter::DocumentWriter(	format::Type srcFormat,
 											unsigned flags,
 											unsigned options,
 											NagMap const& nagMap,
-											Languages const& languages,
+											Languages const* languages,
 											unsigned significantLanguages)
 	:Writer(srcFormat, flags, sys::utf8::Codec::utf8())
 	,m_options(options)
@@ -56,10 +56,12 @@ DocumentWriter::DocumentWriter(	format::Type srcFormat,
 
 	::memcpy(m_nagMap, nagMap, sizeof(nagMap));
 
+#if 0
 	m_languages[0] = languages[0];
 	m_languages[1] = languages[1];
 	m_languages[2] = languages[2];
 	m_languages[3] = languages[3];
+#endif
 }
 
 

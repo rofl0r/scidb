@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1080 $
-# Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
+# Version: $Revision: 1085 $
+# Date   : $Date: 2016-02-29 17:11:08 +0000 (Mon, 29 Feb 2016) $
 # Url    : $URL$
 # ======================================================================
 
@@ -268,7 +268,6 @@ proc buildText {path context {forceSbSet 0}} {
 	$f.pgn debug off
 
 	::widget::textPreventSelection $pgn
-#	bind $pgn <Button-3> [namespace code [list PopupMenu $edit $i]]
 	::widget::bindMouseWheel $pgn
 	set Lookup($pgn) $path
 
@@ -368,7 +367,8 @@ proc setupStyle {context positionList} {
 	variable [namespace parent]::${context}::Options
 	variable ShowMoveInfo
 
-	if {$Options(style:column)} { set thresholds {0 0 0 0} } else { set thresholds {240 80 60 0} }
+#	if {$Options(style:column)} { set thresholds {0 0 0 0} } else { set thresholds {240 80 60 0} }
+	set thresholds {0 0 0 0}
 
 	set discardUnknownResult 1
 

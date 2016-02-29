@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 343 $
-// Date   : $Date: 2012-06-15 12:05:39 +0000 (Fri, 15 Jun 2012) $
+// Version: $Revision: 1085 $
+// Date   : $Date: 2016-02-29 17:11:08 +0000 (Mon, 29 Feb 2016) $
 // Url    : $URL$
 // ======================================================================
 
@@ -97,7 +97,7 @@ void
 HtmlDelStackingInfo(HtmlTree *pTree, HtmlElementNode *pElem)
 {
     HtmlNodeStack *pStack = pElem->pStack;
-    if (pStack && pStack->pElem == pElem){
+    if (pStack && pStack->pElem == pElem) { // XXX valgrind is reporting Invalid read of size 4
         if (pStack->pPrev) {
             pStack->pPrev->pNext = pStack->pNext;
         }

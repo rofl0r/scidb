@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1080 $
-// Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
+// Version: $Revision: 1085 $
+// Date   : $Date: 2016-02-29 17:11:08 +0000 (Mon, 29 Feb 2016) $
 // Url    : $URL$
 // ======================================================================
 
@@ -36,10 +36,10 @@ namespace view {
 
 bool buildTagSet(Tcl_Interp* ti, char const* cmd, Tcl_Obj* allowedTags, ::db::tag::TagSet& tagBits);
 
-unsigned makeLangList(	Tcl_Interp* ti,
-								char const* cmd,
-								Tcl_Obj* languageList,
-								mstl::vector<mstl::string>& langs);
+int makeLangList(	Tcl_Interp* ti,
+						char const* cmd,
+						Tcl_Obj* languageList,
+						mstl::vector<mstl::string>& langs);
 
 } // namespace view
 } // namespace tcl
