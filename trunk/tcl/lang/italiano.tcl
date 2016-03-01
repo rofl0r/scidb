@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1080 $
-# Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
+# Version: $Revision: 1087 $
+# Date   : $Date: 2016-03-01 18:09:43 +0000 (Tue, 01 Mar 2016) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1315,7 +1315,7 @@
 ::playertable::mc::StartSearch				"Comincia ricerca"
 ::playertable::mc::ClearEntries				"Pulisci form"
 ::playertable::mc::NotFound					"Nessun risultato."
-::playertable::mc::UsePlayerBase				"Usa Database Giocatore"
+::playertable::mc::EnablePlayerBase			"Usa Database Giocatore"
 ::playertable::mc::DisablePlayerBase		"Disable use of player base" ;# NEW
 ::playertable::mc::TooltipRating				"Rating: %s" ;# NEW
 

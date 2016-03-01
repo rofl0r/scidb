@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1085 $
-# Date   : $Date: 2016-02-29 17:11:08 +0000 (Mon, 29 Feb 2016) $
+# Version: $Revision: 1087 $
+# Date   : $Date: 2016-03-01 18:09:43 +0000 (Tue, 01 Mar 2016) $
 # Url    : $URL$
 # ======================================================================
 
@@ -3209,10 +3209,10 @@ proc DoExport {parent dlg file} {
 	if {[info exists Info(languages)]} {
 		foreach lang $Info(languages) { lappend languages [list $lang yes] }
 	} elseif {[lindex $Values($Values(Type),comments,languages) 0] eq "all"} {
-		set languages {* yes}
+		set languages {{* yes}}
 	} else {
 		switch [lindex $Values($Values(Type),comments,languages) 0] {
-			all		{ set languages {* yes} }
+			all		{ set languages {{* yes}} }
 			none		{ set languages {} }
 			default	{
 				set languages {}

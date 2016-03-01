@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1085 $
-// Date   : $Date: 2016-02-29 17:11:08 +0000 (Mon, 29 Feb 2016) $
+// Version: $Revision: 1087 $
+// Date   : $Date: 2016-03-01 18:09:43 +0000 (Tue, 01 Mar 2016) $
 // Url    : $URL$
 // ======================================================================
 
@@ -317,32 +317,7 @@ Namebase::insertSite(mstl::string const& name,
 		m_list.push_back(entry = makeSiteEntry(name, p));
 		entry->m_value = country;
 
-#ifdef SCI_NAMEBASE_FIX
-		if (size() > 1 && !(*siteAt(size() - 2) < *siteAt(size() - 1)))
-		{
-			unsigned i = size() - 1;
-			SiteEntry const* currSite = siteAt(i);
-			SiteEntry const* prevSite = siteAt(i - 1);
-
-			fprintf(	stderr,
-						"namebase problem(site): %u '%s' : %u '%s'\n",
-						unsigned(prevSite->country()),
-						prevSite->name().c_str(),
-						unsigned(currSite->country()),
-						currSite->name().c_str());
-
-			if (!(*currSite == *prevSite))
-			{
-				while (i > 0 && *siteAt(i) < *siteAt(i - 1))
-				{
-					mstl::swap(m_list[i], m_list[i - 1]);
-					--i;
-				}
-			}
-		}
-#else
 		M_ASSERT(size() == 1 || *siteAt(size() - 2) < *siteAt(size() - 1));
-#endif
 	}
 
 	entry->m_id = id == InvalidId ? nextFreeId() : id;
@@ -1016,7 +991,7 @@ Namebase::setPrepared(unsigned maxFrequency, unsigned maxId, unsigned maxUsage)
 	m_map.resize(m_used);
 	m_nextId = maxId + 1;
 
-	for (unsigned i = 0; i < m_used; ++i)
+	for (unsigned i = 0; i < m_list.size(); ++i)
 		m_map[i] = i;
 }
 

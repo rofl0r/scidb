@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1080 $
-# Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
+# Version: $Revision: 1087 $
+# Date   : $Date: 2016-03-01 18:09:43 +0000 (Tue, 01 Mar 2016) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1302,7 +1302,7 @@
 ::playertable::mc::StartSearch				"Start search"
 ::playertable::mc::ClearEntries				"Clear entries"
 ::playertable::mc::NotFound					"Not found."
-::playertable::mc::UsePlayerBase				"Use Player Base"
+::playertable::mc::EnablePlayerBase			"Enable use of player base"
 ::playertable::mc::DisablePlayerBase		"Disable use of player base"
 ::playertable::mc::TooltipRating				"Rating: %s"
 
