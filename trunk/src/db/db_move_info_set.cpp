@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 851 $
-// Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
+// Version: $Revision: 1089 $
+// Date   : $Date: 2016-05-29 09:04:44 +0000 (Sun, 29 May 2016) $
 // Url    : $URL$
 // ======================================================================
 
@@ -559,7 +559,7 @@ MoveInfoSet::print(	EngineList const& engines,
 
 			if (print)
 			{
-				if (!result.empty() && !result.back() != delim)
+				if (!result.empty() && result.back() != delim)
 					result.append(delim);
 
 				m_row[i].print(engines, result, format);

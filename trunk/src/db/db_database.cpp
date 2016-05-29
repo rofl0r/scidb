@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1080 $
-// Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
+// Version: $Revision: 1089 $
+// Date   : $Date: 2016-05-29 09:04:44 +0000 (Sun, 29 May 2016) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1380,9 +1380,6 @@ Database::exportGames(	Destination& destination,
 {
 	M_REQUIRE(gameFilter.size() == size());
 	M_REQUIRE(destination.variant() == variant());
-	M_REQUIRE(	destination.format() == format::Scidb
-				|| destination.format() == format::Scid3
-				|| destination.format() == format::Scid4);
 	M_REQUIRE(illegalRejected || !format::isScidFormat(destination.format()));
 
 	enum { MaxWarnings = 40 };

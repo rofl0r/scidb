@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1080 $
-// Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
+// Version: $Revision: 1089 $
+// Date   : $Date: 2016-05-29 09:04:44 +0000 (Sun, 29 May 2016) $
 // Url    : $URL$
 // ======================================================================
 
@@ -59,19 +59,6 @@ Space::Space(Bracket bracket)
 
 
 inline
-Space::Space(Bracket bracket, unsigned varNo, unsigned varCount)
-	:m_level(-1)
-	,m_varNo(varNo)
-	,m_varCount(varCount)
-	,m_bracket(bracket)
-	,m_asNumber(true)
-{
-	M_ASSERT(varNo > 0);
-	M_ASSERT(varCount > 0);
-}
-
-
-inline
 Space::Space(unsigned level)
 	:m_level(level)
 	,m_varNo(0)
@@ -83,12 +70,25 @@ Space::Space(unsigned level)
 
 
 inline
-Space::Space(unsigned level, unsigned varNo, unsigned varCount)
+Space::Space(Bracket bracket, unsigned varNo, unsigned varCount)
+	:m_level(-1)
+	,m_varNo(varNo)
+	,m_varCount(varCount)
+	,m_bracket(bracket)
+	,m_asNumber(false)
+{
+	M_ASSERT(varNo > 0);
+	M_ASSERT(varCount > 0);
+}
+
+
+inline
+Space::Space(unsigned level, unsigned varNo, unsigned varCount, bool asNumber)
 	:m_level(level)
 	,m_varNo(varNo)
 	,m_varCount(varCount)
 	,m_bracket(Open)
-	,m_asNumber(false)
+	,m_asNumber(asNumber)
 {
 	M_ASSERT(varNo > 0);
 	M_ASSERT(varCount > 0);

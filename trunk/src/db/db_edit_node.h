@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1080 $
-// Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
+// Version: $Revision: 1089 $
+// Date   : $Date: 2016-05-29 09:04:44 +0000 (Sun, 29 May 2016) $
 // Url    : $URL$
 // ======================================================================
 
@@ -69,7 +69,7 @@ public:
 		TPly, TAnnotation, TStates, TMarks, TGameLink, TLink, TComment, TSpace,	// move level
 	};
 
-	enum Bracket { Blank, Open, Close, End, Fold, Empty, Start };
+	enum Bracket { Blank, Open, Close, CloseFold, End, Fold, Empty, Start };
 
 	typedef mstl::vector<Node const*> List;
 	typedef mstl::map<mstl::string,unsigned> LanguageSet;
@@ -472,7 +472,7 @@ public:
 	explicit Space(Bracket bracket);
 	explicit Space(Bracket bracket, unsigned varNo, unsigned varCount);
 	explicit Space(unsigned level);
-	explicit Space(unsigned level, unsigned varNo, unsigned varCount);
+	explicit Space(unsigned level, unsigned varNo, unsigned varCount, bool asNumber);
 
 	bool operator==(Node const* node) const override;
 

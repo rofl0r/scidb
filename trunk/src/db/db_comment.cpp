@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1085 $
-// Date   : $Date: 2016-02-29 17:11:08 +0000 (Mon, 29 Feb 2016) $
+// Version: $Revision: 1089 $
+// Date   : $Date: 2016-05-29 09:04:44 +0000 (Sun, 29 May 2016) $
 // Url    : $URL$
 // ======================================================================
 
@@ -599,7 +599,7 @@ struct Normalize : public Comment::Callback
 		m_langFlags = 0;
 	}
 
-	~Normalize() {
+	~Normalize() throw() {
 		for (LangMap::iterator i = m_map.begin(); i != m_map.end(); ++i)
 			delete i->second;
 	}

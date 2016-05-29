@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1085 $
-// Date   : $Date: 2016-02-29 17:11:08 +0000 (Mon, 29 Feb 2016) $
+// Version: $Revision: 1089 $
+// Date   : $Date: 2016-05-29 09:04:44 +0000 (Sun, 29 May 2016) $
 // Url    : $URL$
 // ======================================================================
 
@@ -153,7 +153,7 @@ PgnWriter::PgnWriter(format::Type srcFormat,
 	if (test(Flag_Use_UTF8) && !test(Flag_Append_Games) && encoding == sys::utf8::Codec::utf8())
 	{
 		m_strm.write("\xef\xbb\xbf"); // UTF-8 BOM
-		m_strm.write(m_eol);
+		m_strm.write(m_eol); // TODO really needed?
 	}
 }
 
