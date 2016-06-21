@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 648 $
-// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
+// Version: $Revision: 1091 $
+// Date   : $Date: 2016-06-21 16:27:38 +0000 (Tue, 21 Jun 2016) $
 // Url    : $URL$
 // ======================================================================
 
@@ -467,7 +467,7 @@ inline
 void
 bitfield<Bits>::reset()
 {
-	m_bits = 0u;
+	m_bits = 0;
 }
 
 
@@ -588,7 +588,7 @@ inline
 bool
 bitfield<Bits>::any() const
 {
-	return m_bits != 0u;
+	return m_bits != 0;
 }
 
 
@@ -597,7 +597,7 @@ inline
 bool
 bitfield<Bits>::complete() const
 {
-	return m_bits == value_type(~0u);
+	return m_bits == value_type(~value_type(0));
 }
 
 

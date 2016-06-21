@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 1091 $
+// Date   : $Date: 2016-06-21 16:27:38 +0000 (Tue, 21 Jun 2016) $
 // Url    : $URL$
 // ======================================================================
 
@@ -71,10 +71,10 @@ struct bitset_iterator
 struct bitset_const_iterator
 {
 	// types
-	typedef mstl::bitfield<unsigned long>	bitfield;
-	typedef bool									reference;
-	typedef bitset_const_iterator				const_iterator;
-	typedef unsigned								size_type;
+	typedef bitset_iterator::bitfield	bitfield;
+	typedef bool								reference;
+	typedef bitset_const_iterator			const_iterator;
+	typedef unsigned							size_type;
 
 	// structors
 	bitset_const_iterator();
