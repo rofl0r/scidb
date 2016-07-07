@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1089 $
-// Date   : $Date: 2016-05-29 09:04:44 +0000 (Sun, 29 May 2016) $
+// Version: $Revision: 1092 $
+// Date   : $Date: 2016-07-07 13:21:49 +0000 (Thu, 07 Jul 2016) $
 // Url    : $URL$
 // ======================================================================
 
@@ -3395,7 +3395,7 @@ cmdExport(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 	unsigned						position(Application::InvalidPosition);
 	View::Languages			languages;
 	View::Languages*			languagePtr(&languages);
-	int							significant(-1);
+	int							significant(0);
 
 	while (objc > 2 && *(option = stringFromObj(objc, objv, objc - 2)) == '-')
 	{

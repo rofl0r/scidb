@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1089 $
-// Date   : $Date: 2016-05-29 09:04:44 +0000 (Sun, 29 May 2016) $
+// Version: $Revision: 1092 $
+// Date   : $Date: 2016-07-07 13:21:49 +0000 (Thu, 07 Jul 2016) $
 // Url    : $URL$
 // ======================================================================
 
@@ -171,8 +171,11 @@ Node::Spacing::pushOpen(unsigned number, unsigned count)
 
 	Type type = m_level > 1 || !(m_displayStyle & display::ParagraphSpacing) ? Break : Para;
 
-	if (!(m_displayStyle & display::ShowVariationNumbers))
+	if (	(m_level > 1 || !(m_displayStyle & display::ParagraphSpacing))
+		&& !(m_displayStyle & display::ShowVariationNumbers))
+	{
 		number = 0;
+	}
 
 #if 0
 	// don't use paragraph spacing between variations
