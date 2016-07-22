@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1091 $
-// Date   : $Date: 2016-06-21 16:27:38 +0000 (Tue, 21 Jun 2016) $
+// Version: $Revision: 1093 $
+// Date   : $Date: 2016-07-22 10:09:08 +0000 (Fri, 22 Jul 2016) $
 // Url    : $URL$
 // ======================================================================
 
@@ -350,7 +350,13 @@ NameList::append(	mstl::string const& originalName,
 	{
 		mstl::string const* str;
 
-		if (entry->name() == originalName)
+		if (entry->name().size() == 0)
+		{
+			// An empty string is violating the standard, so we have to use the
+			// replacement "?" instead.
+			m_buf.assign("?", 1);
+		}
+		else if (entry->name() == originalName)
 		{
 			str = 0;
 		}
@@ -378,11 +384,19 @@ NameList::buildList(Namebase& base, Codec& codec)
 
 		if (entry->used())
 		{
+			static const mstl::string emptyString("?");
+
 			M_ASSERT(entry->id() < base.nextId());
 
 			mstl::string const* str;
 
-			if (Codec::is7BitAscii(entry->name()))
+			if (entry->name().size() == 0)
+			{
+				// An empty string is violating the standard, so we have to use the
+				// replacement "?" instead.
+				str = &emptyString;
+			}
+			else if (Codec::is7BitAscii(entry->name()))
 			{
 				str = &entry->name();
 			}
