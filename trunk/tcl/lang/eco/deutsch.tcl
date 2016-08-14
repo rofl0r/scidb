@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 743 $
-# Date   : $Date: 2013-04-26 15:55:35 +0000 (Fri, 26 Apr 2013) $
+# Version: $Revision: 1095 $
+# Date   : $Date: 2016-08-14 17:23:39 +0000 (Sun, 14 Aug 2016) $
 # Url    : $URL$
 # ======================================================================
 
@@ -159,6 +159,7 @@
 "Exchange Variation"											"Abtauschvariante"
 "Exchange Winawer Variation"								"Winawer Abtauschvariante"
 "Extended Bishop Swap Variation"							"Verlängerte Läufertauschvariante"
+"Fantasy Gambit"												"Phantasiegambit"
 "Fegatello (Fried Liver) Attack"							"Fegatello Angriff"
 "Fianchetto Defence Deferred"								"Verzögerte Fianchetto Verteidigung"
 "Fishing Pole Variation"									"Angelrutenverteidigung"

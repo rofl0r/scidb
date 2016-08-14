@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 743 $
-# Date   : $Date: 2013-04-26 15:55:35 +0000 (Fri, 26 Apr 2013) $
+# Version: $Revision: 1095 $
+# Date   : $Date: 2016-08-14 17:23:39 +0000 (Sun, 14 Aug 2016) $
 # Url    : $URL$
 # ======================================================================
 
@@ -243,6 +243,8 @@
 "Exchange Variation Doubly Deferred"			"Variante di Cambio doppiamente Ritardata"
 "Exchange Winawer Variation"				"Variante Winawer di Cambio"
 "Extended Bishop Swap Variation"			"Variante del Cambio di Alfiere Estesa"
+# NEW 1.e4 c6 2.d4 d5 3.f3 dxe4 4.fxe4 e5 5.Nf3 exd4 6.Bc4
+"Fantasy Gambit"					"Fantasy Gambit"
 "Fegatello (Fried Liver) Attack"			"Attacco Fegatello"
 "Fianchetto (Alburt) Variation"				"Variante con Fianchetto (Alburt)"
 "Fianchetto (Smyslov-Barnes) Defence"			"Difesa con Fianchetto (Smyslov-Barnes)"

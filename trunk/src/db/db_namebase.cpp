@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1087 $
-// Date   : $Date: 2016-03-01 18:09:43 +0000 (Tue, 01 Mar 2016) $
+// Version: $Revision: 1095 $
+// Date   : $Date: 2016-08-14 17:23:39 +0000 (Sun, 14 Aug 2016) $
 // Url    : $URL$
 // ======================================================================
 
@@ -34,10 +34,6 @@
 #include "m_algorithm.h"
 #include "m_utility.h"
 #include "m_assert.h"
-
-#ifdef DEBUG_SI4
-# include "m_stdio.h"
-#endif
 
 #include <string.h>
 #include <stdlib.h>
@@ -908,44 +904,6 @@ Namebase::update()
 //			m_freeSet.set(id);
 //			m_freeSetIsEmpty = false;
 		}
-
-#ifdef DEBUG_SI4
-		if (m_type != Site && (*i)->m_orig_freq >= 0)
-		{
-			if (m_type == Event)
-			{
-				for (List::iterator j = i + 1; j != m_list.end() && (*j)->name() == (*i)->name(); ++j)
-					freq += (*j)->frequency();
-				for (List::iterator j = i - 1; j >= m_list.begin() && (*j)->name() == (*i)->name(); --j)
-					freq += (*j)->frequency();
-			}
-
-			if (freq != unsigned((*i)->m_orig_freq))
-			{
-				char const* type = "";	// shut up the compiler
-
-				switch (m_type)
-				{
-					case Player:		type = "player"; break;
-					case Site:			type = "site"; break;
-					case Event:			type = "event"; break;
-					case Annotator:	type = "annotator"; break;
-					case Round:			type = "round"; break;
-				}
-
-				::fprintf(	stderr,
-								"WARNING(%u): invalid frequency value %u in %s namebase "
-								"(item '%s') (%u is expected)\n",
-								unsigned(i - m_list.begin()),
-								(*i)->m_orig_freq,
-								type,
-								(*i)->name().c_str(),
-								freq);
-			}
-
-			(*i)->m_orig_freq = -1;
-		}
-#endif
 	}
 
 //	if (!prepareSet.empty())

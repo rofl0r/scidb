@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1085 $
-// Date   : $Date: 2016-02-29 17:11:08 +0000 (Mon, 29 Feb 2016) $
+// Version: $Revision: 1095 $
+// Date   : $Date: 2016-08-14 17:23:39 +0000 (Sun, 14 Aug 2016) $
 // Url    : $URL$
 // ======================================================================
 
@@ -150,10 +150,6 @@ public:
 
 	// data for receiver
 	void setProducer(Producer* producer);
-
-#ifdef DEBUG_SI4
-	uint32_t m_index;
-#endif
 
 protected:
 

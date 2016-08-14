@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author: gcramer $
-# Version: $Revision: 1080 $
-# Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
+# Version: $Revision: 1095 $
+# Date   : $Date: 2016-08-14 17:23:39 +0000 (Sun, 14 Aug 2016) $
 # Url    : $URL: https://svn.code.sf.net/p/scidb/code/trunk/tcl/app-information.tcl $
 # ======================================================================
 
@@ -403,7 +403,7 @@ proc Mouse1Down {nodes} {
 				NEW	{ set cmd [list ::menu::dbNew $Priv(html) Normal] }
 			}
 
-			if {[llength $cmd] && [{*}$cmd]} {
+			if {[llength $cmd] && ![catch { [{*}$cmd] }]} {
 				[namespace parent]::switchTab database
 			}
 		}

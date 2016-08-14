@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1059 $
-// Date   : $Date: 2015-04-04 21:10:23 +0000 (Sat, 04 Apr 2015) $
+// Version: $Revision: 1095 $
+// Date   : $Date: 2016-08-14 17:23:39 +0000 (Sun, 14 Aug 2016) $
 // Url    : $URL$
 // ======================================================================
 
@@ -83,10 +83,6 @@ private:
 	uint32_t			m_id;
 
 	static NamebaseEntry* m_emptyEntry;
-
-#ifdef DEBUG_SI4
-public: int m_orig_freq;
-#endif
 };
 
 
