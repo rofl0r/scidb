@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1085 $
-// Date   : $Date: 2016-02-29 17:11:08 +0000 (Mon, 29 Feb 2016) $
+// Version: $Revision: 1097 $
+// Date   : $Date: 2016-08-31 13:57:01 +0000 (Wed, 31 Aug 2016) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1010,7 +1010,7 @@ Application::setSource(	unsigned position,
 								checksum_t crcMoves)
 {
 	M_REQUIRE(containsGameAt(position));
-	M_REQUIRE(index < database(position).countGames());
+	M_REQUIRE(isScratchGame(position) || index < database(position).countGames());
 
 	EditGame& game = *m_gameMap.find(position)->second;
 	game.link.databaseName = name;
