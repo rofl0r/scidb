@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1098 $
-// Date   : $Date: 2016-09-01 10:17:31 +0000 (Thu, 01 Sep 2016) $
+// Version: $Revision: 1099 $
+// Date   : $Date: 2016-09-02 12:24:27 +0000 (Fri, 02 Sep 2016) $
 // Url    : $URL$
 // ======================================================================
 
@@ -37,7 +37,7 @@ tkText_Init(Tcl_Interp *interp)
     if (0 == Tcl_PkgRequire(interp, "Tk", "8.5", 0)) {
         return TCL_ERROR;
     }
-    Tcl_PkgProvide(interp, "TkText", "2.0");
+    Tcl_PkgProvide(interp, "TkText", "1.0");
     Tcl_CreateObjCommand(interp, "text", Tk_TextObjCmd, 0, 0);
     Tcl_CreateObjCommand(interp, "::tk::text", Tk_TextObjCmd, 0, 0);
 
