@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1097 $
-// Date   : $Date: 2016-08-31 13:57:01 +0000 (Wed, 31 Aug 2016) $
+// Version: $Revision: 1100 $
+// Date   : $Date: 2016-09-02 15:42:06 +0000 (Fri, 02 Sep 2016) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2181,13 +2181,18 @@ Application::clearTreeCache()
 
 
 void
-Application::invalidateTreeCache(unsigned gameIndex)
+Application::invalidateTreeCache(db::Database const& database, unsigned gameIndex)
 {
-	if (m_subscriber)
+	if (m_subscriber && !m_treeIsFrozen)
 		m_subscriber->invalidateTreeCache();
 
 	for (Iterator i = begin(), e = end(); i != e; ++i)
-		Tree::invalidateCache(i->base(), gameIndex);
+	{
+		if (i->base().id() == database.id())
+			Tree::invalidateCache(i->base(), gameIndex);
+		else
+			Tree::invalidateCache(i->base());
+	}
 }
 
 
@@ -2288,7 +2293,7 @@ Application::saveGame(Cursor& cursor, bool replace)
 	if (m_subscriber)
 	{ 
 		if (!replace || g.data.game->isModified())
-			invalidateTreeCache(g.sink.index);
+			invalidateTreeCache(g.sink.cursor->database(), g.sink.index);
 
 		if (cursor.isReferenceBase() && !m_treeIsFrozen)
 			m_subscriber->updateTree(db.name(), db.variant());
@@ -2354,7 +2359,7 @@ Application::updateMoves()
 			}
 		}
 
-		invalidateTreeCache(g.link.index);
+		invalidateTreeCache(g.sink.cursor->database(), g.link.index);
 
 		if (cursor.isReferenceBase() && !m_treeIsFrozen)
 			m_subscriber->updateTree(name, cursor.variant());

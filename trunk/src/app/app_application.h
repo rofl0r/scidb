@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1085 $
-// Date   : $Date: 2016-02-29 17:11:08 +0000 (Mon, 29 Feb 2016) $
+// Version: $Revision: 1100 $
+// Date   : $Date: 2016-09-02 15:42:06 +0000 (Fri, 02 Sep 2016) $
 // Url    : $URL$
 // ======================================================================
 
@@ -512,7 +512,7 @@ private:
 	bool compact(Cursor& cursor, util::Progress& progress);
 	bool compact(Cursor& cursor);
 	void clearTreeCache();
-	void invalidateTreeCache(unsigned gameIndex);
+	void invalidateTreeCache(db::Database const& database, unsigned gameIndex);
 
 	Cursor*			m_current;
 	Cursor*			m_clipbase;

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1080 $
-# Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
+# Version: $Revision: 1100 $
+# Date   : $Date: 2016-09-02 15:42:06 +0000 (Fri, 02 Sep 2016) $
 # Url    : $URL$
 # ======================================================================
 
@@ -713,7 +713,7 @@ proc addDestinationsForSaveToMenu {parent m {discardActualBase 0}} {
 	foreach base [lsort $result] {
 		$m add command \
 			-label [::util::databaseName $base] \
-			-command [list ::application::pgn::saveGame add] \
+			-command [list ::application::pgn::saveGame add $base] \
 			;
 	}
 

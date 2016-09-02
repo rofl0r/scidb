@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1097 $
-# Date   : $Date: 2016-08-31 13:57:01 +0000 (Wed, 31 Aug 2016) $
+# Version: $Revision: 1100 $
+# Date   : $Date: 2016-09-02 15:42:06 +0000 (Fri, 02 Sep 2016) $
 # Url    : $URL$
 # ======================================================================
 
@@ -536,16 +536,19 @@ proc importGame {parent} {
 }
 
 
-proc saveGame {mode} {
+proc saveGame {mode {base ""}} {
 	variable ::scidb::scratchbaseName
 	variable Vars
 
 	set position [::scidb::game::current]
 	set parent $Vars(main)
-	lassign [::scidb::game::link? $position] base variant index
+	lassign [::scidb::game::link? $position] myBase variant index
 	set number [expr {$index + 1}]
 	if {$mode ne "add" && ![::game::verify $parent $position $number]} { return }
 
+	if {[string length $base] == 0} {
+		set base $myBase
+	}
 	if {$base eq $scratchbaseName} {
 		set base [::scidb::db::get name]
 	}

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1087 $
-// Date   : $Date: 2016-03-01 18:09:43 +0000 (Tue, 01 Mar 2016) $
+// Version: $Revision: 1100 $
+// Date   : $Date: 2016-09-02 15:42:06 +0000 (Fri, 02 Sep 2016) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1651,9 +1651,6 @@ Codec::readNamebases(mstl::fstream& stream, util::Progress& progress)
 //if (i == 0) nextId = 1;
 #endif
 
-		if (nextId == 0) {
-			IO_RAISE(Namebase, Corrupted, "zero size");
-		}
 		m_lookup[i].resize(nextId);
 
 		switch (i)

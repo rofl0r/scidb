@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1080 $
-# Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
+# Version: $Revision: 1100 $
+# Date   : $Date: 2016-09-02 15:42:06 +0000 (Fri, 02 Sep 2016) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1662,7 +1662,9 @@ proc GameClosed {position} {
 
 
 proc UpdateInfo {_ base variant} {
-	DatabaseSwitched $base $variant
+	if {$base eq [::scidb::db::get name]} {
+		DatabaseSwitched $base $variant
+	}
 }
 
 
@@ -1827,7 +1829,7 @@ proc UpdateGameInfo {position id} {
 		if {[lindex $Vars(current:game) 0] == $position} {
 			Unsubscribe $position
 			set Vars(current:game) {}
-			SwitchView base
+			#SwitchView base # not required
 		}
 	}
 }

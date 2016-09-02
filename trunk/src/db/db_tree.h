@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 985 $
-// Date   : $Date: 2013-10-29 14:52:42 +0000 (Tue, 29 Oct 2013) $
+// Version: $Revision: 1100 $
+// Date   : $Date: 2016-09-02 15:42:06 +0000 (Fri, 02 Sep 2016) $
 // Url    : $URL$
 // ======================================================================
 
@@ -142,6 +142,7 @@ public:
 								rating::Type ratingType);
 	static void addToCache(Tree* tree);
 	static void clearCache(Database& base);
+	static void invalidateCache(Database& base);
 	static void invalidateCache(Database& base, unsigned gameIndex);
 
 private:
