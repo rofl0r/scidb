@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 688 $
-// Date   : $Date: 2013-03-29 16:55:41 +0000 (Fri, 29 Mar 2013) $
+// Version: $Revision: 1103 $
+// Date   : $Date: 2016-09-03 08:37:17 +0000 (Sat, 03 Sep 2016) $
 // Url    : $URL$
 // ======================================================================
 
@@ -20,9 +20,7 @@
 
 #include "tcl_base.h"
 
-#define namespace namespace_	// bug in tk8.6/tkInt.h
 #include "tkInt.h"
-#undef namespace
 
 #include "m_types.h"
 

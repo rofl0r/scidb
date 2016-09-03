@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 949 $
-// Date   : $Date: 2013-09-25 22:13:20 +0000 (Wed, 25 Sep 2013) $
+// Version: $Revision: 1103 $
+// Date   : $Date: 2016-09-03 08:37:17 +0000 (Sat, 03 Sep 2016) $
 // Url    : $URL$
 // ======================================================================
 
@@ -18,10 +18,8 @@
 
 #include "tk_init.h"
 
-#define namespace namespace_ // bug in tk8.6/tkInt.h
 #include <tk.h>
 #include <tkInt.h>
-#undef namespace_
 
 #ifndef DISCARD_TK_FIXES
 
