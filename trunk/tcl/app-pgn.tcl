@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1100 $
-# Date   : $Date: 2016-09-02 15:42:06 +0000 (Fri, 02 Sep 2016) $
+# Version: $Revision: 1107 $
+# Date   : $Date: 2016-09-19 08:03:42 +0000 (Mon, 19 Sep 2016) $
 # Url    : $URL$
 # ======================================================================
 
@@ -200,7 +200,7 @@ proc build {parent width height} {
 	if {$steadyMarks} {
 		# The revised version of tk::text has more useful features and bugfixes.
 		set Vars(indentbackground) {-indentbackground 1}
-		set Vars(deletemarks) -marks
+		# set Vars(deletemarks) -marks XXX not yet working
 	} else {
 		set Vars(old-editor) 1
 	}
