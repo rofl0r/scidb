@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1095 $
-// Date   : $Date: 2016-08-14 17:23:39 +0000 (Sun, 14 Aug 2016) $
+// Version: $Revision: 1113 $
+// Date   : $Date: 2016-11-16 16:43:45 +0000 (Wed, 16 Nov 2016) $
 // Url    : $URL$
 // ======================================================================
 
@@ -740,11 +740,9 @@ Decoder::decodeComments(MoveNode* node, Consumer* consumer)
 				node->addAnnotation(nag::Diagram);
 
 			comment.normalize();
-
-			if (node->next()->atLineEnd())
-				node->swapComment(comment, move::Post);
-			else
+			if (!node->next()->atLineEnd())
 				node->swapComment(comment, move::Ante);
+			node->swapComment(comment, move::Post);
 		}
 	}
 
@@ -987,9 +985,6 @@ void
 Decoder::decodeVariation(Consumer& consumer, MoveNode const* node)
 {
 	M_ASSERT(node);
-
-	if (node->hasNote())
-		consumer.putPrecedingComment(node->comment(move::Post), node->annotation(), node->marks());
 
 	for (node = node->next(); node; node = node->next())
 	{

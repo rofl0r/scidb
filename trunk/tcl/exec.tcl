@@ -1,8 +1,8 @@
 #!/bin/sh
 #! ======================================================================
 #! $RCSfile: tk_init.h,v $
-#! $Revision: 839 $
-#! $Date: 2013-06-14 17:08:49 +0000 (Fri, 14 Jun 2013) $
+#! $Revision: 1113 $
+#! $Date: 2016-11-16 16:43:45 +0000 (Wed, 16 Nov 2016) $
 #! $Author: gregor $
 #! ======================================================================
 
@@ -209,6 +209,7 @@ if {[testOption help]} {
 	exit 0
 }
 
+# TODO: test this option
 if {0 && [testOption update-player-photos]} {
 	proc inform {what args} {
 		switch $what {
