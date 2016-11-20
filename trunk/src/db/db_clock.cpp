@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 1114 $
+// Date   : $Date: 2016-11-20 16:06:24 +0000 (Sun, 20 Nov 2016) $
 // Url    : $URL$
 // ======================================================================
 
@@ -77,8 +77,10 @@ Clock::parse(char const* s)
 	m_hour = strtoul(s, &e, 10);
 	e = skipSpaces(e);
 
+#if 0 // we need at least hour and minutes
 	if (::isdelim(*e))
 		return e;
+#endif
 
 	if (*e != ':')
 		return 0;

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1113 $
-// Date   : $Date: 2016-11-16 16:43:45 +0000 (Wed, 16 Nov 2016) $
+// Version: $Revision: 1114 $
+// Date   : $Date: 2016-11-20 16:06:24 +0000 (Sun, 20 Nov 2016) $
 // Url    : $URL$
 // ======================================================================
 
@@ -755,7 +755,6 @@ Decoder::decodeComments(MoveNode* node, Consumer* consumer)
 				mstl::string	content;
 				Comment			comment;
 				MarkSet			marks;
-				MoveInfoSet		moveInfoSet;
 
 				m_strm.get(content);
 				marks.extractFromComment(content);
@@ -917,8 +916,8 @@ Decoder::doDecoding(db::Consumer& consumer, TagSet& tags)
 	DataEnd();
 
 	decodeComments(&start, &consumer);
-	decodeVariation(consumer, &start);
 	m_engines.swap(consumer.engines());
+	decodeVariation(consumer, &start);
 	consumer.finishMoveSection(result::fromString(tags.value(tag::Result)));
 
 	if (m_codec->failed())
