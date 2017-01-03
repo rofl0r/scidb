@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1100 $
-// Date   : $Date: 2016-09-02 15:42:06 +0000 (Fri, 02 Sep 2016) $
+// Version: $Revision: 1116 $
+// Date   : $Date: 2017-01-03 15:03:20 +0000 (Tue, 03 Jan 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -293,6 +293,19 @@ Application::Iterator
 Application::end() const
 {
 	return Iterator(m_cursorMap.end(), m_cursorMap.end());
+}
+
+
+bool
+Application::exists(unsigned databaseId) const
+{
+	for (Iterator i = begin(), e = end(); i != e; ++i)
+	{
+		if (i->database().id() == databaseId)
+			return true;
+	}
+
+	return false;
 }
 
 
