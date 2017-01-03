@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1062 $
-# Date   : $Date: 2015-04-09 09:47:59 +0000 (Thu, 09 Apr 2015) $
+# Version: $Revision: 1115 $
+# Date   : $Date: 2017-01-03 12:37:48 +0000 (Tue, 03 Jan 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -714,10 +714,17 @@ proc PopupMenu {path menu base variant index} {
 		$menu add cascade -label [set ::gametable::mc::Sort[string toupper $dir 0 0]] -menu $m
 		foreach id $visible {
 			set idl [string toupper $id 0 0]
-			set fvar [namespace current]::mc::F_$idl
-			set fvar [namespace current]::mc::F_$idl
-			set tvar [namespace current]::mc::T_$idl
-			if {[info exists $tvar]} { set var $tvar } else { set var $fvar }
+			foreach ns { eventtable gametable playertable } {
+				set fvar ::${ns}::mc::F_$idl
+				set tvar ::${ns}::mc::T_$idl
+				if {[info exists $tvar]} {
+					set var $tvar
+					break
+				} elseif {[info exists $fvar]} {
+					set var $fvar
+					break
+				}
+			}
 			$m add command \
 				-label [set $var] \
 				-command [namespace code [list SortColumn $path $id $dir]] \
