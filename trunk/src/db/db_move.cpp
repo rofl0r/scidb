@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 997 $
-// Date   : $Date: 2013-11-03 09:12:28 +0000 (Sun, 03 Nov 2013) $
+// Version: $Revision: 1118 $
+// Date   : $Date: 2017-01-13 11:44:35 +0000 (Fri, 13 Jan 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -192,7 +192,7 @@ mstl::string&
 Move::printLan(mstl::string& s, protocol::ID protocol, encoding::CharSet charSet) const
 {
 	M_REQUIRE(!isInvalid());
-	M_REQUIRE(isPrintable());
+	M_REQUIRE(isPrintable() || isEmpty());
 
 	if (isNull())
 	{
