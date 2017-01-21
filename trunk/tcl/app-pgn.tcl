@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1107 $
-# Date   : $Date: 2016-09-19 08:03:42 +0000 (Mon, 19 Sep 2016) $
+# Version: $Revision: 1121 $
+# Date   : $Date: 2017-01-21 11:59:01 +0000 (Sat, 21 Jan 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1460,8 +1460,12 @@ proc UpdateHeader {context position w data} {
 				$w insert cur $::mc::VariantName($variant) opening
 			}
 		}
+	} else if {$Vars(old-editor)} {
+		while {[$w count -lines 1.0 end] > 1 && [$w get 1.0] == "\n"} {
+			$w delete 1.0
+		}
 	} else {
-		while {[$w get 1.0] == "\n"} {
+		while {![$w isempty] > 1 && [$w get 1.0] == "\n"} {
 			$w delete 1.0
 		}
 	}
