@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1097 $
-# Date   : $Date: 2016-08-31 13:57:01 +0000 (Wed, 31 Aug 2016) $
+# Version: $Revision: 1126 $
+# Date   : $Date: 2017-01-21 14:32:32 +0000 (Sat, 21 Jan 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -148,12 +148,14 @@ proc textLineScroll {w cmd args} {
 			lassign [$w yview] first last
 
 			set incr     [font metrics [$w cget -font] -linespace]
-			set height   [expr {[winfo height $w] - 2*([$w cget -borderwidth] + [$w cget -pady])}]
-			set visible  [expr {$height/$incr}]
+			set height   [expr {max(1, [winfo height $w] - 2*([$w cget -borderwidth] + [$w cget -pady]))}]
+			set visible  [expr {double($height)/$incr}]
 			set total    [expr {int($visible/($last - $first) + 0.5)}]
 			set topline  [expr {int($fraction*double($total) + 0.5)}]
 
-			$w yview moveto [expr {double($topline)/double($total)}]
+			if {$total > 0} {
+				$w yview moveto [expr {double($topline)/double($total)}]
+			}
 		}
 
 		default {
