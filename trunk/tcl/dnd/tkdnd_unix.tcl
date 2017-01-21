@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 865 $
-# Date   : $Date: 2013-07-01 20:15:42 +0000 (Mon, 01 Jul 2013) $
+# Version: $Revision: 1120 $
+# Date   : $Date: 2017-01-21 11:58:07 +0000 (Sat, 21 Jan 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -144,7 +144,7 @@ proc xdnd::_HandleXdndPosition { drop_target rootX rootY drag_source } {
       }
     }
   }
-  
+ 
   # debug "\t($_drop_target) -> ($drop_target)"
   if {$drop_target != $_drop_target} {
     if {[string length $_drop_target]} {
@@ -343,7 +343,7 @@ proc xdnd::_HandleXdndDrop { time } {
 };# xdnd::_HandleXdndDrop
 
 # ----------------------------------------------------------------------------
-#  Command xdnd::_HandleXdndDrop
+#  Command xdnd::_HandleDragPosition
 # ----------------------------------------------------------------------------
 proc xdnd::_HandleDragPosition { window rootX rootY } {
   variable _types

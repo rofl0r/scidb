@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1080 $
-# Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
+# Version: $Revision: 1120 $
+# Date   : $Date: 2017-01-21 11:58:07 +0000 (Sat, 21 Jan 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1099,8 +1099,8 @@ proc HandleDropPosition {w actions x y} {
 		return refuse_drop
 	}
 
-	if {$Vars(curr-item) == -1} { return refuse_drop }
-	return copy
+	if {$Vars(curr-item) == -1} { return copy }
+	return ask
 }
 
 
