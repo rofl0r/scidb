@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 719 $
-// Date   : $Date: 2013-04-19 16:40:59 +0000 (Fri, 19 Apr 2013) $
+// Version: $Revision: 1130 $
+// Date   : $Date: 2017-01-22 16:12:47 +0000 (Sun, 22 Jan 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -181,7 +181,7 @@ PlayerDictionary::search(mstl::string const& name) const
 	if (name.empty())
 		return 0;
 
-	char letter = name.front();
+	char letter = ::toupper(name.front());
 
 	for (unsigned i = 0, k = 0; i < m_selector.size(); ++i)
 	{
@@ -191,7 +191,7 @@ PlayerDictionary::search(mstl::string const& name) const
 		{
 			char const* s = Player::getPlayer(index).asciiName();
 
-			if (*s == letter && ::strncmp(name, s, name.size()) == 0)
+			if (*s == letter && ::strncasecmp(name, s, name.size()) == 0)
 				return k;
 
 			++k;

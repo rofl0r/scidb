@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1101 $
-// Date   : $Date: 2016-09-02 18:37:30 +0000 (Fri, 02 Sep 2016) $
+// Version: $Revision: 1130 $
+// Date   : $Date: 2017-01-22 16:12:47 +0000 (Sun, 22 Jan 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -102,6 +102,8 @@ ScCreateBusy(Tk_FakeWin *winPtr, Tk_Window tkRef, Window *parentPtr, Tk_Window t
 	    busyPtr->width = rect.right - rect.left;
 	    busyPtr->height = rect.bottom - rect.top;
 	}
+
+        /* XXX parentPtr will not be set. */
     } else {
 	*parentPtr = Tk_WindowId(tkParent);
 	*parentPtr = (Window) Tk_GetHWND(*parentPtr);
