@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1100 $
-# Date   : $Date: 2016-09-02 15:42:06 +0000 (Fri, 02 Sep 2016) $
+# Version: $Revision: 1131 $
+# Date   : $Date: 2017-02-10 09:58:23 +0000 (Fri, 10 Feb 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -429,8 +429,14 @@ proc activate {w flag} {
 
 
 proc setActive {flag} {
+	variable Vars
+
 	::move::enable ;# required here because <<ControlOff>> might fail
 	::marks::releaseSquare
+
+	if {$flag && $Vars(active)} {
+		focus $Vars(widget:frame)
+	}
 }
 
 

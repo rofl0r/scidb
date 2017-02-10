@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1052 $
-# Date   : $Date: 2015-03-19 19:57:44 +0000 (Thu, 19 Mar 2015) $
+# Version: $Revision: 1131 $
+# Date   : $Date: 2017-02-10 09:58:23 +0000 (Fri, 10 Feb 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -559,7 +559,7 @@ proc Activate {nb} {
 proc Deactivate {nb} {
 	variable Vars
 
-	if {$Vars(active)} {
+	if {$Vars(active) && ![string match {.application.*} [focus]]} {
 		set Vars(active) 0
 		set current [lindex [split [$nb select] .] end]
 		${current}::setActive no

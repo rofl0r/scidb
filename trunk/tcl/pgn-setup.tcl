@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1097 $
-# Date   : $Date: 2016-08-31 13:57:01 +0000 (Wed, 31 Aug 2016) $
+# Version: $Revision: 1131 $
+# Date   : $Date: 2017-02-10 09:58:23 +0000 (Fri, 10 Feb 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -245,6 +245,7 @@ proc buildText {path context {forceSbSet 0}} {
 	variable ContextList
 	variable Context
 	variable Lookup
+	global env
 
 	variable [namespace parent]::${context}::Options
 	variable [namespace parent]::${context}::Colors
