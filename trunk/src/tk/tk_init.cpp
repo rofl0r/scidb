@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1122 $
-// Date   : $Date: 2017-01-21 12:00:05 +0000 (Sat, 21 Jan 2017) $
+// Version: $Revision: 1132 $
+// Date   : $Date: 2017-02-11 13:38:09 +0000 (Sat, 11 Feb 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -33,7 +33,7 @@ extern "C"
 static int
 tkText_Init(Tcl_Interp *interp)
 {
-    /* Require stubs libraries version 8.5 or greater. */
+    /* Requires stubs libraries version 8.5 or higher. */
     if (0 == Tcl_PkgRequire(interp, "Tk", "8.5", 0)) {
         return TCL_ERROR;
     }
