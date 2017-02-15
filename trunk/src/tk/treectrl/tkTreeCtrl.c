@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1080 $
-// Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
+// Version: $Revision: 1134 $
+// Date   : $Date: 2017-02-15 19:27:27 +0000 (Wed, 15 Feb 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -64,7 +64,7 @@ static CONST char *columnResizeModeST[] = {
 	"proxy", "realtime", (char *) NULL
 };
 static CONST char *doubleBufferST[] = {
-	"none", "item", "window", (char *) NULL
+	"none", "item", "window", "never", (char *) NULL
 };
 static CONST char *lineStyleST[] = {
 	"dot", "solid", (char *) NULL
