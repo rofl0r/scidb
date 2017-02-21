@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1028 $
-# Date   : $Date: 2015-03-09 13:07:49 +0000 (Mon, 09 Mar 2015) $
+# Version: $Revision: 1135 $
+# Date   : $Date: 2017-02-21 19:19:56 +0000 (Tue, 21 Feb 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1215,18 +1215,20 @@ proc truetypeSupport? {} {
 proc useLanguage {lang} {
 	variable ::figurines::langSet
 	variable GraphicMap
+	variable Options
 
 	if {$lang eq "graphic"} {
 		useFigurines yes
 	} else {
 		set GraphicMap {}
 		set graphic $langSet(graphic)
+		if {[string length $Options(figurine:lang)]} {
+			set lang $Options(figurine:lang)
+		}
 		set figurine $langSet($lang)
-
 		for {set i 0} {$i < 5} {incr i} {
 			lappend GraphicMap [lindex $graphic $i] [lindex $figurine $i]
 		}
-
 		lappend GraphicMap [lindex $graphic $i] ""
 	}
 }
