@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1087 $
-# Date   : $Date: 2016-03-01 18:09:43 +0000 (Tue, 01 Mar 2016) $
+# Version: $Revision: 1136 $
+# Date   : $Date: 2017-03-23 14:19:53 +0000 (Thu, 23 Mar 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -441,6 +441,8 @@
 ::application::board::mc::LoadGame(prev)				"Ladda föregående parti"
 ::application::board::mc::LoadGame(first)				"Ladda första parti"
 ::application::board::mc::LoadGame(last)				"Ladda sista parti"
+::application::board::mc::LoadFirstLast(next)		"End of list reached, continue with first game?" ;# NEW
+::application::board::mc::LoadFirstLast(prev)		"Start of list reached, continue with last game?" ;# NEW
 
 ::application::board::mc::SwitchView(base)			"Växla till databasvy"
 ::application::board::mc::SwitchView(list)			"Växla till partilistvy"

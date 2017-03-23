@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1087 $
-# Date   : $Date: 2016-03-01 18:09:43 +0000 (Tue, 01 Mar 2016) $
+# Version: $Revision: 1136 $
+# Date   : $Date: 2017-03-23 14:19:53 +0000 (Thu, 23 Mar 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -441,6 +441,8 @@
 ::application::board::mc::LoadGame(prev)				"Vorhergehende Partie laden"
 ::application::board::mc::LoadGame(first)				"Erste Partie laden"
 ::application::board::mc::LoadGame(last)				"Letzte Partie laden"
+::application::board::mc::LoadFirstLast(next)		"Ende der Liste erreicht, mit der ersten Partie fortfahren?"
+::application::board::mc::LoadFirstLast(prev)		"Start der Liste erreicht, mit der letzten Partie fortfahren?"
 
 ::application::board::mc::SwitchView(base)			"Zur Datenbanksicht wechseln"
 ::application::board::mc::SwitchView(list)			"Zur Partielistensicht wechseln"
