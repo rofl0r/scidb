@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1139 $
-# Date   : $Date: 2017-04-08 15:59:13 +0000 (Sat, 08 Apr 2017) $
+# Version: $Revision: 1140 $
+# Date   : $Date: 2017-04-08 16:30:11 +0000 (Sat, 08 Apr 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1213,7 +1213,7 @@ proc DoLayout {position content {context editor} {w {}}} {
 								$w insert cur $result result
 							}
 							if {[string length $reason]} {
-								$w insert cur "$space($reason)"
+								$w insert cur "${space}($reason)"
 							}
 						}
 						$w mark gravity m-0 right
