@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 827 $
-# Date   : $Date: 2013-06-09 09:10:26 +0000 (Sun, 09 Jun 2013) $
+# Version: $Revision: 1138 $
+# Date   : $Date: 2017-04-08 15:54:51 +0000 (Sat, 08 Apr 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -89,7 +89,7 @@ array set CharMap {
 }
 
 
-proc emotions {} {
+proc emoticons {} {
 	return [::scidb::misc::emoticons list]
 }
 

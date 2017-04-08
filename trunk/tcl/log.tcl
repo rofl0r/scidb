@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 851 $
-# Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
+# Version: $Revision: 1138 $
+# Date   : $Date: 2017-04-08 15:54:51 +0000 (Sat, 08 Apr 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -96,7 +96,9 @@ proc close {} {
 	if {[incr Priv(open) -1] > 0} { return }
 
 	if {$Priv(newline)} {
-		$Log.top.text delete end-1
+		$Log.top.text configure -state normal
+		$Log.top.text delete end-1c
+		$Log.top.text configure -state disabled
 	}
 
 	if {$Priv(hide)} {

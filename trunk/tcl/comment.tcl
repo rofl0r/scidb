@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1080 $
-# Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
+# Version: $Revision: 1138 $
+# Date   : $Date: 2017-04-08 15:54:51 +0000 (Sat, 08 Apr 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1638,9 +1638,9 @@ proc PopupMenu {parent} {
 
 
 proc MakeEmoticonMenu {w menu} {
-	set emotions [::emoticons::emotions]
-	set n [expr {[llength $emotions]/2 + 1}]
-	foreach emotion $emotions {
+	set emoticons [::emoticons::emoticons]
+	set n [expr {[llength $emoticons]/2 + 1}]
+	foreach emotion $emoticons {
 		$menu add command \
 			-image $::emoticons::icon($emotion) \
 			-label " $::emoticons::mc::Tooltip($emotion)" \
