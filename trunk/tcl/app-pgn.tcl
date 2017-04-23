@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1142 $
-# Date   : $Date: 2017-04-11 19:16:23 +0000 (Tue, 11 Apr 2017) $
+# Version: $Revision: 1143 $
+# Date   : $Date: 2017-04-23 19:23:49 +0000 (Sun, 23 Apr 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1117,17 +1117,17 @@ proc DoLayout {position content {context editor} {w {}}} {
 				set level [lindex $node 3]
 				if {$level == 0} {
 					$w mark set main:start cur
-				} elseif {$level == 1} {
+				} elseif {$level == 1 && [$w mark exists main:start]} {
 					$w tag add main main:start cur
 				}
 				set startVar($level) [lindex $node 2]
 			}
 
 			end {
-				if {$level == 0} {
-					$w tag add main main:start cur
-				} elseif {$level == 1} {
+				if {$level == 1} {
 					$w mark set main:start cur
+				} elseif {$level == 0 && [$w mark exists main:start]} {
+					$w tag add main main:start cur
 				}
 				set level [lindex $node 3]
 				Indent $context $w $level $startVar($level) cur
