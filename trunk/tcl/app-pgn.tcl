@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1143 $
-# Date   : $Date: 2017-04-23 19:23:49 +0000 (Sun, 23 Apr 2017) $
+# Version: $Revision: 1144 $
+# Date   : $Date: 2017-04-24 08:54:38 +0000 (Mon, 24 Apr 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1116,7 +1116,7 @@ proc DoLayout {position content {context editor} {w {}}} {
 			begin {
 				set level [lindex $node 3]
 				if {$level == 0} {
-					$w mark set main:start cur
+					$w mark set main:start cur left
 				} elseif {$level == 1 && [$w mark exists main:start]} {
 					$w tag add main main:start cur
 				}
@@ -1125,7 +1125,7 @@ proc DoLayout {position content {context editor} {w {}}} {
 
 			end {
 				if {$level == 1} {
-					$w mark set main:start cur
+					$w mark set main:start cur left
 				} elseif {$level == 0 && [$w mark exists main:start]} {
 					$w tag add main main:start cur
 				}
@@ -1145,6 +1145,7 @@ proc DoLayout {position content {context editor} {w {}}} {
 						$w mark gravity $insertMark right
 						$w mark set indent:start $removePos left
 						$w mark set cur $insertMark
+						if {$level == 0} { $w mark set main:start cur left }
 					}
 
 					insert {
@@ -1152,10 +1153,12 @@ proc DoLayout {position content {context editor} {w {}}} {
 						$w mark gravity $insertMark right
 						$w mark set indent:start $insertMark left
 						$w mark set cur $insertMark
+						if {$level == 0} { $w mark set main:start cur left }
 					}
 
 					finish {
 						set level [lindex $args 1]
+						if {$level == 0} { $w tag add main main:start cur }
 						Indent $context $w $level indent:start cur
 					}
 
@@ -1226,6 +1229,9 @@ proc DoLayout {position content {context editor} {w {}}} {
 				} elseif {[$w get cur-1c] eq "\n"} {
 					$w delete cur-1c end
 				}
+
+				# delete all the temporary marks
+				$w mark unset indent:start main:start cur:start my:start cur
 			}
 
 			merge {
@@ -1261,9 +1267,6 @@ proc DoLayout {position content {context editor} {w {}}} {
 			}
 		}
 	}
-
-	# delete all the temporary marks
-	$w mark unset indent:start main:start cur:start my:start cur
 
 	after idle [namespace code UpdateButtons]
 
