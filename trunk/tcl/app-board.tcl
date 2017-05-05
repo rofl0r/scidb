@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1136 $
-# Date   : $Date: 2017-03-23 14:19:53 +0000 (Thu, 23 Mar 2017) $
+# Version: $Revision: 1148 $
+# Date   : $Date: 2017-05-05 17:54:31 +0000 (Fri, 05 May 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -886,6 +886,7 @@ proc GotFocus {w} {
 	if {[::application::pgn::empty?]} { focus [::tk_focusNext $w] }
 	set Vars(select-var-is-pending) 0
 	::variation::hide 0
+	::move::enable
 }
 
 
