@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1017 $
-// Date   : $Date: 2015-01-12 18:49:54 +0000 (Mon, 12 Jan 2015) $
+// Version: $Revision: 1149 $
+// Date   : $Date: 2017-05-06 16:41:37 +0000 (Sat, 06 May 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -34,6 +34,7 @@
 #include "u_zstream.h"
 
 #include "m_exception.h"
+#include "m_assert.h"
 
 #include <tcl.h>
 #include <tk.h>
@@ -53,6 +54,17 @@
 # include "si3_encoder.h"
 # include "tcl_progress.h"
 #endif
+
+
+static app::Application *m_app = nullptr;
+
+
+/*
+ * Call this C function in case of failed assertions.
+ */
+
+extern "C" void assertionFailed(char const *message);
+void assertionFailed(char const *message) { M_ASSERT(!message); }
 
 
 static int
@@ -88,7 +100,7 @@ init(Tcl_Interp* ti)
 
 #endif
 
-		tcl::app::setup(new app::Application);
+		tcl::app::setup(m_app = new app::Application);
 
 #ifdef __WIN32__
 		return Tcl_FSEvalFileEx(tcl::interp(), "scidb.gui", 0);
