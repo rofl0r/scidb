@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1075 $
-# Date   : $Date: 2015-08-18 19:07:15 +0000 (Tue, 18 Aug 2015) $
+# Version: $Revision: 1154 $
+# Date   : $Date: 2017-05-07 09:36:57 +0000 (Sun, 07 May 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -524,12 +524,14 @@ proc finishDrag {w} {
 	if {$Board(drag:active)} {
 		if {$Board(drag:square) != -1} {
 			set sq [getSquare $w $Board(pointer:x) $Board(pointer:y)]
-			$w.c coords piece:$sq {*}[$w.c coords square:$sq]
+			$w.c coords piece:$Board(drag:square) {*}[$w.c coords square:$sq]
 		}
 
 		foreach t $Board(targets) { $t delete drag-target }
 		$w.c dtag piece:$Board(drag:square) drag-target
 	}
+
+	set Board(drag:active) 0
 }
 
 

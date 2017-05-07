@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1042 $
-# Date   : $Date: 2015-03-15 16:49:22 +0000 (Sun, 15 Mar 2015) $
+# Version: $Revision: 1154 $
+# Date   : $Date: 2017-05-07 09:36:57 +0000 (Sun, 07 May 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -309,6 +309,10 @@ proc releaseSquare {x y state} {
 	variable Drop
 	variable Disabled
 
+	if {[$board cget -cursor] ne "crosshair"} {
+		$board configure -cursor crosshair
+	}
+
 	if {$Disabled} { return }
 
 	set suggested $Square(suggested)
@@ -383,6 +387,10 @@ proc dragPiece {x y state} {
 	if {[::board::diagram::dragSquare $board] == -1} { return }
 	set isDragging [::board::diagram::isDragged? $board]
 	::board::diagram::dragPiece $board $x $y
+
+	if {[$board cget -cursor] ne "hand2"} {
+		$board configure -cursor hand2
+	}
 
 	if {$hilite(show-suggested)} {
 		set from [::board::diagram::dragSquare $board]
