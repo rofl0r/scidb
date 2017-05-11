@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1100 $
-// Date   : $Date: 2016-09-02 15:42:06 +0000 (Fri, 02 Sep 2016) $
+// Version: $Revision: 1157 $
+// Date   : $Date: 2017-05-11 10:34:21 +0000 (Thu, 11 May 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -121,7 +121,7 @@ public:
 	void compressFilter();
 	void uncompressFilter();
 
-	static Tree* makeTree(	TreeP tree,
+	static Tree* makeTree(	TreeP& tree,
 									unsigned myIdn,
 									Board startPosition,
 									Board myPosition,

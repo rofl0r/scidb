@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 984 $
-// Date   : $Date: 2013-10-22 13:00:30 +0000 (Tue, 22 Oct 2013) $
+// Version: $Revision: 1157 $
+// Date   : $Date: 2017-05-11 10:34:21 +0000 (Thu, 11 May 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -581,7 +581,7 @@ Tree::buildTreeStart(unsigned myIdn,
 
 
 Tree*
-Tree::makeTree(TreeP tree,
+Tree::makeTree(TreeP& tree,
 					unsigned myIdn,
 					Board startPosition,
 					Board myPosition,
@@ -718,7 +718,7 @@ Tree::makeTree(TreeP tree,
 
 #ifdef VARIATIONS
 Tree*
-Tree::makeTree(TreeP tree,
+Tree::makeTree(TreeP& tree,
 					Board myPosition,
 					Line myLine,
 					uint16_t hpSig,
