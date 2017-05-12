@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1149 $
-// Date   : $Date: 2017-05-06 16:41:37 +0000 (Sat, 06 May 2017) $
+// Version: $Revision: 1161 $
+// Date   : $Date: 2017-05-12 21:35:20 +0000 (Fri, 12 May 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -34,7 +34,6 @@
 #include "u_zstream.h"
 
 #include "m_exception.h"
-#include "m_assert.h"
 
 #include <tcl.h>
 #include <tk.h>
@@ -63,8 +62,14 @@ static app::Application *m_app = nullptr;
  * Call this C function in case of failed assertions.
  */
 
-extern "C" void assertionFailed(char const *message);
-void assertionFailed(char const *message) { M_ASSERT(!message); }
+extern "C" void assertionFailed(char const* expr,  char const* file, unsigned line, char const* func);
+
+
+void
+assertionFailed(char const* expr, char const* file, unsigned line, char const* func)
+{
+	::mstl::bits::throw_exc(::mstl::exception(expr), file, line, func);
+}
 
 
 static int
