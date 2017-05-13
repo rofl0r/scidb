@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1135 $
-# Date   : $Date: 2017-02-21 19:19:56 +0000 (Tue, 21 Feb 2017) $
+# Version: $Revision: 1163 $
+# Date   : $Date: 2017-05-13 15:25:19 +0000 (Sat, 13 May 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1555,12 +1555,8 @@ proc splitMoves {text {tag figurine}} {
 		variable figurineEncoding
 
 		set moves [split [string map $UnicodeMap $text] &]
+		set encoding $figurineEncoding([expr {$tag eq "figurineb" ? "bold" : "normal"}])
 		set result {}
-		if {$tag eq "figurineb"} {
-			set encoding $figurineEncoding(bold)
-		} else {
-			set encoding $figurineEncoding(normal)
-		}
 
 		foreach m $moves {
 			if {[string index $m 0] == "*"} {
