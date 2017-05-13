@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1159 $
-# Date   : $Date: 2017-05-12 13:26:10 +0000 (Fri, 12 May 2017) $
+# Version: $Revision: 1164 $
+# Date   : $Date: 2017-05-13 15:28:51 +0000 (Sat, 13 May 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1534,13 +1534,15 @@ proc GetFolders {w} {
 		x11 {
 			set gdbus [auto_execok gdbus]
 			if {[string length $gdbus] > 0} {
-				set result [exec -ignorestderr $gdbus introspect \
-					--system \
-					--dest org.freedesktop.UDisks \
-					--object-path /org/freedesktop/UDisks/devices \
-					--recurse \
-					--only-properties \
-				]
+				set result ""
+				catch {
+					set result [exec -ignorestderr $gdbus introspect \
+						--system \
+						--dest org.freedesktop.UDisks \
+						--object-path /org/freedesktop/UDisks/devices \
+						--recurse \
+						--only-properties \
+					]}
 				lassign {0 0 "" {}} usb fs id paths
 				foreach line [split $result \n] {
 					set line [string trim $line]
