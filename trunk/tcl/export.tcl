@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1095 $
-# Date   : $Date: 2016-08-14 17:23:39 +0000 (Sun, 14 Aug 2016) $
+# Version: $Revision: 1165 $
+# Date   : $Date: 2017-05-15 09:30:52 +0000 (Mon, 15 May 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -3244,7 +3244,9 @@ proc DoExport {parent dlg file} {
 
 	switch $Values(Type) {
 		pgn {
-			if {$Values(pgn,flag,use_utf8_encoding)} {
+			if {$Values(pgn,flag,use_utf8_encoding)
+					|| $Values(pgn,flag,use_chessbase_format)
+					|| $Values(pgn,flag,use_scidb_import_format)} {
 				set encoding "utf-8"
 			} else {
 				set encoding $Values($Values(Type),encoding)

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1089 $
-// Date   : $Date: 2016-05-29 09:04:44 +0000 (Sun, 29 May 2016) $
+// Version: $Revision: 1165 $
+// Date   : $Date: 2017-05-15 09:30:52 +0000 (Mon, 15 May 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -102,6 +102,7 @@ PgnWriter::PgnWriter(format::Type srcFormat,
 		addFlag(Flag_Include_Position_Tag);
 		addFlag(Flag_Include_Time_Mode_Tag);
 		addFlag(Flag_Comment_To_Html);
+		addFlag(Flag_Use_UTF8);
 
 		removeFlag(Flag_Exclude_Extra_Tags);
 		removeFlag(Flag_Symbolic_Annotation_Style);

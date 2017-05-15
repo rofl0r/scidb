@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1085 $
-// Date   : $Date: 2016-02-29 17:11:08 +0000 (Mon, 29 Feb 2016) $
+// Version: $Revision: 1165 $
+// Date   : $Date: 2017-05-15 09:30:52 +0000 (Mon, 15 May 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -784,6 +784,9 @@ View::exportGames(mstl::string const& filename,
 		if (ext == "gz")			type = util::ZStream::GZip;
 		else if (ext == "zip")	type = util::ZStream::Zip;
 		else							type = util::ZStream::Text;
+
+		if (flags & (PgnWriter::Flag_Use_Scidb_Import_Format | PgnWriter::Flag_Use_ChessBase_Format))
+			flags |= PgnWriter::Flag_Use_UTF8;
 
 		mstl::ios_base::openmode mode = mstl::ios_base::out;
 		mstl::string internalName(sys::file::internalName(filename));

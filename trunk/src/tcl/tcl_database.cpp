@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1085 $
-// Date   : $Date: 2016-02-29 17:11:08 +0000 (Mon, 29 Feb 2016) $
+// Version: $Revision: 1165 $
+// Date   : $Date: 2017-05-15 09:30:52 +0000 (Mon, 15 May 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -4463,7 +4463,7 @@ init(Tcl_Interp* ti)
 	createCommand(ti, CmdClear,			cmdClear);
 	createCommand(ti, CmdClose,			cmdClose);
 	createCommand(ti, CmdCompact,			cmdCompact);
-	createCommand(ti, CmdCopy,			cmdCopy);
+	createCommand(ti, CmdCopy,				cmdCopy);
 	createCommand(ti, CmdCount,			cmdCount);
 	createCommand(ti, CmdFetch,			cmdFetch);
 	createCommand(ti, CmdFind,				cmdFind);
@@ -4473,7 +4473,7 @@ init(Tcl_Interp* ti)
 	createCommand(ti, CmdSet,				cmdSet);
 	createCommand(ti, CmdGet,				cmdGet);
 	createCommand(ti, CmdMatch,			cmdMatch);
-	createCommand(ti, CmdOpen,			cmdOpen);
+	createCommand(ti, CmdOpen,				cmdOpen);
 	createCommand(ti, CmdPlayerCard,		cmdPlayerCard);
 	createCommand(ti, CmdPlayerInfo,		cmdPlayerInfo);
 	createCommand(ti, CmdRecode,			cmdRecode);
