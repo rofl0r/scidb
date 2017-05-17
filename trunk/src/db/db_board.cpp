@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1085 $
-// Date   : $Date: 2016-02-29 17:11:08 +0000 (Mon, 29 Feb 2016) $
+// Version: $Revision: 1170 $
+// Date   : $Date: 2017-05-17 09:30:51 +0000 (Wed, 17 May 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -600,7 +600,8 @@ inline
 void
 Board::incrMaterial<piece::King>(unsigned color)
 {
-	(color == White ? m_whiteKing : m_blackKing) = (1 << ++m_material[color].king) - 1;
+	uint16_t k = (1 << ++m_material[color].king) - 1;
+	if (color == White) m_whiteKing = k; else m_blackKing = k;
 }
 
 
@@ -654,7 +655,8 @@ inline
 void
 Board::decrMaterial<piece::King>(unsigned color)
 {
-	(color == White ? m_whiteKing : m_blackKing) = (1 << --m_material[color].king) - 1;
+	uint16_t k = (1 << --m_material[color].king) - 1;
+	if (color == White) m_whiteKing = k; else m_blackKing = k;
 }
 
 

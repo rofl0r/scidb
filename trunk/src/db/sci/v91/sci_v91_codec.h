@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 961 $
-// Date   : $Date: 2013-10-06 08:30:53 +0000 (Sun, 06 Oct 2013) $
+// Version: $Revision: 1170 $
+// Date   : $Date: 2017-05-17 09:30:51 +0000 (Wed, 17 May 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -116,8 +116,9 @@ public:
 	void doEncoding(	util::ByteStream& strm,
 							GameData const& data,
 							Signature const& signature,
+							unsigned langFlags,
 							TagBits const& allowedTags,
-							bool allowExtraTags);
+							bool allowExtraTags) override;
 	Consumer* getConsumer(format::Type srcFormat) override;
 
 	void reset() override;

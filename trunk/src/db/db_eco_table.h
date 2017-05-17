@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1044 $
-// Date   : $Date: 2015-03-16 15:10:42 +0000 (Mon, 16 Mar 2015) $
+// Version: $Revision: 1170 $
+// Date   : $Date: 2017-05-17 09:30:51 +0000 (Wed, 17 May 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -102,7 +102,7 @@ public:
 		unsigned		length;
 	};
 
-	struct Opening { mstl::string part[Num_Name_Parts]; };
+	struct Opening { Opening() {}; mstl::string part[Num_Name_Parts]; };
 
 	EcoTable();
 	~EcoTable();
