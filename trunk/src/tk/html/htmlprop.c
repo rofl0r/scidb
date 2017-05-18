@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 688 $
-// Date   : $Date: 2013-03-29 16:55:41 +0000 (Fri, 29 Mar 2013) $
+// Version: $Revision: 1172 $
+// Date   : $Date: 2017-05-18 09:47:03 +0000 (Thu, 18 May 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -3217,7 +3217,7 @@ HtmlComputedValuesCompare(HtmlComputedValues *pV1, HtmlComputedValues *pV2)
         pV1->imListStyleImage != pV2->imListStyleImage     ||
         pV1->fFont != pV2->fFont ||
         pV1->eVerticalAlign != pV2->eVerticalAlign ||
-        (!pV1->eVerticalAlign && pV1->iVerticalAlign != pV1->iVerticalAlign)
+        (!pV1->eVerticalAlign && pV1->iVerticalAlign != pV2->iVerticalAlign)
     ) {
         return HTML_REQUIRE_LAYOUT;
     }

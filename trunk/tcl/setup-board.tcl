@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1014 $
-# Date   : $Date: 2014-11-02 13:52:24 +0000 (Sun, 02 Nov 2014) $
+# Version: $Revision: 1172 $
+# Date   : $Date: 2017-05-18 09:47:03 +0000 (Thu, 18 May 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -871,7 +871,7 @@ proc FitBottom {dst src cols} {
 }
 
 
-# proc # oPoint {} {
+# proc SetUndoPoint {} {
 # 	variable Vars
 # 
 # 	if {$Vars(histindex) >= 0} {

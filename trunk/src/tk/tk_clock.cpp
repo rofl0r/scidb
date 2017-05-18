@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 1172 $
+// Date   : $Date: 2017-05-18 09:47:03 +0000 (Thu, 18 May 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -37,6 +37,9 @@
 #include <tcl.h>
 #include <tk.h>
 #include <time.h>
+
+
+#if 0 // THIS CODE IS STLL UNUSED
 
 
 template <typename T> static T max(T a, T b) { return a < b ? b : a; }
@@ -414,6 +417,8 @@ ClockRenderer::makeHand(agg::path_storage& path, double radius, double length)
 }
 
 } // namespace
+
+#endif // UNUSED
 
 
 static int

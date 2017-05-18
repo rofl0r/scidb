@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 343 $
-// Date   : $Date: 2012-06-15 12:05:39 +0000 (Fri, 15 Jun 2012) $
+// Version: $Revision: 1172 $
+// Date   : $Date: 2017-05-18 09:47:03 +0000 (Thu, 18 May 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -42,7 +42,6 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
-static const char rcsid[] = "$Id: htmlimage.c,v 1.65 2007/09/25 11:21:42 danielk1977 Exp $";
 
 #include <assert.h>
 #include "html.h"
