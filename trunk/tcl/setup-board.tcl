@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1172 $
-# Date   : $Date: 2017-05-18 09:47:03 +0000 (Thu, 18 May 2017) $
+# Version: $Revision: 1174 $
+# Date   : $Date: 2017-05-26 20:46:10 +0000 (Fri, 26 May 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -581,7 +581,7 @@ proc open {parent} {
 		foreach side {w b} {
 			::ttk::spinbox $checks.val$side \
 				-from 0 \
-				-to 3 \
+				-to 2 \
 				-textvariable [namespace current]::Vars(checks:$side) \
 				-command [namespace code Update] \
 				-width 1 \
