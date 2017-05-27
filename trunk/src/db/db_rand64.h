@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 991 $
-// Date   : $Date: 2013-10-30 13:32:32 +0000 (Wed, 30 Oct 2013) $
+// Version: $Revision: 1175 $
+// Date   : $Date: 2017-05-27 09:18:24 +0000 (Sat, 27 May 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -655,13 +655,13 @@ uint64_t const RandomTable	[Num_Total_Entries] =
 	0,
 	U64(0x1e8860e4e8afcffc),	// one check given
 	U64(0x107fb5302e49b653),	// two checks given
-	U64(0x453ca2eb419de2c5),	// three check given
+	U64(0x453ca2eb419de2c5),	// three checks given
 
 	// Black ------------------------------------------------------------------------------------------
 	0,
 	U64(0xa3094e8eb1649123),	// one check given
 	U64(0xe850ac9a440dd0af),	// two checks given
-	U64(0xe6eb2d90ade835b6),	// three check given
+	U64(0xe6eb2d90ade835b6),	// three checks given
 
 #undef U64
 };

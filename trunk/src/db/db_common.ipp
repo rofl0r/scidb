@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1077 $
-// Date   : $Date: 2015-08-25 18:43:01 +0000 (Tue, 25 Aug 2015) $
+// Version: $Revision: 1175 $
+// Date   : $Date: 2017-05-27 09:18:24 +0000 (Sat, 27 May 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -534,6 +534,7 @@ containsFemaleTitle(unsigned titles)
 namespace variant {
 
 inline bool isZhouse(Type variant)		{ return variant & (Bughouse | Crazyhouse); }
+inline bool isThreeCheck(Type variant)	{ return variant == ThreeCheck; }
 inline bool isAntichess(Type variant)	{ return variant >= Antichess; }
 inline bool isAntichessExceptLosers(Type variant) { return variant & Antichess; }
 

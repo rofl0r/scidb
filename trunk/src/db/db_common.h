@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1080 $
-// Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
+// Version: $Revision: 1175 $
+// Date   : $Date: 2017-05-27 09:18:24 +0000 (Sat, 27 May 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -828,6 +828,7 @@ namespace variant
 	bool isAntichess(Type variant);
 	bool isAntichessExceptLosers(Type variant);
 	bool isZhouse(Type variant);
+	bool isThreeCheck(Type variant);
 	bool isMainVariant(Type variant);
 
 	bool isStandardChess(uint16_t idn, variant::Type variant);
