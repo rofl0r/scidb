@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1180 $
-# Date   : $Date: 2017-05-27 15:00:03 +0000 (Sat, 27 May 2017) $
+# Version: $Revision: 1181 $
+# Date   : $Date: 2017-05-27 15:50:35 +0000 (Sat, 27 May 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -826,6 +826,7 @@
 ::board::options::mc::SolidColor			"Solid Color"
 ::board::options::mc::EditList				"Lista szerkesztése"
 ::board::options::mc::Embossed				"Embossed"
+::board::options::mc::Small				"Small Letters" ;# NEW
 ::board::options::mc::Highlighting			"Kijelölés"
 ::board::options::mc::Border				"Határvonal"
 ::board::options::mc::SaveWorkingSet		"Save Working Set"

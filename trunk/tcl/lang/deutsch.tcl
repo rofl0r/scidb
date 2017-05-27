@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1180 $
-# Date   : $Date: 2017-05-27 15:00:03 +0000 (Sat, 27 May 2017) $
+# Version: $Revision: 1181 $
+# Date   : $Date: 2017-05-27 15:50:35 +0000 (Sat, 27 May 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -821,6 +821,7 @@
 ::board::options::mc::SolidColor				"Farbton"
 ::board::options::mc::EditList				"Liste bearbeiten"
 ::board::options::mc::Embossed				"Geprägt"
+::board::options::mc::Small					"Kleinbuchstaben"
 ::board::options::mc::Highlighting			"Hervorhebung"
 ::board::options::mc::Border					"Umrandung"
 ::board::options::mc::SaveWorkingSet		"Arbeitssatz sichern"

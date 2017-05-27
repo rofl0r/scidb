@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1180 $
-# Date   : $Date: 2017-05-27 15:00:03 +0000 (Sat, 27 May 2017) $
+# Version: $Revision: 1181 $
+# Date   : $Date: 2017-05-27 15:50:35 +0000 (Sat, 27 May 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -821,7 +821,8 @@
 ::board::options::mc::Coordinates			"Coordenadas"
 ::board::options::mc::SolidColor				"Color sólido"
 ::board::options::mc::EditList				"Editar lista"
-::board::options::mc::Embossed				"repujado"
+::board::options::mc::Embossed				"Repujado"
+::board::options::mc::Small					"Small Letters" ;# NEW
 ::board::options::mc::Highlighting			"Resaltar"
 ::board::options::mc::Border					"Borde"
 ::board::options::mc::SaveWorkingSet		"Guardar el conjunto usado"
