@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1136 $
-# Date   : $Date: 2017-03-23 14:19:53 +0000 (Thu, 23 Mar 2017) $
+# Version: $Revision: 1180 $
+# Date   : $Date: 2017-05-27 15:00:03 +0000 (Sat, 27 May 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -827,6 +827,7 @@
 ::board::options::mc::SelectedSquare		"Ausgewähltes Feld"
 ::board::options::mc::ShowBorder				"Umrandung anzeigen"
 ::board::options::mc::ShowCoordinates		"Koordinaten anzeigen"
+::board::options::mc::UseSmallLetters		"Kleinbuchstaben verwenden"
 ::board::options::mc::ShowMaterialValues	"Materialwerte anzeigen"
 ::board::options::mc::ShowMaterialBar		"Materialleiste anzeigen"
 ::board::options::mc::ShowSideToMove		"Zugrecht anzeigen"

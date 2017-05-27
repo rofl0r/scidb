@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1136 $
-# Date   : $Date: 2017-03-23 14:19:53 +0000 (Thu, 23 Mar 2017) $
+# Version: $Revision: 1180 $
+# Date   : $Date: 2017-05-27 15:00:03 +0000 (Sat, 27 May 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -831,6 +831,7 @@
 ::board::options::mc::SelectedSquare		"Markerad ruta"
 ::board::options::mc::ShowBorder				"Visa ram"
 ::board::options::mc::ShowCoordinates		"Visa kordinater"
+::board::options::mc::UseSmallLetters		"Use Small Letters" ;# NEW
 ::board::options::mc::ShowMaterialValues	"Visa materiella värde"
 ::board::options::mc::ShowMaterialBar		"Visa material stapel"
 ::board::options::mc::ShowSideToMove		"Visa sida vid draget"

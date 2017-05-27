@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1136 $
-# Date   : $Date: 2017-03-23 14:19:53 +0000 (Thu, 23 Mar 2017) $
+# Version: $Revision: 1180 $
+# Date   : $Date: 2017-05-27 15:00:03 +0000 (Sat, 27 May 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -828,6 +828,7 @@
 ::board::options::mc::SelectedSquare		"Casilla elegida"
 ::board::options::mc::ShowBorder				"Mostrar borde"
 ::board::options::mc::ShowCoordinates		"Mostrar coordenadas"
+::board::options::mc::UseSmallLetters		"Use Small Letters" ;# NEW
 ::board::options::mc::ShowMaterialValues	"Mostrar material"
 ::board::options::mc::ShowMaterialBar		"Mostrar Barra de Matrial" 
 ::board::options::mc::ShowSideToMove		"Mostrar el lado que mueve"

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 935 $
-# Date   : $Date: 2013-09-14 22:36:13 +0000 (Sat, 14 Sep 2013) $
+# Version: $Revision: 1180 $
+# Date   : $Date: 2017-05-27 15:00:03 +0000 (Sat, 27 May 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -43,6 +43,7 @@ set SaveWorkingSet		"Save Working Set"
 set SelectedSquare		"Selected Square"
 set ShowBorder				"Show Border"
 set ShowCoordinates		"Show Coordinates"
+set UseSmallLetters		"Use Small Letters"
 set ShowMaterialValues	"Show Material Values"
 set ShowMaterialBar		"Show Material Bar"
 set ShowSideToMove		"Show Side to Move"

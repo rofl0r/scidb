@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1136 $
-# Date   : $Date: 2017-03-23 14:19:53 +0000 (Thu, 23 Mar 2017) $
+# Version: $Revision: 1180 $
+# Date   : $Date: 2017-05-27 15:00:03 +0000 (Sat, 27 May 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -832,6 +832,7 @@
 ::board::options::mc::SelectedSquare		"Seleziona casa"
 ::board::options::mc::ShowBorder				"Mostra bordo"
 ::board::options::mc::ShowCoordinates		"Mostra coordinate"
+::board::options::mc::UseSmallLetters		"Use Small Letters" ;# NEW
 ::board::options::mc::ShowMaterialValues	"Mostra valore dei pezzi"
 ::board::options::mc::ShowMaterialBar		"Mostra barra del materiale"
 ::board::options::mc::ShowSideToMove		"Mostra lato con il tratto"

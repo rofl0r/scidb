@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1020 $
-# Date   : $Date: 2015-02-13 10:00:28 +0000 (Fri, 13 Feb 2015) $
+# Version: $Revision: 1180 $
+# Date   : $Date: 2017-05-27 15:00:03 +0000 (Sat, 27 May 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -273,6 +273,7 @@ array set layout {
 	side-to-move		1
 	border				1
 	coordinates			1
+	small-letters		0
 	coords-embossed	0
 }
 
