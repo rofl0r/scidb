@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1179 $
-// Date   : $Date: 2017-05-27 14:28:54 +0000 (Sat, 27 May 2017) $
+// Version: $Revision: 1183 $
+// Date   : $Date: 2017-05-28 14:05:40 +0000 (Sun, 28 May 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1001,7 +1001,7 @@ db::Guess::quiesce(int alpha, int beta)
 	if (score > alpha)
 		alpha = score;
 
-	if (m_checksGiven[m_stm ^ 1] < 3)
+	if (!isThreeCheck(m_variant) || m_checksGiven[m_stm ^ 1] < 3)
 	{
 		MoveList		moves;
 		ScoreList	scoreList;
