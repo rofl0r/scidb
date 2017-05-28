@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1075 $
-// Date   : $Date: 2015-08-18 19:07:15 +0000 (Tue, 18 Aug 2015) $
+// Version: $Revision: 1184 $
+// Date   : $Date: 2017-05-28 19:02:06 +0000 (Sun, 28 May 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -50,6 +50,7 @@ using namespace tcl::pos;
 using namespace tcl::app;
 
 static char const* CmdBoard			= "::scidb::pos::board";
+static char const* CmdChecks			= "::scidb::pos::checks";
 static char const* CmdDestination	= "::scidb::pos::destination";
 static char const* CmdFen				= "::scidb::pos::fen";
 static char const* CmdGuess			= "::scidb::pos::guess";
@@ -303,6 +304,26 @@ cmdBoard(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 	mstl::string result;
 	dumpBoard(Scidb->game().currentBoard(), result);
 	setResult(result);
+	return TCL_OK;
+}
+
+
+static int
+cmdChecks(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
+{
+	Tcl_Obj *objs[2];
+
+	if (variant::isThreeCheck(Scidb->game().variant()))
+	{
+		objs[0] = Tcl_NewIntObj(Scidb->game().currentBoard().checksGiven(color::White));
+		objs[1] = Tcl_NewIntObj(Scidb->game().currentBoard().checksGiven(color::Black));
+	}
+	else
+	{
+		objs[0] = objs[1] = Tcl_NewIntObj(0);
+	}
+
+	setResult(2, objs);
 	return TCL_OK;
 }
 
@@ -648,6 +669,7 @@ void
 init(Tcl_Interp* ti)
 {
 	createCommand(ti, CmdBoard,			cmdBoard);
+	createCommand(ti, CmdChecks,			cmdChecks);
 	createCommand(ti, CmdDestination,	cmdDestination);
 	createCommand(ti, CmdFen,				cmdFen);
 	createCommand(ti, CmdGuess,			cmdGuess);

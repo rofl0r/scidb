@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1020 $
-# Date   : $Date: 2015-02-13 10:00:28 +0000 (Fri, 13 Feb 2015) $
+# Version: $Revision: 1184 $
+# Date   : $Date: 2017-05-28 19:02:06 +0000 (Sun, 28 May 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -34,7 +34,7 @@ namespace export makePieceSelectionFrame updatePieceSet
 
 variable Listbox
 variable FigurineDict [dict create]
-variable Figurines Cases
+variable Figurines Usual ;# Burnett Cases
 
 variable RegExpBBox				{scidb:bbox=\"([+-]?[0-9]*[.]?[0-9]+),([+-]?[0-9]*[.]?[0-9]+),([+-]?[0-9]*[.]?[0-9]+),([+-]?[0-9]*[.]?[0-9]+)\"}
 variable RegExpPieceScale		{scidb:scale=\"([0-9]*[.]?[0-9]+)\"}
@@ -206,17 +206,10 @@ proc MakeFigurines {size dontUseContour} {
 	set prefix figurine,$dontUseContour
 	if {$dontUseContour} { set contour 0.0 } else { set contour 1.0 }
 	switch $Figurines {
-		Burnett {
-			set boostContour no
-			set shadow 0.05
-		}
-		Cases {
-			set boostContour yes
-			set shadow 0.07
-		}
-		default {
-			return -code error "MakeFigurines: not designed for $Figurines"
-		}
+		Burnett	{ set boostContour no;  set shadow 0.05 }
+		Cases		{ set boostContour yes; set shadow 0.07 }
+		Usual		{ set boostContour yes; set shadow 0.07 }
+		default	{ return -code error "MakeFigurines: not designed for $Figurines" }
 	}
 	MakePieces           \
 		$prefix,          \
