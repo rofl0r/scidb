@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1178 $
-# Date   : $Date: 2017-05-27 12:15:39 +0000 (Sat, 27 May 2017) $
+# Version: $Revision: 1182 $
+# Date   : $Date: 2017-05-28 13:50:03 +0000 (Sun, 28 May 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1377,26 +1377,28 @@ proc UpdateHeader {context position w data} {
 		}
 
 		set variant [::scidb::game::query $position variant?]
+		set newline ""
 
 		switch $variant {
 			Normal {
-				foreach line [::browser::makeOpeningLines [list $idn $pos $eco $opg]] {
-					set tag {}
-					lassign $line content tag
-					if {$tag eq "figurine"} {
-						set tag figurineb
-					} else {
-						lappend tag opening
-					}
-					$w insert cur $content $tag
-				}
+				# no action
 			}
 			Suicide - Giveaway - Losers {
+				set newline \n
 				$w insert cur "$::mc::VariantName(Antichess) - $::mc::VariantName($variant)" opening
 			}
 			default {
+				set newline \n
 				$w insert cur $::mc::VariantName($variant) opening
 			}
+		}
+
+		foreach line [::browser::makeOpeningLines [list $idn $pos $eco $opg]] {
+			set tag {}
+			lassign $line content tag
+			if {$tag eq "figurine"} { set tag figurineb } else { lappend tag opening }
+			$w insert cur ${newline}${content} $tag
+			set newline ""
 		}
 
 		$w insert cur "\n"

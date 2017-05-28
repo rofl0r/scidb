@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1181 $
-# Date   : $Date: 2017-05-27 15:50:35 +0000 (Sat, 27 May 2017) $
+# Version: $Revision: 1182 $
+# Date   : $Date: 2017-05-28 13:50:03 +0000 (Sun, 28 May 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -427,7 +427,7 @@
 ::application::board::mc::SlidingVarPanePosition	"Sliding variation pane position"
 ::application::board::mc::ShowVariationArrows		"Show variation arrows"
 ::application::board::mc::ShowAnnotation				"Show annotation glyph"
-::application::board::mc::ShowAnnotationTimeout		"Timeout for annoation glyph"
+::application::board::mc::ShowAnnotationTimeout		"Timeout for annotation glyph"
 ::application::board::mc::None							"None"
 
 ::application::board::mc::Tools							"Tools"

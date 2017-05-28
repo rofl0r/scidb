@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1080 $
-# Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
+# Version: $Revision: 1182 $
+# Date   : $Date: 2017-05-28 13:50:03 +0000 (Sun, 28 May 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1682,6 +1682,7 @@ proc PopupMenu {path menu base variant index} {
 	variable Columns
 
 	if {$index eq "none"} { return }
+	if {[string length $base] == 0} { return }
 
 	set view [{*}$Vars(viewcmd) $base $variant]
 	if {[scidb::view::count games $base $variant $view] == 0} { return }

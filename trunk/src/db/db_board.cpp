@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1179 $
-// Date   : $Date: 2017-05-27 14:28:54 +0000 (Sat, 27 May 2017) $
+// Version: $Revision: 1182 $
+// Date   : $Date: 2017-05-28 13:50:03 +0000 (Sun, 28 May 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -3531,7 +3531,7 @@ Board::isStandardPosition(variant::Type variant) const
 bool
 Board::isStartPosition() const
 {
-	if (m_epSquare != Null || m_stm == Black)
+	if (m_epSquare != Null || m_stm == Black || m_checksGiven[White] > 0 || m_checksGiven[Black] > 0)
 		return false;
 
 	return	// check material: KQRRBBNN
@@ -6985,11 +6985,14 @@ Board::handicap() const
 		}
 	}
 
-	Board board(*this);
-	board.setAt(square, m_standardBoard.pieceAt(square), variant::Normal);
+	if (square != sq::Null)
+	{
+		Board board(*this);
+		board.setAt(square, m_standardBoard.pieceAt(square), variant::Normal);
 
-	if (!board.isStandardPosition(variant::Normal))
-		square = sq::Null;
+		if (!board.isStandardPosition(variant::Normal))
+			square = sq::Null;
+	}
 
 	return square;
 }

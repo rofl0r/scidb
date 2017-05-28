@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1105 $
-# Date   : $Date: 2016-09-14 18:51:24 +0000 (Wed, 14 Sep 2016) $
+# Version: $Revision: 1182 $
+# Date   : $Date: 2017-05-28 13:50:03 +0000 (Sun, 28 May 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -579,7 +579,7 @@ if {0} {
 			}
 		}
 	} elseif {$idn == 0 && [llength $position]} {
-		append line1 "FEN: "
+		append line1 "FEN:\u00a0"
 		append line1 [lindex $position 0]
 	}
 
