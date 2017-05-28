@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1175 $
-# Date   : $Date: 2017-05-27 09:18:24 +0000 (Sat, 27 May 2017) $
+# Version: $Revision: 1185 $
+# Date   : $Date: 2017-05-28 19:16:19 +0000 (Sun, 28 May 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1360,6 +1360,9 @@ proc CheckIdn {} {
 			set Vars(idn) 960
 			set Vars(positionId) 960
 			set Vars(freeze) 0
+		} else {
+			set Vars(checks:w) 0
+			set Vars(checks:b) 0
 		}
 		Shuffle update
 	}
