@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1085 $
-// Date   : $Date: 2016-02-29 17:11:08 +0000 (Mon, 29 Feb 2016) $
+// Version: $Revision: 1186 $
+// Date   : $Date: 2017-05-29 19:10:39 +0000 (Mon, 29 May 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -190,8 +190,29 @@ MultiBase::descriptionHasChanged() const
 bool
 MultiBase::isUnsaved(unsigned variantIndex) const
 {
+	if (format() != format::Pgn)
+		return false;
+
 	Database const* base = m_bases[variantIndex];
-	return base != 0 && (base->hasChanged());
+	return base && base->hasChanged();
+}
+
+
+bool
+MultiBase::isUnsaved() const
+{
+	if (format() != format::Pgn)
+		return false;
+	if (descriptionHasChanged())
+		return true;
+
+	for (unsigned i = 0; i < variant::NumberOfVariants; ++i)
+	{
+		if (isUnsaved(i))
+			return true;
+	}
+
+	return false;
 }
 
 
@@ -205,19 +226,6 @@ MultiBase::isEmpty() const
 	}
 
 	return true;
-}
-
-
-bool
-MultiBase::isUnsaved() const
-{
-	for (unsigned i = 0; i < variant::NumberOfVariants; ++i)
-	{
-		if (isUnsaved(i))
-			return true;
-	}
-
-	return false;
 }
 
 

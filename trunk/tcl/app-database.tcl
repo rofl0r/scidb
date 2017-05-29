@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1080 $
-# Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
+# Version: $Revision: 1186 $
+# Date   : $Date: 2017-05-29 19:10:39 +0000 (Mon, 29 May 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1049,12 +1049,13 @@ proc UpdateVariants {{variant ""}} {
 	if {$Vars(variant) ni $usedVariants} {
 		SwitchVariant [lindex [::scidb::db::get variants [$Vars(switcher) current?]] 0]
 	}
+
+	UpdateAfterSwitch [::scidb::db::get name] $Vars(variant)
 }
 
 
 proc Switch {filename {variant Undetermined}} {
 	variable Vars
-	variable ::scidb::clipbaseName
 
 	if {$variant eq "Undetermined"} {
 		set variant $Vars(variant)
@@ -1066,6 +1067,14 @@ proc Switch {filename {variant Undetermined}} {
 	}
 
 	::scidb::db::switch $filename $Vars(variant)
+	UpdateAfterSwitch $filename $Vars(variant)
+}
+
+
+proc UpdateAfterSwitch {filename variant} {
+	variable ::scidb::clipbaseName
+	variable Vars
+
 	set readonly [::scidb::db::get readonly? $filename]
 
 	if {$filename eq $clipbaseName} { set closeState disabled } else { set closeState normal }
