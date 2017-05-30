@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1080 $
-# Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
+# Version: $Revision: 1187 $
+# Date   : $Date: 2017-05-30 16:06:43 +0000 (Tue, 30 May 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1118,7 +1118,7 @@ proc DoImport {position dlg} {
 				Show info $mc::TextIsEmpty
 				$log configure -state disabled -takefocus 0
 			} elseif {[$log index end] == 0} {
-				Show info "$mc::SeemsNotToBePgnText."
+				Show info "$mc::Error(SeemsNotToBePgnText)."
 				$log configure -state disabled -takefocus 0
 			} else {
 				Show info $mc::ImportAborted
