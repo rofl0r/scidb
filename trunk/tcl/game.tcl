@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1174 $
-# Date   : $Date: 2017-05-26 20:46:10 +0000 (Fri, 26 May 2017) $
+# Version: $Revision: 1188 $
+# Date   : $Date: 2017-05-31 07:42:21 +0000 (Wed, 31 May 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1013,6 +1013,8 @@ proc recover {parent} {
 		::application::pgn::select $selection
 		::process::setOption "show-board"
 	}
+
+	return $count
 }
 
 
@@ -1022,13 +1024,13 @@ proc reopenLockedGames {parent} {
 	variable Vars
 	variable List
 
-	if {[llength $LockedGames] == 0} { return }
+	if {[llength $LockedGames] == 0} { return 0 }
 
 	set lockedGames $LockedGames
 	set LockedGames {}
 
 	set reply [::dialog::question -parent $parent -message $mc::ReopenLockedGames -default yes]
-	if {$reply eq "no"} { return [UnlockGames] }
+	if {$reply eq "no"} { [UnlockGames]; return 0 }
 
 	set selection -1
 	set count [llength $Vars(slots)]
@@ -1083,6 +1085,8 @@ proc reopenLockedGames {parent} {
 		::scidb::game::switch $selection
 		::application::pgn::select $selection
 	}
+
+	return $count
 }
 
 

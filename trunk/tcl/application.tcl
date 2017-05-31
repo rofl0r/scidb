@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1131 $
-# Date   : $Date: 2017-02-10 09:58:23 +0000 (Fri, 10 Feb 2017) $
+# Version: $Revision: 1188 $
+# Date   : $Date: 2017-05-31 07:42:21 +0000 (Wed, 31 May 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -356,9 +356,10 @@ if {[::process::testOption use-clock]} {
 		database::openBase .application [::util::databasePath $file] yes \
 			-encoding $::encoding::autoEncoding
 	}
-
-	::game::recover $app
-	::game::reopenLockedGames $app
+ 
+	if {[::game::recover $app] + [::game::reopenLockedGames $app] > 0} {
+		set tab board
+	}
 
 	after idle [namespace code [list switchTab $tab]]
 	after idle [list ::beta::welcomeToScidb $app]
