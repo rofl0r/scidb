@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1020 $
-# Date   : $Date: 2015-02-13 10:00:28 +0000 (Fri, 13 Feb 2015) $
+# Version: $Revision: 1191 $
+# Date   : $Date: 2017-06-01 12:00:47 +0000 (Thu, 01 Jun 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -293,6 +293,9 @@ if {	![file exists [file join $::scidb::dir::user themes Primus.dat]]
 	set update 1
 }
 if {[::process::testOption first-time]} {
+	set update 1
+}
+if {[::process::testOption update-themes]} {
 	set update 1
 }
 if {$update} { ::scidb::themes::update }

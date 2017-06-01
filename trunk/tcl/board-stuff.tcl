@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1190 $
-# Date   : $Date: 2017-06-01 07:31:42 +0000 (Thu, 01 Jun 2017) $
+# Version: $Revision: 1191 $
+# Date   : $Date: 2017-06-01 12:00:47 +0000 (Thu, 01 Jun 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -145,7 +145,7 @@ proc resize {w size args} {
 		set borderSize $opts(-bordersize)
 
 		if {$Board(bordertype) == "lines"} {
-			set boardSize [expr {$boardSize + 2*$Board(bordersize)}]
+			set boardSize [expr {$boardSize + 2*$borderSize}]
 			set borderSize 0
 		}
 
@@ -165,6 +165,7 @@ proc resize {w size args} {
 	} elseif {$Board(bordersize) != $opts(-bordersize)} {
 		set Board(bordersize) $opts(-bordersize)
 		set boardSize [expr {8*$size}]
+		set borderSize $opts(-bordersize)
 
 		if {$Board(bordertype) == "lines"} {
 			set boardSize [expr {$boardSize + 2*$borderSize}]
