@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1184 $
-# Date   : $Date: 2017-05-28 19:02:06 +0000 (Sun, 28 May 2017) $
+# Version: $Revision: 1190 $
+# Date   : $Date: 2017-06-01 07:31:42 +0000 (Thu, 01 Jun 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -110,7 +110,10 @@ proc build {w width height} {
 	set border [tk::canvas $canv.border -takefocus 0 -borderwidth 0]
 	$border xview moveto 0
 	$border yview moveto 0
-	set board [::board::diagram::new $border.board $Dim(squaresize) -bordersize $Dim(edgethickness)]
+	set board [::board::diagram::new $border.board $Dim(squaresize) \
+		-bordersize $Dim(edgethickness) \
+		-bordertype lines \
+	]
 	::board::diagram::setTargets $board $border $canv
 	set boardc [::board::diagram::canvas $board]
 	::variation::build $canv [namespace code SelectAlternative]

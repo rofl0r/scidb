@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1182 $
-# Date   : $Date: 2017-05-28 13:50:03 +0000 (Sun, 28 May 2017) $
+# Version: $Revision: 1190 $
+# Date   : $Date: 2017-06-01 07:31:42 +0000 (Thu, 01 Jun 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1691,7 +1691,7 @@ proc PrintMove {context position w level key data annotation} {
 
 
 proc ShowPosition {w state} {
-	variabls Vars
+	variable Vars
 
 	set position $Vars(position)
 	set key [FindKey $w move]
