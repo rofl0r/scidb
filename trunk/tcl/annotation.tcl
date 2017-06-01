@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 813 $
-# Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
+# Version: $Revision: 1193 $
+# Date   : $Date: 2017-06-01 14:38:59 +0000 (Thu, 01 Jun 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -595,7 +595,7 @@ proc unusualNags {} {
 }
 
 
-proc setNags {group args} {
+proc setNags {args} {
 	variable Vars
 
 	if {[llength $args] == 2} {
@@ -612,7 +612,13 @@ proc setNags {group args} {
 		append text "\$[lindex $nags $i]"
 	}
 
-	::scidb::game::update $group $key $text
+	::scidb::game::update annotation $key $text
+	::scidb::game::variation unfold -force
+}
+
+
+proc addNag {group nag} {
+	::scidb::game::update $group [::scidb::game::position key] "\$$nag"
 	::scidb::game::variation unfold -force
 }
 
@@ -858,7 +864,7 @@ proc SendNags {dlg} {
 		}
 	}
 
-	setNags annotation $Vars(key) $nagList
+	setNags $Vars(key) $nagList
 }
 
 

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1190 $
-# Date   : $Date: 2017-06-01 07:31:42 +0000 (Thu, 01 Jun 2017) $
+# Version: $Revision: 1193 $
+# Date   : $Date: 2017-06-01 14:38:59 +0000 (Thu, 01 Jun 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -2449,17 +2449,17 @@ proc PopupMenu {parent position} {
 			-label " $mc::InsertDiagram" \
 			-image $::icon::16x16::board \
 			-compound left \
-			-command [list ::annotation::setNags suffix 155] \
+			-command [list ::annotation::addNag suffix 155] \
 			;
 		$menu add command \
 			-label " $mc::InsertDiagramFromBlack" \
 			-image $::icon::16x16::board \
 			-compound left \
-			-command [list ::annotation::setNags suffix 156] \
+			-command [list ::annotation::addNag suffix 156] \
 			;
 
 		if {![::scidb::game::position atStart?]} {
-			set cmd ::annotation::setNags
+			set cmd ::annotation::addNag
 
 			if {[::scidb::pos::stm] eq "w"} {
 				upvar #0 ::annotation::isWhiteNag isStmNag
