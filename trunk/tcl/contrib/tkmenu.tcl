@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1043 $
-# Date   : $Date: 2015-03-15 18:13:58 +0000 (Sun, 15 Mar 2015) $
+# Version: $Revision: 1195 $
+# Date   : $Date: 2017-06-02 14:17:42 +0000 (Fri, 02 Jun 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1506,6 +1506,8 @@ proc menu {args} {
 
 
 proc ::tk::menu::WidgetProc {m command args} {
+    if {![winfo exists $m]} { return }
+
     if {$command eq "post" && [llength $args] == 2} {
         lassign $args x y
         set w [winfo parent $m]
