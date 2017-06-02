@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1189 $
-# Date   : $Date: 2017-05-31 07:47:54 +0000 (Wed, 31 May 2017) $
+# Version: $Revision: 1194 $
+# Date   : $Date: 2017-06-02 13:54:02 +0000 (Fri, 02 Jun 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1361,9 +1361,9 @@ proc Update {_ position} {
 		if {$i >= 0} {
 			set filename [lindex $History $i 1 0]
 			set var [lindex $History $i 1 3]
-			if {$base eq $filename && $variant eq $var} {
-				set History [lreplace $History $i $i]
-			}
+ 			if {$base ne $filename || $variant ne $var} {
+ 				set History [lreplace $History $i $i]
+ 			}
 		}
 
 		if {[::scidb::db::get open? $base $variant]} {

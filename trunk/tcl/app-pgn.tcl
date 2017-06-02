@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1193 $
-# Date   : $Date: 2017-06-01 14:38:59 +0000 (Thu, 01 Jun 2017) $
+# Version: $Revision: 1194 $
+# Date   : $Date: 2017-06-02 13:54:02 +0000 (Fri, 02 Jun 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -909,8 +909,8 @@ proc UpdateScrollbar {} {
 
 
 proc GameBarEvent {action position} {
-	variable Vars
 	variable ::pgn::editor::Colors
+	variable Vars
 
 	switch $action {
 		removed {
