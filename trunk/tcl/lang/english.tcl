@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1182 $
-# Date   : $Date: 2017-05-28 13:50:03 +0000 (Sun, 28 May 2017) $
+# Version: $Revision: 1196 $
+# Date   : $Date: 2017-06-04 18:32:58 +0000 (Sun, 04 Jun 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1574,6 +1574,7 @@
 ::import::mc::UnsupportedVariantRejected		"Unsuported variant '%s' rejected"
 ::import::mc::Accepted								"accepted"
 ::import::mc::Rejected								"rejected"
+::import::mc::ImportDialogAlreadyOpen			"Import dialog for this game is already open."
 
 ::import::mc::DifferentEncoding					"Selected encoding %src does not match file encoding %dst."
 ::import::mc::DifferentEncodingDetails			"Recoding of the database will not be successful anymore after this action."

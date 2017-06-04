@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1182 $
-# Date   : $Date: 2017-05-28 13:50:03 +0000 (Sun, 28 May 2017) $
+# Version: $Revision: 1196 $
+# Date   : $Date: 2017-06-04 18:32:58 +0000 (Sun, 04 Jun 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1585,6 +1585,7 @@
 ::import::mc::AbortImport							"Avbryta PGN-import?"
 ::import::mc::Accepted								"accepterat"
 ::import::mc::Rejected								"avvisat"
+::import::mc::ImportDialogAlreadyOpen			"Import dialog for this game is already open." ;# NEW
 
 ::import::mc::DifferentEncoding					"Den valda kodningen %src överensstämmer inte med filkodningen %dst."
 ::import::mc::DifferentEncodingDetails			"Databasen kan därefter inte omkoderas."

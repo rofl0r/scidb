@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1182 $
-# Date   : $Date: 2017-05-28 13:50:03 +0000 (Sun, 28 May 2017) $
+# Version: $Revision: 1196 $
+# Date   : $Date: 2017-06-04 18:32:58 +0000 (Sun, 04 Jun 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1587,6 +1587,7 @@
 ::import::mc::UnsupportedVariantRejected		"Variante non supportata '%s' rifiutata"
 ::import::mc::Accepted								"accettato"
 ::import::mc::Rejected								"rifiutato"
+::import::mc::ImportDialogAlreadyOpen			"Import dialog for this game is already open." ;# NEW
 
 ::import::mc::DifferentEncoding					"La codifica selezionata %src non corrisponde alla codifica del file %dst."
 ::import::mc::DifferentEncodingDetails			"La ricodifica del database non avrà più successo dopo questa azione."

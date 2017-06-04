@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1181 $
-# Date   : $Date: 2017-05-27 15:50:35 +0000 (Sat, 27 May 2017) $
+# Version: $Revision: 1196 $
+# Date   : $Date: 2017-06-04 18:32:58 +0000 (Sun, 04 Jun 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1575,6 +1575,7 @@
 ::import::mc::UnsupportedVariantRejected		"Nicht unterstütze Schachform '%s' zurückgewiesen"
 ::import::mc::Accepted								"akzeptiert"
 ::import::mc::Rejected								"zurückgewiesen"
+::import::mc::ImportDialogAlreadyOpen			"Ein Importdialog is bereits geöffnet für diese Partie."
 
 ::import::mc::DifferentEncoding					"Die ausgewählte Zeichenkodierung %src stimmt nicht mit der Dateikodierung %dst überein."
 ::import::mc::DifferentEncodingDetails			"Eine Umkodierung wird danach nicht mehr erfolgreich sein."
