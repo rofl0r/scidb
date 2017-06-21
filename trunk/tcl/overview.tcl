@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 926 $
-# Date   : $Date: 2013-09-04 15:57:51 +0000 (Wed, 04 Sep 2013) $
+# Version: $Revision: 1201 $
+# Date   : $Date: 2017-06-21 17:29:20 +0000 (Wed, 21 Jun 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -461,7 +461,7 @@ proc ConfigureTab {pane} {
 	for {set row 0} {$row < $nrows} {incr row} {
 		for {set col 0} {$col < $ncols} {incr col} {
 			pack [::board::diagram::new $pane.frame_${row}_${col}.board $boardSize \
-				-bordersize 1 -flipped $Priv(flip)]
+				-bordersize 1 -rotate $Priv(flip)]
 		}
 	}
 

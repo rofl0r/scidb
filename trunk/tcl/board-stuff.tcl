@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1191 $
-# Date   : $Date: 2017-06-01 12:00:47 +0000 (Thu, 01 Jun 2017) $
+# Version: $Revision: 1201 $
+# Date   : $Date: 2017-06-21 17:29:20 +0000 (Wed, 21 Jun 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -73,10 +73,10 @@ proc new {w size args} {
 	namespace eval [namespace current]::${w} {}
 	variable ${w}::Board
 
-	array set opts { -bordersize 0 -bordertype "normal" -flipped 0 -relief raised }
+	array set opts { -bordersize 0 -bordertype "normal" -rotate 0 -relief raised }
 	array set opts $args
 
-	set Board(flip) $opts(-flipped)
+	set Board(flip) $opts(-rotate)
 	set Board(marks) {}
 	set Board(alternatives) {}
 	set Board(size) $size
@@ -399,11 +399,6 @@ proc rebuild {w} {
 	Build $w
 	SetupBorders $w
 	update $w
-}
-
-
-proc flipped? {w} {
-	return [set [namespace current]::${w}::Board(flip)]
 }
 
 
