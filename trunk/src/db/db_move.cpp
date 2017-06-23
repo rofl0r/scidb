@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1118 $
-// Date   : $Date: 2017-01-13 11:44:35 +0000 (Fri, 13 Jan 2017) $
+// Version: $Revision: 1205 $
+// Date   : $Date: 2017-06-23 08:44:52 +0000 (Fri, 23 Jun 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -53,6 +53,11 @@ printPiece(mstl::string& s, piece::Type piece, encoding::CharSet charSet, int (*
 void
 Move::transpose()
 {
+	M_ASSERT(!isEmpty());
+
+	if (isNull())
+		return;
+
 	setFrom(sq::flipFyle(sq::ID(from())));
 	setTo(sq::flipFyle(sq::ID(to())));
 
