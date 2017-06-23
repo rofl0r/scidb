@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 609 $
-# Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+# Version: $Revision: 1203 $
+# Date   : $Date: 2017-06-23 08:15:51 +0000 (Fri, 23 Jun 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -48,6 +48,10 @@ bind DateBoxFrame <Destroy>	[list rename %W {}]
 proc validate {y m d {minYear 0} {maxYear 9999}} {
 	set error ""
 	set result ""
+
+	set y [string trimleft $y 0]
+	set m [string trimleft $m 0]
+	set d [string trimleft $d 0]
 
 	if {[llength $y]} { append result $y } else { append result "????" }
 	if {[llength $m]} { append result ".[Format $m]" } else { append result ".??" }
