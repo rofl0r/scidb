@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1186 $
-// Date   : $Date: 2017-05-29 19:10:39 +0000 (Mon, 29 May 2017) $
+// Version: $Revision: 1207 $
+// Date   : $Date: 2017-06-23 15:20:02 +0000 (Fri, 23 Jun 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -190,7 +190,7 @@ MultiBase::descriptionHasChanged() const
 bool
 MultiBase::isUnsaved(unsigned variantIndex) const
 {
-	if (format() != format::Pgn)
+	if (type() != type::PGNFile)
 		return false;
 
 	Database const* base = m_bases[variantIndex];
@@ -201,7 +201,7 @@ MultiBase::isUnsaved(unsigned variantIndex) const
 bool
 MultiBase::isUnsaved() const
 {
-	if (format() != format::Pgn)
+	if (type() != type::PGNFile)
 		return false;
 	if (descriptionHasChanged())
 		return true;
@@ -248,6 +248,14 @@ MultiBase::countGames(Mode mode) const
 	}
 
 	return total;
+}
+
+
+MultiBase::Type
+MultiBase::type() const
+{
+	M_ASSERT(m_leader);
+	return m_leader->type();
 }
 
 
