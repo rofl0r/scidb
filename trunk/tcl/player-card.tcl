@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1044 $
-# Date   : $Date: 2015-03-16 15:10:42 +0000 (Mon, 16 Mar 2015) $
+# Version: $Revision: 1204 $
+# Date   : $Date: 2017-06-23 08:24:59 +0000 (Fri, 23 Jun 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -725,7 +725,7 @@ proc Mouse3Down {w key info nodes} {
 	$m add cascade -label $::crosstable::mc::Debugging -menu $sub
 
 	set Vars(lock) 1
-	bind $menu <<MenuUnpost>> [list set [namespace current]::Vars(lock) 0]
+	bind $m <<MenuUnpost>> [list set [namespace current]::Vars(lock) 0]
 	tk_popup $m {*}[winfo pointerxy $w]
 }
 
