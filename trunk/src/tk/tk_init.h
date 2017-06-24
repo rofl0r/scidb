@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 1213 $
+// Date   : $Date: 2017-06-24 13:30:42 +0000 (Sat, 24 Jun 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -38,6 +38,7 @@ void xcursor_init(Tcl_Interp*);
 void x11_init(Tcl_Interp*);
 void busy_init(Tcl_Interp*);
 void multiwindow_init(Tcl_Interp*);
+void panedwindow_init(Tcl_Interp*);
 void notebook_init(Tcl_Interp*);
 void clockInit(Tcl_Interp*);
 void miscInit(Tcl_Interp*);
