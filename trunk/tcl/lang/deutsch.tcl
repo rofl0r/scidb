@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1196 $
-# Date   : $Date: 2017-06-04 18:32:58 +0000 (Sun, 04 Jun 2017) $
+# Version: $Revision: 1209 $
+# Date   : $Date: 2017-06-24 08:19:40 +0000 (Sat, 24 Jun 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -426,6 +426,7 @@
 ::application::board::mc::LoadRandomGame				"Zufällige Partie laden"
 ::application::board::mc::AddNewGame					"Partie hinzufügen..."
 ::application::board::mc::SlidingVarPanePosition	"Position der gleitenden Variantenanzeige"
+::application::board::mc::MarkPromotedPiece			"Verwandelte Figuren markieren"
 ::application::board::mc::ShowVariationArrows		"Pfeile für Variantenauswahl"
 ::application::board::mc::ShowAnnotation				"Anmerkungssymbol anzeigen"
 ::application::board::mc::ShowAnnotationTimeout		"Zeitbeschränkung for Anmerkungssymbol"

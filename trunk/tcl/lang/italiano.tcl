@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1196 $
-# Date   : $Date: 2017-06-04 18:32:58 +0000 (Sun, 04 Jun 2017) $
+# Version: $Revision: 1209 $
+# Date   : $Date: 2017-06-24 08:19:40 +0000 (Sat, 24 Jun 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -427,6 +427,7 @@
 ::application::board::mc::LoadRandomGame				"Carica partita casualmente"
 ::application::board::mc::AddNewGame					"Aggiunti nuova partita..."
 ::application::board::mc::SlidingVarPanePosition	"Sliding variation pane position" ;# NEW
+::application::board::mc::MarkPromotedPiece			"Mark promoted pieces" ;# NEW
 ::application::board::mc::ShowVariationArrows		"Show variation arrows" ;# NEW
 ::application::board::mc::ShowAnnotation           "Show annotation glyph" ;# NEW
 ::application::board::mc::ShowAnnotationTimeout    "Timeout for annotation glyph" ;# NEW
