@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1116 $
-// Date   : $Date: 2017-01-03 15:03:20 +0000 (Tue, 03 Jan 2017) $
+// Version: $Revision: 1215 $
+// Date   : $Date: 2017-06-24 15:29:53 +0000 (Sat, 24 Jun 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -465,6 +465,9 @@ private:
 		Link link;
 		Data data;
 	};
+
+	class SwapTrialGame;
+	friend class SwapTrialGame;
 
 	typedef mstl::ref_counted_ptr<EditGame>		GameP;
 	typedef mstl::map<unsigned,GameP>				GameMap;
