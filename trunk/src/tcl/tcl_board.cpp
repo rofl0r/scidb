@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1187 $
-// Date   : $Date: 2017-05-30 16:06:43 +0000 (Tue, 30 May 2017) $
+// Version: $Revision: 1208 $
+// Date   : $Date: 2017-06-24 08:15:32 +0000 (Sat, 24 Jun 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -350,7 +350,7 @@ cmdMakeFen(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 		switch (int(pos.piece(sq)))
 		{
 			case piece::Queen: case piece::Rook: case piece::Bishop: case piece::Knight:
-				pos.setPromoted(sq, variant);
+				pos.markAsPromoted(sq, variant);
 				break;
 		}
 	}
