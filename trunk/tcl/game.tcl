@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1202 $
-# Date   : $Date: 2017-06-22 17:17:41 +0000 (Thu, 22 Jun 2017) $
+# Version: $Revision: 1214 $
+# Date   : $Date: 2017-06-24 13:51:11 +0000 (Sat, 24 Jun 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -488,10 +488,11 @@ proc load {parent position base args} {
 	array set opts $args
 
 	set rc 0
+	set variant $opts(-variant)
 
 	if {$base eq $scratchbaseName} {
 		set Vars(lookup:$position) {}
-		::scidb::game::new $position $opts(-variant)
+		::scidb::game::new $position $variant
 		set rc 1
 	} else {
 		set parent [winfo toplevel $parent]
