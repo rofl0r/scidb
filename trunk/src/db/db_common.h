@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1175 $
-// Date   : $Date: 2017-05-27 09:18:24 +0000 (Sat, 27 May 2017) $
+// Version: $Revision: 1217 $
+// Date   : $Date: 2017-06-25 20:12:50 +0000 (Sun, 25 Jun 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -634,7 +634,7 @@ namespace sex
 
 namespace rating
 {
-	enum { Max_Value = 4000 };
+	static constexpr uint16_t Max_Value = 4000;
 
 	// first seven coincides with Scid
 	enum Type
