@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1016 $
-// Date   : $Date: 2015-01-12 18:48:54 +0000 (Mon, 12 Jan 2015) $
+// Version: $Revision: 1216 $
+// Date   : $Date: 2017-06-25 14:21:04 +0000 (Sun, 25 Jun 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2402,16 +2402,22 @@ Codec::decodeIndex(ByteStream& strm, GameInfo& info)
 	info.m_round = strm.get();
 	info.m_subround = strm.get();
 
-	uint16_t whiteElo = mstl::min(uint16_t(rating::Max_Value), strm.uint16());
-	uint16_t blackElo = mstl::min(uint16_t(rating::Max_Value), strm.uint16());
+	unsigned whiteElo = strm.uint16();
+	unsigned blackElo = strm.uint16();
 
-	info.m_pd[color::White].elo = whiteElo;
-	info.m_pd[color::Black].elo = blackElo;
+	if (whiteElo <= rating::Max_Value)
+	{
+		info.m_pd[color::White].elo = whiteElo;
+		if (white != m_illegalPlayer)
+			white->setElo(whiteElo);
+	}
 
-	if (white != m_illegalPlayer)
-		white->setElo(whiteElo);
-	if (black != m_illegalPlayer)
-		black->setElo(blackElo);
+	if (blackElo <= rating::Max_Value)
+	{
+		info.m_pd[color::Black].elo = blackElo;
+		if (black != m_illegalPlayer)
+			black->setElo(blackElo);
+	}
 
 	info.m_eco = ::convertEco(strm.uint16());
 

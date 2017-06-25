@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1080 $
-// Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
+// Version: $Revision: 1216 $
+// Date   : $Date: 2017-06-25 14:21:04 +0000 (Sun, 25 Jun 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -285,12 +285,20 @@ GameInfo::update(	NamebasePlayer* whitePlayer,
 				break;
 
 			case tag::WhiteElo:
-				whitePlayer->setElo(m_pd[White].elo = tags.asInt(tag::WhiteElo));
+			{
+				unsigned value = tags.asInt(tag::WhiteElo);
+				if (value <= rating::Max_Value)
+					whitePlayer->setElo(m_pd[White].elo = value);
 				break;
+			}
 
 			case tag::BlackElo:
-				blackPlayer->setElo(m_pd[Black].elo = tags.asInt(tag::BlackElo));
+			{
+				unsigned value = tags.asInt(tag::BlackElo);
+				if (value <= rating::Max_Value)
+					blackPlayer->setElo(m_pd[Black].elo = value);
 				break;
+			}
 
 			case tag::WhiteRating:
 				if (uint16_t value = ::getRatingValue(tags, tag))
@@ -525,6 +533,8 @@ GameInfo::setup(	uint32_t gameOffset,
 						Namebases& namebases)
 {
 	M_REQUIRE(isEmpty());
+	M_REQUIRE(whiteElo <= rating::Max_Value);
+	M_REQUIRE(blackElo <= rating::Max_Value);
 
 	setup(gameOffset, gameRecordLength, whitePlayer, blackPlayer, event, annotator, namebases);
 
