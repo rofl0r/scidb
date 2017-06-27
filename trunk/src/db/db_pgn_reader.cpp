@@ -1,7 +1,7 @@
 # // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1080 $
-// Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
+// Version: $Revision: 1219 $
+// Date   : $Date: 2017-06-27 09:32:32 +0000 (Tue, 27 Jun 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -3093,7 +3093,7 @@ PgnReader::checkTag(ID tag, mstl::string& value)
 					if (rat == 0)
 						return false;
 
-					if (rat > rating::Max_Value)
+					if (!rating::isValid(rat))
 					{
 						sendWarning(RatingTooHigh, m_prevPos, value);
 						return false;
@@ -3265,8 +3265,8 @@ PgnReader::readTags()
 											case 'B':
 												if (name == "BlackIsComp")
 												{
-													species::ID species =
-														::caseEqual(value, "yes", 3) ? species::Program : species::Human;
+													species::ID species = ::caseEqual(value, "yes", 3) ?
+														species::Program : species::Human;
 													m_tags.add(tag::BlackType, species);
 													ignore = true;
 												}
@@ -3275,8 +3275,8 @@ PgnReader::readTags()
 											case 'W':
 												if (name == "WhiteIsComp")
 												{
-													species::ID species =
-														::caseEqual(value, "yes", 3) ? species::Program : species::Human;
+													species::ID species = ::caseEqual(value, "yes", 3) ?
+															species::Program : species::Human;
 													m_tags.add(tag::WhiteType, species);
 													ignore = true;
 												}

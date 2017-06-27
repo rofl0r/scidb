@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1063 $
-// Date   : $Date: 2015-04-10 15:31:54 +0000 (Fri, 10 Apr 2015) $
+// Version: $Revision: 1219 $
+// Date   : $Date: 2017-06-27 09:32:32 +0000 (Tue, 27 Jun 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -463,7 +463,7 @@ getElo(mstl::string const& elo)
 	{
 		int value = strtoul(elo.c_str() + 1, nullptr, 10);
 
-		if (value <= rating::Max_Value)
+		if (rating::isValid(value))
 		{
 			if (elo[5] == '*')
 				value = -value;
@@ -2309,7 +2309,7 @@ Player::parseFideRating(mstl::istream& stream)
 				if (year && (!player->dateOfBirth() || player->dateOfBirth().month() == 0))
 					player->setDateOfBirth(Date(year));
 
-				if (0 < rating && rating <= rating::Max_Value)
+				if (0 < rating && rating::isValid(rating))
 				{
 					player->setLatestElo(rating);
 

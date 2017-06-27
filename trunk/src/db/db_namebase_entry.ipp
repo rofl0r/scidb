@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 644 $
-// Date   : $Date: 2013-01-29 13:39:29 +0000 (Tue, 29 Jan 2013) $
+// Version: $Revision: 1219 $
+// Date   : $Date: 2017-06-27 09:32:32 +0000 (Tue, 27 Jun 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -674,7 +674,7 @@ inline
 void
 NamebasePlayer::setElo(uint16_t value)
 {
-	M_REQUIRE(value <= rating::Max_Value);
+	M_REQUIRE(rating::isValid(value));
 	m_rating[rating::Elo] = mstl::max(m_rating[rating::Elo], value);
 }
 
@@ -684,7 +684,7 @@ void
 NamebasePlayer::setRating(rating::Type type, uint16_t value)
 {
 	M_REQUIRE(type != rating::Any);
-	M_REQUIRE(value <= rating::Max_Value);
+	M_REQUIRE(rating::isValid(value));
 
 	if (value)
 	{

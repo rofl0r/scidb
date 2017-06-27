@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 961 $
-// Date   : $Date: 2013-10-06 08:30:53 +0000 (Sun, 06 Oct 2013) $
+// Version: $Revision: 1219 $
+// Date   : $Date: 2017-06-27 09:32:32 +0000 (Tue, 27 Jun 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -127,7 +127,7 @@ Reader::extractPlayerData(mstl::string& data, mstl::string& value)
 
 			if (s < e)
 			{
-				if (rating::isElo(s, e) && ::strtoul(s, nullptr, 10) <= rating::Max_Value)
+				if (rating::isElo(s, e) && rating::isValid(::strtoul(s, nullptr, 10)))
 				{
 					if (*s == '0')
 						value.hook(s + 1, e - (s + 1));

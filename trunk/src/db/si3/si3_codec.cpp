@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1216 $
-// Date   : $Date: 2017-06-25 14:21:04 +0000 (Sun, 25 Jun 2017) $
+// Version: $Revision: 1219 $
+// Date   : $Date: 2017-06-27 09:32:32 +0000 (Tue, 27 Jun 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1429,25 +1429,25 @@ Codec::decodeIndex(ByteStream& strm, unsigned index)
 	if (whiteRatingType == rating::Elo)
 	{
 		item.m_player[color::White]->setElo(
-			item.m_pd[color::White].elo = mstl::min(rating::Max_Value, uint16_t(whiteRating & 0x0fffu)));
+			item.m_pd[color::White].elo = rating::clip(whiteRating & 0x0fffu));
 	}
 	else
 	{
 		item.m_player[color::White]->setRating(
 			whiteRatingType,
-			item.m_pd[color::White].rating = mstl::min(rating::Max_Value, uint16_t(whiteRating & 0x0fffu)));
+			item.m_pd[color::White].rating = rating::clip(whiteRating & 0x0fffu));
 	}
 
 	if (blackRatingType == rating::Elo)
 	{
 		item.m_player[color::Black]->setElo(
-			item.m_pd[color::Black].elo = mstl::min(rating::Max_Value, uint16_t(blackRating & 0x0fffu)));
+			item.m_pd[color::Black].elo = rating::clip(blackRating & 0x0fffu));
 	}
 	else
 	{
 		item.m_player[color::Black]->setRating(
 			blackRatingType,
-			item.m_pd[color::Black].rating = mstl::min(rating::Max_Value, uint16_t(blackRating & 0x0fffu)));
+			item.m_pd[color::Black].rating = rating::clip(blackRating & 0x0fffu));
 	}
 
 	if (item.m_positionId == variant::Standard)

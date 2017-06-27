@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1080 $
-// Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
+// Version: $Revision: 1219 $
+// Date   : $Date: 2017-06-27 09:32:32 +0000 (Tue, 27 Jun 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -411,7 +411,7 @@ void
 GameInfo::setRating(color::ID color, rating::Type ratingType, uint16_t value)
 {
 	M_ASSERT(value > 0);
-	M_ASSERT(value < rating::Max_Value);
+	M_ASSERT(rating::isValid(value));
 
 	m_pd[color].rating = value;
 	m_pd[color].ratingType = ratingType;

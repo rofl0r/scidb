@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1217 $
-// Date   : $Date: 2017-06-25 20:12:50 +0000 (Sun, 25 Jun 2017) $
+// Version: $Revision: 1219 $
+// Date   : $Date: 2017-06-27 09:32:32 +0000 (Tue, 27 Jun 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -655,6 +655,8 @@ namespace rating
 	tag::ID toWhiteTag(rating::Type type);
 	tag::ID toBlackTag(rating::Type type);
 
+	uint16_t clip(unsigned score);
+
 	unsigned convertEloToUscf(unsigned elo);
 	unsigned convertEloToEcf(unsigned elo);
 	unsigned convertUscfToElo(unsigned uscf);
@@ -664,6 +666,7 @@ namespace rating
 	mstl::string const& toString(Type type);
 	Type fromString(char const* s);
 	bool isElo(char const* s, char const* e);
+	bool isValid(uint16_t score);
 }
 
 namespace federation

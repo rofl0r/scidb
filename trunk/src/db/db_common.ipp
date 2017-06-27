@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1175 $
-// Date   : $Date: 2017-05-27 09:18:24 +0000 (Sat, 27 May 2017) $
+// Version: $Revision: 1219 $
+// Date   : $Date: 2017-06-27 09:32:32 +0000 (Tue, 27 Jun 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -383,6 +383,10 @@ inline bool isScore(int score) { return !isError(score); }
 } // namespace tb
 
 namespace rating {
+
+inline bool isValid(uint16_t score)		{ return score <= Max_Value; }
+inline uint16_t clip(unsigned score)	{ return score <= Max_Value ? score : Max_Value; }
+
 
 inline
 unsigned

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 624 $
-// Date   : $Date: 2013-01-08 21:46:21 +0000 (Tue, 08 Jan 2013) $
+// Version: $Revision: 1219 $
+// Date   : $Date: 2017-06-27 09:32:32 +0000 (Tue, 27 Jun 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -212,7 +212,7 @@ inline
 void
 Player::setHighestElo(int16_t rating)
 {
-	M_REQUIRE(mstl::abs(rating) <= rating::Max_Value);
+	M_REQUIRE(rating::isValid(mstl::abs(rating)));
 	m_highestRating[rating::Elo] = rating;
 }
 
@@ -221,7 +221,7 @@ inline
 void
 Player::setLatestElo(int16_t rating)
 {
-	M_REQUIRE(mstl::abs(rating) <= rating::Max_Value);
+	M_REQUIRE(rating::isValid(mstl::abs(rating)));
 	m_latestRating[rating::Elo] = rating;
 }
 
@@ -231,7 +231,7 @@ void
 Player::setHighestRating(rating::Type type, int16_t rating)
 {
 	M_REQUIRE(type != rating::Any);
-	M_REQUIRE(mstl::abs(rating) <= rating::Max_Value);
+	M_REQUIRE(rating::isValid(mstl::abs(rating)));
 
 	if (rating)
 	{
@@ -248,7 +248,7 @@ void
 Player::setLatestRating(rating::Type type, int16_t rating)
 {
 	M_REQUIRE(type != rating::Any);
-	M_REQUIRE(mstl::abs(rating) <= rating::Max_Value);
+	M_REQUIRE(rating::isValid(mstl::abs(rating)));
 
 	if (rating)
 	{

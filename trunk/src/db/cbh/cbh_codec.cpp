@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1216 $
-// Date   : $Date: 2017-06-25 14:21:04 +0000 (Sun, 25 Jun 2017) $
+// Version: $Revision: 1219 $
+// Date   : $Date: 2017-06-27 09:32:32 +0000 (Tue, 27 Jun 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2405,14 +2405,14 @@ Codec::decodeIndex(ByteStream& strm, GameInfo& info)
 	unsigned whiteElo = strm.uint16();
 	unsigned blackElo = strm.uint16();
 
-	if (whiteElo <= rating::Max_Value)
+	if (rating::isValid(whiteElo))
 	{
 		info.m_pd[color::White].elo = whiteElo;
 		if (white != m_illegalPlayer)
 			white->setElo(whiteElo);
 	}
 
-	if (blackElo <= rating::Max_Value)
+	if (rating::isValid(blackElo))
 	{
 		info.m_pd[color::Black].elo = blackElo;
 		if (black != m_illegalPlayer)
