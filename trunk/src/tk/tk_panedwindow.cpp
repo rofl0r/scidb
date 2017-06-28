@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author: gcramer $
-// Version: $Revision: 1206 $
-// Date   : $Date: 2017-06-23 14:42:28 +0000 (Fri, 23 Jun 2017) $
+// Version: $Revision: 1223 $
+// Date   : $Date: 2017-06-28 07:58:24 +0000 (Wed, 28 Jun 2017) $
 // Url    : $URL: https://svn.code.sf.net/p/scidb/code/trunk/src/tk/tk_panedwindow.cpp $
 // ======================================================================
 
@@ -34,9 +34,7 @@
 // We need the fixed version, Tk 8.6 has a severe problem with resizing.
 // *********************************************************************
 
-#define namespace namespace_	// bug in tcl8.6/tkInt.h
 #include "tkInt.h"
-#undef namespace
 
 /*
  * Defaults for panedwindows
