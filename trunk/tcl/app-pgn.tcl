@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1198 $
-# Date   : $Date: 2017-06-04 18:52:21 +0000 (Sun, 04 Jun 2017) $
+# Version: $Revision: 1224 $
+# Date   : $Date: 2017-06-28 09:09:02 +0000 (Wed, 28 Jun 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -150,7 +150,7 @@ proc build {parent width height} {
 	set edit [::tk::frame $games.edit -borderwidth 0]
 	pack $edit -expand yes -fill both
 	bind $edit <Configure> [namespace code { Configure %h }]
-	set panes [::tk::multiwindow $edit.panes -borderwidth 0 -background white -overlay yes]
+	set panes [::tk::multiwindow $edit.panes -borderwidth 0 -background white]
 	set gamebar [::gamebar::gamebar $edit.gamebar]
 
 	grid $gamebar -row 1 -column 1 -sticky nsew
