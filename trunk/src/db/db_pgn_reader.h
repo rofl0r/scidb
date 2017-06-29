@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1060 $
-// Date   : $Date: 2015-04-05 17:25:57 +0000 (Sun, 05 Apr 2015) $
+// Version: $Revision: 1227 $
+// Date   : $Date: 2017-06-29 16:00:56 +0000 (Thu, 29 Jun 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -157,6 +157,7 @@ private:
 	void advanceLinePos(int n = 1);
 	variant::Type getVariant() const;
 	void setUtf8Codec();
+	bool setTermination(termination::Reason reason);
 
 	Token searchTag(mstl::string* str = 0);
 	Token nextToken(Token prevToken);
