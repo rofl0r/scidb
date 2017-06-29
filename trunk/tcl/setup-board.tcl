@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1225 $
-# Date   : $Date: 2017-06-29 14:25:17 +0000 (Thu, 29 Jun 2017) $
+# Version: $Revision: 1226 $
+# Date   : $Date: 2017-06-29 16:00:02 +0000 (Thu, 29 Jun 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -138,6 +138,8 @@ set Error(NoBlackKing)					"Missing black king."
 set Error(BothInCheck)					"Both kings are in check."
 set Error(OppositeCheck)				"Side not to move is in check."
 set Error(OppositeLosing)				"Side not to move has no pieces."
+set Error(TooManyPawns)					"Sum of pawns and promoted pieces is too large."
+set Error(TooManyPieces)				"Sum of pieces (incl. King, but excl. promoted) is too large."
 set Error(TooManyWhitePawns)			"Too many white pawns."
 set Error(TooManyBlackPawns)			"Too many black pawns."
 set Error(TooManyWhitePieces)			"Too many white pieces."

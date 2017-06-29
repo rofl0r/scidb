@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1208 $
-// Date   : $Date: 2017-06-24 08:15:32 +0000 (Sat, 24 Jun 2017) $
+// Version: $Revision: 1226 $
+// Date   : $Date: 2017-06-29 16:00:02 +0000 (Thu, 29 Jun 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -110,6 +110,8 @@ toError(db::Board::SetupStatus status)
 		case Board::BothInCheck:				return "BothInCheck";
 		case Board::OppositeCheck:				return "OppositeCheck";
 		case Board::OppositeLosing:			return "OppositeLosing";
+		case Board::TooManyPawns:				return "TooManyPawns";
+		case Board::TooManyPieces:				return "TooManyPieces";
 		case Board::TooManyWhitePawns:		return "TooManyWhitePawns";
 		case Board::TooManyBlackPawns:		return "TooManyBlackPawns";
 		case Board::TooManyWhitePieces:		return "TooManyWhitePieces";
