@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1208 $
-// Date   : $Date: 2017-06-24 08:15:32 +0000 (Sat, 24 Jun 2017) $
+// Version: $Revision: 1228 $
+// Date   : $Date: 2017-06-29 16:26:58 +0000 (Thu, 29 Jun 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -70,6 +70,7 @@ inline Board::Material Board::holding(color::ID color) const			{ return m_holdin
 inline Board const& Board::emptyBoard()										{ return m_emptyBoard; }
 
 inline uint64_t Board::pieces() const						{ return m_occupied; }
+inline uint64_t Board::pawns() const						{ return m_pawns; }
 inline uint64_t Board::empty() const						{ return ~m_occupied; }
 inline uint64_t Board::whitePieces() const				{ return m_occupiedBy[color::White]; }
 inline uint64_t Board::blackPieces() const				{ return m_occupiedBy[color::Black]; }
