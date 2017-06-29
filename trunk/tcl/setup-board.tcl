@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1210 $
-# Date   : $Date: 2017-06-24 09:14:41 +0000 (Sat, 24 Jun 2017) $
+# Version: $Revision: 1225 $
+# Date   : $Date: 2017-06-29 14:25:17 +0000 (Thu, 29 Jun 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1161,7 +1161,7 @@ proc SetPiece {square pieceType} {
 	if {$pieceType eq "."} {
 		set Promoted($square) [expr {!$Promoted($square)}]
 		if {$Promoted($square)} {
-			::board::diagram::drawMarker $Vars(board) $square $icon::16x16::marker
+			::board::diagram::drawMarker $Vars(board) $square $::board::icon::12x12::marker
 		} else {
 			::board::diagram::removeMarker $Vars(board) $square
 		}
