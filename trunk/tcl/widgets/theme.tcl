@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1066 $
-# Date   : $Date: 2015-04-12 07:35:45 +0000 (Sun, 12 Apr 2015) $
+# Version: $Revision: 1230 $
+# Date   : $Date: 2017-06-30 13:00:58 +0000 (Fri, 30 Jun 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -135,7 +135,7 @@ switch $::tcl_platform(platform) {
 
 
 # This is not working under older Tk versions.
-#proc currentTheme {} { return ttk::style theme use] }
+#proc currentTheme {} { return [ttk::style theme use] }
 proc currentTheme {} { return $::ttk::currentTheme }
 
 
