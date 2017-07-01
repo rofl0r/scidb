@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1009 $
-# Date   : $Date: 2014-10-11 15:05:49 +0000 (Sat, 11 Oct 2014) $
+# Version: $Revision: 1231 $
+# Date   : $Date: 2017-07-01 13:47:30 +0000 (Sat, 01 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -347,6 +347,12 @@ if {$scidb::revision < 701} {
 	} elseif {$scidb::revision > 83 && $board::currentTheme eq "Default"} {
 		set board::currentTheme {Primus|1368794511290|yellow.color|gregor}
 	}
+}
+
+if {$::application::board::Options(promoted:mark) eq "1"} {
+	set ::application::board::Options(promoted:mark) bullet
+} elseif {$::application::board::Options(promoted:mark) eq "0"} {
+	set ::application::board::Options(promoted:mark) none
 }
 
 set ::scidb::revision [::scidb::misc::revision]

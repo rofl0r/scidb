@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1214 $
-# Date   : $Date: 2017-06-24 13:51:11 +0000 (Sat, 24 Jun 2017) $
+# Version: $Revision: 1231 $
+# Date   : $Date: 2017-07-01 13:47:30 +0000 (Sat, 01 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -665,6 +665,8 @@ proc bgerror {err args} {
 	variable intern::errresult
 	variable intern::errmsg
 	variable intern::tclStack
+
+	if {[string length $err] == 0} { set err $errmsg }
 
 	if {$err eq "selection owner didn't respond"} {
 		set parent [::tkdnd::get_drop_target]

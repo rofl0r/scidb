@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1208 $
-# Date   : $Date: 2017-06-24 08:15:32 +0000 (Sat, 24 Jun 2017) $
+# Version: $Revision: 1231 $
+# Date   : $Date: 2017-07-01 13:47:30 +0000 (Sat, 01 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -504,10 +504,6 @@ proc registerPieceSize {size} {
 			image create photo photo_Piece($piece,$size) -width $size -height $size
 		}
 
-		image create photo photo_Marker($size) -width $size -height $size
-		photo_Marker($size) copy $icon::12x12::marker \
-			-to 2 [expr {$size - [image height $icon::12x12::marker] - 2}]
-
 		image create photo photo_Square(white,$size) -width $size -height $size
 		image create photo photo_Square(black,$size) -width $size -height $size
 
@@ -525,7 +521,6 @@ proc unregisterPieceSize {size} {
 		foreach piece {wk wq wr wb wn wp bk bq br bb bn bp} {
 			catch { image delete photo_Piece($piece,$size) }
 		}
-		catch { image delete photo_Marker($size) }
 		catch { image delete photo_Square(white,$size) }
 		catch { image delete photo_Square(black,$size) }
 		dict unset PieceSizeDict $size
