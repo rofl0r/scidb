@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1231 $
-# Date   : $Date: 2017-07-01 13:47:30 +0000 (Sat, 01 Jul 2017) $
+# Version: $Revision: 1233 $
+# Date   : $Date: 2017-07-01 15:22:06 +0000 (Sat, 01 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -676,9 +676,11 @@ proc open {parent} {
 		::board::registerSize $squareSize
 		set Vars(SquareSize) $squareSize
 	}
+	set mark $::application::board::Options(promoted:mark)
+	if {$mark eq "none"} { set mark "bullet" }
 	set board [::board::diagram::new $canv.board $squareSize \
 		-bordersize $BorderThickness \
-		-promosign $::application::board::Options(promoted:mark) \
+		-promosign $mark \
 	]
 	::board::diagram::update $board $Vars(pos)
 #	$board configure -cursor crosshair
