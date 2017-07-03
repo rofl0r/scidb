@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 609 $
-# Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+# Version: $Revision: 1234 $
+# Date   : $Date: 2017-07-03 12:50:12 +0000 (Mon, 03 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -131,7 +131,8 @@ proc WidgetProc {w command args} {
 
 proc ChangeStyle {w} {
 	if {"entrybuttonbox.downarrow" ni [ttk::style element names]} {
-		if {[font metrics [$w cget -font] -linespace] == 15} {
+		if {	[font metrics [$w cget -font] -linespace] == 15
+			&& [info exists icon::dots([::theme::currentTheme])]} {
 			set icon $icon::dots([::theme::currentTheme])
 		} else {
 			set icon $icon::14x16::open
