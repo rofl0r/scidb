@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1231 $
-# Date   : $Date: 2017-07-01 13:47:30 +0000 (Sat, 01 Jul 2017) $
+# Version: $Revision: 1235 $
+# Date   : $Date: 2017-07-03 18:39:01 +0000 (Mon, 03 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1538,6 +1538,8 @@
 ::setup::board::mc::FICSPosition					"FICS startposition..."
 ::setup::board::mc::StandardPosition			"Standardposition" ;# NEW
 ::setup::board::mc::Chess960Castling			"Schack960 rockad"
+::setup::board::mc::TooManyPiecesInHolding	"one extra piece|%d extra pieces" ;# NEW
+::setup::board::mc::TooFewPiecesInHolding		"one piece is missing|%d pieces are missing" ;# NEW
 
 ::setup::board::mc::ChangeToFormat(xfen)		"Ändra till X-Fen format"
 ::setup::board::mc::ChangeToFormat(shredder)	"Ändra till Shredder format"

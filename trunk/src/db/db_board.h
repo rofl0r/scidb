@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1231 $
-// Date   : $Date: 2017-07-01 13:47:30 +0000 (Sat, 01 Jul 2017) $
+// Version: $Revision: 1235 $
+// Date   : $Date: 2017-07-03 18:39:01 +0000 (Mon, 03 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -456,6 +456,10 @@ public:
 	Move& prepareForPrint(Move& move, variant::Type variant, Representation representation) const;
 	/// Returns the IDN (chess 960 unique IDentification Number)
 	unsigned computeIdn(variant::Type variant) const;
+	/// Returns the material on board for side to move.
+	Material material() const;
+	/// Returns the material on board for given color.
+	Material material(color::ID color) const;
 	/// Returns the material in hand for side to move.
 	Material holding() const;
 	/// Returns the material in hand for given color.

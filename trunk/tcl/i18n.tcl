@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1043 $
-# Date   : $Date: 2015-03-15 18:13:58 +0000 (Sun, 15 Mar 2015) $
+# Version: $Revision: 1235 $
+# Date   : $Date: 2017-07-03 18:39:01 +0000 (Mon, 03 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -383,6 +383,14 @@ proc mapToAscii {str}	{ return [string map $mc::AsciiMapping $str] }
 proc mappingForSort {}	{ return $mc::SortMapping }
 proc mappingToAscii {}	{ return $mc::AsciiMapping }
 proc sortOrderTable {}	{ return $mc::SortOrder }
+
+
+proc extract {msg n} {
+	set msg2 ""
+	lassign [split $msg |] msg msg2
+	if {[string length $msg2] == 0 || $n == 1} { return $msg }
+	return $msg2
+}
 
 
 proc setup {} {

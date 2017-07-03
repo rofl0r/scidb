@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1231 $
-# Date   : $Date: 2017-07-01 13:47:30 +0000 (Sat, 01 Jul 2017) $
+# Version: $Revision: 1235 $
+# Date   : $Date: 2017-07-03 18:39:01 +0000 (Mon, 03 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1527,6 +1527,8 @@
 ::setup::board::mc::FICSPosition					"FICS-Startposition..."
 ::setup::board::mc::StandardPosition			"Standardposition"
 ::setup::board::mc::Chess960Castling			"Schach-960-Rochade"
+::setup::board::mc::TooManyPiecesInHolding	"eine ExtraFigur|%d Extrafiguren"
+::setup::board::mc::TooFewPiecesInHolding		"eine Figur fehlend|%d Figuren fehlend"
 
 ::setup::board::mc::ChangeToFormat(xfen)		"Zum X-Fen-Format wechseln"
 ::setup::board::mc::ChangeToFormat(shredder)	"Zum Shredder-Format wechseln"
