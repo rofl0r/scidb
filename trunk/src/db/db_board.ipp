@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1231 $
-// Date   : $Date: 2017-07-01 13:47:30 +0000 (Sat, 01 Jul 2017) $
+// Version: $Revision: 1236 $
+// Date   : $Date: 2017-07-03 18:43:49 +0000 (Mon, 03 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -65,9 +65,12 @@ inline board::ExactPosition const& Board::exactPosition() const		{ return *this;
 inline board::UniquePosition const& Board::uniquePosition() const		{ return *this; }
 inline material::Count Board::materialCount(color::ID color) const	{ return m_material[color]; }
 inline unsigned Board::checksGiven(color::ID color) const				{ return m_checksGiven[color]; }
-inline Board::Material Board::holding() const								{ return m_holding[m_stm]; }
-inline Board::Material Board::holding(color::ID color) const			{ return m_holding[color]; }
 inline Board const& Board::emptyBoard()										{ return m_emptyBoard; }
+
+inline Board::Material Board::material() const						{ return m_material[m_stm]; }
+inline Board::Material Board::holding() const						{ return m_partner->m_holding[m_stm]; }
+inline Board::Material Board::material(color::ID color) const	{ return m_material[color]; }
+inline Board::Material Board::holding(color::ID color) const	{ return m_partner->m_holding[color]; }
 
 inline uint64_t Board::pieces() const						{ return m_occupied; }
 inline uint64_t Board::pawns() const						{ return m_pawns; }
