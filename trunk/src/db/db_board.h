@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1235 $
-// Date   : $Date: 2017-07-03 18:39:01 +0000 (Mon, 03 Jul 2017) $
+// Version: $Revision: 1241 $
+// Date   : $Date: 2017-07-05 19:50:39 +0000 (Wed, 05 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -338,6 +338,8 @@ public:
 	bool isValidMove(	Move const& move,
 							variant::Type variant,
 							move::Constraint flag = move::AllowIllegalMove) const;
+	/// Return whether the piece drop is invalid, because the piece is not in holding.
+	bool isInvalidPieceDrop(Move const& move) const;
 	/// Return whether castling rook position is ambiguous
 	bool needCastlingFyles() const;
 	/// Return whether position cannot be derived from standard chess position
