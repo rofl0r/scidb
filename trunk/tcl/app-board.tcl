@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1240 $
-# Date   : $Date: 2017-07-05 19:04:42 +0000 (Wed, 05 Jul 2017) $
+# Version: $Revision: 1242 $
+# Date   : $Date: 2017-07-05 19:56:00 +0000 (Wed, 05 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -541,7 +541,6 @@ proc update {position cmd data promoted} {
 	variable board
 	variable Vars
 
-puts "update: $promoted"
 	switch $cmd {
 		set	{ ::board::diagram::update $board $data $promoted }
 		move	{ ::board::diagram::move $board $data }
