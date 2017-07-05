@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 996 $
-// Date   : $Date: 2013-11-02 18:52:29 +0000 (Sat, 02 Nov 2013) $
+// Version: $Revision: 1240 $
+// Date   : $Date: 2017-07-05 19:04:42 +0000 (Wed, 05 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1676,7 +1676,7 @@ Engine::insertPV(db::MoveList const& moves)
 
 
 int
-Engine::findVariation(db::Move const& move) const
+Engine::findVariationNo(db::Move const& move) const
 {
 	for (unsigned i = 0; i < m_usedMultiPV; ++i)
 	{

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1001 $
-// Date   : $Date: 2014-05-21 18:41:00 +0000 (Wed, 21 May 2014) $
+// Version: $Revision: 1240 $
+// Date   : $Date: 2017-07-05 19:04:42 +0000 (Wed, 05 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -152,7 +152,7 @@ skipMoveNumber(char const* s)
 		s = skipSpaces(s);
 	}
 
-	return s;
+	return skipSpaces(s);
 }
 
 
@@ -1318,13 +1318,16 @@ winboard::Engine::parseInfo(mstl::string const& msg)
 
 	char const*	illegal(0);
 	char const*	e(0);
+	char const*	str(s);
 	Board 		board(currentBoard());
 	MoveList 	moves;
 
 	while (*s)
 	{
+		s = ::skipMoveNumber(s);
+
 		Move move;
-		char const* t = board.parseMove(::skipMoveNumber(s), move, m_variant);
+		char const* t = board.parseMove(s, move, m_variant);
 
 		if (t)
 		{
@@ -1357,10 +1360,23 @@ winboard::Engine::parseInfo(mstl::string const& msg)
 
 	if (illegal)
 	{
-		mstl::string msg("Illegal move in PV: ");
-		msg.append(illegal, e - illegal);
-		msg.trim();
-		error(msg);
+		mstl::string errMsg("Illegal move in PV: ");
+		errMsg.append(illegal, e - illegal);
+		errMsg.trim();
+		errMsg.append(" (", 2);
+		errMsg.append(::skipMoveNumber(str), e);
+		errMsg.trim();
+		errMsg.append(")", 1);
+		error(errMsg);
+
+		if (moves.isEmpty() && isAnalyzing())
+		{
+			// Some engines (e,g. Gaviota) are playing the bestmove
+			// automatically, thus starting from a wrong position in
+			// case of restart. Restart analysis again in this case.
+			stopAnalysis(true);
+			startAnalysis(true);
+		}
 		return;
 	}
 
@@ -1383,9 +1399,9 @@ winboard::Engine::parseInfo(mstl::string const& msg)
 				return;
 			}
 
-			varno = findVariation(moves.front());
+			varno = findVariationNo(moves.front());
 
-			setCurrentMove(0, 0, moves[0]);
+			setCurrentMove(0, 0, moves.front());
 			updateCurrMove();
 
 			if (msg.back() == '!')

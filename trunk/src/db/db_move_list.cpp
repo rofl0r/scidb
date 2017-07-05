@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 661 $
-// Date   : $Date: 2013-02-23 23:03:04 +0000 (Sat, 23 Feb 2013) $
+// Version: $Revision: 1240 $
+// Date   : $Date: 2017-07-05 19:04:42 +0000 (Wed, 05 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -128,7 +128,7 @@ MoveList::sort(unsigned startIndex, int scores[])
 
 
 void
-MoveList::print(mstl::string& result, unsigned halfMoveNo) const
+MoveList::print(mstl::string& result, unsigned halfMoveNo, encoding::CharSet encoding) const
 {
 	if (isEmpty())
 		return;
@@ -142,7 +142,7 @@ MoveList::print(mstl::string& result, unsigned halfMoveNo) const
 	if (mstl::is_odd(halfMoveNo))
 		result.append("..", 2);
 
-	move.printSan(result, protocol::Scidb, encoding::Utf8);
+	move.printSan(result, protocol::Scidb, encoding);
 	++halfMoveNo;
 
 	for (unsigned i = 1; i < m_size; ++i, ++halfMoveNo)
@@ -157,7 +157,7 @@ MoveList::print(mstl::string& result, unsigned halfMoveNo) const
 			result.append('.');
 		}
 
-		move.printSan(result, protocol::Scidb, encoding::Utf8);
+		move.printSan(result, protocol::Scidb, encoding);
 	}
 }
 

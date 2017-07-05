@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1235 $
-// Date   : $Date: 2017-07-03 18:39:01 +0000 (Mon, 03 Jul 2017) $
+// Version: $Revision: 1240 $
+// Date   : $Date: 2017-07-05 19:04:42 +0000 (Wed, 05 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -159,12 +159,14 @@ toError(db::Board::SetupStatus status)
 static char const*
 validate(Board const& board, variant::Type variant, Warnings& warnings)
 {
-	char const*					error	= 0;
-	db::Board::SetupStatus status	= board.validate(variant, castling::DontAllowHandicap);
+	char const* error(0);
+	db::Board::SetupStatus status;
+	
+	status = board.validate(variant, castling::DontAllowHandicap, move::DontAllowIllegalMove);
 
 	if (status == Board::BadCastlingRights)
 	{
-		status = board.validate(variant, castling::AllowHandicap);
+		status = board.validate(variant, castling::AllowHandicap, move::DontAllowIllegalMove);
 
 		if (status != Board::BadCastlingRights)
 			warnings.push_back("CastlingWithoutRook");

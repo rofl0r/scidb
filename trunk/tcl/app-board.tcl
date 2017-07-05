@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1231 $
-# Date   : $Date: 2017-07-01 13:47:30 +0000 (Sat, 01 Jul 2017) $
+# Version: $Revision: 1240 $
+# Date   : $Date: 2017-07-05 19:04:42 +0000 (Wed, 05 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -541,6 +541,7 @@ proc update {position cmd data promoted} {
 	variable board
 	variable Vars
 
+puts "update: $promoted"
 	switch $cmd {
 		set	{ ::board::diagram::update $board $data $promoted }
 		move	{ ::board::diagram::move $board $data }
@@ -1058,7 +1059,6 @@ proc PopupMenu {w} {
 		-label "$::board::options::mc::UseSmallLetters" \
 		-variable ::board::layout(coords-small) \
 		-command [namespace code RedrawCoordinates] \
-		-state [expr {$::board::layout(coordinates) ? "normal" : "disabled"}] \
 		;
 	::theme::configureCheckEntry $m
 	$m add checkbutton \
@@ -1161,6 +1161,7 @@ proc RedrawCoordinates {} {
 	variable ::board::layout
 	variable Vars
 
+	if {!$layout(coordinates)} { return }
 	set border $Vars(widget:border)
 	set canv $Vars(widget:frame)
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 996 $
-// Date   : $Date: 2013-11-02 18:52:29 +0000 (Sat, 02 Nov 2013) $
+// Version: $Revision: 1240 $
+// Date   : $Date: 2017-07-05 19:04:42 +0000 (Wed, 05 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -199,7 +199,8 @@ public:
 		Options const& options() const;
 		::db::variant::Type currentVariant() const;
 		unsigned supportedVariants() const;
-		int findVariation(db::Move const& move) const;
+		int findVariationNo(db::Move const& move) const;
+		db::MoveList const* findVariation(db::Move const& move) const;
 
 		long pid() const;
 
@@ -473,7 +474,8 @@ protected:
 	void setCurrentMove(unsigned number, unsigned moveCount, db::Move const& move);
 	void setHashFullness(unsigned fullness);
 
-	int findVariation(db::Move const& move) const;
+	int findVariationNo(db::Move const& move) const;
+	db::MoveList const* findVariation(db::Move const& move) const;
 
 	void setIdentifier(mstl::string const& name);
 	void setShortName(mstl::string const& name);
