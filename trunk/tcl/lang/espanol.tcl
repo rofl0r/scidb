@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1235 $
-# Date   : $Date: 2017-07-03 18:39:01 +0000 (Mon, 03 Jul 2017) $
+# Version: $Revision: 1238 $
+# Date   : $Date: 2017-07-05 10:59:18 +0000 (Wed, 05 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -840,6 +840,8 @@
 ::board::options::mc::ShowMaterialBar		"Mostrar Barra de Matrial" 
 ::board::options::mc::ShowSideToMove		"Mostrar el lado que mueve"
 ::board::options::mc::ShowSuggestedMove	"Mostar jugada sugerida"
+::board::options::mc::ShowPieceShadow		"Show Piece Shadow" ;# NEW
+::board::options::mc::ShowPieceContour		"Show Piece Contour" ;# NEW
 ::board::options::mc::SuggestedMove			"Jugada sugerida"
 ::board::options::mc::Basic					"Básico"
 ::board::options::mc::PieceStyle				"Estilo de pieza"

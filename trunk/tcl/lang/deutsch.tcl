@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1235 $
-# Date   : $Date: 2017-07-03 18:39:01 +0000 (Mon, 03 Jul 2017) $
+# Version: $Revision: 1238 $
+# Date   : $Date: 2017-07-05 10:59:18 +0000 (Wed, 05 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -839,6 +839,8 @@
 ::board::options::mc::ShowMaterialBar		"Materialleiste anzeigen"
 ::board::options::mc::ShowSideToMove		"Zugrecht anzeigen"
 ::board::options::mc::ShowSuggestedMove	"Zugvorschlag anzeigen"
+::board::options::mc::ShowPieceShadow		"Figurenschatten anzeigen"
+::board::options::mc::ShowPieceContour		"Figurenumrandungen anzeigen"
 ::board::options::mc::SuggestedMove			"Zugvorschlag"
 ::board::options::mc::Basic					"Grundaufbau"
 ::board::options::mc::PieceStyle				"Figurengestaltung"

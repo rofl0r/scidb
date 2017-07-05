@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1231 $
-# Date   : $Date: 2017-07-01 13:47:30 +0000 (Sat, 01 Jul 2017) $
+# Version: $Revision: 1238 $
+# Date   : $Date: 2017-07-05 10:59:18 +0000 (Wed, 05 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -696,6 +696,7 @@ proc bgerror {err args} {
 		set errmsg ""
 		set errresult ""
 		::tk::dialog::error::bgerror $err
+		catch { ::widget::busyCursor clear }
 	} elseif {[string length $errorInfo] > 0} {
 		# only save the stack info for next call of bgerror
 		set tclStack $errorInfo

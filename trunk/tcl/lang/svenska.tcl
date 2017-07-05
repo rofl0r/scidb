@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1235 $
-# Date   : $Date: 2017-07-03 18:39:01 +0000 (Mon, 03 Jul 2017) $
+# Version: $Revision: 1238 $
+# Date   : $Date: 2017-07-05 10:59:18 +0000 (Wed, 05 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -843,6 +843,8 @@
 ::board::options::mc::ShowMaterialBar		"Visa material stapel"
 ::board::options::mc::ShowSideToMove		"Visa sida vid draget"
 ::board::options::mc::ShowSuggestedMove	"Visa föreslagna drag"
+::board::options::mc::ShowPieceShadow		"Show Piece Shadow" ;# NEW
+::board::options::mc::ShowPieceContour		"Show Piece Contour" ;# NEW
 ::board::options::mc::SuggestedMove			"Föreslagna drag"
 ::board::options::mc::Basic					"Enkelt"
 ::board::options::mc::PieceStyle				"Pjäser"

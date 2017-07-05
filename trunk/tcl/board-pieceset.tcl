@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1184 $
-# Date   : $Date: 2017-05-28 19:02:06 +0000 (Sun, 28 May 2017) $
+# Version: $Revision: 1238 $
+# Date   : $Date: 2017-07-05 10:59:18 +0000 (Wed, 05 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -14,7 +14,7 @@
 # ======================================================================
 
 # ======================================================================
-# Copyright: (C) 2009-2013 Gregor Cramer
+# Copyright: (C) 2009-2017 Gregor Cramer
 # ======================================================================
 
 # ======================================================================
@@ -247,8 +247,12 @@ proc MakePieces {	prefix pieceSet pieceList size scale contour boostContour shad
 	variable Sampling
 	variable Overstroke
 	variable Dimensions
+	variable [namespace parent]::layout
 
 	if {$size == 0} { return }
+
+	if {!$layout(piece-shadow)} { set shadow 0 }
+	if {!$layout(piece-contour)} { set contour 0 }
 
 	lassign $fillColors fillColor(w) fillColor(b)
 	lassign $strokeColors strokeColor(w) strokeColor(b)

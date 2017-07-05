@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1235 $
-# Date   : $Date: 2017-07-03 18:39:01 +0000 (Mon, 03 Jul 2017) $
+# Version: $Revision: 1238 $
+# Date   : $Date: 2017-07-05 10:59:18 +0000 (Wed, 05 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -837,6 +837,8 @@
 ::board::options::mc::ShowMaterialBar		"Show Material Bar"
 ::board::options::mc::ShowSideToMove		"Show Side to Move"
 ::board::options::mc::ShowSuggestedMove	"Show Suggested Move"
+::board::options::mc::ShowPieceShadow		"Show Piece Shadow"
+::board::options::mc::ShowPieceContour		"Show Piece Contour"
 ::board::options::mc::SuggestedMove			"Suggested Move"
 ::board::options::mc::Basic					"Basic"
 ::board::options::mc::PieceStyle				"Piece Style"

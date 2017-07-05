@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1126 $
-# Date   : $Date: 2017-01-21 14:32:32 +0000 (Sat, 21 Jan 2017) $
+# Version: $Revision: 1238 $
+# Date   : $Date: 2017-07-05 10:59:18 +0000 (Wed, 05 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -528,22 +528,33 @@ proc setBoldFont {w} {
 proc busyCursor {w {state on}} {
 	variable Priv
 
-	if {$Priv(busy:locked)} { return }
-
-	if {[string index $w 0] ne "."} {
-		set state $w
-		set w --
-	}
-
-	if {$state eq "on"} {
-		if {[incr Priv(busy:state)] != 1} { return }
-		set action hold
-	} else {
-		if {[incr Priv(busy:state) -1] != 0} { return }
+	if {$w eq "clear"} {
+		set Priv(busy:state) 0
+		if {[info exists Priv(busy:widget)]} {
+			set w $Priv(busy:widget)
+		} else {
+			set w --
+		}
 		set action forget
+	} else {
+		if {$Priv(busy:locked)} { return }
+
+		if {[string index $w 0] ne "."} {
+			set state $w
+			set w --
+		}
+
+		if {$state eq "on"} {
+			if {[incr Priv(busy:state)] != 1} { return }
+			set action hold
+		} else {
+			if {[incr Priv(busy:state) -1] != 0} { return }
+			set action forget
+		}
+
+		set Priv(busy:locked) 1
 	}
 
-	set Priv(busy:locked) 1
 	::update
 
 	foreach toplevel {.application .setupEngine .help .playerDict .mergeDialog} {
