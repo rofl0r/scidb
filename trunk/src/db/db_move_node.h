@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1080 $
-// Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
+// Version: $Revision: 1249 $
+// Date   : $Date: 2017-07-06 15:50:24 +0000 (Thu, 06 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -96,6 +96,7 @@ public:
 		ChangedAnnotation	= 1 << 13,
 		ChangedDiagram		= 1 << 14,
 		MoveHasChanged		= ChangedComment | ChangedAnnotation | ChangedDiagram,
+		IsMerged				= 1 << 15,
 	};
 
 	MoveNode(Move const& move);
@@ -209,6 +210,7 @@ public:
 	void stripComments();
 	void stripComments(mstl::string const& lang);
 	void stripVariations();
+	void stripFlag(Flag flag);
 	void copyComments(mstl::string const& fromLang, mstl::string const& toLang, bool stripOriginal);
 	void updateFromTimeTable(TimeTable const& timeTable);
 

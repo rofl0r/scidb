@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1080 $
-// Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
+// Version: $Revision: 1249 $
+// Date   : $Date: 2017-07-06 15:50:24 +0000 (Thu, 06 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -771,6 +771,19 @@ MoveNode::stripMoveInfo()
 
 		for (unsigned i = 0; i < n->m_variations.size(); ++i)
 			n->m_variations[i]->stripMoveInfo();
+	}
+}
+
+
+void
+MoveNode::stripFlag(Flag flag)
+{
+	for (MoveNode* n = this; n; n = n->m_next)
+	{
+		n->m_flags &= ~flag;
+
+		for (unsigned i = 0; i < n->m_variations.size(); ++i)
+			n->m_variations[i]->stripFlag(flag);
 	}
 }
 
