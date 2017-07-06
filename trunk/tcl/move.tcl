@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1154 $
-# Date   : $Date: 2017-05-07 09:36:57 +0000 (Sun, 07 May 2017) $
+# Version: $Revision: 1245 $
+# Date   : $Date: 2017-07-06 10:33:46 +0000 (Thu, 06 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -219,7 +219,7 @@ proc enterSquare {{square {}}} {
 		} else {
 			set suggested -1
 		}
-	
+
 		if {$suggested != -1} {
 			::board::diagram::hilite $board $square suggested
 			::board::diagram::hilite $board $suggested suggested
@@ -253,6 +253,7 @@ proc leaveSquare {{square {}}} {
 			::board::diagram::hilite $board $Square(suggested) off
 			set Square(suggested) -1
 		}
+		set Square(selected) -1
 	} elseif {$Leave <= 0} {
 		set Leave [expr {-($square + 1)}]
 	} else {

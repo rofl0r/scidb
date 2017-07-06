@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1244 $
-# Date   : $Date: 2017-07-06 09:11:39 +0000 (Thu, 06 Jul 2017) $
+# Version: $Revision: 1245 $
+# Date   : $Date: 2017-07-06 10:33:46 +0000 (Thu, 06 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -349,14 +349,12 @@ proc move {w list} {
 		set Board(data) [string replace $Board(data) $squareCaptured $squareCaptured $pieceCaptured]
 	}
 
-	if {$forward} {
-		if {$pieceFrom != $pieceTo && $squareFrom != $squareTo && $squareFrom ni $Board(promoted)} {
+	if {$pieceFrom != $pieceTo && $squareFrom != $squareTo} {
+		if {!$forward} {
+			removePromoted $w $squareFrom
+		} elseif {$squareFrom ni $Board(promoted)} {
 			# the moving piece is a promoted piece
 			lappend Board(promoted) $squareFrom
-		}
-	} else {
-		if {$pieceFrom != $pieceTo && $squareFrom != $squareTo} {
-			removePromoted $w $squareFrom
 		}
 	}
 
@@ -1090,6 +1088,8 @@ proc DoMove {w list} {
 			raisePiece $w $squareFrom
 		}
 	}
+
+	RaiseAdornment $w
 }
 
 
