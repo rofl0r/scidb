@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1188 $
-# Date   : $Date: 2017-05-31 07:42:21 +0000 (Wed, 31 May 2017) $
+# Version: $Revision: 1248 $
+# Date   : $Date: 2017-07-06 12:44:24 +0000 (Thu, 06 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -348,7 +348,7 @@ if {[::process::testOption use-clock]} {
 	TabChanged $nb $app
 	::load::writeLog
 	update idletasks
-	set ::remote::blocked 0
+	set ::scidb::intern::blocked 0
 
 	database::preOpen $app
 
