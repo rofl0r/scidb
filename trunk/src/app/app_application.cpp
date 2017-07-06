@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1215 $
-// Date   : $Date: 2017-06-24 15:29:53 +0000 (Sat, 24 Jun 2017) $
+// Version: $Revision: 1246 $
+// Date   : $Date: 2017-07-06 11:18:08 +0000 (Thu, 06 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1895,8 +1895,8 @@ Application::endTrialMode()
 
 	delete game.data.game;
 	game.data.game = game.data.backup;
-	game.data.backup = 0;
 	game.data.game->moveTo(game.data.backup->currentKey());
+	game.data.backup = nullptr;
 }
 
 
