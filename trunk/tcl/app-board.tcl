@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1242 $
-# Date   : $Date: 2017-07-05 19:56:00 +0000 (Wed, 05 Jul 2017) $
+# Version: $Revision: 1247 $
+# Date   : $Date: 2017-07-06 12:31:24 +0000 (Thu, 06 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1810,6 +1810,7 @@ proc UpdateControls {} {
 
 proc GameSwitched {position} {
 	variable Vars
+	variable board
 
 	# reset if position is 9 (all games closed)
 
@@ -1830,7 +1831,8 @@ proc GameSwitched {position} {
 	UpdateGameButtonState(list) $position
 	UpdateGameButtonState(base) [::scidb::db::get name] [::scidb::app::variant]
 	UpdateSaveButton
-	UpdatePromotions
+
+	::board::diagram::showPromoted $board [expr {$variant eq "Crazyhouse"}]
 
 	if {$variant eq "Crazyhouse" || $variant eq "ThreeCheck"} {
 		set layout $variant
@@ -1863,15 +1865,6 @@ proc DatabaseSwitched {base variant} {
 	UpdateGameButtonState(base) $base $variant
 	UpdateSaveButton
 	UpdateCrossTableButton
-}
-
-
-proc UpdatePromotions {} {
-	variable board
-
-	foreach sq [::scidb::game::promoted] {
-		::board::diagram::drawPromoted $board $sq
-	}
 }
 
 

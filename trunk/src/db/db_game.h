@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1080 $
-// Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
+// Version: $Revision: 1247 $
+// Date   : $Date: 2017-07-06 12:31:24 +0000 (Thu, 06 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -169,7 +169,7 @@ public:
 		virtual void updateMarks(mstl::string const& marks) = 0;
 		virtual void gotoMove(mstl::string const& key, mstl::string const& succKey) = 0;
 
-		virtual void boardSetup(Board const& board) = 0;
+		virtual void boardSetup(Board const& board, variant::Type variant) = 0;
 		virtual void boardMove(Board const& board, Move const& move, bool forward) = 0;
 
 		virtual void updateEditor(	edit::Root const* node,
