@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 997 $
-// Date   : $Date: 2013-11-03 09:12:28 +0000 (Sun, 03 Nov 2013) $
+// Version: $Revision: 1243 $
+// Date   : $Date: 2017-07-06 08:03:55 +0000 (Thu, 06 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -297,7 +297,7 @@ piece::ID
 Move::droppedPiece() const
 {
 	M_REQUIRE(isPieceDrop());
-	return piece::piece(dropped(), color::opposite(color()));
+	return piece::piece(dropped(), color());
 }
 
 
