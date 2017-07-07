@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1232 $
-// Date   : $Date: 2017-07-01 13:49:34 +0000 (Sat, 01 Jul 2017) $
+// Version: $Revision: 1252 $
+// Date   : $Date: 2017-07-07 09:52:56 +0000 (Fri, 07 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -537,10 +537,12 @@ containsFemaleTitle(unsigned titles)
 
 namespace variant {
 
-inline bool isZhouse(Type variant)		{ return variant & (Bughouse | Crazyhouse); }
-inline bool isBughouse(Type variant)	{ return variant == Bughouse; }
-inline bool isThreeCheck(Type variant)	{ return variant == ThreeCheck; }
-inline bool isAntichess(Type variant)	{ return variant >= Antichess; }
+inline bool isNormalChess(Type variant)	{ return variant & (Normal | ThreeCheck | Losers); }
+inline bool isZhouse(Type variant)			{ return variant & (Bughouse | Crazyhouse); }
+inline bool isDropChess(Type variant)		{ return variant & (Bughouse | Crazyhouse); }
+inline bool isBughouse(Type variant)		{ return variant == Bughouse; }
+inline bool isThreeCheck(Type variant)		{ return variant == ThreeCheck; }
+inline bool isAntichess(Type variant)		{ return variant >= Antichess; }
 inline bool isAntichessExceptLosers(Type variant) { return variant & Antichess; }
 
 inline bool isChess960(uint16_t idn)		{ return 0 < idn && idn <= 960; }

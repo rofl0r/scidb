@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1232 $
-// Date   : $Date: 2017-07-01 13:49:34 +0000 (Sat, 01 Jul 2017) $
+// Version: $Revision: 1252 $
+// Date   : $Date: 2017-07-07 09:52:56 +0000 (Fri, 07 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -828,8 +828,10 @@ namespace variant
 		MaxCode				= 4095,	// maximal number
 	};
 
+	bool isNormalChess(Type variant);
 	bool isAntichess(Type variant);
 	bool isAntichessExceptLosers(Type variant);
+	bool isDropChess(Type variant);
 	bool isZhouse(Type variant);
 	bool isBughouse(Type variant);
 	bool isThreeCheck(Type variant);

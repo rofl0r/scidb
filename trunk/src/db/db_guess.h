@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 743 $
-// Date   : $Date: 2013-04-26 15:55:35 +0000 (Fri, 26 Apr 2013) $
+// Version: $Revision: 1252 $
+// Date   : $Date: 2017-07-07 09:52:56 +0000 (Fri, 07 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -167,6 +167,7 @@ private:
 	int countAllPieces(color::ID side) const;
 	int staticExchangeEvaluator(Move const& move) const;
 	uint64_t addXrayPiece(unsigned from, unsigned target) const;
+	int pieceValue(piece::Type piece, Square from) const;
 
 	// normal chess evaluation
 	void preEvaluate();
@@ -270,6 +271,7 @@ private:
 	static PieceValues PieceSuicide;
 	static PieceValues PieceLosers;
 	static PieceValues PieceZH;
+	static PieceValues PieceInHand;
 
 	variant::Type	m_variant;
 	int				m_idn;
