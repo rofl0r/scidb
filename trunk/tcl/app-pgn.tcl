@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1224 $
-# Date   : $Date: 2017-06-28 09:09:02 +0000 (Wed, 28 Jun 2017) $
+# Version: $Revision: 1254 $
+# Date   : $Date: 2017-07-08 11:45:01 +0000 (Sat, 08 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1690,7 +1690,7 @@ proc PrintMove {context position w level key data annotation} {
 	}
 
 	if {!$legal} {
-		$w insert cur "\u26A1" {m:move illegal} ;# alternatives: u26A0, u2716
+		$w insert cur "\u26A1" illegal ;# alternatives: u26A0, u2716
 	}
 }
 
