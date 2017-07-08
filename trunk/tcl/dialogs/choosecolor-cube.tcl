@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 985 $
-# Date   : $Date: 2013-10-29 14:52:42 +0000 (Tue, 29 Oct 2013) $
+# Version: $Revision: 1255 $
+# Date   : $Date: 2017-07-08 11:46:31 +0000 (Sat, 08 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -42,8 +42,8 @@ namespace import ::tcl::mathfunc::*
 
 
 proc ComputeWidth {height} {
-	set width [expr {$height - round(0.067*($height - 6)) - 11}]
-	return [expr {round(($width*511.0)/443.0) - 16}]
+	set vbarSize [expr {round(0.067*$height) + 11}]
+	return [expr {round((($height - $vbarSize)*511.0)/443.0) - 16}]
 }
 
 
@@ -366,7 +366,7 @@ proc MakeCubeImage {width height} {
 	variable ColorCube
 	variable Vars
 
-	catch { image delete $ColorCube }
+	if {[info exists ColorCube]} { image delete $ColorCube }
 	set ColorCube [image create photo -width $width -height $height]
 	::scidb::tk::image colorcube $ColorCube 36 12
 	

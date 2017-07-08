@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1218 $
-# Date   : $Date: 2017-06-26 21:36:39 +0000 (Mon, 26 Jun 2017) $
+# Version: $Revision: 1255 $
+# Date   : $Date: 2017-07-08 11:46:31 +0000 (Sat, 08 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -485,10 +485,10 @@ proc resetGoto {w position} {
 	variable ::pgn::browser::Colors
 
 	if {[llength $Vars(next)]} {
-		$w tag configure $Vars(next) -background [::colors::lookup $Colors(background)]
+		$w tag remove h:next begin end
 	}
 	if {[llength $Vars(current)]} {
-		$w tag configure $Vars(current) -background [::colors::lookup $Colors(background)]
+		$w tag remove h:curr begin end
 	}
 	set Vars(current) {}
 	set Vars(next) {}
@@ -501,8 +501,12 @@ proc showNext {w position flag} {
 	variable ::pgn::browser::Colors
 
 	if {[llength $Vars(next:move)]} {
-		if {$flag} { set attr background:nextmove } else { set attr background }
-		$w tag configure $Vars(next:move) -background [::colors::lookup $Colors($attr)]
+		if {$flag} {
+			set range [$w tag nextrange m:move $Vars(next:move)]
+			$w tag add h:next {*}$range
+		} else {
+			$w tag remove h:next begin end
+		}
 	}
 }
 
