@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1255 $
-# Date   : $Date: 2017-07-08 11:46:31 +0000 (Sat, 08 Jul 2017) $
+# Version: $Revision: 1256 $
+# Date   : $Date: 2017-07-08 15:51:09 +0000 (Sat, 08 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1633,8 +1633,6 @@ proc MakeFrame {container} {
 
 	set height	[expr {$Priv(notebook-size:y) - 6}]
 	set width	[expr {$Priv(notebook-size:x) - 6}]
-incr width 50 ;# XXX
-puts "---> MakeFrame: $height $width"
 
 	set canvas [tk::canvas $container.list \
 		-yscrollcommand [ list $container.vsb set] \

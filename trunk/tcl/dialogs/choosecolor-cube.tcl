@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1255 $
-# Date   : $Date: 2017-07-08 11:46:31 +0000 (Sat, 08 Jul 2017) $
+# Version: $Revision: 1256 $
+# Date   : $Date: 2017-07-08 15:51:09 +0000 (Sat, 08 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -42,8 +42,8 @@ namespace import ::tcl::mathfunc::*
 
 
 proc ComputeWidth {height} {
-	set vbarSize [expr {round(0.067*$height) + 11}]
-	return [expr {round((($height - $vbarSize)*511.0)/443.0) - 16}]
+	set width [expr {$height - round(0.067*($height - 6)) - 11}]
+	return [expr {round(($width*511.0)/443.0) - 16}]
 }
 
 
