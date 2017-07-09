@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1085 $
-// Date   : $Date: 2016-02-29 17:11:08 +0000 (Mon, 29 Feb 2016) $
+// Version: $Revision: 1276 $
+// Date   : $Date: 2017-07-09 09:39:28 +0000 (Sun, 09 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -26,7 +26,15 @@ template <typename T> inline pvector<T>::pvector() {}
 template <typename T> inline pvector<T>::pvector(size_type n) { m_vec.resize(n, 0); }
 
 template <typename T> inline bool pvector<T>::empty() const { return m_vec.empty(); }
-template <typename T> inline typename pvector<T>::size_type pvector<T>::size() const { return m_vec.size(); }
+
+
+template <typename T>
+inline
+typename pvector<T>::size_type
+pvector<T>::size() const
+{
+	return m_vec.size();
+}
 
 
 template <typename T>

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 824 $
-// Date   : $Date: 2013-06-07 22:01:59 +0000 (Fri, 07 Jun 2013) $
+// Version: $Revision: 1276 $
+// Date   : $Date: 2017-07-09 09:39:28 +0000 (Sun, 09 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -271,6 +271,26 @@ string operator+(char const* lhs, string const& rhs);
 
 void swap(string& lhs, string& rhs);
 void swap(string::reference lhs, string::reference rhs);
+
+int compare(string const& lhs, string const& rhs);
+int compare(string const& lhs, char const* rhs);
+int compare(char const* lhs, string const& rhs);
+int compare(char const* lhs, char const* rhs);
+
+int compare(string const& lhs, string const& rhs, string::size_type len);
+int compare(string const& lhs, char const* rhs, string::size_type len);
+int compare(char const* lhs, string const& rhs, string::size_type len);
+int compare(char const* lhs, char const* rhs, string::size_type len);
+
+int case_compare(string const& lhs, string const& rhs);
+int case_compare(string const& lhs, char const* rhs);
+int case_compare(char const* lhs, string const& rhs);
+int case_compare(char const* lhs, char const* rhs);
+
+int case_compare(string const& lhs, string const& rhs, string::size_type len);
+int case_compare(string const& lhs, char const* rhs, string::size_type len);
+int case_compare(char const* lhs, string const& rhs, string::size_type len);
+int case_compare(char const* lhs, char const* rhs, string::size_type len);
 
 template <typename T> struct is_pod;
 template <> struct is_pod<string::value_type> { enum { value = 1 }; };

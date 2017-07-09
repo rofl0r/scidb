@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 857 $
-// Date   : $Date: 2013-06-24 23:28:35 +0000 (Mon, 24 Jun 2013) $
+// Version: $Revision: 1276 $
+// Date   : $Date: 2017-07-09 09:39:28 +0000 (Sun, 09 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -59,6 +59,11 @@
 #  define UINT64_C(c)	c ## ULL
 # endif
 #endif
+
+#define __m_printf_format__(index, first_to_check) \
+	__attribute__((__format__(__printf__, index, first_to_check)))
+
+#define __m_warn_unused __attribute__((warn_unused_result))
 
 ///////////////////////////////////////////////////////////////////////////////
 // C++Ox standard (reference: http://gcc.gnu.org/projects/cxx0x.html

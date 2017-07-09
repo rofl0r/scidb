@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1080 $
-// Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
+// Version: $Revision: 1276 $
+// Date   : $Date: 2017-07-09 09:39:28 +0000 (Sun, 09 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -129,10 +129,11 @@ inline
 memblock<T>&
 memblock<T>::operator=(memblock&& mb)
 {
-	mstl::swap(m_start, mb.m_start);
-	m_finish = mb.m_finish;
-	m_end_of_storage = mb.m_end_of_storage;
-
+	if (this != &mb)
+	{
+		memblock::~memblock();
+		new(*this) memblock(mstl::move(mb));
+	}
 	return *this;
 }
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 824 $
-// Date   : $Date: 2013-06-07 22:01:59 +0000 (Fri, 07 Jun 2013) $
+// Version: $Revision: 1276 $
+// Date   : $Date: 2017-07-09 09:39:28 +0000 (Sun, 09 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -385,6 +385,144 @@ string& string::operator=(string&& str)
 }
 
 #endif
+
+
+inline int compare(string const& lhs, string const& rhs)	{ return ::strcmp(lhs, rhs); }
+
+
+inline
+int
+compare(string const& lhs, char const* rhs)
+{
+	M_REQUIRE(rhs);
+	return ::strcmp(lhs, rhs);
+}
+
+
+inline
+int
+compare(char const* lhs, string const& rhs)
+{
+	M_REQUIRE(lhs);
+	return ::strcmp(lhs, rhs);
+}
+
+
+inline
+int
+compare(char const* lhs, char const* rhs)
+{
+	M_REQUIRE(lhs);
+	M_REQUIRE(rhs);
+
+	return ::strcmp(lhs, rhs);
+}
+
+
+inline
+int
+compare(string const& lhs, string const& rhs, string::size_type len)
+{
+	return ::strncmp(lhs, rhs, len);
+}
+
+
+inline
+int
+compare(string const& lhs, char const* rhs, string::size_type len)
+{
+	M_REQUIRE(len == 0 || rhs);
+	return ::strncmp(lhs, rhs, len);
+}
+
+
+inline
+int
+compare(char const* lhs, string const& rhs, string::size_type len)
+{
+	M_REQUIRE(len == 0 || lhs);
+	return ::strncmp(lhs, rhs, len);
+}
+
+
+inline
+int
+compare(char const* lhs, char const* rhs, string::size_type len)
+{
+	M_REQUIRE(len == 0 || lhs);
+	M_REQUIRE(len == 0 || rhs);
+
+	return ::strncmp(lhs, rhs, len);
+}
+
+
+inline int case_compare(string const& lhs, string const& rhs)	{ return ::strcasecmp(lhs, rhs); }
+
+
+inline
+int
+case_compare(string const& lhs, char const* rhs)
+{
+	M_REQUIRE(rhs);
+	return ::strcasecmp(lhs, rhs);
+}
+
+
+inline
+int
+case_compare(char const* lhs, string const& rhs)
+{
+	M_REQUIRE(lhs);
+	return ::strcasecmp(lhs, rhs);
+}
+
+
+inline
+int
+case_compare(char const* lhs, char const* rhs)
+{
+	M_REQUIRE(lhs);
+	M_REQUIRE(rhs);
+
+	return ::strcasecmp(lhs, rhs);
+}
+
+
+inline
+int
+case_compare(string const& lhs, string const& rhs, string::size_type len)
+{
+	return ::strncmp(lhs, rhs, len);
+}
+
+
+inline
+int
+case_compare(string const& lhs, char const* rhs, string::size_type len)
+{
+	M_REQUIRE(len == 0 || rhs);
+	return ::strncasecmp(lhs, rhs, len);
+}
+
+
+inline
+int
+case_compare(char const* lhs, string const& rhs, string::size_type len)
+{
+	M_REQUIRE(len == 0 || lhs);
+	return ::strncasecmp(lhs, rhs, len);
+}
+
+
+inline
+int
+case_compare(char const* lhs, char const* rhs, string::size_type len)
+{
+	M_REQUIRE(len == 0 || lhs);
+	M_REQUIRE(len == 0 || rhs);
+
+	return ::strncasecmp(lhs, rhs, len);
+}
 
 } // namespace mstl
 

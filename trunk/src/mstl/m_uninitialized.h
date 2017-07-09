@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 857 $
-// Date   : $Date: 2013-06-24 23:28:35 +0000 (Mon, 24 Jun 2013) $
+// Version: $Revision: 1276 $
+// Date   : $Date: 2017-07-09 09:39:28 +0000 (Sun, 09 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -40,22 +40,10 @@ T* uninitialized_move(pointer_iterator<T> first, pointer_iterator<T> last, T* re
 template<typename T>
 T* uninitialized_fill_n(pointer_iterator<T*> first, size_t n, T const& value);
 
-template<typename T, typename U>
-U** uninitialized_copy(pointer_iterator<T*> first, pointer_iterator<T*> last, U** result);
-template<typename T, typename U>
-U** uninitialized_move(pointer_iterator<T*> first, pointer_iterator<T*> last, U** result);
-template<typename T, typename U>
-U** uninitialized_fill_n(pointer_iterator<U**> first, size_t n, T const* value);
-
 template<typename T>
 T* uninitialized_copy(pointer_const_iterator<T> first, pointer_const_iterator<T> last, T* result);
 template<typename T>
 T* uninitialized_move(pointer_const_iterator<T> first, pointer_const_iterator<T> last, T* result);
-
-template<typename T, typename U>
-U** uninitialized_copy(pointer_const_iterator<T*> first, pointer_const_iterator<T*> last, U** result);
-template<typename T, typename U>
-U** uninitialized_move(pointer_const_iterator<T*> first, pointer_const_iterator<T*> last, U** result);
 
 template<typename Iterator, typename T>
 T* uninitialized_copy(Iterator first, Iterator last, T* result);
