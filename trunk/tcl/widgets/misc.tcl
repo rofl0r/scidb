@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1238 $
-# Date   : $Date: 2017-07-05 10:59:18 +0000 (Wed, 05 Jul 2017) $
+# Version: $Revision: 1266 $
+# Date   : $Date: 2017-07-09 09:26:04 +0000 (Sun, 09 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -559,7 +559,7 @@ proc busyCursor {w {state on}} {
 
 	foreach toplevel {.application .setupEngine .help .playerDict .mergeDialog} {
 		if {[winfo exists $toplevel]} {
-			::scidb::tk::busy $action $toplevel
+			catch { ::scidb::tk::busy $action $toplevel }
 
 			if {[tk windowingsystem] eq "x11"} {
 				foreach tlv [winfo children $toplevel] {
