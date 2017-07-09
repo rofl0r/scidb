@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1132 $
-// Date   : $Date: 2017-02-11 13:38:09 +0000 (Sat, 11 Feb 2017) $
+// Version: $Revision: 1282 $
+// Date   : $Date: 2017-07-09 09:44:36 +0000 (Sun, 09 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -67,6 +67,7 @@ tk::init(Tcl_Interp* ti)
 	xcursor_init(ti);
 	busy_init(ti);
 	multiwindow_init(ti);
+	panedwindow_init(ti);
 	notebook_init(ti);
 
 	Tkhtml_Init(ti);
