@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author: gcramer $
-// Version: $Revision: 1221 $
-// Date   : $Date: 2017-06-27 21:02:25 +0000 (Tue, 27 Jun 2017) $
+// Version: $Revision: 1283 $
+// Date   : $Date: 2017-07-09 19:09:58 +0000 (Sun, 09 Jul 2017) $
 // Url    : $URL: https://svn.code.sf.net/p/scidb/code/trunk/src/tk/tk_base.cpp $
 // ======================================================================
 
@@ -176,17 +176,19 @@ tk::reparent(Tk_Window child, Tk_Window newParent)
 {
 	M_REQUIRE(child);
 	M_REQUIRE(newParent);
-	M_ASSERT(parent(child) != newParent);
+
+	if (parent(child) == newParent)
+		return;
 
 	TkWindow* childPtr	= reinterpret_cast<TkWindow*>(child);
 	TkWindow* parentPtr	= reinterpret_cast<TkWindow*>(newParent);
 
-	if (parentPtr->window == None)
+	if (!isTopLevel(child) && parentPtr->window == None)
 		unmap(child);
 	
 	::relink(childPtr, parentPtr);
 
-	if (childPtr->window != None && parentPtr->window != None)
+	if (!isTopLevel(child) && childPtr->window != None && parentPtr->window != None)
 		::reparent(childPtr, parentPtr);
 }
 

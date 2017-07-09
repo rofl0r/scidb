@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author: gcramer $
-// Version: $Revision: 1212 $
-// Date   : $Date: 2017-06-24 12:47:56 +0000 (Sat, 24 Jun 2017) $
+// Version: $Revision: 1283 $
+// Date   : $Date: 2017-07-09 19:09:58 +0000 (Sun, 09 Jul 2017) $
 // Url    : $URL: https://svn.code.sf.net/p/scidb/code/trunk/src/tk/tk_base.h $
 // ======================================================================
 
@@ -43,6 +43,8 @@ bool isTopLevel(Tk_Window window);
 
 int width(Tk_Window window);
 int height(Tk_Window window);
+
+char const* name(Tk_Window window);
 
 void makeExists(Tk_Window window);
 void resize(Tk_Window window, int width, int height);

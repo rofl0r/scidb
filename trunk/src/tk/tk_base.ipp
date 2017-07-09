@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author: gcramer $
-// Version: $Revision: 1212 $
-// Date   : $Date: 2017-06-24 12:47:56 +0000 (Sat, 24 Jun 2017) $
+// Version: $Revision: 1283 $
+// Date   : $Date: 2017-07-09 19:09:58 +0000 (Sun, 09 Jul 2017) $
 // Url    : $URL: https://svn.code.sf.net/p/scidb/code/trunk/src/tk/tk_base.ipp $
 // ======================================================================
 
@@ -86,6 +86,15 @@ tk::isTopLevel(Tk_Window window)
 {
 	M_REQUIRE(window);
 	return Tk_IsTopLevel(window);
+}
+
+
+inline
+char const*
+tk::name(Tk_Window window)
+{
+	M_REQUIRE(window);
+	return Tk_PathName(window);
 }
 
 
