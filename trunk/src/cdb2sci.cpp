@@ -1,7 +1,7 @@
 // ======================================================================
 // $RCSfile: tk_image.cpp,v $
-// $Revision: 985 $
-// $Date: 2013-10-29 14:52:42 +0000 (Tue, 29 Oct 2013) $
+// $Revision: 1272 $
+// $Date: 2017-07-09 09:32:43 +0000 (Sun, 09 Jul 2017) $
 // $Author: gregor $
 // ======================================================================
 
@@ -763,9 +763,10 @@ main(int argc, char* argv[])
 			dst.save(progress);
 			printf("\n*** %u game(s) written.", numGames);
 			if (rejected > 0)
-				printf("\n***%u game(s) rejected.\n", rejected);
+				printf("\n***%u game(s) rejected.", rejected);
 			if (corrupted > 0)
-				printf("\n***%u game(s) corrupted.\n", corrupted);
+				printf("\n***%u game(s) corrupted.", corrupted);
+			printf("\n");
 			fflush(stdout);
 			src.close();
 			corrupted = 0;
