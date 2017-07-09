@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 894 $
-# Date   : $Date: 2013-07-13 23:02:30 +0000 (Sat, 13 Jul 2013) $
+# Version: $Revision: 1260 $
+# Date   : $Date: 2017-07-09 08:43:36 +0000 (Sun, 09 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -207,7 +207,8 @@ proc interruptable? {w} {
 
 
 proc interrupted? {w} {
-	return [set [namespace current]::Priv(interrupted:$w)]
+	variable Priv
+	return ![info exists Priv(interrupted:$w)] || $Priv(interrupted:$w)
 }
 
 
