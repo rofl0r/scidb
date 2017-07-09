@@ -1,7 +1,7 @@
 # =====================================================================
 # Author : $Author$
-# Version: $Revision: 1055 $
-# Date   : $Date: 2015-03-25 07:45:42 +0000 (Wed, 25 Mar 2015) $
+# Version: $Revision: 1258 $
+# Date   : $Date: 2017-07-09 08:06:18 +0000 (Sun, 09 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -578,6 +578,7 @@ proc WidgetProc {w command args} {
 					elemImg - elemTxt {
 						if {[string length $item]} {
 							set isImage 0
+							# NOTE: the correct expression {$image in [image names]} is too slow!
 							catch { set isImage [expr {[image width $item] != -9999999}] }
 							if {$isImage} {
 								$t item element configure $index $id elemTxt -text "" {*}$textOpts
@@ -710,6 +711,7 @@ proc WidgetProc {w command args} {
 					elemImg - elemTxt {
 						if {[string length $item]} {
 							set isImage 0
+							# NOTE: the correct expression {$image in [image names]} is too slow!
 							catch { set isImage [expr {[image width $item] != -9999999}] }
 							lassign {"" ""} txt img
 							if {$isImage} {
