@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1214 $
-# Date   : $Date: 2017-06-24 13:51:11 +0000 (Sat, 24 Jun 2017) $
+# Version: $Revision: 1269 $
+# Date   : $Date: 2017-07-09 09:29:07 +0000 (Sun, 09 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -507,8 +507,7 @@ proc load {parent position base args} {
 				-parent $parent \
 				-message $::import::mc::AbortedDueToInternalError \
 				;
-			::tk::dialog::error::bgerror $opts(-errorinfo)
-			return 0 
+			return -code error -errorcode $opts(-errorcode) "internal error in ::scidb::game::load"
 		}
 
 		switch $result {
