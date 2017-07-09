@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 924 $
-# Date   : $Date: 2013-08-08 15:00:04 +0000 (Thu, 08 Aug 2013) $
+# Version: $Revision: 1265 $
+# Date   : $Date: 2017-07-09 09:25:05 +0000 (Sun, 09 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -100,7 +100,7 @@ proc treetable {path args} {
 	$t configure -treecolumn item
 	$t element create elemImg image
 	$t element create elemTxt text -lines 1
-	$t element create elemSel rect -fill [list                                  \
+	$t element create elemSel rect -fill [list                         \
 		[::colors::lookup treetable,selected:focus]  {selected focus}   \
 		[::colors::lookup treetable,selected!focus]  {selected !focus}  \
 		[::colors::lookup treetable,active:focus]    {active focus}     \
