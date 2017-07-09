@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1247 $
-# Date   : $Date: 2017-07-06 12:31:24 +0000 (Thu, 06 Jul 2017) $
+# Version: $Revision: 1259 $
+# Date   : $Date: 2017-07-09 08:24:58 +0000 (Sun, 09 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -322,7 +322,9 @@ proc update {w {board {}} {promoted {}}} {
 		set Board(promoted) {}
 		foreach sq $promoted {
 			DrawPromoted $w $sq
+			raisePiece $w $sq
 		}
+		RaiseAdornment $w
 	}
 
 	return $board
