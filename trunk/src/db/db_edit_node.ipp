@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1089 $
-// Date   : $Date: 2016-05-29 09:04:44 +0000 (Sun, 29 May 2016) $
+// Version: $Revision: 1275 $
+// Date   : $Date: 2017-07-09 09:37:53 +0000 (Sun, 09 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -34,6 +34,11 @@ inline KeyNode::KeyNode(Key const& key, char prefix) :m_key(key, prefix) {}
 inline Variation::Variation(Key const& key) :KeyNode(key) {}
 inline Variation::Variation(Key const& key, Key const& succ) :KeyNode(key), m_succ(succ) {}
 inline Move::Move(Key const& key) :KeyNode(key), m_ply(0) {}
+inline MovePart::MovePart() :m_state(Unchanged) {}
+
+
+inline void MovePart::markAsInserted() const	{ m_state = Inserted; }
+inline void MovePart::markAsChanged() const	{ m_state = Changed; }
 
 
 inline

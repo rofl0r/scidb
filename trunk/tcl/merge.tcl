@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1126 $
-# Date   : $Date: 2017-01-21 14:32:32 +0000 (Sat, 21 Jan 2017) $
+# Version: $Revision: 1275 $
+# Date   : $Date: 2017-07-09 09:37:53 +0000 (Sun, 09 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -93,7 +93,7 @@ proc openDialog {parent primary secondary} {
 		tk::toplevel $dlg -class Dialog
 		wm withdraw $dlg
 
-		set pw [panedwindow $dlg.main -orient horizontal -borderwidth 0 -opaqueresize true -sashwidth 6]
+		set pw [tk::panedwindow $dlg.main -orient horizontal -borderwidth 0 -opaqueresize true -sashwidth 6]
 #		$pw configure -background [::theme::getColor background]
 		::theme::configurePanedWindow $pw
 		pack $pw -fill both -expand yes
