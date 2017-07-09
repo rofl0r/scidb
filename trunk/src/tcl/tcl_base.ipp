@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1213 $
-// Date   : $Date: 2017-06-24 13:30:42 +0000 (Sat, 24 Jun 2017) $
+// Version: $Revision: 1280 $
+// Date   : $Date: 2017-07-09 09:42:44 +0000 (Sun, 09 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -103,6 +103,9 @@ tcl::newObj(int value)
 }
 
 
+inline Tcl_Obj* tcl::newListObj(mstl::string const& s) { return newListObj(s.c_str(), s.size()); }
+
+
 inline
 char const*
 tcl::asString(Tcl_Obj* obj)
@@ -128,6 +131,9 @@ inline bool tcl::equal(Tcl_Obj* lhs, char const* rhs) { return equal(tcl::asStri
 
 inline bool tcl::equal(Tcl_Obj* lhs, Tcl_Obj* rhs)
 { return equal(tcl::asString(lhs), tcl::asString(rhs)); }
+
+inline bool tcl::eqOrNull(Tcl_Obj* lhs, Tcl_Obj* rhs)
+{ return !lhs ? !rhs : rhs && (tcl::equal(lhs, rhs)); }
 
 
 inline

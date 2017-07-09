@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1213 $
-// Date   : $Date: 2017-06-24 13:30:42 +0000 (Sat, 24 Jun 2017) $
+// Version: $Revision: 1280 $
+// Date   : $Date: 2017-07-09 09:42:44 +0000 (Sun, 09 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -84,9 +84,40 @@ bool tcl::updateTreeIsBlocked() { return m_level > 1; }
 
 
 Tcl_Obj*
+tcl::newObj(Tcl_Obj* obj1, Tcl_Obj* obj2)
+{
+	Tcl_Obj* objv[2] = { obj1 ? obj1 : tcl::newObj(), obj2 ? obj2 : tcl::newObj() };
+	return tcl::newObj(2, objv);
+}
+
+
+Tcl_Obj*
 tcl::newObj(mstl::vector<Tcl_Obj*> const& list)
 {
 	return newObj(list.size(), list.data());
+}
+
+
+Tcl_Obj*
+tcl::newListObj(char const* s, unsigned len)
+{
+	M_REQUIRE(s || len == 0);
+
+	if (len == 0)
+		return newObj();
+	
+	Tcl_Obj* obj = newObj(s, len);
+	int unused;
+
+	Tcl_ListObjLength(NULL, obj, &unused); // converting to a list
+	return obj;
+}
+
+
+Tcl_Obj*
+tcl::newListObj(char const* s)
+{
+	return s ? newListObj(s, ::strlen(s)) : newObj();
 }
 
 
