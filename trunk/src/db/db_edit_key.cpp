@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1172 $
-// Date   : $Date: 2017-05-18 09:47:03 +0000 (Thu, 18 May 2017) $
+// Version: $Revision: 1274 $
+// Date   : $Date: 2017-07-09 09:35:18 +0000 (Sun, 09 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -569,11 +569,9 @@ Key::nextKey(MoveNode const* node) const
 		key.addVariation(0);
 		key.addPly(plyNumber - 1);
 	}
-	else if (node->next()->atLineEnd() && node->next())
+	else if (node->next()->atLineEnd())
 	{
-		unsigned plyNumber = key.plyNumber();
-		key.addVariation(0);
-		key.addPly(plyNumber);
+		key.removePly();
 	}
 	else
 	{
