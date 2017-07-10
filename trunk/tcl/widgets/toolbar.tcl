@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1264 $
-# Date   : $Date: 2017-07-09 09:23:29 +0000 (Sun, 09 Jul 2017) $
+# Version: $Revision: 1284 $
+# Date   : $Date: 2017-07-10 11:35:09 +0000 (Mon, 10 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -742,7 +742,7 @@ proc lookupClone {toolbar w} {
 }
 
 
-proc requestetHeight {parent} {
+proc requestedHeight {parent} {
 	set slaves [pack slaves $parent]
 	set height 0
 

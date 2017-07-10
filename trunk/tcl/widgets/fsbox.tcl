@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1164 $
-# Date   : $Date: 2017-05-13 15:28:51 +0000 (Sat, 13 May 2017) $
+# Version: $Revision: 1284 $
+# Date   : $Date: 2017-07-10 11:35:09 +0000 (Mon, 10 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -3480,7 +3480,7 @@ proc Build {w path args} {
 
 	if {[info exists Vars(rows)]} {
 		update idletasks
-		set minh [expr {[::toolbar::requestetHeight $path] - [$t headerheight]}]
+		set minh [expr {[::toolbar::requestedHeight $path] - [$t headerheight]}]
 		set Vars(rows:computed) [expr {max($Vars(rows), ($minh + $linespace - 1)/$linespace)}]
 		set h [expr {[$t headerheight] + max($Vars(rows:computed), 1)*$linespace}]
 		$t configure -height $h
