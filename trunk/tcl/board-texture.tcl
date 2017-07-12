@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1020 $
-# Date   : $Date: 2015-02-13 10:00:28 +0000 (Fri, 13 Feb 2015) $
+# Version: $Revision: 1288 $
+# Date   : $Date: 2017-07-12 18:42:27 +0000 (Wed, 12 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -596,9 +596,7 @@ proc buildBrowser {w recv which nrows ncols currentTexture {otherTexture {}}} {
 proc forgetTextures {} {
 	variable Cache
 
-	foreach entry [array names Cache] {
-		image delete [lindex [split $entry ,] 1]
-	}
+	foreach entry [array names Cache] { image delete $Cache($entry) }
 	array unset Cache
 }
 
