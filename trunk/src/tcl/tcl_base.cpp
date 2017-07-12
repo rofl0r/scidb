@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1280 $
-// Date   : $Date: 2017-07-09 09:42:44 +0000 (Sun, 09 Jul 2017) $
+// Version: $Revision: 1287 $
+// Date   : $Date: 2017-07-12 18:12:06 +0000 (Wed, 12 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -81,6 +81,28 @@ union Cast
 
 
 bool tcl::updateTreeIsBlocked() { return m_level > 1; }
+
+
+namespace tcl {
+
+DString&
+DString::append(int value)
+{
+	char buf[100];
+	::snprintf(buf, sizeof(buf), "%d", value);
+	return append(buf);
+}
+
+
+DString&
+DString::append(unsigned value)
+{
+	char buf[100];
+	::snprintf(buf, sizeof(buf), "%u", value);
+	return append(buf);
+}
+
+} // namespace tcl
 
 
 Tcl_Obj*
