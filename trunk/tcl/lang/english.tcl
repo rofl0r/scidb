@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1238 $
-# Date   : $Date: 2017-07-05 10:59:18 +0000 (Wed, 05 Jul 2017) $
+# Version: $Revision: 1289 $
+# Date   : $Date: 2017-07-12 19:11:19 +0000 (Wed, 12 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -301,6 +301,7 @@
 ::load::mc::Loading					"Loading %s"
 ::load::mc::StartupFinished		"Startup finished"
 ::load::mc::SystemEncoding			"System encoding is '%s'"
+::load::mc::Startup					"Startup"
 
 ::load::mc::ReadingFile(options)	"Reading options file"
 ::load::mc::ReadingFile(engines)	"Reading engines file"
@@ -395,8 +396,6 @@
 ::application::mc::Board						"&Board"
 ::application::mc::MainMenu					"&Main Menu"
 
-::application::mc::DockWindow					"Dock Window"
-::application::mc::UndockWindow				"Undock Window"
 ::application::mc::ChessInfoDatabase		"Chess Information Data Base"
 ::application::mc::Shutdown					"Shutdown..."
 ::application::mc::QuitAnyway					"Quit anyway?"

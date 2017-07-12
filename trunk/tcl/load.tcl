@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1230 $
-# Date   : $Date: 2017-06-30 13:00:58 +0000 (Fri, 30 Jun 2017) $
+# Version: $Revision: 1289 $
+# Date   : $Date: 2017-07-12 19:11:19 +0000 (Wed, 12 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -37,6 +37,7 @@ set EngineSetupFailed		"Loading engine configuration failed"
 set Loading						"Loading %s"
 set StartupFinished			"Startup finished"
 set SystemEncoding			"System encoding is '%s'"
+set Startup						"Startup"
 
 set ReadingFile(options)	"Reading options file"
 set ReadingFile(engines)	"Reading engines file"

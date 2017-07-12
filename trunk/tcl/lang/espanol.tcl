@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1238 $
-# Date   : $Date: 2017-07-05 10:59:18 +0000 (Wed, 05 Jul 2017) $
+# Version: $Revision: 1289 $
+# Date   : $Date: 2017-07-12 19:11:19 +0000 (Wed, 12 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -303,6 +303,7 @@
 ::load::mc::Loading					"Cargando %s"
 ::load::mc::StartupFinished		"Inicio del programa completado"
 ::load::mc::SystemEncoding			"La codificación del sistema es '%s'"
+::load::mc::Startup					"Startup" ;# NEW
 
 ::load::mc::ReadingFile(options)	"Leer archivo de opciones"
 ::load::mc::ReadingFile(engines)	"Leer archivo de motores"
@@ -397,8 +398,6 @@
 ::application::mc::Board						"&Tablero"
 ::application::mc::MainMenu					"&Menu principal"
 
-::application::mc::DockWindow					"Ventana acoplada"
-::application::mc::UndockWindow				"Ventana desacoplada"
 ::application::mc::ChessInfoDatabase		"Base de Datos Ajedrecística"
 ::application::mc::Shutdown					"Cierre..."
 ::application::mc::QuitAnyway					"¿Desea cerrar de todos modos?"

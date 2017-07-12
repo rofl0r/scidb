@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1231 $
-# Date   : $Date: 2017-07-01 13:47:30 +0000 (Sat, 01 Jul 2017) $
+# Version: $Revision: 1289 $
+# Date   : $Date: 2017-07-12 19:11:19 +0000 (Wed, 12 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -359,6 +359,7 @@ set ::scidb::revision [::scidb::misc::revision]
 
 # --- Initalization ----------------------------------------------------
 
+::splash::print "$load::mc::Startup..."
 ::mc::setup
 ::font::useLanguage $mc::langID
 ::theme::setTheme $menu::Theme

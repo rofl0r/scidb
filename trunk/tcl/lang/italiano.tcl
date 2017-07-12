@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1238 $
-# Date   : $Date: 2017-07-05 10:59:18 +0000 (Wed, 05 Jul 2017) $
+# Version: $Revision: 1289 $
+# Date   : $Date: 2017-07-12 19:11:19 +0000 (Wed, 12 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -303,6 +303,7 @@
 ::load::mc::Loading					"Carico %s"
 ::load::mc::StartupFinished		"Startup completato"
 ::load::mc::SystemEncoding			"La codifica di sistema è '%s'"
+::load::mc::Startup					"Startup" ;# NEW
 
 ::load::mc::ReadingFile(options)	"Permessi di lettura del file"
 ::load::mc::ReadingFile(engines)	"Lettura file dei motori"
@@ -397,8 +398,6 @@
 ::application::mc::Board						"&Scacchiera"
 ::application::mc::MainMenu					"&Menù principale"
 
-::application::mc::DockWindow					"Blocca Finestra"
-::application::mc::UndockWindow				"Sblocca Finestra"
 ::application::mc::ChessInfoDatabase		"Chess Information Data Base"
 ::application::mc::Shutdown					"Spegni..."
 ::application::mc::QuitAnyway					"Uscire comunque?"
