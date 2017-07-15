@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1240 $
-// Date   : $Date: 2017-07-05 19:04:42 +0000 (Wed, 05 Jul 2017) $
+// Version: $Revision: 1291 $
+// Date   : $Date: 2017-07-15 13:40:37 +0000 (Sat, 15 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -629,9 +629,11 @@ winboard::Engine::stopAnalysis(bool restartIsPending)
 
 	if (!m_stopAnalyzeIsPending)
 	{
-		sendStopAnalysis();
 		if (oldState != Pause)
+		{
+			sendStopAnalysis();
 			m_stopAnalyzeIsPending = true;
+		}
 		reset();
 
 		if (!restartIsPending)
