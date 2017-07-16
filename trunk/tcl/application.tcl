@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1248 $
-# Date   : $Date: 2017-07-06 12:44:24 +0000 (Thu, 06 Jul 2017) $
+# Version: $Revision: 1293 $
+# Date   : $Date: 2017-07-16 16:38:36 +0000 (Sun, 16 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -364,6 +364,11 @@ if {[::process::testOption use-clock]} {
 	after idle [namespace code [list switchTab $tab]]
 	after idle [list ::beta::welcomeToScidb $app]
 	::util::photos::checkForUpdate [namespace current]::InformAboutUpdates
+}
+
+
+proc exists? {uid} {
+	return true;
 }
 
 
