@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1292 $
-# Date   : $Date: 2017-07-15 20:37:37 +0000 (Sat, 15 Jul 2017) $
+# Version: $Revision: 1294 $
+# Date   : $Date: 2017-07-18 14:37:17 +0000 (Tue, 18 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -851,7 +851,7 @@ proc Tooltip {path sym} {
 		default {
 			if {[info exists Nag($sym)]} {
 				::tooltip::show $path $Nag($sym)
-			} else if {[info exists ::emoticons::mc::Tooltip($sym)]} {
+			} elseif {[info exists ::emoticons::mc::Tooltip($sym)]} {
 				::tooltip::show $path $::emoticons::mc::Tooltip($sym)
 			}
 		}
