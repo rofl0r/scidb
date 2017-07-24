@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author: gcramer $
-# Version: $Revision: 1080 $
-# Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
+# Version: $Revision: 1295 $
+# Date   : $Date: 2017-07-24 19:35:37 +0000 (Mon, 24 Jul 2017) $
 # Url    : $URL: https://svn.code.sf.net/p/scidb/code/trunk/tcl/colors.tcl $
 # ======================================================================
 
@@ -125,14 +125,14 @@ array set Colors {
 
 	lite:gamebar,background:normal		#d9d9d9
 	lite:gamebar,foreground:normal		black
-	lite:gamebar,background:selected		white
+	lite:gamebar,background:selected		#dce4e5
 	lite:gamebar,background:emphasize	linen
 	lite:gamebar,background:active		#efefef
 	lite:gamebar,background:darker		#828282
 	lite:gamebar,background:shadow		#e6e6e6
 	lite:gamebar,background:lighter		white
-	lite:gamebar,background:hilite		#ebf4f5
-	lite:gamebar,foreground:hilite		black
+	lite:gamebar,background:hilite		cornflowerblue
+	lite:gamebar,foreground:hilite		white
 	lite:gamebar,background:hilite2		cornflowerblue
 	lite:gamebar,foreground:hilite2		white
 	lite:gamebar,foreground:elo			darkblue
@@ -227,7 +227,6 @@ array set Colors {
 	dark:overview,background:normal		#dce4e5
 	dark:crosstable,highlighted			#dce4e5
 	dark:fsbox,selectionbackground		#dce4e5
-	dark:gamebar,background:hilite		#dce4e5
 	dark:scrolledtable,stripes				#dce4e5
 	dark:tlistbox,disabledbackground		#dce4e5
 	dark:tlistbox,dropbackground			#dce4e5

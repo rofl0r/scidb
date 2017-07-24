@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author: gcramer $
-// Version: $Revision: 1287 $
-// Date   : $Date: 2017-07-12 18:12:06 +0000 (Wed, 12 Jul 2017) $
+// Version: $Revision: 1295 $
+// Date   : $Date: 2017-07-24 19:35:37 +0000 (Mon, 24 Jul 2017) $
 // Url    : $URL: https://svn.code.sf.net/p/scidb/code/trunk/src/tk/tk_base.ipp $
 // ======================================================================
 
@@ -78,6 +78,30 @@ tk::height(Tk_Window window)
 
 
 inline
+int
+tk::rootx(Tk_Window window)
+{
+	M_REQUIRE(window);
+
+	int x, y;
+	Tk_GetRootCoords(window, &x, &y);
+	return x;
+}
+
+
+inline
+int
+tk::rooty(Tk_Window window)
+{
+	M_REQUIRE(window);
+
+	int x, y;
+	Tk_GetRootCoords(window, &x, &y);
+	return y;
+}
+
+
+inline
 void
 tk::makeExists(Tk_Window window)
 {
@@ -104,6 +128,15 @@ tk::isToplevel(Tk_Window window)
 {
 	M_REQUIRE(window);
 	return Tk_IsTopLevel(window);
+}
+
+
+inline
+bool
+tk::isMapped(Tk_Window window)
+{
+	M_REQUIRE(window);
+	return Tk_IsMapped(window);
 }
 
 

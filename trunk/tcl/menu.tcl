@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1080 $
-# Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
+# Version: $Revision: 1295 $
+# Date   : $Date: 2017-07-24 19:35:37 +0000 (Mon, 24 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -63,6 +63,7 @@ set Quit								"&Quit"
 set Tools							"&Tools"
 set Extras							"&Extras"
 set Setup							"Setu&p"
+set Layout							"La&yout"
 
 # Contact
 set ContactBugReport				"&Bug Report"
@@ -257,6 +258,20 @@ proc build {menu} {
 	foreach parent $activeParents {
 		::toolbar::addToolbarMenu $m $parent none
 	}
+
+	### layout ###############################################################
+	set tab [::application::activeTab]
+	menu $menu.layout
+	lassign [::tk::UnderlineAmpersand $mc::Layout] text ul
+	$menu add cascade \
+		-menu $menu.layout \
+		-label " $text" \
+		-underline [IncrUL $ul] \
+		-image $::icon::16x16::layout \
+		-compound left \
+		-state [expr {$tab eq "board" ? "normal" : "disabled"}] \
+		;
+	if {$tab eq "board"} { ::application::makeLayoutMenu $menu.layout }
 
 	### setup ################################################################
 	$menu add separator

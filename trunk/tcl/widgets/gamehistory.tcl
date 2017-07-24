@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 985 $
-# Date   : $Date: 2013-10-29 14:52:42 +0000 (Tue, 29 Oct 2013) $
+# Version: $Revision: 1295 $
+# Date   : $Date: 2017-07-24 19:35:37 +0000 (Mon, 24 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -50,7 +50,7 @@ proc Build {w args} {
 	set parent [::scrolledframe $w -fill both -background white -borderwidth 0 -wheelunits 1 {*}$args]
 	set f $parent.f
 	set t $f.t
-	set h $f.h
+	set h $f.history
 
 	set font TkTextFont
 	set family [font configure $font -family]
@@ -166,7 +166,7 @@ proc WidgetProc {w command args} {
 				error "wrong # args: should be \"[namespace current] bind <tag> ?<sequence>? ?<script?>\""
 			}
 			bind $s.f.t {*}$args
-			bind $s.f.h {*}$args
+			bind $s.f.history {*}$args
 			bind $s {*}$args
 			return
 		}

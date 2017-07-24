@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1182 $
-# Date   : $Date: 2017-05-28 13:50:03 +0000 (Sun, 28 May 2017) $
+# Version: $Revision: 1295 $
+# Date   : $Date: 2017-07-24 19:35:37 +0000 (Mon, 24 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -281,9 +281,9 @@ proc build {path getViewCmd {visibleColumns {}} {args {}}} {
 	variable Defaults
 	variable ratings
 
-	namespace eval [namespace current]::$path {}
-	variable [namespace current]::${path}::Vars
-	variable [namespace current]::${path}::Options
+	namespace eval $path {}
+	variable ${path}::Vars
+	variable ${path}::Options
 
 	array set Vars {
 		deleted		1

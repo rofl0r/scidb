@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1287 $
-// Date   : $Date: 2017-07-12 18:12:06 +0000 (Wed, 12 Jul 2017) $
+// Version: $Revision: 1295 $
+// Date   : $Date: 2017-07-24 19:35:37 +0000 (Mon, 24 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -133,6 +133,16 @@ inline bool tcl::equal(Tcl_Obj* lhs, Tcl_Obj* rhs)
 
 inline bool tcl::eqOrNull(Tcl_Obj* lhs, Tcl_Obj* rhs)
 { return !lhs ? !rhs : rhs && (tcl::equal(lhs, rhs)); }
+
+
+inline
+int
+tcl::countElements(Tcl_Obj* obj)
+{
+	int count = -1;
+	Tcl_ListObjLength(nullptr, obj, &count);
+	return count;
+}
 
 
 inline

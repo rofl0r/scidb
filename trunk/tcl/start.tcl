@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1286 $
-# Date   : $Date: 2017-07-11 21:15:54 +0000 (Tue, 11 Jul 2017) $
+# Version: $Revision: 1295 $
+# Date   : $Date: 2017-07-24 19:35:37 +0000 (Mon, 24 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -69,6 +69,7 @@ set images	[file join $share images]
 set log		[file join $user log]
 set backup	[file join $user backup]
 set config	[file join $user config]
+set layout	[file join $user layout]
 
 if {![file isdirectory $user]} {
 	set setup 1

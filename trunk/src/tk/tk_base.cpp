@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author: gcramer $
-// Version: $Revision: 1287 $
-// Date   : $Date: 2017-07-12 18:12:06 +0000 (Wed, 12 Jul 2017) $
+// Version: $Revision: 1295 $
+// Date   : $Date: 2017-07-24 19:35:37 +0000 (Mon, 24 Jul 2017) $
 // Url    : $URL: https://svn.code.sf.net/p/scidb/code/trunk/src/tk/tk_base.cpp $
 // ======================================================================
 
@@ -126,6 +126,14 @@ relink(TkWindow* childPtr, TkWindow* newParentPtr)
 	unlinkWindow(childPtr);
 	childPtr->parentPtr = newParentPtr;
 	linkWindow(childPtr);
+}
+
+
+bool
+tk::isAlreadyDead(Tcl_Obj* obj)
+{
+	M_ASSERT(obj);
+	return exists(obj) && bool(reinterpret_cast<TkWindow*>(window(obj))->flags & TK_ALREADY_DEAD);
 }
 
 

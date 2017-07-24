@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1230 $
-# Date   : $Date: 2017-06-30 13:00:58 +0000 (Fri, 30 Jun 2017) $
+# Version: $Revision: 1295 $
+# Date   : $Date: 2017-07-24 19:35:37 +0000 (Mon, 24 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -317,6 +317,19 @@ proc configureDefaultButton {but} {
 
 proc configureBackground {w} {
 	$w configure -background [::ttk::style lookup [currentTheme] -background]
+}
+
+
+proc notebookTabPaneSize {nb} {
+	set padding [ttk::style lookup TNotebook.Tab -padding]
+	set size 3 ;# borderwidth=2 + one overlapping pixel
+	switch [llength $padding] {
+		2 { incr size [expr {2*[lindex $padding 1]}] }
+		3 { incr size [lindex $padding 1] }
+		4 { incr size [lindex $padding 1]; incr size [lindex $padding 3] }
+	}
+	incr size [font metrics [ttk::style lookup TNotebook.Tab -font] -linespace]
+	return $size
 }
 
 

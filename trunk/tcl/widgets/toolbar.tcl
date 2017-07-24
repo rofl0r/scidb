@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1284 $
-# Date   : $Date: 2017-07-10 11:35:09 +0000 (Mon, 10 Jul 2017) $
+# Version: $Revision: 1295 $
+# Date   : $Date: 2017-07-24 19:35:37 +0000 (Mon, 24 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -965,7 +965,7 @@ proc Add {toolbar widgetCommand args} {
 
 	set parent [winfo parent $toolbar]
 	if {![info exists Specs(configure:$parent)]} {
-		bind $parent <Map> [namespace code { Finish %W }]
+		bind $w <Map> [namespace code [list Finish $parent $w]]
 		set Specs(configure:$parent) 1
 	}
 
@@ -1511,12 +1511,11 @@ proc Repeat {w} {
 }
 
 
-proc Finish {parent} {
+proc Finish {parent w} {
 	variable Specs
 
+	bind $w <Map> {}
 	if {![info exists Specs(configure:$parent)]} { return }
-
-	bind $parent <Map> {}
 	unset Specs(configure:$parent)
 
 	foreach toolbar $Specs(count:$parent) {

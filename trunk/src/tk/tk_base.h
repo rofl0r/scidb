@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author: gcramer $
-// Version: $Revision: 1287 $
-// Date   : $Date: 2017-07-12 18:12:06 +0000 (Wed, 12 Jul 2017) $
+// Version: $Revision: 1295 $
+// Date   : $Date: 2017-07-24 19:35:37 +0000 (Mon, 24 Jul 2017) $
 // Url    : $URL: https://svn.code.sf.net/p/scidb/code/trunk/src/tk/tk_base.h $
 // ======================================================================
 
@@ -40,12 +40,16 @@ Tk_Window toplevel(Tk_Window window);
 
 bool exists(char const* path);
 bool exists(Tcl_Obj* obj);
+bool isAlreadyDead(Tcl_Obj* obj);
 bool isToplevel(Tk_Window window);
+bool isMapped(Tk_Window window);
 
 int x(Tk_Window window);
 int y(Tk_Window window);
 int width(Tk_Window window);
 int height(Tk_Window window);
+int rootx(Tk_Window window);
+int rooty(Tk_Window window);
 
 char const* name(Tk_Window window);
 
