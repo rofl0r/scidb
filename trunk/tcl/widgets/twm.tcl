@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1298 $
-# Date   : $Date: 2017-07-25 11:03:36 +0000 (Tue, 25 Jul 2017) $
+# Version: $Revision: 1300 $
+# Date   : $Date: 2017-07-25 11:26:26 +0000 (Tue, 25 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -710,7 +710,7 @@ proc UpdateHeader {twm frame panes} {
 	if {$flat != [$twm get! $frame flat 0]} {
 		if {$flat} {
 			pack forget {*}[pack slaves $hdr]
-			if {$Vars(state) ne "disabled"} {
+			if {![$twm ismetachild $frame] && $Vars(state) ne "disabled"} {
 				bind $hdr <Double-Button-1> [list [namespace current]::ToggleHeaders $twm $frame]
 			}
 		} else {
