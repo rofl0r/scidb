@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1297 $
-# Date   : $Date: 2017-07-25 10:53:35 +0000 (Tue, 25 Jul 2017) $
+# Version: $Revision: 1298 $
+# Date   : $Date: 2017-07-25 11:03:36 +0000 (Tue, 25 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -2126,7 +2126,7 @@ proc UpdateTab {twm notebook pane nameVar} {
 	set name [$twm get $leader name]
 
 	if {$name ne $nameVar} {
-		trace remove variable write $name [list [namespace current]UpdateTab $twm $parent $child $name]
+		trace remove variable write $name [list [namespace current]::UpdateTab $twm $parent $child $name]
 	} else {
 		$notebook tab $pane -text [set $name]
 	}
