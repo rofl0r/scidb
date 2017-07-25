@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1297 $
-# Date   : $Date: 2017-07-25 10:53:35 +0000 (Tue, 25 Jul 2017) $
+# Version: $Revision: 1302 $
+# Date   : $Date: 2017-07-25 18:01:56 +0000 (Tue, 25 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -356,14 +356,16 @@ proc setAnalysisTitle {number title} {
 }
 
 
-proc resizePaneHeight {uid height} {
+proc resizePaneHeight {uid minHeight} {
 	variable Vars
 
 	set main $Vars(frame:main)
 	set pane [$main leaf $uid]
 
 	if {[$main toplevel $pane] eq $main} {
-		$main resize $pane 0 $height 0 $height 0 0
+		lassign [$main dimension $pane] _ height _ _ _ _
+		set height [expr {max($height,$minHeight)}]
+		$main resize $pane 0 $height 0 $minHeight 0 0
 	}
 }
 
