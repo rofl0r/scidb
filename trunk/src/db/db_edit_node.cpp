@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1275 $
-// Date   : $Date: 2017-07-09 09:37:53 +0000 (Sun, 09 Jul 2017) $
+// Version: $Revision: 1303 $
+// Date   : $Date: 2017-07-25 21:45:15 +0000 (Tue, 25 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -209,17 +209,17 @@ Node::Spacing::pushSpace()
 void
 Node::Spacing::pushBreak(unsigned level)
 {
-   if (	!m_isVirgin
-   	&& (m_tokenList.top() != Break || level == 0)
-   	&& m_tokenList.top() != Para
-   	&& m_tokenList.top() != Open)
-   {
-   	if (m_tokenList.top() == Space || m_tokenList.top() == Break)
-   		m_tokenList.pop();
+	if (	!m_isVirgin
+		&& (m_tokenList.top() != Break || level == 0)
+		&& m_tokenList.top() != Para
+		&& m_tokenList.top() != Open)
+	{
+		if (m_tokenList.top() == Space || m_tokenList.top() == Break)
+			m_tokenList.pop();
 
 		m_tokenList.push(Token(level, Break));
 		m_plyCount = 0;
-   }
+	}
 }
 
 
