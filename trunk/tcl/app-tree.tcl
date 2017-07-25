@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1295 $
-# Date   : $Date: 2017-07-24 19:35:37 +0000 (Mon, 24 Jul 2017) $
+# Version: $Revision: 1301 $
+# Date   : $Date: 2017-07-25 13:07:21 +0000 (Tue, 25 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -520,6 +520,7 @@ proc startSearch {} {
 	variable Vars
 
 	if {![winfo exists $Vars(table)]} { return }
+	if {![::scidb::game::query open?]} { return }
 
 ### VARIANTS ####################################
 if {[::scidb::game::query mainvariant?] ne "Normal"} { return }
