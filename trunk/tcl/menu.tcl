@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1295 $
-# Date   : $Date: 2017-07-24 19:35:37 +0000 (Mon, 24 Jul 2017) $
+# Version: $Revision: 1297 $
+# Date   : $Date: 2017-07-25 10:53:35 +0000 (Tue, 25 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -755,6 +755,7 @@ proc viewFullscreen {{toggle {}}} {
 
 	if {[llength $toggle]} { set Fullscreen [expr {!$Fullscreen}] }
 	wm attributes .application -fullscreen $Fullscreen
+	event generate .application <<Fullscreen>> -data $Fullscreen
 }
 
 
