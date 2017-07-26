@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1295 $
-# Date   : $Date: 2017-07-24 19:35:37 +0000 (Mon, 24 Jul 2017) $
+# Version: $Revision: 1306 $
+# Date   : $Date: 2017-07-26 09:48:10 +0000 (Wed, 26 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -78,6 +78,7 @@ if {![file isdirectory $user]} {
 	file mkdir [file join $user photos]
 	file mkdir [file join $user backup]
 	file mkdir [file join $user engines]
+	file mkdir [file join $user layout]
 	file mkdir [file join $user textures tile marble]
 	file mkdir [file join $user textures tile wood]
 	file mkdir [file join $user textures tile misc]
