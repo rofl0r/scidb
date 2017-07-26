@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1311 $
-# Date   : $Date: 2017-07-26 11:50:43 +0000 (Wed, 26 Jul 2017) $
+# Version: $Revision: 1312 $
+# Date   : $Date: 2017-07-26 12:06:24 +0000 (Wed, 26 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1070,10 +1070,12 @@ proc Geometry {data} {
 	if {$minheight} { incr minheight $incrV }
 	if {$maxheight} { incr maxheight $incrV }
 
-	# IMPORTANT NOTE:
-	# Without temporarily disabling the resize behavior some window
-	# managers like KDE will not shrink the window in any case.
-	wm resizable .application false false
+	if {[::widget::checkIsKDE]} {
+		# IMPORTANT NOTE:
+		# Without temporarily disabling the resize behavior some window
+		# managers like KDE will not shrink the window in any case.
+		wm resizable .application false false
+	}
 
 	if {$minwidth || $minheight} {
 		wm minsize .application $minwidth $minheight
@@ -1089,13 +1091,15 @@ proc Geometry {data} {
 		wm maxsize .application $maxwidth $maxheight
 		set Vars(need:maxsize) 1
 	}
-puts "geometry($data) -> ${width}x${height}"
 	wm geometry .application ${width}x${height}
 
 	set resizeW [expr {$minwidth == 0 || $minwidth != $maxwidth}]
 	set resizeH [expr {$minheight == 0 || $minheight != $maxheight}]
-	# We need a delay, otherwise resizing may not work, see above.
-	after 50 [list wm resizable .application $resizeW $resizeH]
+
+	if {[::widget::checkIsKDE]} {
+		# We need a delay, otherwise resizing may not work, see above.
+		after 50 [list wm resizable .application $resizeW $resizeH]
+	}
 }
 
 

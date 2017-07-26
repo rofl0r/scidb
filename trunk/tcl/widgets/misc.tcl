@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1266 $
-# Date   : $Date: 2017-07-09 09:26:04 +0000 (Sun, 09 Jul 2017) $
+# Version: $Revision: 1312 $
+# Date   : $Date: 2017-07-26 12:06:24 +0000 (Wed, 26 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -216,7 +216,7 @@ proc dialogRaise {dlg} {
 		}
 
 		default {
-			if {[CheckIsKDE]} {
+			if {[checkIsKDE]} {
 				if {	![info exists Priv(visibility:$dlg)]
 					|| $Priv(visibility:$dlg) ne "VisibilityUnobscured"} {
 					# stupid handling of KDE: without withdrawing
@@ -755,7 +755,7 @@ proc SetDialogTitle {dlg cmd} {
 }
 
 
-proc CheckIsKDE {} {
+proc checkIsKDE {} {
 	variable IsKde_
 
 	if {![info exists IsKde_]} {
