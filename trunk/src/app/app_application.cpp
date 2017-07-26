@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1314 $
-// Date   : $Date: 2017-07-26 18:22:35 +0000 (Wed, 26 Jul 2017) $
+// Version: $Revision: 1315 $
+// Date   : $Date: 2017-07-26 18:22:57 +0000 (Wed, 26 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1859,7 +1859,6 @@ Application::switchGame(unsigned position, ReferenceGames updateReferenceGames)
 	}
 	else
 	{
-printf("UpdateNewPosition\n");
 		game.data.game->updateSubscriber(Game::UpdateNewPosition);
 	}
 
