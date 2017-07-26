@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1302 $
-# Date   : $Date: 2017-07-25 18:01:56 +0000 (Tue, 25 Jul 2017) $
+# Version: $Revision: 1305 $
+# Date   : $Date: 2017-07-26 09:45:41 +0000 (Wed, 26 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1110,6 +1110,9 @@ proc workArea {main} {
 		set width [winfo screenwidth .application]
 		set height [winfo screenheight .application]
 	} else {
+		set workArea [scidb::tk::wm workarea]
+		set extents [scidb::tk::wm extents]
+		if {[llength $extents] == 0} { set extents {6 6 30 6} }
 		lassign [scidb::tk::wm workarea] _ _ ww wh
 		lassign [scidb::tk::wm extents] _ _ ew eh
 		set width [expr {$ww - $ew}]
