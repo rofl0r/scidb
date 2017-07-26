@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1309 $
-# Date   : $Date: 2017-07-26 11:19:29 +0000 (Wed, 26 Jul 2017) $
+# Version: $Revision: 1310 $
+# Date   : $Date: 2017-07-26 11:25:56 +0000 (Wed, 26 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1097,9 +1097,11 @@ proc Resizing {twm toplevel width height} {
 	} else {
 		lassign [winfo workarea .application] _ _ ww wh
 		lassign [winfo extents .application] ew1 ew2 eh1 eh2
-		set width [expr {min($width, $ww - $ew1 - $ew2 - 4)}]		;# regard borders
-		set height [expr {min($height, $wh - $eh1 - $eh2 - 4)}]	;# regard borders
+		set width [expr {min($width, $ww - $ew1 - $ew2)}]
+		set height [expr {min($height, $wh - $eh1 - $eh2)}]
 	}
+	incr width -4	;# borders
+	incr height -4	;# borders
 	return [list $width $height]
 }
 
