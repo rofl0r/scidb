@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1302 $
-# Date   : $Date: 2017-07-25 18:01:56 +0000 (Tue, 25 Jul 2017) $
+# Version: $Revision: 1313 $
+# Date   : $Date: 2017-07-26 16:24:27 +0000 (Wed, 26 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -311,7 +311,7 @@ proc FrameHeaderSize {twm frame} {
 }
 
 
-proc NotebookHeaderSize {twm nb} {
+proc NotebookHeaderSize {twm {nb}} {
 	set padding [ttk::style lookup twm.TNotebook.Tab -padding]
 	set size 3 ;# borderwidth=2 + one overlapping pixel
 	switch [llength $padding] {

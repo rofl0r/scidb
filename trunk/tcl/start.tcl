@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1306 $
-# Date   : $Date: 2017-07-26 09:48:10 +0000 (Wed, 26 Jul 2017) $
+# Version: $Revision: 1313 $
+# Date   : $Date: 2017-07-26 16:24:27 +0000 (Wed, 26 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -327,6 +327,7 @@ if {[::process::testOption delete-recovery-files]} {
 if {[::process::testOption first-time]} {
 	file delete $::scidb::file::options
 	::process::setOption dont-recover
+	::process::setOption initial-layout
 	set ::scidb::dir::setup 1
 }
 

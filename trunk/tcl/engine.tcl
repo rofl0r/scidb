@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1295 $
-# Date   : $Date: 2017-07-24 19:35:37 +0000 (Mon, 24 Jul 2017) $
+# Version: $Revision: 1313 $
+# Date   : $Date: 2017-07-26 16:24:27 +0000 (Wed, 26 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1111,6 +1111,7 @@ proc active? {number} {
 
 
 proc id {number} {
+	if {![namespace exists ${number}]} { return -1 }
 	variable ${number}::Vars
 	return $Vars(engine:id)
 }

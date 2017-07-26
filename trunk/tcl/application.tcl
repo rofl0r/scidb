@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1312 $
-# Date   : $Date: 2017-07-26 12:06:24 +0000 (Wed, 26 Jul 2017) $
+# Version: $Revision: 1313 $
+# Date   : $Date: 2017-07-26 16:24:27 +0000 (Wed, 26 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -295,7 +295,8 @@ proc MakePane {main parent type uid} {
 
 	set name [nameFromUid $uid]
 	set nameVar [nameVarFromUid $uid]
-	set frame [tk::frame $parent.$uid -borderwidth 0 -takefocus 0]
+	set takefocus [expr {$uid eq "board"}]
+	set frame [tk::frame $parent.$uid -borderwidth 0 -takefocus $takefocus]
 	set result [list $frame $nameVar $Prios($name)]
 	if {$type ne "pane"} { lappend result [expr {$uid ne "editor"}] yes yes }
 	switch $name { games { set ns tree::games } editor { set ns pgn } default { set ns $name } }

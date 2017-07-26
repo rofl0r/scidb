@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author: gcramer $
-# Version: $Revision: 1295 $
-# Date   : $Date: 2017-07-24 19:35:37 +0000 (Mon, 24 Jul 2017) $
+# Version: $Revision: 1313 $
+# Date   : $Date: 2017-07-26 16:24:27 +0000 (Wed, 26 Jul 2017) $
 # Url    : $URL: https://svn.code.sf.net/p/scidb/code/trunk/tcl/manage-layouts.tcl $
 # ======================================================================
 
@@ -188,11 +188,18 @@ proc Resizing {twm toplevel width height} {
 	variable Width
 	variable Height
 
-	set fh [expr {double($Width)/double($width)}]
-	set fv [expr {double($Height)/double($height)}]
-	set f [expr {min($fh, $fv)}]
+	lassign [winfo workarea .application] _ _ ww wh
+	lassign [winfo extents .application] ew1 ew2 eh1 eh2
+	set adjustedWidth [expr {min($width, $ww - $ew1 - $ew2)}]
+	set adjustedHeight [expr {min($height, $wh - $eh1 - $eh2)}]
 
-	return [list [expr {int($f*double($width) + 0.5)}] [expr {int($f*double($height) + 0.5)}]]
+	set fh [expr {double($Width)/double($adjustedWidth)}]
+	set fv [expr {double($Height)/double($adjustedHeight)}]
+	set f  [expr {min($fh, $fv)}]
+	set fh [expr {$f*(double($adjustedWidth)/double($width))}]
+	set fv [expr {$f*(double($adjustedHeight)/double($height))}]
+
+	return [list [expr {int($fh*double($width) + 0.5)}] [expr {int($fv*double($height) + 0.5)}]]
 }
 
 

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 851 $
-# Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
+# Version: $Revision: 1313 $
+# Date   : $Date: 2017-07-26 16:24:27 +0000 (Wed, 26 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -261,7 +261,9 @@ proc winfo {args} {
 			if {[llength $args] < 2} {
 				return -code error "wrong # args: should be \"winfo extents window\""
 			}
-			return [::util::place::getWmFrameExtents [lindex $args 1]]
+			set extents [::util::place::getWmFrameExtents [lindex $args 1]]
+			if {[llength $extents] == 0} { set extents {6 6 30 6} }
+			return $extents
 		} elseif {[string match workarea* $cmd]} {
 			variable util::place::mainWindow
 			set window .
