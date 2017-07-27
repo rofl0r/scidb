@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1313 $
-# Date   : $Date: 2017-07-26 16:24:27 +0000 (Wed, 26 Jul 2017) $
+# Version: $Revision: 1316 $
+# Date   : $Date: 2017-07-27 11:32:31 +0000 (Thu, 27 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -176,10 +176,11 @@ proc open {} {
 	set info [::ttk::frame $nb.information]
 	set db [::ttk::frame $nb.database]
 	set main [twm::twm $nb.board \
-		-makepane  [namespace current]::MakePane \
-		-buildpane [namespace current]::BuildPane \
-		-resizing  [namespace current]::Resizing \
-		-workarea  [namespace current]::workArea \
+		-makepane    [namespace current]::MakePane \
+		-buildpane   [namespace current]::BuildPane \
+		-destroypane [namespace current]::DestroyPane \
+		-resizing    [namespace current]::Resizing \
+		-workarea    [namespace current]::workArea \
 	]
 	$main showall $Options(docking:showall)
 	set Vars(frame:information) $info
@@ -319,8 +320,14 @@ proc BuildPane {main frame uid width height} {
 		board		{ board::build $frame $width $height }
 		editor	{ pgn::build $frame $width $height }
 		games		{ tree::games::build $frame $width $height }
-		tree		{ tree::build $frame $width $height $Vars(frame:games) }
+		tree		{ tree::build $frame $width $height }
 	}
+}
+
+
+proc DestroyPane {main pane} {
+	variable Vars
+	array unset Vars frame:[$main uid $pane]
 }
 
 
@@ -410,7 +417,7 @@ proc activeTab {} {
 
 proc exists? {uid} {
 	variable Vars
-	return [winfo exists $Vars(frame:$uid)]
+	return [info exists Vars(frame:$uid)] && [winfo exists $Vars(frame:$uid)]
 }
 
 
