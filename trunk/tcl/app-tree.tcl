@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1301 $
-# Date   : $Date: 2017-07-25 13:07:21 +0000 (Tue, 25 Jul 2017) $
+# Version: $Revision: 1317 $
+# Date   : $Date: 2017-07-27 12:26:37 +0000 (Thu, 27 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -139,7 +139,7 @@ array set Vars {
 array set Bars {}
 
 
-proc build {parent width height gameTable} {
+proc build {parent width height} {
 	variable ::ratingbox::ratings
 	variable Columns
 	variable Options
@@ -453,7 +453,6 @@ proc build {parent width height gameTable} {
 	bind $switcher <<ComboboxCurrent>> [namespace code [list SetReferenceBase $switcher]]
 
 	set Vars(progress) $progress.bar
-	set Vars(gameTable) $gameTable
 	set Vars(search) $search
 	set Vars(searching) 0
 	set Vars(data) {}
