@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1295 $
-# Date   : $Date: 2017-07-24 19:35:37 +0000 (Mon, 24 Jul 2017) $
+# Version: $Revision: 1320 $
+# Date   : $Date: 2017-07-27 17:09:32 +0000 (Thu, 27 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -870,6 +870,8 @@ proc addGameFlagsMenuEntry {menu base variant view index} {
 
 proc TableSelected {path index} {
 	variable ${path}::Vars
+
+	if {$index < 0} { return }
 
 	set base [::scrolledtable::base $path]
 	set variant [::scrolledtable::variant $path]
