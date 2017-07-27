@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1318 $
-# Date   : $Date: 2017-07-27 15:12:52 +0000 (Thu, 27 Jul 2017) $
+# Version: $Revision: 1319 $
+# Date   : $Date: 2017-07-27 16:01:22 +0000 (Thu, 27 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -227,6 +227,8 @@ if {[file readable $::scidb::file::options]} {
 }
 
 if {[catch {
+	file mkdir [file join $::scidb::dir::user layout] ;# this is new
+
 	if {![array exists ::setup::board::History]} {
 		set history_ $::setup::board::History
 		unset ::setup::board::History
