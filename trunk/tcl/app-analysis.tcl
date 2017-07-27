@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1313 $
-# Date   : $Date: 2017-07-26 16:24:27 +0000 (Wed, 26 Jul 2017) $
+# Version: $Revision: 1318 $
+# Date   : $Date: 2017-07-27 15:12:52 +0000 (Thu, 27 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -459,14 +459,6 @@ proc newNumber {} {
 }
 
 
-proc highestNumber {} {
-	variable EngineMap
-
-	set numbers [lsort -decreasing [array names EngineMap]]
-	return [expr {[llength $numbers] ? [lindex $numbers 0] : 0}]
-}
-
-
 proc exists? {number} {
 	variable EngineMap
 	return [info exists EngineMap($number)]
@@ -496,7 +488,13 @@ proc update {args} {
 
 
 proc startAnalysis {number} {
-	set tree [set [namespace current]::EngineMap($number)]
+	variable EngineMap
+
+	if {![info exists EngineMap($number)]} {
+		::application::board::openAnalysis $number
+	}
+
+	set tree [set EngineMap($number)]
 	variable ${tree}::Vars
 	variable $Vars(number)::Options
 

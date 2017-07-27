@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1313 $
-# Date   : $Date: 2017-07-26 16:24:27 +0000 (Wed, 26 Jul 2017) $
+# Version: $Revision: 1318 $
+# Date   : $Date: 2017-07-27 15:12:52 +0000 (Thu, 27 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1504,7 +1504,6 @@ proc StartEngine {number list} {
 			}
 		}
 	} else {
-		::application::board::openAnalysis $number
 		::application::analysis::startAnalysis $number
 	}
 

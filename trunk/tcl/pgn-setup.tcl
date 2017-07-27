@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1294 $
-# Date   : $Date: 2017-07-18 14:37:17 +0000 (Tue, 18 Jul 2017) $
+# Version: $Revision: 1318 $
+# Date   : $Date: 2017-07-27 15:12:52 +0000 (Thu, 27 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -398,6 +398,10 @@ proc configureText {path {fontContext ""}} {
 	}
 
 	if {$context ne "merge"} {
+		$w tag configure h:next \
+			-indentbackground 1 \
+			-background [::colors::lookup $Colors(background:nextmove)] \
+			;
 		$w tag configure h:move -foreground black -background [::colors::lookup $Colors(hilite:move)]
 		$w tag configure h:curr \
 			-foreground black \

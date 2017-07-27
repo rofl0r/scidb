@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1295 $
-# Date   : $Date: 2017-07-24 19:35:37 +0000 (Mon, 24 Jul 2017) $
+# Version: $Revision: 1318 $
+# Date   : $Date: 2017-07-27 15:12:52 +0000 (Thu, 27 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -206,8 +206,8 @@ proc archive::tick {progress n} {
 proc scrolledframe::MapWindow {w} { ::scidb::misc::mapWindow $w }
 
 proc twm::tr {tok} { return [set $tok] }
-proc tooltip {args} { ::tooltip::tooltip {*}$args }
-proc makeStateSpecificIcons {icon} { return [::icon::makeStateSpecificIcons $img] }
+proc twm::tooltip {args} { ::tooltip::tooltip {*}$args }
+proc twm::makeStateSpecificIcons {icon} { return [::icon::makeStateSpecificIcons $icon] }
 
 log::finishLayout
 
