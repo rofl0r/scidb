@@ -1,7 +1,7 @@
 # // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1227 $
-// Date   : $Date: 2017-06-29 16:00:56 +0000 (Thu, 29 Jun 2017) $
+// Version: $Revision: 1332 $
+// Date   : $Date: 2017-07-28 17:32:43 +0000 (Fri, 28 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -3484,6 +3484,12 @@ PgnReader::stripDiagram(mstl::string& comment)
 	if (s[0] == '#' && (comment.size() == 1 || ::isspace(s[1])))
 	{
 		comment.erase(comment.begin(), ::skipSpaces(s + 1));
+		m_annotation.add(nag::Diagram);
+		m_hasNote = true;
+	}
+	else if (s[0] == '[' && s[1] == '#' && s[2] == ']')
+	{
+		comment.erase(comment.begin(), ::skipSpaces(s + 3));
 		m_annotation.add(nag::Diagram);
 		m_hasNote = true;
 	}
