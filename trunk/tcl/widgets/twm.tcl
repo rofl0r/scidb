@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1323 $
-# Date   : $Date: 2017-07-28 12:33:05 +0000 (Fri, 28 Jul 2017) $
+# Version: $Revision: 1328 $
+# Date   : $Date: 2017-07-28 13:43:30 +0000 (Fri, 28 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1120,6 +1120,7 @@ proc DoHeaderMotion {twm frame x y} {
 		wm overrideredirect $frame $Options(motion:overrideredirect)
 		::scidb::tk::wm dialog $frame ;# wm attributes $frame -type dnd
 		wm state $frame normal
+		tkwait visibility $frame
 		ttk::globalGrab $frame
 		bind $frame <Button1-Motion> [bind $frame.__header__ <Button1-Motion>]
 		bind $frame <ButtonRelease-1> [bind $frame.__header__ <ButtonRelease-1>]
