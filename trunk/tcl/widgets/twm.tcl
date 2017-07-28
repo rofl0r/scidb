@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1328 $
-# Date   : $Date: 2017-07-28 13:43:30 +0000 (Fri, 28 Jul 2017) $
+# Version: $Revision: 1330 $
+# Date   : $Date: 2017-07-28 14:23:15 +0000 (Fri, 28 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1007,7 +1007,7 @@ proc HeaderPress {twm frame x y} {
 		set Vars(afterid:release) [after $Options(globalgrab:timeout) \
 			[list [namespace current]::HeaderRelease $twm $frame 1]]
 	}
-	ttk::globalGrab $frame
+	ttk::grabWindow $frame
 }
 
 
