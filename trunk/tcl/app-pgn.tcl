@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1318 $
-# Date   : $Date: 2017-07-27 15:12:52 +0000 (Thu, 27 Jul 2017) $
+# Version: $Revision: 1329 $
+# Date   : $Date: 2017-07-28 14:02:49 +0000 (Fri, 28 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1378,7 +1378,10 @@ proc UpdateHeader {context position w data} {
 	variable ::pgn::${context}::Options
 	variable Vars
 
-	if {!$Vars(virgin:$position)} {
+	if {$Vars(virgin:$position)} {
+		# try to ensure correct adjustment after load
+		after idle [list $w yview moveto 0]
+	} else {
 		$w delete begin m-start
 	}
 
