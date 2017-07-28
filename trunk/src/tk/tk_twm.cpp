@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1320 $
-// Date   : $Date: 2017-07-27 17:09:32 +0000 (Thu, 27 Jul 2017) $
+// Version: $Revision: 1323 $
+// Date   : $Date: 2017-07-28 12:33:05 +0000 (Fri, 28 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2291,8 +2291,6 @@ Node::updateDimen(int x, int y, int width, int height)
 			m_coord.x -= m_root->x();
 			m_coord.y -= m_root->y();
 		}
-if (m_dimen.actual.width != contentSize<Horz>(width) || m_dimen.actual.height != contentSize<Vert>(height))
-printf("updateDimen(%s): %d %d\n", id(), width, height);
 		width = contentSize<Horz>(width);
 		height = contentSize<Vert>(height);
 
