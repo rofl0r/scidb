@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1240 $
-// Date   : $Date: 2017-07-05 19:04:42 +0000 (Wed, 05 Jul 2017) $
+// Version: $Revision: 1334 $
+// Date   : $Date: 2017-07-28 18:50:25 +0000 (Fri, 28 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -133,6 +133,7 @@ public:
 
 		typedef app::Engine::Result Result;
 
+		Concrete();
 		virtual ~Concrete();
 
 		virtual bool isReady() const = 0;
