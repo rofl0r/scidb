@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1326 $
-# Date   : $Date: 2017-07-28 13:21:21 +0000 (Fri, 28 Jul 2017) $
+# Version: $Revision: 1327 $
+# Date   : $Date: 2017-07-28 13:26:01 +0000 (Fri, 28 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -384,7 +384,7 @@ proc build {parent number {patternNumber 0}} {
 	lappend Vars(toolbar:childs) $Vars(button:lock)
 	::toolbar::add $tbControl button \
 		-image $::icon::toolbarSetup \
-		-command [namespace code [list Setup $number]] \
+		-command [namespace code [list Setup $tree $number]] \
 		-tooltipvar [::mc::var [namespace current]::mc::Setup "..."] \
 		;
 	::toolbar::addSeparator $tbControl
@@ -594,8 +594,8 @@ proc ConfigurePause {tree args} {
 }
 
 
-proc Setup {number} {
-	::engine::openSetup .application $number
+proc Setup {tree number} {
+	::engine::openSetup [winfo toplevel $tree] $number
 }
 
 
@@ -1168,7 +1168,7 @@ proc PopupMenu {tree number args} {
 		-label " $mc::Setup..." \
 		-image $::icon::16x16::setup \
 		-compound left \
-		-command [namespace code [list Setup $number]] \
+		-command [namespace code [list Setup $tree $number]] \
 		;
 
 	if {[::engine::id $Vars(number)] >= 0} {
