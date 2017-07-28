@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1240 $
-// Date   : $Date: 2017-07-05 19:04:42 +0000 (Wed, 05 Jul 2017) $
+// Version: $Revision: 1331 $
+// Date   : $Date: 2017-07-28 17:20:57 +0000 (Fri, 28 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1062,11 +1062,12 @@ Engine::pause()
 {
 	M_REQUIRE(isActive());
 
+	m_pause = true;
+
 	if (!isAnalyzing())
 		return false;
 
 	m_engine->pause();
-	m_pause = true;
 	return true;
 }
 
@@ -1087,7 +1088,9 @@ Engine::resume()
 	if (m_restart)
 		return startAnalysis(m_game);
 
-	m_engine->resume();
+	if (!currentGame()->currentBoard().gameIsOver(currentGame()->variant()))
+		m_engine->resume();
+
 	return true;
 }
 
@@ -1187,6 +1190,7 @@ Engine::startAnalysis(Game* game)
 
 	if (m_pause)
 	{
+updateState(Pause); // XXX
 		m_restart = true;
 		return true;
 	}
@@ -1281,25 +1285,25 @@ Engine::startAnalysis(Game* game)
 
 		unsigned state = game->currentBoard().checkState(m_currentVariant);
 
-		if (state & Board::Checkmate)
+		if (state & (Board::Checkmate|Board::Stalemate|Board::ThreeChecks|Board::Losing))
 		{
-			m_engine->stopAnalysis(false);
-			updateInfo(game->currentBoard().sideToMove(), board::Checkmate);
-		}
-		else if (state & Board::Stalemate)
-		{
-			m_engine->stopAnalysis(false);
-			updateInfo(game->currentBoard().sideToMove(), board::Stalemate);
-		}
-		else if (state & Board::ThreeChecks)
-		{
-			m_engine->stopAnalysis(false);
-			updateInfo(game->currentBoard().sideToMove(), board::ThreeChecks);
-		}
-		else if (state & Board::Losing)
-		{
-			m_engine->stopAnalysis(false);
-			updateInfo(game->currentBoard().sideToMove(), board::Losing);
+			if (isNew)
+				updateState(app::Engine::Start);
+			else
+				m_engine->stopAnalysis(false);
+
+			board::Status status = board::None; // satisfies the compiler
+
+			if (state & Board::Checkmate)
+				status = board::Checkmate;
+			else if (state & Board::Stalemate)
+				status = board::Stalemate;
+			else if (state & Board::ThreeChecks)
+				status = board::ThreeChecks;
+			else if (state & Board::Losing)
+				status = board::Losing;
+
+			updateInfo(game->currentBoard().sideToMove(), status);
 		}
 		else if (!m_engine->startAnalysis(isNew))
 		{
