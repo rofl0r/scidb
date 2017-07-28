@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1323 $
-# Date   : $Date: 2017-07-28 12:33:05 +0000 (Fri, 28 Jul 2017) $
+# Version: $Revision: 1326 $
+# Date   : $Date: 2017-07-28 13:21:21 +0000 (Fri, 28 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -529,8 +529,10 @@ proc startAnalysis {number} {
 
 
 proc restartAnalysis {number} {
-	variable ${Vars(number)}::Options
+	variable NumberToTree
+	set tree [set NumberToTree($number)]
 	variable ${tree}::Vars
+	variable ${Vars(number)}::Options
 	
 	after cancel $Vars(after)
 	if {$Options(engine:singlePV)} { set multiPV 1 } else { set multiPV $Options(engine:multiPV) }
