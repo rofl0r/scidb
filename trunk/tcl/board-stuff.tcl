@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1322 $
-# Date   : $Date: 2017-07-28 12:32:37 +0000 (Fri, 28 Jul 2017) $
+# Version: $Revision: 1324 $
+# Date   : $Date: 2017-07-28 12:40:24 +0000 (Fri, 28 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -207,7 +207,7 @@ proc resize {w size args} {
 
 	rebuild $w
 
-	if {$size != $Board(size)} {
+	if {$oldSize != $Board(size)} {
 		::board::unregisterSize $oldSize
 	}
 }
