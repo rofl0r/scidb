@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1336 $
-# Date   : $Date: 2017-07-29 10:21:39 +0000 (Sat, 29 Jul 2017) $
+# Version: $Revision: 1337 $
+# Date   : $Date: 2017-07-29 15:05:13 +0000 (Sat, 29 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -215,6 +215,7 @@ proc WidgetProc {twm command args} {
 		inspect			{ return [::scidb::tk::twm inspect $twm flat hide stayontop {*}$args] }
 		iscontainer		{ return [::scidb::tk::twm iscontainer $twm {*}$args] }
 		isdocked			{ return [::scidb::tk::twm isdocked $twm {*}$args] }
+		isfloat			{ return [expr {$args in [$twm floats]}] }
 		isframe			{ return [string match "TwmFrame" [winfo class {*}$args]] }
 		isheaderframe	{ return [string match {Twm*rame} [winfo class {*}$args]] }
 		ismetachild		{ return [::scidb::tk::twm ismetachild $twm {*}$args] }
@@ -1996,8 +1997,8 @@ proc Geometry {twm toplevel width height minWidth minHeight maxWidth maxHeight e
 			wm maxsize $toplevel $maxWidth $maxHeight
 		}
 		wm geometry $toplevel ${width}x${height}
-		set resizeW [expr {$minWidth == 0 || $minWidth != $maxWidth}]
-		set resizeH [expr {$minHeight == 0 || $minHeight != $maxHeight}]
+		set resizeW [expr {$expand in {both x} && ($minWidth == 0 || $minWidth != $maxWidth)}]
+		set resizeH [expr {$expand in {both y} && ($minHeight == 0 || $minHeight != $maxHeight)}]
 		wm resizable $toplevel $resizeW $resizeH
 	}
 }
