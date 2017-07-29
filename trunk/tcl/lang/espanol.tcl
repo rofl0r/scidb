@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1295 $
-# Date   : $Date: 2017-07-24 19:35:37 +0000 (Mon, 24 Jul 2017) $
+# Version: $Revision: 1336 $
+# Date   : $Date: 2017-07-29 10:21:39 +0000 (Sat, 29 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1152,6 +1152,7 @@
 ::application::analysis::mc::IllegalMoves					"Illegal moves in game - Cannot analyze" ;# NEW
 ::application::analysis::mc::DidNotReceivePong			"Engine is not responding to \"ping\" command - Engine aborted" ;# NEW
 ::application::analysis::mc::SearchMateNotSupported	"This engine is not supporting search for mate." ;# NEW
+::application::analysis::mc::EngineIsPausing				"This engine is currently pausing." ;# NEW
 ::application::analysis::mc::Stopped						"stopped" ;# NEW
 
 ::application::analysis::mc::LinesPerVariation			"Líneas por variación"

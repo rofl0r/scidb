@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1295 $
-// Date   : $Date: 2017-07-24 19:35:37 +0000 (Mon, 24 Jul 2017) $
+// Version: $Revision: 1336 $
+// Date   : $Date: 2017-07-29 10:21:39 +0000 (Sat, 29 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1713,8 +1713,8 @@ MultiWindowWidgetObjCmd(ClientData clientData,	// Information about square widge
 		case MW_RAISE:
 			if (objc != 3)
 			{
-				Tcl_WrongNumArgs(interp, 2, objv, "widget");
-				result = TCL_ERROR;
+				if (mw->numSlaves)
+					Tcl_SetObjResult(interp, Tcl_NewStringObj(Tk_PathName(mw->slaves[0]->tkwin), -1));
 			}
 			else
 			{

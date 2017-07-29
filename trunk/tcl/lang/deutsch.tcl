@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1295 $
-# Date   : $Date: 2017-07-24 19:35:37 +0000 (Mon, 24 Jul 2017) $
+# Version: $Revision: 1336 $
+# Date   : $Date: 2017-07-29 10:21:39 +0000 (Sat, 29 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1150,6 +1150,7 @@
 ::application::analysis::mc::IllegalMoves					"Illegale Züge in der Partie - keine Analyse möglich"
 ::application::analysis::mc::DidNotReceivePong			"Der Motor antwortet nicht auf das \"ping\"-Kommando - Motor beendet"
 ::application::analysis::mc::SearchMateNotSupported	"Dieser Motor unterstützt nicht die Mattsuche."
+::application::analysis::mc::EngineIsPausing				"Dieser Motor pausiert gerade."
 ::application::analysis::mc::Stopped						"angehalten"
 
 ::application::analysis::mc::LinesPerVariation			"Zeilen per Variante"

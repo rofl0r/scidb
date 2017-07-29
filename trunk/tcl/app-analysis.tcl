@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1333 $
-# Date   : $Date: 2017-07-28 18:11:36 +0000 (Fri, 28 Jul 2017) $
+# Version: $Revision: 1336 $
+# Date   : $Date: 2017-07-29 10:21:39 +0000 (Sat, 29 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -151,7 +151,6 @@ proc build {parent number {patternNumber 0}} {
 	set Vars(paused) 0
 	set Vars(number) $number
 	array set fopt [font configure $Defaults(engine:font)]
-#	set Vars(font:bold) [list $fopt(-family) $fopt(-size) bold]
 	set Vars(linespace) [font metrics $Defaults(engine:font) -linespace]
 	set Vars(keepActive) 0
 	set Vars(current:item) 0

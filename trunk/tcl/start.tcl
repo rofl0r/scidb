@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1313 $
-# Date   : $Date: 2017-07-26 16:24:27 +0000 (Wed, 26 Jul 2017) $
+# Version: $Revision: 1336 $
+# Date   : $Date: 2017-07-29 10:21:39 +0000 (Sat, 29 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -339,6 +339,8 @@ tk appname $scidb::app
 tk::toplevel .application -class $::scidb::app
 ::scidb::tk::wm startup .
 wm withdraw .application
+# TODO: does this emergency handling work?
+bind .application <Alt-F11> { catch {ttk::releaseGrab [grab current]} }
 
 if {[::scidb::misc::debug?]} {
 	::process::setOption single-process
