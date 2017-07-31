@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1080 $
-// Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
+// Version: $Revision: 1339 $
+// Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -70,6 +70,7 @@ public:
 
 	void doDecoding(GameData& data);
 	save::State doDecoding(db::Consumer& consumer, TagSet& tags);
+	unsigned doDecoding(uint16_t* line, unsigned length, Board& startBoard, bool useStartBoard);
 
 	bool stripMoveInformation(unsigned halfMoveCount, unsigned types);
 	bool stripTags(TagMap const& tags);

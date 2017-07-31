@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 985 $
-// Date   : $Date: 2013-10-29 14:52:42 +0000 (Tue, 29 Oct 2013) $
+// Version: $Revision: 1339 $
+// Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -101,7 +101,7 @@ MoveFrom::match(Board const& board, Move const& move, Variant variant)
 		color::ID	color		= board.sideToMove();
 		uint64_t		position	= set1Bit(move.from());
 
-		switch (move.pieceMoved())
+		switch (move.moved())
 		{
 			case db::piece::King:	return bool(position & m_designator.kings(color));
 			case db::piece::Queen:	return bool(position & m_designator.queens(color));

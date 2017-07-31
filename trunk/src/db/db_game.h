@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1247 $
-// Date   : $Date: 2017-07-06 12:31:24 +0000 (Thu, 06 Jul 2017) $
+// Version: $Revision: 1339 $
+// Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -292,7 +292,7 @@ public:
 	/// Print current move in given notation
 	mstl::string& printMove(mstl::string& result,
 									unsigned flags = ExportFormat,
-									move::Notation style = move::ShortAlgebraic) const;
+									move::Notation style = move::SAN) const;
 	/// Print FEN at current position
 	mstl::string& printFen(mstl::string& result) const;
 	/// Print FEN at given position

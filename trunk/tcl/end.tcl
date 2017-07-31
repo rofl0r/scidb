@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1319 $
-# Date   : $Date: 2017-07-27 16:01:22 +0000 (Thu, 27 Jul 2017) $
+# Version: $Revision: 1339 $
+# Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -217,13 +217,13 @@ log::finishLayout
 proc dialog::fsbox::setBookmarks {args} {}
 
 if {[file readable $::scidb::file::options]} {
-	if {[catch {
+#	if {[catch {
 			::load::source $::scidb::file::options -message $::load::mc::ReadingFile(options) -encoding utf-8 -throw 1
-		}]} {
-		unset ::setup::board::History
-		set ::setup::board::History {}
-		catch { source -encoding utf-8 $::scidb::file::options }
-	}
+#		}]} {
+#		unset ::setup::board::History
+#		set ::setup::board::History {}
+#		catch { source -encoding utf-8 $::scidb::file::options }
+#	}
 }
 
 if {[catch {

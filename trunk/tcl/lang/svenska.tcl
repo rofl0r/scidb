@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1336 $
-# Date   : $Date: 2017-07-29 10:21:39 +0000 (Sat, 29 Jul 2017) $
+# Version: $Revision: 1339 $
+# Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -775,6 +775,7 @@
 ::application::tree::mc::ComputeSpread						"Compute Spread" ;# NEW
 ::application::tree::mc::ShowMoveTree						"Show move tree" ;# NEW
 ::application::tree::mc::ShowMoveOrders					"Show move orders" ;# NEW
+::application::tree::mc::SearchInsideVariations       "Search inside variations" ;# NEW
 
 ::application::tree::mc::FromWhitesPerspective			"Från vits sida"
 ::application::tree::mc::FromBlacksPerspective			"Från svarts sida"
@@ -1252,6 +1253,7 @@
 ::gametable::mc::F_Acv						"SKV"
 ::gametable::mc::F_Idn						"960"
 ::gametable::mc::F_Position				"Position"
+::gametable::mc::F_MoveList				"Move List" ;# NEW
 ::gametable::mc::F_EventDate				"Tävlingsdatum"
 ::gametable::mc::F_EventType				"Täv.typ"
 ::gametable::mc::F_Promotion				"Promovering"
@@ -1290,19 +1292,23 @@
 ::gametable::mc::T_Variations				"Varianter"
 ::gametable::mc::T_TimeMode				"Time Mode"
 
-::gametable::mc::P_Rating					"Ratingpoäng"
+::gametable::mc::P_Name						"Namn"
+::gametable::mc::P_FideID					"Fide ID"
+::gametable::mc::P_Rating1					"Ratingpoäng"
+::gametable::mc::P_Rating2					"Rating Score (Second Rating)" ;# NEW
 ::gametable::mc::P_RatingType				"Ratingtyp"
 ::gametable::mc::P_Country					"Land"
 ::gametable::mc::P_Title					"Titel"
 ::gametable::mc::P_Type						"Typ"
-::gametable::mc::P_Date						"Datum"
-::gametable::mc::P_Mode						"Mode"
 ::gametable::mc::P_Sex						"Kön"
-::gametable::mc::P_Name						"Namn"
 
-::gametable::mc::G_White					"Vit"
-::gametable::mc::G_Black					"Svart"
-::gametable::mc::G_Event					"Tävling"
+::gametable::mc::G_Player					"Player data"
+::gametable::mc::G_Event					"Event data"
+::gametable::mc::G_Game						"Game information"
+::gametable::mc::G_Opening					"Opening information"
+::gametable::mc::G_Flags					"Flags"
+::gametable::mc::G_Notation				"Notation"
+::gametable::mc::G_Internal				"Internal"
 
 ::gametable::mc::EventType(game)			"Parti"
 ::gametable::mc::EventType(match)		"Match"
@@ -1891,12 +1897,17 @@
 ### notation ###########################################################
 ::notation::mc::Notation		"Notation"
 
-::notation::mc::MoveForm(alg)	"Algebraisk"
-::notation::mc::MoveForm(san)	"Kort algebraisk"
-::notation::mc::MoveForm(lan)	"Long algebraisk"
-::notation::mc::MoveForm(eng)	"Engelskt"
-::notation::mc::MoveForm(cor)	"Korrespondens"
-::notation::mc::MoveForm(tel)	"Telegrafisk"
+::notation::mc::MoveForm(can) "Computer Algebraic Notation" ;# NEW also: "Coordinate Notation"
+::notation::mc::MoveForm(san) "Short Algebraic Notation" ;# NEW also "Standard Algebraic Notation"
+::notation::mc::MoveForm(lan) "Long Algebraic Notation"
+::notation::mc::MoveForm(gan) "German Short Algebraic Notation"
+::notation::mc::MoveForm(man) "Minimal Algebraic Notation"
+::notation::mc::MoveForm(ran) "Reversible Algebraic Notation"
+::notation::mc::MoveForm(smi) "Smith Notation"
+::notation::mc::MoveForm(edn) "English Descriptive Notation"
+::notation::mc::MoveForm(sdn) "Spanish Descriptive Notation"
+::notation::mc::MoveForm(cor) "ICCF Numeric Notation (Correspondence)"
+::notation::mc::MoveForm(tel) "Alphabetic Notation (Telegraph)"
 
 ### figurine ###########################################################
 ::figurines::mc::Figurines	"Figuruppsättning"

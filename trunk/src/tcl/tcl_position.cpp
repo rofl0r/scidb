@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1184 $
-// Date   : $Date: 2017-05-28 19:02:06 +0000 (Sun, 28 May 2017) $
+// Version: $Revision: 1339 $
+// Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -654,7 +654,7 @@ cmdSan(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 		mstl::string san;
 		Scidb->game().currentBoard().prepareForPrint(
 			move, Scidb->game().variant(), Board::InternalRepresentation);
-		move.printSan(san, protocol::Standard, encoding::Latin1);
+		move.printSAN(san, protocol::Standard, encoding::Latin1);
 		setResult(san);
 	}
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 651 $
-// Date   : $Date: 2013-02-06 15:25:49 +0000 (Wed, 06 Feb 2013) $
+// Version: $Revision: 1339 $
+// Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -52,17 +52,19 @@ public:
 
 	void doDecoding(GameData& data);
 	save::State doDecoding(db::Consumer& consumer, TagSet& tags);
+	unsigned doDecoding(uint16_t* line, unsigned length, Board& startBoard, bool useStartBoard);
 
 private:
 
 	Decoder(Decoder const&);
 	Decoder& operator=(Decoder const&);
 
-	void prepareDecoding(util::ByteStream& moveArea, util::ByteStream& textArea);
+	void prepareDecoding(util::ByteStream& moveArea, util::ByteStream* textArea = nullptr);
 
 	void decodeAnnotation(util::ByteStream& strm);
 	void decodeVariation(util::ByteStream& moves, util::ByteStream& text);
 	void decodeVariation(db::Consumer& consumer, util::ByteStream& moves, util::ByteStream& text);
+	unsigned decodeMainline(util::ByteStream& moves, uint16_t* line, unsigned length, Board* startBoard);
 
 	::db::MoveNode*	m_currentNode;
 	util::ByteStream&	m_strm;

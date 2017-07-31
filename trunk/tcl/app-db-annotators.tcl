@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1035 $
-# Date   : $Date: 2015-03-14 18:46:54 +0000 (Sat, 14 Mar 2015) $
+# Version: $Revision: 1339 $
+# Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -117,7 +117,7 @@ proc build {parent} {
 		$top
 
 	set columns {white whiteElo black blackElo event result date acv}
-	::gametable::build $rt [namespace code [list View $rt]] $columns
+	::gametable::build $rt [namespace code [list View $rt]] $columns -id db:annotators
 	::scidb::db::subscribe gameList \
 		[namespace current]::games::Update \
 		[namespace current]::Close \

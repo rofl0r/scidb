@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1080 $
-// Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
+// Version: $Revision: 1339 $
+// Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -108,6 +108,8 @@ public:
 	bool encodingIsBroken() const;
 	/// Returns whether asynchronous reader is in use.
 	bool usingAsyncReader() const;
+	/// Returns whether given asynchronous reader is in use.
+	bool usingAsyncReader(thread::Type thread) const;
 	/// Returns whether the database format should be upgraded.
 	bool shouldUpgrade() const;
 	/// Returns whether this database should be compressed.
@@ -210,10 +212,16 @@ public:
 	/// Returns the tree cache.
 	TreeCache& treeCache();
 
-	/// Loads a game from the given position.
+	/// Load a game from the given position.
 	load::State loadGame(unsigned index, Game& game);
-	/// Loads a game from the given position.
+	/// Load a game from the given position.
 	load::State loadGame(unsigned index, Game& game, mstl::string& encoding, mstl::string const* fen = 0);
+	/// Load a game from the given position.
+	unsigned loadGame(unsigned index,
+							uint16_t* line,
+							unsigned length,
+							Board& startBoard,
+							bool useStartBoard);
 	/// Saves a game at the given position.
 	void replaceGame(unsigned index, Game const& game);
 	/// Adds a game to the database.
@@ -296,9 +304,9 @@ public:
 	void emitPlayerCard(TeXt::Receptacle& receptacle, NamebasePlayer const& player) const;
 
 	/// Open an asynchronous game stream (block file) reader for findExactPositionAsync() operation.
-	void openAsyncReader();
+	void openAsyncReader(thread::Type thread);
 	/// Close asynchronous game stream reader.
-	void closeAsyncReader();
+	void closeAsyncReader(thread::Type thread);
 
 	/// Setup tag/value pairs.
 	void setupTags(unsigned index, TagSet& tags) const;
@@ -368,11 +376,10 @@ private:
 	uint64_t			m_lastChange;
 	uint32_t			m_fileTime;
 	TreeCache		m_treeCache;
-	AsyncReader*	m_asyncReader;
+	AsyncReader*	m_asyncReader[thread::LAST];
 	mutable bool	m_encodingFailed;
 	mutable bool	m_encodingOk;
 	bool				m_descriptionHasChanged;
-	bool				m_usingAsyncReader;
 };
 
 } // namespace db

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 969 $
-// Date   : $Date: 2013-10-13 15:33:12 +0000 (Sun, 13 Oct 2013) $
+// Version: $Revision: 1339 $
+// Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -130,6 +130,19 @@ Line::operator[](unsigned n) const
 {
 	M_REQUIRE(n < length);
 	return moves[n];
+}
+
+
+inline
+mstl::string&
+Line::print(mstl::string& result,
+				Board const& startBoard,
+				variant::Type variant,
+				move::Notation style,
+				protocol::ID protocol,
+				encoding::CharSet charSet) const
+{
+	return print(result, startBoard, variant, 0, length, length, style, protocol, charSet);
 }
 
 

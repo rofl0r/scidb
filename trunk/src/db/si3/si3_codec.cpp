@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1219 $
-// Date   : $Date: 2017-06-27 09:32:32 +0000 (Tue, 27 Jun 2017) $
+// Version: $Revision: 1339 $
+// Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -475,6 +475,20 @@ Codec::putGame(ByteStream const& strm, unsigned prevOffset, unsigned prevRecordL
 {
 	M_ASSERT(m_gameData);
 	return m_gameData->put(strm, prevOffset, prevRecordLength);
+}
+
+
+unsigned
+Codec::doDecoding(GameInfo const& info,
+						uint16_t* line,
+						unsigned length,
+						Board& startBoard,
+						bool useStartBoard)
+{
+	ByteStream strm;
+	getGameRecord(info, m_gameData->reader(), strm);
+	Decoder decoder(strm, *m_codec);
+	return decoder.doDecoding(line, length, startBoard, useStartBoard);
 }
 
 

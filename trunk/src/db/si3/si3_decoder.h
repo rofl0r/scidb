@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 661 $
-// Date   : $Date: 2013-02-23 23:03:04 +0000 (Sat, 23 Feb 2013) $
+// Version: $Revision: 1339 $
+// Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -65,6 +65,7 @@ public:
 
 	unsigned doDecoding(GameData& data);
 	save::State doDecoding(db::Consumer& consumer, TagSet& tags);
+	unsigned doDecoding(uint16_t* line, unsigned length, Board& startBoard, bool useStartBoard);
 
 	static type::ID decodeType(unsigned type);
 
@@ -87,6 +88,7 @@ private:
 	void decodePawn(sq::ID from, Byte nybble);
 
 	void decodeVariation(Consumer& consumer, MoveNode const* node);
+	void handleInvalidMove(Move const& move);
 
 	void Report(char const* charset);
 

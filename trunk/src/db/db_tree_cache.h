@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 1339 $
+// Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -45,22 +45,34 @@ public:
 	TreeCache();
 	~TreeCache();
 
-	bool isCached(Board const& position, tree::Mode mode, rating::Type ratingType) const;
+	bool isCached(	Board const& position,
+						tree::Method method,
+						tree::Mode mode,
+						rating::Type ratingType) const;
 	bool isCached(	uint64_t hash,
 						Position const& position,
+						tree::Method method,
 						tree::Mode mode,
 						rating::Type ratingType) const;
 
 	static unsigned size();
 	unsigned used() const;
 
-	Tree* lookup(Board const& position, tree::Mode mode, rating::Type ratingType) const;
-	Tree* lookup(uint64_t hash, Position const& position, tree::Mode mode, rating::Type ratingType) const;
+	Tree* lookup(	Board const& position,
+						tree::Method method,
+						tree::Mode mode,
+						rating::Type ratingType) const;
+	Tree* lookup(	uint64_t hash,
+						Position const& position,
+						tree::Method method,
+						tree::Mode mode,
+						rating::Type ratingType) const;
 
 	void add(Tree* tree);
 	void clear();
+	void clear(tree::Mode mode);
 	void setIncomplete();
-	void setIncomplete(unsigned index);
+	void setIncomplete(unsigned firstIndex, unsigned lastIndex);
 
 private:
 

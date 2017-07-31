@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 961 $
-// Date   : $Date: 2013-10-06 08:30:53 +0000 (Sun, 06 Oct 2013) $
+// Version: $Revision: 1339 $
+// Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -750,6 +750,18 @@ Codec::prepareDecoding(GameInfo const& info, unsigned gameIndex, ByteStream& str
 
 	if (crc1 != hdr[13] && crc2 != hdr[13])
 		IO_RAISE(Game, Corrupted, "checksum error");
+}
+
+
+unsigned
+Codec::doDecoding(GameInfo const&,
+						uint16_t* line,
+						unsigned length,
+						Board& startBoard,
+						bool useStartBoard)
+{
+	ByteStream bstrm;
+	return Decoder(bstrm, *m_codec).doDecoding(line, length, startBoard, useStartBoard);
 }
 
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1291 $
-// Date   : $Date: 2017-07-15 13:40:37 +0000 (Sat, 15 Jul 2017) $
+// Version: $Revision: 1339 $
+// Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -391,9 +391,9 @@ winboard::Engine::doMove(Move const& move)
 	if (move.isNull())
 		s.append("@@@@", 4);	// alternatives: "pass", "null", "--"
 	else if (/*m_featureSan || */move.isPieceDrop() || (move.isCastling() && m_mustUseChess960))
-		move.printSan(s, protocol::Standard, encoding::Latin1);
+		move.printSAN(s, protocol::Standard, encoding::Latin1);
 	else
-		move.printAlgebraic(s, protocol::Standard, encoding::Latin1);
+		move.printCAN(s, protocol::Standard, encoding::Latin1);
 
 	send(s);
 }

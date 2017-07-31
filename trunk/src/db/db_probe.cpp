@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 832 $
-// Date   : $Date: 2013-06-12 06:32:40 +0000 (Wed, 12 Jun 2013) $
+// Version: $Revision: 1339 $
+// Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -341,7 +341,7 @@ movePiece(Move const& move, egtb::Square* whiteSquares, egtb::Square* blackSquar
 	egtb::Square*	squares	= ::db::color::isWhite(move.color()) == flip ? blackSquares : whiteSquares;
 	egtb::Square	from		= egtb::mapSquare(move.from());
 
-	squares += egtb::mapPiece(move.pieceMoved()) << Piece_Shift;
+	squares += egtb::mapPiece(move.moved()) << Piece_Shift;
 
 	for (unsigned i = 0; i < 1 << Piece_Shift; ++i)
 	{

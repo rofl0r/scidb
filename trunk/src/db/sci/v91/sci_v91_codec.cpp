@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1170 $
-// Date   : $Date: 2017-05-17 09:30:51 +0000 (Wed, 17 May 2017) $
+// Version: $Revision: 1339 $
+// Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -657,6 +657,20 @@ Codec::getConsumer(format::Type srcFormat)
 {
 	M_ASSERT(!"should not be called");
 	return 0;
+}
+
+
+unsigned
+Codec::doDecoding(GameInfo const& info,
+						uint16_t* line,
+						unsigned length,
+						Board& startBoard,
+						bool useStartBoard)
+{
+	ByteStream strm;
+	getGameRecord(info, m_gameData->reader(), strm);
+	Decoder decoder(strm, m_gameData->blockSize() - info.gameOffset());
+	return decoder.doDecoding(line, length, startBoard, useStartBoard);
 }
 
 

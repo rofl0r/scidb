@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 985 $
-// Date   : $Date: 2013-10-29 14:52:42 +0000 (Tue, 29 Oct 2013) $
+// Version: $Revision: 1339 $
+// Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -59,7 +59,7 @@ Position::Position()
 }
 
 
-void
+bool
 Position::doMove(Move& move, unsigned pieceNum)
 {
 	Lookup&		lookup	= m_stack.top();
@@ -70,7 +70,7 @@ Position::doMove(Move& move, unsigned pieceNum)
 	if (lookup.board.isValidMove(move, variant::Normal, move::DontAllowIllegalMove))
 		move.setLegalMove();
 	else if (!lookup.board.checkMove(move, variant::Normal, move::AllowIllegalMove))
-		M_THROW(DecodingFailedException("Invalid move"));
+		return false;
 
 	lookup.board.prepareUndo(move);
 
@@ -118,6 +118,7 @@ Position::doMove(Move& move, unsigned pieceNum)
 	}
 
 	lookup.board.doMove(move, variant::Normal);
+	return true;
 }
 
 

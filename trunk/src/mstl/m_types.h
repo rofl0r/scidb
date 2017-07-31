@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1276 $
-// Date   : $Date: 2017-07-09 09:39:28 +0000 (Sun, 09 Jul 2017) $
+// Version: $Revision: 1339 $
+// Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -62,6 +62,9 @@
 
 #define __m_printf_format__(index, first_to_check) \
 	__attribute__((__format__(__printf__, index, first_to_check)))
+
+#define __m_likely(expr)		__builtin_expect(!!(expr), 1)
+#define __m_unlikely(expr)		__builtin_expect(!!(expr), 0)
 
 #define __m_warn_unused __attribute__((warn_unused_result))
 

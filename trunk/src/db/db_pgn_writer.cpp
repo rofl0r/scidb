@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1165 $
-// Date   : $Date: 2017-05-15 09:30:52 +0000 (Mon, 15 May 2017) $
+// Version: $Revision: 1339 $
+// Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -697,7 +697,7 @@ PgnWriter::writeMove(Move const& move,
 		m_move += moveNumber;
 	}
 
-	move.printSan(m_move, protocol::Standard, encoding::Latin1);
+	move.printSAN(m_move, protocol::Standard, encoding::Latin1);
 
 	if (!annotation.isEmpty())
 	{

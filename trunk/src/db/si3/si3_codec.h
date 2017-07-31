@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1080 $
-// Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
+// Version: $Revision: 1339 $
+// Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -133,6 +133,11 @@ public:
 									util::ByteStream& strm,
 									TagSet& tags) override;
 	void doDecoding(GameData& data, GameInfo& info, unsigned gameIndex, mstl::string* encoding) override;
+	unsigned doDecoding(	GameInfo const& info,
+								uint16_t* line,
+								unsigned length,
+								Board& startBoard,
+								bool useStartBoard) override;
 
 	void doEncoding(	util::ByteStream& strm,
 							GameData const& data,

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 969 $
-// Date   : $Date: 2013-10-13 15:33:12 +0000 (Sun, 13 Oct 2013) $
+// Version: $Revision: 1339 $
+// Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -35,6 +35,8 @@ namespace mstl { class string; }
 
 namespace db {
 
+class Board;
+
 struct Line
 {
 	Line();
@@ -61,6 +63,22 @@ struct Line
 
 	mstl::string& print(	mstl::string& result,
 								variant::Type variant,
+								move::Notation style,
+								protocol::ID protocol,
+								encoding::CharSet charSet = encoding::Latin1) const;
+	mstl::string& print(	mstl::string& result,
+								Board const& startBoard,
+								variant::Type variant,
+								move::Notation style,
+								protocol::ID protocol,
+								encoding::CharSet charSet = encoding::Latin1) const;
+	mstl::string& print(	mstl::string& result,
+								Board const& startBoard,
+								variant::Type variant,
+								unsigned firstPly,
+								unsigned midPly,
+								unsigned lastPly,
+								move::Notation style,
 								protocol::ID protocol,
 								encoding::CharSet charSet = encoding::Latin1) const;
 	void dump() const;

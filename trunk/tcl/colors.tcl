@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author: gcramer $
-# Version: $Revision: 1295 $
-# Date   : $Date: 2017-07-24 19:35:37 +0000 (Mon, 24 Jul 2017) $
+# Version: $Revision: 1339 $
+# Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
 # Url    : $URL: https://svn.code.sf.net/p/scidb/code/trunk/tcl/colors.tcl $
 # ======================================================================
 
@@ -166,6 +166,7 @@ array set Colors {
 	lite:table,selectionbackground		#ffdd76
 	lite:table,selectionforeground		black
 	lite:table,disabledforeground			#555555
+	lite:table,activebackground			#e5e5e5
 	lite:table,labelforeground				black
 	lite:table,labelbackground				#d9d9d9
 

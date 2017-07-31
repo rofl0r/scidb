@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 1339 $
+// Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -44,9 +44,11 @@ namespace tcl
 	{
 		typedef mstl::pair< ::db::rating::Type, ::db::rating::Type> Ratings;
 
-		int getGameInfo(	::db::Database const& db,
-								unsigned index,
-								Ratings const& ratings);
+		int getGameInfo(
+			::db::Database const& db,
+			unsigned index,
+			Ratings const& ratings,
+			::db::move::Notation notation);
 		int getPlayerStats(::db::Database const& db, ::db::NamebasePlayer const& player);
 		int getTags(::db::TagSet const& tags, bool userSuppliedOnly);
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 774 $
-// Date   : $Date: 2013-05-16 22:06:25 +0000 (Thu, 16 May 2013) $
+// Version: $Revision: 1339 $
+// Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -36,6 +36,8 @@ public:
 	bool interrupted() override;
 	bool interruptReceived() const;
 
+	sys::Thread& thread();
+
 	void start(unsigned total) override;
 	void update(unsigned progress) override;
 	void refresh(unsigned progress);
@@ -50,6 +52,8 @@ private:
 };
 
 } // namespace util
+
+#include "u_piped_progress.ipp"
 
 #endif // _u_piped_progress_included
 

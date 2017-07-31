@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1044 $
-// Date   : $Date: 2015-03-16 15:10:42 +0000 (Mon, 16 Mar 2015) $
+// Version: $Revision: 1339 $
+// Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -347,7 +347,7 @@ EcoTable::Node::dump(Codec& codec, Board& board, variant::Type variant, unsigned
 			::printf("| ");
 
 		::printf("%s: %c%s%c",
-					move.printSan(s, protocol::Standard, encoding::Latin1).c_str(),
+					move.printSAN(s, protocol::Standard, encoding::Latin1).c_str(),
 					b.transposition ? '[' : '(',
 					b.node->eco.asString().c_str(),
 					b.transposition ? ']' : ')');
@@ -460,7 +460,7 @@ EcoTable::Node::print(variant::Type variant)
 
 				::printf(" ");
 				if ((k & 1) == 0) ::printf("%u.", (k + 2)/2);
-				::printf("%s", v->moves[k].printSan(str, protocol::Standard, encoding::Latin1).c_str());
+				::printf("%s", v->moves[k].printSAN(str, protocol::Standard, encoding::Latin1).c_str());
 			}
 
 			for (unsigned k = 0; k < v->branches.size(); ++k)
@@ -471,7 +471,7 @@ EcoTable::Node::print(variant::Type variant)
 				else
 					::printf(" (%s) ", v->codes[k].asString().c_str());
 				if ((v->moves.size() & 1) == 0) ::printf("%u.", (v->moves.size() + 2)/2);
-				::printf("%s", v->branches[k].printSan(str, protocol::Standard, encoding::Latin1).c_str());
+				::printf("%s", v->branches[k].printSAN(str, protocol::Standard, encoding::Latin1).c_str());
 			}
 
 			printf("\n");

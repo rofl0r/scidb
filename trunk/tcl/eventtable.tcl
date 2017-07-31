@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1115 $
-# Date   : $Date: 2017-01-03 12:37:48 +0000 (Tue, 03 Jan 2017) $
+# Version: $Revision: 1339 $
+# Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -75,8 +75,8 @@ proc build {path getViewCmd {visibleColumns {}} {args {}}} {
 		find-current	{}
 	}
 
-	if {[lsort [array names Options]] ne [lsort [array names Defaults]]} {
-		array set Options [array get Defaults]
+	foreach name [array names Defaults] {
+		if {![info exists Options($name)]} { set Options($name) $Defaults($name) }
 	}
 
 	if {[llength $visibleColumns] == 0} { set visibleColumns $columns }

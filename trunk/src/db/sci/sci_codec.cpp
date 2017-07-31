@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1100 $
-// Date   : $Date: 2016-09-02 15:42:06 +0000 (Fri, 02 Sep 2016) $
+// Version: $Revision: 1339 $
+// Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -826,6 +826,20 @@ db::Consumer*
 Codec::getConsumer(format::Type srcFormat)
 {
 	return new Consumer(srcFormat, Consumer::Codecs(this), Consumer::TagBits(true), true);
+}
+
+
+unsigned
+Codec::doDecoding(GameInfo const& info,
+						uint16_t* line,
+						unsigned length,
+						Board& startBoard,
+						bool useStartBoard)
+{
+	ByteStream strm;
+	getGameRecord(info, m_gameData->reader(), strm);
+	Decoder decoder(strm, variant());
+	return decoder.doDecoding(line, length, startBoard, useStartBoard);
 }
 
 

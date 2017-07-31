@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 990 $
-// Date   : $Date: 2013-10-30 08:51:46 +0000 (Wed, 30 Oct 2013) $
+// Version: $Revision: 1339 $
+// Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -231,6 +231,39 @@ unsigned
 count_bits(T x)
 {
 	return bits::popcount(static_cast<typename bits::remove_sign<sizeof(T)>::type>(x));
+}
+
+
+/// \brief Returns whether the number of 1 bits is greater than 1.
+/// \ingroup BitAlgorithm
+template <typename T>
+inline
+constexpr bool
+more_than_one(T x)
+{
+	return x & (x - 1);
+}
+
+
+/// \brief Returns whether the number of 1 bits is less than or equal to 1.
+/// \ingroup BitAlgorithm
+template <typename T>
+inline
+constexpr bool
+at_most_one(T x)
+{
+	return !more_than_one(x);
+}
+
+
+/// \brief Returns whether the number of 1 bits is equal to 1.
+/// \ingroup BitAlgorithm
+template <typename T>
+inline
+constexpr bool
+exactly_one(T x)
+{
+	return x && at_most_one(x);
 }
 
 

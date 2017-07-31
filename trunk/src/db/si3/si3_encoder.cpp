@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1080 $
-// Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
+// Version: $Revision: 1339 $
+// Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -499,9 +499,9 @@ Encoder::encodePawn(Move const& move)
 void
 Encoder::encodeMove(Move const& move)
 {
-	M_ASSERT((move.pieceMoved() == piece::None) == move.isNull());
+	M_ASSERT((move.moved() == piece::None) == move.isNull());
 
-	switch (move.pieceMoved())
+	switch (move.moved())
 	{
 		case piece::None:		encodeNullMove(move); break;
 		case piece::King:		encodeKing(move); break;

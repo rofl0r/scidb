@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1035 $
-# Date   : $Date: 2015-03-14 18:46:54 +0000 (Sat, 14 Mar 2015) $
+# Version: $Revision: 1339 $
+# Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -79,7 +79,7 @@ proc build {parent} {
 
 	tk::panedwindow $rt -orient vertical -opaqueresize true -borderwidth 0
 	set columns {white whiteElo black blackElo event result date length}
-	::gametable::build $gl [namespace code [list View $top]] $columns
+	::gametable::build $gl [namespace code [list View $top]] $columns -id players
 	set columns {event eventType eventDate eventMode timeMode eventCountry site}
 	::eventtable::build $ev [namespace code [list View $top]] $columns \
 		-selectcmd [namespace code [list SelectEvent $top]] \
@@ -425,7 +425,7 @@ proc WriteOptions {chan} {
 		puts $chan "::playertable::setOptions $table.players {"
 		::options::writeArray $chan [::playertable::getOptions $table.players]
 		puts $chan "}"
-		puts $chan "::gametable::setOptions $table.info.games {"
+		puts $chan "::gametable::setOptions db:players {"
 		::options::writeArray $chan [::gametable::getOptions $table.info.games]
 		puts $chan "}"
 		puts $chan "::eventtable::setOptions $table.info.events {"

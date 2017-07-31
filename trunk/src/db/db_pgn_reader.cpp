@@ -1,7 +1,7 @@
 # // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1332 $
-// Date   : $Date: 2017-07-28 17:32:43 +0000 (Fri, 28 Jul 2017) $
+// Version: $Revision: 1339 $
+// Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1242,7 +1242,7 @@ PgnReader::handleError(Error code, mstl::string const& message)
 
 			if (m_move && !board().isValidMove(m_move, m_variant))
 			{
-				m_move.printSan(msg, protocol::Standard, encoding::Latin1);
+				m_move.printSAN(msg, protocol::Standard, encoding::Latin1);
 				msg += ' ';
 			}
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1249 $
-// Date   : $Date: 2017-07-06 15:50:24 +0000 (Thu, 06 Jul 2017) $
+// Version: $Revision: 1339 $
+// Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1167,7 +1167,7 @@ MoveNode::dump(unsigned level) const
 		if (n->move())
 		{
 			s.clear();
-			n->move().printSan(s, protocol::Standard, encoding::Latin1);
+			n->move().printSAN(s, protocol::Standard, encoding::Latin1);
 			::printf("%s ", s.c_str());
 		}
 

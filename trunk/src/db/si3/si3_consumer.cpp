@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1080 $
-// Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
+// Version: $Revision: 1339 $
+// Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -344,7 +344,7 @@ Consumer::checkMove(Move const& move)
 	Move m(move);
 
 	board.prepareForPrint(m, variant::Normal, Board::ExternalRepresentation);
-	m.printSan(san, protocol::Standard, m_encoding); // XXX use language dependent pieces if not UTF-8
+	m.printSAN(san, protocol::Standard, m_encoding); // XXX use language dependent pieces if not UTF-8
 	m_strm.put(token::Comment);
 	preparePhrase(comment, Phrase);
 	comment.appendCommonSuffix(": " + san);

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1035 $
-# Date   : $Date: 2015-03-14 18:46:54 +0000 (Sat, 14 Mar 2015) $
+# Version: $Revision: 1339 $
+# Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -63,11 +63,12 @@ proc build {parent} {
 	variable Tables
 
 	set tb $parent.table
-	::gametable::build $tb              \
+	::gametable::build $tb \
 		[namespace code [list View $tb]] \
-		$Columns                         \
-		-useScale 1                      \
-		-layout $Options(layout)         \
+		$Columns \
+		-id db:games \
+		-useScale 1 \
+		-layout $Options(layout) \
 		;
 
 	namespace eval [namespace current]::$tb {}
@@ -211,7 +212,9 @@ proc activate {w flag} {
 	if {[winfo toplevel $w] ne $w} {
 		::toolbar::activate $w $flag
 	}
-#	::gametable::focus $w.table
+	if {$flag} {
+		::gametable::focus $w.table
+	}
 }
 
 
@@ -428,7 +431,7 @@ proc WriteOptions {chan} {
 
 	foreach table $Tables {
 		variable ${table}::Vars
-		puts $chan "::gametable::setOptions $table {"
+		puts $chan "::gametable::setOptions db:games {"
 		::options::writeArray $chan [::gametable::getOptions $table]
 		puts $chan "}"
 	}

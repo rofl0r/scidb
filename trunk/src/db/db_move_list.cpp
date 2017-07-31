@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1240 $
-// Date   : $Date: 2017-07-05 19:04:42 +0000 (Wed, 05 Jul 2017) $
+// Version: $Revision: 1339 $
+// Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -142,7 +142,7 @@ MoveList::print(mstl::string& result, unsigned halfMoveNo, encoding::CharSet enc
 	if (mstl::is_odd(halfMoveNo))
 		result.append("..", 2);
 
-	move.printSan(result, protocol::Scidb, encoding);
+	move.printSAN(result, protocol::Scidb, encoding);
 	++halfMoveNo;
 
 	for (unsigned i = 1; i < m_size; ++i, ++halfMoveNo)
@@ -157,7 +157,7 @@ MoveList::print(mstl::string& result, unsigned halfMoveNo, encoding::CharSet enc
 			result.append('.');
 		}
 
-		move.printSan(result, protocol::Scidb, encoding);
+		move.printSAN(result, protocol::Scidb, encoding);
 	}
 }
 

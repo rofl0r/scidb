@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 648 $
-// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
+// Version: $Revision: 1339 $
+// Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -46,6 +46,8 @@ int convertTags(	::db::TagSet& tags,
 
 ::db::variant::Type variantFromObj(Tcl_Obj* obj);
 ::db::variant::Type variantFromObj(unsigned objc, Tcl_Obj* const objv[], unsigned index);
+::db::move::Notation notationFromObj(Tcl_Obj* obj);
+::db::move::Notation notationFromObj(unsigned objc, Tcl_Obj* const objv[], unsigned index);
 Tcl_Obj* objFromVariant(::db::variant::Type variant);
 
 } // namespace game

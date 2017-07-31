@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 1339 $
+// Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -45,7 +45,7 @@ public:
 	void setup(char const* fen);
 	void setup();
 
-	void doMove(Move& move, unsigned pieceNum);
+	bool doMove(Move& move, unsigned pieceNum);
 	void undoMove(Move const& move);
 	void push();
 	void pop();

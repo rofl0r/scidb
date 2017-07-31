@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 961 $
-// Date   : $Date: 2013-10-06 08:30:53 +0000 (Sun, 06 Oct 2013) $
+// Version: $Revision: 1339 $
+// Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -95,6 +95,11 @@ public:
 
 	void close() override;
 
+	unsigned doDecoding(	GameInfo const& info,
+								uint16_t* line,
+								unsigned length,
+								Board& startBoard,
+								bool useStartBoard) override;
 	void doDecoding(GameData& data, GameInfo& info, unsigned gameIndex, mstl::string*) override;
 	save::State doDecoding(	Consumer& consumer,
 									TagSet& tags,
@@ -140,7 +145,7 @@ private:
 	typedef mstl::fixed_size_allocator<db::MoveNode>	MoveNodeAllocator;
 
 	void startDecoding(	util::ByteStream& gameStream,
-								util::ByteStream& annotationStream,
+								util::ByteStream* annotationStream,
 								GameInfo const& info,
 								bool& isChess960);
 	void decodeIndex(util::ByteStream& strm, GameInfo& info);

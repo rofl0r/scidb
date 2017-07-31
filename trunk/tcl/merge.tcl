@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1275 $
-# Date   : $Date: 2017-07-09 09:37:53 +0000 (Sun, 09 Jul 2017) $
+# Version: $Revision: 1339 $
+# Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -128,6 +128,7 @@ proc openDialog {parent primary secondary} {
 		set table [::gametable::build $tb       \
 			[namespace code View]                \
 			$columns                             \
+			-id game:merge                       \
 			-mode merge                          \
 			-sortable 0                          \
 			-useScale 0                          \

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 985 $
-// Date   : $Date: 2013-10-29 14:52:42 +0000 (Tue, 29 Oct 2013) $
+// Version: $Revision: 1339 $
+// Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -25,6 +25,11 @@ namespace bf {
 template <typename T> unsigned count_bits(T x);
 template <typename T> unsigned msb_index(T x);
 template <typename T> unsigned lsb_index(T x);
+
+template <typename T> constexpr bool more_than_one(T x);
+template <typename T> constexpr bool at_most_one(T x);
+template <typename T> constexpr bool exactly_one(T x);
+
 template <typename T> T reverse(T x);
 template <typename T> T rotate_left(T x, unsigned shift);
 template <typename T> T rotate_right(T x, unsigned shift);
