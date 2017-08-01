@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1337 $
-# Date   : $Date: 2017-07-29 15:05:13 +0000 (Sat, 29 Jul 2017) $
+# Version: $Revision: 1344 $
+# Date   : $Date: 2017-08-01 17:01:22 +0000 (Tue, 01 Aug 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -499,7 +499,8 @@ proc activeTab {} {
 
 proc exists? {uid} {
 	variable Vars
-	return [info exists Vars(frame:$uid)] && [winfo exists $Vars(frame:$uid)]
+	if {![info exists Vars(frame:$uid)]} { return false }
+	return [winfo exists $Vars(frame:$uid)]
 }
 
 
