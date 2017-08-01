@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1339 $
-// Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
+// Version: $Revision: 1340 $
+// Date   : $Date: 2017-08-01 09:41:03 +0000 (Tue, 01 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -42,6 +42,7 @@ inline bool Database::hasTemporaryStorage() const			{ return m_temporary; }
 inline bool Database::descriptionHasChanged() const		{ return m_descriptionHasChanged; }
 inline bool Database::isAdded(unsigned index) const		{ return index >= m_initialSize; }
 inline bool Database::isUnsaved() const						{ return m_size < m_gameInfoList.size(); }
+inline bool Database::usingAsyncTreeSearchReader() const	{ return m_asyncReader; }
 
 inline unsigned Database::id() const							{ return m_id; }
 inline unsigned Database::countGames() const					{ return m_gameInfoList.size(); }
@@ -78,16 +79,7 @@ inline
 bool
 Database::usingAsyncReader() const
 {
-	static_assert(thread::LAST == 2, "number of threads has changed");
-	return m_asyncReader[0] || m_asyncReader[1];
-}
-
-
-inline
-bool
-Database::usingAsyncReader(thread::Type thread) const
-{
-	return m_asyncReader[thread];
+	return isOpen() && (bool(m_asyncReader) || m_codec->usingAsyncReader());
 }
 
 

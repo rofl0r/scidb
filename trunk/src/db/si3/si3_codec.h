@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1339 $
-// Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
+// Version: $Revision: 1340 $
+// Date   : $Date: 2017-08-01 09:41:03 +0000 (Tue, 01 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -72,6 +72,7 @@ public:
 
 	bool isWritable() const override;
 	bool encodingFailed() const override;
+	bool usingAsyncReader() const override;
 	bool isFormat3() const;
 	bool isFormat4() const;
 
@@ -133,7 +134,8 @@ public:
 									util::ByteStream& strm,
 									TagSet& tags) override;
 	void doDecoding(GameData& data, GameInfo& info, unsigned gameIndex, mstl::string* encoding) override;
-	unsigned doDecoding(	GameInfo const& info,
+	unsigned doDecoding(	::util::BlockFileReader* asyncReader,
+								GameInfo const& info,
 								uint16_t* line,
 								unsigned length,
 								Board& startBoard,

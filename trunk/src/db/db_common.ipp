@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1252 $
-// Date   : $Date: 2017-07-07 09:52:56 +0000 (Fri, 07 Jul 2017) $
+// Version: $Revision: 1340 $
+// Date   : $Date: 2017-08-01 09:41:03 +0000 (Tue, 01 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -617,6 +617,7 @@ namespace format {
 
 inline bool isScidFormat(Type type)			{ return type & (Scid3 | Scid4); }
 inline bool isChessBaseFormat(Type type)	{ return type & (ChessBase | ChessBaseDOS); }
+inline bool isWritable(Type type)			{ return type & (Scidb | Scid3 | Scid4); }
 
 } // namespace format
 

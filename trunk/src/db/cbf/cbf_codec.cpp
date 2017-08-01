@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1339 $
-// Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
+// Version: $Revision: 1340 $
+// Date   : $Date: 2017-08-01 09:41:03 +0000 (Tue, 01 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -737,10 +737,13 @@ Codec::prepareDecoding(GameInfo const& info, unsigned gameIndex, ByteStream& str
 
 	Byte* hdr = strm.base();
 
-	if (!m_gameStream.seekg(info.gameOffset(), mstl::ios_base::beg))
+	if (!m_gameStream.seek_and_read(	info.gameOffset(),
+												mstl::ios_base::beg,
+												hdr,
+												m_recordLengths[gameIndex]))
+	{
 		IO_RAISE(Game, Corrupted, "unexpected end of file");
-	if (!m_gameStream.read(hdr, m_recordLengths[gameIndex]))
-		IO_RAISE(Game, Corrupted, "unexpected end of file");
+	}
 
 	::xorBuffer(hdr, 14, 101);
 	hdr[11] ^= 0x0e + (hdr[4] & 0x3f) + (hdr[5] & 0x3f);
@@ -754,7 +757,8 @@ Codec::prepareDecoding(GameInfo const& info, unsigned gameIndex, ByteStream& str
 
 
 unsigned
-Codec::doDecoding(GameInfo const&,
+Codec::doDecoding(::util::BlockFileReader* reader, // not used
+						GameInfo const&,
 						uint16_t* line,
 						unsigned length,
 						Board& startBoard,

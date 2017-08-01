@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1339 $
-// Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
+// Version: $Revision: 1340 $
+// Date   : $Date: 2017-08-01 09:41:03 +0000 (Tue, 01 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1051,6 +1051,7 @@ namespace format
 
 	bool isScidFormat(Type type);
 	bool isChessBaseFormat(Type type);
+	bool isWritable(Type type);
 }
 
 namespace encoding

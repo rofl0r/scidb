@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1339 $
-// Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
+// Version: $Revision: 1340 $
+// Date   : $Date: 2017-08-01 09:41:03 +0000 (Tue, 01 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -30,6 +30,8 @@
 #include "db_database_codec.h"
 #include "db_move_node.h"
 #include "db_date.h"
+
+#include "sys_mutex.h"
 
 #include "nsUniversalDetector.h"
 
@@ -95,7 +97,8 @@ public:
 
 	void close() override;
 
-	unsigned doDecoding(	GameInfo const& info,
+	unsigned doDecoding(	::util::BlockFileReader* reader,
+								GameInfo const& info,
 								uint16_t* line,
 								unsigned length,
 								Board& startBoard,
@@ -212,6 +215,7 @@ private:
 	unsigned				m_numGames;
 	bool					m_highQuality;
 	MoveNodeAllocator	m_moveNodeAllocator;
+	sys::Mutex			m_mutex;
 };
 
 } // namespace cbh

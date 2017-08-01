@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1005 $
-// Date   : $Date: 2014-09-27 09:21:29 +0000 (Sat, 27 Sep 2014) $
+// Version: $Revision: 1340 $
+// Date   : $Date: 2017-08-01 09:41:03 +0000 (Tue, 01 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -446,7 +446,7 @@ BlockFile::sync()
 				fileOffset(m_view.m_buffer.m_number),
 				m_view.m_buffer.m_data,
 				m_view.m_buffer.m_size).fail(),
-			0))
+				0))
 	{
 		return false;
 	}
