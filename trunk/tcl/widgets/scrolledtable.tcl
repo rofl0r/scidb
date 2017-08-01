@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1339 $
-# Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
+# Version: $Revision: 1345 $
+# Date   : $Date: 2017-08-01 17:21:40 +0000 (Tue, 01 Aug 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -832,9 +832,9 @@ proc TableToggleButton {table number} {
 }
 
 
-proc TableInvoked {table number} {
+proc TableInvoked {table shiftIsHeldDown} {
 	variable ${table}::Vars
-	event generate [winfo parent [winfo parent $table]] <<TableInvoked>> -data $Vars(selection)
+	event generate [winfo parent [winfo parent $table]] <<TableInvoked>> -data $shiftIsHeldDown
 }
 
 
