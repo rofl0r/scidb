@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1344 $
-# Date   : $Date: 2017-08-01 17:01:22 +0000 (Tue, 01 Aug 2017) $
+# Version: $Revision: 1348 $
+# Date   : $Date: 2017-08-01 18:03:29 +0000 (Tue, 01 Aug 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1671,6 +1671,10 @@ proc PopupMenu {table x y X Y} {
 				if {$entry ni $groups} { lappend groups $entry }
 				lappend groupmember($g) $cid
 				lappend ignore {*}$Vars(associated:$cid)
+			} else {
+				lappend groupmember() $cid
+				set entry [list 1 ""]
+				if {$entry ni $groups} { lappend groups $entry }
 			}
 		}
 	}
