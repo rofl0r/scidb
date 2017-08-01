@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author: gcramer $
-// Version: $Revision: 1339 $
-// Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
+// Version: $Revision: 1341 $
+// Date   : $Date: 2017-08-01 14:21:38 +0000 (Tue, 01 Aug 2017) $
 // Url    : $HeadURL: https://svn.code.sf.net/p/scidb/code/trunk/src/sys/sys_mutex.ipp $
 // ======================================================================
 
@@ -18,17 +18,21 @@
 
 namespace sys {
 
+inline bool Mutex::isLocked() const { return m_isLocked; }
+
 #ifdef __WIN32__
 
-inline Mutex::Mutex()			{ InitializeCriticalSection(&m_lock); }
-inline void Mutex::lock()		{ EnterCriticalSection(&m_lock); }
-inline void Mutex::release()	{ LeaveCriticalSection(&m_lock); }
+inline Mutex::Mutex() :m_isLocked(false) { InitializeCriticalSection(&m_lock); }
+
+inline void Mutex::lock()		{ EnterCriticalSection(&m_lock); m_isLocked = true; }
+inline void Mutex::release()	{ m_isLocked = false; LeaveCriticalSection(&m_lock); }
 
 #else // !__WIN32__
 
-inline Mutex::Mutex()			{ pthread_mutex_init(&m_lock, 0); }
-inline void Mutex::lock()		{ pthread_mutex_lock(&m_lock); }
-inline void Mutex::release()	{ pthread_mutex_unlock(&m_lock); }
+inline Mutex::Mutex() :m_isLocked(false) { pthread_mutex_init(&m_lock, 0); }
+
+inline void Mutex::lock()		{ pthread_mutex_lock(&m_lock); m_isLocked = true; }
+inline void Mutex::release()	{ m_isLocked = false; pthread_mutex_unlock(&m_lock); }
 
 #endif // __WIN32__
 

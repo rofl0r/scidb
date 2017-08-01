@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1340 $
-// Date   : $Date: 2017-08-01 09:41:03 +0000 (Tue, 01 Aug 2017) $
+// Version: $Revision: 1341 $
+// Date   : $Date: 2017-08-01 14:21:38 +0000 (Tue, 01 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -113,7 +113,16 @@ struct TreeAdmin::Runnable
 
 
 TreeAdmin::TreeAdmin() :m_runnable(0) {}
-TreeAdmin::~TreeAdmin() { delete m_runnable; }
+
+
+TreeAdmin::~TreeAdmin()
+{
+	if (m_runnable)
+	{
+		stop();
+		delete m_runnable;
+	}
+}
 
 
 bool

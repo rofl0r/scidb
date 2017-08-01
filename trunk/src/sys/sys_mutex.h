@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author: gcramer $
-// Version: $Revision: 1339 $
-// Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
+// Version: $Revision: 1341 $
+// Date   : $Date: 2017-08-01 14:21:38 +0000 (Tue, 01 Aug 2017) $
 // Url    : $HeadURL: https://svn.code.sf.net/p/scidb/code/trunk/src/sys/sys_mutex.h $
 // ======================================================================
 
@@ -33,6 +33,8 @@ public:
 
 	Mutex();
 
+	bool isLocked() const;
+
 	void lock();
 	void release();
 
@@ -44,7 +46,8 @@ private:
 	typedef pthread_mutex_t mutex_t;
 #endif
 
-	mutex_t m_lock;
+	mutex_t	m_lock;
+	bool		m_isLocked;
 };
 
 } // namespace sys

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author: gcramer $
-// Version: $Revision: 1339 $
-// Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
+// Version: $Revision: 1341 $
+// Date   : $Date: 2017-08-01 14:21:38 +0000 (Tue, 01 Aug 2017) $
 // Url    : $HeadURL: https://svn.code.sf.net/p/scidb/code/trunk/src/mstl/m_range.ipp $
 // ======================================================================
 
@@ -63,6 +63,10 @@ template <typename T> inline bool range<T>::unit() const		{ return m_left + 1 ==
 
 template <typename T>
 inline bool range<T>::contains(value_type i) const	{ return m_left <= i && i < m_right; }
+
+template <typename T>
+inline bool range<T>::contains(range const& r) const
+{ return m_left <= r.m_left && r.m_right <= m_right; }
 
 template <typename T> inline T range<T>::size() const		{ return m_right - m_left; }
 template <typename T> inline T range<T>::left() const		{ return m_left; }
@@ -236,15 +240,19 @@ inline
 range<T>&
 range<T>::operator-=(range const& r)
 {
-	value_type left	= mstl::max(m_left, r.m_left);
-	value_type right	= mstl::min(m_right, r.m_right);
-
-	if (left < right)
+	if (r.contains(*this))
 	{
+		clear();
+	}
+	else if (!contains(r) && intersects(r))
+	{
+		value_type left	= mstl::max(m_left, r.m_left);
+		value_type right	= mstl::min(m_right, r.m_right);
+
 		if (left == r.m_left)
-			m_right = right;
-		else if (right == r.m_right)
-			m_left = left;
+			m_right = left;
+		if (right == r.m_right)
+			m_left = right;
 	}
 
 	return *this;

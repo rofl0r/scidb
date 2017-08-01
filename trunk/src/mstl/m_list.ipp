@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1045 $
-// Date   : $Date: 2015-03-17 12:16:27 +0000 (Tue, 17 Mar 2015) $
+// Version: $Revision: 1341 $
+// Date   : $Date: 2017-08-01 14:21:38 +0000 (Tue, 01 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -429,6 +429,36 @@ list<T>::pop_back()
 {
 	M_REQUIRE(!empty());
 	erase(m_node.m_prev);
+}
+
+
+template <typename T>
+inline
+void
+list<T>::push_front(const_reference v)
+{
+	create_node(v)->hook(m_node.m_next);
+}
+
+
+template <typename T>
+inline
+typename list<T>::reference
+list<T>::push_front()
+{
+	node* p = create_node(T());
+	p->hook(m_node.m_next);
+	return p->m_data;
+}
+
+
+template <typename T>
+inline
+void
+list<T>::pop_front()
+{
+	M_REQUIRE(!empty());
+	erase(m_node.m_next);
 }
 
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author: gcramer $
-// Version: $Revision: 1339 $
-// Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
+// Version: $Revision: 1341 $
+// Date   : $Date: 2017-08-01 14:21:38 +0000 (Tue, 01 Aug 2017) $
 // Url    : $HeadURL: https://svn.code.sf.net/p/scidb/code/trunk/src/mstl/m_range.h $
 // ======================================================================
 
@@ -67,6 +67,7 @@ public:
 
 	bool empty() const;
 	bool unit() const;
+	bool contains(range const& r) const;
 	bool contains(value_type i) const;
 
 	bool disjoint(range const& r) const;

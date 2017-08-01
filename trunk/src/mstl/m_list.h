@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1045 $
-// Date   : $Date: 2015-03-17 12:16:27 +0000 (Tue, 17 Mar 2015) $
+// Version: $Revision: 1341 $
+// Date   : $Date: 2017-08-01 14:21:38 +0000 (Tue, 01 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -157,6 +157,10 @@ public:
 	reverse_iterator rend();
 	const_reverse_iterator rbegin() const;
 	const_reverse_iterator rend() const;
+
+	void push_front(const_reference v);
+	reference push_front();
+	void pop_front();
 
 	void push_back(const_reference v);
 	reference push_back();

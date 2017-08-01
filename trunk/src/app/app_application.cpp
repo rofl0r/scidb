@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1339 $
-// Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
+// Version: $Revision: 1341 $
+// Date   : $Date: 2017-08-01 14:21:38 +0000 (Tue, 01 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -3612,8 +3612,6 @@ Application::retrieveMoveList(sys::Thread& thread,
 	M_REQUIRE(rangeOfGames.right() <= cursor.view(view).count(table::Games));
 
 	MoveListThread& moveListThread = static_cast<MoveListThread&>(thread);
-
-	moveListThread.signal(Thread::Stop);
 	moveListThread.retrieve(cursor, view, length, fen, notation, rangeOfView, rangeOfGames, progress);
 }
 
