@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1287 $
-// Date   : $Date: 2017-07-12 18:12:06 +0000 (Wed, 12 Jul 2017) $
+// Version: $Revision: 1343 $
+// Date   : $Date: 2017-08-01 14:47:19 +0000 (Tue, 01 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1236,7 +1236,7 @@ tcl::init(Tcl_Interp* ti)
 	tcl::incrRef(::m_errMessage = tcl::newObj("scidb::intern::errmsg"));
 	tcl::incrRef(::m_errResult = tcl::newObj("scidb::intern::errresult"));
 
-	Tcl_ObjSetVar2(ti, m_blocked, nullptr, m_value[1], TCL_GLOBAL_ONLY);
+	Tcl_ObjSetVar2(ti, m_blocked, nullptr, m_value[0], TCL_GLOBAL_ONLY);
 	Tcl_ObjSetVar2(ti, m_postponed, nullptr, m_value[0], TCL_GLOBAL_ONLY);
 	Tcl_ObjSetVar2(ti, m_loopLevel, nullptr, m_value[0], TCL_GLOBAL_ONLY);
 	Tcl_ObjSetVar2(ti, m_errMessage, nullptr, tcl::newObj(), TCL_GLOBAL_ONLY);
