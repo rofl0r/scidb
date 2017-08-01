@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1339 $
-# Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
+# Version: $Revision: 1347 $
+# Date   : $Date: 2017-08-01 17:37:14 +0000 (Tue, 01 Aug 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -584,6 +584,7 @@ proc TableVisit {table data} {
 	variable ${table}::Vars
 
 	lassign $data base variant mode id row
+	if {[string length $base] == 0} { return }
 
 	if {$mode eq "leave"} {
 		::tooltip::hide true

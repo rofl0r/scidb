@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1062 $
-# Date   : $Date: 2015-04-09 09:47:59 +0000 (Thu, 09 Apr 2015) $
+# Version: $Revision: 1347 $
+# Date   : $Date: 2017-08-01 17:37:14 +0000 (Tue, 01 Aug 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -732,6 +732,7 @@ proc TableVisit {path data} {
 	variable Options
 
 	lassign $data base variant mode id row
+	if {[string length $base] == 0} { return }
 	set table $path.table
 
 	if {$mode eq "leave"} {

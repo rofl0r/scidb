@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1341 $
-# Date   : $Date: 2017-08-01 14:21:38 +0000 (Tue, 01 Aug 2017) $
+# Version: $Revision: 1347 $
+# Date   : $Date: 2017-08-01 17:37:14 +0000 (Tue, 01 Aug 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1562,6 +1562,7 @@ proc TableVisit {table data} {
 	variable ratings
 
 	lassign $data base variant mode id row
+	if {[string length $base] == 0} { return }
 	if {$row == -1} { return }
 	set codec [::scidb::db::get codec $base $variant]
 
