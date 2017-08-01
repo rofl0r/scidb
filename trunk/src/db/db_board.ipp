@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1339 $
-// Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
+// Version: $Revision: 1346 $
+// Date   : $Date: 2017-08-01 17:27:55 +0000 (Tue, 01 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -166,7 +166,7 @@ uint64_t
 Board::checkers(color::ID color) const
 {
 	M_ASSERT(m_ksq[color] != sq::Null);
-	return isAttackedBy(~color, m_ksq[color]);
+	return isAttackedBy(color ^ 1, m_ksq[color]);
 }
 
 
