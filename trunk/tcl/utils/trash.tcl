@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 861 $
-# Date   : $Date: 2013-06-27 19:31:01 +0000 (Thu, 27 Jun 2013) $
+# Version: $Revision: 1357 $
+# Date   : $Date: 2017-08-02 19:25:44 +0000 (Wed, 02 Aug 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -27,7 +27,7 @@ switch [tk windowingsystem] {
 
 		proc isTrash? {path} {
 			set dir [directory]
-			if {[string length $dir] == 0} { return }
+			if {[string length $dir] == 0} { return 0 }
 			return [string match ${dir}* $path]
 		}
 
