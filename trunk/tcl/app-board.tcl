@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1323 $
-# Date   : $Date: 2017-07-28 12:33:05 +0000 (Fri, 28 Jul 2017) $
+# Version: $Revision: 1355 $
+# Date   : $Date: 2017-08-02 16:28:09 +0000 (Wed, 02 Aug 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1059,7 +1059,7 @@ proc PopupMenu {w} {
 	$m add checkbutton \
 		-label $::board::options::mc::ShowCoordinates \
 		-variable ::board::layout(coordinates) \
-		-command [namespace code Apply] \
+		-command [namespace code Redraw] \
 		;
 	::theme::configureCheckEntry $m
 	$m add checkbutton \
