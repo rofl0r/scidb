@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1080 $
-# Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
+# Version: $Revision: 1351 $
+# Date   : $Date: 2017-08-02 12:05:23 +0000 (Wed, 02 Aug 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -288,6 +288,7 @@ proc checkForUpdate {informProc} {
 		if {[string is integer -strict $port]} { ::http::config -proxyhost $host -proxyport $port }
 	}
 	::http::config -urlencoding utf-8
+   # XXX server does not exist anymore
 	catch {
 		::http::geturl http://scidb-player-photos.googlecode.com/svn/trunk/TIMESTAMP \
 			-binary 1 \

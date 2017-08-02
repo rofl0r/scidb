@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1350 $
-// Date   : $Date: 2017-08-02 10:42:46 +0000 (Wed, 02 Aug 2017) $
+// Version: $Revision: 1351 $
+// Date   : $Date: 2017-08-02 12:05:23 +0000 (Wed, 02 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -281,8 +281,10 @@ void
 Decoder::handleInvalidMove(Byte value)
 {
 	// Scid (at least older versions of Scid) has a bug when parsing PGN files:
-	// a move like "b1" will be decoded in something like "bxc1=N", instead into
-	// the valid move "b1=Q". We try to fix this case.
+	// a move like "b1" will be encoded in something like "bxc1=N", instead into
+	// the valid move "b1=Q". We try to fix this case. But note that this may lead
+	// to succeeding illegal moves, so it's not sure that this fix helps to decode
+	// the complete game.
 
 	if (	m_move.moved() == piece::Pawn
 		&& sq::rank(m_move.from()) == (m_position.blackToMove() ? sq::Rank2 : sq::Rank7))

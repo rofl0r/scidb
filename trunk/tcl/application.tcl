@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1344 $
-# Date   : $Date: 2017-08-01 17:01:22 +0000 (Tue, 01 Aug 2017) $
+# Version: $Revision: 1351 $
+# Date   : $Date: 2017-08-02 12:05:23 +0000 (Wed, 02 Aug 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1135,7 +1135,7 @@ proc Startup {main args} {
 
 	after idle [namespace code [list switchTab $tab]]
 	after idle [list ::beta::welcomeToScidb $app]
-	::util::photos::checkForUpdate [namespace current]::InformAboutUpdates
+	#::util::photos::checkForUpdate [namespace current]::InformAboutUpdates
 }
 
 
