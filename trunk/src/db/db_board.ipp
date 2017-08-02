@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1346 $
-// Date   : $Date: 2017-08-01 17:27:55 +0000 (Tue, 01 Aug 2017) $
+// Version: $Revision: 1358 $
+// Date   : $Date: 2017-08-02 20:54:21 +0000 (Wed, 02 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -508,6 +508,8 @@ inline
 void
 Board::filterCheckMoves(Move move, uint64_t& movers, variant::Type variant, unsigned state) const
 {
+	M_ASSERT(!variant::isAntichessExceptLosers(variant));
+
 	if (state & Checkmate)
 		filterCheckmateMoves(move, movers, variant);
 	else

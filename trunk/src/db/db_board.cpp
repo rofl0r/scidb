@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1339 $
-// Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
+// Version: $Revision: 1358 $
+// Date   : $Date: 2017-08-02 20:54:21 +0000 (Wed, 02 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1520,7 +1520,8 @@ Board::prepareForPrint(Move& move, variant::Type variant, Representation represe
 											 & m_occupiedBy[m_stm]
 											 & set1Bit(from);
 
-						filterCheckMoves(move, movers, variant, state);
+						if (!variant::isAntichessExceptLosers(variant))
+							filterCheckMoves(move, movers, variant, state);
 
 						if (movers == 0)
 							move.setDisambiguated();
@@ -1538,11 +1539,18 @@ Board::prepareForPrint(Move& move, variant::Type variant, Representation represe
 
 							if (move.to() == m.to() && move.from() != m.from())
 							{
-								Board peek(*this);
-								peek.doMove(moves[i], variant);
+								if (variant::isAntichessExceptLosers(variant))
+								{
+									count += 1;
+								}
+								else
+								{
+									Board peek(*this);
+									peek.doMove(moves[i], variant);
 
-								if (!peek.sideNotToMoveInCheck())
-									++count;
+									if (!peek.sideNotToMoveInCheck())
+										count += 1;
+								}
 							}
 						}
 
@@ -4015,6 +4023,7 @@ Board::filterCheckMoves(Move move, uint64_t& movers, variant::Type variant) cons
 {
 	typedef mstl::bitfield<uint64_t> BitField;
 
+	M_ASSERT(!variant::isAntichessExceptLosers(variant));
 	M_ASSERT(kingOnBoard());
 
 	BitField squares(movers);
@@ -4038,6 +4047,7 @@ Board::filterCheckmateMoves(Move move, uint64_t& movers, variant::Type variant) 
 {
 	typedef mstl::bitfield<uint64_t> BitField;
 
+	M_ASSERT(!variant::isAntichessExceptLosers(variant));
 	M_ASSERT(kingOnBoard());
 
 	BitField squares(movers);
