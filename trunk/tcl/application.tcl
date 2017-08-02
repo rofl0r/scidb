@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1353 $
-# Date   : $Date: 2017-08-02 15:32:49 +0000 (Wed, 02 Aug 2017) $
+# Version: $Revision: 1354 $
+# Date   : $Date: 2017-08-02 15:54:30 +0000 (Wed, 02 Aug 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1135,8 +1135,7 @@ proc Startup {main args} {
 
 	after idle [namespace code [list switchTab $tab]]
 	after idle [list ::beta::welcomeToScidb $app]
-	# XXX server does not exist anymore.
-	#::util::photos::checkForUpdate [namespace current]::InformAboutUpdates
+	::util::photos::checkForUpdate [namespace current]::InformAboutUpdates
 }
 
 
