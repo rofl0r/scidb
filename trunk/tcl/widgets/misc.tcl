@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1312 $
-# Date   : $Date: 2017-07-26 12:06:24 +0000 (Wed, 26 Jul 2017) $
+# Version: $Revision: 1360 $
+# Date   : $Date: 2017-08-02 20:56:54 +0000 (Wed, 02 Aug 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -582,19 +582,17 @@ proc unbusyCursor {{w {}}} {
 proc busyOperation {cmd} {
 	busyCursor on
 
-	if {[catch {uplevel 1 $cmd} result options]} {
-		busyCursor off
-		array set opts $options
-		return \
-			-code $opts(-code) \
-			-errorinfo $opts(-errorinfo) \
-			-errorcode $opts(-errorcode) \
-			-rethrow 1 \
-			$result
-	}
-
+	set rc [::util::catchException {uplevel 1 $cmd} result options]
 	busyCursor off
-	return $result
+	if {$rc != 1} { return $result }
+	array set opts $options
+	return \
+		-code $opts(-code) \
+		-errorinfo $opts(-errorinfo) \
+		-errorcode $opts(-errorcode) \
+		-rethrow 1 \
+		$result \
+		;
 }
 
 
