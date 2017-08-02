@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1345 $
-# Date   : $Date: 2017-08-01 17:21:40 +0000 (Tue, 01 Aug 2017) $
+# Version: $Revision: 1349 $
+# Date   : $Date: 2017-08-02 09:50:44 +0000 (Wed, 02 Aug 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -285,6 +285,11 @@ proc variant {path} {
 
 proc tablePath {path} {
 	return [::table::tablePath $path.top.table]
+}
+
+
+proc scrolledtablePath {table} {
+	return [winfo parent [winfo parent $table]]
 }
 
 
@@ -626,9 +631,11 @@ proc activate {path row} {
 	set table $path.top.table
 	variable ${table}::Vars
 
-	if {$row eq "none" || $row == -1 || ($row >= $Vars(start) && $Vars(start) + $Vars(height) > $row)} {
+	if {$row eq "none" || $row == -1} {
 		set Vars(active) $row
-		if {$row ne "none" && $row >= 0} { set row [expr {$row - $Vars(start)}] }
+		::table::activate $table $row true
+	} elseif {$row < $Vars(height)} {
+		set Vars(active) [expr {$row + $Vars(start)}]
 		::table::activate $table $row true
 	}
 }
@@ -980,6 +987,8 @@ proc Scroll {table action args} {
 			TableFill $table
 		}
 	}
+
+	event generate [winfo parent [winfo parent $table]] <<TableScroll>> -data $start
 }
 
 

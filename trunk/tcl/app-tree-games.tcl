@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1339 $
-# Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
+# Version: $Revision: 1349 $
+# Date   : $Date: 2017-08-02 09:50:44 +0000 (Wed, 02 Aug 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -49,6 +49,9 @@ proc build {parent width height} {
 
 	::bind $tb <<TableVisit>>		+[namespace code [list TableVisit $table %d]]
 	::bind $tb <<TablePopdown>>	+[namespace code [list ReleaseButton $table]]
+
+	::bind [::scrolledtable::scrolledtablePath $tb] <<TableScroll>> \
+		+[namespace code [list ::gametable::doSelection $table]]
 
 	::gametable::bind $table <ButtonPress-1>		+[namespace code [list Press1 $table %x %y]]
 	::gametable::bind $table <Button1-Motion>		 [namespace code [list Motion1 $table %x %y]]

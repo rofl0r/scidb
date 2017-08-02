@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1339 $
-# Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
+# Version: $Revision: 1349 $
+# Date   : $Date: 2017-08-02 09:50:44 +0000 (Wed, 02 Aug 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -98,8 +98,8 @@ set Columns {
 	{ bestRating		right		5		 5		 5			0			1			0			{}				}
 	{ averageYear		right		5		 5		 5			0			1			0			{}				}
 	{ lastYear			right		5		 5		 5			0			1			0			{}				}
-	{ bestPlayer		left		6		 0		12			0			1			1			{}				}
-	{ frequentPlayer	left		6		 0		12			0			1			1			{}				}
+	{ bestPlayer		left		6		 0		12			1			1			1			{}				}
+	{ frequentPlayer	left		6		 0		12			1			1			1			{}				}
 }
 
 array set Options {
