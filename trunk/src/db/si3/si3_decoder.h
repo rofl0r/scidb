@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1339 $
-// Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
+// Version: $Revision: 1350 $
+// Date   : $Date: 2017-08-02 10:42:46 +0000 (Wed, 02 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -88,7 +88,7 @@ private:
 	void decodePawn(sq::ID from, Byte nybble);
 
 	void decodeVariation(Consumer& consumer, MoveNode const* node);
-	void handleInvalidMove(Move const& move);
+	void handleInvalidMove(Byte value);
 
 	void Report(char const* charset);
 
