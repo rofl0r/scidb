@@ -1,7 +1,7 @@
 // ======================================================================
 // $RCSfile: tk_image.cpp,v $
-// $Revision: 1365 $
-// $Date: 2017-08-03 11:18:41 +0000 (Thu, 03 Aug 2017) $
+// $Revision: 1371 $
+// $Date: 2017-08-03 22:15:33 +0000 (Thu, 03 Aug 2017) $
 // $Author: gregor $
 // ======================================================================
 
@@ -519,7 +519,7 @@ exportGames(Database& src, Consumer& dst, ::util::Progress& progress, unsigned m
 	progress.setFrequency(mstl::min(minFreq, mstl::max(numGames/1000, 50u)));
 
 	unsigned reportAfter	= progress.frequency();
-	unsigned count			= 0;
+	unsigned count			= minFreq == 1 ? 1 : 0;
 	unsigned countGames	= 0;
 
 	::Log log;
