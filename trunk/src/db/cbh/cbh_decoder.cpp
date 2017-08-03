@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1339 $
-// Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
+// Version: $Revision: 1370 $
+// Date   : $Date: 2017-08-03 19:41:43 +0000 (Thu, 03 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -88,6 +88,14 @@ Decoder::Decoder(ByteStream& gStrm, bool isChess960)
 unsigned
 Decoder::decodeMove(Move& move, unsigned& count, bool skipVariations)
 {
+	// IMPORTANT NOTE:
+	// Every game is ending with a final Token_Pop, but we could found
+	// one game, it's #6'445'759 in MegaBase 2017, which does not end
+	// with this token. This means that we must test whether more bytes
+	// are available.
+	if (m_gStrm.remaining() == 0)
+		return Token_Pop;
+
 	switch (::MoveNumberLookup[Byte(m_gStrm.get() - count)])
 	{
 #define OFFSET(x, y) ((x) + (y)*8)
