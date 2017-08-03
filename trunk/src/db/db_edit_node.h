@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1275 $
-// Date   : $Date: 2017-07-09 09:37:53 +0000 (Sun, 09 Jul 2017) $
+// Version: $Revision: 1361 $
+// Date   : $Date: 2017-08-03 07:31:45 +0000 (Thu, 03 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -356,7 +356,7 @@ public:
 	Move(Work& work, MoveNode const* move, bool isEmptyGame, unsigned varNo, unsigned varCount);
 
 	Move(Key const& key);
-	Move(Spacing& spacing, Key const& key, unsigned moveNumber, MoveNode const* move);
+	Move(Spacing& spacing, Key const& key, unsigned moveNumber, MoveNode const* move, bool isFirstPly);
 
 	~Move();
 
