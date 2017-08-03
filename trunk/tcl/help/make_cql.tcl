@@ -3,8 +3,8 @@
 exec tclsh "$0" "$@"
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 721 $
-# Date   : $Date: 2013-04-20 10:31:46 +0000 (Sat, 20 Apr 2013) $
+# Version: $Revision: 1367 $
+# Date   : $Date: 2017-08-03 13:44:17 +0000 (Thu, 03 Aug 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -40,11 +40,12 @@ foreach type {match position relation} {
 		set htmlfile "CQL-[string toupper $type 0 0]-List.html"
 		set src [open $file r]
 		chan configure $src -encoding utf-8
-		set re "<h3 id=\"$type:(\[a-z*\]*)\">"
+		set re "<h3 id=\"$type:(\[a-z0-9\]*_?)\""
 		while {[gets $src line] >= 0} {
 			if {[regexp $re $line _ keyword]} {
 				set alph [string toupper [string index $keyword 0]]
-				lappend index($alph) [list "$keyword : $type" $htmlfile "$type:$keyword"]
+				set key [string map {_ *} $keyword]
+				lappend index($alph) [list "$key : $type" $htmlfile "$type:$keyword"]
 			}
 		}
 		close $src

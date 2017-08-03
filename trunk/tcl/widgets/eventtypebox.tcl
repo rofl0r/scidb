@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 732 $
-# Date   : $Date: 2013-04-23 12:24:05 +0000 (Tue, 23 Apr 2013) $
+# Version: $Revision: 1367 $
+# Date   : $Date: 2017-08-03 13:44:17 +0000 (Thu, 03 Aug 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -34,7 +34,7 @@ proc eventtypebox {w args} {
 namespace eval eventtypebox {
 namespace eval mc {
 
-set Type(game)		"Game"
+set Type(causal)	"Game"
 set Type(match)	"Match"
 set Type(tourn)	"Roound Robin"
 set Type(swiss)	"Swiss-System Tournament"
@@ -48,7 +48,7 @@ set Type(schev)	"Scheveningen-System Tournament"
 
 namespace import ::tcl::mathfunc::max
 
-variable types {match tourn swiss team k.o. schev simul game}
+variable types {match tourn swiss team k.o. schev simul causal}
 
 
 proc minWidth {} {
@@ -302,7 +302,7 @@ proc ShowIcon {w} {
 namespace eval icon {
 namespace eval 12x12 {
 
-set Type(game)  $::icon::12x12::filetypeScidbBase
+set Type(causal)  $::icon::12x12::filetypeScidbBase
 
 # set Type(match) [image create photo -data {
 # 	iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAIAAADZF8uwAAAACXBIWXMAAA50AAAOdAFrJLPW

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1362 $
-# Date   : $Date: 2017-08-03 10:35:52 +0000 (Thu, 03 Aug 2017) $
+# Version: $Revision: 1367 $
+# Date   : $Date: 2017-08-03 13:44:17 +0000 (Thu, 03 Aug 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -97,6 +97,7 @@ set Top					"Top"
 set Undo					"Undo"
 set Variant				"Variant"
 set Variation			"Variation"
+set Volume				"Volume"
 set White				"White"
 set Yes					"Yes"
 

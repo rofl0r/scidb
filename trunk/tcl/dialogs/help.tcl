@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1028 $
-# Date   : $Date: 2015-03-09 13:07:49 +0000 (Mon, 09 Mar 2015) $
+# Version: $Revision: 1367 $
+# Date   : $Date: 2017-08-03 13:44:17 +0000 (Thu, 03 Aug 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1446,7 +1446,7 @@ proc BuildHtmlFrame {dlg w} {
 		-fittowidth yes \
 		-width $Options(htmlwidth) \
 		-height $Options(htmlheight) \
-		-cursor left_ptr \
+		-cursor standard \
 		-borderwidth 1 \
 		-relief sunken \
 		-doublebuffer yes \
