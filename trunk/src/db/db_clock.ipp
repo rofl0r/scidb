@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 1362 $
+// Date   : $Date: 2017-08-03 10:35:52 +0000 (Thu, 03 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -24,6 +24,8 @@
 // (at your option) any later version.
 // ======================================================================
 
+#include "m_utility.h"
+
 namespace db {
 
 inline Clock::Clock() :m_value(0) {}
@@ -37,9 +39,9 @@ inline uint8_t Clock::second() const	{ return m_second; }
 
 inline
 int
-Clock::compare(Clock const& clock) const
+Clock::compare(Clock const& lhs, Clock const& rhs)
 {
-	return int(m_value) - int(clock.m_value);
+	return mstl::compare(lhs.m_value, rhs.m_value);
 }
 
 
@@ -62,5 +64,16 @@ Clock::setHMS(uint8_t hour, uint8_t minute, uint8_t second)
 }
 
 } // namespace db
+
+namespace mstl {
+
+inline
+int
+compare(::db::Clock const& lhs, ::db::Clock const& rhs)
+{
+	return ::db::Clock::compare(lhs, rhs);
+}
+
+} // namespace mstl
 
 // vi:set ts=3 sw=3:

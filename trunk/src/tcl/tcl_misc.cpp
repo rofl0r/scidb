@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1172 $
-// Date   : $Date: 2017-05-18 09:47:03 +0000 (Thu, 18 May 2017) $
+// Version: $Revision: 1362 $
+// Date   : $Date: 2017-08-03 10:35:52 +0000 (Thu, 03 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -85,6 +85,7 @@ static char const* CmdGeometryRequest		= "::scidb::misc::geometryRequest";
 static char const* CmdHardLinked				= "::scidb::misc::hardLinked?";
 static char const* CmdHtml						= "::scidb::misc::html";
 static char const* CmdIsAscii					= "::scidb::misc::isAscii?";
+static char const* CmdJulianDay				= "::scidb::misc::julianDay";
 static char const* CmdLookup					= "::scidb::misc::lookup";
 static char const* CmdMapCodeToNag			= "::scidb::misc::mapCodeToNag";
 static char const* CmdMapExtension			= "::scidb::misc::mapExtension";
@@ -1733,6 +1734,16 @@ cmdEmoticons(ClientData clientData, Tcl_Interp* ti, int objc, Tcl_Obj* const obj
 }
 
 
+static int
+cmdJulianDay(ClientData clientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
+{
+	sys::time::Time tm;
+	sys::time::localtime(sys::time::time(), tm);
+	setResult(::db::Date::julianDay(tm.year, tm.month, tm.day));
+	return TCL_OK;
+}
+
+
 namespace tcl {
 namespace misc {
 
@@ -1770,6 +1781,7 @@ init(Tcl_Interp* ti)
 	createCommand(ti, CmdSuccPow2,				cmdSuccPow2);
 	createCommand(ti, CmdSuffixes,				cmdSuffixes);
 	createCommand(ti, CmdToAscii,					cmdToAscii);
+	createCommand(ti, CmdJulianDay,				cmdJulianDay);
 	createCommand(ti, CmdUrl,						cmdUrl);
 	createCommand(ti, CmdVersion,					cmdVersion);
 	createCommand(ti, CmdXml,						cmdXml);

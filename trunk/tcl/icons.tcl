@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1339 $
-# Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
+# Version: $Revision: 1362 $
+# Date   : $Date: 2017-08-03 10:35:52 +0000 (Thu, 03 Aug 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -3593,6 +3593,20 @@ namespace eval 16x16 {
 		5xgQZGpk4q8GFuAS1jfzs7SygAqwcQkZmHu6yyno2oG08IqrK+tYe7hIMAmoeIMMFdB0dbIxlhFj
 		ZOeT1GBm40AS4BQEC/BLQ7Uwwt0BMdRNFskdIGt9A4MR7gCKGDo72FsgBEBOV1GEuAPuOTaoOxDe
 		5xEFeR8Ay8kcGq05q2QAAAAASUVORK5CYII=
+	}]
+
+	set postIt [image create photo -data {
+		iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACK0lEQVR4XoWS3WoTXxTFf/vMmclM
+		OkmTWmn9umrFIvQN/IMvoPgEgiCCb/B/BG+98D1qvfKyF96KiBcq1o9U6Udq2iSdJJPJzPY0VAZK
+		iYuzOGvD3mvvszmSdp49Qcw6WCO4I56Ao9OAgAgokCvqSKFKUUCeu/i9DFr/b4LcYxYE0PIuoRvW
+		RDEzoeeMzsGKGP1X91KfBaqlgeYZFyFPCwCykwkn3xK8yGPUHlFbjYmvV/kLo5MMRybJmCLN6G/3
+		SXZO2Ns6oLW5Q9YbUeSZMygYtHukxwOK8bTG3SnWCQFclyH7b46JrvmIgeX/FtjdGuDHyuh3RqUR
+		MtjvEcwLjZUqFJAOk6mBAgQNWLozR8+N69ct31/9oHmrjh9B4+Ycxiq3H62iqiQ/e1SXQpLjTrmD
+		IAYbeu598wAsrsdMhjnd7R7p0Zg8zafFxlPiG1UgoNtpTycAcMnK8CBzyRla6DTZC4XockBzLcIL
+		BBRAML5Perq3bFQaaKbYKCe+GoBwDhM0E8QzeNUqNq6x//kjUS1Gum8fvgTuz/4HgheG2DjG1mqM
+		BkNaH94RxXMbpzsQZkCsxXed/HoddXr36xf67QMiZ+QFFaT1+u4L1fwpIlzk5EUhUglI0zH9w98Y
+		I/guFuNjgui5PH6wYmvN5cWlG2uXKtWFK5Uwbvp+EHrWWhEjAKqF5nk+ycbjdJwmR+mgs9f+9emw
+		2z1qnyXolIAAZspSAyhQlEQBjDH8AfoQCIac+7wZAAAAAElFTkSuQmCC
 	}]
 
 	set layout [image create photo -data {

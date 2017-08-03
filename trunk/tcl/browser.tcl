@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1361 $
-# Date   : $Date: 2017-08-03 07:31:45 +0000 (Thu, 03 Aug 2017) $
+# Version: $Revision: 1362 $
+# Date   : $Date: 2017-08-03 10:35:52 +0000 (Thu, 03 Aug 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1244,9 +1244,6 @@ proc FindKey {w attr} {
 
 proc FindRange {w key position} {
 	if {[::scidb::game::position $position startKey] eq $key} { return {end end} }
-	# XXX [$w tag nextrange m:move "m-0.56"] == [$w tag nextrange m:move "m-0.57"]
-#puts "*** [$w tag nextrange m:move m-0.56] == [$w tag nextrange m:move m-0.57]"
-#puts "$key --> [$w tag nextrange m:move $key]"
 	set range [$w tag nextrange m:move $key]
 	if {[llength $range] == 0} {
 		# should not happen, but who knows?

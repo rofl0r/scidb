@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1339 $
-# Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
+# Version: $Revision: 1362 $
+# Date   : $Date: 2017-08-03 10:35:52 +0000 (Thu, 03 Aug 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -130,9 +130,12 @@
 ::mc::VariantName(Undetermined)	"Undetermined"
 ::mc::VariantName(Normal)			"Normal Chess"
 ::mc::VariantName(Bughouse)		"Bughouse Chess"
-::mc::VariantName(Crazyhouse)		"Crazyhouse Chess"
+::mc::VariantName(DropChess)		"Drop Chess" ;# this is the main term for Crazyhouse and Chessgi
+::mc::VariantName(Crazyhouse)		"Crazyhouse"
+::mc::VariantName(Chessgi)			"Chessgi"
 ::mc::VariantName(ThreeCheck)		"Three-check Chess"
-::mc::VariantName(Antichess)		"Antichess"
+::mc::VariantName(KingOfTheHill)	"King-of-the-Hill"
+::mc::VariantName(Antichess)		"Antichess" ;# this is the main term for Suicide and Giveaway
 ::mc::VariantName(Suicide)			"Suicide"
 ::mc::VariantName(Giveaway)		"Giveaway"
 ::mc::VariantName(Losers)			"Losers"
@@ -252,6 +255,7 @@
 ::menu::mc::Toolbars							"&Toolbars"
 ::menu::mc::ShowLog							"Show &Log"
 ::menu::mc::AboutScidb						"&About Scidb"
+::menu::mc::TipOfTheDay						"Tip of the &Day"
 ::menu::mc::Fullscreen						"&Full-Screen"
 ::menu::mc::LeaveFullscreen				"Leave &Full-Screen"
 ::menu::mc::Help								"&Help"
@@ -390,6 +394,21 @@
 ::util::photos::mc::Log(skipped:N)				"%s files skipped."
 ::util::photos::mc::Log(updated:1)				"%s file updated."
 ::util::photos::mc::Log(updated:N)				"%s files updated."
+
+### tip of the day #####################################################
+::tips::mc::TipOfTheDay				"Tip of the Day"
+::tips::mc::FurtherInformation	"Further information"
+::tips::mc::CouldNotOpenFile		"Could not open file %s."
+::tips::mc::CouldNotFindAnyTip	"Could not find any tip."
+::tips::mc::RepeatAllTips			"Repeat all tips (restart from the beginning)"
+::tips::mc::NextTip					"Next Tip"
+::tips::mc::FirstTip					"<p>The Tip-of-the-Day information serves to a better insight into the functioning of this application. Furthermore it will give useful hints that will help to know what is possible.</p><p color='darkgreen'><b>Have joy with Scidb!</b></p>"
+
+::tips::mc::Choice(everytime)					"Show everytime"
+::tips::mc::Choice(periodically)				"Show periodically"
+::tips::mc::Choice(everytimeWhenNew)		"Show everytime, but only new tips"
+::tips::mc::Choice(periodicallyWhenNew)	"Show periodically, but only new tips"
+::tips::mc::Choice(neverShow)					"Don't show anymore"
 
 ### twm ################################################################
 ::twm::mc::Close				"Close"

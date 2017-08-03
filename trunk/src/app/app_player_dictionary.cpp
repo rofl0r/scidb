@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1130 $
-// Date   : $Date: 2017-01-22 16:12:47 +0000 (Sun, 22 Jan 2017) $
+// Version: $Revision: 1362 $
+// Date   : $Date: 2017-08-03 10:35:52 +0000 (Thu, 03 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -93,13 +93,13 @@ cmpSex(void const* lhs, void const* rhs)
 static int
 cmpDateOfBirth(void const* lhs, void const* rhs)
 {
-	return m_sign*PLAYER(lhs).dateOfBirth().compare(PLAYER(rhs).dateOfBirth());
+	return m_sign*mstl::compare(PLAYER(lhs).dateOfBirth(), PLAYER(rhs).dateOfBirth());
 }
 
 static int
 cmpDateOfDeath(void const* lhs, void const* rhs)
 {
-	return m_sign*PLAYER(lhs).dateOfDeath().compare(PLAYER(rhs).dateOfDeath());
+	return m_sign*mstl::compare(PLAYER(lhs).dateOfDeath(), PLAYER(rhs).dateOfDeath());
 }
 
 static int

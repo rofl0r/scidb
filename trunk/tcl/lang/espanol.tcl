@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1339 $
-# Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
+# Version: $Revision: 1362 $
+# Date   : $Date: 2017-08-03 10:35:52 +0000 (Thu, 03 Aug 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -132,9 +132,12 @@
 ::mc::VariantName(Undetermined)	"Indeterminado"
 ::mc::VariantName(Normal)			"Ajedrez Normal"
 ::mc::VariantName(Bughouse)		"Bughouse" ;# No spanish translation
+::mc::VariantName(DropChess)		"Drop Chess" ;# NEW this is the main term for Crazyhouse and Chessgi
 ::mc::VariantName(Crazyhouse)		"Crazyhouse"
+::mc::VariantName(Chessgi)			"Chessgi"
 ::mc::VariantName(ThreeCheck)		"Three-check" ;# No spanish translation
-::mc::VariantName(Antichess)		"Antichess" ;# No spanish translation
+::mc::VariantName(KingOfTheHill)	"King-of-the-Hill"
+::mc::VariantName(Antichess)		"Antichess" ;# No spanish translation; this is the main term for Suicide and Giveaway
 ::mc::VariantName(Suicide)			"Suicidio"
 ::mc::VariantName(Giveaway)		"Giveaway" ;# No spanish translation
 ::mc::VariantName(Losers)			"Losers" ;# No spanish translation
@@ -254,6 +257,7 @@
 ::menu::mc::Toolbars							"&Barras de herramientas"
 ::menu::mc::ShowLog							"Mostrar &bitácora"
 ::menu::mc::AboutScidb						"A&cerca de Scidb"
+::menu::mc::TipOfTheDay						"Tip of the &Day" ;# NEW
 ::menu::mc::Fullscreen						"&Pantalla completa"
 ::menu::mc::LeaveFullscreen				"Salir de &pantalla completa"
 ::menu::mc::Help								"&Ayuda"
@@ -392,6 +396,21 @@
 ::util::photos::mc::Log(skipped:N)				"%s archivos mantenidos."
 ::util::photos::mc::Log(updated:1)				"%s archivo actualizado."
 ::util::photos::mc::Log(updated:N)				"%s archivos actualizados."
+
+### tip of the day #####################################################
+::tips::mc::TipOfTheDay				"Tip of the Day" ;# NEW
+::tips::mc::FurtherInformation	"Further information" ;# NEW
+::tips::mc::CouldNotOpenFile		"Could not open file %s." ;# NEW
+::tips::mc::CouldNotFindAnyTip	"Could not find any tip." ;# NEW
+::tips::mc::RepeatAllTips			"Repeat all tips (restart from the beginning)" ;# NEW
+::tips::mc::NextTip					"Next Tip" ;# NEW
+::tips::mc::FirstTip					"<p>The Tip-of-the-Day information serves to a better insight into the functioning of this application. Furthermore it will give useful hints that will help to know what is possible.</p><p color='darkgreen'><b>Have joy with Scidb!</b></p>" ;# NEW
+
+::tips::mc::Choice(everytime)					"Show everytime" ;# NEW
+::tips::mc::Choice(periodically)				"Show periodically" ;# NEW
+::tips::mc::Choice(everytimeWhenNew)		"Show everytime, but only new tips" ;# NEW
+::tips::mc::Choice(periodicallyWhenNew)	"Show periodically, but only new tips" ;# NEW
+::tips::mc::Choice(neverShow)					"Don't show anymore" ;# NEW
 
 ### twm ################################################################
 ::twm::mc::Close				"Close" ;# NEW

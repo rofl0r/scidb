@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1114 $
-// Date   : $Date: 2016-11-20 16:06:24 +0000 (Sun, 20 Nov 2016) $
+// Version: $Revision: 1362 $
+// Date   : $Date: 2017-08-03 10:35:52 +0000 (Thu, 03 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -69,7 +69,7 @@ Clock::parse(char const* s)
 {
 	M_REQUIRE(s);
 
-	char* e = 0;
+	char* e = nullptr;
 
 	m_second = m_minute = m_hour = 0;
 
@@ -77,26 +77,36 @@ Clock::parse(char const* s)
 	m_hour = strtoul(s, &e, 10);
 	e = skipSpaces(e);
 
-#if 0 // we need at least hour and minutes
-	if (::isdelim(*e))
-		return e;
-#endif
-
-	if (*e != ':')
-		return 0;
+	if (*e != ':' || m_hour >= 24)
+	{
+		m_hour = 0;
+		return nullptr;
+	}
 
 	e = skipSpaces(e + 1);
 	m_minute = strtoul(s = e, &e, 10);
 	e = skipSpaces(e);
 
+	if (m_minute >= 60)
+	{
+		m_hour = m_minute = 0;
+		return nullptr;
+	}
+
 	if (::isdelim(*e))
 		return e;
 
 	if (*e != ':')
-		return 0;
+		return nullptr;
 
 	e = skipSpaces(e + 1);
 	m_second = strtoul(s = e, &e, 10);
+
+	if (m_second > 60) // take leap second into account
+	{
+		m_hour = m_minute = m_second = 0;
+		return nullptr;
+	}
 
 	return skipSpaces(e);
 }

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 851 $
-// Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
+// Version: $Revision: 1362 $
+// Date   : $Date: 2017-08-03 10:35:52 +0000 (Thu, 03 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -117,7 +117,7 @@ MoveInfo::compare(MoveInfo const& mi) const
 			return 0;
 
 		case CorrespondenceChessSent:
-			if (int cmp = m_time.m_date.compare(mi.m_time.m_date))
+			if (int cmp = mstl::compare(m_time.m_date, mi.m_time.m_date))
 				return cmp;
 			// fallthru
 
@@ -125,7 +125,7 @@ MoveInfo::compare(MoveInfo const& mi) const
 		case ElapsedGameTime:
 		case ElapsedMoveTime:
 		case ClockTime:
-			if (int cmp = m_time.m_clock.compare(mi.m_time.m_clock))
+			if (int cmp = mstl::compare(m_time.m_clock, mi.m_time.m_clock))
 				return cmp;
 			break;
 

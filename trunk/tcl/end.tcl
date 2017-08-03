@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1339 $
-# Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
+# Version: $Revision: 1362 $
+# Date   : $Date: 2017-08-03 10:35:52 +0000 (Thu, 03 Aug 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -45,6 +45,8 @@ proc welcomeToScidb {parent} {
 		set Welcome 1
 	} elseif {$WhatsNew} {
 		::help::open .application Whats-New -center 1
+	} else {
+		::tips::show .application
 	}
 }
 
@@ -373,6 +375,7 @@ set ::scidb::revision [::scidb::misc::revision]
 ::board::setup
 ::tooltip::init
 ::font::setupChessFonts
+#if {$beta::Welcome} { ::html::preload $mc::langID }
 application::open
 
 # vi:set ts=3 sw=3:

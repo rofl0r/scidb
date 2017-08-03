@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1235 $
-# Date   : $Date: 2017-07-03 18:39:01 +0000 (Mon, 03 Jul 2017) $
+# Version: $Revision: 1362 $
+# Date   : $Date: 2017-08-03 10:35:52 +0000 (Thu, 03 Aug 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -114,25 +114,28 @@ set Logical(null)		"Clear"
 set Logical(remove)	"Remove"
 set Logical(not)		"Not"
 
-set LogicalDetail(reset)		"Clear filter / Fill display"
-set LogicalDetail(or)			"Remove from filter / Add to display"
-set LogicalDetail(and)			"Extend filter / Restrict display"
-set LogicalDetail(null)			"Fill filter / Clear display"
-set LogicalDetail(remove)		"Add to filter / Remove from display"
-set LogicalDetail(not)			"Restrict filter / Extent display"
+set LogicalDetail(reset)			"Clear filter / Fill display"
+set LogicalDetail(or)				"Remove from filter / Add to display"
+set LogicalDetail(and)				"Extend filter / Restrict display"
+set LogicalDetail(null)				"Fill filter / Clear display"
+set LogicalDetail(remove)			"Add to filter / Remove from display"
+set LogicalDetail(not)				"Restrict filter / Extent display"
 
-set VariantName(Undetermined)	"Undetermined"
-set VariantName(Normal)			"Normal Chess"
-set VariantName(Bughouse)		"Bughouse Chess"
-set VariantName(Crazyhouse)	"Crazyhouse Chess"
-set VariantName(ThreeCheck)	"Three-check Chess"
-set VariantName(Antichess)		"Antichess"
-set VariantName(Suicide)		"Suicide"
-set VariantName(Giveaway)		"Giveaway"
-set VariantName(Losers)			"Losers"
-set VariantName(Chess960)		"Chess 960"
-set VariantName(Symm960)		"Chess 960 (symmetrical only)"
-set VariantName(Shuffle)		"Shuffle Chess"
+set VariantName(Undetermined)		"Undetermined"
+set VariantName(Normal)				"Normal Chess"
+set VariantName(Bughouse)			"Bughouse Chess"
+set VariantName(DropChess)			"Drop Chess"
+set VariantName(Crazyhouse)		"Crazyhouse"
+set VariantName(Chessgi)			"Chessgi"
+set VariantName(ThreeCheck)		"Three-check Chess"
+set VariantName(KingOfTheHill)	"King-of-the-Hill"
+set VariantName(Antichess)			"Antichess"
+set VariantName(Suicide)			"Suicide"
+set VariantName(Giveaway)			"Giveaway"
+set VariantName(Losers)				"Losers"
+set VariantName(Chess960)			"Chess 960"
+set VariantName(Symm960)			"Chess 960 (symmetrical only)"
+set VariantName(Shuffle)			"Shuffle Chess"
 
 set NotAvailableSign "\u2298"
 #set NotAvailableSign "\u2370" ;# not available on some systems
