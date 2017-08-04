@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1338 $
-// Date   : $Date: 2017-07-30 07:41:34 +0000 (Sun, 30 Jul 2017) $
+// Version: $Revision: 1374 $
+// Date   : $Date: 2017-08-04 19:02:20 +0000 (Fri, 04 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -716,9 +716,6 @@ bool operator<=(Size const& lhs, Size const& rhs)
 bool operator<(Size const& lhs, Size const& rhs)
 { return lhs.width < rhs.width && lhs.height < rhs.height; }
 
-bool operator!=(Size const& lhs, Size const& rhs) { return !operator==(lhs, rhs); }
-bool operator>=(Size const& lhs, Size const& rhs) { return !operator< (lhs, rhs); }
-bool operator> (Size const& lhs, Size const& rhs) { return !operator<=(lhs, rhs); }
 
 
 typedef mstl::map<mstl::string,Size> SizeMap;
