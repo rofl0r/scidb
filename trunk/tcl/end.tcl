@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1362 $
-# Date   : $Date: 2017-08-03 10:35:52 +0000 (Thu, 03 Aug 2017) $
+# Version: $Revision: 1372 $
+# Date   : $Date: 2017-08-04 17:56:11 +0000 (Fri, 04 Aug 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -139,6 +139,8 @@ set dialog::choosefont::iconApply	$icon::iconApply
 set dialog::choosefont::iconReset	$icon::iconReset
 
 set dialog::progressbar::icon::16x16::stop $::icon::16x16::stop
+
+proc searchentry::makeStateSpecificIcons {img} { return [::icon::makeStateSpecificIcons $img] }
 
 set tk::ShadowOffset $::shadow::offset
 

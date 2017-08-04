@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1351 $
-// Date   : $Date: 2017-08-02 12:05:23 +0000 (Wed, 02 Aug 2017) $
+// Version: $Revision: 1372 $
+// Date   : $Date: 2017-08-04 17:56:11 +0000 (Fri, 04 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1017,8 +1017,8 @@ Decoder::doDecoding(db::Consumer& consumer, TagSet& tags)
 	decodeVariation(consumer, &start);
 	consumer.finishMoveSection(result::fromString(tags.value(tag::Result)));
 
-	if (m_codec->failed())
-		m_givenCodec->setFailed();
+	m_givenCodec->setError(m_codec->error());
+	m_givenCodec->setUnknown(m_codec->unknown());
 
 	return consumer.finishGame(tags);
 }
@@ -1070,8 +1070,8 @@ Decoder::doDecoding(GameData& data)
 	decodeComments(data.m_startNode);
 	data.m_engines.swap(m_engines);
 
-	if (m_codec->failed())
-		m_givenCodec->setFailed();
+	m_givenCodec->setError(m_codec->error());
+	m_givenCodec->setUnknown(m_codec->unknown());
 
 	return m_position.board().plyNumber() - plyNumber;
 }

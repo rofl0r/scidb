@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1069 $
-// Date   : $Date: 2015-05-05 17:11:23 +0000 (Tue, 05 May 2015) $
+// Version: $Revision: 1372 $
+// Date   : $Date: 2017-08-04 17:56:11 +0000 (Fri, 04 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -261,10 +261,10 @@ Namebase::player(unsigned index)
 
 inline
 void
-Namebase::ref(Entry* entry)
+Namebase::incrRef(Entry* entry)
 {
 	m_isConsistent = false;	// XXX possibly superfluous, force update after changes
-	entry->ref();
+	entry->incrRef();
 }
 
 

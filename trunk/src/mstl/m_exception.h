@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1213 $
-// Date   : $Date: 2017-06-24 13:30:42 +0000 (Sat, 24 Jun 2017) $
+// Version: $Revision: 1372 $
+// Date   : $Date: 2017-08-04 17:56:11 +0000 (Fri, 04 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -87,6 +87,7 @@ public:
 #endif
 
 	string const& report() const;
+	::mstl::backtrace& backtrace();
 	::mstl::backtrace const& backtrace() const;
 
 protected:

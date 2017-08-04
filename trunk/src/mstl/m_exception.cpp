@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1213 $
-// Date   : $Date: 2017-06-24 13:30:42 +0000 (Sat, 24 Jun 2017) $
+// Version: $Revision: 1372 $
+// Date   : $Date: 2017-08-04 17:56:11 +0000 (Fri, 04 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -112,6 +112,7 @@ exception::exception(char const* fmt, ...)
 
 
 exception::~exception() throw() { delete m_report; }
+backtrace& exception::backtrace() { return m_backtrace; }
 backtrace const& exception::backtrace() const { return m_backtrace; }
 string const& exception::report() const { return *m_report; }
 void exception::set_report(string const& report) { m_report->assign(report); }

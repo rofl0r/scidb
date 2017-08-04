@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1340 $
-// Date   : $Date: 2017-08-01 09:41:03 +0000 (Tue, 01 Aug 2017) $
+// Version: $Revision: 1372 $
+// Date   : $Date: 2017-08-04 17:56:11 +0000 (Fri, 04 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -869,7 +869,10 @@ Database::loadGame(unsigned index, Game& game, mstl::string* encoding, mstl::str
 	catch (ByteStream::UnexpectedEndOfStreamException const& exc)
 	{
 		IO_RAISE(Game, Corrupted, exc.backtrace(), "unexpected end of stream");
-//		return load::Corrupted;
+	}
+	catch (mstl::ios_base::failure const& exc)
+	{
+		IO_RAISE(Game, Read_Error, exc.backtrace(), "read error");
 	}
 
 	setEncodingFailed(m_codec->encodingFailed());
@@ -1242,6 +1245,14 @@ Database::exportGame(unsigned index, Consumer& consumer) const
 	catch (DecodingFailedException const& exc)
 	{
 		rc = save::DecodingFailed;
+	}
+	catch (ByteStream::UnexpectedEndOfStreamException const& exc)
+	{
+		IO_RAISE(Game, Corrupted, exc.backtrace(), "unexpected end of stream");
+	}
+	catch (mstl::ios_base::failure const& exc)
+	{
+		IO_RAISE(Game, Read_Error, exc.backtrace(), "read error");
 	}
 
 	setEncodingFailed(m_codec->encodingFailed());

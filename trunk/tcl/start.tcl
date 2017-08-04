@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1360 $
-# Date   : $Date: 2017-08-02 20:56:54 +0000 (Wed, 02 Aug 2017) $
+# Version: $Revision: 1372 $
+# Date   : $Date: 2017-08-04 17:56:11 +0000 (Fri, 04 Aug 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -604,7 +604,7 @@ proc catchException {cmd {resultVar {}} {optionsVar {}}} {
 			::dialog::error \
 				-parent .application \
 				-message $msg \
-				-detail [string toupper $what 0 0] \
+				-detail "$mc::InternalMessage: \"[string toupper $what 0 0]\"" \
 				-topmost 1 \
 				;
 			return 2

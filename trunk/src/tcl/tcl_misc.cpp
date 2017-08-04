@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1362 $
-// Date   : $Date: 2017-08-03 10:35:52 +0000 (Thu, 03 Aug 2017) $
+// Version: $Revision: 1372 $
+// Date   : $Date: 2017-08-04 17:56:11 +0000 (Fri, 04 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -909,7 +909,7 @@ cmdFitsRegion(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 static int
 cmdIsAscii(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 {
-	setResult(sys::utf8::Codec::is7BitAscii(stringFromObj(objc, objv, 1)));
+	setResult(mstl::string::is_7bit(stringFromObj(objc, objv, 1)));
 	return TCL_OK;
 }
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 1372 $
+// Date   : $Date: 2017-08-04 17:56:11 +0000 (Fri, 04 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -19,20 +19,23 @@
 namespace sys {
 namespace utf8 {
 
-inline bool Codec::failed() const				{ return m_failed; }
-inline bool Codec::isUtf8() const				{ return m_isUtf8; }
+inline bool Codec::error() const					{ return m_error; }
+inline bool Codec::failed() const				{ return m_error || m_unknown > 0; }
+inline bool Codec::isUtf8() const				{ return m_type == UTF8; }
 inline bool Codec::fromUtf8(mstl::string& s)	{ return fromUtf8(s, s); }
 inline bool Codec::toUtf8(mstl::string& s)	{ return toUtf8(s, s); }
-inline void Codec::reset()							{ m_failed = false; }
 
-inline void Codec::setFailed(bool flag)		{ m_failed = flag; }
+inline void Codec::setError(bool flag)				{ m_error = flag; }
+inline void Codec::setUnknown(unsigned count)	{ m_unknown = count; }
+
+inline unsigned Codec::unknown() const { return m_unknown; }
 
 
 inline
-bool
-Codec::is7BitAscii(mstl::string const& s)
+void Codec::reset()
 {
-	return is7BitAscii(s.c_str(), s.size());
+	m_error = false;
+	m_unknown = 0;
 }
 
 

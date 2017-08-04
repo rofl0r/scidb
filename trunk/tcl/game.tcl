@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1269 $
-# Date   : $Date: 2017-07-09 09:29:07 +0000 (Sun, 09 Jul 2017) $
+# Version: $Revision: 1372 $
+# Date   : $Date: 2017-08-04 17:56:11 +0000 (Fri, 04 Aug 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -499,15 +499,18 @@ proc load {parent position base args} {
 		set options {}
 		if {$opts(-view) >= 0} { lappend options -view $opts(-view) }
 
-		if {[catch \
+		if {[::util::catchException \
 				{ ::scidb::game::load $position $base $variant $opts(-number) $opts(-fen) {*}$options } \
 				result options]} {
-			array set opts $options
-			::dialog::error \
-				-parent $parent \
-				-message $::import::mc::AbortedDueToInternalError \
-				;
-			return -code error -errorcode $opts(-errorcode) "internal error in ::scidb::game::load"
+			if {$rc == 1} {
+				array set opts $options
+				::dialog::error \
+					-parent $parent \
+					-message $::import::mc::AbortedDueToInternalError \
+					-detail "$mc::InternalMessage: \"$opts(-errorinfo)\"" \
+					;
+			}
+			return 0
 		}
 
 		switch $result {

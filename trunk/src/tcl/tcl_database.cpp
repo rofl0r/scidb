@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1339 $
-// Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
+// Version: $Revision: 1372 $
+// Date   : $Date: 2017-08-04 17:56:11 +0000 (Fri, 04 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2242,7 +2242,7 @@ getPlayerInfo(	int index,
 					char const* database,
 					variant::Type variant,
 					Ratings& ratings,
-					federation::ID federation,
+					organization::ID federation,
 					bool info,
 					bool idCard,
 					bool usePlayerBase)
@@ -2591,7 +2591,7 @@ cmdPlayerInfo(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 		player = &base.player(index, color::fromSide(stringFromObj(objc, objv, 4)));
 
 	Ratings ratings(rating::Any, rating::Any);
-	return tcl::player::getInfo(*player, ratings, federation::Fide, true, true, true);
+	return tcl::player::getInfo(*player, ratings, organization::Fide, true, true, true);
 }
 
 
@@ -2733,7 +2733,7 @@ cmdFetch(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 		case Cmd_BlackPlayerInfo:
 			{
 				Ratings ratings(rating::Any, rating::Any);
-				federation::ID federation = federation::Fide;
+				organization::ID federation = organization::Fide;
 
 				bool parseOptions = true;
 				bool idCard			= false;
@@ -2763,7 +2763,7 @@ cmdFetch(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 						}
 						else if (::strcmp(lastArg, "-federation") == 0)
 						{
-							federation = federation::fromString(stringFromObj(objc, objv, objc - 1));
+							federation = organization::fromString(stringFromObj(objc, objv, objc - 1));
 						}
 						else
 						{
@@ -2978,7 +2978,7 @@ cmdGet(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 		case Cmd_PlayerInfo:
 		{
 			Ratings ratings(rating::Any, rating::Any);
-			federation::ID federation = federation::Fide;
+			organization::ID federation = organization::Fide;
 
 			bool parseOptions 	= true;
 			bool idCard				= false;
@@ -3009,7 +3009,7 @@ cmdGet(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 					}
 					else if (::strcmp(lastArg, "-federation") == 0)
 					{
-						federation = federation::fromString(stringFromObj(objc, objv, objc - 1));
+						federation = organization::fromString(stringFromObj(objc, objv, objc - 1));
 						--objc;
 					}
 					else if (::strcmp(lastArg, "-usebase") == 0)

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1116 $
-// Date   : $Date: 2017-01-03 15:03:20 +0000 (Tue, 03 Jan 2017) $
+// Version: $Revision: 1372 $
+// Date   : $Date: 2017-08-04 17:56:11 +0000 (Fri, 04 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -200,7 +200,7 @@ cmdGet(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 				if (!player)
 					return error(CmdGet, nullptr, nullptr, "invalid ranking number %u", ranking);
 
-				return tcl::player::getInfo(*player, ratings, federation::Fide, true, true, true);
+				return tcl::player::getInfo(*player, ratings, organization::Fide, true, true, true);
 			}
 			break;
 

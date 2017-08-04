@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1340 $
-// Date   : $Date: 2017-08-01 09:41:03 +0000 (Tue, 01 Aug 2017) $
+// Version: $Revision: 1372 $
+// Date   : $Date: 2017-08-04 17:56:11 +0000 (Fri, 04 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -626,6 +626,12 @@ namespace hp {
 inline Pawns::Pawns() :value(0) {}
 
 } // namespace hp
+
+namespace order {
+
+inline int constexpr signum(order::ID order) { return int(order); }
+
+} // namspace order
 } // namespace db
 
 // vi:set ts=3 sw=3:

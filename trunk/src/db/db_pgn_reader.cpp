@@ -1,7 +1,7 @@
 # // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1339 $
-// Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
+// Version: $Revision: 1372 $
+// Date   : $Date: 2017-08-04 17:56:11 +0000 (Fri, 04 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1391,7 +1391,7 @@ PgnReader::setUtf8Codec()
 void
 PgnReader::convertToUtf(mstl::string& s)
 {
-	if (s.empty() || sys::utf8::Codec::is7BitAscii(s))
+	if (s.empty() || s.is_7bit())
 		return;
 
 	M_ASSERT(m_codec);

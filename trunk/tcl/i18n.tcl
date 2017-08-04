@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1367 $
-# Date   : $Date: 2017-08-03 13:44:17 +0000 (Thu, 03 Aug 2017) $
+# Version: $Revision: 1372 $
+# Date   : $Date: 2017-08-04 17:56:11 +0000 (Fri, 04 Aug 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -60,6 +60,7 @@ set Color				"Color"
 set Colors				"Colors"
 set Configuration		"Configuration"
 set Copy					"Copy"
+set Country				"Country"
 set Cut					"Cut"
 set Dark					"Dark"
 set Database			"Database"
@@ -67,11 +68,13 @@ set Default				"Default"
 set Delete				"Delete"
 set Edit					"Edit"
 set Empty				"Empty"
+set Enabled				"Enabled"
 set File					"File"
 set Filter				"Filter"
 set From					"From"
 set Game					"Game"
 set Hidden				"Hidden"
+set InternalMessage	"Internal message"
 set Layout				"Layout"
 set Left					"Left"
 set Lite					"Light"

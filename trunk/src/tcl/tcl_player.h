@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 851 $
-// Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
+// Version: $Revision: 1372 $
+// Date   : $Date: 2017-08-04 17:56:11 +0000 (Fri, 04 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -44,7 +44,7 @@ namespace tcl
 
 		int getInfo(::db::NamebasePlayer const& player,
 						Ratings& ratings,
-						::db::federation::ID federation,
+						::db::organization::ID organization,
 						bool info,
 						bool idCard,
 						bool usePlayerBase);

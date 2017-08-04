@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1219 $
-// Date   : $Date: 2017-06-27 09:32:32 +0000 (Tue, 27 Jun 2017) $
+// Version: $Revision: 1372 $
+// Date   : $Date: 2017-08-04 17:56:11 +0000 (Fri, 04 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -33,7 +33,8 @@
 
 namespace db {
 
-inline NamebaseEntry::NamebaseEntry()
+inline
+NamebaseEntry::NamebaseEntry()
 	:m_frequency(0)
 	,m_id(0)
 #ifdef DEBUG_SI4
@@ -47,8 +48,8 @@ inline unsigned NamebaseEntry::frequency() const			{ return m_frequency; }
 inline unsigned NamebaseEntry::id() const						{ return m_id; }
 inline NamebaseEntry* NamebaseEntry::emptyEntry()			{ return m_emptyEntry; }
 
-inline void NamebaseEntry::ref()									{ ++m_frequency; }
-inline void NamebaseEntry::deref()								{ M_REQUIRE(frequency() > 0); --m_frequency; }
+inline void NamebaseEntry::incrRef()							{ ++m_frequency; }
+inline void NamebaseEntry::decrRef()							{ M_REQUIRE(frequency() > 0); --m_frequency; }
 inline void NamebaseEntry::setId(unsigned id)				{ m_id = id; }
 
 inline void NamebaseEntry::setFrequency(unsigned frequency)	{ m_frequency = frequency; }
@@ -65,7 +66,8 @@ NamebaseEntry::operator==(mstl::string const& name) const
 }
 
 
-inline bool
+inline
+bool
 NamebaseEntry::operator<(mstl::string const& name) const
 {
 	return compare(m_name, name) < 0;
@@ -80,7 +82,8 @@ NamebaseEntry::operator>(mstl::string const& name) const
 }
 
 
-inline bool
+inline
+bool
 NamebaseEntry::operator<=(mstl::string const& name) const
 {
 	return compare(m_name, name) <= 0;
@@ -667,6 +670,28 @@ NamebasePlayer::findSex() const
 		return sex::ID(m_sex);
 
 	return m_player ? m_player->sex() : sex::Unspecified;
+}
+
+
+inline
+void
+NamebasePlayer::incrRef()
+{
+	if (m_player)
+		m_player->incrRef();
+
+	NamebaseEntry::incrRef();
+}
+
+
+inline
+void
+NamebasePlayer::decrRef()
+{
+	if (m_player)
+		m_player->decrRef();
+
+	NamebaseEntry::decrRef();
 }
 
 

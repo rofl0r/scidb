@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1095 $
-// Date   : $Date: 2016-08-14 17:23:39 +0000 (Sun, 14 Aug 2016) $
+// Version: $Revision: 1372 $
+// Date   : $Date: 2017-08-04 17:56:11 +0000 (Fri, 04 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -62,8 +62,8 @@ public:
 	unsigned frequency() const;
 	unsigned id() const;
 
-	void ref();
-	void deref();
+	void incrRef();
+	void decrRef();
 
 	void setId(unsigned id);
 	void setFrequency(unsigned frequency);
@@ -345,6 +345,9 @@ public:
 
 	Player const* player() const;
 
+	void incrRef();
+	void decrRef();
+
 	void setElo(uint16_t value);
 	void setRating(rating::Type type, uint16_t value);
 	void copyRating(NamebasePlayer const& player);
@@ -356,8 +359,8 @@ private:
 
 	friend class Namebase;
 
-	Player const*	m_player;
-	Ratings			m_rating;
+	Player*	m_player;
+	Ratings	m_rating;
 
 	union
 	{

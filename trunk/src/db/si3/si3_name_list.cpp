@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1094 $
-// Date   : $Date: 2016-07-22 14:40:24 +0000 (Fri, 22 Jul 2016) $
+// Version: $Revision: 1372 $
+// Date   : $Date: 2017-08-04 17:56:11 +0000 (Fri, 04 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -399,7 +399,7 @@ NameList::buildList(Namebase& base, Codec& codec)
 				m_buf.assign("?", 1);
 				str = &m_buf;
 			}
-			else if (Codec::is7BitAscii(entry->name()))
+			else if (entry->name().is_7bit())
 			{
 				str = &entry->name();
 			}

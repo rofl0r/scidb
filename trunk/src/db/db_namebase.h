@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1069 $
-// Date   : $Date: 2015-05-05 17:11:23 +0000 (Tue, 05 May 2015) $
+// Version: $Revision: 1372 $
+// Date   : $Date: 2017-08-04 17:56:11 +0000 (Fri, 04 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -224,8 +224,8 @@ public:
 	char* alloc(unsigned length);
 	void copy(mstl::string& dst, mstl::string const& src);
 	void shrink(unsigned oldLength, unsigned newLength);
-	void ref(Entry* entry);
-	void deref(Entry* entry);
+	void incrRef(Entry* entry);
+	void decrRef(Entry* entry);
 	void cleanup();
 
 private:
@@ -248,7 +248,7 @@ private:
 	Entry* makeEntry(mstl::string const& name);
 	EventEntry* makeEventEntry(mstl::string const& name);
 	SiteEntry* makeSiteEntry(mstl::string const& name, db::Site const* site);
-	PlayerEntry* makePlayerEntry(mstl::string const& name, db::Player const* player);
+	PlayerEntry* makePlayerEntry(mstl::string const& name, db::Player* player);
 
 	Type		m_type;
 	unsigned	m_maxFreq;

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1213 $
-// Date   : $Date: 2017-06-24 13:30:42 +0000 (Sat, 24 Jun 2017) $
+// Version: $Revision: 1372 $
+// Date   : $Date: 2017-08-04 17:56:11 +0000 (Fri, 04 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -24,6 +24,7 @@
 namespace mstl {
 
 class ostringstream;
+class string;
 template <typename T, bool Zero> class chunk_allocator;
 
 class backtrace
@@ -41,6 +42,8 @@ public:
 	void clear();
 
 	static bool is_debug_mode();
+	static void enable(bool flag = true);
+	static void disable();
 
 private:
 
@@ -58,8 +61,10 @@ private:
 	unsigned		m_nframes;			///< Number of addresses in m_addresses.
 	allocator*	m_allocator;		///< Allocator for symbols.
 	unsigned		m_skip;				///< Skip first m_skip symbols.
-	unsigned*	m_refCount;			///< Reference counter.
+	string*		m_trace;				///< Result of text_write().
 #endif
+
+	static bool m_isEnabled;
 };
 
 } // namespace mstl
