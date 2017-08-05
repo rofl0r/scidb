@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1372 $
-// Date   : $Date: 2017-08-04 17:56:11 +0000 (Fri, 04 Aug 2017) $
+// Version: $Revision: 1380 $
+// Date   : $Date: 2017-08-05 10:18:49 +0000 (Sat, 05 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -572,7 +572,7 @@ string::assign(size_type n, const_reference c)
 
 
 string&
-string::assign(unsigned n, string const& s)
+string::assign(size_type n, string const& s)
 {
 	if (!s.empty())
 	{
