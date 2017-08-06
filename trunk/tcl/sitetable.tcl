@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1382 $
-# Date   : $Date: 2017-08-06 10:19:27 +0000 (Sun, 06 Aug 2017) $
+# Version: $Revision: 1385 $
+# Date   : $Date: 2017-08-06 17:38:28 +0000 (Sun, 06 Aug 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -470,6 +470,7 @@ proc Find {path mode name} {
 	variable ${path}::Vars
 
 	set base [::scrolledtable::base $path]
+	if {[string length $base] == 0} { return }
 	set variant [::scrolledtable::variant $path]
 	set view [{*}$Vars(viewcmd) $base $variant]
 	if {$mode eq "next"} { set lastIndex [::scrolledtable::active $path] } else { set lastIndex -1 }
