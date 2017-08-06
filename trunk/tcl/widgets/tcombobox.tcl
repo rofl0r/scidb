@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1045 $
-# Date   : $Date: 2015-03-17 12:16:27 +0000 (Tue, 17 Mar 2015) $
+# Version: $Revision: 1381 $
+# Date   : $Date: 2017-08-06 10:13:52 +0000 (Sun, 06 Aug 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -86,6 +86,7 @@ proc Build {w args} {
 	array unset listopts -textvar
 	array unset listopts -listjustify
 
+	set opts(-class) TTCombobox
 	set keys [array names opts]
 	foreach key [array names listopts] {
 		if {$key in $keys} {
@@ -139,7 +140,7 @@ proc Build {w args} {
 	}
 
 	set Priv($w:cbopts) $cbopts
-	::ttk::combobox $w -class TTCombobox {*}$cbopts
+	::ttk::combobox $w {*}$cbopts
 	bind $w <<PasteSelection>> {+ %W forgeticon }	;# global binding is not working
 
 	tk::canvas $w.__image__ -borderwidth 0 -background $listopts(-background) -takefocus 0

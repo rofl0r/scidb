@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 926 $
-# Date   : $Date: 2013-09-04 15:57:51 +0000 (Wed, 04 Sep 2013) $
+# Version: $Revision: 1381 $
+# Date   : $Date: 2017-08-06 10:13:52 +0000 (Sun, 06 Aug 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -14,7 +14,7 @@
 # ======================================================================
 
 # ======================================================================
-# Copyright: (C) 2010-2013 Gregor Cramer
+# Copyright: (C) 2010-2017 Gregor Cramer
 # ======================================================================
 
 # ======================================================================
@@ -58,6 +58,7 @@ proc Build {w args} {
 	set bold [list [font configure $f -family] [font configure $f -size] bold]
 
 	ttk::tcombobox $w \
+		-class TCountryBox \
 		-height $opts(-height) \
 		-showcolumns {name code} \
 		-format "%1 (%2)" \
@@ -295,6 +296,29 @@ proc ShowCountry {cb} {
 	$cb forgeticon
 }
 
+
+proc Scroll {cb dir} {
+	$cb instate disabled { return }
+	set values [$cb cget -values]
+	set max [llength $values]
+	if {$max == 0} { return }
+	set current [$cb current]
+	incr current $dir
+	if {0 > $current || $current >= $max} { return }
+	set incr [expr {$dir > 0 ? +1 : -1}]
+	while {[lindex $values $current] eq "%1 (%2)"} {
+		incr current $incr
+		if {0 > $current || $current >= $max} { return }
+	}
+	ttk::combobox::SelectEntry $cb $current
+}
+
 } ;# namespace countrybox
+
+
+ttk::copyBindings Entry TCountryBox
+ttk::copyBindings TCombobox TCountryBox
+ttk::bindMouseWheel TCountryBox { countrybox::Scroll %W }
+bind TCountryBox <B1-Leave> { break } ;# avoid AutoScroll (bug in Tk)
 
 # vi:set ts=3 sw=3:
