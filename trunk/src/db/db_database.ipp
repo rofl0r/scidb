@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1340 $
-// Date   : $Date: 2017-08-01 09:41:03 +0000 (Tue, 01 Aug 2017) $
+// Version: $Revision: 1382 $
+// Date   : $Date: 2017-08-06 10:19:27 +0000 (Sun, 06 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -62,6 +62,9 @@ inline Namebases& Database::namebases()						{ return m_namebases; }
 inline Time Database::created() const							{ return m_created; }
 inline uint32_t Database::creationTime() const				{ return m_created; }
 inline unsigned Database::size() const							{ return m_size; }
+inline int Database::mapPlayerIndex(int index) const		{ return index; }
+inline int Database::mapEventIndex(int index) const		{ return index; }
+inline int Database::mapSiteIndex(int index) const			{ return index; }
 
 inline void Database::resetInitialSize()						{ resetInitialSize(m_size); }
 

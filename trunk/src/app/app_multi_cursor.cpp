@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1080 $
-// Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
+// Version: $Revision: 1382 $
+// Date   : $Date: 2017-08-06 10:19:27 +0000 (Sun, 06 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -233,8 +233,7 @@ MultiCursor::isUnsaved() const
 unsigned
 MultiCursor::countGames() const
 {
-	M_REQUIRE(isOpen());
-	return m_base->countGames();
+	return isOpen() ? m_base->countGames() : 0;
 }
 
 
@@ -257,6 +256,8 @@ MultiCursor::close()
 		}
 
 		m_base->close();
+		delete m_base;
+		m_base = 0;
 	}
 }
 

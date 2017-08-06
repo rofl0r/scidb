@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1087 $
-// Date   : $Date: 2016-03-01 18:09:43 +0000 (Tue, 01 Mar 2016) $
+// Version: $Revision: 1382 $
+// Date   : $Date: 2017-08-06 10:19:27 +0000 (Sun, 06 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -42,6 +42,8 @@
 #include "db_query.h"
 #include "db_search.h"
 #include "db_database.h"
+
+#include "u_match.h"
 
 #include "T_Controller.h"
 
@@ -467,41 +469,42 @@ cmdFind(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 	static char const* args[] = { "<database> <variant> <view>" };
 	enum { Cmd_Player, Cmd_Event, Cmd_Site, Cmd_Annotator };
 
-	if (objc != 6)
+	if (objc != 6 && objc != 7)
 	{
-		Tcl_WrongNumArgs(ti, 1, objv, "player|event|site|annotator <database> <variant> <view> <string>");
+		Tcl_WrongNumArgs(
+			ti,
+			1,
+			objv,
+			"player|event|site|annotator <database> <variant> <view> <string> ?<start-index>?");
 		return TCL_ERROR;
 	}
 
 	int index = tcl::uniqueMatchObj(objv[1], subcommands);
 
-	char const*		database	= Tcl_GetString(objv[2]);
-	char const* 	name		= Tcl_GetString(objv[5]);
-	variant::Type	variant	= tcl::game::variantFromObj(objv[3]);
-
-	int view;
-
-	if (Tcl_GetIntFromObj(ti, objv[4], &view) != TCL_OK)
-		return error(CmdFind, 0, 0, "unsigned integer expected for view");
+	char const*		database(stringFromObj(objc, objv, 2));
+	variant::Type	variant(tcl::game::variantFromObj(objv[3]));
+	int				view(intFromObj(objc, objv, 4));
+	util::Pattern 	pattern(stringFromObj(objc, objv, 5));
+	int				startIndex(objc == 6 ? 0 : intFromObj(objc, objv, 6) + 1);
 
 	View const& v = Scidb->cursor(database, variant).view(view);
 
 	switch (index)
 	{
 		case Cmd_Player:
-			setResult(v.findPlayer(name));
+			setResult(v.findPlayer(pattern, startIndex));
 			break;
 
 		case Cmd_Event:
-			setResult(v.findEvent(name));
+			setResult(v.findEvent(pattern, startIndex));
 			break;
 
 		case Cmd_Site:
-			setResult(v.findSite(name));
+			setResult(v.findSite(pattern, startIndex));
 			break;
 
 		case Cmd_Annotator:
-			setResult(v.findAnnotator(name));
+			setResult(v.findAnnotator(pattern, startIndex));
 			break;
 
 		default:

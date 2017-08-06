@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1165 $
-// Date   : $Date: 2017-05-15 09:30:52 +0000 (Mon, 15 May 2017) $
+// Version: $Revision: 1382 $
+// Date   : $Date: 2017-08-06 10:19:27 +0000 (Sun, 06 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -269,30 +269,34 @@ View::lookupAnnotator(mstl::string const& name) const
 
 
 int
-View::findPlayer(mstl::string const& name) const
+View::findPlayer(util::Pattern const& pattern, unsigned startIndex) const
 {
-	return m_selector[table::Players].searchPlayer(*m_cursor.m_db, name);
+	M_REQUIRE(isUsed(table::Players));
+	return m_selector[table::Players].searchPlayer(*m_cursor.m_db, pattern, startIndex);
 }
 
 
 int
-View::findEvent(mstl::string const& title) const
+View::findEvent(util::Pattern const& pattern, unsigned startIndex) const
 {
-	return m_selector[table::Events].searchEvent(*m_cursor.m_db, title);
+	M_REQUIRE(isUsed(table::Events));
+	return m_selector[table::Events].searchEvent(*m_cursor.m_db, pattern, startIndex);
 }
 
 
 int
-View::findSite(mstl::string const& title) const
+View::findSite(util::Pattern const& pattern, unsigned startIndex) const
 {
-	return m_selector[table::Sites].searchSite(*m_cursor.m_db, title);
+	M_REQUIRE(isUsed(table::Sites));
+	return m_selector[table::Sites].searchSite(*m_cursor.m_db, pattern, startIndex);
 }
 
 
 int
-View::findAnnotator(mstl::string const& name) const
+View::findAnnotator(util::Pattern const& pattern, unsigned startIndex) const
 {
-	return m_selector[table::Annotators].searchAnnotator(*m_cursor.m_db, name);
+	M_REQUIRE(isUsed(table::Annotators));
+	return m_selector[table::Annotators].searchAnnotator(*m_cursor.m_db, pattern, startIndex);
 }
 
 
@@ -306,6 +310,7 @@ View::sort(attribute::game::ID attr, order::ID order, rating::Type ratingType)
 void
 View::sort(attribute::player::ID attr, order::ID order, rating::Type ratingType)
 {
+	M_REQUIRE(isUsed(table::Players));
 	m_selector[table::Players].sort(*m_cursor.m_db, attr, order, ratingType);
 }
 
@@ -313,6 +318,7 @@ View::sort(attribute::player::ID attr, order::ID order, rating::Type ratingType)
 void
 View::sort(attribute::event::ID attr, order::ID order)
 {
+	M_REQUIRE(isUsed(table::Events));
 	m_selector[table::Events].sort(*m_cursor.m_db, attr, order);
 }
 
@@ -320,6 +326,7 @@ View::sort(attribute::event::ID attr, order::ID order)
 void
 View::sort(attribute::site::ID attr, order::ID order)
 {
+	M_REQUIRE(isUsed(table::Sites));
 	m_selector[table::Sites].sort(*m_cursor.m_db, attr, order);
 }
 
@@ -327,6 +334,7 @@ View::sort(attribute::site::ID attr, order::ID order)
 void
 View::sort(attribute::annotator::ID attr, order::ID order)
 {
+	M_REQUIRE(isUsed(table::Annotators));
 	m_selector[table::Annotators].sort(*m_cursor.m_db, attr, order);
 }
 

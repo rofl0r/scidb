@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1340 $
-// Date   : $Date: 2017-08-01 09:41:03 +0000 (Tue, 01 Aug 2017) $
+// Version: $Revision: 1382 $
+// Date   : $Date: 2017-08-06 10:19:27 +0000 (Sun, 06 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1094,7 +1094,8 @@ DatabaseCodec::saveGame(ByteStream const& gameData, TagSet const& tags, Provider
 								data.eventMode,
 								maxEventCount(),
 								siteEntry ? siteEntry : NamebaseEvent::emptySite());
-	Entry annotatorEntry	= NamebaseEntry::emptyEntry();
+
+	Entry annotatorEntry	= namebase(Namebase::Annotator).emptyAnnotator();
 
 	if (maxAnnotatorCount)
 	{
@@ -1242,7 +1243,7 @@ DatabaseCodec::addGame(ByteStream const& gameData, GameInfo const& info, Allocat
 	NamebasePlayer*	blackEntry;
 	NamebaseSite*		siteEntry;
 	NamebaseEvent*		eventEntry;
-	NamebaseEntry*		annotatorEntry	= NamebaseEntry::emptyEntry();
+	NamebaseEntry*		annotatorEntry	= namebase(Namebase::Annotator).emptyAnnotator();
 
 	unsigned maxPlayerCount = this->maxPlayerCount();
 
@@ -1402,7 +1403,7 @@ DatabaseCodec::updateCharacteristics(unsigned index, TagSet const& tags)
 										data.eventMode,
 										maxEventCount(),
 										siteEntry ? siteEntry : NamebaseEvent::emptySite());
-	Entry		annotatorEntry	= NamebaseEntry::emptyEntry();
+	Entry		annotatorEntry	= namebase(Namebase::Annotator).emptyAnnotator();
 
 	if (maxAnnotatorCount)
 	{

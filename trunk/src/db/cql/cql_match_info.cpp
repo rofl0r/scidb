@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 839 $
-// Date   : $Date: 2013-06-14 17:08:49 +0000 (Fri, 14 Jun 2013) $
+// Version: $Revision: 1382 $
+// Date   : $Date: 2017-08-06 10:19:27 +0000 (Sun, 06 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -107,7 +107,7 @@ info::Date::match(GameInfo const& info, Variant variant, unsigned gameNumber)
 bool
 info::Eco::match(GameInfo const& info, Variant variant, unsigned gameNumber)
 {
-	db::Eco eco(info.eco());
+	db::Eco eco(info.eco(variant));
 	return m_min <= eco && eco <= m_max;
 }
 

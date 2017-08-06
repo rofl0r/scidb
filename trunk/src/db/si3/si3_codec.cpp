@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1372 $
-// Date   : $Date: 2017-08-04 17:56:11 +0000 (Fri, 04 Aug 2017) $
+// Version: $Revision: 1382 $
+// Date   : $Date: 2017-08-06 10:19:27 +0000 (Sun, 06 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1786,7 +1786,6 @@ Codec::readNamebases(mstl::fstream& stream, util::Progress& progress)
 						count[Namebase::Round],
 						::MaxRoundCount,
 						progress);
-	namebase(Namebase::Annotator).insert();
 	namebases().setModified(false);
 }
 

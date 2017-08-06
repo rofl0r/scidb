@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1372 $
-// Date   : $Date: 2017-08-04 17:56:11 +0000 (Fri, 04 Aug 2017) $
+// Version: $Revision: 1382 $
+// Date   : $Date: 2017-08-06 10:19:27 +0000 (Sun, 06 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1672,10 +1672,11 @@ Codec::readNamebases(mstl::fstream& stream, util::Progress& progress)
 
 		switch (i)
 		{
-			case Namebase::Event:	readEventbase(bstrm, namebase(type), size, progress); break;
-			case Namebase::Site:		readSitebase(bstrm, namebase(type), size, progress); break;
-			case Namebase::Player:	readPlayerbase(bstrm, namebase(type), size, progress); break;
-			default:						readNamebase(bstrm, namebase(type), size, progress); break;
+			case Namebase::Event:		readEventbase(bstrm, namebase(type), size, progress); break;
+			case Namebase::Site:			readSitebase(bstrm, namebase(type), size, progress); break;
+			case Namebase::Player:		readPlayerbase(bstrm, namebase(type), size, progress); break;
+			case Namebase::Annotator:	readNamebase(bstrm, namebase(type), size, progress); break;
+			case Namebase::Round:		M_ASSERT(!"should not happen"); break;
 		}
 
 		m_progressCount += size;

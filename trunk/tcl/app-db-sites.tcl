@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1035 $
-# Date   : $Date: 2015-03-14 18:46:54 +0000 (Sat, 14 Mar 2015) $
+# Version: $Revision: 1382 $
+# Date   : $Date: 2017-08-06 10:19:27 +0000 (Sun, 06 Aug 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -149,6 +149,8 @@ proc Select {path base variant index} {
 
 proc View {path base variant} {
 	variable ${path}::Vars
+
+	if {[string length $base] == 0} { return 0 }
 	return $Vars($base:$variant:view)
 }
 

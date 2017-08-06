@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author: gcramer $
-// Version: $Revision: 1372 $
-// Date   : $Date: 2017-08-04 17:56:11 +0000 (Fri, 04 Aug 2017) $
+// Version: $Revision: 1382 $
+// Date   : $Date: 2017-08-06 10:19:27 +0000 (Sun, 06 Aug 2017) $
 // Url    : $HeadURL: https://svn.code.sf.net/p/scidb/code/trunk/src/util/u_match.cpp $
 // ======================================================================
 
@@ -888,6 +888,21 @@ Pattern::normalize(char const* s, char const* e)
 	else if (countSpaces)
 	{
 		m_pattern.append(' ');
+	}
+
+	if (m_isPlain)
+	{
+		mstl::string str;
+		str.swap(m_pattern);
+		char const* s = str.c_str();
+
+		for ( ; *s; ++s)
+		{
+			if (s[0] != '\\')
+				m_pattern.append(*s);
+			else if (s[1] == '\\')
+				m_pattern.append(*s++);
+		}
 	}
 
 	return n;

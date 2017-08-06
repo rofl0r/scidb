@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1372 $
-# Date   : $Date: 2017-08-04 17:56:11 +0000 (Fri, 04 Aug 2017) $
+# Version: $Revision: 1382 $
+# Date   : $Date: 2017-08-06 10:19:27 +0000 (Sun, 06 Aug 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -712,7 +712,7 @@
 
 ::application::database::annotators::mc::Find				"Find"
 ::application::database::annotators::mc::FindAnnotator	"Find annotator"
-::application::database::annotators::mc::ClearEntries		"Clear entries"
+::application::database::annotators::mc::NoAnnotator		"No annotator"
 
 ### application::pgn ###################################################
 ::application::pgn::mc::Command(move:comment)			"Set Comment"
@@ -1401,7 +1401,6 @@
 ::playertable::mc::NotFound					"Not found."
 ::playertable::mc::EnablePlayerBase			"Enable use of player base"
 ::playertable::mc::DisablePlayerBase		"Disable use of player base"
-::playertable::mc::HelpPatternMatching		"Help: Pattern Matching"
 ::playertable::mc::TooltipRating				"Rating: %s"
 
 ::playertable::mc::Name							"Name"
@@ -1414,23 +1413,29 @@
 
 ::playertable::mc::ShowPlayerCard			"Show Player Card..."
 
+### sitetable ##########################################################
+::sitetable::mc::FindSite	"Search Site"
+::sitetable::mc::T_Country	"Country"
+
 ### eventtable #########################################################
 ::eventtable::mc::Attendance	"Attendance"
+::eventtable::mc::FindEvent	"Search Event Name"
 
 ### player dictionary ##################################################
-::playerdict::mc::PlayerDictionary	"Player Dictionary"
-::playerdict::mc::PlayerFilter		"Player Filter"
-::playerdict::mc::OrganizationID		"Organization ID"
-::playerdict::mc::Count					"Count"
-::playerdict::mc::Ignore				"Ignore"
-::playerdict::mc::FederationID		"Federation ID"
-::playerdict::mc::Ratings				"Ratings"
-::playerdict::mc::Titles				"Titles"
-::playerdict::mc::None					"None"
-::playerdict::mc::Operation			"Operation"
-::playerdict::mc::Awarded				"Awarded"
-::playerdict::mc::RangeOfYears		"Range of years"
-::playerdict::mc::SearchPlayerName	"Search Player Name"
+::playerdict::mc::PlayerDictionary		"Player Dictionary"
+::playerdict::mc::PlayerFilter			"Player Filter"
+::playerdict::mc::OrganizationID			"Organization ID"
+::playerdict::mc::Count						"Count"
+::playerdict::mc::Ignore					"Ignore"
+::playerdict::mc::FederationID			"Federation ID"
+::playerdict::mc::Ratings					"Ratings"
+::playerdict::mc::Titles					"Titles"
+::playerdict::mc::None						"None"
+::playerdict::mc::Operation				"Operation"
+::playerdict::mc::Awarded					"Awarded"
+::playerdict::mc::RangeOfYears			"Range of years"
+::playerdict::mc::SearchPlayerName		"Search Player Name"
+::playerdict::mc::HelpPatternMatching	"Help: Pattern Matching"
 
 ::playerdict::mc::AgeClass(unrestricted)	"Unrestricted"
 ::playerdict::mc::AgeClass(junior)			"Junior"

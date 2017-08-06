@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 643 $
-// Date   : $Date: 2013-01-29 13:15:54 +0000 (Tue, 29 Jan 2013) $
+// Version: $Revision: 1382 $
+// Date   : $Date: 2017-08-06 10:19:27 +0000 (Sun, 06 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -33,6 +33,14 @@ inline db::Filter const& View::filter(db::table::Type type) const			{ return m_f
 inline db::Selector const& View::selector(db::table::Type type) const	{ return m_selector[type]; }
 inline Application const& View::application() const							{ return m_app; }
 inline Cursor const& View::cursor() const											{ return m_cursor; }
+
+
+inline
+bool
+View::isUsed(db::table::Type type) const
+{
+	return m_updateMode[type] != NotNeeded;
+}
 
 } // namespace db
 

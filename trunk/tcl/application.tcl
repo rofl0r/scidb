@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1354 $
-# Date   : $Date: 2017-08-02 15:54:30 +0000 (Wed, 02 Aug 2017) $
+# Version: $Revision: 1382 $
+# Date   : $Date: 2017-08-06 10:19:27 +0000 (Sun, 06 Aug 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -226,6 +226,7 @@ proc open {} {
 	bind $main <<TwmAfter>>    [namespace code board::afterTWM]
 
 	bind .application <<Fullscreen>> [namespace code { Fullscreen %d }]
+	::searchentry::bindShortcuts .application
 
 	set Vars(ready) 0
 	set Vars(terminal:number) 0

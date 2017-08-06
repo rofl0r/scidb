@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1080 $
-// Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
+// Version: $Revision: 1382 $
+// Date   : $Date: 2017-08-06 10:19:27 +0000 (Sun, 06 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -131,9 +131,9 @@ public:
 
 	Date date() const;
 	unsigned dateYear() const;
-	Eco eco() const;
+	Eco eco(variant::Type variant) const;
 	Eco ecoKey() const;										// ChessBase: n/a
-	Eco userEco() const;
+	Eco userEco(variant::Type variant) const;
 	template <int N> uint16_t ply() const;
 	bool hasShuffleChessPosition() const;
 	bool hasChess960Position() const;
@@ -177,6 +177,10 @@ public:
 	Signature signature() const;							// ChessBase: n/a; Scid: roughly
 	bool isGiveaway() const;
 	bool isSuicide() const;
+
+	NamebasePlayer* playerEntry(color::ID color);
+	NamebaseEvent* eventEntry();
+	NamebaseEntry* annotatorEntry();
 
 	// Scid 3.x: possibly n/a until game is loaded
 	Date eventDate() const;

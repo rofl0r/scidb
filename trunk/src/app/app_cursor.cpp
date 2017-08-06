@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1080 $
-// Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
+// Version: $Revision: 1382 $
+// Date   : $Date: 2017-08-06 10:19:27 +0000 (Sun, 06 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -130,8 +130,7 @@ Cursor::isReadonly() const
 bool
 Cursor::isWritable() const
 {
-	M_REQUIRE(isOpen());
-	return m_db->isWritable();
+	return isOpen() && m_db->isWritable();
 }
 
 
@@ -254,8 +253,7 @@ Cursor::type() const
 unsigned
 Cursor::count(db::table::Type type) const
 {
-	M_REQUIRE(isOpen());
-	return m_db->count(type);
+	return isOpen() ? m_db->count(type) : 0;
 }
 
 

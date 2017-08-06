@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1219 $
-// Date   : $Date: 2017-06-27 09:32:32 +0000 (Tue, 27 Jun 2017) $
+// Version: $Revision: 1382 $
+// Date   : $Date: 2017-08-06 10:19:27 +0000 (Sun, 06 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -83,6 +83,11 @@ inline uint32_t GameInfo::fideID(color::ID color) const			{ return m_player[colo
 
 inline NamebasePlayer const* GameInfo::playerEntry(color::ID color) const { return m_player[color]; }
 inline NamebaseEvent const* GameInfo::eventEntry() const { return m_event; }
+
+inline NamebasePlayer* GameInfo::playerEntry(color::ID color)	{ return m_player[color]; }
+inline NamebaseEvent* GameInfo::eventEntry()							{ return m_event; }
+
+inline NamebaseEntry* GameInfo::annotatorEntry() { return hasGameRecordLength() ? 0 : m_annotator; }
 
 
 inline
@@ -184,8 +189,9 @@ GameInfo::setIllegalCastling(bool flag)
 
 inline
 Eco
-GameInfo::eco() const
+GameInfo::eco(variant::Type variant) const
 {
+	// TODO: variant still unused
 	return m_positionId == variant::Standard ? Eco::fromShort(m_eco) : Eco();
 }
 
