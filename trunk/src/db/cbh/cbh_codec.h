@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1340 $
-// Date   : $Date: 2017-08-01 09:41:03 +0000 (Tue, 01 Aug 2017) $
+// Version: $Revision: 1383 $
+// Date   : $Date: 2017-08-06 17:18:29 +0000 (Sun, 06 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -220,6 +220,15 @@ private:
 
 } // namespace cbh
 } // namespace db
+
+namespace mstl {
+
+template <typename T> struct is_movable;
+
+template <>
+struct is_movable<::db::cbh::Codec::Tournament> { enum { value = 1 }; };
+
+}
 
 #endif // _cbh_codec_included
 

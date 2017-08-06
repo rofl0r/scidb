@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 880 $
-// Date   : $Date: 2013-07-08 21:37:41 +0000 (Mon, 08 Jul 2013) $
+// Version: $Revision: 1383 $
+// Date   : $Date: 2017-08-06 17:18:29 +0000 (Sun, 06 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -33,9 +33,9 @@
 #include "db_time.h"
 #include "db_common.h"
 
+#include "m_chunk_vector.h"
 #include "m_vector.h"
 #include "m_string.h"
-#include "m_chunk_allocator.h"
 #include "m_utility.h"
 
 namespace db {
@@ -45,15 +45,13 @@ class DatabaseContent : public mstl::noncopyable
 public:
 
 	typedef type::ID Type;
-	typedef mstl::chunk_allocator<GameInfo> Allocator;
+	typedef mstl::chunk_vector<GameInfo> GameInfoList;
 
 	DatabaseContent(	mstl::string const& filename,
 							mstl::string const& encoding,
 							Type type = type::Unspecific);
 	DatabaseContent(mstl::string const& filename, DatabaseContent const& content);
 	virtual ~DatabaseContent() throw();
-
-	typedef mstl::vector<GameInfo*> GameInfoList;
 
 	unsigned size() const;
 
@@ -74,8 +72,7 @@ public:
 	bool				m_shouldCompact;
 	mstl::string	m_description;
 	mstl::string	m_encoding;
-	Allocator 		m_allocator;
-	Statistic		m_statistic;
+	Statistic*		m_statistic;
 };
 
 } // namespace db

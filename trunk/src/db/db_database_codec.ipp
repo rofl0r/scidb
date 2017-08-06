@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1080 $
-// Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
+// Version: $Revision: 1383 $
+// Date   : $Date: 2017-08-06 17:18:29 +0000 (Sun, 06 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -100,7 +100,7 @@ GameInfo&
 DatabaseCodec::gameInfo(unsigned index)
 {
 	M_REQUIRE(index < gameInfoList().size());
-	return *m_db->m_gameInfoList[index];
+	return m_db->m_gameInfoList[index];
 }
 
 

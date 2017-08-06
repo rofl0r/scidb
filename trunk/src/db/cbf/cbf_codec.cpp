@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1372 $
-// Date   : $Date: 2017-08-04 17:56:11 +0000 (Fri, 04 Aug 2017) $
+// Version: $Revision: 1383 $
+// Date   : $Date: 2017-08-06 17:18:29 +0000 (Sun, 06 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -533,9 +533,7 @@ Codec::readIndexData(mstl::string const& indexFilename, util::Progress& progress
 				IO_RAISE(Index, Corrupted, "unexpected end of file");
 
 			unsigned offset = ByteStream::uint32(record) - (i + 2);
-
-			infoList.push_back(allocGameInfo());
-			decodeIndexData(*infoList.back(), offset, site);
+			decodeIndexData(infoList.push_back(), offset, site);
 
 			if (i > 0)
 				m_recordLengths[i - 1] = offset - prevOffset;

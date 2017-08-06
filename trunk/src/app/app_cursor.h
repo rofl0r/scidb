@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1080 $
-// Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
+// Version: $Revision: 1383 $
+// Date   : $Date: 2017-08-06 17:18:29 +0000 (Sun, 06 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -65,6 +65,7 @@ public:
 	};
 
 	typedef mstl::ref_counted_ptr<Subscriber> SubscriberP;
+	typedef View::UpdateMode UpdateModeList[db::table::LAST];
 
 	Cursor(MultiCursor& cursor, db::Database* database);
 	~Cursor();
@@ -107,11 +108,7 @@ public:
 	Application& app() const;
 
 	/// Create new view and return the identifier.
-	unsigned newView(	View::UpdateMode gameUpdateMode,
-							View::UpdateMode playerUpdateMode,
-							View::UpdateMode eventUpdateMode,
-							View::UpdateMode siteUpdateMode,
-							View::UpdateMode annotatorUpdateMode);
+	unsigned newView(UpdateModeList const& updateMode);
 	/// Create new view for tree and return the identifier.
 	unsigned newTreeView();
 	/// Close an existing view.

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1116 $
-# Date   : $Date: 2017-01-03 15:03:20 +0000 (Tue, 03 Jan 2017) $
+# Version: $Revision: 1383 $
+# Date   : $Date: 2017-08-06 17:18:29 +0000 (Sun, 06 Aug 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -254,7 +254,7 @@ proc open {parent base variant index view source} {
 	set Vars(tooltip) ""
 
 	if {![info exists Vars(viewId)]} {
-		set Vars(viewId) [::scidb::view::new $base $variant slave slave slave slave slave]
+		set Vars(viewId) [::scidb::view::new $base $variant unused unused unused unused unused unused]
 	}
 	if {$source eq "game"} { set search gameevent } else { set search event }
 	::scidb::view::search $base $variant $Vars(viewId) null none [list $search $number]

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1339 $
-// Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
+// Version: $Revision: 1383 $
+// Date   : $Date: 2017-08-06 17:18:29 +0000 (Sun, 06 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -436,6 +436,10 @@ public:
 	void sort(	Cursor& cursor,
 					unsigned view,
 					db::attribute::annotator::ID attr,
+					db::order::ID order);
+	void sort(	Cursor& cursor,
+					unsigned view,
+					db::attribute::position::ID attr,
 					db::order::ID order);
 	void reverseOrder(Cursor& cursor, unsigned view, db::table::Type type);
 	void resetOrder(Cursor& cursor, unsigned view, db::table::Type type);

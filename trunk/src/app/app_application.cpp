@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1382 $
-// Date   : $Date: 2017-08-06 10:19:27 +0000 (Sun, 06 Aug 2017) $
+// Version: $Revision: 1383 $
+// Date   : $Date: 2017-08-06 17:18:29 +0000 (Sun, 06 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1343,6 +1343,22 @@ Application::sort(Cursor& cursor, unsigned view, attribute::annotator::ID attr, 
 											cursor.variant(),
 											view);
 	}
+}
+
+
+void
+Application::sort(Cursor& cursor,
+						unsigned view,
+						attribute::position::ID attr,
+						order::ID order)
+{
+	M_REQUIRE(cursor.isValidView(view));
+
+	cursor.view(view).sort(attr, order);
+	cursor.view(view).updateSelector(table::Positions);
+
+	if (m_subscriber)
+		m_subscriber->updateList(table::Positions, m_updateCount++, cursor.name(), cursor.variant(), view);
 }
 
 

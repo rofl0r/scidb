@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1382 $
-# Date   : $Date: 2017-08-06 10:19:27 +0000 (Sun, 06 Aug 2017) $
+# Version: $Revision: 1383 $
+# Date   : $Date: 2017-08-06 17:18:29 +0000 (Sun, 06 Aug 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -229,7 +229,7 @@ proc InitBase {path base variant} {
 
 	if {![info exists Vars($base:$variant:view)]} {
 		set Vars($base:$variant:initializing) 1
-		set Vars($base:$variant:view) [::scidb::view::new $base $variant slave slave slave slave master]
+		set Vars($base:$variant:view) [::scidb::view::new $base $variant slave slave slave master slave slave]
 		set Vars($base:$variant:update) 1
 		set Vars($base:$variant:sort) $Defaults(sort)
 		set Vars($base:$variant:annotator) ""
@@ -479,7 +479,7 @@ proc WriteOptions {chan} {
 
 	foreach table $Tables {
 		foreach type {names pairings} {
-			puts $chan "::scrolledtable::setOptions $table.$type {"
+			puts $chan "::scrolledtable::setOptions db:annotators {"
 			::options::writeArray $chan [::scrolledtable::getOptions $table.$type]
 			puts $chan "}"
 		}

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1372 $
-// Date   : $Date: 2017-08-04 17:56:11 +0000 (Fri, 04 Aug 2017) $
+// Version: $Revision: 1383 $
+// Date   : $Date: 2017-08-06 17:18:29 +0000 (Sun, 06 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -547,6 +547,8 @@ inline bool isAntichessExceptLosers(Type variant) { return variant & Antichess; 
 
 inline bool isChess960(uint16_t idn)		{ return 0 < idn && idn <= 960; }
 inline bool isShuffleChess(uint16_t idn)	{ return 0 < idn && idn <= 4*960; }
+
+inline mstl::string const& fics::fen(Idn idn) { return fen(uint16_t(idn)); }
 
 inline
 bool

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1207 $
-// Date   : $Date: 2017-06-23 15:20:02 +0000 (Fri, 23 Jun 2017) $
+// Version: $Revision: 1383 $
+// Date   : $Date: 2017-08-06 17:18:29 +0000 (Sun, 06 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -240,9 +240,9 @@ MultiBase::countGames(Mode mode) const
 		{
 			switch (mode)
 			{
-				case Changed:	total += base->statistic().changed; break;
-				case Added:		total += base->statistic().added; break;
-				case Deleted:	total += base->statistic().deleted; break;
+				case Changed:	total += base->statistic().counter.changed; break;
+				case Added:		total += base->statistic().counter.added; break;
+				case Deleted:	total += base->statistic().counter.deleted; break;
 			}
 		}
 	}
@@ -496,9 +496,9 @@ MultiBase::save(mstl::string const& encoding, unsigned flags, util::Progress& pr
 	{
 		if (Database* database = m_bases[variant])
 		{
-			changedGames += database->statistic().changed;
-			deletedGames += database->statistic().deleted;
-			addedGames += database->statistic().added;
+			changedGames += database->statistic().counter.changed;
+			deletedGames += database->statistic().counter.deleted;
+			addedGames += database->statistic().counter.added;
 		}
 	}
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1382 $
-// Date   : $Date: 2017-08-06 10:19:27 +0000 (Sun, 06 Aug 2017) $
+// Version: $Revision: 1383 $
+// Date   : $Date: 2017-08-06 17:18:29 +0000 (Sun, 06 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -159,22 +159,13 @@ Cursor::isViewOpen(unsigned view) const
 
 
 unsigned
-Cursor::newView(	View::UpdateMode gameUpdateMode,
-						View::UpdateMode playerUpdateMode,
-						View::UpdateMode eventUpdateMode,
-						View::UpdateMode siteUpdateMode,
-						View::UpdateMode annotatorUpdateMode)
+Cursor::newView(UpdateModeList const& updateMode)
 {
 	M_REQUIRE(isOpen());
 
-	unsigned	viewId;
-	View*		view = new View(	m_cursor.app(),
-										*this,
-										gameUpdateMode,
-										playerUpdateMode,
-										eventUpdateMode,
-										siteUpdateMode,
-										annotatorUpdateMode);
+	unsigned viewId;
+
+	View* view = new View(m_cursor.app(), *this, updateMode);
 
 	if (m_freeSet.none())
 	{
@@ -198,8 +189,16 @@ Cursor::newTreeView()
 {
 	M_REQUIRE(isReferenceBase());
 
-	return m_treeView =
-		newView(View::LeaveEmpty, View::LeaveEmpty, View::LeaveEmpty, View::LeaveEmpty, View::LeaveEmpty);
+	UpdateModeList updateMode;
+
+	updateMode[table::Players] = View::LeaveEmpty;
+	updateMode[table::Sites] = View::LeaveEmpty;
+	updateMode[table::Events] = View::LeaveEmpty;
+	updateMode[table::Annotators] = View::LeaveEmpty;
+	updateMode[table::Positions] = View::LeaveEmpty;
+	updateMode[table::Games] = View::LeaveEmpty;
+
+	return m_treeView = newView(updateMode);
 }
 
 
