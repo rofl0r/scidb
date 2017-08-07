@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1389 $
-# Date   : $Date: 2017-08-06 22:11:07 +0000 (Sun, 06 Aug 2017) $
+# Version: $Revision: 1391 $
+# Date   : $Date: 2017-08-07 11:53:58 +0000 (Mon, 07 Aug 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1075,7 +1075,7 @@ set flag(YUG) [image create photo -data {
 	SUVORK5CYII=
 }]
 
-set flag(ZAN) [image create photo -data {
+set flag(EAZ) [image create photo -data {
 	iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAYAAAB24g05AAABAklEQVQoz6XQvUrDYBTG8f/7
 	5pU2WhPbWvygVq2iCCIFKQ5JHQUL4iy4OHgF3oAX4cW4CS6hpaKCuyAOWYpYhQppctwca6I/
 	OOPzHM5R81cNQUFpFOEGIa+3A97bFwzW9iFJGEcrMBNGOFreIboJGeZX2Lo85KV2wJApfhPc
