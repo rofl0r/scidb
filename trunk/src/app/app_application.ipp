@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1339 $
-// Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
+// Version: $Revision: 1393 $
+// Date   : $Date: 2017-08-07 14:41:16 +0000 (Mon, 07 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -46,7 +46,6 @@ inline Cursor& Application::scratchBase()					{ return cursor(scratchbaseName())
 inline Cursor const& Application::clipBase() const		{ return cursor(clipbaseName()); }
 inline Cursor& Application::clipBase()						{ return cursor(clipbaseName()); }
 
-inline Application::Subscriber* Application::subscriber() const	{ return m_subscriber.get(); }
 inline unsigned Application::currentPosition() const					{ return m_currentPosition; }
 inline db::Tree const* Application::currentTree() const				{ return m_treeAdmin.tree().get(); }
 inline mstl::ostream* Application::engineLog() const					{ return m_engineLog; }

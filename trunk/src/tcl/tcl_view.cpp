@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1383 $
-// Date   : $Date: 2017-08-06 17:18:29 +0000 (Sun, 06 Aug 2017) $
+// Version: $Revision: 1393 $
+// Date   : $Date: 2017-08-07 14:41:16 +0000 (Mon, 07 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -85,7 +85,7 @@ static char const* CmdUnsubscribe	= "::scidb::view::unsubscribe";
 
 namespace {
 
-struct Subscriber : public Cursor::Subscriber
+struct MySubscriber : public Cursor::Subscriber
 {
 	typedef mstl::tuple<Obj,Obj,Obj,variant::Type> Tuple;
 
@@ -146,7 +146,7 @@ struct Subscriber : public Cursor::Subscriber
 };
 
 
-typedef mstl::ref_counted_ptr<Subscriber> SubscriberP;
+typedef mstl::ref_counted_ptr<MySubscriber> SubscriberP;
 typedef mstl::map<mstl::string, SubscriberP> SubscriberMap;
 typedef mstl::ref_counted_ptr<Search> SearchP;
 
@@ -882,7 +882,7 @@ cmdSubscribe(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 
 	if (!subscriber)
 	{
-		subscriber = new Subscriber;
+		subscriber = new MySubscriber;
 		const_cast<Cursor&>(cursor).setSubscriber(subscriber);
 	}
 

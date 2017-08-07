@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1383 $
-// Date   : $Date: 2017-08-06 17:18:29 +0000 (Sun, 06 Aug 2017) $
+// Version: $Revision: 1393 $
+// Date   : $Date: 2017-08-07 14:41:16 +0000 (Mon, 07 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -14,7 +14,7 @@
 // ======================================================================
 
 // ======================================================================
-// Copyright: (C) 2009-2013 Gregor Cramer
+// Copyright: (C) 2009-2017 Gregor Cramer
 // ======================================================================
 
 // ======================================================================
@@ -25,6 +25,7 @@
 // ======================================================================
 
 #include "app_application.h"
+#include "app_subscriber.h"
 #include "app_multi_cursor.h"
 #include "app_cursor.h"
 #include "app_view.h"
@@ -188,28 +189,6 @@ Application::EditGame::Link::Link()
 }
 
 
-Application::Subscriber::~Subscriber() {}
-
-
-void
-Application::Subscriber::updateList(unsigned id, mstl::string const& name, variant::Type variant)
-{
-	for (unsigned i = 0; i < table::LAST; ++i)
-		updateList(table::Type(i), id, name, variant);
-}
-
-
-void
-Application::Subscriber::updateList(unsigned id,
-												mstl::string const& name,
-												variant::Type variant,
-												unsigned view)
-{
-	for (unsigned i = 0; i < table::LAST; ++i)
-		updateList(table::Type(i), id, name, variant, view);
-}
-
-
 Application::Iterator::Iterator(CursorMap::const_iterator begin, CursorMap::const_iterator end)
 	:m_current(begin)
 	,m_end(end)
@@ -336,6 +315,9 @@ Application::end() const
 {
 	return Iterator(m_cursorMap.end(), m_cursorMap.end());
 }
+
+
+Subscriber* Application::subscriber() const { return m_subscriber.get(); }
 
 
 bool

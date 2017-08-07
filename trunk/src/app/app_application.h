@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1383 $
-// Date   : $Date: 2017-08-06 17:18:29 +0000 (Sun, 06 Aug 2017) $
+// Version: $Revision: 1393 $
+// Date   : $Date: 2017-08-07 14:41:16 +0000 (Mon, 07 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -14,7 +14,7 @@
 // ======================================================================
 
 // ======================================================================
-// Copyright: (C) 2009-2013 Gregor Cramer
+// Copyright: (C) 2009-2017 Gregor Cramer
 // ======================================================================
 
 // ======================================================================
@@ -72,6 +72,7 @@ class Log;
 
 namespace app {
 
+class Subscriber;
 class MultiCursor;
 class Cursor;
 class View;
@@ -109,50 +110,6 @@ public:
 	{
 		Create,
 		Append,
-	};
-
-	struct Subscriber : public mstl::ref_counter
-	{
-		virtual ~Subscriber() = 0;
-
-		void updateList(	unsigned id,
-								mstl::string const& name,
-								db::variant::Type variant);
-		void updateList(	unsigned id,
-								mstl::string const& name,
-								db::variant::Type variant,
-								unsigned view);
-
-		virtual void updateList(db::table::Type type,
-										unsigned id,
-										mstl::string const& name,
-										db::variant::Type variant) = 0;
-		virtual void updateList(db::table::Type type,
-										unsigned id,
-										mstl::string const& name,
-										db::variant::Type variant,
-										unsigned view) = 0;
-		virtual void updateList(db::table::Type type,
-										unsigned id,
-										mstl::string const& name,
-										db::variant::Type variant,
-										unsigned view,
-										unsigned index) = 0;
-
-		virtual void updateDatabaseInfo(mstl::string const& name, db::variant::Type variant) = 0;
-
-		virtual void updateGameInfo(	mstl::string const& name,
-												db::variant::Type variant,
-												unsigned index) = 0;
-		virtual void updateGameInfo(unsigned position) = 0;
-		virtual void updateGameData(unsigned position, bool evenMainline) = 0;
-
-		virtual void gameSwitched(unsigned position) = 0;
-		virtual void gameClosed(unsigned position) = 0;
-		virtual void databaseSwitched(mstl::string const& name, db::variant::Type variant) = 0;
-		virtual void closeDatabase(mstl::string const& name, db::variant::Type variant) = 0;
-		virtual void updateTree(mstl::string const& name, db::variant::Type variant) = 0;
-		virtual void invalidateTreeCache() = 0;
 	};
 
 	typedef mstl::ref_counted_ptr<Subscriber> SubscriberP;
