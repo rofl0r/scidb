@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1382 $
-// Date   : $Date: 2017-08-06 10:19:27 +0000 (Sun, 06 Aug 2017) $
+// Version: $Revision: 1398 $
+// Date   : $Date: 2017-08-08 21:41:08 +0000 (Tue, 08 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2073,9 +2073,16 @@ Codec::convertToUtf8(mstl::string const& in, mstl::string& out)
 	}
 
 	Tcl_EncodingState state;
-
+	mstl::string buffer;
 	char const*	src = in.c_str();
-	char*			dst = m_buf.data();
+
+	if (&in == &out)
+	{
+		buffer.assign(in);
+		src = buffer.c_str();
+	}
+
+	char* dst = m_buf.data();
 
 	int flags	= TCL_ENCODING_START | TCL_ENCODING_END | TCL_ENCODING_STOPONERROR;
 	int srcLen	= in.size();
