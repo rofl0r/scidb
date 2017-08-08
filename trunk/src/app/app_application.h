@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1393 $
-// Date   : $Date: 2017-08-07 14:41:16 +0000 (Mon, 07 Aug 2017) $
+// Version: $Revision: 1395 $
+// Date   : $Date: 2017-08-08 13:59:49 +0000 (Tue, 08 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -326,7 +326,7 @@ public:
 	Engine* engine(unsigned id) const;
 	mstl::ostream* setEngineLog(mstl::ostream* strm = 0);
 	mstl::ostream* engineLog() const;
-	bool startAnalysis(unsigned engineId);
+	bool startAnalysis(unsigned engineId, db::analysis::Mode mode);
 	bool stopAnalysis(unsigned engineId);
 
 	void clearBase(Cursor& cursor);

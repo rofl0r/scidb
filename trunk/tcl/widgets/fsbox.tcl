@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1359 $
-# Date   : $Date: 2017-08-02 20:55:37 +0000 (Wed, 02 Aug 2017) $
+# Version: $Revision: 1395 $
+# Date   : $Date: 2017-08-08 13:59:49 +0000 (Tue, 08 Aug 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -893,6 +893,20 @@ proc verifyPath {path} {
 		return reservedName
 	}
 	return {}
+}
+
+
+proc isWindowsExecutable {path} {
+	global tcl_platform
+
+	if {![file executable $path]} { return 0 }
+	if {$tcl_platform(platform) eq "windows"} { return 1 }
+
+	set ch [open $path r]
+	set magicNumber [read $ch 2]
+	close $ch
+	if {$magicNumber eq "MZ"} { return 1 }
+	return 0
 }
 
 

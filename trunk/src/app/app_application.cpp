@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1393 $
-// Date   : $Date: 2017-08-07 14:41:16 +0000 (Mon, 07 Aug 2017) $
+// Version: $Revision: 1395 $
+// Date   : $Date: 2017-08-08 13:59:49 +0000 (Tue, 08 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2856,10 +2856,10 @@ Application::setEngineLog(mstl::ostream* strm)
 
 
 bool
-Application::startAnalysis(unsigned engineId)
+Application::startAnalysis(unsigned engineId, db::analysis::Mode mode)
 {
 	M_REQUIRE(engineExists(engineId));
-	return engine(engineId)->startAnalysis(&game());
+	return engine(engineId)->startAnalysis(&game(), mode);
 }
 
 

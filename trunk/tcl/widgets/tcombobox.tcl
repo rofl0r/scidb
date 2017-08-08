@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1381 $
-# Date   : $Date: 2017-08-06 10:13:52 +0000 (Sun, 06 Aug 2017) $
+# Version: $Revision: 1395 $
+# Date   : $Date: 2017-08-08 13:59:49 +0000 (Tue, 08 Aug 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -489,7 +489,7 @@ proc ButtonPress {w c x y} {
 
 
 proc DestroyHandler {w} {
-	if {[winfo class $w] eq "TTCombobox"} {
+	if {[winfo class $w] ne "TCombobox"} {
 		variable Priv
 		unset Priv $w:*
 		rename $w {}
@@ -641,7 +641,7 @@ proc LBSearch {lb code sym} {
 
 
 proc PlacePopdown {cb popdown} {
-	if {[winfo class $cb] ne "TTCombobox"} {
+	if {[winfo class $cb] eq "TCombobox"} {
 		return [PlacePopdown_tcb_orig_ $cb $popdown]
 	}
 
@@ -683,14 +683,14 @@ proc Unpost {cb} {
 		unset Priv($cb:focus)
 	}
 
-	if {[winfo class $cb] eq "TTCombobox"} {
+	if {[winfo class $cb] ne "TCombobox"} {
 		event generate $cb <<ComboboxUnposted>> -when mark
 	}
 }
 
 
 proc PopdownWindow {cb} {
-	if {[winfo class $cb] ne "TTCombobox"} {
+	if {[winfo class $cb] eq "TCombobox"} {
 		PopdownWindow_tcb_orig_ $cb
 	}
 
@@ -699,7 +699,7 @@ proc PopdownWindow {cb} {
 
 
 proc ConfigureListbox {cb} {
-	if {[winfo class $cb] ne "TTCombobox"} {
+	if {[winfo class $cb] eq "TCombobox"} {
 		return [ConfigureListbox_tcb_orig_ $cb]
 	}
 

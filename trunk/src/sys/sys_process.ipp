@@ -1,12 +1,12 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 1395 $
+// Date   : $Date: 2017-08-08 13:59:49 +0000 (Tue, 08 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
 // ======================================================================
-// Copyright: (C) 2011-2013 Gregor Cramer
+// Copyright: (C) 2011-2017 Gregor Cramer
 // ======================================================================
 
 // ======================================================================
@@ -25,6 +25,8 @@ inline bool Process::wasKilled() const			{ return m_signalKilled; }
 inline bool Process::pipeWasClosed() const	{ return m_pipeClosed; }
 inline int  Process::exitStatus() const		{ return m_exitStatus; }
 inline long Process::pid() const					{ return m_pid; }
+
+inline mstl::string const& Process::program() const { return m_program; }
 
 } // namespace sys
 

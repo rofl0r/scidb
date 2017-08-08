@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1354 $
-// Date   : $Date: 2017-08-02 15:54:30 +0000 (Wed, 02 Aug 2017) $
+// Version: $Revision: 1395 $
+// Date   : $Date: 2017-08-08 13:59:49 +0000 (Tue, 08 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -28,6 +28,7 @@
 #define _db_guess_included
 
 #include "db_board.h"
+#include "db_move_list.h"
 
 // null move search is probably not recommendable
 //#define USE_NULL_MOVE_SEARCH
@@ -35,7 +36,6 @@
 namespace db {
 
 class Board;
-class MoveList;
 
 class Guess : public Board
 {

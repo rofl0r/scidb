@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 915 $
-// Date   : $Date: 2013-07-31 21:14:27 +0000 (Wed, 31 Jul 2013) $
+// Version: $Revision: 1395 $
+// Date   : $Date: 2017-08-08 13:59:49 +0000 (Tue, 08 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -49,12 +49,14 @@ class Engine : public ::cql::Engine
 {
 public:
 
+	typedef app::Engine::Command Command;
+
 	class Creator : public ::cql::Engine::Creator
 	{
 	public:
 
 		Creator(	app::Engine::Protocol protocol,
-					mstl::string const& command,
+					Command const& command,
 					mstl::string const& directory,
 					unsigned hashSize,
 					unsigned numThreads);
@@ -67,7 +69,7 @@ public:
 		typedef app::Engine::Protocol Protocol;
 
 		Protocol			m_protocol;
-		mstl::string	m_command;
+		Command			m_command;
 		mstl::string	m_directory;
 		unsigned			m_hashSize;
 		unsigned			m_numThreads;

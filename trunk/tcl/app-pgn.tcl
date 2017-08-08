@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1356 $
-# Date   : $Date: 2017-08-02 17:35:56 +0000 (Wed, 02 Aug 2017) $
+# Version: $Revision: 1395 $
+# Date   : $Date: 2017-08-08 13:59:49 +0000 (Tue, 08 Aug 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -32,15 +32,17 @@ namespace eval mc {
 
 set Command(move:annotation)		"Set Annotation/Comment/Marks"
 set Command(move:append)			"Add Move"
-set Command(move:nappend)			"Add Moves"
+set Command(move:append:n)			"Add Moves"
 set Command(move:exchange)			"Exchange Move"
 set Command(variation:new)			"Add Variation"
+set Command(variation:new:n)		"Add Variations"
 set Command(variation:replace)	"Replace Moves"
 set Command(variation:truncate)	"Truncate Variation"
 set Command(variation:first)		"Make First Variation"
 set Command(variation:promote)	"Promote Variation"
 set Command(variation:remove)		"Delete Variation"
 set Command(variation:remove:n)	"Delete Variations"
+set Command(variation:merge)		"Merge variation(s)"
 set Command(variation:mainline)	"New Mainline"
 set Command(variation:insert)		"Insert Moves"
 set Command(variation:exchange)	"Exchange Moves"

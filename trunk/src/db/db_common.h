@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1383 $
-// Date   : $Date: 2017-08-06 17:18:29 +0000 (Sun, 06 Aug 2017) $
+// Version: $Revision: 1395 $
+// Date   : $Date: 2017-08-08 13:59:49 +0000 (Tue, 08 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1449,6 +1449,15 @@ namespace display
 		DiscardUnknownResult	= 1 << 7,
 	};
 };
+
+namespace analysis
+{
+	enum Mode
+	{
+		SideToMove,
+		OpponentsView,
+	};
+}
 
 namespace type
 {

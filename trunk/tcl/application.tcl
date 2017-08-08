@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1382 $
-# Date   : $Date: 2017-08-06 10:19:27 +0000 (Sun, 06 Aug 2017) $
+# Version: $Revision: 1395 $
+# Date   : $Date: 2017-08-08 13:59:49 +0000 (Tue, 08 Aug 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -393,8 +393,9 @@ proc DestroyPane {main uid analysisNumber} {
 
 
 proc UpdateNameVar {analysisNumber args} {
-	if {![analysis::active? $analysisNumber]} {
-		variable MapAnalysisToTerminal
+	variable MapAnalysisToTerminal
+
+	if {[info exists MapAnalysisToTerminal($analysisNumber)] && ![analysis::active? $analysisNumber]} {
 		variable NameVar
 
 		set terminalNumber $MapAnalysisToTerminal($analysisNumber)

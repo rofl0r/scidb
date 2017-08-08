@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 996 $
-// Date   : $Date: 2013-11-02 18:52:29 +0000 (Sat, 02 Nov 2013) $
+// Version: $Revision: 1395 $
+// Date   : $Date: 2017-08-08 13:59:49 +0000 (Tue, 08 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -14,7 +14,7 @@
 // ======================================================================
 
 // ======================================================================
-// Copyright: (C) 2009-2013 Gregor Cramer
+// Copyright: (C) 2009-2017 Gregor Cramer
 // ======================================================================
 
 // ======================================================================
@@ -35,6 +35,7 @@ inline uint32_t Game::gameFlags() const				{ return m_flags; }
 inline edit::Key const& Game::currentKey() const	{ return m_currentKey; }
 inline move::Notation Game::moveStyle() const		{ return m_editorOptions.m_moveStyle; }
 inline Game::Command Game::rollbackCommand() const	{ return m_rollbackCommand; }
+inline MoveNode* Game::currentNode() const			{ return m_currentNode; }
 
 inline bool Game::isMainline() const					{ return m_currentKey.level() == 0; }
 inline bool Game::isVariation() const					{ return m_currentKey.level() > 0; }

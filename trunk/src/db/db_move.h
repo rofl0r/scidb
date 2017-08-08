@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1358 $
-// Date   : $Date: 2017-08-02 20:54:21 +0000 (Wed, 02 Aug 2017) $
+// Version: $Revision: 1395 $
+// Date   : $Date: 2017-08-08 13:59:49 +0000 (Tue, 08 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -40,7 +40,7 @@
 namespace db {
 
 class Board;
-class MoveList;
+template <unsigned N> class MoveBuffer;
 
 /** @ingroup Core
    Moves are dependent on current position, (remembers piece, check, capture etc)
@@ -409,7 +409,8 @@ public:
 	static uint16_t makeIndex(uint16_t from, uint16_t to);
 
 	friend class Board;
-	friend class MoveList;
+	friend class MoveBuffer<position::Maximum_Moves>;
+	friend class MoveBuffer<opening::Max_Line_Length>;
 
 private:
 

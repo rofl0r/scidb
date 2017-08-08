@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 915 $
-// Date   : $Date: 2013-07-31 21:14:27 +0000 (Wed, 31 Jul 2013) $
+// Version: $Revision: 1395 $
+// Date   : $Date: 2017-08-08 13:59:49 +0000 (Tue, 08 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -39,7 +39,7 @@ using namespace ::db;
 struct Engine::MyEngine : public app::Engine
 {
 	MyEngine(app::Engine::Protocol protocol,
-				mstl::string const& command,
+				Command const& command,
 				mstl::string const& directory)
 		:app::Engine(protocol, command, directory)
 		,m_isReady(false)
@@ -52,7 +52,7 @@ struct Engine::MyEngine : public app::Engine
 	void clearInfo() override {}
 	void updateState(State state) override {}
 	void updateError(Error code) override {}
-	void updateInfo(db::color::ID sideToMove, db::board::Status state) override {}
+	void updateInfo(db::color::ID sideToMove, db::position::Status state) override {}
 	void updatePvInfo(unsigned line) override { m_receiver->setScore(score(line)/100.0, mate(line)); }
 
 	void setReceiver(app::cql::Engine* receiver) { m_receiver = receiver; }
@@ -63,7 +63,7 @@ struct Engine::MyEngine : public app::Engine
 
 
 Engine::Creator::Creator(	app::Engine::Protocol protocol,
-									mstl::string const& command,
+									Command const& command,
 									mstl::string const& directory,
 									unsigned hashSize,
 									unsigned numThreads)
