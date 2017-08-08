@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1227 $
-// Date   : $Date: 2017-06-29 16:00:56 +0000 (Thu, 29 Jun 2017) $
+// Version: $Revision: 1396 $
+// Date   : $Date: 2017-08-08 17:07:02 +0000 (Tue, 08 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -72,6 +72,8 @@ public:
 	GameCount const& rejected() const;
 	unsigned accepted(unsigned variant) const;
 	unsigned rejected(unsigned variant) const;
+	unsigned accepted(variant::Type variant) const;
+	unsigned rejected(variant::Type variant) const;
 	Variants const& unsupportedVariants() const;
 	variant::Type detectedVariant() const;
 

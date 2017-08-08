@@ -1,7 +1,7 @@
 # // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1372 $
-// Date   : $Date: 2017-08-04 17:56:11 +0000 (Fri, 04 Aug 2017) $
+// Version: $Revision: 1396 $
+// Date   : $Date: 2017-08-08 17:07:02 +0000 (Tue, 08 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -5541,6 +5541,20 @@ PgnReader::rejected(unsigned variant) const
 {
 	M_REQUIRE(variant < variant::NumberOfVariants);
 	return m_rejected[variant];
+}
+
+
+unsigned
+PgnReader::accepted(variant::Type variant) const
+{
+	return m_accepted[variant::toIndex(variant)];
+}
+
+
+unsigned
+PgnReader::rejected(variant::Type variant) const
+{
+	return m_rejected[variant::toIndex(variant)];
 }
 
 
