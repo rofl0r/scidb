@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1395 $
-// Date   : $Date: 2017-08-08 13:59:49 +0000 (Tue, 08 Aug 2017) $
+// Version: $Revision: 1397 $
+// Date   : $Date: 2017-08-08 18:34:04 +0000 (Tue, 08 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2939,18 +2939,27 @@ Game::addVariation(MoveNodeP node, move::Position position)
 	MoveNode* varNode = node.release();
 	varNode->setFolded(false);
 
-	MoveNode* n = m_currentNode;
+	MoveNode* currNode = m_currentNode;
 
 	if (position == move::Post)
-		n = n->next();
+		currNode = currNode->next();
 
-	n->addVariation(varNode);
+	currNode->addVariation(varNode);
+
+	Board board(m_currentBoard);
+
+	for (MoveNode* n = varNode->next(); !n->atLineEnd(); n = n->next())
+	{
+		board.prepareUndo(n->move());
+		n->prepareForPrint(board, m_variant);
+		board.doMove(n->move(), m_variant);
+	}
 
 	END_BACKUP;
 
 	updateSubscriber(UpdatePgn | UpdateBoard | UpdateIllegalMoves);
 
-	return n->variationCount() - 1;
+	return currNode->variationCount() - 1;
 }
 
 
