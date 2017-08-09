@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1339 $
-// Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
+// Version: $Revision: 1399 $
+// Date   : $Date: 2017-08-09 08:53:22 +0000 (Wed, 09 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -55,6 +55,21 @@ replaceCurlyBraces(mstl::string& s)
 	{
 		s[n] = (s[n] == '{' ? '[' : ']');
 		n = s.find_first_of("{}", n + 1);
+	}
+
+	return s;
+}
+
+
+static mstl::string&
+replaceDoubleQuotes(mstl::string& s)
+{
+	mstl::string::size_type n = s.find('"');
+
+	while (n != mstl::string::npos)
+	{
+		s[n] = '\'';
+		n = s.find('"', n + 1);
 	}
 
 	return s;
@@ -330,10 +345,14 @@ PgnWriter::writeEndGame()
 void
 PgnWriter::writeTag(mstl::string const& name, mstl::string const& value)
 {
+	mstl::string v;
+	v.assign(value);
+	replaceDoubleQuotes(v);
+
 	m_strm.write("[", 1);
 	m_strm.write(name, name.size());
 	m_strm.write(" \"", 2);
-	m_strm.write(value, value.size());
+	m_strm.write(v, value.size());
 	m_strm.write("\"]", 2);
 	m_strm.write(m_eol);
 }
