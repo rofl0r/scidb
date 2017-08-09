@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author: gcramer $
-# Version: $Revision: 1382 $
-# Date   : $Date: 2017-08-06 10:19:27 +0000 (Sun, 06 Aug 2017) $
+# Version: $Revision: 1400 $
+# Date   : $Date: 2017-08-09 11:25:39 +0000 (Wed, 09 Aug 2017) $
 # Url    : $HeadURL: https://svn.code.sf.net/p/scidb/code/trunk/tcl/widgets/searchentry.tcl $
 # ======================================================================
 
@@ -592,7 +592,10 @@ proc LanguageChanged {w} {
 	if {[winfo exists $w.r]} { ::tooltip::tooltip $w.r "$mc::FindNext <F3>" }
 	if {[winfo exists $w.c]} { ::tooltip::tooltip $w.c "$mc::Erase <$::mc::Key(Ctrl)-X>" }
 
-	if {$Priv(empty)} { set Priv(content) [set $Vars(ghosttextvar)] }
+	if {$Priv(empty)} {
+		set Priv(content) [set $Vars(ghosttextvar)]
+		set Priv(empty) 1
+	}
 }
 
 

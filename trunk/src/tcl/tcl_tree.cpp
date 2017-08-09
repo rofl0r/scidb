@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1372 $
-// Date   : $Date: 2017-08-04 17:56:11 +0000 (Fri, 04 Aug 2017) $
+// Version: $Revision: 1400 $
+// Date   : $Date: 2017-08-09 11:25:39 +0000 (Wed, 09 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -570,7 +570,7 @@ cmdPosition(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 
 		if (move)
 		{
-			Move m = board.parseMove(move, variant, ::db::move::AllowIllegalMove);
+			Move m = board.parseMove(move, variant, move::MustBeUnambiguous, ::db::move::AllowIllegalMove);
 
 			if (!m)
 				return error(CmdPosition, nullptr, nullptr, "illegal move '%s'", move);

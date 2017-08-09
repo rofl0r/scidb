@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1395 $
-# Date   : $Date: 2017-08-08 13:59:49 +0000 (Tue, 08 Aug 2017) $
+# Version: $Revision: 1400 $
+# Date   : $Date: 2017-08-09 11:25:39 +0000 (Wed, 09 Aug 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1155,7 +1155,6 @@
 ::engine::mc::FailedToCreateDir		"Das Anlegen des Verzeichnisses '%s' schlug fehl."
 ::engine::mc::ScriptErrors				"Alle Fehler beim Speichern werden hier angezeigt."
 ::engine::mc::CommandNotAllowed		"Der Gebrauch des Kommandos '%s' ist hier nicht erlaubt."
-::engine::mc::ThrowAwayChanges		"Alle Änderungen verwerfen?"
 ::engine::mc::ResetToDefaultContent	"Auf Standardinhalt zurücksetzen"
 ::engine::mc::PleaseBePatient			"Bitte gedulden, 'Wine' benötigt seine Zeit."
 ::engine::mc::TryAgain					"Der erste Start von 'Wine' benötigt einige Zeit, ein erneuter Versuch mag erfolgreich sein."

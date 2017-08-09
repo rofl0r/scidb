@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1395 $
-# Date   : $Date: 2017-08-08 13:59:49 +0000 (Tue, 08 Aug 2017) $
+# Version: $Revision: 1400 $
+# Date   : $Date: 2017-08-09 11:25:39 +0000 (Wed, 09 Aug 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1164,7 +1164,6 @@
 ::engine::mc::FailedToCreateDir		"Failed to create directory '%s'." ;# NEW
 ::engine::mc::ScriptErrors				"Any errors while saving will be displayed here." ;# NEW
 ::engine::mc::CommandNotAllowed		"Usage of command '%s' is not allowed here." ;# NEW
-::engine::mc::ThrowAwayChanges		"Ta bort alla ändringar?"
 ::engine::mc::ResetToDefaultContent	"Reset to default content" ;# NEW
 ::engine::mc::PleaseBePatient			"Please be patient, 'Wine' needs some time." ;# NEW
 ::engine::mc::TryAgain					"The first start of 'Wine' needs some time, maybe it works if you try it again." ;# NEW

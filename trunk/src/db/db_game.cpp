@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1397 $
-// Date   : $Date: 2017-08-08 18:34:04 +0000 (Tue, 08 Aug 2017) $
+// Version: $Revision: 1400 $
+// Date   : $Date: 2017-08-09 11:25:39 +0000 (Wed, 09 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2650,7 +2650,7 @@ Game::updateLanguageSet()
 Move
 Game::parseMove(mstl::string const& san) const
 {
-	Move move = m_currentBoard.parseMove(san, m_variant, move::AllowIllegalMove);
+	Move move = m_currentBoard.parseMove(san, m_variant, move::MustBeUnambiguous, move::AllowIllegalMove);
 
 	if (!move)
 	{
@@ -2660,7 +2660,7 @@ Game::parseMove(mstl::string const& san) const
 		board.tryCastleShort(side);
 		board.tryCastleLong(side);
 
-		move = board.parseMove(san, m_variant, move::AllowIllegalMove);
+		move = board.parseMove(san, m_variant, move::MustBeUnambiguous, move::AllowIllegalMove);
 		move.setIllegalMove();
 	}
 

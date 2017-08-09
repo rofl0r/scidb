@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1395 $
-# Date   : $Date: 2017-08-08 13:59:49 +0000 (Tue, 08 Aug 2017) $
+# Version: $Revision: 1400 $
+# Date   : $Date: 2017-08-09 11:25:39 +0000 (Wed, 09 Aug 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -8483,7 +8483,6 @@ set toolbarTogglePlus				[makeToolbarIcon togglePlus]
 set toolbarToggleMinus				[makeToolbarIcon toggleMinus]
 set toolbarDice						[makeToolbarIcon dice]
 set toolbarClear						[makeToolbarIcon clear]
-set toolbarClose						[makeToolbarIcon close]
 set toolbarRemove						[makeToolbarIcon remove]
 set toolbarClock						[makeToolbarIcon clock]
 set toolbarHelp						[makeToolbarIcon help]

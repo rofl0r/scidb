@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1395 $
-// Date   : $Date: 2017-08-08 13:59:49 +0000 (Tue, 08 Aug 2017) $
+// Version: $Revision: 1400 $
+// Date   : $Date: 2017-08-09 11:25:39 +0000 (Wed, 09 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -375,6 +375,7 @@ namespace castling
 namespace move
 {
 	enum Constraint	{ DontAllowIllegalMove, AllowIllegalMove };
+	enum Ambiguity		{ MustBeUnambiguous, ResolveAmbiguity };
 	enum Order			{ Strict, Transposition };
 	enum Position		{ Ante, Post };
 
@@ -940,7 +941,9 @@ namespace piece
 	bool isLongStepPiece(Type piece);
 	bool isOrthogonalLongStepPiece(Type piece);
 	bool isDiagonalLongStepPiece(Type piece);
+
 	bool canPromoteTo(Type type, variant::Type variant);
+	piece::Type promotion(::db::variant::Type variant);
 
 	Type type(ID piece);
 	color::ID color(ID piece);

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1395 $
-# Date   : $Date: 2017-08-08 13:59:49 +0000 (Tue, 08 Aug 2017) $
+# Version: $Revision: 1400 $
+# Date   : $Date: 2017-08-09 11:25:39 +0000 (Wed, 09 Aug 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1157,7 +1157,6 @@
 ::engine::mc::FailedToCreateDir		"No se pudo crear el directorio '%s'."
 ::engine::mc::ScriptErrors				"Si ocurren errores durante el guardado se reflejarán aqui."
 ::engine::mc::CommandNotAllowed		"El uso del comando '%s' no se permite aqui."
-::engine::mc::ThrowAwayChanges		"¿Descartar todos los cambios?"
 ::engine::mc::ResetToDefaultContent	"Volver al contenido predeterminado"
 ::engine::mc::PleaseBePatient			"Please be patient, 'Wine' needs some time." ;# NEW
 ::engine::mc::TryAgain					"The first start of 'Wine' needs some time, maybe it works if you try it again." ;# NEW

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1383 $
-// Date   : $Date: 2017-08-06 17:18:29 +0000 (Sun, 06 Aug 2017) $
+// Version: $Revision: 1400 $
+// Date   : $Date: 2017-08-09 11:25:39 +0000 (Wed, 09 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -203,6 +203,13 @@ bool
 isDiagonalLongStepPiece(Type piece)
 {
 	return (1 << piece) & ((1 << Queen) | (1 << Bishop));
+}
+
+inline
+Type
+promotion(::db::variant::Type variant)
+{
+	return ::db::variant::isAntichessExceptLosers(variant) ? King : Queen;
 }
 
 inline
