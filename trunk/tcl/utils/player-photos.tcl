@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1354 $
-# Date   : $Date: 2017-08-02 15:54:30 +0000 (Wed, 02 Aug 2017) $
+# Version: $Revision: 1403 $
+# Date   : $Date: 2017-08-10 18:23:08 +0000 (Thu, 10 Aug 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -123,7 +123,7 @@ proc openDialog {parent} {
 		-doublebuffer no \
 		-exportselection yes \
 		-background $bg \
-		-cursor left_ptr \
+		-cursor standard \
 		-showhyphens 1 \
 		-css $css \
 		-usehorzscroll no \

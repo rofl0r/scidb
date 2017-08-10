@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1204 $
-# Date   : $Date: 2017-06-23 08:24:59 +0000 (Fri, 23 Jun 2017) $
+# Version: $Revision: 1403 $
+# Date   : $Date: 2017-08-10 18:23:08 +0000 (Thu, 10 Aug 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -116,7 +116,7 @@ proc show {base variant args} {
 		-fittowidth yes \
 		-height 600 \
 		-width 800 \
-		-cursor left_ptr \
+		-cursor standard \
 		-borderwidth 1 \
 		-relief sunken \
 		-doublebuffer no \
