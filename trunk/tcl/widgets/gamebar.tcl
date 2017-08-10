@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1356 $
-# Date   : $Date: 2017-08-02 17:35:56 +0000 (Wed, 02 Aug 2017) $
+# Version: $Revision: 1402 $
+# Date   : $Date: 2017-08-10 17:49:29 +0000 (Thu, 10 Aug 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1384,9 +1384,9 @@ proc AddGameMenuEntries {gamebar m addSaveMenu addGameHistory clearHistory remov
 
 			$n add command \
 				-label [::util::databaseName $base] \
-				-background "#d3d3d3" \
+				-background #d3d3d3 \
 				-foreground black \
-				-activebackground "#d3d3d3" \
+				-activebackground #d3d3d3 \
 				-activeforeground black \
 				-font $::table::options(menu:headerfont) \
 				-state disabled \
