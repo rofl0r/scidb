@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1406 $
-// Date   : $Date: 2017-08-11 16:24:29 +0000 (Fri, 11 Aug 2017) $
+// Version: $Revision: 1407 $
+// Date   : $Date: 2017-08-11 16:27:14 +0000 (Fri, 11 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -449,10 +449,7 @@ closeConnection()
 		if (m_chan)
 		{
 			Tcl_DeleteChannelHandler(m_chan, processMessages, reinterpret_cast<ClientData>(fd));
-#if TCL_MAJOR_VERSION != 8 || TCL_MINOR_VERSION != 7 || TCL_RELEASE_SERIAL != 0
-			// 6.8.0 is crashing with a closes descriptor
 			Tcl_Close(0, m_chan);
-#endif
 		}
 
 		Tcl_DecrRefCount(m_sessionId);
