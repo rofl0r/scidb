@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1249 $
-// Date   : $Date: 2017-07-06 15:50:24 +0000 (Thu, 06 Jul 2017) $
+// Version: $Revision: 1410 $
+// Date   : $Date: 2017-08-11 18:52:58 +0000 (Fri, 11 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -99,8 +99,10 @@ public:
 		IsMerged				= 1 << 15,
 	};
 
-	MoveNode(Move const& move);
+	// NOTE: the game class should use only this constructor
 	MoveNode(Board const& board, Move const& move, variant::Type variant);
+
+	MoveNode(Move const& move);
 	explicit MoveNode(MoveNode* node);
 	explicit MoveNode(Annotation* set = 0);
 	~MoveNode();
