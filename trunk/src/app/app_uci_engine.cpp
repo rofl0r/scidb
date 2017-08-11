@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1395 $
-// Date   : $Date: 2017-08-08 13:59:49 +0000 (Tue, 08 Aug 2017) $
+// Version: $Revision: 1409 $
+// Date   : $Date: 2017-08-11 17:08:45 +0000 (Fri, 11 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -669,6 +669,7 @@ uci::Engine::parseBestMove(char const* msg)
 	{
 		s = ::skipSpaces(s + 6);
 
+		currentBoard().prepareUndo(move);
 		currentBoard().doMove(move, m_variant);
 		Move ponder(currentBoard().parseLAN(s));
 		currentBoard().undoMove(move, m_variant);
