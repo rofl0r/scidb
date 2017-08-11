@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author: gcramer $
-# Version: $Revision: 1336 $
-# Date   : $Date: 2017-07-29 10:21:39 +0000 (Sat, 29 Jul 2017) $
+# Version: $Revision: 1404 $
+# Date   : $Date: 2017-08-11 13:22:01 +0000 (Fri, 11 Aug 2017) $
 # Url    : $URL: https://svn.code.sf.net/p/scidb/code/trunk/tcl/manage-layouts.tcl $
 # ======================================================================
 
@@ -72,6 +72,7 @@ proc open {parent currentLayout} {
 		-resizing  [namespace current]::Resizing \
 		-borderwidth $Options(borderwidth) \
 		-state readonly \
+		-disableclose 1 \
 	]
 	pack $twm -padx $Options(padding) -pady $Options(padding)
 	[namespace parent]::loadInitialLayout $twm
