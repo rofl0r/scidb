@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author: gcramer $
-# Version: $Revision: 1095 $
-# Date   : $Date: 2016-08-14 17:23:39 +0000 (Sun, 14 Aug 2016) $
+# Version: $Revision: 1413 $
+# Date   : $Date: 2017-08-12 12:08:11 +0000 (Sat, 12 Aug 2017) $
 # Url    : $URL: https://svn.code.sf.net/p/scidb/code/trunk/tcl/app-information.tcl $
 # ======================================================================
 
@@ -224,6 +224,7 @@ proc activate {w flag} {
 	}
 
 	append css "h1       { font-size:22px; color:${color-header}; }\n"
+	append css "h2       { font-size:22px; color:${color-header}; }\n"
 	append css "td.h1    { font-size:22px; color:${color-header}; padding-top:20px; }\n"
 	append css "td.h2    { font-size:22px; color:${color-header}; padding-top:5px; }\n"
 	append css "td.bases { font-size:16px; color:black; background-color:${color-menu}; }\n"
@@ -231,7 +232,7 @@ proc activate {w flag} {
 	append css "td.left  { padding-right:15px; }\n"
 	append css "td.right { border-left: solid 1px white; padding-left:15px; }\n"
 	append css "td.hover { background-color:${color-hover}; }\n"
-	append css ":link    { color:${color-link};text-decoration: none; }\n"
+	append css ":link    { color:${color-link}; text-decoration: none; }\n"
 	append css ":visited { color:${color-visited}; text-decoration: none; }\n"
 	append css ":hover   { text-decoration: underline; }\n"
 	append css "ul       { padding: 0; }\n"
@@ -333,6 +334,8 @@ proc A_NodeHandler {node} {
 	if {[string match http* $href]} {
 		$node dynamic set link
 		if {[info exists Priv(link:$href)]} { $node dynamic set visited }
+	} elseif {[string match *.html $href]} {
+		$node dynamic set link
 	}
 }
 
@@ -396,15 +399,21 @@ proc Mouse1Down {nodes} {
 
 	foreach node $nodes {
 		if {![catch { $node parent }]} {
-			set cmd {}
+			set href [$node attribute -default {} href]
 
-			switch [$node attribute -default {} href] {
-				OPEN	{ set cmd [list ::menu::dbOpen $Priv(html)] }
-				NEW	{ set cmd [list ::menu::dbNew $Priv(html) Normal] }
-			}
+			if {[string match *.html $href]} {
+				::help::open .application [file rootname $href]
+			} else {
+				set cmd {}
 
-			if {[llength $cmd] && ![catch { [{*}$cmd] }]} {
-				[namespace parent]::switchTab database
+				switch $href {
+					OPEN	{ set cmd [list ::menu::dbOpen $Priv(html)] }
+					NEW	{ set cmd [list ::menu::dbNew $Priv(html) Normal] }
+				}
+
+				if {[llength $cmd] && ![catch { [{*}$cmd] }]} {
+					[namespace parent]::switchTab database
+				}
 			}
 		}
 	}

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1383 $
-# Date   : $Date: 2017-08-06 17:18:29 +0000 (Sun, 06 Aug 2017) $
+# Version: $Revision: 1413 $
+# Date   : $Date: 2017-08-12 12:08:11 +0000 (Sat, 12 Aug 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -475,7 +475,7 @@ proc WriteOptions {chan} {
 	variable Tables
 
 #	::options::writeItem $chan [namespace current]::Defaults
-	::options::writeList $chan [namespace current]::Find
+	::options::writeList $chan [namespace current]::History
 
 	foreach table $Tables {
 		foreach type {names pairings} {
