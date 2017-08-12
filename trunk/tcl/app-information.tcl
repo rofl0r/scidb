@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author: gcramer $
-# Version: $Revision: 1413 $
-# Date   : $Date: 2017-08-12 12:08:11 +0000 (Sat, 12 Aug 2017) $
+# Version: $Revision: 1414 $
+# Date   : $Date: 2017-08-12 12:41:01 +0000 (Sat, 12 Aug 2017) $
 # Url    : $URL: https://svn.code.sf.net/p/scidb/code/trunk/tcl/app-information.tcl $
 # ======================================================================
 
@@ -103,7 +103,7 @@ proc build {tab width height} {
 	$Priv(html) handler node a [namespace current]::A_NodeHandler
 	pack $Priv(html) -fill both -expand yes
 	set Priv(buttons) $btn
-	set Priv(welcome) $Options(welcome)
+	set Priv(welcome) [expr {$Options(welcome) || $::beta::WhatsNew}]
 
 	if {!$Options(welcome)} {
 		after idle [namespace code [list FetchNews $::mc::langID 0]]
