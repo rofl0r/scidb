@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1400 $
-# Date   : $Date: 2017-08-09 11:25:39 +0000 (Wed, 09 Aug 2017) $
+# Version: $Revision: 1415 $
+# Date   : $Date: 2017-08-15 15:18:05 +0000 (Tue, 15 Aug 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1628,7 +1628,7 @@ proc LanguageChanged {number list} {
 }
 
 
-proc SetMemory {} {
+proc SetMemory {number} {
 	variable Options
 	variable ${number}::Vars
 

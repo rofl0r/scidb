@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 973 $
-// Date   : $Date: 2013-10-15 18:17:14 +0000 (Tue, 15 Oct 2013) $
+// Version: $Revision: 1415 $
+// Date   : $Date: 2017-08-15 15:18:05 +0000 (Tue, 15 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -638,7 +638,7 @@ Hyphenate::~Hyphenate()
 	}
 	else if (--i->second.first == 0 && m_keepInCache == DontKeepInCache)
 	{
-		M_ASSERT(m_hyphenator == i->second.second);
+		//M_ASSERT(m_hyphenator == i->second.second);
 		delete i->second.second;
 		::hyphenatorMap.erase(i);
 	}
