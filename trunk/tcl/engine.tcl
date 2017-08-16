@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1415 $
-# Date   : $Date: 2017-08-15 15:18:05 +0000 (Tue, 15 Aug 2017) $
+# Version: $Revision: 1416 $
+# Date   : $Date: 2017-08-16 17:29:22 +0000 (Wed, 16 Aug 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1735,18 +1735,23 @@ proc UseEngine {number list item profileList} {
 			if {$nmin <= $min} { set min $nmin } else { set min $min2 }
 			set max [expr {min($max, [MemAvail])}]
 		}
-		set avail [::scidb::misc::memFree]
-		if {$avail >= 0} {
-			set avail [expr {$avail/1048576}]
-			if {$max > 0 } { set avail [expr {min($avail, $max)}] }
-			set avail [RoundMem $avail]
+		set free [::scidb::misc::memFree]
+		if {$free >= 0} {
+			set free [expr {$free/1048576}]
+			if {$max > 0 } { set free [expr {min($free, $max)}] }
+			set free [RoundMem $free]
 		}
 		while {$min <= $max} {
 			set options {}
-			if {$min > $avail} { lappend options -foreground gray40 }
+			if {$min > $free} { lappend options -foreground gray40 }
 			$Vars(widget:memory) listinsert $min {*}$options
 			set incr [expr {[::scidb::misc::predPow2 $min]/2}]
+			set last $min
 			incr min $incr
+		}
+		set avail [::scidb::misc::memAvail]
+		if {$avail > $last} {
+			$Vars(widget:memory) listinsert $min -foreground gray40
 		}
 		$Vars(widget:memory) resize
 		$Vars(widget:memory) configure -height 0 -state readonly
