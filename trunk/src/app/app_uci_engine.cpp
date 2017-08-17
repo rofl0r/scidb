@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1409 $
-// Date   : $Date: 2017-08-11 17:08:45 +0000 (Fri, 11 Aug 2017) $
+// Version: $Revision: 1420 $
+// Date   : $Date: 2017-08-17 16:33:58 +0000 (Thu, 17 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -945,7 +945,7 @@ uci::Engine::parseCurrentMove(char const* s)
 	if (!move.isLegal())
 	{
 		// Some engines (e.g. Gaviota) are sending SAN (not UCI conform)
-		if (!currentBoard().parseMove(s, move, m_variant))
+		if (!currentBoard().parseMove(s, move, m_variant, move::MustBeUnambiguous))
 		{
 			mstl::string msg("Illegal current move: ");
 			msg.append(s, ::skipNonSpaces(s));

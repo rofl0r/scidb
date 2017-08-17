@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1395 $
-// Date   : $Date: 2017-08-08 13:59:49 +0000 (Tue, 08 Aug 2017) $
+// Version: $Revision: 1420 $
+// Date   : $Date: 2017-08-17 16:33:58 +0000 (Thu, 17 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1342,7 +1342,7 @@ winboard::Engine::parseInfo(mstl::string const& msg)
 		s = ::skipMoveNumber(s);
 
 		Move move;
-		char const* t = board.parseMove(s, move, currentVariant());
+		char const* t = board.parseMove(s, move, currentVariant(), move::MustBeUnambiguous);
 
 		if (t)
 		{
@@ -1461,7 +1461,7 @@ winboard::Engine::parseCurrentMove(char const* s)
 		s = ::skipMoveNumber(::skipWords(s, 3));
 
 		Move move;
-		char const* t = currentBoard().parseMove(::skipDots(s), move, currentVariant());
+		char const* t = currentBoard().parseMove(::skipDots(s), move, currentVariant(), move::MustBeUnambiguous);
 
 		if (t == 0)
 			return true; // skip it anayway

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1400 $
-// Date   : $Date: 2017-08-09 11:25:39 +0000 (Wed, 09 Aug 2017) $
+// Version: $Revision: 1420 $
+// Date   : $Date: 2017-08-17 16:33:58 +0000 (Thu, 17 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -5011,7 +5011,19 @@ Board::parseMove(	char const* algebraic,
 				if (validList.size() > 1 && ambuigity == move::MustBeUnambiguous)
 					return nullptr;
 
-				Move* m = validList.begin();
+				Move* m = nullptr;
+
+				for (unsigned i = 0; i < validList.size(); ++i)
+				{
+					if (validList[i].isLegal())
+					{
+						m = &validList[i];
+						break;
+					}
+				}
+
+				if (!m)
+					m = validList.begin();
 
 				fromSquare = m->from();
 				toSquare = m->to();
@@ -5219,6 +5231,15 @@ Board::parseMove(	char const* algebraic,
 		{
 			if (validList.size() > 1 && ambuigity == move::MustBeUnambiguous)
 				return nullptr;
+
+			for (unsigned i = 0; i < validList.size(); ++i)
+			{
+				if (validList[i].isLegal())
+				{
+					move = validList[i];
+					return s;
+				}
+			}
 
 			move = validList.front();
 			return s;

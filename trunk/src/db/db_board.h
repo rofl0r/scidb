@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1400 $
-// Date   : $Date: 2017-08-09 11:25:39 +0000 (Wed, 09 Aug 2017) $
+// Version: $Revision: 1420 $
+// Date   : $Date: 2017-08-17 16:33:58 +0000 (Thu, 17 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -268,13 +268,13 @@ public:
 	/// Parse any (LAN, SAN, or algebraic) representation of move, and return proper Move() object
 	Move parseMove(char const* algebraic,
 						variant::Type variant,
-						move::Ambiguity ambuigity = move::MustBeUnambiguous,
+						move::Ambiguity ambuigity = move::ResolveAmbiguity,
 						move::Constraint flag = move::DontAllowIllegalMove) const;
 	/// Parse any (LAN, SAN, or algebraic) representation of move, and return string position after move
 	char const* parseMove(	char const* algebraic,
 									Move& move,
 									variant::Type variant,
-									move::Ambiguity ambuigity = move::MustBeUnambiguous,
+									move::Ambiguity ambuigity = move::ResolveAmbiguity,
 									move::Constraint flag = move::DontAllowIllegalMove) const;
 	/// Parse LAN representation of move, and return string position after move
 	Move parseLAN(char const* algebraic, move::Constraint flag = move::DontAllowIllegalMove) const;

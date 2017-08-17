@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1400 $
-// Date   : $Date: 2017-08-09 11:25:39 +0000 (Wed, 09 Aug 2017) $
+// Version: $Revision: 1420 $
+// Date   : $Date: 2017-08-17 16:33:58 +0000 (Thu, 17 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1587,7 +1587,7 @@ cmdValid(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 {
 	Game const& game = Scidb->game();
 	mstl::string san(stringFromObj(objc, objv, 1));
-	setResult(bool(game.currentBoard().parseMove(san, game.variant())));
+	setResult(bool(game.currentBoard().parseMove(san, game.variant(), move::MustBeUnambiguous)));
 	return TCL_OK;
 }
 
