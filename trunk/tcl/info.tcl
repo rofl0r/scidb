@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1367 $
-# Date   : $Date: 2017-08-03 13:44:17 +0000 (Thu, 03 Aug 2017) $
+# Version: $Revision: 1418 $
+# Date   : $Date: 2017-08-17 10:36:33 +0000 (Thu, 17 Aug 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -158,7 +158,7 @@ proc DisplayAbout {w} {
 		<br/><br/>
 		<font style='font-family: $fam; font-size: 12pt;'>
 			$mc::Version $::scidb::version<br/>
-			Copyright &#x00A9; 2008-2015 Gregor Cramer<br/><br/>
+			Copyright &#x00A9; 2008-2017 Gregor Cramer<br/><br/>
 			[Url http://scidb.sourceforge.net]<br/><br/>
 			$mc::Distributed<br/><br/>
 			<font style='font-size: 10pt;'>$mc::Inspired</font>
