@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1173 $
-# Date   : $Date: 2017-05-18 09:55:46 +0000 (Thu, 18 May 2017) $
+# Version: $Revision: 1421 $
+# Date   : $Date: 2017-08-17 19:07:26 +0000 (Thu, 17 Aug 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1224,6 +1224,8 @@ proc useLanguage {lang} {
 		set graphic $langSet(graphic)
 		if {[string length $Options(figurine:lang)]} {
 			set lang $Options(figurine:lang)
+		} else {
+			set lang $::mc::langID
 		}
 		set figurine $langSet($lang)
 		for {set i 0} {$i < 5} {incr i} {

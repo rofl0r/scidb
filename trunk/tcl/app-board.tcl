@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1355 $
-# Date   : $Date: 2017-08-02 16:28:09 +0000 (Wed, 02 Aug 2017) $
+# Version: $Revision: 1421 $
+# Date   : $Date: 2017-08-17 19:07:26 +0000 (Thu, 17 Aug 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1066,6 +1066,7 @@ proc PopupMenu {w} {
 		-label "$::board::options::mc::UseSmallLetters" \
 		-variable ::board::layout(coords-small) \
 		-command [namespace code RedrawCoordinates] \
+		-state [expr {$::board::layout(coordinates) ? "normal" : "disabled"}] \
 		;
 	::theme::configureCheckEntry $m
 	$m add checkbutton \
