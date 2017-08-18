@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1372 $
-// Date   : $Date: 2017-08-04 17:56:11 +0000 (Fri, 04 Aug 2017) $
+// Version: $Revision: 1422 $
+// Date   : $Date: 2017-08-18 10:27:34 +0000 (Fri, 18 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -70,9 +70,6 @@ public:
 	void setName(mstl::string const& name);
 
 	static int compare(char const* lhs, char const* rhs);
-
-	// XXX not working; one instance per database is needed
-	static NamebaseEntry* emptyEntry();
 
 private:
 
@@ -219,16 +216,11 @@ public:
 	void setCountry_(country::Code country);
 	void setSite_(NamebaseSite* site);
 
-	// XXX not working; one instance per database is needed
-	static NamebaseSite* emptySite();
-
 private:
 
 	friend class Namebase;
 
 	Value m_value;
-
-	static NamebaseSite* m_emptySite;
 };
 
 

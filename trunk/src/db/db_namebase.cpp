@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1382 $
-// Date   : $Date: 2017-08-06 10:19:27 +0000 (Sun, 06 Aug 2017) $
+// Version: $Revision: 1422 $
+// Date   : $Date: 2017-08-18 10:27:34 +0000 (Fri, 18 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -113,6 +113,7 @@ Namebase::Namebase(Type type)
 	,m_isOriginal(true)
 	,m_isReadonly(false)
 	,m_emptyAnnotator(type == Annotator ? new Entry() : 0)
+	,m_emptySite(type == Site ? new SiteEntry() : 0)
 	,m_stringAllocator(32768)
 	,m_stringAllocator2(0)
 	,m_stringAllocator3(0)
@@ -147,6 +148,7 @@ Namebase::~Namebase() throw()
 	delete m_stringAllocator2;
 	delete m_stringAllocator3;
 	delete m_emptyAnnotator;
+	delete m_emptySite;
 }
 
 
@@ -798,6 +800,9 @@ Namebase::clear()
 
 	if (m_emptyAnnotator)
 		m_emptyAnnotator->setFrequency(0);
+
+	if (m_emptySite)
+		m_emptySite->setFrequency(0);
 
 	m_stringAllocator.clear();
 

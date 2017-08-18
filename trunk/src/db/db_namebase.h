@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1382 $
-// Date   : $Date: 2017-08-06 10:19:27 +0000 (Sun, 06 Aug 2017) $
+// Version: $Revision: 1422 $
+// Date   : $Date: 2017-08-18 10:27:34 +0000 (Fri, 18 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -138,6 +138,9 @@ public:
 	Entry const* append(mstl::string const& name, unsigned id);
 	Entry const* emptyAnnotator() const;
 	Entry* emptyAnnotator();
+
+	SiteEntry const* emptySite() const;
+	SiteEntry* emptySite();
 
 	SiteEntry* insertSite(mstl::string const& name);
 	SiteEntry* insertSite(mstl::string const& name, country::Code country, unsigned limit);
@@ -282,6 +285,7 @@ private:
 	bool		m_isOriginal;
 	bool		m_isReadonly;
 	Entry*	m_emptyAnnotator;
+	NamebaseSite* m_emptySite;
 
 	union
 	{

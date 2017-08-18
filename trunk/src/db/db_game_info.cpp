@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1382 $
-// Date   : $Date: 2017-08-06 10:19:27 +0000 (Sun, 06 Aug 2017) $
+// Version: $Revision: 1422 $
+// Date   : $Date: 2017-08-18 10:27:34 +0000 (Fri, 18 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -238,7 +238,7 @@ GameInfo::update(	NamebasePlayer* whitePlayer,
 	M_REQUIRE(annotator);
 	M_REQUIRE((reinterpret_cast<long>(annotator) & 1) == 0);
 
-	if (annotator != NamebaseEntry::emptyEntry())
+	if (annotator != namebases(Namebase::Annotator).emptyAnnotator())
 	{
 		m_annotator = annotator;
 		namebases(Namebase::Annotator).incrRef(m_annotator);
@@ -479,7 +479,7 @@ GameInfo::setup(	uint32_t gameOffset,
 	M_REQUIRE(annotator);
 	M_REQUIRE((reinterpret_cast<long>(annotator) & 1) == 0);
 
-	if (annotator == NamebaseEntry::emptyEntry())
+	if (annotator == namebases(Namebase::Annotator).emptyAnnotator())
 	{
 		setGameRecordLength(gameRecordLength);
 	}

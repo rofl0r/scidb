@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1383 $
-// Date   : $Date: 2017-08-06 17:18:29 +0000 (Sun, 06 Aug 2017) $
+// Version: $Revision: 1422 $
+// Date   : $Date: 2017-08-18 10:27:34 +0000 (Fri, 18 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1363,7 +1363,7 @@ Codec::decodeIndex(ByteStream& strm, unsigned index)
 	else
 		date.clear();
 
-	if (event->site() == NamebaseEvent::emptySite())
+	if (event->site() == this->namebase(Namebase::Site).emptySite())
 	{
 		event::Mode mode = Reader::getEventMode(event->name(), site->name());
 
@@ -1979,7 +1979,7 @@ Codec::readNamebase(	ByteIStream& bstrm,
 				shadowBase.append(
 					str,
 					index,
-					base.insertEvent(name, index, limit, NamebaseEvent::emptySite()),
+					base.insertEvent(name, index, limit, namebase(Namebase::Site).emptySite()),
 					*m_codec);
 				break;
 

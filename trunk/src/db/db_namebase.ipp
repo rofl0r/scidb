@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1382 $
-// Date   : $Date: 2017-08-06 10:19:27 +0000 (Sun, 06 Aug 2017) $
+// Version: $Revision: 1422 $
+// Date   : $Date: 2017-08-18 10:27:34 +0000 (Fri, 18 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -324,6 +324,24 @@ Namebase::emptyAnnotator()
 {
 	M_REQUIRE(type() == Annotator);
 	return m_emptyAnnotator;
+}
+
+
+inline
+NamebaseSite const*
+Namebase::emptySite() const
+{
+	M_REQUIRE(type() == Site);
+	return m_emptySite;
+}
+
+
+inline
+NamebaseSite*
+Namebase::emptySite()
+{
+	M_REQUIRE(type() == Site);
+	return m_emptySite;
 }
 
 

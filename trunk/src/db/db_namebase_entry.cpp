@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 872 $
-// Date   : $Date: 2013-07-04 13:07:56 +0000 (Thu, 04 Jul 2013) $
+// Version: $Revision: 1422 $
+// Date   : $Date: 2017-08-18 10:27:34 +0000 (Fri, 18 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -31,10 +31,6 @@
 #include <strings.h>
 
 using namespace db;
-
-
-NamebaseSite* NamebaseEvent::m_emptySite	= new NamebaseSite();
-NamebaseEntry* NamebaseEntry::m_emptyEntry	= new NamebaseEntry();
 
 
 NamebaseEntry::NamebaseEntry(mstl::string const& name) :m_name(name) {}
