@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1410 $
-// Date   : $Date: 2017-08-11 18:52:58 +0000 (Fri, 11 Aug 2017) $
+// Version: $Revision: 1423 $
+// Date   : $Date: 2017-08-18 20:45:12 +0000 (Fri, 18 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -3006,7 +3006,7 @@ Game::addVariation(Move const& move, move::Position position)
 		board.undoMove(currentMove(), variant());
 
 	n->setNext(new MoveNode(board, move, m_variant));
-	n->setNext(new MoveNode);
+	n->next()->setNext(new MoveNode);
 	return addVariation(node, position);
 }
 
