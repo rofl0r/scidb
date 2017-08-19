@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1402 $
-# Date   : $Date: 2017-08-10 17:49:29 +0000 (Thu, 10 Aug 2017) $
+# Version: $Revision: 1427 $
+# Date   : $Date: 2017-08-19 11:51:18 +0000 (Sat, 19 Aug 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -976,6 +976,8 @@ proc Display(state) {tree state} {
 			$Vars(move) delete 1.0 end
 			SetState $tree normal
 			$Vars(move) configure -state disabled
+			set Vars(engine:pause) 0
+			$Vars(button:close) configure -state normal
 		}
 	}
 }
