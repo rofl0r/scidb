@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1403 $
-# Date   : $Date: 2017-08-10 18:23:08 +0000 (Thu, 10 Aug 2017) $
+# Version: $Revision: 1429 $
+# Date   : $Date: 2017-08-19 19:03:23 +0000 (Sat, 19 Aug 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -402,6 +402,7 @@ proc buildWebMenu {parent m info} {
 	set pndID     [lindex $info 17]
 	set cgdcID    [lindex $info 18]
 	set wikiLinks [lindex $info 19]
+puts "buildWebMenu: $info"
 
 	if {[string index $fideID 0] eq "-"} { set fideID [string range $fideID 1 end] }
 
