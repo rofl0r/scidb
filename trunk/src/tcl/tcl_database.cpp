@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1393 $
-// Date   : $Date: 2017-08-07 14:41:16 +0000 (Mon, 07 Aug 2017) $
+// Version: $Revision: 1430 $
+// Date   : $Date: 2017-08-19 19:39:59 +0000 (Sat, 19 Aug 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2554,9 +2554,9 @@ tcl::db::getTags(TagSet const& tags, bool userSuppliedOnly)
 {
 	Tcl_Obj* result = Tcl_NewListObj(0, 0);
 
-	for (tag::ID tag = tags.findFirst(); tag < tag::ExtraTag; tag = tags.findNext(tag))
+	for (tag::ID tag = tag::ID(0); tag < tag::ExtraTag; tag = tag::ID(tag + 1))
 	{
-		if (tags.isUserSupplied(tag))
+		if (tag::isMandatory(tag) || (tags.contains(tag) && tags.isUserSupplied(tag)))
 		{
 			Tcl_Obj* objs[2];
 
