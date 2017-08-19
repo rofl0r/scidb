@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1421 $
-# Date   : $Date: 2017-08-17 19:07:26 +0000 (Thu, 17 Aug 2017) $
+# Version: $Revision: 1428 $
+# Date   : $Date: 2017-08-19 13:10:03 +0000 (Sat, 19 Aug 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -107,6 +107,7 @@ proc build {w width height} {
 	set Vars(variant) Normal
 	set Vars(layout) Normal
 	set Vars(initialized) 0
+	set Vars(afterid:switched) {}
 
 	pack [set canv [tk::canvas $w.c -takefocus 1 -borderwidth 0]] -fill both -expand yes
 	$canv xview moveto 0
@@ -227,7 +228,8 @@ proc build {w width height} {
 							-id board-control \
 							-tooltipvar [namespace current]::mc::Control \
 							-side bottom \
-							-alignment center]
+							-alignment center \
+						]
 	set tbGame		[::toolbar::toolbar $w \
 							-hide 1 \
 							-id board-game \
@@ -1823,6 +1825,14 @@ proc UpdateControls {} {
 
 proc GameSwitched {position} {
 	variable Vars
+
+	after cancel $Vars(afterid:switched)
+	set Vars(afterid:switched) [after 1 [namespace code [list GameSwitched2 $position]]]
+}
+
+
+proc GameSwitched2 {position} {
+	variable Vars
 	variable board
 
 	# reset if position is 9 (all games closed)
@@ -1845,14 +1855,9 @@ proc GameSwitched {position} {
 	UpdateGameButtonState(base) [::scidb::db::get name] [::scidb::app::variant]
 	UpdateSaveButton
 
-	::board::diagram::showPromoted $board [expr {$variant eq "Crazyhouse"}]
-
-	if {$variant eq "Crazyhouse" || $variant eq "ThreeCheck"} {
-		set layout $variant
-	} else {
-		set layout Normal
-	}
+	set layout [expr {$variant eq "Crazyhouse" || $variant eq "ThreeCheck" ? $variant : "Normal"}]
 	if {$layout ne $Vars(layout)} {
+		::board::diagram::showPromoted $board [expr {$variant eq "Crazyhouse"}]
 		set Vars(layout) $layout
 		Apply
 	}
