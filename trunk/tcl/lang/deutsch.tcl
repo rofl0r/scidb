@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1400 $
-# Date   : $Date: 2017-08-09 11:25:39 +0000 (Wed, 09 Aug 2017) $
+# Version: $Revision: 1434 $
+# Date   : $Date: 2017-08-24 15:29:08 +0000 (Thu, 24 Aug 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -214,7 +214,7 @@
 ::util::mc::IOError(Corrupted)				"die Datei ist beschädigt"
 ::util::mc::IOError(WriteFailed)				"die Schreiboperation schlug fehl"
 ::util::mc::IOError(InvalidData)				"ungültige Daten (möglicherweise eine beschädigte Datei)"
-::util::mc::IOError(ReadError)				"Fehler beim Schreiben"
+::util::mc::IOError(ReadError)				"Fehler beim Lesen"
 ::util::mc::IOError(EncodingFailed)			"die Namebase konnte nicht erzeugt werden"
 ::util::mc::IOError(MaxFileSizeExceeded)	"die maximale Dateigrösse wurde erreicht"
 ::util::mc::IOError(LoadFailed)				"das Laden schlug fehl (zuviele Turnier-Einträge)"
