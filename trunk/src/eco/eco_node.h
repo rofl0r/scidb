@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author: gcramer $
-// Version: $Revision: 1411 $
-// Date   : $Date: 2017-08-12 11:08:17 +0000 (Sat, 12 Aug 2017) $
+// Version: $Revision: 1435 $
+// Date   : $Date: 2017-08-30 18:38:19 +0000 (Wed, 30 Aug 2017) $
 // Url    : $HeadURL: https://svn.code.sf.net/p/scidb/code/trunk/src/eco/eco_node.h $
 // ======================================================================
 
@@ -89,7 +89,6 @@ public:
 
 	auto alreadyDone() const -> bool;
 	auto isBypass() const -> bool;
-	auto isContinuation() const -> bool;
 	auto isFinal() const -> bool;
 	auto isEqual() const -> bool;
 	auto isRoot() const -> bool;
@@ -212,6 +211,7 @@ private:
 		Node const* root,
 		unsigned size,
 		unsigned weight) -> bool;
+	auto addTransition(Reader const& reader, db::Board& board, Transition const& trans) -> void;
 	void buildBypassSequence(Id eco, db::Board board, db::MoveLine& moves);
 	void generateBypassTransitions(db::Board& board);
 	void dumpGame(unsigned offset) const;
@@ -222,7 +222,7 @@ private:
 	void setOpeningFromParent(unsigned openingRef, Name const& name);
 	void extend(db::Board& board, db::MoveLine& line);
 	void renumber(Numbers& numbers);
-	void doTraversal(Visitor& visitor, unsigned& count) const;
+	void doTraversal(Visitor& visitor, mstl::bitset& keySet, mstl::stack<Node const*>& stack) const;
 	auto findUnresolvedNodes(BranchStack& stack) -> bool;
 	void computePathMaxima(db::MoveList& line) const;
 	void computePathMaxima(BranchStack& stack) const;

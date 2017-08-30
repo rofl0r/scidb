@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author: gcramer $
-// Version: $Revision: 1411 $
-// Date   : $Date: 2017-08-12 11:08:17 +0000 (Sat, 12 Aug 2017) $
+// Version: $Revision: 1435 $
+// Date   : $Date: 2017-08-30 18:38:19 +0000 (Wed, 30 Aug 2017) $
 // Url    : $HeadURL: https://svn.code.sf.net/p/scidb/code/trunk/src/eco/eco_rules.h $
 // ======================================================================
 
@@ -42,9 +42,12 @@ class Rules
 {
 public:
 
+	enum Permission { NotAllowed, Allowed, NotForbidden };
+
 	auto isValid(Id id, db::MoveLine const& line) const -> bool;
-	auto transpositionIsAllowed(Id from, Id to, db::MoveLine const& line) const -> bool;
 	auto omit(Id id, db::MoveLine const& line) const -> bool;
+
+	auto testTransposition(Id from, Id to, db::MoveLine const& line) const -> Permission;
 
 	void add(Id id, db::MoveLine const& line);
 	void addExclusion(Id id, db::MoveLine const& line);

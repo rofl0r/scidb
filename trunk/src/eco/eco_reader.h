@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author: gcramer $
-// Version: $Revision: 1411 $
-// Date   : $Date: 2017-08-12 11:08:17 +0000 (Sat, 12 Aug 2017) $
+// Version: $Revision: 1435 $
+// Date   : $Date: 2017-08-30 18:38:19 +0000 (Wed, 30 Aug 2017) $
 // Url    : $HeadURL: https://svn.code.sf.net/p/scidb/code/trunk/src/eco/eco_reader.h $
 // ======================================================================
 
@@ -49,10 +49,12 @@ public:
 
 	static constexpr char PreParsed	= 1;
 	static constexpr char Equal		= 2;
+	static constexpr char Skip			= 3;
 
 	Reader(Type type);
 	virtual ~Reader() = default;
 
+	auto isContinuation() const -> bool;
 	auto isLineReader() const -> bool;
 
 	auto lineNo() const -> unsigned;

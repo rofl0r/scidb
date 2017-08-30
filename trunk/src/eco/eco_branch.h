@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author: gcramer $
-// Version: $Revision: 1411 $
-// Date   : $Date: 2017-08-12 11:08:17 +0000 (Sat, 12 Aug 2017) $
+// Version: $Revision: 1435 $
+// Date   : $Date: 2017-08-30 18:38:19 +0000 (Wed, 30 Aug 2017) $
 // Url    : $HeadURL: https://svn.code.sf.net/p/scidb/code/trunk/src/eco/eco_branch.h $
 // ======================================================================
 
@@ -60,6 +60,7 @@ struct Branch
 	uint8_t			bits;
 	uint8_t			weight;
 	uint8_t			pathLength;
+	uint8_t			exception:1;
 	uint8_t			transposition:1;
 	uint8_t			bypass:1;
 	uint8_t			backlink:1; // not yet used

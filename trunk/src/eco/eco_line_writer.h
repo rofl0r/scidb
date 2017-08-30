@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author: gcramer $
-// Version: $Revision: 1411 $
-// Date   : $Date: 2017-08-12 11:08:17 +0000 (Sat, 12 Aug 2017) $
+// Version: $Revision: 1435 $
+// Date   : $Date: 2017-08-30 18:38:19 +0000 (Wed, 30 Aug 2017) $
 // Url    : $HeadURL: https://svn.code.sf.net/p/scidb/code/trunk/src/eco/eco_line_writer.h $
 // ======================================================================
 
@@ -32,6 +32,8 @@
 
 namespace eco {
 
+class Branch;
+
 class LineWriter : public Writer
 {
 public:
@@ -44,6 +46,8 @@ public:
 	void print(Node const* root) override;
 
 private:
+
+	void printTransposition(Node const& node, Branch const& branch);
 
 	Id		m_eco;
 	bool	m_needHeader;
