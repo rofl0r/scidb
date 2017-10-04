@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1339 $
-// Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
+// Version: $Revision: 1437 $
+// Date   : $Date: 2017-10-04 11:10:20 +0000 (Wed, 04 Oct 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1719,6 +1719,49 @@ Decoder::searchForPosition(Board const& position, bool skipVariations)
 	}
 
 	return move;	// never reached
+}
+
+
+bool
+Decoder::validateGameData(unsigned char const* data, unsigned size)
+{
+	util::ByteStream strm(const_cast<unsigned char*>(data), size);
+
+	uint16_t flags	= strm.uint16();
+	uint16_t idn	= flags & 0x0fff;
+
+	if (idn)
+	{
+		if (idn > variant::MaxCode)
+			return false;
+	}
+	else
+	{
+		Board board;
+		mstl::string fen;
+
+		strm.get(fen);
+		if (!board.setup(fen, variant::Normal)) // TODO: for all variants
+			return false;
+	}
+
+	unsigned dataOffset = strm.uint24();
+
+	if (strm.tellg() > dataOffset || dataOffset > size)
+		return false;
+
+	Byte const* dataSection = strm.base() + dataOffset;
+
+	if (flags & flags::TextSection)
+	{
+		unsigned textOffset = ByteStream::uint24(dataSection);
+
+		if (strm.tellg() > textOffset || textOffset + 3 >= size)
+			return false;
+	}
+
+	// TODO: test first move
+	return true; // seems to be plausible game data
 }
 
 // vi:set ts=3 sw=3:

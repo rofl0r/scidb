@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1383 $
-// Date   : $Date: 2017-08-06 17:18:29 +0000 (Sun, 06 Aug 2017) $
+// Version: $Revision: 1437 $
+// Date   : $Date: 2017-10-04 11:10:20 +0000 (Wed, 04 Oct 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -53,7 +53,7 @@ public:
 	DatabaseContent(mstl::string const& filename, DatabaseContent const& content);
 	virtual ~DatabaseContent() throw();
 
-	unsigned size() const;
+	unsigned infoListSize() const;
 
 	Namebase& namebase(Namebase::Type type);
 	Namebase const& namebase(Namebase::Type type) const;

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1420 $
-// Date   : $Date: 2017-08-17 16:33:58 +0000 (Thu, 17 Aug 2017) $
+// Version: $Revision: 1437 $
+// Date   : $Date: 2017-10-04 11:10:20 +0000 (Wed, 04 Oct 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -236,7 +236,7 @@ public:
 	void setStandardPosition();
 	/// Set initial chess game position on the board
 	void setStandardPosition(variant::Type variant);
-	/// Parse given FEN, return true if loaded properly otherwise false
+	/// Parse given FEN, return pointer if loaded properly otherwise null
 	char const* setup(char const* fen, variant::Type variant);
 	/// Setup board from given IDN (unique IDentification Number)
 	void setup(unsigned idn, variant::Type variant);

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1339 $
-// Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
+// Version: $Revision: 1437 $
+// Date   : $Date: 2017-10-04 11:10:20 +0000 (Wed, 04 Oct 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -14,7 +14,7 @@
 // ======================================================================
 
 // ======================================================================
-// Copyright: (C) 2009-2013 Gregor Cramer
+// Copyright: (C) 2009-2017 Gregor Cramer
 // ======================================================================
 
 // ======================================================================
@@ -74,6 +74,8 @@ public:
 
 	bool stripMoveInformation(unsigned halfMoveCount, unsigned types);
 	bool stripTags(TagMap const& tags);
+
+	static bool validateGameData(unsigned char const* data, unsigned size);
 
 private:
 

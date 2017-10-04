@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 1437 $
+// Date   : $Date: 2017-10-04 11:10:20 +0000 (Wed, 04 Oct 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -26,12 +26,7 @@
 
 namespace db {
 
-inline
-unsigned
-DatabaseContent::size() const
-{
-	return m_gameInfoList.size();
-}
+inline unsigned DatabaseContent::infoListSize() const { return m_gameInfoList.size(); }
 
 
 inline

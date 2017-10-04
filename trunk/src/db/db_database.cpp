@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1390 $
-// Date   : $Date: 2017-08-07 11:49:53 +0000 (Mon, 07 Aug 2017) $
+// Version: $Revision: 1437 $
+// Date   : $Date: 2017-10-04 11:10:20 +0000 (Wed, 04 Oct 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -813,7 +813,6 @@ Database::reopen(mstl::string const& encoding, util::Progress& progress)
 	m_usedEncoding = m_encoding = encoding;
 
 	delete m_codec;
-
 	m_codec = DatabaseCodec::makeCodec(m_name, DatabaseCodec::Existing);
 	M_ASSERT(m_codec);
 
@@ -929,6 +928,34 @@ Database::loadGame(unsigned index, Game& game, mstl::string* encoding, mstl::str
 	setupTags(index, game.m_tags);
 
 	return state;
+}
+
+
+void
+Database::add(GameInfo const& info)
+{
+	M_REQUIRE(isOpen());
+	M_REQUIRE(!isReadonly());
+	M_REQUIRE(isWritable());
+	M_REQUIRE(!usingAsyncReader());
+
+	m_gameInfoList.push_back(info);
+	m_gameInfoList.back().setDirty(true);
+	m_lastChange = sys::time::timestamp();
+}
+
+
+void
+Database::replace(GameInfo const& info, unsigned index)
+{
+	M_REQUIRE(isOpen());
+	M_REQUIRE(!isReadonly());
+	M_REQUIRE(isWritable());
+	M_REQUIRE(!usingAsyncReader());
+	M_REQUIRE(index < size());
+
+	(m_gameInfoList[index] = info).setDirty(true);
+	m_lastChange = sys::time::timestamp();
 }
 
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1383 $
-// Date   : $Date: 2017-08-06 17:18:29 +0000 (Sun, 06 Aug 2017) $
+// Version: $Revision: 1437 $
+// Date   : $Date: 2017-10-04 11:10:20 +0000 (Wed, 04 Oct 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -132,7 +132,7 @@ Filter::resize(unsigned newSize, ResizeMode mode)
 void
 Filter::search(Query const& query, DatabaseContent const& content)
 {
-	M_REQUIRE(content.size() == size());
+	M_REQUIRE(content.infoListSize() == size());
 
 	switch (query.op())
 	{

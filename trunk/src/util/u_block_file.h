@@ -1,12 +1,12 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 906 $
-// Date   : $Date: 2013-07-22 20:44:36 +0000 (Mon, 22 Jul 2013) $
+// Version: $Revision: 1437 $
+// Date   : $Date: 2017-10-04 11:10:20 +0000 (Wed, 04 Oct 2017) $
 // Url    : $URL$
 // ======================================================================
 
 // ======================================================================
-// Copyright: (C) 2009-2013 Gregor Cramer
+// Copyright: (C) 2009-2017 Gregor Cramer
 // ======================================================================
 
 // ======================================================================
@@ -73,6 +73,7 @@ class BlockFile : public mstl::noncopyable
 public:
 
 	typedef BlockFileReader Reader;
+	typedef bool (*ValidityFunc)(unsigned char const* data, unsigned size);
 
 	enum Mode { ReadWriteLength, RequireLength };
 
@@ -112,6 +113,9 @@ public:
 	unsigned fileSize();
 	unsigned blockNumber(unsigned fileOffset) const;
 	unsigned recordLength(unsigned offset);
+
+	unsigned findFirstOffset(ValidityFunc func, unsigned nextKnownOffset);
+	unsigned findNextOffset(ValidityFunc func, unsigned startOffset, unsigned nextKnownOffset);
 
 	bool save(mstl::ostream& stream, Progress* progress = 0);
 	bool attach(mstl::fstream* stream, Progress* progress = 0);
