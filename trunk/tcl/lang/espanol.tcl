@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1400 $
-# Date   : $Date: 2017-08-09 11:25:39 +0000 (Wed, 09 Aug 2017) $
+# Version: $Revision: 1439 $
+# Date   : $Date: 2017-10-06 09:22:29 +0000 (Fri, 06 Oct 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1359,9 +1359,7 @@
 
 ::gametable::mc::P_Name						"Nombre"
 ::gametable::mc::P_FideID					"Fide ID"
-::gametable::mc::P_Rating1					"Puntaje de rating"
-::gametable::mc::P_Rating2					"Rating Score (Second Rating)" ;# NEW
-::gametable::mc::P_RatingType				"Tipo de rating"
+::gametable::mc::P_Rating					"Puntaje de rating"
 ::gametable::mc::P_Country					"País"
 ::gametable::mc::P_Title					"Título"
 ::gametable::mc::P_Type						"Tipo"
