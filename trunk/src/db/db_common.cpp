@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1383 $
-// Date   : $Date: 2017-08-06 17:18:29 +0000 (Sun, 06 Aug 2017) $
+// Version: $Revision: 1441 $
+// Date   : $Date: 2017-10-06 12:25:25 +0000 (Fri, 06 Oct 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -4336,16 +4336,10 @@ variant::fromString(char const* identifier)
 			break;
 
 		case 'C':
-			if (	::strncasecmp(identifier, "Chess960", 8) == 0
-				|| ::strncasecmp(identifier, "Chess-960", 9) == 0
-				|| ::strncasecmp(identifier, "Chess 960", 9) == 0)
-			{
-				return Normal;
-			}
 			if (::strncasecmp(identifier, "Crazyhouse", 10) == 0)
-			{
 				return Crazyhouse;
-			}
+			if (::strncasecmp(identifier, "Chess", 5) == 0)
+				return Normal;
 			break;
 
 		case 'D':
