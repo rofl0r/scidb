@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1427 $
-# Date   : $Date: 2017-08-19 11:51:18 +0000 (Sat, 19 Aug 2017) $
+# Version: $Revision: 1442 $
+# Date   : $Date: 2017-10-15 13:35:44 +0000 (Sun, 15 Oct 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -200,7 +200,7 @@ proc build {parent number {patternNumber 0}} {
 		-borderwidth 0 \
 		-background [::colors::lookup $GlobalOptions(background)] \
 	]
-	bind $mesg <<LanguageChanged>> [namespace code LanguageChanged]
+	bind $main <<LanguageChanged>> [namespace code LanguageChanged]
 	bind $mesg <ButtonPress-3> [namespace code [list PopupMenu $tree $number]]
 
 	$mw add $main -sticky nsew
