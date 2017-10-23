@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1420 $
-// Date   : $Date: 2017-08-17 16:33:58 +0000 (Thu, 17 Aug 2017) $
+// Version: $Revision: 1443 $
+// Date   : $Date: 2017-10-23 11:37:03 +0000 (Mon, 23 Oct 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -673,7 +673,11 @@ winboard::Engine::pongReceived()
 	m_pongCount = m_pingCount;
 
 	if (m_startAnalyzeIsPending)
-		startAnalysis(true);
+	{
+		// Catch a possible timing problem.
+		if (!currentGame()->currentBoard().gameIsOver(currentGame()->variant()))
+			startAnalysis(true);
+	}
 }
 
 
