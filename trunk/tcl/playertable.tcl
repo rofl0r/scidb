@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1413 $
-# Date   : $Date: 2017-08-12 12:08:11 +0000 (Sat, 12 Aug 2017) $
+# Version: $Revision: 1444 $
+# Date   : $Date: 2017-11-08 12:40:27 +0000 (Wed, 08 Nov 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -292,7 +292,7 @@ proc build {path getViewCmd {visibleColumns {}} {args {}}} {
 	::scrolledtable::bind $table <ButtonPress-3>		+[namespace code [list HideInfo $path]]
 
 	::scrolledtable::configure $table lastName \
-		-specialfont [list [list $::font::figurine(text:normal) 9812 9823]] \
+		-secondfont [list [list $::font::figurine(text:normal) 9812 9823]] \
 		;
 
 	if {$useFind} {

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 427 $
-# Date   : $Date: 2012-09-17 12:16:36 +0000 (Mon, 17 Sep 2012) $
+# Version: $Revision: 1444 $
+# Date   : $Date: 2017-11-08 12:40:27 +0000 (Wed, 08 Nov 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -206,6 +206,16 @@ if {[string equal "x11" [tk windowingsystem]]} {
 } else {
     bind TreeCtrl <MouseWheel> {
 	%W yview scroll [expr {- (%D / 120) * 4}] units
+    }
+}
+
+# Touchpad Binding for Horizontal Scrolling
+# see http://wiki.tcl.tk/12696
+bind TreeCtrl <Button> {
+    if {"%b" eq 6} {
+	%W xview scroll -40 units
+    } elseif {"%b" eq 7} {
+	%W xview scroll +40 units
     }
 }
 

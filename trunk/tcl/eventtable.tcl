@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1385 $
-# Date   : $Date: 2017-08-06 17:38:28 +0000 (Sun, 06 Aug 2017) $
+# Version: $Revision: 1444 $
+# Date   : $Date: 2017-11-08 12:40:27 +0000 (Wed, 08 Nov 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -180,7 +180,7 @@ proc build {path getViewCmd {visibleColumns {}} {args {}}} {
 	RefreshEventType $path
 
 	::scrolledtable::configure $path event \
-		-specialfont [list [list $::font::figurine(text:normal) 9812 9823]] \
+		-secondfont [list [list $::font::figurine(text:normal) 9812 9823]] \
 		;
 
 	::bind $path <<TableFill>>			[namespace code [list TableFill $path %d]]

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1362 $
-# Date   : $Date: 2017-08-03 10:35:52 +0000 (Thu, 03 Aug 2017) $
+# Version: $Revision: 1444 $
+# Date   : $Date: 2017-11-08 12:40:27 +0000 (Wed, 08 Nov 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1177,7 +1177,7 @@ proc UpdatePGN {position data {w {}}} {
 					set Vars(current) $key
 					if {[string length $Vars(previous)]} {
 						if {$Vars(active) eq $Vars(previous)} {
-							EnterMove $w $Vars(previous)
+							EnterMove $w $position $Vars(previous)
 						}
 					}
 					set Vars(previous) $key

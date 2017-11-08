@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author: gcramer $
-# Version: $Revision: 1385 $
-# Date   : $Date: 2017-08-06 17:38:28 +0000 (Sun, 06 Aug 2017) $
+# Version: $Revision: 1444 $
+# Date   : $Date: 2017-11-08 12:40:27 +0000 (Wed, 08 Nov 2017) $
 # Url    : $URL: https://svn.code.sf.net/p/scidb/code/trunk/tcl/app-db-positions.tcl $
 # ======================================================================
 
@@ -110,7 +110,7 @@ proc build {parent} {
 
 	set table [::scrolledtable::build $lt $columns]
 	::scrolledtable::configure $lt backRank \
-		-specialfont [list [list $::font::figurine(text:normal) 9812 9823]] \
+		-secondfont [list [list $::font::figurine(text:normal) 9812 9823]] \
 		;
 	::scrolledtable::bind $lt <ButtonPress-2> [namespace code [list ShowBoard $top %x %y]]
 	::scrolledtable::bind $lt <ButtonRelease-2> [namespace code [list HideBoard $top]]
