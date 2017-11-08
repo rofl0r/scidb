@@ -1,7 +1,7 @@
 # =======================================================================
 # Author : $Author$
-# Version: $Revision: 1445 $
-# Date   : $Date: 2017-11-08 12:58:34 +0000 (Wed, 08 Nov 2017) $
+# Version: $Revision: 1446 $
+# Date   : $Date: 2017-11-08 13:01:30 +0000 (Wed, 08 Nov 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -320,7 +320,7 @@ proc build {parent number {patternNumber 0}} {
 	$tree element create elemTextFig text \
 		-lines $Options(engine:nlines) \
 		-wrap word \
-		-secondfont [list [list $::font::figurine(text:normal) 9812 9823]] \
+		-specialfont [list [list $::font::figurine(text:normal) 9812 9823]] \
 		;
 	$tree element create elemTextSym text \
 		-lines $Options(engine:nlines) \

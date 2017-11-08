@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1444 $
-# Date   : $Date: 2017-11-08 12:40:27 +0000 (Wed, 08 Nov 2017) $
+# Version: $Revision: 1446 $
+# Date   : $Date: 2017-11-08 13:01:30 +0000 (Wed, 08 Nov 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -88,8 +88,8 @@ proc Build {w args} {
 	$t state define hilite
 	$t column create -tags game
 	$t element create elemHdr text -font $boldFont -lines 1 -fill darkred
-	set secondfont [list [list $::font::figurine(text:normal) 9812 9823]]
-	$t element create elemTxt text -lines 1 -secondfont $secondfont
+	set specialfont [list [list $::font::figurine(text:normal) 9812 9823]]
+	$t element create elemTxt text -lines 1 -specialfont $specialfont
 	$t element create elemSel rect -fill [list                          \
 		[::colors::lookup gamehistory,selected:focus]  {selected focus}  \
 		[::colors::lookup gamehistory,selected:hilite] {selected hilite} \
