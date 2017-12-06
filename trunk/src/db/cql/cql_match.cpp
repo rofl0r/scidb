@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 851 $
-// Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
+// Version: $Revision: 1449 $
+// Date   : $Date: 2017-12-06 13:17:54 +0000 (Wed, 06 Dec 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -76,8 +76,10 @@ struct MatchPair
 } // namespace
 
 
-struct Match::Logical
+class Match::Logical
 {
+public:
+
 	typedef mstl::vector<Match*> MatchList;
 
 	virtual ~Logical() { ::deleteAll(m_list.begin(), m_list.end()); }

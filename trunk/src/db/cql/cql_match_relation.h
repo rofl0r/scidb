@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 719 $
-// Date   : $Date: 2013-04-19 16:40:59 +0000 (Fri, 19 Apr 2013) $
+// Version: $Revision: 1449 $
+// Date   : $Date: 2017-12-06 13:17:54 +0000 (Wed, 06 Dec 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -37,8 +37,10 @@ class Designator;
 
 namespace relation {
 
-struct Match
+class Match
 {
+public:
+
 	typedef db::Board Board;
 
 	virtual ~Match() = 0;

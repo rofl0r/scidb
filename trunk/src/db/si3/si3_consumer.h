@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1080 $
-// Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
+// Version: $Revision: 1449 $
+// Date   : $Date: 2017-12-06 13:17:54 +0000 (Wed, 06 Dec 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -69,8 +69,8 @@ private:
 	typedef mstl::vector<Comment>	Comments;
 	typedef mstl::stack<Move>		MoveStack;
 
-	void start();
-	void finish();
+	void start() override;
+	void finish() override;
 
 	bool supportsVariant(variant::Type variant) const override;
 

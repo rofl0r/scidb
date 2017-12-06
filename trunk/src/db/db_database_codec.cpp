@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1437 $
-// Date   : $Date: 2017-10-04 11:10:20 +0000 (Wed, 04 Oct 2017) $
+// Version: $Revision: 1449 $
+// Date   : $Date: 2017-12-06 13:17:54 +0000 (Wed, 06 Dec 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -63,8 +63,10 @@ using namespace util;
 using namespace sys;
 
 
-struct DatabaseCodec::InfoData
+class DatabaseCodec::InfoData
 {
+public:
+
 	InfoData(TagSet const& tags);
 
 	mstl::string const& normalizeWhitePlayerName(mstl::string const& name, mstl::string& result);

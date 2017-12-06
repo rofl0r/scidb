@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1437 $
-// Date   : $Date: 2017-10-04 11:10:20 +0000 (Wed, 04 Oct 2017) $
+// Version: $Revision: 1449 $
+// Date   : $Date: 2017-12-06 13:17:54 +0000 (Wed, 06 Dec 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -44,8 +44,10 @@ public:
 
 private:
 
-	struct Buffer
+	class Buffer
 	{
+	public:
+
 		Buffer();
 
 		unsigned	m_capacity;
@@ -91,7 +93,7 @@ public:
 	BlockFile(mstl::fstream* stream, unsigned blockSize, Mode mode, mstl::string const& magic);
 	BlockFile(unsigned blockSize, Mode mode);
 	BlockFile(unsigned blockSize, Mode mode, mstl::string const& magic);
-	~BlockFile() throw();
+	~BlockFile();
 
 	bool isClosed() const;
 	bool isOpen() const;
@@ -163,7 +165,7 @@ private:
 	unsigned fetch(View& view, unsigned blockNumber, unsigned span = 1);
 	unsigned retrieve(View& view, unsigned blockNumber, unsigned offset);
 	void resize(View& view, unsigned span);
-	void deallocate() throw();
+	void deallocate();
 	void putMagic();
 
 	void copy(ByteStream const& buf, unsigned offset, unsigned nbytes);

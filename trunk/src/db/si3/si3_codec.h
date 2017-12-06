@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1340 $
-// Date   : $Date: 2017-08-01 09:41:03 +0000 (Tue, 01 Aug 2017) $
+// Version: $Revision: 1449 $
+// Date   : $Date: 2017-12-06 13:17:54 +0000 (Wed, 06 Dec 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -220,7 +220,7 @@ private:
 
 	void save(mstl::string const& rootname, unsigned start, util::Progress& progress, bool attach);
 
-	void Report(char const* charset);
+	void Report(char const* charset) override;
 
 	static void getRecodedDescription(	char const* description,
 													mstl::string& result,

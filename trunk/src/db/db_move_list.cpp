@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1395 $
-// Date   : $Date: 2017-08-08 13:59:49 +0000 (Tue, 08 Aug 2017) $
+// Version: $Revision: 1449 $
+// Date   : $Date: 2017-12-06 13:17:54 +0000 (Wed, 06 Dec 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -274,7 +274,11 @@ MoveBuffer<N>::dump()
 }
 
 
+namespace db {
+
 template class MoveBuffer<position::Maximum_Moves>;
 template class MoveBuffer<opening::Max_Line_Length>;
+
+} // namespace db
 
 // vi:set ts=3 sw=3:

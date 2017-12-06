@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 996 $
-// Date   : $Date: 2013-11-02 18:52:29 +0000 (Sat, 02 Nov 2013) $
+// Version: $Revision: 1449 $
+// Date   : $Date: 2017-12-06 13:17:54 +0000 (Wed, 06 Dec 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -199,7 +199,7 @@ private:
 		ByteStream* ref;
 	};
 
-	friend class ByRef;
+	friend struct ByRef;
 
 	ByteStream& operator=(ByteStream const&);
 

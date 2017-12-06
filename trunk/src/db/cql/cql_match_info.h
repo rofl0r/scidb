@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 851 $
-// Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
+// Version: $Revision: 1449 $
+// Date   : $Date: 2017-12-06 13:17:54 +0000 (Wed, 06 Dec 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -38,8 +38,10 @@ namespace mstl { class bitset; }
 namespace cql {
 namespace info {
 
-struct Match
+class Match
 {
+public:
+
 	typedef db::GameInfo GameInfo;
 	typedef db::variant::Type Variant;
 

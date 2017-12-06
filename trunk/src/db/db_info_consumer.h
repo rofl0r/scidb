@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1080 $
-// Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
+// Version: $Revision: 1449 $
+// Date   : $Date: 2017-12-06 13:17:54 +0000 (Wed, 06 Dec 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -45,7 +45,7 @@ public:
 						LanguageList const* languages = nullptr,
 						unsigned significantLanguages = 0);
 
-	void sendComment(Comment const& comment);
+	void sendComment(Comment const& comment) override;
 	bool preparseComment(mstl::string& comment) override;
 };
 

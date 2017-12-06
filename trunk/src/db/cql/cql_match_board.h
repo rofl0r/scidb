@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 794 $
-// Date   : $Date: 2013-05-22 20:19:59 +0000 (Wed, 22 May 2013) $
+// Version: $Revision: 1449 $
+// Date   : $Date: 2017-12-06 13:17:54 +0000 (Wed, 06 Dec 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -46,8 +46,10 @@ class PieceTypeDesignator;
 
 namespace board {
 
-struct Match
+class Match
 {
+public:
+
 	typedef db::GameInfo GameInfo;
 	typedef db::Board Board;
 	typedef db::variant::Type Variant;
@@ -380,8 +382,10 @@ private:
 };
 
 
-struct MatchRay : public MatchMinMax
+class MatchRay : public MatchMinMax
 {
+public:
+
 	typedef mstl::vector<Designator> Designators;
 
 	void add(Designator const& designator);

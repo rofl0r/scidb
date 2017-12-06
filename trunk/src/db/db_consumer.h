@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1095 $
-// Date   : $Date: 2016-08-14 17:23:39 +0000 (Sun, 14 Aug 2016) $
+// Version: $Revision: 1449 $
+// Date   : $Date: 2017-12-06 13:17:54 +0000 (Wed, 06 Dec 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -87,7 +87,7 @@ public:
 	unsigned countMoveInfo() const override;
 	unsigned countMarks() const override;
 	unsigned plyCount() const override;
-	unsigned langFlags() const;
+	unsigned langFlags() const override;
 	variant::Type variant() const override;
 	uint16_t idn() const override;
 	uint32_t gameFlags() const override;

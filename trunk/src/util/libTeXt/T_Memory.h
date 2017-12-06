@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 1449 $
+// Date   : $Date: 2017-12-06 13:17:54 +0000 (Wed, 06 Dec 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -29,8 +29,10 @@ namespace TeXt {
 
 class MemoryBlock;
 
-struct Memory
+class Memory
 {
+public:
+
 	static void* alloc(size_t n);
 	static void release(void* obj);
 	static void cleanup();

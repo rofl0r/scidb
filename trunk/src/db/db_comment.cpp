@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1273 $
-// Date   : $Date: 2017-07-09 09:34:06 +0000 (Sun, 09 Jul 2017) $
+// Version: $Revision: 1449 $
+// Date   : $Date: 2017-12-06 13:17:54 +0000 (Wed, 06 Dec 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -229,7 +229,7 @@ struct Collector : public Comment::Callback
 {
 	Collector(Comment::LanguageSet& set) :m_set(set), m_length(&m_langAll), m_langAll(0) {}
 
-	void start() {}
+	void start() override {}
 
 	void finish() override
 	{

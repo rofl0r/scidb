@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 794 $
-// Date   : $Date: 2013-05-22 20:19:59 +0000 (Wed, 22 May 2013) $
+// Version: $Revision: 1449 $
+// Date   : $Date: 2017-12-06 13:17:54 +0000 (Wed, 06 Dec 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -37,8 +37,10 @@ namespace cql {
 
 namespace move {
 
-struct Match
+class Match
 {
+public:
+
 	typedef db::Board Board;
 	typedef db::Move Move;
 	typedef db::variant::Type Variant;

@@ -1,12 +1,12 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1276 $
-// Date   : $Date: 2017-07-09 09:39:28 +0000 (Sun, 09 Jul 2017) $
+// Version: $Revision: 1449 $
+// Date   : $Date: 2017-12-06 13:17:54 +0000 (Wed, 06 Dec 2017) $
 // Url    : $URL$
 // ======================================================================
 
 // ======================================================================
-// Copyright: (C) 2009-2013 Gregor Cramer
+// Copyright: (C) 2009-2017 Gregor Cramer
 // ======================================================================
 
 // ======================================================================
@@ -23,8 +23,8 @@
 
 namespace mstl {
 
-template <typename T> struct pointer_iterator;
-template <typename T> struct pointer_const_iterator;
+template <typename T> class pointer_iterator;
+template <typename T> class pointer_const_iterator;
 
 template<typename T> T* uninitialized_copy(T const* first, T const* last, T* result);
 template<typename T> T* uninitialized_move(T const* first, T const* last, T* result);
