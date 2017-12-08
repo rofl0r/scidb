@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author: gcramer $
-// Version: $Revision: 1447 $
-// Date   : $Date: 2017-12-06 11:41:32 +0000 (Wed, 06 Dec 2017) $
+// Version: $Revision: 1450 $
+// Date   : $Date: 2017-12-08 11:57:09 +0000 (Fri, 08 Dec 2017) $
 // Url    : $URL: https://svn.code.sf.net/p/scidb/code/trunk/src/tk/tk_panedwindow.cpp $
 // ======================================================================
 
@@ -36,18 +36,11 @@
 
 #include "tkInt.h"
 
-#if TK_MAJOR_VERSION == 8 && TK_MINOR_VERSION == 5
-
 # define malloc(size)	((void *) (ckalloc(size)))
 # define free(ptr)	ckfree((char *) (ptr))
 
-Tcl_Obj *
-TkNewWindowObj(
-    Tk_Window tkwin)
-{
-    return Tcl_NewStringObj(Tk_PathName(tkwin), -1);
-}
-
+#if TK_MAJOR_VERSION == 8 && TK_MINOR_VERSION == 5
+Tcl_Obj * TkNewWindowObj(Tk_Window tkwin) { return Tcl_NewStringObj(Tk_PathName(tkwin), -1); }
 #endif
 
 /*
