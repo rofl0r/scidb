@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 1452 $
+// Date   : $Date: 2017-12-08 13:37:59 +0000 (Fri, 08 Dec 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -39,7 +39,6 @@ namespace {
 		static int const Index		= 2;
 
 		// entry list
-		static int const RefID		= 0;
 		static int const Token		= 1;
 
 	} // namespace idx

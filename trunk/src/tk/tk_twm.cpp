@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1451 $
-// Date   : $Date: 2017-12-08 12:21:10 +0000 (Fri, 08 Dec 2017) $
+// Version: $Revision: 1452 $
+// Date   : $Date: 2017-12-08 13:37:59 +0000 (Fri, 08 Dec 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -3005,10 +3005,10 @@ Node::descendantOf(Node const* child, unsigned level) const
 		if (this->child(i) == child)
 			return level;
 
-		unsigned level = this->child(i)->descendantOf(child, level + 1);
+		unsigned lvl = this->child(i)->descendantOf(child, level + 1);
 		
-		if (level < mstl::numeric_limits<unsigned>::max())
-			return level;
+		if (lvl < mstl::numeric_limits<unsigned>::max())
+			return lvl;
 	}
 
 	return mstl::numeric_limits<unsigned>::max();

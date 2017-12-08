@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1004 $
-// Date   : $Date: 2014-09-24 22:20:35 +0000 (Wed, 24 Sep 2014) $
+// Version: $Revision: 1452 $
+// Date   : $Date: 2017-12-08 13:37:59 +0000 (Fri, 08 Dec 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -50,8 +50,6 @@ using namespace util;
 
 static unsigned char const gzipMagic [2] = { '\037', static_cast<unsigned char>('\213') };
 static unsigned char const zzipMagic [4] = { 'P', 'K', '\003', '\004' };
-
-static double const DecompressionFactor = 3.365;
 
 
 namespace {

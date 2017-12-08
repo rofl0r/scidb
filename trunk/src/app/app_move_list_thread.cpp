@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author: gcramer $
-// Version: $Revision: 1342 $
-// Date   : $Date: 2017-08-01 14:27:40 +0000 (Tue, 01 Aug 2017) $
+// Version: $Revision: 1452 $
+// Date   : $Date: 2017-12-08 13:37:59 +0000 (Fri, 08 Dec 2017) $
 // Url    : $HeadURL: https://svn.code.sf.net/p/scidb/code/trunk/src/app/app_move_list_thread.cpp $
 // ======================================================================
 
@@ -173,7 +173,7 @@ struct MoveListThread::Runnable
 						M_ASSERT(m_asyncReader);
 					}
 
-					unsigned idx(m_view >= 0 ? m_cursor.index(db::table::Games, index, m_view) : index);
+					unsigned idx(m_cursor.index(db::table::Games, index, m_view));
 					uint16_t moves[m_length];
 					unsigned length;
 					

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1372 $
-// Date   : $Date: 2017-08-04 17:56:11 +0000 (Fri, 04 Aug 2017) $
+// Version: $Revision: 1452 $
+// Date   : $Date: 2017-12-08 13:37:59 +0000 (Fri, 08 Dec 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -74,9 +74,6 @@ static tag::ID CommonTags[255 - Max_Tag_Length] =
 	// 255: Reserved for compact EventDate encoding (obsolete since 3.x)
 	tag::ExtraTag
 };
-
-
-inline static uint32_t min(uint32_t a, uint32_t b) { return mstl::min(a, b); }
 
 
 __attribute__((noreturn))

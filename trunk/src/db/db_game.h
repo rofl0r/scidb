@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1449 $
-// Date   : $Date: 2017-12-06 13:17:54 +0000 (Wed, 06 Dec 2017) $
+// Version: $Revision: 1452 $
+// Date   : $Date: 2017-12-08 13:37:59 +0000 (Fri, 08 Dec 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -299,7 +299,7 @@ public:
 	/// Return game flags
 	uint32_t gameFlags() const override;
 	/// Return the language flags of this game.
-	unsigned langFlags() const;
+	unsigned langFlags() const override;
 	/// Return subscriber.
 	SubscriberP subscriber() const;
 	/// Print current move in given notation

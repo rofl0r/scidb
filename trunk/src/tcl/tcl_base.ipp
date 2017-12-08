@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1295 $
-// Date   : $Date: 2017-07-24 19:35:37 +0000 (Mon, 24 Jul 2017) $
+// Version: $Revision: 1452 $
+// Date   : $Date: 2017-12-08 13:37:59 +0000 (Fri, 08 Dec 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -151,7 +151,8 @@ tcl::getElements(Tcl_Obj* obj)
 {
 	M_ASSERT(obj);
 	Tcl_Obj** objv;
-	return mstl::carray<Tcl_Obj*>(objv, getElements(obj, objv));
+	size_t n = getElements(obj, objv);
+	return mstl::carray<Tcl_Obj*>(objv, n);
 }
 
 

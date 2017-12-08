@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1383 $
-// Date   : $Date: 2017-08-06 17:18:29 +0000 (Sun, 06 Aug 2017) $
+// Version: $Revision: 1452 $
+// Date   : $Date: 2017-12-08 13:37:59 +0000 (Fri, 08 Dec 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -185,7 +185,7 @@ private:
 	void mapPlayerName(mstl::string& str);
 	void toUtf8(mstl::string& str);
 
-	void Report(char const* charset);
+	void Report(char const* charset) override;
 
 	static void readIniData(mstl::fstream& strm,
 									sys::utf8::Codec& codec,

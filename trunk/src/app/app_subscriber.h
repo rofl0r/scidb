@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author: gcramer $
-// Version: $Revision: 1393 $
-// Date   : $Date: 2017-08-07 14:41:16 +0000 (Mon, 07 Aug 2017) $
+// Version: $Revision: 1452 $
+// Date   : $Date: 2017-12-08 13:37:59 +0000 (Fri, 08 Dec 2017) $
 // Url    : $URL: https://svn.code.sf.net/p/scidb/code/trunk/src/app/app_subscriber.h $
 // ======================================================================
 
@@ -25,7 +25,7 @@
 // ======================================================================
 
 #ifndef _app_subscriber_included
-#define _app_subscriber_includedy
+#define _app_subscriber_included
 
 #include "db_common.h"
 

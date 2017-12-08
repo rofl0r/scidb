@@ -1,7 +1,7 @@
 // ======================================================================
 // $RCSfile: tk_image.cpp,v $
-// $Revision: 1396 $
-// $Date: 2017-08-08 17:07:02 +0000 (Tue, 08 Aug 2017) $
+// $Revision: 1452 $
+// $Date: 2017-12-08 13:37:59 +0000 (Fri, 08 Dec 2017) $
 // $Author: gregor $
 // ======================================================================
 
@@ -356,7 +356,7 @@ getFormat(mstl::string& path)
 	if (ext == "gz")
 	{
 		ext = ::util::misc::file::suffix(::util::misc::file::basename(path));
-		if (ext = "pgn" || ext == "PGN")
+		if (ext == "pgn" || ext == "PGN")
 			fmt = format::Pgn;
 	}
 	else

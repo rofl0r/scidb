@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1372 $
-// Date   : $Date: 2017-08-04 17:56:11 +0000 (Fri, 04 Aug 2017) $
+// Version: $Revision: 1452 $
+// Date   : $Date: 2017-12-08 13:37:59 +0000 (Fri, 08 Dec 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -351,8 +351,12 @@ sys::utf8::bits::charLength(uchar uc)
 	M_ASSERT(uc >= 0x80);
 
 	if (uc < 0x0000800) return 2;
-	if (uc < 0x0010000) return 3;
-	if (uc < 0x0110000) return 4;
+
+	if (sizeof(uc) > 2)
+	{
+		if (uc < 0x0010000) return 3;
+		if (uc < 0x0110000) return 4;
+	}
 
 	return 3; // length of replacement character
 }

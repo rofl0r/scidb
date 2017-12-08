@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1340 $
-// Date   : $Date: 2017-08-01 09:41:03 +0000 (Tue, 01 Aug 2017) $
+// Version: $Revision: 1452 $
+// Date   : $Date: 2017-12-08 13:37:59 +0000 (Fri, 08 Dec 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -116,7 +116,7 @@ private:
 	void decodeIndexData(GameInfo& info, unsigned offset, NamebaseSite* site);
 	void prepareDecoding(GameInfo const& info, unsigned gameIndex, util::ByteStream& strm);
 
-	void Report(char const* charset);
+	void Report(char const* charset) override;
 
 	void mapPlayerName(mstl::string& str);
 	void toUtf8(mstl::string& str);

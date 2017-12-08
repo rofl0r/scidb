@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 635 $
-// Date   : $Date: 2013-01-20 22:09:56 +0000 (Sun, 20 Jan 2013) $
+// Version: $Revision: 1452 $
+// Date   : $Date: 2017-12-08 13:37:59 +0000 (Fri, 08 Dec 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -56,7 +56,7 @@ public:
 					ResultMode resultMode = UseResultTag);
 	virtual ~BpgnReader() throw();
 
-	unsigned process(util::Progress& progress);
+	unsigned process(util::Progress& progress) override;
 
 	unsigned estimateNumberOfGames() override;
 	static unsigned estimateNumberOfGames(unsigned fileSize);

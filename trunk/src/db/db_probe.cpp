@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1339 $
-// Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
+// Version: $Revision: 1452 $
+// Date   : $Date: 2017-12-08 13:37:59 +0000 (Fri, 08 Dec 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -140,10 +140,6 @@ inline static square SqFindFirst(square const* squares, int piece)
 inline static square SqFindSecond(square const* squares, int piece)
 {
 	return squares[(piece >> Piece_Shift) + 1];
-}
-inline static square SqFindThird(square const* squares, int piece)
-{
-	return squares[(piece >> Piece_Shift) + 2];
 }
 
 #include <stdlib.h>				// must be included before we include egtb/tbindex.cpp

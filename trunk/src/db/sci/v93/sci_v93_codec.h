@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1340 $
-// Date   : $Date: 2017-08-01 09:41:03 +0000 (Tue, 01 Aug 2017) $
+// Version: $Revision: 1452 $
+// Date   : $Date: 2017-12-08 13:37:59 +0000 (Fri, 08 Dec 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -108,8 +108,8 @@ public:
 	void sync() override;
 	void removeAllFiles(mstl::string const& rootname) override;
 	void writeNamebases(mstl::ostream& stream, util::Progress& progress) override;
-	void writeIndex(mstl::ostream& strm, util::Progress& progress);
-	void writeGames(mstl::ostream& strm, util::Progress& progress);
+	void writeIndex(mstl::ostream& strm, util::Progress& progress) override;
+	void writeGames(mstl::ostream& strm, util::Progress& progress) override;
 	void readIndexProgressive(unsigned index) override;
 	bool stripMoveInformation(GameInfo const& info, unsigned types) override;
 	bool stripTags(GameInfo const& info, TagMap const& tags) override;

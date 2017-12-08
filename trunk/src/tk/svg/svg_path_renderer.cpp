@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 969 $
-// Date   : $Date: 2013-10-13 15:33:12 +0000 (Sun, 13 Oct 2013) $
+// Version: $Revision: 1452 $
+// Date   : $Date: 2017-12-08 13:37:59 +0000 (Fri, 08 Dec 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -27,12 +27,6 @@
 
 using namespace svg;
 
-
-static inline double
-length(double x, double y)
-{
-	return ::sqrt(x*x + y*y);
-}
 
 inline static double min(double a, double b) { return a < b ? a : b; }
 inline static double max(double a, double b) { return a < b ? b : a; }

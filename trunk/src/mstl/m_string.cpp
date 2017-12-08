@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1380 $
-// Date   : $Date: 2017-08-05 10:18:49 +0000 (Sat, 05 Aug 2017) $
+// Version: $Revision: 1452 $
+// Date   : $Date: 2017-12-08 13:37:59 +0000 (Fri, 08 Dec 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -136,10 +136,6 @@ fill(T* dst, size_t n, T value)
 	fill_n(dst, n, value);
 }
 
-
-inline static void copy(unsigned char* dst, unsigned char const* src, size_t n) { memcpy(dst, src, n); }
-inline static void move(unsigned char* dst, unsigned char const* src, size_t n) { memmove(dst, src, n); }
-inline static void fill(unsigned char* dst, size_t n, char value) { memset(dst, value, n); }
 
 inline static void copy(char* dst, char const* src, size_t n)	{ memcpy(dst, src, n); }
 inline static void move(char* dst, char const* src, size_t n)	{ memmove(dst, src, n); }

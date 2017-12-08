@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1103 $
-// Date   : $Date: 2016-09-03 08:37:17 +0000 (Sat, 03 Sep 2016) $
+// Version: $Revision: 1452 $
+// Date   : $Date: 2017-12-08 13:37:59 +0000 (Fri, 08 Dec 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -203,7 +203,7 @@ MovePointer2(
 
 static void
 ReleaseButtonGrab(
-    register TkDisplay *dispPtr)/* Display whose button grab is to be
+    TkDisplay *dispPtr)/* Display whose button grab is to be
 				 * released. */
 {
     unsigned int serial;
@@ -227,11 +227,11 @@ ReleaseButtonGrab(
 
 int
 TkPointerEvent(
-    register XEvent *eventPtr,	/* Pointer to the event. */
+    XEvent *eventPtr,	/* Pointer to the event. */
     TkWindow *winPtr)		/* Tk's information for window where event was
 				 * reported. */
 {
-    register TkWindow *winPtr2;
+    TkWindow *winPtr2;
     TkDisplay *dispPtr = winPtr->dispPtr;
     unsigned int serial;
     int outsideGrabTree = 0;
