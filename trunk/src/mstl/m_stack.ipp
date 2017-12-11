@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 782 $
-// Date   : $Date: 2013-05-19 16:31:08 +0000 (Sun, 19 May 2013) $
+// Version: $Revision: 1453 $
+// Date   : $Date: 2017-12-11 14:27:52 +0000 (Mon, 11 Dec 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -256,7 +256,7 @@ stack<T>::swap(stack& v)
 }
 
 
-#if HAVE_0X_MOVE_CONSTRCUTOR_AND_ASSIGMENT_OPERATOR
+#if HAVE_C11_MOVE_CONSTRCUTOR_AND_ASSIGMENT_OPERATOR
 
 template <typename T>
 inline stack<T>::stack(stack&& v) : memblock<T>(mstl::move(*this)) {}

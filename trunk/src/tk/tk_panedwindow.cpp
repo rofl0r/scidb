@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author: gcramer $
-// Version: $Revision: 1450 $
-// Date   : $Date: 2017-12-08 11:57:09 +0000 (Fri, 08 Dec 2017) $
+// Version: $Revision: 1453 $
+// Date   : $Date: 2017-12-11 14:27:52 +0000 (Mon, 11 Dec 2017) $
 // Url    : $URL: https://svn.code.sf.net/p/scidb/code/trunk/src/tk/tk_panedwindow.cpp $
 // ======================================================================
 
@@ -1752,7 +1752,7 @@ PanedWindowLostSlaveProc(
 				 * stolen away. */
     Tk_Window tkwin)		/* Tk's handle for the slave window. */
 {
-    register Slave *slavePtr = (Slave*) clientData;
+    Slave *slavePtr = (Slave*) clientData;
     PanedWindow *pwPtr = (PanedWindow *) slavePtr->masterPtr;
 
     if (pwPtr->tkwin != Tk_Parent(slavePtr->tkwin)) {
@@ -1791,8 +1791,8 @@ ArrangePanes(
     ClientData clientData)	/* Structure describing parent whose slaves
 				 * are to be re-layed out. */
 {
-    register PanedWindow *pwPtr = (PanedWindow*) clientData;
-    register Slave *slavePtr;
+    PanedWindow *pwPtr = (PanedWindow*) clientData;
+    Slave *slavePtr;
     int i, slaveWidth, slaveHeight, slaveX, slaveY;
     int paneWidth, paneHeight, paneSize, paneMinSize;
     int doubleBw;
@@ -2091,9 +2091,9 @@ ArrangePanes(
 
 static void
 Unlink(
-    register Slave *slavePtr)		/* Window to unlink. */
+    Slave *slavePtr)		/* Window to unlink. */
 {
-    register PanedWindow *masterPtr;
+    PanedWindow *masterPtr;
     int i, j;
 
     masterPtr = slavePtr->masterPtr;

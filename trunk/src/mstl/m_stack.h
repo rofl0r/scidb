@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 783 $
-// Date   : $Date: 2013-05-19 16:52:57 +0000 (Sun, 19 May 2013) $
+// Version: $Revision: 1453 $
+// Date   : $Date: 2017-12-11 14:27:52 +0000 (Mon, 11 Dec 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -48,7 +48,7 @@ public:
 	stack(stack const& v);
 	~stack() throw();
 
-#if HAVE_0X_MOVE_CONSTRCUTOR_AND_ASSIGMENT_OPERATOR
+#if HAVE_C11_MOVE_CONSTRCUTOR_AND_ASSIGMENT_OPERATOR
 	stack(stack&& v);
 	stack& operator=(stack&& v);
 #endif

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1383 $
-// Date   : $Date: 2017-08-06 17:18:29 +0000 (Sun, 06 Aug 2017) $
+// Version: $Revision: 1453 $
+// Date   : $Date: 2017-12-11 14:27:52 +0000 (Mon, 11 Dec 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -45,7 +45,7 @@ SearchAnnotator::SearchAnnotator(mstl::string const& name) :m_name(name) {}
 SearchPosition::SearchPosition(uint16_t idn) :m_idn(idn) {}
 
 
-#if HAVE_0X_MOVE_CONSTRCUTOR_AND_ASSIGMENT_OPERATOR
+#if HAVE_C11_MOVE_CONSTRCUTOR_AND_ASSIGMENT_OPERATOR
 
 # include "m_utility.h"
 

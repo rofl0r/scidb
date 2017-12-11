@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 996 $
-// Date   : $Date: 2013-11-02 18:52:29 +0000 (Sat, 02 Nov 2013) $
+// Version: $Revision: 1453 $
+// Date   : $Date: 2017-12-11 14:27:52 +0000 (Mon, 11 Dec 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -225,7 +225,7 @@ ByteStream::seekp(unsigned offset)
 	m_putp = m_base + offset;
 }
 
-#if HAVE_0X_MOVE_CONSTRCUTOR_AND_ASSIGMENT_OPERATOR
+#if HAVE_C11_MOVE_CONSTRCUTOR_AND_ASSIGMENT_OPERATOR
 
 inline
 ByteStream::ByteStream(ByteStream&& strm)

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1452 $
-// Date   : $Date: 2017-12-08 13:37:59 +0000 (Fri, 08 Dec 2017) $
+// Version: $Revision: 1453 $
+// Date   : $Date: 2017-12-11 14:27:52 +0000 (Mon, 11 Dec 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2434,7 +2434,7 @@ Codec::removeInvalidSequences(mstl::string& str, mstl::string const& replacement
 			{
 				fprintf(	stderr,
 							"invalid code point U+FFF%c in UTF-8 sequence detected\n",
-							s[2] == 0xbf ? 'E' : 'F');
+							static_cast<unsigned char>(s[2]) == 0xbf ? 'E' : 'F');
 				result.append(replacement);
 				removed += 1;
 			}

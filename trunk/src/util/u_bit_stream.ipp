@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1026 $
-// Date   : $Date: 2015-02-27 13:46:18 +0000 (Fri, 27 Feb 2015) $
+// Version: $Revision: 1453 $
+// Date   : $Date: 2017-12-11 14:27:52 +0000 (Mon, 11 Dec 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -63,7 +63,7 @@ BitStream::next(unsigned n)
 	return (m_bits >> (m_bitsLeft -= n)) & ((1 << n) - 1);
 }
 
-#if HAVE_0X_MOVE_CONSTRCUTOR_AND_ASSIGMENT_OPERATOR
+#if HAVE_C11_MOVE_CONSTRCUTOR_AND_ASSIGMENT_OPERATOR
 
 inline
 BitStream::BitStream(BitStream&& strm)

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1420 $
-// Date   : $Date: 2017-08-17 16:33:58 +0000 (Thu, 17 Aug 2017) $
+// Version: $Revision: 1453 $
+// Date   : $Date: 2017-12-11 14:27:52 +0000 (Mon, 11 Dec 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -41,7 +41,6 @@ using namespace db;
 
 
 inline bool isLan(char const* s)					{ return ::isalpha(s[0]) && ::isdigit(s[1]); }
-inline static mstl::string toStr(bool value)	{ return value ? "true" : "false"; }
 
 
 static mstl::string

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1277 $
-// Date   : $Date: 2017-07-09 09:40:03 +0000 (Sun, 09 Jul 2017) $
+// Version: $Revision: 1453 $
+// Date   : $Date: 2017-12-11 14:27:52 +0000 (Mon, 11 Dec 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -70,7 +70,7 @@ struct signed_arithmetic<0>
 } // namespace bits
 
 
-#if USE_0X_STANDARD
+#if USE_C11_STANDARD
 
 template<typename T>
 inline

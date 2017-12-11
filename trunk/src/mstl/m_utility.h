@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1276 $
-// Date   : $Date: 2017-07-09 09:39:28 +0000 (Sun, 09 Jul 2017) $
+// Version: $Revision: 1453 $
+// Date   : $Date: 2017-12-11 14:27:52 +0000 (Mon, 11 Dec 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -33,7 +33,7 @@ namespace noncopyable_	// protection from unintended ADL
 		noncopyable() {}
 		~noncopyable() {}
 
-#if HAVE_OX_EXPLICITLY_DEFAULTED_AND_DELETED_SPECIAL_MEMBER_FUNCTIONS
+#if HAVE_C11_EXPLICITLY_DEFAULTED_AND_DELETED_SPECIAL_MEMBER_FUNCTIONS
 
 		noncopyable(noncopyable const&) = delete;
 		noncopyable& operator=(noncopyable const&) = delete;
@@ -84,7 +84,7 @@ template <typename T> constexpr T advance(T i, size_t offset);
 template <typename T> T align(T n, size_t grain);
 template <typename T> constexpr ptrdiff_t distance(T first, T last);
 
-#if USE_0X_STANDARD
+#if USE_C11_STANDARD
 
 template<typename T> typename mstl::remove_reference<T>::type&& move(T&& t) noexcept;
 template<typename T> T&& forward(typename mstl::remove_reference<T>::type& t) noexcept;

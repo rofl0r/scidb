@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 851 $
-// Date   : $Date: 2013-06-24 15:15:00 +0000 (Mon, 24 Jun 2013) $
+// Version: $Revision: 1453 $
+// Date   : $Date: 2017-12-11 14:27:52 +0000 (Mon, 11 Dec 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -152,7 +152,7 @@ private:
 	Type		m_content;
 	uint8_t	m_engine;
 
-#if HAVE_0X_UNRESTRICTED_UNIONS
+#if HAVE_C11_UNRESTRICTED_UNIONS
 	union
 	{
 #endif
@@ -162,7 +162,7 @@ private:
 		AnalysisInfo	m_analysis;
 		uint32_t			m_centiSeconds;
 
-#if HAVE_0X_UNRESTRICTED_UNIONS
+#if HAVE_C11_UNRESTRICTED_UNIONS
 	};
 #endif
 };

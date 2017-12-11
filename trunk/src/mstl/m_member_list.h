@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 648 $
-// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
+// Version: $Revision: 1453 $
+// Date   : $Date: 2017-12-11 14:27:52 +0000 (Mon, 11 Dec 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -36,12 +36,12 @@ struct member_list< type_list<Head, Tail> >
 	template <typename T0, typename T1, typename T2, typename T3>
 	member_list(T0 const& t0, T1 const& t1, T2 const& t2, T3 const& t3);
 
-#if HAVE_OX_EXPLICITLY_DEFAULTED_AND_DELETED_SPECIAL_MEMBER_FUNCTIONS
+#if HAVE_C11_EXPLICITLY_DEFAULTED_AND_DELETED_SPECIAL_MEMBER_FUNCTIONS
 	member_list(member_list const&) = default;
 	member_list& operator=(member_list const&) = default;
 #endif
 
-#if HAVE_0X_MOVE_CONSTRCUTOR_AND_ASSIGMENT_OPERATOR
+#if HAVE_C11_MOVE_CONSTRCUTOR_AND_ASSIGMENT_OPERATOR
 	member_list(member_list&& ml);
 	member_list& operator=(member_list&& ml);
 #endif
@@ -62,12 +62,12 @@ struct member_list< type_list<Head, null_type> >
 	template <typename T0, typename T1, typename T2, typename T3>
 	member_list(T0 const& t0, T1 const& t1, T2 const& t2, T3 const& t3);
 
-#if HAVE_OX_EXPLICITLY_DEFAULTED_AND_DELETED_SPECIAL_MEMBER_FUNCTIONS
+#if HAVE_C11_EXPLICITLY_DEFAULTED_AND_DELETED_SPECIAL_MEMBER_FUNCTIONS
 	member_list(member_list const&) = default;
 	member_list& operator=(member_list const&) = default;
 #endif
 
-#if HAVE_0X_MOVE_CONSTRCUTOR_AND_ASSIGMENT_OPERATOR
+#if HAVE_C11_MOVE_CONSTRCUTOR_AND_ASSIGMENT_OPERATOR
 	member_list(member_list&& ml);
 	member_list& operator=(member_list&& ml);
 #endif

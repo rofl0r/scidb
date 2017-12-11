@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 723 $
-// Date   : $Date: 2013-04-20 21:01:30 +0000 (Sat, 20 Apr 2013) $
+// Version: $Revision: 1453 $
+// Date   : $Date: 2017-12-11 14:27:52 +0000 (Mon, 11 Dec 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -121,7 +121,7 @@ public:
 	ring(size_type n, const_reference v);
 	ring(ring const& v);
 
-#if HAVE_0X_MOVE_CONSTRCUTOR_AND_ASSIGMENT_OPERATOR
+#if HAVE_C11_MOVE_CONSTRCUTOR_AND_ASSIGMENT_OPERATOR
 	ring(ring&& v);
 	ring& operator=(ring&& v);
 #endif

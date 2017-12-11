@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1080 $
-// Date   : $Date: 2015-11-15 10:23:19 +0000 (Sun, 15 Nov 2015) $
+// Version: $Revision: 1453 $
+// Date   : $Date: 2017-12-11 14:27:52 +0000 (Mon, 11 Dec 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -40,7 +40,7 @@ inline Comment::operator mstl::string const& () const	{ return m_content; }
 inline bool Comment::operator==(Comment const& comment) const { return m_content == comment.m_content; }
 inline bool Comment::operator!=(Comment const& comment) const { return m_content != comment.m_content; }
 
-#if HAVE_0X_MOVE_CONSTRCUTOR_AND_ASSIGMENT_OPERATOR
+#if HAVE_C11_MOVE_CONSTRCUTOR_AND_ASSIGMENT_OPERATOR
 
 inline
 Comment::Comment(Comment&& comment)

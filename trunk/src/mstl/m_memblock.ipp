@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1276 $
-// Date   : $Date: 2017-07-09 09:39:28 +0000 (Sun, 09 Jul 2017) $
+// Version: $Revision: 1453 $
+// Date   : $Date: 2017-12-11 14:27:52 +0000 (Mon, 11 Dec 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -109,7 +109,7 @@ memblock<T>::compute_capacity(size_t old_capacity, size_t wanted_size, size_t mi
 	return mstl::max(min_capacity, wanted_size);
 }
 
-#if HAVE_0X_MOVE_CONSTRCUTOR_AND_ASSIGMENT_OPERATOR
+#if HAVE_C11_MOVE_CONSTRCUTOR_AND_ASSIGMENT_OPERATOR
 
 template <typename T>
 inline
@@ -132,7 +132,7 @@ memblock<T>::operator=(memblock&& mb)
 	if (this != &mb)
 	{
 		memblock::~memblock();
-		new(*this) memblock(mstl::move(mb));
+		*this = mstl::move(mb);
 	}
 	return *this;
 }
