@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1449 $
-// Date   : $Date: 2017-12-06 13:17:54 +0000 (Wed, 06 Dec 2017) $
+// Version: $Revision: 1455 $
+// Date   : $Date: 2017-12-25 14:00:14 +0000 (Mon, 25 Dec 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -47,7 +47,7 @@ namespace util
 
 namespace sys
 {
-	namespace utf8 { class Codec; };
+	namespace utf8 { class Codec; }
 };
 
 namespace db {

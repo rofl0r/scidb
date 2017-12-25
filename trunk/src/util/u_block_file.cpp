@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1448 $
-// Date   : $Date: 2017-12-06 12:25:00 +0000 (Wed, 06 Dec 2017) $
+// Version: $Revision: 1455 $
+// Date   : $Date: 2017-12-25 14:00:14 +0000 (Mon, 25 Dec 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -497,7 +497,7 @@ BlockFile::fetch(View& view, unsigned blockNumber, unsigned span)
 	{
 		if (m_stream)
 		{
-			if (!sync())
+			if (isInSyncMode() && !sync())
 				return SyncFailed;
 
 			M_ASSERT(span > 0);
