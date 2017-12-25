@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 1456 $
+// Date   : $Date: 2017-12-25 14:27:38 +0000 (Mon, 25 Dec 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -159,23 +159,23 @@ xcursor_init(Tcl_Interp* ti)
 	if (Tcl_PkgProvide(ti, "xcursor", "1.0") == TCL_ERROR)
 		return TCL_ERROR;
 
-	if (Tcl_Eval(ti, "namespace eval xcursor {}") == TCL_ERROR)
+	if (Tcl_Eval(ti, "namespace eval ::xcursor {}") == TCL_ERROR)
 		return TCL_ERROR;
 
 #if !defined(__WIN32__) && !defined(__MacOSX__)
 
 	// private functions
-	Tcl_CreateObjCommand(ti, "xcursor::DefineCursor", cmdSetCursor, 0, 0);
-	Tcl_CreateObjCommand(ti, "xcursor::LoadFromFile", cmdLoadCursorFromFile, 0, 0);
-	Tcl_CreateObjCommand(ti, "xcursor::FreeCursor", cmdFreeCursor, 0, 0);
+	Tcl_CreateObjCommand(ti, "::xcursor::DefineCursor", cmdSetCursor, 0, 0);
+	Tcl_CreateObjCommand(ti, "::xcursor::LoadFromFile", cmdLoadCursorFromFile, 0, 0);
+	Tcl_CreateObjCommand(ti, "::xcursor::FreeCursor", cmdFreeCursor, 0, 0);
 
 	// public functions
-	Tcl_CreateObjCommand(ti, "xcursor::getTheme", cmdGetTheme, 0, 0);
+	Tcl_CreateObjCommand(ti, "::xcursor::getTheme", cmdGetTheme, 0, 0);
 
 #endif
 
 	// public functions
-	Tcl_CreateObjCommand(ti, "xcursor::supported?", cmdIsARGBSupported, 0, 0);
+	Tcl_CreateObjCommand(ti, "::xcursor::supported?", cmdIsARGBSupported, 0, 0);
 
 	return TCL_OK;
 }
