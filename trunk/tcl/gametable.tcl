@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1446 $
-# Date   : $Date: 2017-11-08 13:01:30 +0000 (Wed, 08 Nov 2017) $
+# Version: $Revision: 1457 $
+# Date   : $Date: 2017-12-27 12:52:35 +0000 (Wed, 27 Dec 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -579,7 +579,16 @@ proc build {path getViewCmd {visibleColumns {}} {args {}}} {
 	set Vars(ranges) {}
 	set Vars(viewcmd) $getViewCmd
 
+	trace add variable [namespace current]::mc::P_Rating1 write [namespace current]::SetupRating
+	SetupRating
+
 	return $Vars(table)
+}
+
+
+proc SetupRating {args} {
+	set mc::P_Rating1 $mc::P_Rating
+	set mc::P_Rating2 $mc::P_Rating
 }
 
 
