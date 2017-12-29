@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 926 $
-# Date   : $Date: 2013-09-04 15:57:51 +0000 (Wed, 04 Sep 2013) $
+# Version: $Revision: 1459 $
+# Date   : $Date: 2017-12-29 12:14:10 +0000 (Fri, 29 Dec 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -69,6 +69,7 @@ set Termination(less-material)	"%s wins by having less material (stalemate)"
 set Termination(bishops)			"Game drawn by stalemate (opposite color bishops)"
 set Termination(fifty)				"Game drawn by the 50 move rule"
 set Termination(threefold)			"Game drawn by threefold move repetition"
+set Termination(fivefold)			"Game drawn by fivefold move repetition"
 set Termination(nomating)			"Neither player has mating material"
 set Termination(nocheck)			"Neither player can give check"
 

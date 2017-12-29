@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1395 $
-# Date   : $Date: 2017-08-08 13:59:49 +0000 (Tue, 08 Aug 2017) $
+# Version: $Revision: 1459 $
+# Date   : $Date: 2017-12-29 12:14:10 +0000 (Fri, 29 Dec 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1573,7 +1573,10 @@ proc InsertMove {context position w level key data} {
 
 			states {
 				set states [lindex $node 1]
-				if {[string match *3* $states]} {
+				if {[string match *5* $states]} {
+					$w insert cur " "
+					$w insert cur "5\u00d7" {state fivefold}
+				} elseif {[string match *3* $states]} {
 					$w insert cur " "
 					$w insert cur "3\u00d7" {state threefold}
 				}

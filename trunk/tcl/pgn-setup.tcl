@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1395 $
-# Date   : $Date: 2017-08-08 13:59:49 +0000 (Tue, 08 Aug 2017) $
+# Version: $Revision: 1459 $
+# Date   : $Date: 2017-12-29 12:14:10 +0000 (Fri, 29 Dec 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -40,6 +40,7 @@ set RevertSettings				"Revert to initial settings"
 set ResetSettings					"Reset to factory settings"
 set DiscardAllChanges			"Discard all applied changes?"
 set ThreefoldRepetition			"Threefold move repetition"
+set FivefoldRepetition			"Fivefold move repetition"
 set FiftyMoveRule					"50 move rule"
 
 set Setup(Appearance)			"Appearance"
@@ -833,6 +834,8 @@ proc InitText {path} {
 
 	$w tag bind threefold <Enter> [namespace code [list Tooltip $w threefold]]
 	$w tag bind threefold <Leave> [namespace code [list Tooltip $w hide]]
+	$w tag bind fivefold  <Enter> [namespace code [list Tooltip $w fivefold]]
+	$w tag bind fivefold  <Leave> [namespace code [list Tooltip $w hide]]
 	$w tag bind fifty     <Enter> [namespace code [list Tooltip $w fifty]]
 	$w tag bind fifty     <Leave> [namespace code [list Tooltip $w hide]]
 
@@ -850,6 +853,7 @@ proc Tooltip {path sym} {
 		hide			{ ::tooltip::hide }
 		illegal		{ ::tooltip::show $path $::browser::mc::IllegalMove }
 		threefold	{ ::tooltip::show $path $mc::ThreefoldRepetition }
+		fivefold		{ ::tooltip::show $path $mc::FivefoldRepetition }
 		fifty			{ ::tooltip::show $path $mc::FiftyMoveRule }
 		
 		default {

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1410 $
-// Date   : $Date: 2017-08-11 18:52:58 +0000 (Fri, 11 Aug 2017) $
+// Version: $Revision: 1459 $
+// Date   : $Date: 2017-12-29 12:14:10 +0000 (Fri, 29 Dec 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -125,6 +125,7 @@ public:
 	bool hasSupplement() const;
 	bool hasMoveInfo() const;
 	bool threefoldRepetition() const;
+	bool fivefoldRepetition() const;
 	bool fiftyMoveRule() const;
 	bool containsIllegalCastlings(bool inCheck) const;
 	bool containsIllegalMoves(bool inCheck) const;
@@ -192,6 +193,7 @@ public:
 	void setInfoFlag(bool flag = true);
 	void swapVariations(unsigned varNo1, unsigned varNo2);
 	void setThreefoldRepetition(bool flag);
+	void setFivefoldRepetition(bool flag);
 	void setFiftyMoveRule(bool flag);
 	void prepareForPrint(Board const& board, variant::Type variant);
 	void transpose();
@@ -248,7 +250,8 @@ private:
 		HasSupplement			= HasNote | HasVariation | IsPrepared,
 		IsFolded					= 1 << 7,
 		ThreefoldRepetition	= 1 << 8,
-		FiftyMoveRule			= 1 << 9,
+		FivefoldRepetition	= 1 << 9,
+		FiftyMoveRule			= 1 << 10,
 	};
 
 	MoveNode(MoveNode const&);

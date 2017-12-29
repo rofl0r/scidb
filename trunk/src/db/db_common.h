@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1400 $
-// Date   : $Date: 2017-08-09 11:25:39 +0000 (Wed, 09 Aug 2017) $
+// Version: $Revision: 1459 $
+// Date   : $Date: 2017-12-29 12:14:10 +0000 (Fri, 29 Dec 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -729,6 +729,7 @@ namespace termination
 		DrawnByStalemate,
 		BishopsOfOppositeColor,
 		ThreefoldRepetition,
+		FivefoldRepetition,
 		FiftyMoveRuleExceeded,
 		NeitherPlayerHasMatingMaterial,
 		WhiteCannotWin,

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1452 $
-// Date   : $Date: 2017-12-08 13:37:59 +0000 (Fri, 08 Dec 2017) $
+// Version: $Revision: 1459 $
+// Date   : $Date: 2017-12-29 12:14:10 +0000 (Fri, 29 Dec 2017) $
 // Url    : $URL$
 // ======================================================================
 
@@ -784,6 +784,7 @@ private:
 	bool					m_isModified;
 	bool					m_wasModified;
 	mutable bool		m_threefoldRepetionDetected;
+	mutable bool		m_fivefoldRepetionDetected;
 	FinalState			m_termination;
 	uint16_t				m_lineBuf[opening::Max_Line_Length][2];
 	mutable Line		m_line;
