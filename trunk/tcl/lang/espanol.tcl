@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1439 $
-# Date   : $Date: 2017-10-06 09:22:29 +0000 (Fri, 06 Oct 2017) $
+# Version: $Revision: 1458 $
+# Date   : $Date: 2017-12-29 12:12:20 +0000 (Fri, 29 Dec 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1014,6 +1014,7 @@
 ::pgn::setup::mc::ResetSettings					"Volver a la configuración original"
 ::pgn::setup::mc::DiscardAllChanges				"¿Desea descartar todos los cambios realizados?"
 ::pgn::setup::mc::ThreefoldRepetition			"Threefold repetition" ;# NEW
+::pgn::setup::mc::FivefoldRepetition			"Fivefold repetition" ;# NEW
 ::pgn::setup::mc::FiftyMoveRule					"50 move rule" ;# NEW
 
 ::pgn::setup::mc::Setup(Appearance)				"Apariencia"
@@ -1360,6 +1361,7 @@
 ::gametable::mc::P_Name						"Nombre"
 ::gametable::mc::P_FideID					"Fide ID"
 ::gametable::mc::P_Rating					"Puntaje de rating"
+::gametable::mc::P_RatingType				"Tipo de rating"
 ::gametable::mc::P_Country					"País"
 ::gametable::mc::P_Title					"Título"
 ::gametable::mc::P_Type						"Tipo"
@@ -2215,6 +2217,7 @@
 ::terminationbox::mc::Termination(bishops)			"Game drawn by stalemate (opposite color bishops)" ;# NEW
 ::terminationbox::mc::Termination(fifty)				"Game drawn by the 50 move rule" ;# NEW
 ::terminationbox::mc::Termination(threefold)			"Game drawn by threefold repetition" ;# NEW
+::terminationbox::mc::Termination(fivefold)			"Game drawn by fivefold repetition" ;# NEW
 ::terminationbox::mc::Termination(nomating)			"Neither player has mating material" ;# NEW
 ::terminationbox::mc::Termination(nocheck)			"Neither player can give check" ;# NEW
 

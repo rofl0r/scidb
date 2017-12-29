@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1439 $
-# Date   : $Date: 2017-10-06 09:22:29 +0000 (Fri, 06 Oct 2017) $
+# Version: $Revision: 1458 $
+# Date   : $Date: 2017-12-29 12:12:20 +0000 (Fri, 29 Dec 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1013,6 +1013,7 @@
 ::pgn::setup::mc::ResetSettings					"Auf Werkseinstellung zurücksetzen"
 ::pgn::setup::mc::DiscardAllChanges				"Alle bereits angewendeten Änderungen verwerfen?"
 ::pgn::setup::mc::ThreefoldRepetition			"Dreifache Stellungswiederholung"
+::pgn::setup::mc::FivefoldRepetition			"Fünffache Stellungswiederholung"
 ::pgn::setup::mc::FiftyMoveRule					"50-Züge-Regel"
 
 ::pgn::setup::mc::Setup(Appearance)				"Aussehen"
@@ -1357,6 +1358,7 @@
 ::gametable::mc::P_Name						"Name"
 ::gametable::mc::P_FideID					"Fide ID"
 ::gametable::mc::P_Rating					"Wertungszahl"
+::gametable::mc::P_RatingType				"Wertungssystem"
 ::gametable::mc::P_Country					"Land"
 ::gametable::mc::P_Title					"Titel"
 ::gametable::mc::P_Type						"Typus"
@@ -2210,6 +2212,7 @@
 ::terminationbox::mc::Termination(bishops)			"Partie remis durch patt (verschiedenfarbige Läufer)"
 ::terminationbox::mc::Termination(fifty)				"Partie remis aufgrund der 50-Züge-Regel"
 ::terminationbox::mc::Termination(threefold)			"Partie remis aufgrund dreifacher Stellungswiederholung"
+::terminationbox::mc::Termination(fivefold)			"Partie remis aufgrund fünffacher Stellungswiederholung"
 ::terminationbox::mc::Termination(nomating)			"Kein Spieler hat noch Mattmaterial"
 ::terminationbox::mc::Termination(nocheck)			"Kein Spieler kann noch Schachgebote geben"
 

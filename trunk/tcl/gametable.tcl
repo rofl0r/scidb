@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1457 $
-# Date   : $Date: 2017-12-27 12:52:35 +0000 (Wed, 27 Dec 2017) $
+# Version: $Revision: 1458 $
+# Date   : $Date: 2017-12-29 12:12:20 +0000 (Fri, 29 Dec 2017) $
 # Url    : $URL$
 # ======================================================================
 
@@ -129,6 +129,7 @@ set T_TimeMode				"Time Mode"
 set P_Name					"Name"
 set P_FideID				"Fide ID"
 set P_Rating				"Rating Score"
+set P_RatingType			"Rating Type"
 set P_Country				"Country"
 set P_Title					"Title"
 set P_Type					"Type"
@@ -583,12 +584,6 @@ proc build {path getViewCmd {visibleColumns {}} {args {}}} {
 	SetupRating
 
 	return $Vars(table)
-}
-
-
-proc SetupRating {args} {
-	set mc::P_Rating1 $mc::P_Rating
-	set mc::P_Rating2 $mc::P_Rating
 }
 
 
@@ -2106,6 +2101,12 @@ proc Open(tourntable) {path {index -1}} {
 	set view [{*}$Vars(viewcmd) $base $variant]
 
 	::crosstable::open $path $base $variant $index $view game
+}
+
+
+proc SetupRating {args} {
+	set mc::P_Rating1 $mc::P_Rating
+	set mc::P_Rating2 $mc::P_Rating
 }
 
 
