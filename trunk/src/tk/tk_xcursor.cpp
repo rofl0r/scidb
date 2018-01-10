@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1456 $
-// Date   : $Date: 2017-12-25 14:27:38 +0000 (Mon, 25 Dec 2017) $
+// Version: $Revision: 1460 $
+// Date   : $Date: 2018-01-10 12:08:20 +0000 (Wed, 10 Jan 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -153,8 +153,13 @@ namespace tk {
 int
 xcursor_init(Tcl_Interp* ti)
 {
-	if (Tcl_InitStubs(ti, "8.5", 0) == 0 || Tk_InitStubs(ti, "8.5", 0) == 0)
+	if (	!Tcl_InitStubs(ti, "8.5", 0)
+		|| !Tcl_PkgRequire(ti, "Tcl", "8.5", 0)
+		|| !Tk_InitStubs(ti, "8.5", 0)
+		|| !Tcl_PkgRequire(ti, "Tk", "8.5", 0))
+	{
 		return TCL_ERROR;
+	}
 
 	if (Tcl_PkgProvide(ti, "xcursor", "1.0") == TCL_ERROR)
 		return TCL_ERROR;
