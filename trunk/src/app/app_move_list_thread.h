@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author: gcramer $
-// Version: $Revision: 1339 $
-// Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
+// Version: $Revision: 1461 $
+// Date   : $Date: 2018-03-05 11:52:40 +0000 (Mon, 05 Mar 2018) $
 // Url    : $HeadURL: https://svn.code.sf.net/p/scidb/code/trunk/src/app/app_move_list_thread.h $
 // ======================================================================
 
@@ -79,6 +79,7 @@ private:
 	typedef db::move::Notation Notation;
 
 	struct Runnable;
+	struct WatchLock;
 
 	Runnable*		m_runnable;
 	unsigned			m_databaseId;

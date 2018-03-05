@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author: gcramer $
-// Version: $Revision: 1452 $
-// Date   : $Date: 2017-12-08 13:37:59 +0000 (Fri, 08 Dec 2017) $
+// Version: $Revision: 1461 $
+// Date   : $Date: 2018-03-05 11:52:40 +0000 (Mon, 05 Mar 2018) $
 // Url    : $HeadURL: https://svn.code.sf.net/p/scidb/code/trunk/src/app/app_move_list_thread.cpp $
 // ======================================================================
 
@@ -183,8 +183,6 @@ struct MoveListThread::Runnable
 
 					db::Line			line(moves, length);
 					mstl::string&	str(result.list.back());
-
-					//M_ASSERT(db::variant::toMainVariant(startBoard.variant()) == m_database.variant());
 
 					line.print(	str,
 									startBoard,
