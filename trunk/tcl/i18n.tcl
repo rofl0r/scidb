@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1372 $
-# Date   : $Date: 2017-08-04 17:56:11 +0000 (Fri, 04 Aug 2017) $
+# Version: $Revision: 1463 $
+# Date   : $Date: 2018-03-05 13:20:09 +0000 (Mon, 05 Mar 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -511,7 +511,7 @@ proc translateEco {str} {
 	if {[info exists $list]} {
 		foreach {key val} [set $list] {
 			if {$key eq $str} {
-				return $val
+				return [Encode $val]
 			}
 		}
 	}
@@ -530,7 +530,7 @@ proc translateEco {str} {
 		}
 	}
 
-	return [TranslateParen $str]
+	return [Encode [TranslateParen $str]]
 }
 
 
@@ -701,6 +701,12 @@ proc TranslateWord {str} {
 	}
 
 	return $str
+}
+
+
+proc Encode {str} {
+	variable encoding
+	return [encoding convertfrom $encoding $str]
 }
 
 

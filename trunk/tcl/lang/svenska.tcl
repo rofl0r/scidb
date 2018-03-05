@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1458 $
-# Date   : $Date: 2017-12-29 12:12:20 +0000 (Fri, 29 Dec 2017) $
+# Version: $Revision: 1463 $
+# Date   : $Date: 2018-03-05 13:20:09 +0000 (Mon, 05 Mar 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1302,6 +1302,7 @@
 
 ::gametable::mc::Long						"Lång"
 ::gametable::mc::Short						"Kort"
+::gametable::mc::IncludeVars				"Include Variations" ;# NEW
 
 ::gametable::mc::Accel(browse)			"W"
 ::gametable::mc::Accel(overview)			"O"
