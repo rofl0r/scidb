@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1444 $
-# Date   : $Date: 2017-11-08 12:40:27 +0000 (Wed, 08 Nov 2017) $
+# Version: $Revision: 1465 $
+# Date   : $Date: 2018-03-16 13:11:50 +0000 (Fri, 16 Mar 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -184,6 +184,7 @@ proc build {parent width height} {
 		-pady {1 0} \
 		-highlightcolor $Options(-emphasize) \
 		;
+	::widget::bindMouseWheel [::table::tablePath $tb] 1
 	::table::setColumnBackground $tb tail [::colors::lookup $Options(-stripes)] $bg
 	::table::setScrollCommand $tb [list $sb set]
 	::ttk::scrollbar $sb  \

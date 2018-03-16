@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1404 $
-# Date   : $Date: 2017-08-11 13:22:01 +0000 (Fri, 11 Aug 2017) $
+# Version: $Revision: 1465 $
+# Date   : $Date: 2018-03-16 13:11:50 +0000 (Fri, 16 Mar 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1895,7 +1895,7 @@ proc Undock {twm frame} {
 	# ensure existence of these attributes
 	$twm set! $toplevel stayontop [$twm get! $toplevel stayontop 0]
 	$twm set! $toplevel hide [$twm get! $toplevel hide 0]
-	if {[$twm get $frame stayontop]} {
+	if {[$twm get! $frame stayontop]} {
 		wm transient $toplevel [winfo toplevel $twm]
 		# NOTE: not every window manager is re-decorating the window.
 		catch { wm attributes $toplevel -type dialog }

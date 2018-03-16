@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1463 $
-# Date   : $Date: 2018-03-05 13:20:09 +0000 (Mon, 05 Mar 2018) $
+# Version: $Revision: 1465 $
+# Date   : $Date: 2018-03-16 13:11:50 +0000 (Fri, 16 Mar 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -460,6 +460,7 @@
 ::application::mc::StayOnTop					"Stets im Vordergrund"
 ::application::mc::HideWhenLeavingTab		"Verstecken beim Verlassen des Reiters"
 ::application::mc::SaveLayout					"Layout speichern"
+::application::mc::SaveLayoutAs				"Layout speichern unter %s"
 ::application::mc::RenameLayout				"Layout umbenennen"
 ::application::mc::LoadLayout					"Layout wiederherstellen"
 ::application::mc::NewLayout					"Neues Layout"

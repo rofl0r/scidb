@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author: gcramer $
-# Version: $Revision: 1404 $
-# Date   : $Date: 2017-08-11 13:22:01 +0000 (Fri, 11 Aug 2017) $
+# Version: $Revision: 1465 $
+# Date   : $Date: 2018-03-16 13:11:50 +0000 (Fri, 16 Mar 2018) $
 # Url    : $URL: https://svn.code.sf.net/p/scidb/code/trunk/tcl/manage-layouts.tcl $
 # ======================================================================
 
@@ -263,9 +263,10 @@ proc Delete {twm list} {
 	variable names_
 
 	set name [$list get [$list curselection]]
-	[namespace parent]::deleteLayout [winfo toplevel $twm] $name
-	set i [lsearch $names_ $name]
-	if {$i >= 0} { set names_ [lreplace $names_ $i $i] }
+	if {[[namespace parent]::deleteLayout [winfo toplevel $twm] $name]} {
+		set i [lsearch $names_ $name]
+		if {$i >= 0} { set names_ [lreplace $names_ $i $i] }
+	}
 }
 
 

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1413 $
-# Date   : $Date: 2017-08-12 12:08:11 +0000 (Sat, 12 Aug 2017) $
+# Version: $Revision: 1465 $
+# Date   : $Date: 2018-03-16 13:11:50 +0000 (Fri, 16 Mar 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -43,6 +43,7 @@ set MoveWindow					"Move Window"
 set StayOnTop					"Stay on Top"
 set HideWhenLeavingTab		"Hide When Leaving Tab"
 set SaveLayout					"Save Layout"
+set SaveLayoutAs				"Save Layout as %s"
 set RenameLayout				"Rename Layout"
 set LoadLayout					"Restore Layout"
 set NewLayout					"New Layout"
@@ -1276,7 +1277,9 @@ proc deleteLayout {parent name} {
 		file delete -force -- $filename
 		if {$Vars(layout) eq $name} { set Vars(layout) "" }
 		if {$Options(layout:name) eq $name} { set Options(layout:name) "" }
+		return 1
 	}
+	return 0
 }
 
 
@@ -1477,14 +1480,14 @@ proc makeLayoutMenu {menu {w ""}} {
 				;
 		}
 	}
-	set labelName " $mc::SaveLayout"
+	set labelName " $mc::SaveLayoutAs"
 	set state "disabled"
 	if {[string length $Vars(layout)]} {
 		if {$Vars(layout) ni $names} {
 			set Vars(layout) ""
 			set Options(layout:name) ""
 		} else {
-			append labelName " \"$Vars(layout)\""
+			set labelName [string map [list "%s" "\"$Vars(layout)\""] $labelName]
 			if {![currentLayoutIsEqTo $Options(layout:list) false]} { set state "normal" }
 		}
 	}

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1463 $
-# Date   : $Date: 2018-03-05 13:20:09 +0000 (Mon, 05 Mar 2018) $
+# Version: $Revision: 1465 $
+# Date   : $Date: 2018-03-16 13:11:50 +0000 (Fri, 16 Mar 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -459,6 +459,7 @@
 ::application::mc::StayOnTop					"Stay on Top"
 ::application::mc::HideWhenLeavingTab		"Hide When Leaving Tab"
 ::application::mc::SaveLayout					"Save Layout"
+::application::mc::SaveLayoutAs				"Save Layout as %s"
 ::application::mc::RenameLayout				"Rename Layout"
 ::application::mc::LoadLayout					"Load Layout"
 ::application::mc::NewLayout					"New Layout"
