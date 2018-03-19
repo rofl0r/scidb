@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1459 $
-# Date   : $Date: 2017-12-29 12:14:10 +0000 (Fri, 29 Dec 2017) $
+# Version: $Revision: 1466 $
+# Date   : $Date: 2018-03-19 14:07:11 +0000 (Mon, 19 Mar 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -422,6 +422,10 @@ proc configureText {path {fontContext ""}} {
 		$w tag configure codeb     -font $::font::text($fontContext:bold)
 		$w tag configure symbol    -font $::font::symbol($fontContext:normal)
 		$w tag configure symbolb   -font $::font::symbol($fontContext:bold)
+
+		$w tag raise italic m:comment
+		$w tag raise bold m:comment
+		$w tag raise bold-italic m:comment
 
 		for {set k 0} {$k <= 10} {incr k} {
 			set margin [expr {$k*$Options(indent:amount)}]
