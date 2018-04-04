@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1372 $
-# Date   : $Date: 2017-08-04 17:56:11 +0000 (Fri, 04 Aug 2017) $
+# Version: $Revision: 1468 $
+# Date   : $Date: 2018-04-04 14:21:07 +0000 (Wed, 04 Apr 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -343,6 +343,15 @@ if {[catch {
 
 		::scidb::themes::update
 		set ::beta::WhatsNew 1
+	}
+
+	if {[llength $::comment::Geometry] == 4} {
+		lassign $::comment::Geometry w h x y
+		if {$w < 100 || $h < 50} {
+			set w [expr {$w*10}]
+			set h [expr {$h*10}]
+			set ::comment::Geometry [list $w $h $x $y]
+		}
 	}
 }]} {
 	puts "Start-up failed."

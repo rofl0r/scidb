@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1459 $
-# Date   : $Date: 2017-12-29 12:14:10 +0000 (Fri, 29 Dec 2017) $
+# Version: $Revision: 1468 $
+# Date   : $Date: 2018-04-04 14:21:07 +0000 (Wed, 04 Apr 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1747,7 +1747,7 @@ proc PrintComment {position w level key pos data} {
 	set lastChar ""
 	set paragraph 0
 
-	foreach entry [::scidb::misc::xml toList $data] {
+	foreach entry [lindex [::scidb::misc::xml toList $data] 0] {
 		lassign $entry lang comment
 		if {[string length $lang] == 0} {
 			set lang xx
@@ -1844,7 +1844,7 @@ proc PrintMoveInfo {position w level key data} {
 	set underline 0
 	set flags 0
 	set count 0
-	set moveInfo [lindex [::scidb::misc::xml toList $data] 0 1]
+	set moveInfo [lindex [::scidb::misc::xml toList $data] 0 0 1]
 
 	foreach pair $moveInfo {
 		lassign $pair code text

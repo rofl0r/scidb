@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1465 $
-# Date   : $Date: 2018-03-16 13:11:50 +0000 (Fri, 16 Mar 2018) $
+# Version: $Revision: 1468 $
+# Date   : $Date: 2018-04-04 14:21:07 +0000 (Wed, 04 Apr 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -2400,6 +2400,8 @@
 ::comment::mc::AppendContent			"If \"no\" the text will be appended."
 # Note for translators: "Emoticons" can be simply translated to "Smiley"
 ::comment::mc::DisplayEmoticons		"Display Emoticons"
+::comment::mc::ReallySwitch			"Really switch display mode?"
+::comment::mc::LosingChanges			"Switching the display mode will loose the history, this means you cannot undo the last edit operations."
 
 ::comment::mc::LanguageSelection		"Language selection"
 ::comment::mc::Formatting				"Formatting"

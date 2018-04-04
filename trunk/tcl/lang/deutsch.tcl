@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1465 $
-# Date   : $Date: 2018-03-16 13:11:50 +0000 (Fri, 16 Mar 2018) $
+# Version: $Revision: 1468 $
+# Date   : $Date: 2018-04-04 14:21:07 +0000 (Wed, 04 Apr 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -2393,6 +2393,8 @@
 ::comment::mc::OverwriteContent		"Vorhandenen Inhalt überschreiben?"
 ::comment::mc::AppendContent			"Falls \"nein\" wird der Text angefügt."
 ::comment::mc::DisplayEmoticons		"Smileys anzeigen"
+::comment::mc::ReallySwitch			"Anzeigemodus wirklich ändern?"
+::comment::mc::LosingChanges			"Die Änderungs des Anzeigemodus wird die Historie verlieren, daß heißt das keine Edieroperation rückgängig gemacht werden kann."
 
 ::comment::mc::LanguageSelection		"Sprachauswahl"
 ::comment::mc::Formatting				"Formatierung"

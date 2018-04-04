@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author: gcramer $
-# Version: $Revision: 1339 $
-# Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
+# Version: $Revision: 1468 $
+# Date   : $Date: 2018-04-04 14:21:07 +0000 (Wed, 04 Apr 2018) $
 # Url    : $URL: https://svn.code.sf.net/p/scidb/code/trunk/tcl/colors.tcl $
 # ======================================================================
 
@@ -217,6 +217,9 @@ array set Colors {
 
 	lite:varslider,background				#ffdd76
 	lite:varslider,hilite					#ffc618
+
+	lite:comment,label:altered				#555555
+	lite:comment,label:foreground			white
 }
 # mapped from #ebf4f5
 array set Colors {
