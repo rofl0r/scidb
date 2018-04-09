@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1471 $
-// Date   : $Date: 2018-04-09 13:33:15 +0000 (Mon, 09 Apr 2018) $
+// Version: $Revision: 1472 $
+// Date   : $Date: 2018-04-09 13:48:36 +0000 (Mon, 09 Apr 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2312,7 +2312,7 @@ Application::saveGame(Cursor& cursor, bool replace)
 
 	if (replace)
 	{
-		M_ASSERT(cursor->name() == g.sink.cursor->name());
+		M_ASSERT(cursor.name() == g.sink.cursor->name());
 		M_ASSERT(g.sink.index < db.countGames());
 		g.data.game->setIndex(g.sink.index);
 		// TODO: should be transaction save
