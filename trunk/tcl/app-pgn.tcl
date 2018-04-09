@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1468 $
-# Date   : $Date: 2018-04-04 14:21:07 +0000 (Wed, 04 Apr 2018) $
+# Version: $Revision: 1471 $
+# Date   : $Date: 2018-04-09 13:33:15 +0000 (Mon, 09 Apr 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -536,6 +536,13 @@ proc saveGame {mode {base ""}} {
 	set position [::scidb::game::current]
 	set parent $Vars(main)
 	lassign [::scidb::game::link? $position] myBase variant index
+	if {![::scidb::db::get open? $myBase]} {
+		# TODO: try to open database instead
+		set myBase [::scidb::db::get name]
+		set variant [::scidb::db::get variant? $myBase]
+		set index -1
+		set mode add
+	}
 	set number [expr {$index + 1}]
 	if {$mode ne "add" && ![::game::verify $parent $position $number]} { return }
 

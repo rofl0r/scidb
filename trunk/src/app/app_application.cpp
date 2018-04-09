@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1395 $
-// Date   : $Date: 2017-08-08 13:59:49 +0000 (Tue, 08 Aug 2017) $
+// Version: $Revision: 1471 $
+// Date   : $Date: 2018-04-09 13:33:15 +0000 (Mon, 09 Apr 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1195,7 +1195,7 @@ Application::switchBase(Cursor& cursor)
 
 	setActiveBase(&cursor);
 
-	if (	(m_switchReference || (!m_isUserSet && m_referenceBase->isClipbase()))
+	if (	(m_switchReference || (!m_isUserSet && m_referenceBase && m_referenceBase->isClipbase()))
 		&& !format::isChessBaseFormat(cursor.format())
 		&& cursor.variant() == variant::Normal)
 	{
@@ -2312,14 +2312,14 @@ Application::saveGame(Cursor& cursor, bool replace)
 
 	if (replace)
 	{
-		M_ASSERT(&cursor == g.sink.cursor);
+		M_ASSERT(cursor->name() == g.sink.cursor->name());
+		M_ASSERT(g.sink.index < db.countGames());
 		g.data.game->setIndex(g.sink.index);
 		// TODO: should be transaction save
 		state = db.updateGame(*g.data.game);
 	}
 	else
 	{
-		g.sink.cursor = &cursor;
 		g.data.game->setIndex(-1);
 		// TODO: should be transaction save
 		state = db.addGame(*g.data.game);
@@ -2327,6 +2327,7 @@ Application::saveGame(Cursor& cursor, bool replace)
 		g.link.databaseName = cursor.name();
 	}
 
+	g.sink.cursor = &cursor;
 	cursor.updateViews();
 
 	if (save::isOk(state))
