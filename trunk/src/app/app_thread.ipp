@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author: gcramer $
-// Version: $Revision: 1339 $
-// Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
+// Version: $Revision: 1473 $
+// Date   : $Date: 2018-04-11 12:32:51 +0000 (Wed, 11 Apr 2018) $
 // Url    : $URL: https://svn.code.sf.net/p/scidb/code/trunk/src/app/app_thread.ipp $
 // ======================================================================
 
@@ -30,6 +30,15 @@ inline Thread::Thread() :m_cursor(0) {}
 
 inline bool Thread::isWorkingOn(Cursor const& cursor) const	{ return &cursor == m_cursor; }
 inline void Thread::setWorkingOn(Cursor const* cursor)		{ m_cursor = cursor; }
+
+
+inline
+void
+Thread::signal(Signal signal, Cursor const& cursor)
+{
+	if (isWorkingOn(cursor))
+		this->signal(signal);
+}
 
 } // namespace app
 
