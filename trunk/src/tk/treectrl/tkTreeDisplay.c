@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1134 $
-// Date   : $Date: 2017-02-15 19:27:27 +0000 (Wed, 15 Feb 2017) $
+// Version: $Revision: 1474 $
+// Date   : $Date: 2018-04-18 12:58:03 +0000 (Wed, 18 Apr 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -6006,6 +6006,19 @@ displayRetry:
 				(dInfo->yOrigin != tree->yOrigin)) {
 			DblBufWinDirty(tree, Tree_BorderLeft(tree), Tree_ContentTop(tree),
 				Tree_BorderRight(tree), Tree_ContentBottom(tree));
+		}
+	} else if (tree->doubleBuffer == DOUBLEBUFFER_ITEM) {
+		/* FIX by GC; original version is not redrawing exposed area when
+		 * scrolling horizontally. */
+		if (dInfo->xOrigin != tree->xOrigin) {
+			if (Tree_AreaBbox(tree, TREE_AREA_CONTENT, &minX, &minY, &maxX, &maxY)) {
+				if (tree->debug.enable && tree->debug.display && tree->debug.drawColor) {
+					XFillRectangle(tree->display, Tk_WindowId(tkwin),
+							tree->debug.gcDraw, minX, minY, maxX - minX, maxY - minY);
+					DisplayDelay(tree);
+				}
+				Tree_InvalidateItemArea(tree, minX, minY, maxX, maxY);
+			}
 		}
 	}
 
