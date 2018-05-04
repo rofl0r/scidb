@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1474 $
-// Date   : $Date: 2018-04-18 12:58:03 +0000 (Wed, 18 Apr 2018) $
+// Version: $Revision: 1476 $
+// Date   : $Date: 2018-05-04 14:00:04 +0000 (Fri, 04 May 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -5619,11 +5619,15 @@ SetBuffering(
 		overlays = TRUE;
     }
 
+#if 1
+	tree->doubleBuffer = DOUBLEBUFFER_WINDOW;
+#else
     if (overlays) {
 		tree->doubleBuffer = DOUBLEBUFFER_WINDOW;
-    } else {
+    } else { /* XXX DOUBLEBUFFER_ITEM is not working properly */
 		tree->doubleBuffer = DOUBLEBUFFER_ITEM;
     }
+#endif
 
     if (overlays != dInfo->overlays) {
 		dInfo->flags |=
