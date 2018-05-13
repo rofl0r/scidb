@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1395 $
-// Date   : $Date: 2017-08-08 13:59:49 +0000 (Tue, 08 Aug 2017) $
+// Version: $Revision: 1480 $
+// Date   : $Date: 2018-05-13 13:58:32 +0000 (Sun, 13 May 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -921,7 +921,7 @@ Engine::activate()
 		while (m_process && !m_process->isConnected() && !timer.expired())
 			timer.doNextEvent();
 
-		if (!m_process->isConnected())
+		if (m_process && !m_process->isConnected())
 		{
 			// Engine hasn't sent a message, so try to stimulate the engine.
 			m_engine->stimulate();
