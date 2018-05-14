@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1453 $
-// Date   : $Date: 2017-12-11 14:27:52 +0000 (Mon, 11 Dec 2017) $
+// Version: $Revision: 1481 $
+// Date   : $Date: 2018-05-14 11:20:22 +0000 (Mon, 14 May 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -42,7 +42,7 @@ memblock<T>::memblock(size_t n)
 
 template <typename T>
 inline
-memblock<T>::~memblock() throw()
+memblock<T>::~memblock()
 {
 	operator delete(m_start);
 }

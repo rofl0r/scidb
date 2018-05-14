@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1276 $
-// Date   : $Date: 2017-07-09 09:39:28 +0000 (Sun, 09 Jul 2017) $
+// Version: $Revision: 1481 $
+// Date   : $Date: 2018-05-14 11:20:22 +0000 (Mon, 14 May 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -57,7 +57,7 @@ struct uninitialized_pod
 	template <typename InputIterator, typename T>
 	inline static T* copy(InputIterator first, InputIterator last, T* result)
 	{
-		::memmove(result, first, NBytes*(last - first));
+		::memmove(static_cast<void*>(result), first, NBytes*(last - first));
 		return result + (last - first);
 	}
 
@@ -74,14 +74,14 @@ struct uninitialized_pod<1>
 	template <typename InputIterator, typename T>
 	inline static T* copy(InputIterator first, InputIterator last, T* result)
 	{
-		::memmove(result, first, last - first);
+		::memmove(static_cast<void*>(result), first, last - first);
 		return result + (last - first);
 	}
 
 	template<typename ForwardIterator, typename T>
 	inline static ForwardIterator fill_n(ForwardIterator first, size_t n, T const& value)
 	{
-		::memset(first, value, n);
+		::memset(static_cast<void*>(first), value, n);
 		return first + n;
 	}
 };
