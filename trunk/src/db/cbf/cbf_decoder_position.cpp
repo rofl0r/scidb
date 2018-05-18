@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 985 $
-// Date   : $Date: 2013-10-29 14:52:42 +0000 (Tue, 29 Oct 2013) $
+// Version: $Revision: 1484 $
+// Date   : $Date: 2018-05-18 13:31:08 +0000 (Fri, 18 May 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -252,7 +252,7 @@ Position::doMove(unsigned moveNumber)
 									// ---------------------------------------------------
 									// Unbelievable! In case of an restored e.p. right (see below)
 									// en passant moves will be counted even if the target is occupied
-									// by an own piece. Try game #6813 from
+									// by a friendly piece. Try game #6813 from
 									// <ftp://ftp.pitt.edu/group/student-activities/chess/CB/Openings/sisch-cb.zip>.
 									++count;
 								}
