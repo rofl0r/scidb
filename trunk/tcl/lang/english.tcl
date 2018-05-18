@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1468 $
-# Date   : $Date: 2018-04-04 14:21:07 +0000 (Wed, 04 Apr 2018) $
+# Version: $Revision: 1485 $
+# Date   : $Date: 2018-05-18 13:33:33 +0000 (Fri, 18 May 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -285,6 +285,10 @@
 ::menu::mc::Extras							"E&xtras"
 ::menu::mc::Setup								"Setu&p"
 ::menu::mc::Layout							"La&yout"
+
+# Font Size
+::menu::mc::IncrFontSize					"Increase All Font Sizes"
+::menu::mc::DecrFontSize					"Decrease All Font Sizes"
 
 # Contact
 ::menu::mc::ContactBugReport				"&Bug Report"

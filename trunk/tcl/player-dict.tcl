@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1382 $
-# Date   : $Date: 2017-08-06 10:19:27 +0000 (Sun, 06 Aug 2017) $
+# Version: $Revision: 1485 $
+# Date   : $Date: 2018-05-18 13:33:33 +0000 (Fri, 18 May 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -247,16 +247,20 @@ proc open {parent args} {
 		if {$id ne "firstName"} {
 			lappend menu [list command \
 				-command [namespace code [list SortColumn $table $id ascending]] \
-				-labelvar ::gametable::mc::SortAscending]
+				-labelvar ::gametable::mc::SortAscending] \
+				;
 			lappend menu [list command \
 				-command [namespace code [list SortColumn $table $id descending]] \
-				-labelvar ::gametable::mc::SortDescending]
+				-labelvar ::gametable::mc::SortDescending] \
+				;
 			lappend menu [list command \
 				-command [namespace code [list SortColumn $table $id reverse]] \
-				-labelvar ::gametable::mc::ReverseOrder]
+				-labelvar ::gametable::mc::ReverseOrder] \
+				;
 			lappend menu [list command \
 				-command [namespace code [list SortColumn $table $id cancel]] \
-				-labelvar ::gametable::mc::CancelSort]
+				-labelvar ::gametable::mc::CancelSort] \
+				;
 			lappend menu { separator }
 		}
 

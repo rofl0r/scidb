@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1468 $
-# Date   : $Date: 2018-04-04 14:21:07 +0000 (Wed, 04 Apr 2018) $
+# Version: $Revision: 1485 $
+# Date   : $Date: 2018-05-18 13:33:33 +0000 (Fri, 18 May 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -287,14 +287,18 @@
 ::menu::mc::Setup							"&Inställningar"
 ::menu::mc::Layout						"La&yout" ;# NEW
 
+# Font Size
+::menu::mc::IncrFontSize				"Increase All Font Sizes" ;# NEW
+::menu::mc::DecrFontSize				"Decrease All Font Sizes" ;# NEW
+
 # Contact
-::menu::mc::ContactBugReport				"&Felrapport"
-::menu::mc::ContactFeatureRequest		"Ö&nskemål"
+::menu::mc::ContactBugReport			"&Felrapport"
+::menu::mc::ContactFeatureRequest	"Ö&nskemål"
 
 # Extras
-::menu::mc::InstallChessBaseFonts		"Installera ChessBase fonter"
-::menu::mc::OpenEngineLog					"Öppna &motorkonsol"
-::menu::mc::AssignFileTypes				"Assign File &Types" ;# NEW
+::menu::mc::InstallChessBaseFonts	"Installera ChessBase fonter"
+::menu::mc::OpenEngineLog				"Öppna &motorkonsol"
+::menu::mc::AssignFileTypes			"Assign File &Types" ;# NEW
 
 # Tools
 ::menu::mc::OpenEngineDictionary		"Öppna Engine &Dictionary"

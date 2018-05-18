@@ -1,8 +1,8 @@
 #!/bin/sh
 #! ======================================================================
 #! $RCSfile: tk_init.h,v $
-#! $Revision: 1295 $
-#! $Date: 2017-07-24 19:35:37 +0000 (Mon, 24 Jul 2017) $
+#! $Revision: 1485 $
+#! $Date: 2018-05-18 13:33:33 +0000 (Fri, 18 May 2018) $
 #! $Author: gregor $
 #! ======================================================================
 
@@ -107,6 +107,7 @@ set ProgramOptions [list                                                        
 	                                "(will skip games from last session)"]                    \
 	[list "--single-process"        "Forcing a single process of $::scidb::app"               \
 	                                "(you shouldn't use this option; only for testing)"]      \
+	[list "--reset-fonts"           "Reset all fonts to default size"]                        \
 	[list "--update-themes"         "Update themes (from shared directory)"]                  \
 	[list "--update-player-photos"  "Update/install player photos"]                           \
 	[list "--force-grab"            "Do not suppress grabs in debug mode"                     \

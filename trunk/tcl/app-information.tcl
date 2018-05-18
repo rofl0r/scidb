@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author: gcramer $
-# Version: $Revision: 1414 $
-# Date   : $Date: 2017-08-12 12:41:01 +0000 (Sat, 12 Aug 2017) $
+# Version: $Revision: 1485 $
+# Date   : $Date: 2018-05-18 13:33:33 +0000 (Fri, 18 May 2018) $
 # Url    : $URL: https://svn.code.sf.net/p/scidb/code/trunk/tcl/app-information.tcl $
 # ======================================================================
 
@@ -14,7 +14,7 @@
 # ======================================================================
 
 # ======================================================================
-# Copyright: (C) 2015 Gregor Cramer
+# Copyright: (C) 2015-2018 Gregor Cramer
 # ======================================================================
 
 # ======================================================================
@@ -92,7 +92,8 @@ proc build {tab width height} {
 	# pre-load some font informations
 	::font::html::defaultTextFonts info
 	::font::html::defaultFixedFonts info
-#	::font::html::addChangeFontSizeBindings info [winfo toplevel $tab] [list $Priv(html) fontsize]
+	::font::html::addChangeFontSizeBindings info [winfo toplevel $tab] [list $Priv(html) fontsize]
+	bind $Priv(html) <<FontSizeChanged>> [namespace code { FontSizeChanged %W }]
 	bind $Priv(html) <Configure> +[namespace code [list Configure %w]]
 	bind $Priv(html) <<LanguageChanged>> [namespace code LanguageChanged]
 	$Priv(html) onmouseover    [namespace current]::MouseEnter
@@ -281,6 +282,12 @@ proc setActive {flag} {
 
 proc setFocus {} {
 	# no action
+}
+
+
+proc FontSizeChanged {w} {
+	variable Priv
+	if {$w eq $Priv(html)} { after idle [namespace current]::update }
 }
 
 

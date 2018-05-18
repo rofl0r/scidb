@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1383 $
-# Date   : $Date: 2017-08-06 17:18:29 +0000 (Sun, 06 Aug 2017) $
+# Version: $Revision: 1485 $
+# Date   : $Date: 2018-05-18 13:33:33 +0000 (Fri, 18 May 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -14,7 +14,7 @@
 # ======================================================================
 
 # ======================================================================
-# Copyright: (C) 2009-2017 Gregor Cramer
+# Copyright: (C) 2009-2018 Gregor Cramer
 # ======================================================================
 
 # ======================================================================
@@ -276,6 +276,7 @@ proc build {tab width height} {
 
 	bind $main <Double-Button-1>	{ break }
 	bind $main <Double-Button-2>	{ break }
+	bind $main <<FontSizeChanged>> [namespace code { FontSizeChanged %W }]
 
 	set tbFile [::toolbar::toolbar $switcher \
 		-hide 1 \
@@ -329,6 +330,7 @@ proc build {tab width height} {
 	set Vars(switcher) $switcher
 	set Vars(contents) $contents
 	set Vars(windows) [$contents tabs]
+	set Vars(main) $main
 #	set Vars(history) $history
 #	set Vars(blank) $blank
 	set Vars(current:tab) games
@@ -896,6 +898,15 @@ proc CloseBase {parent file} {
 		$Vars(switcher) remove $file
 		[namespace parent]::information::update
 		::widget::busyCursor off
+	}
+}
+
+
+proc FontSizeChanged {w} {
+	variable Vars
+
+	if {$w eq $Vars(main)} {
+		after idle [namespace code RefreshSwitcher]
 	}
 }
 

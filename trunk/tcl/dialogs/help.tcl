@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1367 $
-# Date   : $Date: 2017-08-03 13:44:17 +0000 (Thu, 03 Aug 2017) $
+# Version: $Revision: 1485 $
+# Date   : $Date: 2018-05-18 13:33:33 +0000 (Fri, 18 May 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -14,7 +14,7 @@
 # ======================================================================
 
 # ======================================================================
-# Copyright: (C) 2011-2013 Gregor Cramer
+# Copyright: (C) 2011-2018 Gregor Cramer
 # ======================================================================
 
 # ======================================================================
@@ -285,6 +285,7 @@ proc open {parent {file ""} args} {
 	set Priv(html) $html
 	BuildHtmlFrame $dlg $html
 	bind $html <Configure> [namespace code [list RecordHtmlSize $nb %w %h]]
+	bind $html <<FontSizeChanged>> [namespace code { FontSizeChanged %w }]
 
 	if {[string length $file] == 0} {
 		$pw add $control -sticky nswe -stretch never -minsize $Options(treewidth)
@@ -336,6 +337,12 @@ proc open {parent {file ""} args} {
 	}
 	wm deiconify $dlg
 	return $dlg
+}
+
+
+proc FontSizeChanged {w} {
+	variable Priv
+	if {$w eq $Priv(html)} { $Priv(html) fontsize }
 }
 
 

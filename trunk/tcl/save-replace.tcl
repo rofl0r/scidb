@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1068 $
-# Date   : $Date: 2015-05-02 08:50:45 +0000 (Sat, 02 May 2015) $
+# Version: $Revision: 1485 $
+# Date   : $Date: 2018-05-18 13:33:33 +0000 (Fri, 18 May 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -14,7 +14,7 @@
 # ======================================================================
 
 # ======================================================================
-# Copyright: (C) 2010-2013 Gregor Cramer
+# Copyright: (C) 2010-2018 Gregor Cramer
 # ======================================================================
 
 # ======================================================================
@@ -914,6 +914,7 @@ proc Build {dlg base variant position number} {
 		-foreground $Colors(federation) \
 		;
 	$lb addcol image -id sex -justify center -width 14
+	# XXX width 4 is not sufficient for larger fonts, why?
 	$lb addcol text -id elo -width 4 -justify right -foreground $Colors(score)
 	$lb addcol text -id rating -width 6 -foreground $Colors(ratingType)
 

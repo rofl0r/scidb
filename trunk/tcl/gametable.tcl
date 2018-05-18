@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1463 $
-# Date   : $Date: 2018-03-05 13:20:09 +0000 (Mon, 05 Mar 2018) $
+# Version: $Revision: 1485 $
+# Date   : $Date: 2018-05-18 13:33:33 +0000 (Fri, 18 May 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -935,7 +935,7 @@ proc TableSelected {path index} {
 	set base [::scrolledtable::base $path]
 	set variant [::scrolledtable::variant $path]
 	set view [{*}$Vars(viewcmd) $base $variant]
-	# XXX index == -1 shoukd not happen
+	# XXX index == -1 should not happen
 	set info [::scidb::db::get gameInfo $index $view $base $variant]
 	set number [expr {[column $info number] - 1}]
 	set fen {}
