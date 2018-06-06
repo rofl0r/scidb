@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1437 $
-// Date   : $Date: 2017-10-04 11:10:20 +0000 (Wed, 04 Oct 2017) $
+// Version: $Revision: 1488 $
+// Date   : $Date: 2018-06-06 12:38:01 +0000 (Wed, 06 Jun 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -474,6 +474,10 @@ public:
 	mstl::string toFen(variant::Type variant, Format format = XFen) const;
 	/// Return a FEN string based on current board position
 	mstl::string& toFen(mstl::string& result, variant::Type variant, Format format = XFen) const;
+	/// Return a FEN string based on current board position, remove bad castling rights
+	mstl::string toValidFen(variant::Type variant, Format format = XFen) const;
+	/// Return a FEN string based on current board position, remove bad castling rights
+	mstl::string& toValidFen(mstl::string& result, variant::Type variant, Format format = XFen) const;
 	/// Return a position description based on current board position
 	mstl::string asString() const;
 	/// Prepare move for printing a SAN

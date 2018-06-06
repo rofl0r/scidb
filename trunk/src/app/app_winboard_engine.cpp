@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1443 $
-// Date   : $Date: 2017-10-23 11:37:03 +0000 (Mon, 23 Oct 2017) $
+// Version: $Revision: 1488 $
+// Date   : $Date: 2018-06-06 12:38:01 +0000 (Wed, 06 Jun 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -402,7 +402,7 @@ winboard::Engine::setupBoard(Board const& board)
 		// IMPORTANT NOTE:
 		// The "setboard" command might not be appropriate, because
 		// it might clear the hash tables.
-		mstl::string fen(board.toFen(currentVariant()));
+		mstl::string fen(board.toValidFen(currentVariant()));
 
 		::removeHolding(fen);
 		send("setboard " + fen);

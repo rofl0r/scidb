@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1453 $
-// Date   : $Date: 2017-12-11 14:27:52 +0000 (Mon, 11 Dec 2017) $
+// Version: $Revision: 1488 $
+// Date   : $Date: 2018-06-06 12:38:01 +0000 (Wed, 06 Jun 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -314,7 +314,7 @@ uci::Engine::setupPosition(Board const& board)
 	else
 	{
 		db::Board::Format	fmt(isChess960Position() ? Board::Shredder : Board::XFen);
-		mstl::string		fen(board.toFen(currentVariant(), fmt));
+		mstl::string		fen(board.toValidFen(currentVariant(), fmt));
 
 		m_position.append("fen ", 4);
 		m_position.append(fen);
