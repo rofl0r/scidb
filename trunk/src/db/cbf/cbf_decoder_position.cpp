@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1484 $
-// Date   : $Date: 2018-05-18 13:31:08 +0000 (Fri, 18 May 2018) $
+// Version: $Revision: 1489 $
+// Date   : $Date: 2018-06-11 12:22:14 +0000 (Mon, 11 Jun 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -164,6 +164,10 @@ Position::doMove(unsigned moveNumber)
 					// any pawn from the 7th to the 5th rank during the last move
 					// (a4xh3ep similar).
 					if (	moveGen->epIndex
+						// XXX correct? because implementation differs from description
+						// do we need
+						//    (moveGen->df == -1 && fyle == sq::FyleA)
+						// || (moveGen->df == +1 && fyle == sq::FyleH)
 						&& moveGen->df == 1
 						&& fyle == sq::FyleA
 						&& rank == (sideToMove == color::White ? sq::Rank5 : sq::Rank4)

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1095 $
-# Date   : $Date: 2016-08-14 17:23:39 +0000 (Sun, 14 Aug 2016) $
+# Version: $Revision: 1489 $
+# Date   : $Date: 2018-06-11 12:22:14 +0000 (Mon, 11 Jun 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -255,6 +255,7 @@
 "Mexican Variation"											"Mexikanische Variante"
 "Modern (Steinitz) Attack"									"Moderner Angriff (Steinitz Angriff)"
 "Modern Benoni"												"Modernes Benoni"
+"Modern Benoni Defence"										"Moderne Benoni Verteidigung"
 "Modern Botvinnik Variation"								"Moderne Botwinnik Variante"
 "Modern Defence"												"Moderne Verteidigung"
 "Modern Exchange Variation"								"Moderne Abtauschvariante"
