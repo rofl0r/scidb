@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1372 $
-# Date   : $Date: 2017-08-04 17:56:11 +0000 (Fri, 04 Aug 2017) $
+# Version: $Revision: 1490 $
+# Date   : $Date: 2018-06-20 14:11:51 +0000 (Wed, 20 Jun 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -291,10 +291,11 @@ proc new {parent args} {
 }
 
 
-proc replace {parent} {
+proc replace {parent {overwrite ""}} {
 	variable MaxPosition
 
 	set replace 0
+	if {![string is bool -strict $overwrite]} { set overwrite no }
 
 	if {[::scidb::game::current] < $MaxPosition && (![locked?] || [import?])} {
 		set detail [format $mc::OverwriteCurrentGameDetail [::mc::stripAmpersand $::dialog::mc::No]]
@@ -308,7 +309,7 @@ proc replace {parent} {
 			-parent $parent \
 			-message $mc::OverwriteCurrentGame \
 			-detail $detail \
-			-default no
+			-default $overwrite \
 		]
 		if {$rc eq "yes"} { set replace 1 }
 	}

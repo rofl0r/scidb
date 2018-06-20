@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1446 $
-# Date   : $Date: 2017-11-08 13:01:30 +0000 (Wed, 08 Nov 2017) $
+# Version: $Revision: 1490 $
+# Date   : $Date: 2018-06-20 14:11:51 +0000 (Wed, 20 Jun 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -228,6 +228,7 @@ proc openEdit {parent position args} {
 		-width 80 \
 		-height 20 \
 		-undo on \
+		-wrap word \
 		-maxundo 10 \
 		-yscroll [list $edit.ybar set] \
 		;
