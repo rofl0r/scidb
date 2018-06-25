@@ -1,12 +1,12 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1395 $
-# Date   : $Date: 2017-08-08 13:59:49 +0000 (Tue, 08 Aug 2017) $
+# Version: $Revision: 1491 $
+# Date   : $Date: 2018-06-25 14:10:14 +0000 (Mon, 25 Jun 2018) $
 # Url    : $URL$
 # ======================================================================
 
 # ======================================================================
-# Copyright: (C) 2010-2013 Gregor Cramer
+# Copyright: (C) 2010-2018 Gregor Cramer
 # ======================================================================
 
 # ======================================================================
@@ -708,6 +708,10 @@ proc ConfigureListbox {cb} {
 	if {0 > $current || $current >= [$popdown.l size]} { set current 0 }
 
 	set padding [::ttk::style lookup TCombobox -padding]
+	if {[llength $padding] == 0} {
+		puts stderr "\[ttk::style lookup TCombobox -padding\] returns empty list"
+		set padding 0
+	}
 
 	if {[info tclversion] >= "8.6"} {
 		set borderwidth [::ttk::style lookup ComboboxPopdownFrame -borderwidth]
