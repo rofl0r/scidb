@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1491 $
-# Date   : $Date: 2018-06-25 14:10:14 +0000 (Mon, 25 Jun 2018) $
+# Version: $Revision: 1493 $
+# Date   : $Date: 2018-06-26 13:45:50 +0000 (Tue, 26 Jun 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -909,7 +909,7 @@ proc EmbedUnsavedFiles {unsaved w infoFont alertFont} {
 
 	array set font [font actual $infoFont]
 	set family $font(-family)
-	set size [expr {abs($font(-size))}]
+	set size [expr {abs($font(-size)) + 4}]
 
 	append content "<table style='font-family: ${family}; font-size: ${size}px;'>"
 
@@ -967,7 +967,7 @@ proc MouseEnter {w nodes} {
 }
 
 
-proc MouseLeave {w node} {
+proc MouseLeave {w nodes} {
 	foreach node $nodes {
 		set id [$node attribute -default {} id]
 		if {[llength $id]} { return [::tooltip::hide] }

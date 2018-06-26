@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 839 $
-// Date   : $Date: 2013-06-14 17:08:49 +0000 (Fri, 14 Jun 2013) $
+// Version: $Revision: 1493 $
+// Date   : $Date: 2018-06-26 13:45:50 +0000 (Tue, 26 Jun 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -29,8 +29,6 @@
 namespace db {
 
 inline bool MultiBase::isSingleBase() const	{ return m_singleBase; }
-inline bool MultiBase::isTextFile() const		{ return m_fileOffsets; }
-
 inline Database* MultiBase::database()			{ return m_leader; }
 
 

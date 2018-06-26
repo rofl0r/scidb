@@ -1,7 +1,7 @@
 // ======================================================================,
 // Author : $Author$
-// Version: $Revision: 266 $
-// Date   : $Date: 2012-03-02 14:22:55 +0000 (Fri, 02 Mar 2012) $
+// Version: $Revision: 1493 $
+// Date   : $Date: 2018-06-26 13:45:50 +0000 (Tue, 26 Jun 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -35,7 +35,7 @@
  */
 
 #ifndef _STDIO_H_
-#define	_STDIO_H_
+define	_STDIO_H_
 
 //#include "_ansi.h"
 /* Provide support for both ANSI and non-ANSI environments.  */

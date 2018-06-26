@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1485 $
-# Date   : $Date: 2018-05-18 13:33:33 +0000 (Fri, 18 May 2018) $
+# Version: $Revision: 1493 $
+# Date   : $Date: 2018-06-26 13:45:50 +0000 (Tue, 26 Jun 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -582,7 +582,7 @@ proc dbNew {parent variant} {
 	if {$FileSelBoxInUse} { return 0 }
 	set FileSelBoxInUse 1
 
-	set filetypes [list [list $mc::ScidbBases {.sci}]]
+	set filetypes [list [list $mc::ScidbBases {.sci}] [list $mc::PGNFilesArchives {.pgn .pgn.gz}]]
 	set result [::dialog::saveFile \
 		-parent $parent \
 		-class database \
@@ -595,11 +595,13 @@ proc dbNew {parent variant} {
 		-customicon $::icon::16x16::filetypeArchive \
 		-customtooltip $mc::Archiving \
 		-customcommand [namespace code [list CreateArchive]] \
-		-customfiletypes {.sci .si4 .si3 .cbh .cbf .pgn .pgn.gz .bpgn .bpgn.gz .zip} \
+		-customfiletypes {.sci .pgn .pgn.gz .bpgn .bpgn.gz} \
 	]
 	set FileSelBoxInUse 0
 
 	if {[llength $result] == 0} { return 0 }
+	set ext [file extension $result]
+	if {$ext in {.pgn .gz}} { set variant Undetermined }
 	return [::application::database::newBase $parent $variant {*}$result]
 }
 

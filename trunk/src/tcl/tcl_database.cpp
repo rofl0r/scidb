@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1463 $
-// Date   : $Date: 2018-03-05 13:20:09 +0000 (Mon, 05 Mar 2018) $
+// Version: $Revision: 1493 $
+// Date   : $Date: 2018-06-26 13:45:50 +0000 (Tue, 26 Jun 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1275,6 +1275,8 @@ cmdNew(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 		// currently we do not support charset detection for PGN files
 		if (encoding.empty() || encoding == sys::utf8::Codec::automatic())
 			encoding = sys::utf8::Codec::latin1();
+		if (type == ::db::type::Unspecific)
+			type = ::db::type::PGNFile;
 	}
 	else if (encoding.empty() || encoding == sys::utf8::Codec::automatic())
 	{

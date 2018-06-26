@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 648 $
-// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
+// Version: $Revision: 1493 $
+// Date   : $Date: 2018-06-26 13:45:50 +0000 (Tue, 26 Jun 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -16,6 +16,7 @@
 // (at your option) any later version.
 // ======================================================================
 
+#define M_INCLUDE_FILE
 #include "m_file.h"
 #include "m_stdio.h"
 #include "m_assert.h"

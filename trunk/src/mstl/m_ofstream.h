@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 1493 $
+// Date   : $Date: 2018-06-26 13:45:50 +0000 (Tue, 26 Jun 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -20,6 +20,7 @@
 #define _mstl_ofstream_included
 
 #include "m_ostream.h"
+#define M_INCLUDE_FILE
 #include "m_file.h"
 
 namespace mstl {

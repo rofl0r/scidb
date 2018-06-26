@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 648 $
-// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
+// Version: $Revision: 1493 $
+// Date   : $Date: 2018-06-26 13:45:50 +0000 (Tue, 26 Jun 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -18,6 +18,11 @@
 
 #ifndef _mstl_file_included
 #define _mstl_file_included
+
+#ifndef M_INCLUDE_FILE
+# error "m_file.h should not be included"
+#endif
+#undef M_INCLUDE_FILE
 
 #include "m_ios.h"
 #include "m_string.h"
