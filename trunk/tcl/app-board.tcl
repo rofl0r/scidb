@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1490 $
-# Date   : $Date: 2018-06-20 14:11:51 +0000 (Wed, 20 Jun 2018) $
+# Version: $Revision: 1492 $
+# Date   : $Date: 2018-06-26 10:34:19 +0000 (Tue, 26 Jun 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -116,7 +116,7 @@ proc build {w width height} {
 	set border [tk::canvas $canv.border -takefocus 0 -borderwidth 0]
 	$border xview moveto 0
 	$border yview moveto 0
-	Preload $width [expr {$height - [[winfo parent $w] get $w Extent 74]}]
+	Preload $width [expr {$height - [[winfo parent $w] get $w Extent 74] + 2}]
 	set board [::board::diagram::new $border.diagram $Dim(squaresize) \
 		-bordersize $Dim(edgethickness) \
 		-bordertype lines \
