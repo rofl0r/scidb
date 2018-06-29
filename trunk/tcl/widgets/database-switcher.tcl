@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1120 $
-# Date   : $Date: 2017-01-21 11:58:07 +0000 (Sat, 21 Jan 2017) $
+# Version: $Revision: 1494 $
+# Date   : $Date: 2018-06-29 12:36:27 +0000 (Fri, 29 Jun 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1507,6 +1507,18 @@ proc CopyDatabase {parent src dst variant x y} {
 	if {$rc == 1} { ::log::error $::import::mc::AbortedDueToIoError }
 	::progress::close
 	::log::close
+	::log::show
+}
+
+
+proc LogCopyDb {sink arguments} {
+	set type [lindex $arguments 0]
+	set var  [string toupper $type 0 0]
+	set code [lindex $arguments 1]
+	set args [lindex $arguments 2]
+	append line [set ::import::mc::${var}($code)]
+	if {[llength $args]} { append line ": $args" }
+	::log::${type} $line
 }
 
 
