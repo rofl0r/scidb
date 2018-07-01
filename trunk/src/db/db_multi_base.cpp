@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1493 $
-// Date   : $Date: 2018-06-26 13:45:50 +0000 (Tue, 26 Jun 2018) $
+// Version: $Revision: 1496 $
+// Date   : $Date: 2018-07-01 12:51:12 +0000 (Sun, 01 Jul 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -799,6 +799,11 @@ MultiBase::save(mstl::string const& encoding, unsigned flags, util::Progress& pr
 
 			for (unsigned index = nextIndex[variant]; index < n; ++index)
 			{
+				if (reportAfter == count++)
+				{
+					progress.update(count);
+					reportAfter += frequency;
+				}
 				newFileOffsets->append(ostrm->tellp(), variant, index);
 				database->exportGame(index, *writer); // always returning save::Ok
 			}

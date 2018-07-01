@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author: gcramer $
-# Version: $Revision: 1485 $
-# Date   : $Date: 2018-05-18 13:33:33 +0000 (Fri, 18 May 2018) $
+# Version: $Revision: 1496 $
+# Date   : $Date: 2018-07-01 12:51:12 +0000 (Sun, 01 Jul 2018) $
 # Url    : $URL: https://svn.code.sf.net/p/scidb/code/trunk/tcl/app-information.tcl $
 # ======================================================================
 
@@ -162,6 +162,7 @@ proc activate {w flag} {
 			set icon [namespace parent]::database::icons::${type}(${size}x${size})
 			set name [file tail $name]
 			set ext [file extension $file]
+			if {[string match *.gz $ext]} { set ext .pgn }
 			if {[string match *$ext $name]} {
 				set name [string range $name 0 [expr {[string length $name] - [string length $ext] - 1}]]
 				set name [string trim $name]

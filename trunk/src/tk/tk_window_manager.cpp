@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1281 $
-// Date   : $Date: 2017-07-09 09:43:39 +0000 (Sun, 09 Jul 2017) $
+// Version: $Revision: 1496 $
+// Date   : $Date: 2018-07-01 12:51:12 +0000 (Sun, 01 Jul 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -31,6 +31,9 @@
 
 
 static Tcl_Command tk_cmd = 0;
+
+
+//#define GET_EXTENTS_IMMEDIATELY
 
 
 #if !defined(__WIN32__) && !defined(__MacOSX__)
@@ -562,10 +565,10 @@ getCurrentDesktop(Display* display)
 static bool
 getDefaultExtents(Rect& result)
 {
-	result.left = 6;
-	result.right = 6;
+	result.left = 3;
+	result.right = 3;
 	result.width = 30;
-	result.height = 6;
+	result.height = 3;
 
 	return false;
 }
@@ -619,20 +622,21 @@ requestDesktopProperties(Tcl_Interp* ti, Tk_Window tkwin)
 
 	if (checkAtom(extents, display, XA_NET_FRAME_EXTENTS))
 	{
-		static XID data[4];
+		Atom xaAtom = getAtom(display, XA_NET_REQUEST_FRAME_EXTENTS);
 
 		XEvent xev;
 		memset(&xev, 0, sizeof(xev));
-		xev.xclient.message_type = getAtom(display, XA_NET_REQUEST_FRAME_EXTENTS);
+		xev.xclient.message_type = xaAtom;
 		xev.xclient.type = ClientMessage;
 		xev.xclient.display = display;
-		xev.xclient.window = window;
+		xev.xclient.window = window; // XXX is this the correct window?
 		xev.xclient.format = 32;
 
 		Window root = XDefaultRootWindow(display);
 		XSendEvent(display, root, False, SubstructureRedirectMask | SubstructureNotifyMask, &xev);
 
-		Tk_CreateGenericHandler(handleDesktopProperties, ClientData(data));
+		// XXX clientdata is correct?
+		Tk_CreateGenericHandler(handleDesktopProperties, ClientData(xaAtom));
 
 #ifdef GET_EXTENTS_IMMEDIATELY
 		Tcl_TimerToken timer = Tcl_CreateTimerHandler(250, timeoutProc, ti);
@@ -643,6 +647,7 @@ requestDesktopProperties(Tcl_Interp* ti, Tk_Window tkwin)
 			Tcl_DoOneEvent(TCL_ALL_EVENTS);
 
 		Tcl_DeleteTimerHandler(timer);
+		Tk_DeleteGenericHandler(handleDesktopProperties, ClientData(xaAtom));
 #endif
 	}
 }
