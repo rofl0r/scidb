@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1295 $
-// Date   : $Date: 2017-07-24 19:35:37 +0000 (Mon, 24 Jul 2017) $
+// Version: $Revision: 1497 $
+// Date   : $Date: 2018-07-08 13:09:06 +0000 (Sun, 08 Jul 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -137,7 +137,7 @@ void setResult(unsigned result);
 void setResult(bool result);
 void setResult(long result);
 void setResult(unsigned long result);
-void setResult(mstl::vector<Tcl_Obj*> const& list);
+void setResult(List const& list);
 void
 __attribute__((__format__(__printf__, 1, 2)))
 setResultV(char const* format, ...);

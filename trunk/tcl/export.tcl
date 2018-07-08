@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1493 $
-# Date   : $Date: 2018-06-26 13:45:50 +0000 (Tue, 26 Jun 2018) $
+# Version: $Revision: 1497 $
+# Date   : $Date: 2018-07-08 13:09:06 +0000 (Sun, 08 Jul 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -3631,7 +3631,6 @@ proc WriteOptions {chan} {
 	::options::writeItem $chan [namespace current]::si3::Tags no
 	::options::writeItem $chan [namespace current]::sci::Tags no
 }
-
 ::options::hookWriter [namespace current]::WriteOptions
 
 namespace eval icon {

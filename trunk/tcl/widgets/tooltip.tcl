@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 961 $
-# Date   : $Date: 2013-10-06 08:30:53 +0000 (Sun, 06 Oct 2013) $
+# Version: $Revision: 1497 $
+# Date   : $Date: 2018-07-08 13:09:06 +0000 (Sun, 08 Jul 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -546,11 +546,11 @@ proc Register {w arguments} {
 	while {[string match -* $key]} {
 		switch -- $key {
 			-index {
-				if {[catch {$w entrycget 1 -label}]} {
+				set index [lindex $arguments 1]
+				if {[catch {$w entrycget $index -label}]} {
 					return -code error "widget \"$w\" does not seem to be a menu, \
 												which is required for the -index switch"
 				}
-				set index [lindex $arguments 1]
 				set arguments [lreplace $arguments 0 1]
 			}
 

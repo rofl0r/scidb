@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1238 $
-# Date   : $Date: 2017-07-05 10:59:18 +0000 (Wed, 05 Jul 2017) $
+# Version: $Revision: 1497 $
+# Date   : $Date: 2018-07-08 13:09:06 +0000 (Sun, 08 Jul 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1450,6 +1450,7 @@ proc WriteOptions {chan} {
 		::options::writeItem $chan [namespace current]::$what
 	}
 }
+::options::hookWriter [namespace current]::WriteOptions
 
 
 proc MakeBorderlines {} {
@@ -1505,9 +1506,6 @@ if {[llength $colors(hint,background-tile)]} {
 		set colors(hint,background-tile) {}
 	}
 }
-
-
-::options::hookWriter [namespace current]::WriteOptions
 
 namespace eval icon {
 namespace eval 12x12 {

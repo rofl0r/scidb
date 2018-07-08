@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1295 $
-# Date   : $Date: 2017-07-24 19:35:37 +0000 (Mon, 24 Jul 2017) $
+# Version: $Revision: 1497 $
+# Date   : $Date: 2018-07-08 13:09:06 +0000 (Sun, 08 Jul 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -31,6 +31,7 @@ namespace eval options {
 namespace import ::tcl::mathfunc::max
 
 array set Callbacks {}
+array set TableCallbacks {}
 
 
 proc hookWriter {callback {file options}} {
@@ -42,6 +43,18 @@ proc hookWriter {callback {file options}} {
 		set i [lsearch -exact $Callbacks($file) $callback]
 	}
 	if {$i == -1} { lappend Callbacks($file) $callback }
+}
+
+
+proc hookTableWriter {callback {file options}} {
+	variable TableCallbacks
+
+	if {![info exists TableCallbacks($file)]} {
+		set i -1
+	} else {
+		set i [lsearch -exact $TableCallbacks($file) $callback]
+	}
+	if {$i == -1} { lappend TableCallbacks($file) $callback }
 }
 
 
@@ -65,14 +78,14 @@ proc writeHeader {chan file} {
 
 proc write {} {
 	variable Callbacks
+	variable TableCallbacks
 
 	foreach file [array names Callbacks] {
 		if {$file eq "options" || [llength $Callbacks($file)] > 0} {
 			set filename [set ::scidb::file::$file]
-			set chan [open $filename.tmp w]
+			set fd($file) [set chan [open $filename.tmp w]]
 			fconfigure $chan -encoding utf-8
 			writeHeader $chan $file
-
 			foreach callback $Callbacks($file) { $callback $chan }
 
 			if {$file eq "options"} {
@@ -82,10 +95,30 @@ proc write {} {
 					puts $chan "}"
 				}
 			}
-
-			close $chan
-			file rename -force $filename.tmp $filename
 		}
+	}
+
+	foreach file [array names TableCallbacks] {
+		if {$file eq "options" || [llength $TableCallbacks($file)] > 0} {
+			set filename [set ::scidb::file::$file]
+			set chan $fd($file)
+			foreach callback $TableCallbacks($file) { $callback $chan }
+		}
+	}
+
+	foreach file [array names fd] {
+		close $fd($file)
+		set filename [set ::scidb::file::$file]
+		file rename -force $filename.tmp $filename
+	}
+}
+
+
+proc writeTableOptions {chan id} {
+	variable TableCallbacks
+
+	if {[info exists TableCallbacks(options)]} {
+		foreach callback $TableCallbacks(options) { $callback $chan $id }
 	}
 }
 

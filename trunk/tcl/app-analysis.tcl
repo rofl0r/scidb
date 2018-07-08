@@ -1,7 +1,7 @@
 # =======================================================================
 # Author : $Author$
-# Version: $Revision: 1486 $
-# Date   : $Date: 2018-05-21 12:51:35 +0000 (Mon, 21 May 2018) $
+# Version: $Revision: 1497 $
+# Date   : $Date: 2018-07-08 13:09:06 +0000 (Sun, 08 Jul 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -107,7 +107,7 @@ namespace import ::tcl::mathfunc::abs
 
 array set Defaults {
 	engine:bestFirst	1
-	engine:nlines		2
+	engine:nlines		1
 	engine:multiPV		4
 	engine:singlePV	0
 	toolbar:info		less
@@ -842,7 +842,7 @@ proc ResizePane {tree height} {
 	if {$height <= 1 || $Vars(toolbar:height) <= 1} { return }
 	incr height $Vars(toolbar:height)
 	incr height [winfo height $Vars(info)]
-	incr height 8 ;# borders
+	incr height 5 ;# borders
 	[namespace parent]::resizePaneHeight $Vars(number) $height
 }
 
@@ -1465,7 +1465,7 @@ proc PopupMenu {tree number args} {
 			-image $::icon::16x16::lines \
 			-compound left \
 			;
-		foreach n {1 2 4 6 8} {
+		foreach n {1 2 3 4 5 6 7 8} {
 			$sub add radiobutton \
 				-label $n \
 				-value $n \
@@ -1697,7 +1697,6 @@ proc WriteOptions {chan} {
 	}
 	::options::writeItem $chan [namespace current]::GlobalOptions
 }
-
 ::options::hookWriter [namespace current]::WriteOptions
 
 

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1193 $
-# Date   : $Date: 2017-06-01 14:38:59 +0000 (Thu, 01 Jun 2017) $
+# Version: $Revision: 1497 $
+# Date   : $Date: 2018-07-08 13:09:06 +0000 (Sun, 08 Jul 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1017,8 +1017,6 @@ proc Focus {dlg mode} {
 proc WriteOptions {chan} {
 	::options::writeList $chan [namespace current]::Position
 }
-
-
 ::options::hookWriter [namespace current]::WriteOptions
 
 } ;# namespace annotation

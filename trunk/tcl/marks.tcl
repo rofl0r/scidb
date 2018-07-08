@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 813 $
-# Date   : $Date: 2013-05-31 22:23:38 +0000 (Fri, 31 May 2013) $
+# Version: $Revision: 1497 $
+# Date   : $Date: 2018-07-08 13:09:06 +0000 (Sun, 08 Jul 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -460,8 +460,6 @@ proc LanguageChanged {dlg w} {
 proc WriteOptions {chan} {
 	::options::writeList $chan [namespace current]::Position
 }
-
-
 ::options::hookWriter [namespace current]::WriteOptions
 
 } ;# namespace marks

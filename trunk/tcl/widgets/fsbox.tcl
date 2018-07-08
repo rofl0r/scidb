@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1485 $
-# Date   : $Date: 2018-05-18 13:33:33 +0000 (Fri, 18 May 2018) $
+# Version: $Revision: 1497 $
+# Date   : $Date: 2018-07-08 13:09:06 +0000 (Sun, 08 Jul 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -893,6 +893,48 @@ proc verifyPath {path} {
 		return reservedName
 	}
 	return {}
+}
+
+
+proc checkPath {parent path} {
+	set message ""
+	set detail ""
+
+	switch [verifyPath $path] {
+		oneDot {
+			set message [format [Tr FilenameNotAllowed] $path]
+		}
+
+		twoDots {
+			set message [format [Tr FilenameNotAllowed] $path]
+			set detail [Tr ContainsTwoDots]
+		}
+
+		tooLong {
+			set message [format [Tr FilenameNotAllowed] $path]
+			set detail [Tr FilenameTooLong]
+		}
+
+		reservedChar {
+			variable reservedChars
+			set message [format [Tr FilenameNotAllowed] $path]
+			set detail [format [Tr ContainsReservedChars] [join $reservedChars " "]]
+		}
+
+		invalidName {
+			set message [format [Tr FilenameNotAllowed] $path]
+			set detail [Tr InvalidFileName]
+		}
+
+		reservedName {
+			set message [format [Tr FilenameNotAllowed] $path]
+			set detail [Tr IsReservedName]
+		}
+	}
+
+	if {[string length $message] == 0} { return 1 }
+	::dialog::error -parent $parent -message $message -detail $detail
+	return 0
 }
 
 
@@ -1939,45 +1981,7 @@ proc SearchLastVisited {w dir} {
 
 proc CheckPath {w path} {
 	variable ${w}::Vars
-
-	set message ""
-	set detail ""
-
-	switch [verifyPath $path] {
-		oneDot {
-			set message [format [Tr FilenameNotAllowed] $path]
-		}
-
-		twoDots {
-			set message [format [Tr FilenameNotAllowed] $path]
-			set detail [Tr ContainsTwoDots]
-		}
-
-		tooLong {
-			set message [format [Tr FilenameNotAllowed] $path]
-			set detail [Tr FilenameTooLong]
-		}
-
-		reservedChar {
-			variable reservedChars
-			set message [format [Tr FilenameNotAllowed] $path]
-			set detail [format [Tr ContainsReservedChars] [join $reservedChars " "]]
-		}
-
-		invalidName {
-			set message [format [Tr FilenameNotAllowed] $path]
-			set detail [Tr InvalidFileName]
-		}
-
-		reservedName {
-			set message [format [Tr FilenameNotAllowed] $path]
-			set detail [Tr IsReservedName]
-		}
-	}
-
-	if {[string length $message] == 0} { return 1 }
-	::dialog::error -parent $Vars(widget:main) -message $message -detail $detail
-	return 0
+	return [checkPath $Vars(widget:main) $path]
 }
 
 

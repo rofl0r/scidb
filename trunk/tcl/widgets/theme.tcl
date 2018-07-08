@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1492 $
-# Date   : $Date: 2018-06-26 10:34:19 +0000 (Tue, 26 Jun 2018) $
+# Version: $Revision: 1497 $
+# Date   : $Date: 2018-07-08 13:09:06 +0000 (Sun, 08 Jul 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -320,13 +320,18 @@ proc configureBackground {w} {
 }
 
 
+proc notebookBorderwidth {} {
+	return [ttk::style lookup TNotebook -borderwidth]
+}
+
+
 proc notebookTabPaneSize {nb} {
 	set padding [ttk::style lookup TNotebook.Tab -padding]
 	if {[llength $padding] == 0} {
 		puts stderr "\[ttk::style lookup TNotebook.Tab -padding\] returns empty list"
 		set padding {2 2}
 	}
-	set size 3 ;# borderwidth=2 + one overlapping pixel
+	set size [expr {2*[notebookBorderwidth] + 1}] ;# plus one overlapping pixel
 	switch [llength $padding] {
 		2 { incr size [expr {2*[lindex $padding 1]}] }
 		3 { incr size [lindex $padding 1] }

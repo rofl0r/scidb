@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1478 $
-// Date   : $Date: 2018-05-13 12:49:53 +0000 (Sun, 13 May 2018) $
+// Version: $Revision: 1497 $
+// Date   : $Date: 2018-07-08 13:09:06 +0000 (Sun, 08 Jul 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -2267,7 +2267,7 @@ unsigned
 Codec::firstCharToUpper(mstl::string& name)
 {
 	M_REQUIRE(sys::utf8::validate(name));
-	M_REQUIRE(!name.readonly());
+	M_REQUIRE(name.writable());
 
 	// IMPORTANT NOTE:
 	// At this time, the case conversions are only defined for the ISO8859-1 characters.

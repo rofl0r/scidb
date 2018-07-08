@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1485 $
-# Date   : $Date: 2018-05-18 13:33:33 +0000 (Fri, 18 May 2018) $
+# Version: $Revision: 1497 $
+# Date   : $Date: 2018-07-08 13:09:06 +0000 (Sun, 08 Jul 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -158,7 +158,6 @@ array set Defaults {
 	crosstableLimit	60
 }
 
-# fonttable: xxsmall xsmall small medium large xlarge xxlarge
 array set Options {
 	debug:log			0
 	debug:html			0
@@ -1538,7 +1537,6 @@ proc WriteOptions {chan} {
 	::options::writeItem $chan [namespace current]::RecentlyUsedScoring
 	::options::writeItem $chan [namespace current]::Options
 }
-
 ::options::hookWriter [namespace current]::WriteOptions
 
 

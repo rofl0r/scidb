@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1349 $
-# Date   : $Date: 2017-08-02 09:50:44 +0000 (Wed, 02 Aug 2017) $
+# Version: $Revision: 1497 $
+# Date   : $Date: 2018-07-08 13:09:06 +0000 (Sun, 08 Jul 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -14,7 +14,7 @@
 # ======================================================================
 
 # ======================================================================
-# Copyright: (C) 2010-2013 Gregor Cramer
+# Copyright: (C) 2010-2018 Gregor Cramer
 # ======================================================================
 
 # ======================================================================
@@ -260,17 +260,18 @@ proc Close {table base variant} {
 }
 
 
-proc WriteOptions {chan} {
+proc WriteTableOptions {chan {id "board"}} {
 	variable Tables
 
+	if {$id ne "board"} { return }
+
 	foreach table $Tables {
-		puts $chan "::gametable::setOptions db:tree:games {"
-		::options::writeArray $chan [::gametable::getOptions $table]
+		puts $chan "::scrolledtable::setOptions db:tree:games {"
+		::options::writeArray $chan [::scrolledtable::getOptions db:tree:games]
 		puts $chan "}"
 	}
 }
-
-::options::hookWriter [namespace current]::WriteOptions
+::options::hookTableWriter [namespace current]::WriteTableOptions
 
 } ;# namespace games
 } ;# namespace tree

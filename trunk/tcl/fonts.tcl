@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1485 $
-# Date   : $Date: 2018-05-18 13:33:33 +0000 (Fri, 18 May 2018) $
+# Version: $Revision: 1497 $
+# Date   : $Date: 2018-07-08 13:09:06 +0000 (Sun, 08 Jul 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1491,10 +1491,13 @@ proc registerFigurineFonts {context} {
 	variable text
 
 	if {[info exists figurine($context:normal)]} { return }
-	set size $Options($context:size)
+
+	if {[info exists Options($context:size)]} { set cxt $context } else { set cxt text }
+	set size $Options($cxt:size)
 
 	if {$UseFigurines} {
-		set ascent [font metrics $text($context:normal) -ascent]
+		if {"$context:normal" in [array names text]} { set cxt $context } else { set cxt text }
+		set ascent [font metrics $text($cxt:normal) -ascent]
 		set figurine($context:normal) [font create ::font::figurine($context:normal) \
 			-family $Options(figurine:family:normal) \
 			-weight $Options(figurine:weight:normal) \
@@ -2450,7 +2453,6 @@ proc Slant {style} {
 proc WriteOptions {chan} {
 	::options::writeItem $chan [namespace current]::Options
 }
-
 ::options::hookWriter [namespace current]::WriteOptions
 
 } ;# namespace font

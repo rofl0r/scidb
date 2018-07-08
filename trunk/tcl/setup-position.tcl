@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 924 $
-# Date   : $Date: 2013-08-08 15:00:04 +0000 (Thu, 08 Aug 2013) $
+# Version: $Revision: 1497 $
+# Date   : $Date: 2018-07-08 13:09:06 +0000 (Sun, 08 Jul 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -393,8 +393,6 @@ proc Accept {dlg} {
 proc WriteOptions {chan} {
 	::options::writeList $chan [namespace current]::Previous
 }
-
-
 ::options::hookWriter [namespace current]::WriteOptions
 
 } ;# namespace position

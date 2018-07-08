@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1496 $
-// Date   : $Date: 2018-07-01 12:51:12 +0000 (Sun, 01 Jul 2018) $
+// Version: $Revision: 1497 $
+// Date   : $Date: 2018-07-08 13:09:06 +0000 (Sun, 08 Jul 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -567,8 +567,8 @@ getDefaultExtents(Rect& result)
 {
 	result.left = 3;
 	result.right = 3;
-	result.width = 30;
-	result.height = 3;
+	result.width = 16;
+	result.height = 6;
 
 	return false;
 }

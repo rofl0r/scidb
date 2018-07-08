@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1468 $
-# Date   : $Date: 2018-04-04 14:21:07 +0000 (Wed, 04 Apr 2018) $
+# Version: $Revision: 1497 $
+# Date   : $Date: 2018-07-08 13:09:06 +0000 (Sun, 08 Jul 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -2151,8 +2151,6 @@ proc UpdateFormatButtons {w} {
 proc WriteOptions {chan} {
 	::options::writeList $chan [namespace current]::Geometry
 }
-
-
 ::options::hookWriter [namespace current]::WriteOptions
 
 

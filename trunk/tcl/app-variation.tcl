@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1446 $
-# Date   : $Date: 2017-11-08 13:01:30 +0000 (Wed, 08 Nov 2017) $
+# Version: $Revision: 1497 $
+# Date   : $Date: 2018-07-08 13:09:06 +0000 (Sun, 08 Jul 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -653,7 +653,6 @@ proc PopupMenu {table x y} {
 proc WriteOptions {chan} {
 	::options::writeItem $chan [namespace current]::Options
 }
-
 ::options::hookWriter [namespace current]::WriteOptions
 
 } ;# namespace vars

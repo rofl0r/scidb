@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author: gcramer $
-# Version: $Revision: 1496 $
-# Date   : $Date: 2018-07-01 12:51:12 +0000 (Sun, 01 Jul 2018) $
+# Version: $Revision: 1497 $
+# Date   : $Date: 2018-07-08 13:09:06 +0000 (Sun, 08 Jul 2018) $
 # Url    : $URL: https://svn.code.sf.net/p/scidb/code/trunk/tcl/app-information.tcl $
 # ======================================================================
 
@@ -604,7 +604,6 @@ proc WriteOptions {chan} {
 	if {$Priv(checksum)} { set Options(checksum) $Priv(checksum) }
 	::options::writeItem $chan [namespace current]::Options
 }
-
 ::options::hookWriter [namespace current]::WriteOptions
 
 } ;# namespace information

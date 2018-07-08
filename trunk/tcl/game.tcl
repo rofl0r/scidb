@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1490 $
-# Date   : $Date: 2018-06-20 14:11:51 +0000 (Wed, 20 Jun 2018) $
+# Version: $Revision: 1497 $
+# Date   : $Date: 2018-07-08 13:09:06 +0000 (Sun, 08 Jul 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1461,7 +1461,6 @@ proc WriteOptions {chan} {
 	::options::writeItem $chan [namespace current]::Options
 	::options::writeItem $chan [namespace current]::Selection
 }
-
 ::options::hookWriter [namespace current]::WriteOptions
 
 } ;# namespace game

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1488 $
-// Date   : $Date: 2018-06-06 12:38:01 +0000 (Wed, 06 Jun 2018) $
+// Version: $Revision: 1497 $
+// Date   : $Date: 2018-07-08 13:09:06 +0000 (Sun, 08 Jul 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -246,6 +246,7 @@ toId(mstl::string const& name)
 
 uci::Engine::Engine()
 	:m_state(None)
+	,m_variant(variant::Normal)
 	,m_uciok(false)
 	,m_isReady(false)
 	,m_hasMultiPV(false)
@@ -543,6 +544,12 @@ uci::Engine::processMessage(mstl::string const& message)
 
 					if (m_variant != currentVariant())
 					{
+						mstl::string variant(variant::identifier(currentVariant()));
+						if (variant.empty())
+						{
+							M_ASSERT(currentVariant() == variant::Normal);
+							variant.assign("Normal");
+						}
 						send("setoption name UCI_Variant value " + variant::identifier(currentVariant()));
 						m_variant = currentVariant();
 					}

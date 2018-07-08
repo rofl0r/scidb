@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1488 $
-// Date   : $Date: 2018-06-06 12:38:01 +0000 (Wed, 06 Jun 2018) $
+// Version: $Revision: 1497 $
+// Date   : $Date: 2018-07-08 13:09:06 +0000 (Sun, 08 Jul 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -7216,7 +7216,9 @@ mstl::string&
 Board::toValidFen(mstl::string& result, variant::Type variant, Format format) const
 {
 	Board board(*this);
-	board.fixBadCastlingRights();
+
+	if (board.isStandardPosition(variant))
+		board.fixBadCastlingRights();
 	return board.toFen(result, variant, format);
 }
 

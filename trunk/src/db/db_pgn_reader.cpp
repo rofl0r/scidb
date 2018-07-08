@@ -1,7 +1,7 @@
 # // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1420 $
-// Date   : $Date: 2017-08-17 16:33:58 +0000 (Thu, 17 Aug 2017) $
+// Version: $Revision: 1497 $
+// Date   : $Date: 2018-07-08 13:09:06 +0000 (Sun, 08 Jul 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1910,7 +1910,7 @@ PgnReader::get(bool allowEndOfInput)
 
 			if (m_lineEnd > m_linePos && m_lineEnd[-1] == '\r')
 			{
-				M_ASSERT(m_line.readonly());
+				M_ASSERT(m_line.empty() || m_line.readonly());
 				m_line.hook(m_line.data(), m_line.size() - 1);
 				m_lineEnd = m_line.end();
 				m_lineEnd[0] = '\0';

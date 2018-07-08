@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1372 $
-// Date   : $Date: 2017-08-04 17:56:11 +0000 (Fri, 04 Aug 2017) $
+// Version: $Revision: 1497 $
+// Date   : $Date: 2018-07-08 13:09:06 +0000 (Sun, 08 Jul 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -468,7 +468,7 @@ tcl::setResult(mstl::string const& s)
 
 
 void
-tcl::setResult(mstl::vector<Tcl_Obj*> const& list)
+tcl::setResult(List const& list)
 {
 	Tcl_SetObjResult(interp(), Tcl_NewListObj(list.size(), list.data()));
 }

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1463 $
-# Date   : $Date: 2018-03-05 13:20:09 +0000 (Mon, 05 Mar 2018) $
+# Version: $Revision: 1497 $
+# Date   : $Date: 2018-07-08 13:09:06 +0000 (Sun, 08 Jul 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -733,7 +733,6 @@ proc InvokeLang {w lang} {
 proc WriteOptions {chan} {
 	::options::writeItem $chan [namespace current]::Language
 }
-
 ::options::hookWriter [namespace current]::WriteOptions
 
 } ;# namespace mc

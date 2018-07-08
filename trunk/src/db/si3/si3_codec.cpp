@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1422 $
-// Date   : $Date: 2017-08-18 10:27:34 +0000 (Fri, 18 Aug 2017) $
+// Version: $Revision: 1497 $
+// Date   : $Date: 2018-07-08 13:09:06 +0000 (Sun, 08 Jul 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1916,7 +1916,7 @@ Codec::readNamebase(	ByteIStream& bstrm,
 			m_codec->forceValidUtf8(name);
 		}
 
-		if (name.readonly())
+		if (name.empty() || name.readonly())
 		{
 			char* p = base.alloc(name.size());
 			::memcpy(p, name.c_str(), name.size() + 1);
