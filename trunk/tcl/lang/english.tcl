@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1497 $
-# Date   : $Date: 2018-07-08 13:09:06 +0000 (Sun, 08 Jul 2018) $
+# Version: $Revision: 1498 $
+# Date   : $Date: 2018-07-11 11:53:52 +0000 (Wed, 11 Jul 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -497,6 +497,7 @@
 ::application::twm::mc::Windows					"Windows"
 ::application::twm::mc::ConfirmDelete			"Really delete layout '%s'?"
 ::application::twm::mc::ConfirmOverwrite		"Overwrite existing layout '%s'?"
+::application::twm::mc::LayoutSaved				"Layout '%s' successfully saved."
 ::application::twm::mc::EnterName				"Enter Name"
 
 ::application::twm::mc::Pane(analysis)			"Analysis"

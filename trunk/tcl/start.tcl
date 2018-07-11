@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1372 $
-# Date   : $Date: 2017-08-04 17:56:11 +0000 (Fri, 04 Aug 2017) $
+# Version: $Revision: 1498 $
+# Date   : $Date: 2018-07-11 11:53:52 +0000 (Wed, 11 Jul 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -393,6 +393,13 @@ proc arrayEqual {lhs rhs} {
 		}
 	}
 	return 1
+}
+
+
+proc arrayListEqual {lhs rhs} {
+	array set foo $lhs
+	array set bar $rhs
+	return [arrayEqual foo bar]
 }
 
 

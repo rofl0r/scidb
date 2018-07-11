@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1497 $
-# Date   : $Date: 2018-07-08 13:09:06 +0000 (Sun, 08 Jul 2018) $
+# Version: $Revision: 1498 $
+# Date   : $Date: 2018-07-11 11:53:52 +0000 (Wed, 11 Jul 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -498,6 +498,11 @@ proc at {path y} {
 	set row [::table::at $table $y]
 	if {![string is digit -strict $row]} { return $row }
 	return [expr {$row + $Vars(start)}]
+}
+
+
+proc countOptions {id} {
+	return [::table::countOptions $id]
 }
 
 

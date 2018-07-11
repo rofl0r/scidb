@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1490 $
-# Date   : $Date: 2018-06-20 14:11:51 +0000 (Wed, 20 Jun 2018) $
+# Version: $Revision: 1498 $
+# Date   : $Date: 2018-07-11 11:53:52 +0000 (Wed, 11 Jul 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -404,7 +404,7 @@ proc add {position base variant tags {at -1}} {
 		::gamebar::add $Vars(gamebar) $position $tags
 	}
 	ResetGame $Vars(pgn:$position) $position $tags
-	::scidb::game::switch $position
+	if {![::game::preloading?]} { ::scidb::game::switch $position }
 }
 
 
@@ -1053,6 +1053,7 @@ proc UpdateLanguages {position languageSet} {
 proc GameSwitched {position} {
 	variable Vars
 
+	[namespace parent]::twm::switchLayout [::scidb::game::query $position variant] game
 	if {![info exists Vars(virgin:$position)]} { return }
 
 	if {[info exists Vars(lang:set:$position)]} {

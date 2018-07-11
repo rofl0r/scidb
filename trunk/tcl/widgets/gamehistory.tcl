@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1485 $
-# Date   : $Date: 2018-05-18 13:33:33 +0000 (Fri, 18 May 2018) $
+# Version: $Revision: 1498 $
+# Date   : $Date: 2018-07-11 11:53:52 +0000 (Wed, 11 Jul 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -225,9 +225,9 @@ proc OpenGame {t args} {
 	}
 
 	if {[info exists Map($sel)] && [llength $Map($sel)] > 1} {
-		::widget::busyOperation { \
+#		::widget::busyOperation {
 			::game::openGame $t [lindex $Map($sel) 0]
-		}
+#		}
 	}
 }
 

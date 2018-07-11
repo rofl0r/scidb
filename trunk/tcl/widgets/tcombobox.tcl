@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1491 $
-# Date   : $Date: 2018-06-25 14:10:14 +0000 (Mon, 25 Jun 2018) $
+# Version: $Revision: 1498 $
+# Date   : $Date: 2018-07-11 11:53:52 +0000 (Wed, 11 Jul 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -406,6 +406,7 @@ proc WidgetProc {w command args} {
 				switch -- $name {
 					-height - -minwidth - -minheight {}
 					-width	{ $w.__combobox__ configure -width $value }
+					-class	{ ;# cannot change class }
 					default	{ $w configure $name $value }
 				}
 			}
