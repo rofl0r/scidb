@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1498 $
-# Date   : $Date: 2018-07-11 11:53:52 +0000 (Wed, 11 Jul 2018) $
+# Version: $Revision: 1500 $
+# Date   : $Date: 2018-07-13 10:00:25 +0000 (Fri, 13 Jul 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -377,10 +377,7 @@ proc see {path position} {
 
 
 proc refresh {path} {
-	set table $path.top.table
-	variable ${table}::Vars
-
-	TableFill $table
+	TableFill $path.top.table
 }
 
 

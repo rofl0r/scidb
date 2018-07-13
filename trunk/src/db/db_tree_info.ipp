@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 979 $
-// Date   : $Date: 2013-10-20 21:03:29 +0000 (Sun, 20 Oct 2013) $
+// Version: $Revision: 1500 $
+// Date   : $Date: 2018-07-13 10:00:25 +0000 (Fri, 13 Jul 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -61,6 +61,7 @@ inline uint16_t TreeInfo::bestRating() const								{ return m_bestRating; }
 inline uint16_t TreeInfo::lastYear() const								{ return m_lastYear; }
 inline NamebasePlayer const& TreeInfo::bestPlayer() const			{ return *m_bestPlayer; }
 inline NamebasePlayer const& TreeInfo::mostFrequentPlayer() const	{ return *m_mostFrequentPlayer; }
+inline unsigned TreeInfo::result(result::ID type) const				{ return m_scoreCount[type]; }
 #ifndef SUPPORT_TREE_INFO_FILTER
 inline unsigned TreeInfo::firstGameIndex() const						{ return m_firstGameIndex; }
 #endif

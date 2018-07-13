@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1498 $
-# Date   : $Date: 2018-07-11 11:53:52 +0000 (Wed, 11 Jul 2018) $
+# Version: $Revision: 1500 $
+# Date   : $Date: 2018-07-13 10:00:25 +0000 (Fri, 13 Jul 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -829,6 +829,7 @@
 ::application::tree::mc::LockReferenceBase				"Lock reference database"
 ::application::tree::mc::SwitchReferenceBase				"Switch reference database"
 ::application::tree::mc::TransparentBar					"Transparent bar"
+::application::tree::mc::MonochromeStyle					"Use monochrome style"
 ::application::tree::mc::NoGamesFound						"No games found"
 ::application::tree::mc::NoGamesAvailable					"No games available"
 ::application::tree::mc::Searching							"Searching"
@@ -855,6 +856,7 @@
 ::application::tree::mc::F_Ratio								"Ratio"
 ::application::tree::mc::F_Score								"Score"
 ::application::tree::mc::F_Draws								"Draws"
+::application::tree::mc::F_Result							"Result"
 ::application::tree::mc::F_Performance						"Performance"
 ::application::tree::mc::F_AverageYear						"\u00f8 Year"
 ::application::tree::mc::F_LastYear							"Last Played"

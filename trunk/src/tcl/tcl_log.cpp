@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 609 $
-// Date   : $Date: 2013-01-02 17:35:19 +0000 (Wed, 02 Jan 2013) $
+// Version: $Revision: 1500 $
+// Date   : $Date: 2018-07-13 10:00:25 +0000 (Fri, 13 Jul 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -71,7 +71,7 @@ Log::error(db::save::State code, unsigned gameNumber)
 
 	Tcl_Obj* objv[3];
 
-	objv[0] = Tcl_NewStringObj(code == db::save::GameTooLong ? "warning" : "error", -1);
+	objv[0] = Tcl_NewStringObj("state", -1);
 	objv[1] = Tcl_NewStringObj(msg, -1);
 	objv[2] = Tcl_NewIntObj(gameNumber + 1);
 

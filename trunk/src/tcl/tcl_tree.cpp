@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1400 $
-// Date   : $Date: 2017-08-09 11:25:39 +0000 (Wed, 09 Aug 2017) $
+// Version: $Revision: 1500 $
+// Date   : $Date: 2018-07-13 10:00:25 +0000 (Fri, 13 Jul 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -440,11 +440,20 @@ cmdFetch(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 				Tcl_NewIntObj(info.mostFrequentPlayer().frequency()),
 			};
 
+			Tcl_Obj* objvScore[5] =
+			{
+				Tcl_NewIntObj(info.result(::db::result::White)),
+				Tcl_NewIntObj(info.result(::db::result::Black)),
+				Tcl_NewIntObj(info.result(::db::result::Draw)),
+				Tcl_NewIntObj(info.result(::db::result::Lost)),
+			};
+
 			v[attribute::tree::Move              ] = Tcl_NewStringObj(move, move.size());
 			v[attribute::tree::Eco               ] = Tcl_NewStringObj(info.eco().asString(), -1);
 			v[attribute::tree::Frequency         ] = Tcl_NewIntObj(info.frequency());
 			v[attribute::tree::Score             ] = Tcl_NewIntObj(info.score());
 			v[attribute::tree::Draws             ] = Tcl_NewIntObj(info.draws());
+			v[attribute::tree::Result            ] = Tcl_NewListObj(4, objvScore);
 			v[attribute::tree::AverageRating     ] = Tcl_NewIntObj(info.averageRating());
 			v[attribute::tree::Performance       ] = Tcl_NewIntObj(info.performance(tree->ratingType()));
 			v[attribute::tree::BestRating        ] = Tcl_NewIntObj(info.bestRating());

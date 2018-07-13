@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1498 $
-# Date   : $Date: 2018-07-11 11:53:52 +0000 (Wed, 11 Jul 2018) $
+# Version: $Revision: 1500 $
+# Date   : $Date: 2018-07-13 10:00:25 +0000 (Fri, 13 Jul 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -831,6 +831,7 @@
 ::application::tree::mc::LockReferenceBase				"Referenzdatenbank sperren"
 ::application::tree::mc::SwitchReferenceBase				"Referenzdatenbank wechseln"
 ::application::tree::mc::TransparentBar					"Transparente Balken"
+::application::tree::mc::MonochromeStyle					"Monochrome Gestaltung"
 ::application::tree::mc::NoGamesFound						"Keine Partien gefunden"
 ::application::tree::mc::NoGamesAvailable					"Keine Partien verfügbar"
 ::application::tree::mc::Searching							"Suche"
@@ -857,6 +858,7 @@
 ::application::tree::mc::F_Ratio								"Anteil"
 ::application::tree::mc::F_Score								"Ergebnis"
 ::application::tree::mc::F_Draws								"Remis"
+::application::tree::mc::F_Result							"Resultat"
 ::application::tree::mc::F_Performance						"Erfolgszahl"
 ::application::tree::mc::F_AverageYear						"\u00f8 Jahr"
 ::application::tree::mc::F_LastYear							"Zuletzt gespielt"

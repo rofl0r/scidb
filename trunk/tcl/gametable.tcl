@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1498 $
-# Date   : $Date: 2018-07-11 11:53:52 +0000 (Wed, 11 Jul 2018) $
+# Version: $Revision: 1500 $
+# Date   : $Date: 2018-07-13 10:00:25 +0000 (Fri, 13 Jul 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1527,7 +1527,6 @@ proc FetchMoveList {path} {
 proc TableHide {table id flag} {
 	variable ${table}::Vars
 
-puts "TableHide($id): $flag"
 	if {$id eq "moveList"} {
 		if {$flag} {
 			::scidb::app::moveList close $table

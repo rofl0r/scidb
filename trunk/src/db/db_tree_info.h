@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 979 $
-// Date   : $Date: 2013-10-20 21:03:29 +0000 (Sun, 20 Oct 2013) $
+// Version: $Revision: 1500 $
+// Date   : $Date: 2018-07-13 10:00:25 +0000 (Fri, 13 Jul 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -84,6 +84,7 @@ public:
 	unsigned frequency() const;
 	unsigned score() const;
 	unsigned draws() const;
+	unsigned result(result::ID type) const;
 	unsigned averageRating() const;
 	int performance(rating::Type ratingType) const;
 	uint16_t bestRating() const;

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1497 $
-# Date   : $Date: 2018-07-08 13:09:06 +0000 (Sun, 08 Jul 2018) $
+# Version: $Revision: 1500 $
+# Date   : $Date: 2018-07-13 10:00:25 +0000 (Fri, 13 Jul 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -3607,12 +3607,14 @@ proc Log {unused arguments} {
 	append line $::import::mc::GameNumber " " [::locale::formatNumber $gameNo]
 	append line ": "
 
-	if {[info exists import::mc::$code]} {
-		append line [set ::import::mc::$code]
+	set arr ::import::mc::[string toupper $type 0]
+	if {[info exists ${arr}($code)]} {
+		append line [set ${arr}($code)]
 	} else {
 		append line $code
 	}
 
+	if {$type eq "state"} { set type error }
 	::log::$type $line
 	update idletasks
 }

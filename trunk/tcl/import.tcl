@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1490 $
-# Date   : $Date: 2018-06-20 14:11:51 +0000 (Wed, 20 Jun 2018) $
+# Version: $Revision: 1500 $
+# Date   : $Date: 2018-07-13 10:00:25 +0000 (Fri, 13 Jul 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1227,6 +1227,7 @@ proc Show {type line} {
 proc warning {line}	{ Show warning $line }
 proc error {line}		{ Show error $line }
 proc info {line}		{ Show info $line }
+proc state {line}		{ Show error $line }
 
 
 proc Log {sink arguments} {

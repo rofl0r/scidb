@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author: gcramer $
-# Version: $Revision: 1498 $
-# Date   : $Date: 2018-07-11 11:53:52 +0000 (Wed, 11 Jul 2018) $
+# Version: $Revision: 1500 $
+# Date   : $Date: 2018-07-13 10:00:25 +0000 (Fri, 13 Jul 2018) $
 # Url    : $URL: https://svn.code.sf.net/p/scidb/code/trunk/tcl/colors.tcl $
 # ======================================================================
 
@@ -78,6 +78,12 @@ array set Colors {
 	lite:tree,draws:color					darkgreen
 	lite:tree,progress:color				darkred
 	lite:tree,progress:finished			forestgreen
+	lite:tree,result:mono:white			white
+	lite:tree,result:mono:black			black
+	lite:tree,result:mono:remis			#808080
+	lite:tree,result:color:white			darkred
+	lite:tree,result:color:black			darkgreen
+	lite:tree,result:color:remis			white
 
 	lite:variation,background				white
 	lite:variation,emphasize				linen

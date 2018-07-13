@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1497 $
-# Date   : $Date: 2018-07-08 13:09:06 +0000 (Sun, 08 Jul 2018) $
+# Version: $Revision: 1500 $
+# Date   : $Date: 2018-07-13 10:00:25 +0000 (Fri, 13 Jul 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -659,6 +659,7 @@ proc dbCreateArchive {parent {base ""}} {
 		-needencoding 0 \
 		-geometry last \
 		-title $mc::CreateArchive \
+		-directory [file dirname $base] \
 		-initialfile [file tail [file rootname $name]] \
 		-customcommand {} \
 	]

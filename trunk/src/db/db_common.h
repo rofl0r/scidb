@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1459 $
-// Date   : $Date: 2017-12-29 12:14:10 +0000 (Fri, 29 Dec 2017) $
+// Version: $Revision: 1500 $
+// Date   : $Date: 2018-07-13 10:00:25 +0000 (Fri, 13 Jul 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1707,6 +1707,7 @@ namespace attribute
 			Frequency,
 			Score,
 			Draws,
+			Result,
 			AverageRating,
 			Performance,
 			BestRating,

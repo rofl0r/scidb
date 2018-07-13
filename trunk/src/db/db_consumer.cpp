@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1085 $
-// Date   : $Date: 2016-02-29 17:11:08 +0000 (Mon, 29 Feb 2016) $
+// Version: $Revision: 1500 $
+// Date   : $Date: 2018-07-13 10:00:25 +0000 (Fri, 13 Jul 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -552,9 +552,11 @@ Consumer::afterSendMove(Entry& entry)
 
 	if (isMainline())
 	{
-		if (!m_sendTimeTable.isEmpty())
+		unsigned plyCount = this->plyCount();
+
+		if (plyCount < m_sendTimeTable.size())
 		{
-			MoveInfoSet const& m_moveInfoSet = m_sendTimeTable[plyCount()];
+			MoveInfoSet const& m_moveInfoSet = m_sendTimeTable[plyCount];
 			sendMoveInfo(m_moveInfoSet);
 			m_moveInfoCount += m_moveInfoSet.count();
 		}

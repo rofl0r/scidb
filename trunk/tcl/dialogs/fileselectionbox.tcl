@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1028 $
-# Date   : $Date: 2015-03-09 13:07:49 +0000 (Mon, 09 Mar 2015) $
+# Version: $Revision: 1500 $
+# Date   : $Date: 2018-07-13 10:00:25 +0000 (Fri, 13 Jul 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -14,7 +14,7 @@
 # ======================================================================
 
 # ======================================================================
-# Copyright: (C) 2011-2013 Gregor Cramer
+# Copyright: (C) 2011-2018 Gregor Cramer
 # ======================================================================
 
 # ======================================================================
@@ -311,11 +311,14 @@ proc Open {type args} {
 
 	set opts(-initialdir) {}
 	set opts(-defaultencoding) {}
+	set opts(-directory) {}
 
 	array set data $args
 	array set opts $args
 
-	if {[string length $data(-class)] && [info exists LastFolders($class:$data(-class))]} {
+	if {[string length $opts(-directory)] > 0} {
+		set opts(-initialdir) $opts(-directory)
+	} elseif {[string length $data(-class)] > 0 && [info exists LastFolders($class:$data(-class))]} {
 		set opts(-initialdir) $LastFolders($class:$data(-class))
 	}
 
@@ -330,6 +333,7 @@ proc Open {type args} {
 	}
 
 	array unset opts -class
+	array unset opts -directory
 	array unset opts -embed
 	array unset opts -geometry
 	array unset opts -needencoding

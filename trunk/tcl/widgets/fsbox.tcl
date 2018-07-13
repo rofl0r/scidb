@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1497 $
-# Date   : $Date: 2018-07-08 13:09:06 +0000 (Sun, 08 Jul 2018) $
+# Version: $Revision: 1500 $
+# Date   : $Date: 2018-07-13 10:00:25 +0000 (Fri, 13 Jul 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -225,6 +225,7 @@ proc fsbox {w type args} {
 		-checkexistence			1
 		-initialdir					{}
 		-initialfile				{}
+		-directory					{}
 		-showhidden					{}
 		-defaultextension			{}
 		-defaultencoding			{}
@@ -263,7 +264,7 @@ proc fsbox {w type args} {
 	foreach option {	selectionbackground selectionforeground font multiple savemode
 							activebackground activeforeground emphasizebackground defaultextension
 							defaultencoding inactivebackground inactiveforeground filetypes fileencodings
-							fileicons filecursors showhidden sizecommand selectencodingcommand
+							fileicons filecursors showhidden directory sizecommand selectencodingcommand
 							validatecommand deletecommand renamecommand duplicatecommand okcommand
 							cancelcommand inspectcommand filetypecommand initialfile bookmarkswidth
 							customcommand customicon customtooltip customfiletypes helpcommand helpicon
