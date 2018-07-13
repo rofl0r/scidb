@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1500 $
-# Date   : $Date: 2018-07-13 10:00:25 +0000 (Fri, 13 Jul 2018) $
+# Version: $Revision: 1501 $
+# Date   : $Date: 2018-07-13 10:21:08 +0000 (Fri, 13 Jul 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -195,7 +195,7 @@ proc DownLoadResponse {parent url args token} {
 			SaveData $parent $url $data {*}$args
 		}
    } elseif {[llength $opts(-timeouts)]} {
-		set timeout [lindex $trials 0]
+		set timeout [lindex $opts(-timeouts) 0]
 		set opts(-timeouts) [lrange $opts(-timeouts) 1 end]
       after $timeout [list [namespace current]::GetURL $parent $url {*}[array get opts]]
    } elseif {[llength $opts(-retrycmd)]} {
