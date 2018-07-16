@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1504 $
-# Date   : $Date: 2018-07-16 13:16:48 +0000 (Mon, 16 Jul 2018) $
+# Version: $Revision: 1505 $
+# Date   : $Date: 2018-07-16 13:18:53 +0000 (Mon, 16 Jul 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1335,7 +1335,11 @@ proc ComputeValue {id value total} {
 
 	switch $id {
 		ratio {
-			set value [expr {int((1000.0*$value)/double($total) + 0.5)}]
+			if {$total == 0} {
+				set value 0
+			} else {
+				set value [expr {int((1000.0*$value)/double($total) + 0.5)}]
+			}
 		}
 		score {
 			switch $Options(score:side) {
