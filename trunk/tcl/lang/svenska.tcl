@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1500 $
-# Date   : $Date: 2018-07-13 10:00:25 +0000 (Fri, 13 Jul 2018) $
+# Version: $Revision: 1502 $
+# Date   : $Date: 2018-07-16 12:55:14 +0000 (Mon, 16 Jul 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -511,6 +511,13 @@
 ::application::twm::mc::Pane(annotator)		"Annotators" ;# NEW
 ::application::twm::mc::Pane(site)				"Sites" ;# NEW
 ::application::twm::mc::Pane(position)			"Start Positions" ;# NEW
+::application::twm::mc::Pane(eco)				"ECO-Table" ;# NEW
+
+### application::eco ###################################################
+::application::eco::mc::Mode(single)	"Per ply" ;# NEW
+::application::eco::mc::Mode(compact)	"Transitions only" ;# NEW
+
+::application::eco::mc::F_Line			"Line" ;# NEW
 
 ### application::board #################################################
 ::application::board::mc::ShowCrosstable				"Visa turneringstabell för partiet"

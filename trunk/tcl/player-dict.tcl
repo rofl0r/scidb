@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1497 $
-# Date   : $Date: 2018-07-08 13:09:06 +0000 (Sun, 08 Jul 2018) $
+# Version: $Revision: 1502 $
+# Date   : $Date: 2018-07-16 12:55:14 +0000 (Mon, 16 Jul 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -438,7 +438,7 @@ proc open {parent args} {
 	set Priv(label:size) $count
 	UpdateCount
 
-	set Priv(subscribe) [list [namespace current]::UpdateDatabaseInfo {} $table]
+	set Priv(subscribe) [list [list [namespace current]::UpdateDatabaseInfo $table]]
 	::scidb::db::subscribe dbInfo {*}$Priv(subscribe)
 
 	set search [searchentry $top.search \

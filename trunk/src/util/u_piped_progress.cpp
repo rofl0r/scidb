@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 774 $
-// Date   : $Date: 2013-05-16 22:06:25 +0000 (Thu, 16 May 2013) $
+// Version: $Revision: 1502 $
+// Date   : $Date: 2018-07-16 12:55:14 +0000 (Mon, 16 Jul 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -41,7 +41,7 @@ PipedProgress::PipedProgress(sys::Thread& thread)
 bool
 PipedProgress::interrupted()
 {
-	if (!m_thread.testCancel())
+	if (!m_thread.testCancel() || !m_thread.testRunning())
 		return false;
 
 	if (!m_interrupted)

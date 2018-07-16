@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1485 $
-# Date   : $Date: 2018-05-18 13:33:33 +0000 (Fri, 18 May 2018) $
+# Version: $Revision: 1502 $
+# Date   : $Date: 2018-07-16 12:55:14 +0000 (Mon, 16 Jul 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -133,7 +133,7 @@ proc gamebar {path} {
 	::tooltip::tooltip exclude $gamebar input-1
 #	::tooltip::tooltip exclude $gamebar close:input-1
 
-	::scidb::db::subscribe gameInfo [namespace current]::Update $gamebar
+	::scidb::db::subscribe gameInfo [list [namespace current]::Update $gamebar]
 
 	return $path
 }
@@ -2284,7 +2284,7 @@ proc Layout {gamebar} {
 		}
 		foreach i {1 2} {
 			lassign [$gamebar bbox line$i$id] x1 y1 x2 y2
-			set height$i [expr {$y2 - $y1}]
+			set height$i [expr {$y2 - $y1 + 1}]
 			set width$i [expr {min($lineWidth, $x2 - $x1)}]
 			incr selHeight [set height$i]
 		}
@@ -2510,7 +2510,6 @@ proc Layout {gamebar} {
 			$gamebar coords ${side}Input${id} {*}[$gamebar bbox ${side}${id}]
 		}
 		$gamebar coords line2$id $x $height
-		incr height $height2
 	}
 
 	if {$Specs(height:$gamebar) != $barHeight} {

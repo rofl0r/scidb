@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author: gcramer $
-# Version: $Revision: 1500 $
-# Date   : $Date: 2018-07-13 10:00:25 +0000 (Fri, 13 Jul 2018) $
+# Version: $Revision: 1502 $
+# Date   : $Date: 2018-07-16 12:55:14 +0000 (Mon, 16 Jul 2018) $
 # Url    : $URL: https://svn.code.sf.net/p/scidb/code/trunk/tcl/colors.tcl $
 # ======================================================================
 
@@ -229,6 +229,8 @@ array set Colors {
 
 	lite:comment,label:altered				#555555
 	lite:comment,label:foreground			white
+
+	lite:eco,stripes							linen
 }
 # mapped from #ebf4f5
 array set Colors {
@@ -280,7 +282,8 @@ array set Colors {
 	dark:gamebar,background:emphasize	#ecded0
 	dark:encoding,normal						#ecded0
 	dark:playerdict,stripes					#ecded0
-	lite:engine,stripes						#ecded0
+	dark:engine,stripes						#ecded0
+	dark:eco,stripes							#ecded0
 }
 # mapped from #f5f5e4
 array set Colors {

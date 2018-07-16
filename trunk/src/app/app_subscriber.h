@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author: gcramer $
-// Version: $Revision: 1452 $
-// Date   : $Date: 2017-12-08 13:37:59 +0000 (Fri, 08 Dec 2017) $
+// Version: $Revision: 1502 $
+// Date   : $Date: 2018-07-16 12:55:14 +0000 (Mon, 16 Jul 2018) $
 // Url    : $URL: https://svn.code.sf.net/p/scidb/code/trunk/src/app/app_subscriber.h $
 // ======================================================================
 
@@ -77,7 +77,7 @@ struct Subscriber : public mstl::ref_counter
 	virtual void updateGameInfo(unsigned position) = 0;
 	virtual void updateGameData(unsigned position, bool evenMainline) = 0;
 
-	virtual void gameSwitched(unsigned position) = 0;
+	virtual void gameSwitched(unsigned oldPosition, unsigned newPosition) = 0;
 	virtual void gameClosed(unsigned position) = 0;
 	virtual void databaseSwitched(mstl::string const& name, db::variant::Type variant) = 0;
 	virtual void closeDatabase(mstl::string const& name, db::variant::Type variant) = 0;

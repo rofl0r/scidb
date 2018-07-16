@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1453 $
-// Date   : $Date: 2017-12-11 14:27:52 +0000 (Mon, 11 Dec 2017) $
+// Version: $Revision: 1502 $
+// Date   : $Date: 2018-07-16 12:55:14 +0000 (Mon, 16 Jul 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -315,26 +315,32 @@ Process::Process(Command const& command, mstl::string const& directory)
 
 #else
 
-	char const*	pidCmd = "::pid";
-	Tcl_Obj*		result = 0;
+	Tcl_Obj* pidCmd	= ::tcl::incrRef(::tcl::newObj("::pid"));
+	Tcl_Obj* chanName	= ::tcl::incrRef(::tcl::newObj(Tcl_GetChannelName(m_chan)));
+	Tcl_Obj* result	= nullptr;
 
 	try
 	{
-		result = ::tcl::call(__func__, pidCmd, Tcl_GetChannelName(m_chan), 0);
+		result = ::tcl::call(__func__, pidCmd, chanName, nullptr);
 	}
 	catch (::tcl::Error const&)
 	{
+		::tcl::decrRef(pidCmd);
+		::tcl::decrRef(chanName);
 	}
 
 	if (result == 0)
-		TCL_RAISE("tcl::invoke(\"%s %s\") failed", pidCmd, Tcl_GetChannelName(m_chan));
+		TCL_RAISE("tcl::invoke(\"%s %s\") failed", ::tcl::asString(pidCmd), ::tcl::asString(chanName));
 
 	if (Tcl_GetLongFromObj(::sys::tcl::interp(), result, &m_pid) != TCL_OK)
 	{
 		TCL_RAISE(	"%s should return long (instead of '%s')",
-						pidCmd,
-						Tcl_GetString(result));
+						::tcl::asString(pidCmd),
+						::tcl::asString(result));
 	}
+
+	::tcl::decrRef(pidCmd);
+	::tcl::decrRef(chanName);
 
 #endif
 

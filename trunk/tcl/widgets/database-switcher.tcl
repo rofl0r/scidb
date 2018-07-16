@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1496 $
-# Date   : $Date: 2018-07-01 12:51:12 +0000 (Sun, 01 Jul 2018) $
+# Version: $Revision: 1502 $
+# Date   : $Date: 2018-07-16 12:55:14 +0000 (Mon, 16 Jul 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -174,7 +174,7 @@ proc Build {w args} {
 	rename ::$w $w.__switcher__
 	proc ::$w {command args} "[namespace current]::WidgetProc $w \$command {*}\$args"
 
-	::scidb::db::subscribe dbInfo [namespace current]::UpdateInfo {} $w
+	::scidb::db::subscribe dbInfo [list [namespace current]::UpdateInfo $w]
 
 	return $w
 }

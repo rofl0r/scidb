@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1498 $
-# Date   : $Date: 2018-07-11 11:53:52 +0000 (Wed, 11 Jul 2018) $
+# Version: $Revision: 1502 $
+# Date   : $Date: 2018-07-16 12:55:14 +0000 (Mon, 16 Jul 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -213,6 +213,9 @@ proc twm::tooltip {args} { ::tooltip::tooltip {*}$args }
 proc twm::makeStateSpecificIcons {icon} { return [::icon::makeStateSpecificIcons $icon] }
 proc twm::WriteOptions {chan} { ::options::writeItem $chan [twm::nameOfOptionsArray] }
 ::options::hookWriter twm::WriteOptions
+
+proc ecobox::tooltip {args} { ::tooltip {*}$args }
+proc ecobox::openEcoDialog {parent} { return [::application::eco::open $parent ecobox] }
 
 rename ::table::setOptions ::table::setOptions_
 # XXX work-around because of a bug in older versions

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1497 $
-# Date   : $Date: 2018-07-08 13:09:06 +0000 (Sun, 08 Jul 2018) $
+# Version: $Revision: 1502 $
+# Date   : $Date: 2018-07-16 12:55:14 +0000 (Mon, 16 Jul 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -60,7 +60,7 @@
 # ======================================================================
 
 # ======================================================================
-# Copyright (c) 2008-2013 Gregor Cramer
+# Copyright (c) 2008-2018 Gregor Cramer
 # Made some enhancements and fixes.
 # ======================================================================
 
@@ -118,6 +118,8 @@ catch { package forget tooltip }
 
 package require Tk 8.5
 package provide tooltip 1.5.0
+
+proc tooltip {args} { return [::tooltip::tooltip {*}$args ] }
 
 namespace eval ::tooltip {
 

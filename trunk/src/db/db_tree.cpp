@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1339 $
-// Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
+// Version: $Revision: 1502 $
+// Date   : $Date: 2018-07-16 12:55:14 +0000 (Mon, 16 Jul 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -254,7 +254,7 @@ Tree::buildTree0(	unsigned myIdn,
 	unsigned	reportAfter = m_index + frequency;
 	EcoSet	reachable;
 
-	for (unsigned n = base.countGames(); m_index < n; ++m_index)
+	for (unsigned n = numGames; m_index < n; ++m_index)
 	{
 		if (reportAfter == m_index)
 		{

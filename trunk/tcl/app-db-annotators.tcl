@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1498 $
-# Date   : $Date: 2018-07-11 11:53:52 +0000 (Wed, 11 Jul 2018) $
+# Version: $Revision: 1502 $
+# Date   : $Date: 2018-07-16 12:55:14 +0000 (Mon, 16 Jul 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -191,9 +191,8 @@ proc BuildFrame {twm frame uid width height} {
 			}
 			set table [::scrolledtable::build $frame $columns -id db:annotators:$id:$uid]
 			::scidb::db::subscribe annotatorList \
-				[namespace current]::names::Update \
-				[namespace current]::Close \
-				$twm \
+				[list [namespace current]::names::Update $twm] \
+				[list [namespace current]::Close $twm] \
 				;
 			bind $frame <<TableFill>>		[namespace code [list names::TableFill $twm %d]]
 			bind $frame <<TableSelected>>	[namespace code [list names::TableSelected $twm %d]]
@@ -202,9 +201,8 @@ proc BuildFrame {twm frame uid width height} {
 			set columns {white whiteElo black blackElo event result site date acv}
 			::gametable::build $frame [namespace code [list View $twm]] $columns -id db:annotators:$id:$uid
 			::scidb::db::subscribe gameList \
-				[namespace current]::games::Update \
-				[namespace current]::Close \
-				$twm \
+				[list [namespace current]::games::Update $twm] \
+				[list [namespace current]::Close $twm] \
 				;
 		}
 	}

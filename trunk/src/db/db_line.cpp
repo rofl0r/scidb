@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1339 $
-// Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
+// Version: $Revision: 1502 $
+// Date   : $Date: 2018-07-16 12:55:14 +0000 (Mon, 16 Jul 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -46,6 +46,14 @@ Line::contains(uint16_t move) const
 	}
 
 	return false;
+}
+
+
+void
+Line::finalBoard(variant::Type variant, Board& startBoard) const
+{
+	for (unsigned i = 0; i < length; ++i)
+		startBoard.doMove(startBoard.makeMove(moves[i]), variant);
 }
 
 
@@ -123,6 +131,35 @@ Line::print(	mstl::string& result,
 					encoding::CharSet charSet) const
 {
 	return print(result, Board::standardBoard(variant), variant, style, protocol, charSet);
+}
+
+
+mstl::string&
+Line::printMove(	mstl::string& result,
+						Board const& startBoard,
+						variant::Type variant,
+						unsigned ply,
+						move::Notation style,
+						protocol::ID protocol,
+						encoding::CharSet charSet) const
+{
+	Board board(startBoard);
+
+	for (unsigned i = 0; i < length; ++i)
+	{
+		Move m = board.makeMove(moves[i]);
+
+		if (i == ply)
+		{
+			board.prepareForPrint(m, variant, Board::ExternalRepresentation);
+			m.print(result, style, protocol, charSet);
+			break;
+		}
+
+		board.doMove(m, variant);
+	}
+
+	return result;
 }
 
 

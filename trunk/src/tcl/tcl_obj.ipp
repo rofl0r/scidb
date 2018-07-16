@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 648 $
-// Date   : $Date: 2013-02-05 21:52:03 +0000 (Tue, 05 Feb 2013) $
+// Version: $Revision: 1502 $
+// Date   : $Date: 2018-07-16 12:55:14 +0000 (Mon, 16 Jul 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -66,10 +66,10 @@ inline
 bool
 Obj::operator==(Obj const& obj) const
 {
-	if (m_obj == 0)
-		return obj.m_obj == 0;
+	if (!m_obj)
+		return !obj.m_obj;
 
-	if (obj.m_obj == 0)
+	if (!obj.m_obj)
 		return false;
 
 	if (m_obj == obj.m_obj)

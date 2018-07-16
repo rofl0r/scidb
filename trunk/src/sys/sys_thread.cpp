@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1339 $
-// Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
+// Version: $Revision: 1502 $
+// Date   : $Date: 2018-07-16 12:55:14 +0000 (Mon, 16 Jul 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -860,6 +860,21 @@ Thread::testCancel()
 
 	// we do not need synchronization here
 	return atomic_read(&m_cancel);
+}
+
+
+bool
+Thread::testRunning()
+{
+	M_REQUIRE(this != mainThread());
+
+#ifndef NDEBUG
+	if (::m_noThreads)
+		return false;
+#endif
+
+	// we do not need synchronization here
+	return atomic_read(&m_running);
 }
 
 

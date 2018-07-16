@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1500 $
-# Date   : $Date: 2018-07-13 10:00:25 +0000 (Fri, 13 Jul 2018) $
+# Version: $Revision: 1502 $
+# Date   : $Date: 2018-07-16 12:55:14 +0000 (Mon, 16 Jul 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1749,8 +1749,8 @@ proc ToggleStretchable {table id} {
 proc Cleanup {table} {
 	variable IdMap
 
-	after idle [list namespace delete [namespace current]::$table]
-	after idle [list namespace delete [namespace current]::$IdMap($table)]
+	after idle [list catch [list namespace delete [namespace current]::$table]]
+	after idle [list catch [list namespace delete [namespace current]::$IdMap($table)]]
 }
 
 

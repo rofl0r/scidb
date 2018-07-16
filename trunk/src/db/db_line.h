@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1453 $
-// Date   : $Date: 2017-12-11 14:27:52 +0000 (Mon, 11 Dec 2017) $
+// Version: $Revision: 1502 $
+// Date   : $Date: 2018-07-16 12:55:14 +0000 (Mon, 16 Jul 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -83,6 +83,13 @@ public:
 								move::Notation style,
 								protocol::ID protocol,
 								encoding::CharSet charSet = encoding::Latin1) const;
+	mstl::string& printMove(mstl::string& result,
+									Board const& startBoard,
+									variant::Type variant,
+									unsigned ply,
+									move::Notation style,
+									protocol::ID protocol,
+									encoding::CharSet charSet = encoding::Latin1) const;
 	void dump() const;
 
 	void copy(Line const& line);
@@ -90,6 +97,8 @@ public:
 	void copy(uint16_t const* line, unsigned maxLength);
 	Line& transpose(Line& dst) const;
 	Line& transpose();
+
+	void finalBoard(variant::Type variant, Board& startBoard) const;
 
 	uint16_t const*	moves;	// null terminated
 	unsigned 			length;	// w/o null terminator

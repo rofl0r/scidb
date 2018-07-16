@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1459 $
-// Date   : $Date: 2017-12-29 12:14:10 +0000 (Fri, 29 Dec 2017) $
+// Version: $Revision: 1502 $
+// Date   : $Date: 2018-07-16 12:55:14 +0000 (Mon, 16 Jul 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -4210,9 +4210,6 @@ Game::currentLine(Line& result)
 bool
 Game::updateLine()
 {
-	if (!isMainline())
-		return false;
-
 	unsigned length = m_startNode->countHalfMoves();
 
 	if (m_timeTable.size() > length)
@@ -4644,7 +4641,11 @@ Game::updateSubscriber(unsigned action)
 		::checkRepetitions(m_startBoard, m_variant, m_startNode);
 	}
 
-	updateLine();
+	{	// local scope
+		unsigned length = m_line.length;
+		if ((updateLine() || length != m_line.length) && (action & UpdateOpening))
+			m_subscriber->updateOpening();
+	}
 
 	if (action & (UpdatePgn | UpdateOpening | UpdateLanguageSet))
 	{

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1497 $
-# Date   : $Date: 2018-07-08 13:09:06 +0000 (Sun, 08 Jul 2018) $
+# Version: $Revision: 1502 $
+# Date   : $Date: 2018-07-16 12:55:14 +0000 (Mon, 16 Jul 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -215,8 +215,8 @@ proc SetupTheme {twm} {
 	if {[::scidb::tk::twm exists $twm]} {
 		set background [GetTroughColor]
 		foreach t [$twm toplevels] {
-			foreach w [$t container] {
-				if {[$t ispanedwindow $w]} {
+			foreach w [$twm container $t] {
+				if {[$twm ispanedwindow $w]} {
 					$w configure -background $background
 				}
 			}

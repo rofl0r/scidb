@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 969 $
-// Date   : $Date: 2013-10-13 15:33:12 +0000 (Sun, 13 Oct 2013) $
+// Version: $Revision: 1502 $
+// Date   : $Date: 2018-07-16 12:55:14 +0000 (Mon, 16 Jul 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -35,6 +35,19 @@ inline Line const& EcoTable::MoveOrder::line() const { return m_line; }
 
 inline EcoTable::Successors::Successor::Successor() : move(0) {}
 inline EcoTable::Successors::Successors() : length(0) {}
+
+
+inline EcoTable::Opening::Opening() {}
+
+
+inline
+EcoTable::EcoOpening::EcoOpening(unsigned ply, Eco eco, Opening const& opening)
+	:ply(ply), eco(eco), opening(opening)
+{
+}
+
+
+inline bool EcoTable::Opening::operator!=(const Opening& op) const { return !(*this == op); }
 
 
 inline

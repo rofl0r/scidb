@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1459 $
-// Date   : $Date: 2017-12-29 12:14:10 +0000 (Fri, 29 Dec 2017) $
+// Version: $Revision: 1502 $
+// Date   : $Date: 2018-07-16 12:55:14 +0000 (Mon, 16 Jul 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -181,6 +181,7 @@ public:
 		virtual void boardSetup(Board const& board, variant::Type variant) = 0;
 		virtual void boardMove(Board const& board, Move const& move, bool forward) = 0;
 
+		virtual void updateOpening() = 0;
 		virtual void updateEditor(	edit::Root const* node,
 											move::Notation moveStyle) = 0;
 		virtual void updateEditor(	DiffList const& nodes,

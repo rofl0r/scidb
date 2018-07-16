@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author: gcramer $
-# Version: $Revision: 1498 $
-# Date   : $Date: 2018-07-11 11:53:52 +0000 (Wed, 11 Jul 2018) $
+# Version: $Revision: 1502 $
+# Date   : $Date: 2018-07-16 12:55:14 +0000 (Mon, 16 Jul 2018) $
 # Url    : $URL: https://svn.code.sf.net/p/scidb/code/trunk/tcl/manage-layouts.tcl $
 # ======================================================================
 
@@ -242,6 +242,7 @@ proc BuildPane {myTWM frame uid width height} {
 		editor	{ $frame configure -background [::colors::lookup pgn,background] }
 		games		{ $frame configure -background [::colors::lookup scrolledtable,stripes] }
 		tree		{ $frame configure -background [::colors::lookup tree,emphasize] }
+		eco		{ $frame configure -background [::colors::lookup eco,stripes] }
 
 		board {
 			variable ::board::colors

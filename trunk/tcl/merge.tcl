@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1339 $
-# Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
+# Version: $Revision: 1502 $
+# Date   : $Date: 2018-07-16 12:55:14 +0000 (Mon, 16 Jul 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -130,13 +130,13 @@ proc openDialog {parent primary secondary} {
 			$columns                             \
 			-id game:merge                       \
 			-mode merge                          \
-			-sortable 0                          \
-			-useScale 0                          \
+			-sortable no                         \
+			-usescale no                         \
 			-selectcmd [namespace code ShowGame] \
 		]
 		::bind $table <<TableCheckbutton>> [namespace code { TableCheckbutton %d }]
 		::bind $table <<TableConfigured>> [namespace code { TableConfigured %W }]
-		::scidb::db::subscribe gameList [namespace current]::Update {} $tb
+		::scidb::db::subscribe gameList [list [namespace current]::Update $tb]
 
 		set btns [ttk::frame $control.buttons -borderwidth 2 -relief ridge]
 
@@ -458,7 +458,7 @@ proc Destroy {dlg} {
 	variable ::scidb::mergebaseName
 	variable Priv
 
-	::scidb::db::unsubscribe gameList [namespace current]::Update {} $Priv(table)
+	::scidb::db::unsubscribe gameList [list [namespace current]::Update $Priv(table)]
 
 	foreach position $Priv(temporary) {
 		::pgn::editor::forgetGame $position

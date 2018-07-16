@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author: gcramer $
-# Version: $Revision: 1498 $
-# Date   : $Date: 2018-07-11 11:53:52 +0000 (Wed, 11 Jul 2018) $
+# Version: $Revision: 1502 $
+# Date   : $Date: 2018-07-16 12:55:14 +0000 (Mon, 16 Jul 2018) $
 # Url    : $URL: https://svn.code.sf.net/p/scidb/code/trunk/tcl/app-twm.tcl $
 # ======================================================================
 
@@ -66,6 +66,7 @@ set Pane(event)				"Events"
 set Pane(annotator)			"Annotator"
 set Pane(site)					"Site"
 set Pane(position)			"Position"
+set Pane(eco)					"ECO-Table"
 
 } ;# namespace mc
 
@@ -120,6 +121,9 @@ array set Options {
 	position:docking:showall	yes
 	position:layout:name			""
 	position:layout:list			{}
+	eco:docking:showall			yes
+	eco:layout:name				""
+	eco:layout:list				{}
 }
 
 variable SetupFunc {}
@@ -366,6 +370,7 @@ proc prepareExit {} {
 		set id $Vars(id:$twm)
 		set Options($id:layout:list:$Vars($id:layout:variant)) [inspectLayout $twm]
 		set Options($id:layout:list) $Options($id:layout:list:normal)
+		array unset Options *:layout:saved:*
 	}
 }
 
@@ -390,7 +395,8 @@ proc loadLayout {twm name} {
 	set id $Vars(id:$twm)
 
 	if {![file exists [makeFilename $id normal $name]]} {
-		# TODO show error message, and clear Options($id:layout:name)
+		# TODO show error message
+		set Options($id:layout:name) ""
 	}
 
 	set layout $Vars($id:layout:name)

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1500 $
-# Date   : $Date: 2018-07-13 10:00:25 +0000 (Fri, 13 Jul 2018) $
+# Version: $Revision: 1502 $
+# Date   : $Date: 2018-07-16 12:55:14 +0000 (Mon, 16 Jul 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -511,6 +511,13 @@
 ::application::twm::mc::Pane(annotator)		"Kommentatoren"
 ::application::twm::mc::Pane(site)				"Orte"
 ::application::twm::mc::Pane(position)			"Startpositionen"
+::application::twm::mc::Pane(eco)				"ECO-Tabelle"
+
+### application::eco ###################################################
+::application::eco::mc::Mode(single)	"Pro Halbzug"
+::application::eco::mc::Mode(compact)	"Nur Übergänge"
+
+::application::eco::mc::F_Line			"Abspiel"
 
 ### application::board #################################################
 ::application::board::mc::ShowCrosstable				"Zeige Turniertabelle zur aktuellen Partie"

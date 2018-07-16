@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1485 $
-# Date   : $Date: 2018-05-18 13:33:33 +0000 (Fri, 18 May 2018) $
+# Version: $Revision: 1502 $
+# Date   : $Date: 2018-07-16 12:55:14 +0000 (Mon, 16 Jul 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -102,7 +102,7 @@ proc show {base variant args} {
 
 	::widget::busyCursor on
 
-	::scidb::db::subscribe dbInfo {} [namespace current]::Close $key
+	::scidb::db::subscribe dbInfo {} [list [namespace current]::Close $key]
 	set dlg [tk::toplevel .application.__card__[incr Counter] -class Scidb]
 	set Vars($key) $dlg
 	set Vars($key:open) 1
@@ -849,7 +849,7 @@ proc Destroy {dlg key w unsubscribe} {
 	catch { destroy $dlg.html }
 	catch { destroy $dlg.log }
 
-	::scidb::db::unsubscribe dbInfo {} [namespace current]::Close $key
+	::scidb::db::unsubscribe dbInfo {} [list [namespace current]::Close $key]
 }
 
 

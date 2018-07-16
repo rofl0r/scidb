@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1469 $
-// Date   : $Date: 2018-04-04 14:29:45 +0000 (Wed, 04 Apr 2018) $
+// Version: $Revision: 1502 $
+// Date   : $Date: 2018-07-16 12:55:14 +0000 (Mon, 16 Jul 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1073,7 +1073,7 @@ static int
 cmdCrc32(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 {
 	char const* s = stringFromObj(objc, objv, 1);
-	setResult(crc::compute(0, s, ::strlen(s)));
+	setResult(int64_t(crc::compute(0, s, ::strlen(s))));
 	return TCL_OK;
 }
 

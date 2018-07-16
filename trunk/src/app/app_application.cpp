@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1473 $
-// Date   : $Date: 2018-04-11 12:32:51 +0000 (Wed, 11 Apr 2018) $
+// Version: $Revision: 1502 $
+// Date   : $Date: 2018-07-16 12:55:14 +0000 (Mon, 16 Jul 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1881,6 +1881,7 @@ Application::switchGame(unsigned position, ReferenceGames updateReferenceGames)
 	if (updateReferenceGames == UpdateReferenceGames)
 		m_treeAdmin.signal(Thread::Stop);
 
+	unsigned prevPosition = m_currentPosition;
 	m_currentPosition = position;
 
 	if (game.data.refresh)
@@ -1902,7 +1903,7 @@ Application::switchGame(unsigned position, ReferenceGames updateReferenceGames)
 
 	if (m_subscriber)
 	{
-		m_subscriber->gameSwitched(position);
+		m_subscriber->gameSwitched(prevPosition, position);
 
 		if (updateReferenceGames == UpdateReferenceGames && m_referenceBase && !m_treeIsFrozen)
 			m_subscriber->updateTree(m_referenceBase->name(), m_referenceBase->variant());

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 985 $
-# Date   : $Date: 2013-10-29 14:52:42 +0000 (Tue, 29 Oct 2013) $
+# Version: $Revision: 1502 $
+# Date   : $Date: 2018-07-16 12:55:14 +0000 (Mon, 16 Jul 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -762,7 +762,7 @@ proc DoSbSet {sb first last} {
 			grid remove $sb
 		}
 	} else {
-		if {$sb ne [grid slaves $parent]} {
+		if {$sb ni [grid slaves $parent]} {
 			after idle [list grid $sb]
 		}
 	}

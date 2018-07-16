@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author: gcramer $
-# Version: $Revision: 1498 $
-# Date   : $Date: 2018-07-11 11:53:52 +0000 (Wed, 11 Jul 2018) $
+# Version: $Revision: 1502 $
+# Date   : $Date: 2018-07-16 12:55:14 +0000 (Mon, 16 Jul 2018) $
 # Url    : $URL: https://svn.code.sf.net/p/scidb/code/trunk/tcl/app-db-positions.tcl $
 # ======================================================================
 
@@ -203,13 +203,13 @@ proc BuildFrame {twm frame uid width height} {
 			bind $frame <<TableSelected>>		[namespace code [list positions::TableSelected $twm %d]]
 			bind $frame <<LanguageChanged>>	[list ::scrolledtable::refresh $Vars(frame:position)]
 
-			::scidb::db::subscribe positionList [namespace current]::positions::Update $twm
-			::scidb::db::subscribe dbInfo [namespace current]::NoOp [namespace current]::Close $twm
+			::scidb::db::subscribe positionList [list [namespace current]::positions::Update $twm]
+			::scidb::db::subscribe dbInfo {} [list [namespace current]::Close $twm]
 		}
 		games {
 			set columns {white whiteElo black blackElo result event date length}
 			::gametable::build $frame [namespace code [list View $twm]] $columns -id db:positions:$id:$uid
-			::scidb::db::subscribe gameList [namespace current]::games::Update {} $twm
+			::scidb::db::subscribe gameList [list [namespace current]::games::Update $twm]
 		}
 	}
 }
@@ -272,9 +272,6 @@ proc InitBase {path base variant} {
 		::scidb::view::search $base $variant $Vars($base:$variant:view) null none
 	}
 }
-
-
-proc NoOp {args} {}
 
 
 proc Close {path base variant} {

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1497 $
-# Date   : $Date: 2018-07-08 13:09:06 +0000 (Sun, 08 Jul 2018) $
+# Version: $Revision: 1502 $
+# Date   : $Date: 2018-07-16 12:55:14 +0000 (Mon, 16 Jul 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -647,7 +647,7 @@ proc Build {dlg base variant position number} {
 		-variable ::${dlg}::Priv(game-eco-flag) \
 		-command [namespace code [list UpdateEcoTag $top game-eco]] \
 		;
-	ecobox $top.game-eco -textvar ::${dlg}::Priv(game-eco)
+	ecobox $top.game-eco $variant -textvar ::${dlg}::Priv(game-eco)
 	SetEcoCodeText $top.game-eco-l
 
 	bind $top.game-eco-l <FocusIn> [namespace code [list ClearMatchList $top]]

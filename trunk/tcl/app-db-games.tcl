@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1498 $
-# Date   : $Date: 2018-07-11 11:53:52 +0000 (Wed, 11 Jul 2018) $
+# Version: $Revision: 1502 $
+# Date   : $Date: 2018-07-16 12:55:14 +0000 (Mon, 16 Jul 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -165,7 +165,7 @@ proc BuildPane {twm frame uid width height} {
 		[namespace code [list View $tb]] \
 		$Columns \
 		-id db:games:$id \
-		-useScale 1 \
+		-usescale yes \
 		-layout $Options(layout) \
 		{*}$menucmd \
 		;
@@ -263,7 +263,10 @@ proc BuildPane {twm frame uid width height} {
 		}
 	}
 
-	::scidb::db::subscribe gameList [namespace current]::Update [namespace current]::Close $tb
+	::scidb::db::subscribe gameList \
+		[list [namespace current]::Update $tb] \
+		[list [namespace current]::Close $tb] \
+		;
 }
 
 

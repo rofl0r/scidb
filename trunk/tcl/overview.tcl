@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1201 $
-# Date   : $Date: 2017-06-21 17:29:20 +0000 (Wed, 21 Jun 2017) $
+# Version: $Revision: 1502 $
+# Date   : $Date: 2018-07-16 12:55:14 +0000 (Mon, 16 Jul 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -134,16 +134,17 @@ proc open {parent base variant info view index {fen {}}} {
 	bind $nb <<NotebookTabChanged>> [namespace code [list TabChanged $nb]]
 	bind $nb <<LanguageChanged>> [namespace code [list LanguageChanged $nb]]
 
-	set Vars(subscribe:list)  [list [namespace current]::Update [namespace current]::Close $nb]
+	set Vars(subscribe:list)  [list [list [namespace current]::Update $tb] \
+											[[list namespace current]::Close $nb]]
 	set Vars(subscribe:close) [list [namespace current]::Close $base $variant $nb]
-	set Vars(subscribe:data)  [list [namespace current]::UpdateData $nb]
+	set Vars(subscribe:data)  [list [list [namespace current]::UpdateData $nb]]
 
 	::scidb::db::subscribe gameList {*}$Vars(subscribe:list)
 	::scidb::db::subscribe gameData {*}$Vars(subscribe:data)
 	::scidb::view::subscribe {*}$Vars(subscribe:close)
 
 	if {$variant == [::scidb::app::variant] && $view == [::scidb::tree::view $base]} {
-		set Vars(subscribe:tree) [list [namespace current]::UpdateTreeBase {} $nb]
+		set Vars(subscribe:tree) [list [list [namespace current]::UpdateTreeBase $nb]]
 		::scidb::db::subscribe tree {*}$Vars(subscribe:tree)
 	}
 
