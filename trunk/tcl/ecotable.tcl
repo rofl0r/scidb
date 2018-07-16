@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author: gcramer $
-# Version: $Revision: 1502 $
-# Date   : $Date: 2018-07-16 12:55:14 +0000 (Mon, 16 Jul 2018) $
+# Version: $Revision: 1503 $
+# Date   : $Date: 2018-07-16 13:08:37 +0000 (Mon, 16 Jul 2018) $
 # Url    : $URL: https://svn.code.sf.net/p/scidb/code/trunk/tcl/ecotable.tcl $
 # ======================================================================
 
@@ -217,7 +217,6 @@ proc open {parent id} {
 proc activate {w flag} {
 	variable ${w}::
 
-puts "activate"
 	if {$(active) eq $flag} { return }
 	set (active) $flag
 
