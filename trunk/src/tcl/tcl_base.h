@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1502 $
-// Date   : $Date: 2018-07-16 12:55:14 +0000 (Mon, 16 Jul 2018) $
+// Version: $Revision: 1506 $
+// Date   : $Date: 2018-07-16 13:37:02 +0000 (Mon, 16 Jul 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -147,8 +147,6 @@ void setResult(mstl::string const& s);
 void setResult(int result);
 void setResult(unsigned result);
 void setResult(bool result);
-void setResult(long result);
-void setResult(unsigned long result);
 void setResult(int64_t result);
 void setResult(List const& list);
 void

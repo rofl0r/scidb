@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1502 $
-// Date   : $Date: 2018-07-16 12:55:14 +0000 (Mon, 16 Jul 2018) $
+// Version: $Revision: 1506 $
+// Date   : $Date: 2018-07-16 13:37:02 +0000 (Mon, 16 Jul 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -434,20 +434,6 @@ tcl::setResult(int result)
 
 void
 tcl::setResult(unsigned result)
-{
-	Tcl_SetObjResult(interp(), Tcl_NewWideIntObj(result));
-}
-
-
-void
-tcl::setResult(long result)
-{
-	Tcl_SetObjResult(interp(), Tcl_NewLongObj(result));
-}
-
-
-void
-tcl::setResult(unsigned long result)
 {
 	Tcl_SetObjResult(interp(), Tcl_NewWideIntObj(result));
 }

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1497 $
-# Date   : $Date: 2018-07-08 13:09:06 +0000 (Sun, 08 Jul 2018) $
+# Version: $Revision: 1506 $
+# Date   : $Date: 2018-07-16 13:37:02 +0000 (Mon, 16 Jul 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -672,13 +672,13 @@ option add *TLabel.foreground black
 option add *TScale.foreground black
 option add *TNotebook.foreground black
 
-option add *TCombobox.exportSelection 0
+option add *TCombobox.exportSelection 0 ;# fixing a bug with -exportselection
 option add *TCombobox.foreground black
 
 option add *TSpinbox.wrap 0
 option add *TSpinbox.foreground black
 
-option add *TEntry.exportSelection 0
+option add *TEntry.exportSelection 0 ;# fixing a bug with -exportselection
 option add *TEntry.background white
 option add *TEntry.foreground black
 #option add *TEntry.selectBackground #678db2
