@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1501 $
-# Date   : $Date: 2018-07-13 10:21:08 +0000 (Fri, 13 Jul 2018) $
+# Version: $Revision: 1507 $
+# Date   : $Date: 2018-08-13 12:17:53 +0000 (Mon, 13 Aug 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -209,7 +209,6 @@ proc DownLoadResponse {parent url args token} {
 proc SaveData {parent url data args} {
 	array set opts $args
 
-puts "SaveData: $args"
 	set result [::dialog::saveFile \
 		-parent $parent \
 		-filetypes $opts(-filetypes) \

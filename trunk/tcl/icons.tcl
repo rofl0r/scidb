@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1400 $
-# Date   : $Date: 2017-08-09 11:25:39 +0000 (Wed, 09 Aug 2017) $
+# Version: $Revision: 1507 $
+# Date   : $Date: 2018-08-13 12:17:53 +0000 (Mon, 13 Aug 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -36,7 +36,8 @@ proc makeDisabledImage {img} {
 
 	if {![info exists Disabled($img)]} {
 		set Disabled($img) [image create photo -width 0 -height 0]
-		::scidb::tk::image disable $img $Disabled($img)
+		::scidb::tk::image disable $img $Disabled($img) 170
+		::scidb::tk::image grayscale $Disabled($img)
 	}
 	return $Disabled($img)
 }

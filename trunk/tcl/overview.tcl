@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1502 $
-# Date   : $Date: 2018-07-16 12:55:14 +0000 (Mon, 16 Jul 2018) $
+# Version: $Revision: 1507 $
+# Date   : $Date: 2018-08-13 12:17:53 +0000 (Mon, 13 Aug 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -134,8 +134,8 @@ proc open {parent base variant info view index {fen {}}} {
 	bind $nb <<NotebookTabChanged>> [namespace code [list TabChanged $nb]]
 	bind $nb <<LanguageChanged>> [namespace code [list LanguageChanged $nb]]
 
-	set Vars(subscribe:list)  [list [list [namespace current]::Update $tb] \
-											[[list namespace current]::Close $nb]]
+	set Vars(subscribe:list)  [list  [list [namespace current]::Update $nb] \
+												[list [list namespace current]::Close $nb]]
 	set Vars(subscribe:close) [list [namespace current]::Close $base $variant $nb]
 	set Vars(subscribe:data)  [list [list [namespace current]::UpdateData $nb]]
 

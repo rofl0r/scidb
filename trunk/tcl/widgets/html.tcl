@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1497 $
-# Date   : $Date: 2018-07-08 13:09:06 +0000 (Sun, 08 Jul 2018) $
+# Version: $Revision: 1507 $
+# Date   : $Date: 2018-08-13 12:17:53 +0000 (Mon, 13 Aug 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -470,7 +470,7 @@ proc ImportHandler {w parentid uri} {
 	if {[file readable $file]} {
 		set fd [::open $file r]
 		chan configure $fd -encoding utf-8
-		set contents [read $fd]
+		set contents [::read $fd]
 		close $fd
 
 		incr Priv(styleCount)

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1253 $
-# Date   : $Date: 2017-07-07 12:43:21 +0000 (Fri, 07 Jul 2017) $
+# Version: $Revision: 1507 $
+# Date   : $Date: 2018-08-13 12:17:53 +0000 (Mon, 13 Aug 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -733,6 +733,7 @@ proc DoAddMove {sq1 sq2 allowIllegalMove} {
 		}
 		set Leave 0
 		variable trigger_ 0
+		# XXX <<MenuUnpost>> only available under X11.
 		bind $board.popup_promotion <<MenuUnpost>> [list set [namespace current]::trigger_ 1]
 		tk_popup $board.popup_promotion {*}[winfo pointerxy $board]
 		vwait [namespace current]::trigger_

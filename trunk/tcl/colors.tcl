@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author: gcramer $
-# Version: $Revision: 1502 $
-# Date   : $Date: 2018-07-16 12:55:14 +0000 (Mon, 16 Jul 2018) $
+# Version: $Revision: 1507 $
+# Date   : $Date: 2018-08-13 12:17:53 +0000 (Mon, 13 Aug 2018) $
 # Url    : $URL: https://svn.code.sf.net/p/scidb/code/trunk/tcl/colors.tcl $
 # ======================================================================
 
@@ -14,7 +14,7 @@
 # ======================================================================
 
 # ======================================================================
-# Copyright: (C) 2014-2015 Gregor Cramer
+# Copyright: (C) 2014-2018 Gregor Cramer
 # ======================================================================
 
 # ======================================================================
@@ -114,6 +114,7 @@ array set Colors {
 
 	lite:switcher,background				#ebf4f5
 	lite:switcher,selected:background	#ffdd76
+	lite:switcher,modified:foreground	darkred
 	lite:switcher,normal:background		LemonChiffon
 	lite:switcher,normal:foreground		black
 	lite:switcher,hidden:background		#ebf4f5
@@ -313,6 +314,19 @@ proc lookup {color} {
 	if {[info exists Colors(lite:$color)]} { return $Colors(lite:$color) }
 
 	return $color
+}
+
+
+proc hsv2rgb {h s v} { return [::dialog::choosecolor::hsv2rgb $h $s $v] }
+proc rgb2hsv {r g b} { return [::dialog::choosecolor::rgb2hsv $r $g $b] }
+proc getActualColor {color} { return [::dialog::choosecolor::getActualColor $color] }
+
+
+proc makeActiveColor {color} {
+	scan [getActualColor $color] "\#%2x%2x%2x" r g b
+	lassign [rgb2hsv $r $g $b] h s v
+	set v [expr {min(1.0, $v + 0.1)}]
+	return [format "#%02x%02x%02x" {*}[hsv2rgb $h $s $v]]
 }
 
 } ;# namespace colors

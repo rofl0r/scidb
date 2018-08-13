@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1406 $
-# Date   : $Date: 2017-08-11 16:24:29 +0000 (Fri, 11 Aug 2017) $
+# Version: $Revision: 1507 $
+# Date   : $Date: 2018-08-13 12:17:53 +0000 (Mon, 13 Aug 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -784,7 +784,7 @@ proc totalHeight {parent} {
 
 	foreach side {top bottom flat} {
 		set tbf [Join $parent __tbf__$side]
-		if {$tbf in $slaves && [winfo exists  $tbf.frame.scrolled]} {
+		if {$tbf in $slaves && [winfo exists $tbf.frame.scrolled]} {
 			incr height [winfo reqheight $tbf.frame.scrolled]
 		}
 	}

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1502 $
-# Date   : $Date: 2018-07-16 12:55:14 +0000 (Mon, 16 Jul 2018) $
+# Version: $Revision: 1507 $
+# Date   : $Date: 2018-08-13 12:17:53 +0000 (Mon, 13 Aug 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -50,6 +50,7 @@ proc build {twm parent width height} {
 
 	::bind $tb <<TableVisit>>		+[namespace code [list TableVisit $table %d]]
 	::bind $tb <<TablePopdown>>	+[namespace code [list ReleaseButton $table]]
+	::bind $tb <<TableSelected>>	+[namespace code [list SwitchToEditorPane $twm %s]]
 
 	::bind [::scrolledtable::scrolledtablePath $tb] <<TableScroll>> \
 		+[namespace code [list ::gametable::doSelection $table]]
@@ -200,6 +201,13 @@ proc Release1 {table} {
 }
 
 
+proc SwitchToEditorPane {twm state} {
+	if {![::util::shiftIsHeldDown? $state]} {
+		$twm see [$twm leaf editor]
+	}
+}
+
+
 proc Scroll {table} {
 	variable Vars
 
@@ -263,16 +271,17 @@ proc Close {table base variant} {
 }
 
 
-proc WriteTableOptions {chan {id "board"}} {
+proc WriteTableOptions {chan variant {id "board"}} {
+	variable TableOptions
 	variable Tables
 
 	if {$id ne "board"} { return }
 
 	foreach table $Tables {
-		if {[::scrolledtable::countOptions db:tree:games:$id] > 0} {
+		if {[info exists TableOptions($variant:$id)]} {
 			set id [::application::twm::getId $table]
 			puts $chan "::scrolledtable::setOptions db:tree:games:$id {"
-			::options::writeArray $chan [::scrolledtable::getOptions db:tree:games:$id]
+			::options::writeArray $chan $TableOptions($variant:$id)
 			puts $chan "}"
 		}
 	}

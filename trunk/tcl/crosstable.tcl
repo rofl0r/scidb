@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1497 $
-# Date   : $Date: 2018-07-08 13:09:06 +0000 (Sun, 08 Jul 2018) $
+# Version: $Revision: 1507 $
+# Date   : $Date: 2018-08-13 12:17:53 +0000 (Mon, 13 Aug 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1311,11 +1311,11 @@ proc BuildMenu {dlg m} {
 	if {[winfo exists $dlg.next]} {
 		set state [expr {$isOpen ? "normal" : "disabled"}]
 		$m add command \
-			-label " [::mc::stripAmpersand $::widget::mc::Previous]" \
+			-label " [::mc::stripAmpersand $::widget::mc::Label(previous)]" \
 			-command [$dlg.previous cget -command] \
 			-image $::icon::16x16::previous \
 			-compound left \
-			-accelerator "$::mc::Key(Alt)-[::mc::extractAccelerator $::widget::mc::Previous]" \
+			-accelerator "$::mc::Key(Alt)-[::mc::extractAccelerator $::widget::mc::Label(previous)]" \
 			-state $state \
 			;
 		$m add command \
@@ -1323,16 +1323,16 @@ proc BuildMenu {dlg m} {
 			-command [$dlg.next cget -command] \
 			-image $::icon::16x16::next \
 			-compound left \
-			-accelerator "$::mc::Key(Alt)-[::mc::extractAccelerator $::widget::mc::Next]" \
+			-accelerator "$::mc::Key(Alt)-[::mc::extractAccelerator $::widget::mc::Label(next)]" \
 			-state $state \
 			;
 	}
 	$m add command \
-		-label " [::mc::stripAmpersand $::widget::mc::Close]" \
+		-label " [::mc::stripAmpersand $::widget::mc::Label(close)]" \
 		-command [$dlg.close cget -command] \
 		-image $::icon::16x16::close \
 		-compound left \
-		-accelerator "$::mc::Key(Alt)-[::mc::extractAccelerator $::widget::mc::Close]" \
+		-accelerator "$::mc::Key(Alt)-[::mc::extractAccelerator $::widget::mc::Label(close)]" \
 		;
 
 	if {$isOpen} {

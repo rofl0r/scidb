@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1497 $
-# Date   : $Date: 2018-07-08 13:09:06 +0000 (Sun, 08 Jul 2018) $
+# Version: $Revision: 1507 $
+# Date   : $Date: 2018-08-13 12:17:53 +0000 (Mon, 13 Aug 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -86,6 +86,7 @@ set Normal				"Normal"
 set Number				"Number"
 set OK					"OK"
 set Order				"Order"
+set Page					"Page"
 set Paste				"Paste"
 set PieceSet			"Piece Set"
 set Preview				"Preview"
@@ -93,6 +94,7 @@ set Redo					"Redo"
 set Reset				"Reset"
 set Right				"Right"
 set SelectAll			"Select all"
+set Tab					"Tab"
 set Texture				"Texture"
 set Theme				"Theme"
 set To					"To"

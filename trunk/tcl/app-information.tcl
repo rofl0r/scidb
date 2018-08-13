@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author: gcramer $
-# Version: $Revision: 1500 $
-# Date   : $Date: 2018-07-13 10:00:25 +0000 (Fri, 13 Jul 2018) $
+# Version: $Revision: 1507 $
+# Date   : $Date: 2018-08-13 12:17:53 +0000 (Mon, 13 Aug 2018) $
 # Url    : $URL: https://svn.code.sf.net/p/scidb/code/trunk/tcl/app-information.tcl $
 # ======================================================================
 
@@ -199,12 +199,7 @@ proc activate {w flag} {
 		if {![file exists $file]} { set file [file join $::scidb::dir::help en Welcome.html] }
 		if {[file readable $file]} {
 			set fileContent ""
-			catch {
-				set fd [::open $file r]
-				chan configure $fd -encoding utf-8
-				set fileContent [read $fd]
-				close $fd
-			}
+			catch { set fileContent [::file::read $file -encoding utf-8] }
 			foreach line [split $fileContent \n] {
 				if {[string match {*-- END --*} $line]} { break }
 				append content $line " "
@@ -554,11 +549,7 @@ proc Response {lang update parent url data} {
 
 
 proc LanguageChanged {} {
-	variable Priv
-
-	if {$Priv(connection)} {
-		FetchNews $::mc::langID 1
-	}
+	FetchNews $::mc::langID 1
 }
 
 

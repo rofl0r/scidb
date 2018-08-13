@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1502 $
-# Date   : $Date: 2018-07-16 12:55:14 +0000 (Mon, 16 Jul 2018) $
+# Version: $Revision: 1507 $
+# Date   : $Date: 2018-08-13 12:17:53 +0000 (Mon, 13 Aug 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -14,7 +14,7 @@
 # ======================================================================
 
 # ======================================================================
-# Copyright: (C) 2009-2017 Gregor Cramer
+# Copyright: (C) 2009-2018 Gregor Cramer
 # ======================================================================
 
 # ======================================================================
@@ -360,6 +360,7 @@ proc insert {gamebar at id tags} {
 
 	set tag line1Input$id
 
+	$gamebar bind $tag <ButtonPress-1>		[namespace code [list ShowCrossTable $gamebar $id]]
 	$gamebar bind $tag <ButtonPress-2>		[namespace code [list ShowEvent $gamebar $id]]
 	$gamebar bind $tag <ButtonRelease-2>	[namespace code [list HideEvent $gamebar $id]]
 	$gamebar bind $tag <ButtonPress-3>		[namespace code [list PopupEventMenu $gamebar $id]]
@@ -2651,6 +2652,11 @@ proc GetEventName {id} {
 	set name [scidb::db::fetch eventName $index $base $variant]
 	if {$name eq "?" || $name eq "-"} { set name "" }
 	return $name
+}
+
+
+proc ShowCrossTable {gamebar id} {
+	::crosstable::open .application {*}[GetSource $id] -1 game
 }
 
 

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1500 $
-# Date   : $Date: 2018-07-13 10:00:25 +0000 (Fri, 13 Jul 2018) $
+# Version: $Revision: 1507 $
+# Date   : $Date: 2018-08-13 12:17:53 +0000 (Mon, 13 Aug 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -2014,7 +2014,7 @@ proc FontColor {color} {
 	variable [namespace parent]::Info
 
 	set type $Values(Type)
-	set color [::dialog::choosecolor::getActualColor $color]
+	set color [::colors::getActualColor $color]
 	if {$color eq $Info($type,font,color)} { set color {} }
 	lset Styles($type,$Info(fontstyle)) 4 $color
 }
@@ -2096,8 +2096,8 @@ proc BuildFrame {pane} {
 	### Choose Languages ####################################################################
 	set sel [ttk::frame $lt.selection -borderwidth 0]
 	if {[info exists Info(languages)]} {
-		set Info(languages) [lremove $Info(languages) ""]
-		set Info(preferred) [lremove $Info(preferred) ""]
+		lremove Info(languages) ""
+		lremove Info(preferred) ""
 		set elem $Values(Type),comments,languages
 		set Values($elem) {}
 		set row 1

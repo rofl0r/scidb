@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1497 $
-// Date   : $Date: 2018-07-08 13:09:06 +0000 (Sun, 08 Jul 2018) $
+// Version: $Revision: 1507 $
+// Date   : $Date: 2018-08-13 12:17:53 +0000 (Mon, 13 Aug 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -616,6 +616,8 @@ handleDesktopProperties(ClientData clientData, XEvent* xev)
 static void
 requestDesktopProperties(Tcl_Interp* ti, Tk_Window tkwin)
 {
+	// TODO: see gdkdisplay-x11.c
+
 	Display*	display	= Tk_Display(tkwin);
 	Window	window	= Tk_WindowId(tkwin);
 	Atom		extents;

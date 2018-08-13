@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1497 $
-# Date   : $Date: 2018-07-08 13:09:06 +0000 (Sun, 08 Jul 2018) $
+# Version: $Revision: 1507 $
+# Date   : $Date: 2018-08-13 12:17:53 +0000 (Mon, 13 Aug 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1837,7 +1837,9 @@ proc ChangeFontSize {context cmd incr {state 0}} {
 
 
 proc SendFontSizeChanged {w value} {
+	if {![winfo exists $w]} { return }
 	event generate $w <<FontSizeChanged>> -data $value
+	if {![winfo exists $w]} { return }
 	foreach child [winfo children $w] { SendFontSizeChanged $child $value }
 }
 

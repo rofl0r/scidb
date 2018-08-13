@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 992 $
-// Date   : $Date: 2013-10-30 15:07:27 +0000 (Wed, 30 Oct 2013) $
+// Version: $Revision: 1507 $
+// Date   : $Date: 2018-08-13 12:17:53 +0000 (Mon, 13 Aug 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -49,6 +49,8 @@ static XErrorHandler xErrorHandler = 0;
 static int
 getRegion(char const* subcmd, Tcl_Interp *ti, int objc, Tcl_Obj* const objv[])
 {
+	// TODO: see gdk_x11_device_core_surface_at_position() in gdkdevice-core-x11.c
+
 	int x = intFromObj(objc, objv, 0);
 	int y = intFromObj(objc, objv, 1);
 
@@ -98,7 +100,21 @@ getRegion(char const* subcmd, Tcl_Interp *ti, int objc, Tcl_Obj* const objv[])
 			}
 #endif
 
+#if 0
+			XGrabPointer(	display,
+								rootWindow,
+								False, 
+								event_mask,
+								GrabModeSync,
+								GrabModeSync,
+								rootWindow,
+								None,
+								CurrentTime);
+#endif
 			ximage = XGetImage(display, rootWindow, x, y, width, height, AllPlanes, ZPixmap);
+#if 0
+			XUngrabPointer(display, CurrentTime);
+#endif
 
 			Tk_PhotoImageBlock block;
 

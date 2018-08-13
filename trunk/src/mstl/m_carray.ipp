@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author: gcramer $
-// Version: $Revision: 1211 $
-// Date   : $Date: 2017-06-24 12:12:27 +0000 (Sat, 24 Jun 2017) $
+// Version: $Revision: 1507 $
+// Date   : $Date: 2018-08-13 12:17:53 +0000 (Mon, 13 Aug 2018) $
 // Url    : $HeadURL: https://svn.code.sf.net/p/scidb/code/trunk/src/mstl/m_carray.ipp $
 // ======================================================================
 
@@ -28,6 +28,7 @@ namespace mstl {
 template <typename T>
 inline
 carray<T>::carray()
+	:m_size(0)
 {
 	static_assert(is_pod<T>::value, "value type must be POD");
 }
