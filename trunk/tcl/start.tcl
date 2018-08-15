@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1507 $
-# Date   : $Date: 2018-08-13 12:17:53 +0000 (Mon, 13 Aug 2018) $
+# Version: $Revision: 1508 $
+# Date   : $Date: 2018-08-15 12:20:03 +0000 (Wed, 15 Aug 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -502,7 +502,18 @@ proc read {fname args} {
 	if {[llength $args]} {
 		fconfigure $fd {*}$args
 	}
-	set data [read $fd]
+	set data [::read $fd]
+	close $fd
+	return $data
+}
+
+
+proc gets {fname args} {
+	set fd [open $fname r]
+	if {[llength $args]} {
+		fconfigure $fd {*}$args
+	}
+	set data [::gets $fd]
 	close $fd
 	return $data
 }

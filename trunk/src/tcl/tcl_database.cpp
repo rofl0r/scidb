@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1502 $
-// Date   : $Date: 2018-07-16 12:55:14 +0000 (Mon, 16 Jul 2018) $
+// Version: $Revision: 1508 $
+// Date   : $Date: 2018-08-15 12:20:03 +0000 (Wed, 15 Aug 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1214,7 +1214,7 @@ cmdOpen(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 
 	mstl::auto_ptr< ::db::FileOffsets> fileOffsets;
 
-	if (ext == "pgn" || ext == "PGN" || ext == "gz")
+	if (ext == "pgn" || ext == "PGN" || ext == "gz" || ext == "ZIP" || ext == "zip")
 		fileOffsets.reset(new ::db::FileOffsets);
 
 	tcl::PgnReader	reader(	stream,
