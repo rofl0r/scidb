@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1481 $
-// Date   : $Date: 2018-05-14 11:20:22 +0000 (Mon, 14 May 2018) $
+// Version: $Revision: 1509 $
+// Date   : $Date: 2018-08-17 14:18:06 +0000 (Fri, 17 Aug 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -131,7 +131,7 @@ memblock<T>::operator=(memblock&& mb)
 {
 	if (this != &mb)
 	{
-		memblock::~memblock();
+		memblock<T>::~memblock();
 		*this = mstl::move(mb);
 	}
 	return *this;

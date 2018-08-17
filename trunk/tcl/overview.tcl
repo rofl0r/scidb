@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1507 $
-# Date   : $Date: 2018-08-13 12:17:53 +0000 (Mon, 13 Aug 2018) $
+# Version: $Revision: 1509 $
+# Date   : $Date: 2018-08-17 14:18:06 +0000 (Fri, 17 Aug 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -540,6 +540,8 @@ proc PopupMenu {nb} {
 		-command [namespace code [list LoadGame $nb]] \
 		-state $state \
 		;
+if {0} { ;# TODO not working because we did not load this game, we've used ::scidb::game::dump instead
+	set position $Vars(position)
 	if {[::scidb::game::current] < 9} { set state normal } else { set state disabled }
 	if {[::merge::alreadyMerged [::scidb::game::current] $position]} { set state disabled }
 	$menu add command \
@@ -549,6 +551,7 @@ proc PopupMenu {nb} {
 		-command [list gamebar::mergeGame [winfo toplevel [winfo parent [winfo toplevel $nb]]] $position] \
 		-state $state \
 		;
+}
 	if {!$Vars(modified)} { set state disabled }
 	$menu add command \
 		-label " $::browser::mc::ReloadGame" \

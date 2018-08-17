@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1497 $
-# Date   : $Date: 2018-07-08 13:09:06 +0000 (Sun, 08 Jul 2018) $
+# Version: $Revision: 1509 $
+# Date   : $Date: 2018-08-17 14:18:06 +0000 (Fri, 17 Aug 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -216,7 +216,6 @@ proc ConfigureTextureFrame {which} {
 	}
 	foreach deg {0 90 180 270} { $Widget($deg,$which) configure -state normal }
 }
-
 
 
 proc ShowCurrentTexture {which xc yc} {

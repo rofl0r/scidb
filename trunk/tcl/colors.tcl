@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author: gcramer $
-# Version: $Revision: 1507 $
-# Date   : $Date: 2018-08-13 12:17:53 +0000 (Mon, 13 Aug 2018) $
+# Version: $Revision: 1509 $
+# Date   : $Date: 2018-08-17 14:18:06 +0000 (Fri, 17 Aug 2018) $
 # Url    : $URL: https://svn.code.sf.net/p/scidb/code/trunk/tcl/colors.tcl $
 # ======================================================================
 
@@ -325,8 +325,14 @@ proc getActualColor {color} { return [::dialog::choosecolor::getActualColor $col
 proc makeActiveColor {color} {
 	scan [getActualColor $color] "\#%2x%2x%2x" r g b
 	lassign [rgb2hsv $r $g $b] h s v
-	set v [expr {min(1.0, $v + 0.1)}]
-	return [format "#%02x%02x%02x" {*}[hsv2rgb $h $s $v]]
+	return [format "#%02x%02x%02x" {*}[hsv2rgb $h $s [expr {min(1.0, $v + 0.1)}]]]
+}
+
+
+proc makeHiliteColor {color} {
+	scan [getActualColor $color] "\#%2x%2x%2x" r g b
+	lassign [rgb2hsv $r $g $b] h s v
+	return [format "#%02x%02x%02x" {*}[hsv2rgb $h 1.0 1.0]]
 }
 
 } ;# namespace colors

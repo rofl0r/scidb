@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author: gcramer $
-# Version: $Revision: 1400 $
-# Date   : $Date: 2017-08-09 11:25:39 +0000 (Wed, 09 Aug 2017) $
+# Version: $Revision: 1509 $
+# Date   : $Date: 2018-08-17 14:18:06 +0000 (Fri, 17 Aug 2018) $
 # Url    : $HeadURL: https://svn.code.sf.net/p/scidb/code/trunk/tcl/widgets/searchentry.tcl $
 # ======================================================================
 
@@ -736,7 +736,7 @@ bind TTSearchEntry <Return>			{+ break }
 bind TTSearchEntry <<TraverseIn>>	{}
 
 ::ttk::copyBindings TEntry TTSearchBox
-::ttk::copyBindings TCombobox TTSearchBox
+::ttk::copyBindings TTCombobox TTSearchBox
 
 bind TTSearchBox <FocusIn>			{ ::tooltip::hide }
 bind TTSearchBox <FocusIn>			+[namespace code { FocusIn %W }]

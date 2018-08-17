@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1507 $
-# Date   : $Date: 2018-08-13 12:17:53 +0000 (Mon, 13 Aug 2018) $
+# Version: $Revision: 1509 $
+# Date   : $Date: 2018-08-17 14:18:06 +0000 (Fri, 17 Aug 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -46,8 +46,8 @@ array set Prios { player 300 games 200 event 100 }
 
 array set FrameOptions {
 	player { -width 400 -height 100% -minwidth 200 -minheight 100 -expand both }
-	games	 { -width 600 -height  63% -minwidth 200 -minheight 100 -expand both }
-	event	 { -width 600 -height  36% -minwidth 200 -minheight 100 -expand both }
+	games	 { -width 600 -height  66% -minwidth 200 -minheight 100 -expand both }
+	event	 { -width 600 -height  34% -minwidth 200 -minheight 100 -expand both }
 }
 
 variable Layout {

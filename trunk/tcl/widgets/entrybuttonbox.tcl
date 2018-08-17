@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1234 $
-# Date   : $Date: 2017-07-03 12:50:12 +0000 (Mon, 03 Jul 2017) $
+# Version: $Revision: 1509 $
+# Date   : $Date: 2018-08-17 14:18:06 +0000 (Fri, 17 Aug 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -211,7 +211,7 @@ set dots(clam)		$14x16::open
 } ;# namespace ttk
 
 ttk::copyBindings TEntry TEntryButtonBox
-ttk::copyBindings TCombobox TEntryButtonBox
+ttk::copyBindings TTCombobox TEntryButtonBox
 
 bind TEntryButtonBox <KeyPress-Down>	{ {*}[set ttk::entrybuttonbox::%W::Vars(-command)] }
 bind TEntryButtonBox <KeyPress-space>	{ {*}[set ttk::entrybuttonbox::%W::Vars(-command)] }
