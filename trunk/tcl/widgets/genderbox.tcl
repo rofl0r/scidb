@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1509 $
-# Date   : $Date: 2018-08-17 14:18:06 +0000 (Fri, 17 Aug 2018) $
+# Version: $Revision: 1510 $
+# Date   : $Date: 2018-08-19 12:42:28 +0000 (Sun, 19 Aug 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -37,6 +37,7 @@ namespace eval mc {
 set Gender(m) "Male"
 set Gender(f) "Female"
 set Gender(c) "Computer"
+set Gender(?) "Unspecified"
 
 } ;# namespace mc
 
@@ -95,17 +96,18 @@ proc Build {w args} {
 		;
 	$w.__w__ addcol image -id icon -justify center
 	$w.__w__ addcol text -id sex
-	ttk::label $w.keys -borderwidth 0
 
-	grid $w.__w__ -column 0 -row 0 -sticky ns
-	grid $w.keys -column 2 -row 0 -sticky ns
-	grid columnconfigure $w 1 -minsize $::theme::padding
-
+	keybar $w.hint
 	Setup $w
 
+	grid $w.__w__ -column 0 -row 0 -sticky ns
+	grid $w.hint  -column 2 -row 0 -sticky ns
+	grid columnconfigure $w 1 -minsize $::theme::padding
+
 	bind $w <Destroy> [list catch [list namespace delete [namespace current]::${w}]]
-	bind $w.keys <<LanguageChanged>> [namespace code [list LanguageChanged $w]]
 	bind $w.__w__ <Any-Key> [list after idle [namespace code [list Select $w %A]]]
+	bind $w.__w__ <<LanguageChanged>> [namespace code [list LanguageChanged $w]]
+	bind $w.__w__ <<ComboboxSelected>> [namespace code [list CheckEntry $w]]
 
 	$w.__w__ current 0
 
@@ -170,6 +172,7 @@ proc WidgetProc {w command args} {
 			} else {
 				$w.__w__ current 0
 			}
+			CheckEntry $w
 			$w placeicon
 			return $w
 		}
@@ -232,11 +235,17 @@ proc Setup {w} {
 	}
 	$w.__w__ resize
 
-	$w.keys configure -text "($Male,$Female,$Computer,?)"
-
 	if {$current >= 0} {
 		$w.__w__ current $current
+		CheckEntry $w
 	}
+
+	foreach key {m f c} {
+		set ch [string tolower [string index $mc::Gender($key) 0]]
+		lappend hints $ch [namespace current]::mc::Gender($key)
+	}
+	lappend hints "?" [namespace current]::mc::Gender(?)
+	$w.hint keys $hints
 }
 
 
@@ -283,7 +292,15 @@ proc Select {w key} {
 			} else {
 				$w.__w__ icursor end
 			}
+			CheckEntry $w
 		}
+	}
+}
+
+
+proc CheckEntry {w} {
+	if {[$w get] eq "\u2014"} {
+		$w.__w__ set ""
 	}
 }
 

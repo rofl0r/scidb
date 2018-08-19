@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1507 $
-# Date   : $Date: 2018-08-13 12:17:53 +0000 (Mon, 13 Aug 2018) $
+# Version: $Revision: 1510 $
+# Date   : $Date: 2018-08-19 12:42:28 +0000 (Sun, 19 Aug 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1908,7 +1908,7 @@ proc MakeMatchEntry {top index entry attr} {
 
 	switch $attr {
 		player {
-			if {$federation eq "UNK"} {
+			if {$federation eq "UNK" || $federation eq ""} {
 				set federation ""
 			} elseif {[string length $federation]} {
 				set federation $::country::icon::flag($federation)

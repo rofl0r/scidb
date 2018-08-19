@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1509 $
-# Date   : $Date: 2018-08-17 14:18:06 +0000 (Fri, 17 Aug 2018) $
+# Version: $Revision: 1510 $
+# Date   : $Date: 2018-08-19 12:42:28 +0000 (Sun, 19 Aug 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -857,7 +857,9 @@ proc WidgetProc {w command args} {
 		}
 
 		curselection {
-			return [expr {[$t selection get] - 1}]
+			set sel [$t selection get]
+			if {[llength $sel] == 0} { return -1 }
+			return [expr {$sel - 1}]
 		}
 
 		selection {

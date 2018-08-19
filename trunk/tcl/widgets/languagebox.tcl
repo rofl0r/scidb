@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1508 $
-# Date   : $Date: 2018-08-15 12:20:03 +0000 (Wed, 15 Aug 2018) $
+# Version: $Revision: 1510 $
+# Date   : $Date: 2018-08-19 12:42:28 +0000 (Sun, 19 Aug 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -237,6 +237,7 @@ proc Completion2 {w var prevContent} {
 	set content [string trimleft [set $var]]
 
 	if {[string length $content] && [string range $content 0 end-1] eq $prevContent} {
+		$w testicon
 		Search $w $var 0
 	}
 }

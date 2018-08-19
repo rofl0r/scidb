@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1502 $
-// Date   : $Date: 2018-07-16 12:55:14 +0000 (Mon, 16 Jul 2018) $
+// Version: $Revision: 1510 $
+// Date   : $Date: 2018-08-19 12:42:28 +0000 (Sun, 19 Aug 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -438,6 +438,7 @@ public:
 			incrRef(m_e					= newObj("e"));
 			incrRef(m_s					= newObj("s"));
 			incrRef(m_blank			= newObj(" "));
+			incrRef(m_delim			= newObj("|"));
 			incrRef(m_zero				= newObj(0));
 		}
 
@@ -804,6 +805,7 @@ public:
 			case edit::Node::Empty:			objv[1] = m_e; break;
 			case edit::Node::Start:			objv[1] = m_s; break;
 			case edit::Node::Blank:			objv[1] = m_blank; break;
+			case edit::Node::Delimiter:	objv[1] = m_delim; break;
 			case edit::Node::End:			objv[1] = m_leave; break;
 		}
 
@@ -934,6 +936,7 @@ public:
 	static Tcl_Obj* m_close_fold;
 	static Tcl_Obj* m_fold;
 	static Tcl_Obj* m_blank;
+	static Tcl_Obj* m_delim;
 	static Tcl_Obj* m_zero;
 	static Tcl_Obj* m_preceding;
 	static Tcl_Obj* m_trailing;
@@ -994,6 +997,7 @@ Tcl_Obj* Visitor::m_close				= nullptr;
 Tcl_Obj* Visitor::m_close_fold		= nullptr;
 Tcl_Obj* Visitor::m_fold				= nullptr;
 Tcl_Obj* Visitor::m_blank				= nullptr;
+Tcl_Obj* Visitor::m_delim				= nullptr;
 Tcl_Obj* Visitor::m_zero				= nullptr;
 Tcl_Obj* Visitor::m_preceding			= nullptr;
 Tcl_Obj* Visitor::m_trailing			= nullptr;

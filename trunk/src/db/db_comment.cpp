@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1449 $
-// Date   : $Date: 2017-12-06 13:17:54 +0000 (Wed, 06 Dec 2017) $
+// Version: $Revision: 1510 $
+// Date   : $Date: 2018-08-19 12:42:28 +0000 (Sun, 19 Aug 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1802,6 +1802,31 @@ Comment::Comment(mstl::string const& content, unsigned langFlags)
 	:m_content(content)
 	,m_langFlags(0)
 {
+}
+
+
+bool
+Comment::startsWithPunctuation() const
+{
+	char const* str = m_content.c_str();
+
+	if (::strncmp(str, "<xml>", 5) == 0)
+	{
+		while (*str == '<')
+		{
+			str += 1;
+			
+			for ( ; *str != '>'; ++str)
+			{
+				if (!*str)
+					return false;
+			}
+
+			str += 1;
+		}
+	}
+
+	return ::sys::utf8::isPunct(str);
 }
 
 

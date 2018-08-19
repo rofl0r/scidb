@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1507 $
-# Date   : $Date: 2018-08-13 12:17:53 +0000 (Mon, 13 Aug 2018) $
+# Version: $Revision: 1510 $
+# Date   : $Date: 2018-08-19 12:42:28 +0000 (Sun, 19 Aug 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -165,6 +165,21 @@ proc toolbar::configureRadioEntry {args} { return [::theme::configureRadioEntry 
 
 proc calendar::tooltip {args} { ::tooltip::tooltip {*}$args }
 
+proc datebox::tooltip {args} { ::tooltip {*}$args }
+proc datebox::keybar {args} { return [::keybar {*}$args] }
+
+proc keybar::defaultCSS {} {
+	::font::html::setupFonts keybar
+	set textFonts [::font::html::defaultTextFonts keybar]
+	set fixedFonts [::font::html::defaultFixedFonts keybar]
+	return [::html::defaultCSS $fixedFonts $textFonts]
+}
+
+proc keybar::tr {text} {
+	if {[string length $text] == 1} { return $text }
+	return $::mc::KeyDescr($text)
+}
+
 proc fsbox::makeStateSpecificIcons {img} { return [::icon::makeStateSpecificIcons $img] }
 proc fsbox::tooltip {args} { return [::tooltip::tooltip {*}$args] }
 proc fsbox::makeStateSpecificIcons {args} { return [::icon::makeStateSpecificIcons {*}$args] }
@@ -215,7 +230,7 @@ proc twm::WriteOptions {chan} { ::options::writeItem $chan [twm::nameOfOptionsAr
 ::options::hookWriter twm::WriteOptions
 
 proc ecobox::tooltip {args} { ::tooltip {*}$args }
-proc ecobox::openEcoDialog {parent} { return [::application::eco::open $parent ecobox] }
+proc ecobox::openEcoDialog {parent} { return [application::eco::open $parent -id ecobox -mode compact] }
 
 rename ::table::setOptions ::table::setOptions_
 # XXX work-around because of a bug in older versions

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1508 $
-# Date   : $Date: 2018-08-15 12:20:03 +0000 (Wed, 15 Aug 2018) $
+# Version: $Revision: 1510 $
+# Date   : $Date: 2018-08-19 12:42:28 +0000 (Sun, 19 Aug 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -53,6 +53,8 @@
 ::mc::Key(Shift)			"Mayúsculas" 
 ::mc::Key(Space)			"\u2423"
 ::mc::Key(Up)				"\u2191"
+
+::mc::KeyDescr(Space)	"Space" ;# NEW
 
 ::mc::Alignment			"Alineación"
 ::mc::Apply					"Aplicar"
@@ -108,6 +110,7 @@
 ::mc::To						"A"
 ::mc::Top					"Superior"
 ::mc::Undo					"Deshacer"
+::mc::Unknown				"Unknown" ;# NEW
 ::mc::Variant				"Variant" ;# NEW different from "Variation"
 ::mc::Variation			"Variante"
 ::mc::Volume				"Volume" ;# NEW
@@ -1119,6 +1122,7 @@
 
 ::pgn::setup::mc::Section(Display)				"Presentación"
 ::pgn::setup::mc::Display(numbering)			"Mostrar numeración en las Variantes"
+::pgn::setup::mc::Display(markers)				"Show Square Markers" ;# NEW
 ::pgn::setup::mc::Display(moveinfo)				"Mostrar Información de la jugada"
 ::pgn::setup::mc::Display(nagtext)				"Mostrar texto para comentarios NAG inusuales"
 
@@ -2229,10 +2233,16 @@
 ::datebox::mc::Month		"Mes"
 ::datebox::mc::Day		"Día"
 
+::datebox::mc::Hint(Space)	"Clear" ;# NEW
+::datebox::mc::Hint(?)		"Open calendar" ;# NEW
+::datebox::mc::Hint(!)		"Set to game date" ;# NEW
+::datebox::mc::Hint(=)		"Skip entering" ;# NEW
+
 ### genderbox ##########################################################
 ::genderbox::mc::Gender(m) "Masculino"
 ::genderbox::mc::Gender(f) "Femenino"
 ::genderbox::mc::Gender(c) "Computadora"
+::genderbox::mc::Gender(?) "Unspecified" ;# NEW
 
 ### terminationbox #####################################################
 ::terminationbox::mc::Normal								"Normal"

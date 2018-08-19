@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1507 $
-# Date   : $Date: 2018-08-13 12:17:53 +0000 (Mon, 13 Aug 2018) $
+# Version: $Revision: 1510 $
+# Date   : $Date: 2018-08-19 12:42:28 +0000 (Sun, 19 Aug 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -89,6 +89,7 @@ set Variations(level)			"Indent Level"
 
 set Section(Display)				"Display"
 set Display(numbering)			"Show Variation Numbering"
+set Display(markers)				"Show Square Markers"
 set Display(moveinfo)			"Show Move Information"
 set Display(nagtext)				"Text for unusual NAG comments"
 
@@ -201,6 +202,7 @@ array set DefaultOptions {
 	style:move			san
 	spacing:paragraph	0
 	weight:mainline	bold
+	show:markers		1
 	show:moveinfo		1
 	show:varnumbers	0
 	show:diagram		1

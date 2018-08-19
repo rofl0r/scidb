@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1459 $
-// Date   : $Date: 2017-12-29 12:14:10 +0000 (Fri, 29 Dec 2017) $
+// Version: $Revision: 1510 $
+// Date   : $Date: 2018-08-19 12:42:28 +0000 (Sun, 19 Aug 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -14,7 +14,7 @@
 // ======================================================================
 
 // ======================================================================
-// Copyright: (C) 2011-2013 Gregor Cramer
+// Copyright: (C) 2011-2018 Gregor Cramer
 // ======================================================================
 
 // ======================================================================
@@ -69,7 +69,7 @@ public:
 		TPly, TAnnotation, TStates, TMarks, TGameLink, TLink, TComment, TSpace,	// move level
 	};
 
-	enum Bracket { Blank, Open, Close, CloseFold, End, Fold, Empty, Start };
+	enum Bracket { Blank, Delimiter, Open, Close, CloseFold, End, Fold, Empty, Start };
 
 	typedef mstl::vector<Node const*> List;
 	typedef mstl::map<mstl::string,unsigned> LanguageSet;

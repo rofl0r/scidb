@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1502 $
-# Date   : $Date: 2018-07-16 12:55:14 +0000 (Mon, 16 Jul 2018) $
+# Version: $Revision: 1510 $
+# Date   : $Date: 2018-08-19 12:42:28 +0000 (Sun, 19 Aug 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -428,21 +428,21 @@ proc popup {w b {at {}}} {
 		set y [expr {$py + 20}]
 		if {$py < $screenh && $y + $reqh > $screenh} {
 			# show above if we would be offscreen
-			set y [expr {[winfo pointery $w] - $reqh - 5}]
+			set y [expr {max(0, [winfo pointery $w] - $reqh - 5)}]
 		}
 	} elseif {$at ne ""} {
 		set rooty [winfo rooty $w]
 		set y [expr {$rooty + [winfo vrooty $w] + [$w yposition $at] + 25}]
 		if {$rooty < $screenh && $y + $reqh > $screenh} {
 			# show above if we would be offscreen
-			set y [expr {[winfo rooty $w] + [$w yposition $at] - $reqh - 5}]
+			set y [expr {max(0, [winfo rooty $w] + [$w yposition $at] - $reqh - 5)}]
 		}
 	} else {
 		set rooty [winfo rooty $w]
 		set y [expr {$rooty + [winfo vrooty $w] + [winfo height $w] + 5}]
 		if {$rooty < $screenh && $y + $reqh > $screenh} {
 			# show above if we would be offscreen
-			set y [expr {[winfo rooty $w] - $reqh - 5}]
+			set y [expr {max(0, [winfo rooty $w] - $reqh - 5)}]
 		}
 	}
 

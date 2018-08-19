@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1507 $
-# Date   : $Date: 2018-08-13 12:17:53 +0000 (Mon, 13 Aug 2018) $
+# Version: $Revision: 1510 $
+# Date   : $Date: 2018-08-19 12:42:28 +0000 (Sun, 19 Aug 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -520,6 +520,7 @@ proc WidgetProc {w command args} {
 	switch -glob -- $command {
 		clear {
 			$w.sub.html reset
+			return $w
 		}
 
 		parse {
@@ -567,6 +568,10 @@ proc WidgetProc {w command args} {
 				after idle [namespace code [list Place $w.sub]]
 			}
 			return $Priv(minbbox)
+		}
+
+		content {
+			return $Priv(script)
 		}
 
 		minbbox {
@@ -800,6 +805,7 @@ proc WidgetProc {w command args} {
 			}
 			if {[info exists opts(-height)]} {
 				$w.sub configure -height $opts(-height)
+				$w.sub.html configure -height $opts(-height)
 			}
 		}
 	}

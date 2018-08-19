@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1507 $
-# Date   : $Date: 2018-08-13 12:17:53 +0000 (Mon, 13 Aug 2018) $
+# Version: $Revision: 1510 $
+# Date   : $Date: 2018-08-19 12:42:28 +0000 (Sun, 19 Aug 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -46,6 +46,8 @@ set Key(Right)			"\u2192"
 set Key(Shift)			"Shift"
 set Key(Space)			"\u2423"
 set Key(Up)				"\u2191"
+
+set KeyDescr(Space)	"Space"
 
 set Alignment			"Alignment"
 set Apply				"Apply"
@@ -100,6 +102,7 @@ set Theme				"Theme"
 set To					"To"
 set Top					"Top"
 set Undo					"Undo"
+set Unknown				"Unknown"
 set Variant				"Variant"
 set Variation			"Variation"
 set Volume				"Volume"

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1453 $
-// Date   : $Date: 2017-12-11 14:27:52 +0000 (Mon, 11 Dec 2017) $
+// Version: $Revision: 1510 $
+// Date   : $Date: 2018-08-19 12:42:28 +0000 (Sun, 19 Aug 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -94,6 +94,7 @@ public:
 	bool isXml() const;
 	bool containsLanguage(mstl::string const& lang) const;
 	bool containsAnyLanguageOf(LanguageSet const& langSet) const;
+	bool startsWithPunctuation() const;
 
 	unsigned size() const;
 	unsigned length() const;

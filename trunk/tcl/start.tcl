@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1508 $
-# Date   : $Date: 2018-08-15 12:20:03 +0000 (Wed, 15 Aug 2018) $
+# Version: $Revision: 1510 $
+# Date   : $Date: 2018-08-19 12:42:28 +0000 (Sun, 19 Aug 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -134,6 +134,7 @@ proc update {} {
 			{Burnt|1422299251473|purple|gregor}
 			{Country Style|1370798029772|INE543149|cmartins}
 			{Creepy|1381672489858|purple|gregor}
+			{Elegant|1534667039527|purple|gregor}
 			{Fantasy|1228820514842|yellow.color|gregor}
 			{Fritz|1422386606480|purple|gregor}
 			{Glass|1243787890671|yellow.color|gregor}
@@ -411,6 +412,11 @@ proc arrayListEqual {lhs rhs} {
 
 proc makeState {cond} {
 	return [expr {$cond ? "normal" : "disabled"}]
+}
+
+
+proc test? {query then else} {
+	uplevel [list if $query [list return $then] [list return $else]]
 }
 
 

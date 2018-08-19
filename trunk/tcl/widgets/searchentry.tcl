@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author: gcramer $
-# Version: $Revision: 1509 $
-# Date   : $Date: 2018-08-17 14:18:06 +0000 (Fri, 17 Aug 2018) $
+# Version: $Revision: 1510 $
+# Date   : $Date: 2018-08-19 12:42:28 +0000 (Sun, 19 Aug 2018) $
 # Url    : $HeadURL: https://svn.code.sf.net/p/scidb/code/trunk/tcl/widgets/searchentry.tcl $
 # ======================================================================
 
@@ -457,6 +457,7 @@ proc UpdateHistory {w} {
 
 proc Search {w key} {
 	set cb [winfo parent [::ttk::combobox::LBMaster $w]]
+	if {[winfo class $cb] ni {TTSearchEntry TTSearchBox}} { return }
 	set ns [set ${cb}::NS]
 	variable ::searchentry::${ns}::Vars
 	variable ::searchentry::${ns}::Priv

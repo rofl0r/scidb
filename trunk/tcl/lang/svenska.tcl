@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1508 $
-# Date   : $Date: 2018-08-15 12:20:03 +0000 (Wed, 15 Aug 2018) $
+# Version: $Revision: 1510 $
+# Date   : $Date: 2018-08-19 12:42:28 +0000 (Sun, 19 Aug 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -52,6 +52,8 @@
 ::mc::Key(Shift)			"Shift" ;# NEW
 ::mc::Key(Space)			"\u2423"
 ::mc::Key(Up)				"\u2191"
+
+::mc::KeyDescr(Space)	"Space" ;# NEW
 
 ::mc::Alignment			"Justering"
 ::mc::Apply					"Verkställ"
@@ -107,6 +109,7 @@
 ::mc::To						"Till"
 ::mc::Top					"Överkant"
 ::mc::Undo					"Undo"
+::mc::Unknown				"Unknown" ;# NEW
 ::mc::Variant				"Variant" ;# NEW different from "Variation"
 ::mc::Variation			"Variation"
 ::mc::Volume				"Volume" ;# NEW
@@ -1122,6 +1125,7 @@
 
 ::pgn::setup::mc::Section(Display)				"Display"
 ::pgn::setup::mc::Display(numbering)			"Visa variantnumrering"
+::pgn::setup::mc::Display(markers)				"Show Square Markers" ;# NEW
 ::pgn::setup::mc::Display(moveinfo)				"Visa draginformation"
 ::pgn::setup::mc::Display(nagtext)				"Visa text för ovanliga NAG kommentarer"
 
@@ -2235,10 +2239,16 @@
 ::datebox::mc::Month		"Månad"
 ::datebox::mc::Day		"Dag"
 
+::datebox::mc::Hint(Space)	"Clear" ;# NEW
+::datebox::mc::Hint(?)		"Open calendar" ;# NEW
+::datebox::mc::Hint(!)		"Set to game date" ;# NEW
+::datebox::mc::Hint(=)		"Skip entering" ;# NEW
+
 ### genderbox ##########################################################
 ::genderbox::mc::Gender(m) "Man"
 ::genderbox::mc::Gender(f) "Kvinna"
 ::genderbox::mc::Gender(c) "Dator"
+::genderbox::mc::Gender(?) "Unspecified" ;# NEW
 
 ### terminationbox #####################################################
 ::terminationbox::mc::Normal								"Normalt"

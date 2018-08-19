@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1509 $
-// Date   : $Date: 2018-08-17 14:18:06 +0000 (Fri, 17 Aug 2018) $
+// Version: $Revision: 1510 $
+// Date   : $Date: 2018-08-19 12:42:28 +0000 (Sun, 19 Aug 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -6514,7 +6514,7 @@ Node::performAllActiveNodes(Flag flag)
 					M_ASSERT(node->m_savedParent);
 					if (node->m_savedParent->m_selected == this)
 						node->m_savedParent->m_selected = nullptr;
-					if (node->m_parent->exists())
+					if (node->m_savedParent->exists())
 						node->performUnpack(node->m_savedParent);
 					node->m_savedParent = nullptr;
 					break;

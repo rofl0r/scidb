@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1507 $
-# Date   : $Date: 2018-08-13 12:17:53 +0000 (Mon, 13 Aug 2018) $
+# Version: $Revision: 1510 $
+# Date   : $Date: 2018-08-19 12:42:28 +0000 (Sun, 19 Aug 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -531,10 +531,23 @@ proc updateMarks {marks} {
 	variable board
 	variable Vars
 
-	::board::diagram::updateMarks $board $marks
-	if {!$Vars(autoplay)} {
-		::move::leaveSquare
-		::move::enterSquare
+	if {[[namespace parent]::pgn::showMarkers]} {
+		::board::diagram::updateMarks $board $marks
+		if {!$Vars(autoplay)} {
+			::move::leaveSquare
+			::move::enterSquare
+		}
+	}
+}
+
+
+proc toggleShowMarkers {flag} {
+	variable board
+
+	if {[[namespace parent]::pgn::showMarkers]} {
+		::scidb::game::go current
+	} else {
+		::board::diagram::clearMarks $board
 	}
 }
 
