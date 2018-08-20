@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1507 $
-# Date   : $Date: 2018-08-13 12:17:53 +0000 (Mon, 13 Aug 2018) $
+# Version: $Revision: 1512 $
+# Date   : $Date: 2018-08-20 14:00:52 +0000 (Mon, 20 Aug 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -171,7 +171,7 @@ proc build {twm parent width height} {
 	set bg [::colors::lookup $Options(-background)]
 	set mw [tk::multiwindow $parent.mw -borderwidth 0 -background $bg]
 	set info [tk::frame $mw.info -background $bg -borderwidth 0 -takefocus 0]
-	set mesg [tk::label $mw.mesg -borderwidth 0 -background $bg]
+	set mesg [tk::label $mw.mesg -borderwidth 0 -background $bg -foreground darkgreen]
 	pack $mw -fill both -expand yes
 
 	bind $mw <<LanguageChanged>> [namespace code SetMessage]
