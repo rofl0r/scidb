@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author: gcramer $
-# Version: $Revision: 1510 $
-# Date   : $Date: 2018-08-19 12:42:28 +0000 (Sun, 19 Aug 2018) $
+# Version: $Revision: 1511 $
+# Date   : $Date: 2018-08-20 12:43:10 +0000 (Mon, 20 Aug 2018) $
 # Url    : $URL: https://svn.code.sf.net/p/scidb/code/trunk/tcl/widgets/keybar.tcl $
 # ======================================================================
 
@@ -51,6 +51,7 @@ proc Build {w keys} {
 		}
 		body { padding: 0; border: 0; margin: 0; display: block; }"
 	::html $w \
+		-takefocus 0 \
 		-width 0 \
 		-background [::theme::getColor background] \
 		-usehorzscroll no \
@@ -62,7 +63,8 @@ proc Build {w keys} {
 		;
 	bind $w <<LanguageChanged>> [namespace code [list LanguageChanged $w]]
 	$w onmouseover [list [namespace current]::MouseEnter $w]
-	$w onmouseout  [namespace current]::MouseLeave
+	$w onmouseout [namespace current]::MouseLeave
+	$w onmousedown1 [list [namespace current]::MouseDown $w]
 	catch { rename ::$w $w.__html__ }
 	proc ::$w {command args} "[namespace current]::WidgetProc $w \$command {*}\$args"
 	$w keys $keys
@@ -81,7 +83,7 @@ proc WidgetProc {w command args} {
 	set Keys [lindex $args 0]
 	set content ""
 	foreach {key tip} $Keys {
-		append content "<kbd class='key' tip='$tip'>[tr $key]</kbd>"
+		append content "<kbd class='key' tip='$tip' key='$key'>[tr $key]</kbd>"
 	}
 	if {[string length $content] == 0} {
 		$w.__html__ clear
@@ -95,6 +97,16 @@ proc WidgetProc {w command args} {
 proc LanguageChanged {w} {
 	variable ${w}::Keys
 	$w keys $Keys
+}
+
+
+proc MouseDown {w nodes} {
+	tooltip hide
+	foreach node $nodes {
+		if {[$node tag] eq "kbd"} {
+			event generate $w <<KeybarPress>> -data [$node attribute key]
+		}
+	}
 }
 
 

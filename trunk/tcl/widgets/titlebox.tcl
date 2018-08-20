@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 755 $
-# Date   : $Date: 2013-04-30 21:07:56 +0000 (Tue, 30 Apr 2013) $
+# Version: $Revision: 1511 $
+# Date   : $Date: 2018-08-20 12:43:10 +0000 (Mon, 20 Aug 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -71,6 +71,7 @@ proc Build {w args} {
 		-textvar 		{}
 		-textvariable	{}
 		-state			normal
+		-skipspace		no
 	}
 	array set opts $args
 
@@ -99,6 +100,9 @@ proc Build {w args} {
 		-highlightbackground whitesmoke \
 		-highlightforeground black \
 		;
+	if {$opts(-skipspace)} {
+		bind $w <Key-space> [list after idle [namespace code { SkipSpace %W }]]
+	}
 
 	$w addcol text  -id title -width 4
 	$w addcol text  -id descr -foreground darkgreen
@@ -196,6 +200,14 @@ proc LanguageChanged {w} {
 		$w set $content
 	}
 	$w icursor end
+}
+
+
+proc SkipSpace {w} {
+	if {[$w get] == " " || [string length [$w get]] == 0} {
+		$w delete 0 end
+		tk::TabToWindow [tk_focusNext $w]
+	}
 }
 
 

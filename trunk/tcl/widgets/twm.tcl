@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1509 $
-# Date   : $Date: 2018-08-17 14:18:06 +0000 (Fri, 17 Aug 2018) $
+# Version: $Revision: 1511 $
+# Date   : $Date: 2018-08-20 12:43:10 +0000 (Mon, 20 Aug 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -306,6 +306,10 @@ proc ArrayEqual {twm lhs rhs level} {
 			array set b $bar($key)
 			array unset a hide; array unset a stayontop
 			array unset b hide; array unset b stayontop
+			if {[info exists a(flat)] && !$a(flat)} { array unset a flat }
+			if {[info exists b(flat)] && !$b(flat)} { array unset b flat }
+			if {[info exists a(amalgamate)] && !$a(amalgamate)} { array unset a amalgamate }
+			if {[info exists b(amalgamate)] && !$b(amalgamate)} { array unset b amalgamate }
 			if {![ArrayEqual $twm a b $level]} { return false }
 		} elseif {[string match {*%} $foo($key)] && [string match {*%} $bar($key)]} {
 			set orient [expr {[string match {*height} $key] ? "vert" : "horz"}]
