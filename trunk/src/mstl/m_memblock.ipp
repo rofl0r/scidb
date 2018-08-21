@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1509 $
-// Date   : $Date: 2018-08-17 14:18:06 +0000 (Fri, 17 Aug 2018) $
+// Version: $Revision: 1513 $
+// Date   : $Date: 2018-08-21 13:11:16 +0000 (Tue, 21 Aug 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -131,7 +131,11 @@ memblock<T>::operator=(memblock&& mb)
 {
 	if (this != &mb)
 	{
-		memblock<T>::~memblock();
+#if 0 // NOTE: since compiler version 8.1 this is not compiling anymore
+		memblock::~memblock();
+#else
+		this->memblock::~memblock();
+#endif
 		*this = mstl::move(mb);
 	}
 	return *this;
