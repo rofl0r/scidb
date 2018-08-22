@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1511 $
-# Date   : $Date: 2018-08-20 12:43:10 +0000 (Mon, 20 Aug 2018) $
+# Version: $Revision: 1514 $
+# Date   : $Date: 2018-08-22 09:48:31 +0000 (Wed, 22 Aug 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -164,7 +164,7 @@ proc twm {path args} {
 	set Vars(header:font) [font create ${path}::Vars(header:font) \
 		-family [font configure $Options(header:font) -family] \
 		-weight bold \
-		-size $Options(header:fontsize)
+		-size $Options(header:fontsize) \
 	]
 
 	ttk::frame $path -class TwmToplevel -borderwidth $opts(-borderwidth) -takefocus 0

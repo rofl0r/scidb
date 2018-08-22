@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author: gcramer $
-# Version: $Revision: 1508 $
-# Date   : $Date: 2018-08-15 12:20:03 +0000 (Wed, 15 Aug 2018) $
+# Version: $Revision: 1514 $
+# Date   : $Date: 2018-08-22 09:48:31 +0000 (Wed, 22 Aug 2018) $
 # Url    : $URL: https://svn.code.sf.net/p/scidb/code/trunk/tcl/app-twm.tcl $
 # ======================================================================
 
@@ -201,13 +201,29 @@ proc makeFilename {id layoutVariant name} {
 }
 
 
-proc minHeight {} {
+proc minHeight {} { ;# but not including "board"
 	variable [namespace parent]::Vars
 
 	set max 0
 	foreach twm $Vars(twm) {
-		lassign [$twm dimension] - - - minheight - -
-		set max [expr {max($max, $minheight)}]
+		if {$twm ne $Vars(board:twm)} {
+			set minheight [lindex [$twm dimension] 3]
+			set max [expr {max($max, $minheight)}]
+		}
+	}
+	return $max
+}
+
+
+proc minWidth {} { ;# but not including "board"
+	variable [namespace parent]::Vars
+
+	set max 0
+	foreach twm $Vars(twm) {
+		if {$twm ne $Vars(board:twm)} {
+			set minwidth [lindex [$twm dimension] 2]
+			set max [expr {max($max, $minwidth)}]
+		}
 	}
 	return $max
 }
