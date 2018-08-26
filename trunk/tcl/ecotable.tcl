@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author: gcramer $
-# Version: $Revision: 1515 $
-# Date   : $Date: 2018-08-26 12:56:38 +0000 (Sun, 26 Aug 2018) $
+# Version: $Revision: 1516 $
+# Date   : $Date: 2018-08-26 13:36:21 +0000 (Sun, 26 Aug 2018) $
 # Url    : $URL: https://svn.code.sf.net/p/scidb/code/trunk/tcl/ecotable.tcl $
 # ======================================================================
 
@@ -171,7 +171,7 @@ proc build {parent args} {
 		;
 	lappend columns opening $col4
 	::scrolledtable::build $tb $columns {*}[array get opts]
-	::font::registerTextFonts movelist
+	::font::registerTextFonts movelist {normal bold}
 	::font::registerFigurineFonts movelist
 	set specialfont [list [list $::font::figurine(movelist:normal) 9812 9823]]
 	::scrolledtable::configure $tb line -specialfont $specialfont

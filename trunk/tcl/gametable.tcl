@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1515 $
-# Date   : $Date: 2018-08-26 12:56:38 +0000 (Sun, 26 Aug 2018) $
+# Version: $Revision: 1516 $
+# Date   : $Date: 2018-08-26 13:36:21 +0000 (Sun, 26 Aug 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -566,7 +566,7 @@ proc build {path getViewCmd {visibleColumns {}} {args {}}} {
 
 	set Vars(table) [::scrolledtable::build $path $columns {*}$args]
 	pack $path -fill both -expand yes
-	::font::registerTextFonts movelist
+	::font::registerTextFonts movelist {normal bold}
 	::font::registerFigurineFonts movelist
 	set specialfont [list [list $::font::figurine(movelist:normal) 9812 9823]]
 	::scrolledtable::configure $path material -specialfont $specialfont
