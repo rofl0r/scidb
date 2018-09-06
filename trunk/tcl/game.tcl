@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1507 $
-# Date   : $Date: 2018-08-13 12:17:53 +0000 (Mon, 13 Aug 2018) $
+# Version: $Revision: 1517 $
+# Date   : $Date: 2018-09-06 08:47:10 +0000 (Thu, 06 Sep 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1074,7 +1074,11 @@ proc reopenLockedGames {parent} {
 			::application::pgn::lock $count
 			::scidb::game::go trykey $cursor
 			::process::setOption "show-board"
-			if {$position == $Selection} { set selection $count }
+			if {$position == $Selection} {
+				set selection $count
+				set selectedBase $base
+			}
+			set lastBase $base
 			incr count
 		} else {
 			# Log: couldn't load game
@@ -1087,6 +1091,9 @@ proc reopenLockedGames {parent} {
 	if {$selection >= 0} {
 		::scidb::game::switch $selection
 		::application::pgn::select $selection
+		::application::database::switchToBase $selectedBase
+	} elseif {$count > 0} {
+		::application::database::switchToBase $lastBase
 	}
 
 	return $count

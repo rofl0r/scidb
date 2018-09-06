@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author: gcramer $
-# Version: $Revision: 1509 $
-# Date   : $Date: 2018-08-17 14:18:06 +0000 (Fri, 17 Aug 2018) $
+# Version: $Revision: 1517 $
+# Date   : $Date: 2018-09-06 08:47:10 +0000 (Thu, 06 Sep 2018) $
 # Url    : $URL: https://svn.code.sf.net/p/scidb/code/trunk/tcl/colors.tcl $
 # ======================================================================
 
@@ -232,6 +232,10 @@ array set Colors {
 	lite:comment,label:foreground			white
 
 	lite:eco,stripes							linen
+
+	lite:layout-manager:normal				black
+	lite:layout-manager:current			darkgreen
+	lite:layout-manager:changed			darkred
 }
 # mapped from #ebf4f5
 array set Colors {

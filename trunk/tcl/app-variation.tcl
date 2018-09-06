@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1497 $
-# Date   : $Date: 2018-07-08 13:09:06 +0000 (Sun, 08 Jul 2018) $
+# Version: $Revision: 1517 $
+# Date   : $Date: 2018-09-06 08:47:10 +0000 (Thu, 06 Sep 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -113,7 +113,7 @@ proc build {parent menu width height} {
 		set menu {}
 		lappend menu [list checkbutton \
 			-command [namespace code [list SortColumn $tb]] \
-			-labelvar ::gametable::mc::SortAscending \
+			-labelvar ::gamestable::mc::SortAscending \
 			-variable [namespace current]::Options(sort:column) \
 			-onvalue $value \
 			]

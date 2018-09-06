@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1497 $
-# Date   : $Date: 2018-07-08 13:09:06 +0000 (Sun, 08 Jul 2018) $
+# Version: $Revision: 1517 $
+# Date   : $Date: 2018-09-06 08:47:10 +0000 (Thu, 06 Sep 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -14,7 +14,7 @@
 # ======================================================================
 
 # ======================================================================
-# Copyright: (C) 2009-2017 Gregor Cramer
+# Copyright: (C) 2009-2018 Gregor Cramer
 # ======================================================================
 
 # ======================================================================
@@ -444,10 +444,7 @@ proc setupPieces {{size all}} {
 					set needRefresh(piece,$s) true
 					set color [string index $which 0]
 					if {$style(texture,$color,x2) == 0} {
-						set min [min \
-										$s \
-										[image width $texture($which)] \
-										[image height $texture($which)]]
+						set min [min $s [image width $texture($which)] [image height $texture($which)]]
 						set style(texture,$color,x2) $min
 						set style(texture,$color,y2) $min
 					}

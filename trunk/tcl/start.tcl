@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1510 $
-# Date   : $Date: 2018-08-19 12:42:28 +0000 (Sun, 19 Aug 2018) $
+# Version: $Revision: 1517 $
+# Date   : $Date: 2018-09-06 08:47:10 +0000 (Thu, 06 Sep 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -411,6 +411,10 @@ proc arrayListEqual {lhs rhs} {
 
 
 proc makeState {cond} {
+	if {[string index $cond 0] eq "!"} {
+		set cond [string range $cond 1 end]
+		return [expr {$cond ? "disabled" : "normal"}]
+	}
 	return [expr {$cond ? "normal" : "disabled"}]
 }
 

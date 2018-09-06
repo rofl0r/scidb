@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1507 $
-# Date   : $Date: 2018-08-13 12:17:53 +0000 (Mon, 13 Aug 2018) $
+# Version: $Revision: 1517 $
+# Date   : $Date: 2018-09-06 08:47:10 +0000 (Thu, 06 Sep 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -290,6 +290,11 @@ proc base {path} {
 
 proc variant {path} {
 	return [set [namespace current]::${path}.top.table::(variant)]
+}
+
+
+proc table {path} {
+	return $path.top.table
 }
 
 

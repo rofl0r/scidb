@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1490 $
-# Date   : $Date: 2018-06-20 14:11:51 +0000 (Wed, 20 Jun 2018) $
+# Version: $Revision: 1517 $
+# Date   : $Date: 2018-09-06 08:47:10 +0000 (Thu, 06 Sep 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -140,8 +140,9 @@ proc unmap {w} {
 	set r .__shadow__r__$id
 
 	if {[winfo exists $b]} {
-		wm withdraw $b
-		wm withdraw $r
+		# NOTE: destroying immediately is causing problems with exposures (Unix)
+		after idle [list wm withdraw $b]
+		after idle [list wm withdraw $r]
 	}
 }
 
@@ -151,17 +152,7 @@ proc kill {} {
 	variable Used
 
 	foreach w [array names Mapped] {
-		set id $Mapped($w)
-		array unset Mapped $w
-		set Used($id) 0
-
-		set b .__shadow__b__$id
-		set r .__shadow__r__$id
-
-		if {[winfo exists $b]} {
-			wm withdraw $b
-			wm withdraw $r
-		}
+		unmap $w
 	}
 }
 
@@ -236,7 +227,6 @@ bind Menu <Map> {+
 	}
 }
 
-# XXX Binding the Unmap event is causing problems with exposures.
 bind Menu <Unmap> {+
 	if {![string match *#menu %W]} {
 		# IMPORTANT NOTE:
@@ -265,7 +255,6 @@ bind Menu <<MenuWillUnpost>> {+
 
 bind ComboboxPopdown <Configure>		{+ shadow::prepare %W %x %y %w %h }
 bind ComboboxPopdown <Map>				{+ after idle { shadow::map %W yes } }
-# XXX Binding the Unmap event is causing problems with exposures.
 bind ComboboxPopdown <Unmap>			{+ shadow::unmap %W }
 bind ComboboxPopdown <Destroy>		{+ shadow::unmap %W }
 bind ComboboxPopdown <Destroy>		{+ array unset ::shadow::Geometry %W }
@@ -281,7 +270,6 @@ bind AddLanguagePopdown <Destroy>	{+ array unset ::shadow::Geometry %W }
 
 bind TooltipPopup <Configure>			{+ shadow::prepare %W %x %y %w %h }
 bind TooltipPopup <Map>					{+ after idle { shadow::map %W no } }
-# XXX Binding the Unmap event is causing problems with exposures.
 bind TooltipPopup <Unmap>				{+ shadow::unmap %W }
 bind TooltipPopup <Destroy>			{+ shadow::unmap %W }
 bind TooltipPopup <Destroy>			{+ array unset ::shadow::Geometry %W }

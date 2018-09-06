@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1510 $
-# Date   : $Date: 2018-08-19 12:42:28 +0000 (Sun, 19 Aug 2018) $
+# Version: $Revision: 1517 $
+# Date   : $Date: 2018-09-06 08:47:10 +0000 (Thu, 06 Sep 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -245,7 +245,7 @@ log::finishLayout
 
 # START OF MIGRATION ################################################################
 # preliminary for migration
-proc gametable::setOptions {id opts} { return [::scrolledtable::setOptions $id $opts] }
+proc gamestable::setOptions {id opts} { return [::scrolledtable::setOptions $id $opts] }
 proc eventtable::setOptions {id opts} { return [::scrolledtable::setOptions $id $opts] }
 proc playertable::setOptions {id opts} { return [::scrolledtable::setOptions $id $opts] }
 proc sitetable::setOptions {id opts} { return [::scrolledtable::setOptions $id $opts] }

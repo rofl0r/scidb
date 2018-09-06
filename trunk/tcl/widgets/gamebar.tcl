@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1507 $
-# Date   : $Date: 2018-08-13 12:17:53 +0000 (Mon, 13 Aug 2018) $
+# Version: $Revision: 1517 $
+# Date   : $Date: 2018-09-06 08:47:10 +0000 (Thu, 06 Sep 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1965,10 +1965,10 @@ proc BuildMenu {gamebar id side menu} {
 				$menu add command \
 					-compound left \
 					-image $::icon::16x16::remove \
-					-label " [set ::gametable::mc::$var]" \
-					-command [namespace code [list ::gametable::deleteGame $base $variant $index]] \
+					-label " [set ::gamestable::mc::$var]" \
+					-command [namespace code [list ::gamestable::deleteGame $base $variant $index]] \
 					;
-				::gametable::addGameFlagsMenuEntry $menu $base $variant -1 $index
+				::gamestable::addGameFlagsMenuEntry $menu $base $variant -1 $index
 				set addsep [list $menu add separator]
 			}
 		}

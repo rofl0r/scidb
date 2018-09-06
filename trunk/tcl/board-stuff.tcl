@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1509 $
-# Date   : $Date: 2018-08-17 14:18:06 +0000 (Fri, 17 Aug 2018) $
+# Version: $Revision: 1517 $
+# Date   : $Date: 2018-09-06 08:47:10 +0000 (Thu, 06 Sep 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -14,7 +14,7 @@
 # ======================================================================
 
 # ======================================================================
-# Copyright: (C) 2009-2017 Gregor Cramer
+# Copyright: (C) 2009-2018 Gregor Cramer
 # ======================================================================
 
 # ======================================================================
@@ -241,7 +241,7 @@ proc update {w {board {}} {promoted {}}} {
 
 	set oldBoard $Board(data)
 	set redraw 0
-	
+
 	switch -- $board {
 		empty {
 			set board $emptyBoard
@@ -274,7 +274,7 @@ proc update {w {board {}} {promoted {}}} {
 				if {[string length $board] == 0} {
 					set board $standardBoard
 				}
-				set redraw 1
+				if {!$Board(empty)} { set redraw 1 }
 			}
 		}
 	}

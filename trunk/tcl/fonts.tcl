@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1507 $
-# Date   : $Date: 2018-08-13 12:17:53 +0000 (Mon, 13 Aug 2018) $
+# Version: $Revision: 1517 $
+# Date   : $Date: 2018-09-06 08:47:10 +0000 (Thu, 06 Sep 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1670,14 +1670,15 @@ proc deleteFonts {context} {
 }
 
 
-proc translate {move} {
+proc translate {moves} {
 	variable UseFigurines
 	variable Options
 
-	if {$UseFigurines && $Options(figurine:use)} { return $move }
+	if {$UseFigurines && $Options(figurine:use)} { return $moves }
 
+	# TODO: use proc mapToLocal in widget/figurines.tcl
 	variable GraphicMap
-	return [string map $GraphicMap $move]
+	return [string map $GraphicMap $moves]
 }
 
 
@@ -1706,6 +1707,7 @@ proc splitMoves {text {tag figurine}} {
 			}
 		}
 	} else {
+		# TODO: use proc mapToLocal in widget/figurines.tcl
 		variable GraphicMap
 		set result [list [string map $GraphicMap $text] {}]
 	}

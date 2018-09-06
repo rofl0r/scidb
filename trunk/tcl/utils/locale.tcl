@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1367 $
-# Date   : $Date: 2017-08-03 13:44:17 +0000 (Thu, 03 Aug 2017) $
+# Version: $Revision: 1517 $
+# Date   : $Date: 2018-09-06 08:47:10 +0000 (Thu, 06 Sep 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -190,6 +190,13 @@ proc timestampToTime {timestamp} {
 
 proc currentTime {} {
 	return [timestampToTime [clock seconds]]
+}
+
+
+proc toNumber {formattedValue} {
+	variable Pattern
+	set mapping [list $Pattern(decimalPoint) "" $Pattern(thousandsSep) ""]
+	return [string trim [string map $mapping $formattedValue]]
 }
 
 

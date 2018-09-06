@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1509 $
-# Date   : $Date: 2018-08-17 14:18:06 +0000 (Fri, 17 Aug 2018) $
+# Version: $Revision: 1517 $
+# Date   : $Date: 2018-09-06 08:47:10 +0000 (Thu, 06 Sep 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -52,7 +52,7 @@ array set Priv {
 proc open {parent base variant info view index {fen {}}} {
 	variable Priv
 
-	set number [::gametable::column $info number]
+	set number [::gamestable::column $info number]
 	set name [file rootname [file tail $base]]
 
 	if {[info exists Priv($base:$variant:$number:$view)]} {
@@ -313,7 +313,7 @@ proc NextGame {nb {step 0}} {
 	ConfigureButtons $nb
 
 	set Vars(info) [::scidb::db::get gameInfo $Vars(index) $view $base $variant]
-	set Vars(number) [::gametable::column $Vars(info) number]
+	set Vars(number) [::gamestable::column $Vars(info) number]
 	set dlg [winfo toplevel $nb]
 	set key "$base:$variant:$number:$view"
 	set i [lsearch -exact $Priv($key) $dlg]
@@ -480,7 +480,7 @@ proc FillTab {nb pane} {
 	set num [expr {$ncols*$nrows}]
 	set result $Vars(result:$index)
 	set length [expr {[llength $result]/2}]
-	set idn [::gametable::column $Vars(info) idn]
+	set idn [::gamestable::column $Vars(info) idn]
 
 	for {set i 0} {$i < $num} {incr i} {
 		set row [expr {$i/$ncols}]
@@ -494,7 +494,7 @@ proc FillTab {nb pane} {
 		set moves [::font::splitMoves [lindex $result [expr {2*$i}]]]
 		foreach {move tag} $moves { $text insert end $move $tag }
 		if {$i == $length - 1} {
-			set res [::gametable::column $Vars(info) result]
+			set res [::gamestable::column $Vars(info) result]
 			set res [::util::formatResult $res]
 			if {[lindex [split [$text index current] .] 1] > 1} {
 				$text insert end " "

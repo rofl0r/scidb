@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1512 $
-# Date   : $Date: 2018-08-20 14:00:52 +0000 (Mon, 20 Aug 2018) $
+# Version: $Revision: 1517 $
+# Date   : $Date: 2018-09-06 08:47:10 +0000 (Thu, 06 Sep 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -179,13 +179,14 @@ proc build {twm parent width height} {
 	$mw add $info
 	$mw add $mesg
 
-	set Vars(mw) $mw
-	set Vars(info) $info
-	set Vars(mesg) $mesg
-
 	set tb $info.table
 	set sb $info.scrollbar
 	set sq $info.square
+
+	set Vars(mw) $mw
+	set Vars(table) $tb
+	set Vars(info) $info
+	set Vars(mesg) $mesg
 
 	set Vars(whiteKnob) \
 		[list $::icon::22x22::whiteKnob $::icon::16x16::whiteKnob $::icon::32x32::whiteKnob]
@@ -265,7 +266,7 @@ proc build {twm parent width height} {
 					set stripes $Options(-emphasize)
 					set lock left
 				} else {
-					set var ::gametable::mc::SortAscending
+					set var ::gamestable::mc::SortAscending
 					set stripes $Options(-emphasize)
 					set lock left
 				}
@@ -275,7 +276,7 @@ proc build {twm parent width height} {
 			eco {
 				set visible $Options(show:tree)
 				set Vars(eco:visible) $visible
-				set var ::gametable::mc::SortAscending
+				set var ::gamestable::mc::SortAscending
 			}
 
 			ratio - score - draws {
@@ -318,7 +319,7 @@ proc build {twm parent width height} {
 					-labelvar [namespace current]::mc::TransparentBar \
 					-variable [namespace current]::Options(bar:transparent) \
 				]
-				set var ::gametable::mc::SortDescending
+				set var ::gamestable::mc::SortDescending
 			}
 
 			result {
@@ -342,11 +343,11 @@ proc build {twm parent width height} {
 					]
 				}
 				lappend menu { separator }
-				set var ::gametable::mc::SortDescending
+				set var ::gamestable::mc::SortDescending
 			}
 
 			default {
-				set var ::gametable::mc::SortDescending
+				set var ::gamestable::mc::SortDescending
 			}
 		}
 
@@ -546,6 +547,18 @@ proc closed {w} {
 	DeleteBars
 #	set i [lsearch $Tables $Vars(twm)]
 #	set Tables [lreplace $Tables $i $i]
+}
+
+
+proc linespace {w} {
+	variable Vars
+	return [::table::linespace $Vars(table)]
+}
+
+
+proc computeHeight {w} {
+	variable Vars
+	return [expr {[::toolbar::totalHeight $w.tree] + [::table::computeHeight $Vars(table) 0]}]
 }
 
 

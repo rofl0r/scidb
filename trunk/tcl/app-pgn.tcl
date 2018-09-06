@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1510 $
-# Date   : $Date: 2018-08-19 12:42:28 +0000 (Sun, 19 Aug 2018) $
+# Version: $Revision: 1517 $
+# Date   : $Date: 2018-09-06 08:47:10 +0000 (Thu, 06 Sep 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1409,7 +1409,7 @@ proc ProcessGoto {position key succKey} {
 			$w tag add h:next {*}[FindRange $w $k $position]
 		}
 		[namespace parent]::board::updateMarks [::scidb::game::query marks]
-		if {$position < 9} { ::annotation::update $key }
+		if {$position < 9} { ::annotation::update $key } ;# TODO should use subscriber
 	} elseif {$Vars(dirty:$position)} {
 		set Vars(dirty:$position) 0
 		See $position $key $succKey
