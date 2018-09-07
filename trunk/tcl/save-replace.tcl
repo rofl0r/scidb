@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1511 $
-# Date   : $Date: 2018-08-20 12:43:10 +0000 (Mon, 20 Aug 2018) $
+# Version: $Revision: 1518 $
+# Date   : $Date: 2018-09-07 11:31:45 +0000 (Fri, 07 Sep 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -991,6 +991,7 @@ proc Build {dlg base variant position number} {
 		-columnresizemode realtime \
 		-yscrollcommand [list $tags.vsb set] \
 		;
+	::widget::bindMouseWheel $t
 	$t column create \
 		-width 22 \
 		-justify center \

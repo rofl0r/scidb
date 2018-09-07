@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1517 $
-# Date   : $Date: 2018-09-06 08:47:10 +0000 (Thu, 06 Sep 2018) $
+# Version: $Revision: 1518 $
+# Date   : $Date: 2018-09-07 11:31:45 +0000 (Fri, 07 Sep 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -705,6 +705,7 @@ proc Update {table base variant} {
 if {[::scidb::game::query mainvariant?] eq "Normal"} {
 ::toolbar::childconfigure $Vars(switcher) -state readonly
 #################################################
+	if {![[namespace parent]::exists? tree]} { return }
 	if {[::scidb::tree::isUpToDate?]} { return }
 
 	if {[string length $base]} {
@@ -1012,6 +1013,10 @@ proc RefreshHeader {table} {
 
 
 proc RefreshRatings {table} {
+	variable Vars
+
+	if {![[namespace parent]::exists? tree]} { return }
+
 	RefreshHeader table
 	FetchResult $table true
 	RefreshRatingLabel
@@ -1021,6 +1026,8 @@ proc RefreshRatings {table} {
 proc RefreshRatingLabel {} {
 	variable Vars
 	variable Options
+
+	if {![[namespace parent]::exists? tree]} { return }
 
 	set side white
 	switch $Options(score:side) {

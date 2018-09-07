@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author: gcramer $
-# Version: $Revision: 1517 $
-# Date   : $Date: 2018-09-06 08:47:10 +0000 (Thu, 06 Sep 2018) $
+# Version: $Revision: 1518 $
+# Date   : $Date: 2018-09-07 11:31:45 +0000 (Fri, 07 Sep 2018) $
 # Url    : $URL: https://svn.code.sf.net/p/scidb/code/trunk/tcl/ecotable.tcl $
 # ======================================================================
 
@@ -241,6 +241,7 @@ proc activate {w flag} {
 		::scidb::game::subscribe opening $position $(update)
 		::scidb::game::subscribe board $position $(board)
 		::scidb::db::subscribe gameSwitch [list [namespace current]::GameSwitched $w]
+		set (lastpos) $position
 		Update $w
 	} else {
 		HideBoard $w

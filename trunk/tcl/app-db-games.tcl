@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1517 $
-# Date   : $Date: 2018-09-06 08:47:10 +0000 (Thu, 06 Sep 2018) $
+# Version: $Revision: 1518 $
+# Date   : $Date: 2018-09-07 11:31:45 +0000 (Fri, 07 Sep 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -54,7 +54,7 @@ variable Columns {
 }
 
 array set FrameOptions {
-	games { -width 1000 -height 100% -minwidth 200 -minheight 100 -expand both }
+	games { -width 1000 -height 100% -minwidth 200 -minheight 4u -expand both }
 }
 
 variable Layout {

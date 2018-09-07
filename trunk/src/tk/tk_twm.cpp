@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1517 $
-// Date   : $Date: 2018-09-06 08:47:10 +0000 (Thu, 06 Sep 2018) $
+// Version: $Revision: 1518 $
+// Date   : $Date: 2018-09-07 11:31:45 +0000 (Fri, 07 Sep 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -5879,10 +5879,13 @@ Node::inspectDimen(Tcl_Obj* attr, tcl::DString& str, int gapSize) const
 	}
 	else if (m_dimen.mode<D,Q>() == Grd)
 	{
-		if (dimen<Inner,D,Q,Abs>())
+		int size  = dimen<Inner,D,Q,Abs>();
+		int units = size ? size/gridSize<D>() : dimen<Inner,D,Q,Grd>();
+
+		if (units)
 		{
 			char buf[100];
-			::snprintf(buf, sizeof(buf), "%du", dimen<Inner,D,Q>()/gridSize<D>());
+			::snprintf(buf, sizeof(buf), "%du", units);
 
 			str.append(attr);
 			str.append(buf);
