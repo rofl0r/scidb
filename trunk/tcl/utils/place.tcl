@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1395 $
-# Date   : $Date: 2017-08-08 13:59:49 +0000 (Tue, 08 Aug 2017) $
+# Version: $Revision: 1519 $
+# Date   : $Date: 2018-09-11 11:41:52 +0000 (Tue, 11 Sep 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -26,8 +26,10 @@ package provide place 2.0
 namespace eval util {
 
 proc place {path args} {
-	lassign [place::geometry $path {*}$args] x y w h
+	set geometry [place::geometry $path {*}$args]
+	lassign $geometry x y w h
 	wm geometry $path "${x}${y}"
+	return $geometry
 }
 
 

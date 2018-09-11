@@ -1,7 +1,7 @@
 # =======================================================================
 # Author : $Author$
-# Version: $Revision: 1517 $
-# Date   : $Date: 2018-09-06 08:47:10 +0000 (Thu, 06 Sep 2018) $
+# Version: $Revision: 1519 $
+# Date   : $Date: 2018-09-11 11:41:52 +0000 (Tue, 11 Sep 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -197,6 +197,7 @@ proc build {parent number patternNumber} {
 	set minsize [expr {12*$charwidth}]
 
 	set main [tk::frame $main -takefocus 0 -borderwidth 0 -background $bg]
+	bind $main <Destroy> [list ::toolbar::removeFromLayout board analysis:$number]
 	set mesg [tk::label $mw.mesg \
 		-takefocus 0 \
 		-borderwidth 0 \
@@ -375,6 +376,7 @@ proc build {parent number patternNumber} {
 	set Vars(widget:time) $info.time.t
 	set Vars(widget:depth) $info.depth.t
 
+	::toolbar::setup $parent -id analysis:$number -layout board
 	set tbControl [::toolbar::toolbar $parent \
 		-id analysis-control \
 		-hide 0 \

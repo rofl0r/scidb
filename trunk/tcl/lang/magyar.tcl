@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1517 $
-# Date   : $Date: 2018-09-06 08:47:10 +0000 (Thu, 06 Sep 2018) $
+# Version: $Revision: 1519 $
+# Date   : $Date: 2018-09-11 11:41:52 +0000 (Tue, 11 Sep 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -583,7 +583,7 @@
 
 ::application::board::mc::Tools				"Eszközök"
 ::application::board::mc::Control			"Kezelés"
-::application::board::mc::Game				"Játszma"
+::application::board::mc::Database			"Adatbázis"
 ::application::board::mc::GoIntoNextVar			"Következő variáció"
 ::application::board::mc::GoIntPrevVar			"Előző variáció"
 

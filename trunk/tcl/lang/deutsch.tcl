@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1517 $
-# Date   : $Date: 2018-09-06 08:47:10 +0000 (Thu, 06 Sep 2018) $
+# Version: $Revision: 1519 $
+# Date   : $Date: 2018-09-11 11:41:52 +0000 (Tue, 11 Sep 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -468,7 +468,7 @@
 
 ### application ########################################################
 ::application::mc::Tab(information)			"&Information"
-::application::mc::Tab(database)				"Datenba&nk"
+::application::mc::Tab(database)				"&Datenbank"
 ::application::mc::Tab(board)					"&Brett"
 ::application::mc::Tab(games)					"&Partien"
 ::application::mc::Tab(player)				"&Spieler"
@@ -581,7 +581,7 @@
 
 ::application::board::mc::Tools							"Werkzeuge"
 ::application::board::mc::Control						"Steuerung"
-::application::board::mc::Game							"Partie"
+::application::board::mc::Database						"Datenbank"
 ::application::board::mc::GoIntoNextVar				"Zur nächsten Variante"
 ::application::board::mc::GoIntPrevVar					"Zur vorhergehenden Variante"
 

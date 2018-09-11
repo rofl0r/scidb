@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1518 $
-# Date   : $Date: 2018-09-07 11:31:45 +0000 (Fri, 07 Sep 2018) $
+# Version: $Revision: 1519 $
+# Date   : $Date: 2018-09-11 11:41:52 +0000 (Tue, 11 Sep 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -188,6 +188,7 @@ proc BuildPane {twm frame uid width height} {
 	bind $tb <<TableLayout>>		 [namespace code [list TableLayout $tb]]
 	bind $tb <<LanguageChanged>>	+[namespace code [list ::scrolledtable::refresh $tb]]
 
+	::toolbar::setup $frame -id games -layout games
 	set tbGameNo [::toolbar::toolbar $frame \
 		-id games-gameno \
 		-hide 1 \
@@ -481,7 +482,7 @@ proc CompareOptions {twm variant} {
 	if {[::scrolledtable::countOptions db:games:$id] == 0} { return true }
 	set lhs $TableOptions($variant:$id)
 	set rhs [::scrolledtable::getOptions db:games:$id]
-	return [::arrayListEqual $lhs $rhs]
+	return [::table::equal $lhs $rhs]
 }
 
 

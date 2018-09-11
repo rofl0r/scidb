@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1441 $
-// Date   : $Date: 2017-10-06 12:25:25 +0000 (Fri, 06 Oct 2017) $
+// Version: $Revision: 1519 $
+// Date   : $Date: 2018-09-11 11:41:52 +0000 (Tue, 11 Sep 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -94,6 +94,7 @@ static Pair const NameMap[] =
 	{ "BlackNA",				BlackNA },
 	{ "BlackRapid",			BlackRapid },
 	{ "BlackRating",			BlackRating },
+	{ "BlackRatingDiff",		BlackRatingDiff },
 	{ "BlackSex",				BlackSex },
 	{ "BlackTeam",				BlackTeam },
 	{ "BlackTeamCountry",	BlackTeamCountry },
@@ -166,14 +167,13 @@ static Pair const NameMap[] =
 	{ "WhiteNA",				WhiteNA },
 	{ "WhiteRapid",			WhiteRapid },
 	{ "WhiteRating",			WhiteRating },
+	{ "WhiteRatingDiff",		WhiteRatingDiff },
 	{ "WhiteSex",				WhiteSex },
 	{ "WhiteTeam",				WhiteTeam },
 	{ "WhiteTeamCountry",	WhiteTeamCountry },
 	{ "WhiteTitle",			WhiteTitle },
 	{ "WhiteType",				WhiteType },
 	{ "WhiteUSCF",				WhiteUSCF },
-	{ "~RESERVED_68",			RESERVED_68 },
-	{ "~RESERVED_69",			RESERVED_69 },
 	{ "~RESERVED_70",			RESERVED_70 },
 	{ "~RESERVED_71",			RESERVED_71 },
 	{ "~RESERVED_72",			RESERVED_72 },

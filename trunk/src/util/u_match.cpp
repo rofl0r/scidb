@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author: gcramer $
-// Version: $Revision: 1382 $
-// Date   : $Date: 2017-08-06 10:19:27 +0000 (Sun, 06 Aug 2017) $
+// Version: $Revision: 1519 $
+// Date   : $Date: 2018-09-11 11:41:52 +0000 (Tue, 11 Sep 2018) $
 // Url    : $HeadURL: https://svn.code.sf.net/p/scidb/code/trunk/src/util/u_match.cpp $
 // ======================================================================
 
@@ -716,9 +716,6 @@ Pattern::normalize(char const* s, char const* e)
 
 	for ( ; s < e; )
 	{
-		if (*s < ' ')
-			continue; // ignore control characters
-
 		switch (*s)
 		{
 			case '*':
@@ -756,6 +753,11 @@ Pattern::normalize(char const* s, char const* e)
 				break;
 
 			default:
+				if (utf8::isControl(s))
+				{
+					s = utf8::nextChar(s);
+					continue; // ignore control characters
+				}
 				if (countMarks)
 				{
 					M_ASSERT(countSpaces == 0);

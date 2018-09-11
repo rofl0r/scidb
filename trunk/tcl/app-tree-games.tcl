@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1517 $
-# Date   : $Date: 2018-09-06 08:47:10 +0000 (Thu, 06 Sep 2018) $
+# Version: $Revision: 1519 $
+# Date   : $Date: 2018-09-11 11:41:52 +0000 (Tue, 11 Sep 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -312,7 +312,7 @@ proc CompareOptions {twm variant} {
 	if {[::scrolledtable::countOptions db:tree:games:$id] == 0} { return true }
 	set lhs $TableOptions($variant:$id)
 	set rhs [::scrolledtable::getOptions db:tree:games:$id]
-	return [::arrayListEqual $lhs $rhs]
+	return [::table::equal $lhs $rhs]
 }
 
 

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1518 $
-# Date   : $Date: 2018-09-07 11:31:45 +0000 (Fri, 07 Sep 2018) $
+# Version: $Revision: 1519 $
+# Date   : $Date: 2018-09-11 11:41:52 +0000 (Tue, 11 Sep 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -428,7 +428,7 @@ proc CompareOptions {twm variant} {
 		if {[::scrolledtable::countOptions db:sites:$id:$uid] > 0} {
 			set lhs $TableOptions($variant:$id:$uid)
 			set rhs [::scrolledtable::getOptions db:sites:$id:$uid]
-			if {![::arrayListEqual $lhs $rhs]} { return false }
+			if {![::table::equal $lhs $rhs]} { return false }
 		}
 	}
 	return true

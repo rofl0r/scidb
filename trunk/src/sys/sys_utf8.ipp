@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1453 $
-// Date   : $Date: 2017-12-11 14:27:52 +0000 (Mon, 11 Dec 2017) $
+// Version: $Revision: 1519 $
+// Date   : $Date: 2018-09-11 11:41:52 +0000 (Tue, 11 Sep 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -114,6 +114,14 @@ unsigned
 sys::utf8::countChars(char const* str, unsigned byteLength)
 {
 	return Tcl_NumUtfChars(str, byteLength);
+}
+
+
+inline
+bool
+sys::utf8::isControl(uchar uc)
+{
+	return Tcl_UniCharIsControl(uc);
 }
 
 

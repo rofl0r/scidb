@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1453 $
-// Date   : $Date: 2017-12-11 14:27:52 +0000 (Mon, 11 Dec 2017) $
+// Version: $Revision: 1519 $
+// Date   : $Date: 2018-09-11 11:41:52 +0000 (Tue, 11 Sep 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -287,6 +287,15 @@ sys::utf8::isAscii(mstl::string const& str)
 	}
 
 	return true;
+}
+
+
+bool
+sys::utf8::isControl(char const* s)
+{
+	uchar u;
+	bits::toUniChar(s, u);
+	return isControl(u);
 }
 
 

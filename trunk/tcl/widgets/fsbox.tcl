@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1500 $
-# Date   : $Date: 2018-07-13 10:00:25 +0000 (Fri, 13 Jul 2018) $
+# Version: $Revision: 1519 $
+# Date   : $Date: 2018-09-11 11:41:52 +0000 (Tue, 11 Sep 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -2589,6 +2589,7 @@ proc Build {w path args} {
 	::tk::frame $path -borderwidth 0 -takefocus 0 -width $Options(pane:favorites)
 	pack propagate $path 0
 
+	::toolbar::setup $path -id fsbox-bookmarks
 	set tb [::toolbar::toolbar $path -id toolbar -hide 0 -side bottom]
 
 	set Vars(button:add) [::toolbar::add $tb button    \
@@ -3316,6 +3317,7 @@ proc Build {w path args} {
 	set sv $path.f.vscroll
 	set sh $path.f.hscroll
 	set t  $path.f.files
+	::toolbar::setup $path -id fsbox-files
 	set tb [::toolbar::toolbar $path -id toolbar -hide 0 -side left]
 
 	set Vars(toolbar:filelist) $tb

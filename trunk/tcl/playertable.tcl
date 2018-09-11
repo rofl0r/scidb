@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1517 $
-# Date   : $Date: 2018-09-06 08:47:10 +0000 (Thu, 06 Sep 2018) $
+# Version: $Revision: 1519 $
+# Date   : $Date: 2018-09-11 11:41:52 +0000 (Tue, 11 Sep 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -293,6 +293,7 @@ proc build {path getViewCmd {visibleColumns {}} {args {}}} {
 		;
 
 	if {$Vars(usefind)} {
+		::toolbar::setup $path -id playertable -layout player
 		set tbFind [::toolbar::toolbar $path \
 			-id playertable-find \
 			-hide 1 \

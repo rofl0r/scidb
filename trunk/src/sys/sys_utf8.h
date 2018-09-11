@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1372 $
-// Date   : $Date: 2017-08-04 17:56:11 +0000 (Fri, 04 Aug 2017) $
+// Version: $Revision: 1519 $
+// Date   : $Date: 2018-09-11 11:41:52 +0000 (Tue, 11 Sep 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -37,11 +37,13 @@ bool isAlpha(uchar uc);
 bool isAlnum(uchar uc);
 bool isSpace(uchar uc);
 bool isPunct(uchar uc);
+bool isControl(uchar uc);
 
 bool isAlpha(char const* s);
 bool isAlnum(char const* s);
 bool isSpace(char const* s);
 bool isPunct(char const* s);
+bool isControl(char const* s);
 
 bool isAscii(char uc);
 

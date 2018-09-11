@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1507 $
-# Date   : $Date: 2018-08-13 12:17:53 +0000 (Mon, 13 Aug 2018) $
+# Version: $Revision: 1519 $
+# Date   : $Date: 2018-09-11 11:41:52 +0000 (Tue, 11 Sep 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1102,6 +1102,12 @@ proc setDefaultLayout {table id style} {
 	# we don't use detach if it does not have a tree column, otherwise the item is not centering
 	$table.t style layout $style elemImg -union elemIco -iexpand nswe -indent no -detach $Vars(detach)
 	$table.t style layout $style elemIco -height $Vars(linespace) -indent no -detach $Vars(detach)
+}
+
+
+proc equal {lhs rhs} {
+	array set opts $lhs
+	return [ArrayEqual opts $rhs]
 }
 
 
@@ -2749,7 +2755,13 @@ proc ArrayEqual {lhs rhs} {
 	if {[array size foo] == 0} { return 1 }
 	set keys [lsort -unique [concat [array names foo] [array names bar]]]
 	if {[llength $keys] != [array size foo]} { return 0 }
-	foreach key $keys { if {$foo($key) ne $bar($key)} { return 0 } }
+	foreach key $keys {
+		if {$foo($key) ne $bar($key)} {
+			if {![string match {-lastwidth:*} $key]} { return 0 }
+			# for some reasons we need a tolerance of two pixels for -lastwidth
+			if {abs($foo($key) - $bar($key)) > 2} { return 0 }
+		}
+	}
 	return 1
 }
 

@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1500 $
-// Date   : $Date: 2018-07-13 10:00:25 +0000 (Fri, 13 Jul 2018) $
+// Version: $Revision: 1519 $
+// Date   : $Date: 2018-09-11 11:41:52 +0000 (Tue, 11 Sep 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -487,10 +487,10 @@ namespace tag
 		FICSGamesDBGameNo,		///< FICS game identifier
 		Lag,							///< Time lag per move in milliseconds (used in BPGN)
 		WhiteDays, BlackDays,	///< Remaining days for white/black; used on myschach.de
+		WhiteRatingDiff,			///< Change in rating after this game
+		BlackRatingDiff,			///< Change in rating after this game
 
 		// Reserved
-		RESERVED_68 = 68,
-		RESERVED_69 = 69,
 		RESERVED_70 = 70,
 		RESERVED_71 = 71,
 		RESERVED_72 = 72,
@@ -533,7 +533,7 @@ namespace tag
 		BlackATeamCountry,	BlackBTeamCountry,
 
 		ExtraTag, // IMPORTANT NOTE: must have value <= TagSetSize
-		LastTag = BlackDays,
+		LastTag = BlackRatingDiff,
 		BughouseTag = BughouseDBGameNo,
 	};
 

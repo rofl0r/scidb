@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1518 $
-# Date   : $Date: 2018-09-07 11:31:45 +0000 (Fri, 07 Sep 2018) $
+# Version: $Revision: 1519 $
+# Date   : $Date: 2018-09-11 11:41:52 +0000 (Tue, 11 Sep 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -422,6 +422,7 @@ proc build {twm parent width height} {
 	$tb.t style elements styLine {rectDivider}
 	$tb.t style layout styLine rectDivider -pady {3 2} -iexpand x
 
+	::toolbar::setup $parent -id tree -layout board
 	set tbSwitcher [::toolbar::toolbar $parent \
 		-id tree-switcher \
 		-side top \
@@ -1890,7 +1891,7 @@ proc CompareOptions {twm variant} {
 	if {[::table::countOptions db:tree:$id] == 0} { return true }
 	set lhs $TableOptions($variant:$id)
 	set rhs [::table::getOptions db:tree:$id]
-	if {![::arrayListEqual $lhs $rhs]} { return false }
+	if {![::table::equal $lhs $rhs]} { return false }
 	return true
 }
 

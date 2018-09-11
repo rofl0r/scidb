@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1517 $
-# Date   : $Date: 2018-09-06 08:47:10 +0000 (Thu, 06 Sep 2018) $
+# Version: $Revision: 1519 $
+# Date   : $Date: 2018-09-11 11:41:52 +0000 (Tue, 11 Sep 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -174,6 +174,7 @@ proc update {} {
 			{Burly|1262881395698|yellow.color|gregor}
 			{Condal|1263914065014|yellow.color|gregor}
 			{Contrast|1322146529013|yellow.color|gregor}
+			{Contourless|1536512761722|purple|gregor}
 			{Emerald|1244127333315|yellow.color|gregor}
 			{Fritz|1422386484520|purple|gregor}
 			{Glass|1243791877212|yellow.color|gregor}

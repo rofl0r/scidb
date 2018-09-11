@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1517 $
-# Date   : $Date: 2018-09-06 08:47:10 +0000 (Thu, 06 Sep 2018) $
+# Version: $Revision: 1519 $
+# Date   : $Date: 2018-09-11 11:41:52 +0000 (Tue, 11 Sep 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -209,7 +209,6 @@ proc open {} {
 	bind .application <Control-Shift-minus>			$decrFontSize
 	bind .application <Control-Shift-KP_Subtract>	$decrFontSize
 	bind .application <<FontSizeChanged>>				[namespace code { FontSizeChanged %W %d }]
-	bind .application <<Fullscreen>>						[namespace code { Fullscreen %d }]
 
 	::searchentry::bindShortcuts .application
 }
@@ -556,6 +555,11 @@ proc prepareExit {{backup 1}} {
 		if {$backup} { ::game::backup }
 		::scidb::app::finalize
 		set Vars(exit:save) 0
+		::options::startTransaction
+		::options::saveOptionsFile
+		twm::saveTableOptions
+		::options::endTransaction
+		::load::write
 	}
 }
 
@@ -1036,11 +1040,6 @@ proc Exit {w} {
 	if {$w eq ".application"} {
 		set ::remote::blocking 1
 		set ::remote::postponed 0
-		::options::startTransaction
-		::options::saveOptionsFile
-		twm::saveTableOptions
-		::options::endTransaction
-		::load::write
 		exit
 	}
 }
@@ -1120,12 +1119,6 @@ proc Startup2 {} {
 	after idle { ::tips::show .application }
 	#after idle [list ::beta::welcomeToScidb $app]
 	#::util::photos::checkForUpdate [namespace current]::InformAboutUpdates
-}
-
-
-proc Fullscreen {flag} {
-#	variable Vars
-#	if {!$flag && [llength $twm::Geometry} { twm::geometry $twm::Geometry }
 }
 
 

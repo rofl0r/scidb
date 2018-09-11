@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1517 $
-# Date   : $Date: 2018-09-06 08:47:10 +0000 (Thu, 06 Sep 2018) $
+# Version: $Revision: 1519 $
+# Date   : $Date: 2018-09-11 11:41:52 +0000 (Tue, 11 Sep 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -581,7 +581,7 @@
 
 ::application::board::mc::Tools							"Strumenti"
 ::application::board::mc::Control						"Controllo"
-::application::board::mc::Game							"Partita"
+::application::board::mc::Database						"Database"
 ::application::board::mc::GoIntoNextVar				"Vai alla prossima variante"
 ::application::board::mc::GoIntPrevVar					"Vai alla precedente variante"
 

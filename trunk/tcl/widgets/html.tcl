@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1510 $
-# Date   : $Date: 2018-08-19 12:42:28 +0000 (Sun, 19 Aug 2018) $
+# Version: $Revision: 1519 $
+# Date   : $Date: 2018-09-11 11:41:52 +0000 (Tue, 11 Sep 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1216,7 +1216,7 @@ proc SelectionExtend {w x y {node {}}} {
 		}
 
 		if {	$toNode != $Priv(sel:from:node)
-			|| $toIdx !=  $Priv(sel:from:index)
+			|| $toIdx  != $Priv(sel:from:index)
 			|| abs($x - $Priv(sel:x)) >= 3
 			|| abs($y - $Priv(sel:y)) >= 3} {
 			set Priv(sel:moved) 1

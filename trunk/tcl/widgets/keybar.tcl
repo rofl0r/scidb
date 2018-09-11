@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author: gcramer $
-# Version: $Revision: 1511 $
-# Date   : $Date: 2018-08-20 12:43:10 +0000 (Mon, 20 Aug 2018) $
+# Version: $Revision: 1519 $
+# Date   : $Date: 2018-09-11 11:41:52 +0000 (Tue, 11 Sep 2018) $
 # Url    : $URL: https://svn.code.sf.net/p/scidb/code/trunk/tcl/widgets/keybar.tcl $
 # ======================================================================
 
@@ -49,7 +49,10 @@ proc Build {w keys} {
 			background: #eeeeee;
 			white-space: nowrap;
 		}
-		body { padding: 0; border: 0; margin: 0; display: block; }"
+		body { padding: 0; border: 0; margin: 0; display: block; }
+	"
+	# TODO: background not working; why?
+	append css ":hover { text-decoration: none; background: #bbbbbb; }"
 	::html $w \
 		-takefocus 0 \
 		-width 0 \
@@ -63,7 +66,7 @@ proc Build {w keys} {
 		;
 	bind $w <<LanguageChanged>> [namespace code [list LanguageChanged $w]]
 	$w onmouseover [list [namespace current]::MouseEnter $w]
-	$w onmouseout [namespace current]::MouseLeave
+	$w onmouseout  [list [namespace current]::MouseLeave $w]
 	$w onmousedown1 [list [namespace current]::MouseDown $w]
 	catch { rename ::$w $w.__html__ }
 	proc ::$w {command args} "[namespace current]::WidgetProc $w \$command {*}\$args"
@@ -113,6 +116,7 @@ proc MouseDown {w nodes} {
 proc MouseEnter {w nodes} {
 	foreach node $nodes {
 		if {[$node tag] eq "kbd"} {
+			$node dynamic set hover
 			set tip [set [$node attribute tip]]
 			if {[string length $tip]} {
 				tooltip show $w $tip
@@ -123,7 +127,14 @@ proc MouseEnter {w nodes} {
 }
 
 
-proc MouseLeave {nodes} { tooltip hide }
+proc MouseLeave {w nodes} {
+	foreach node $nodes {
+		if {[$node tag] eq "kbd"} {
+			$node dynamic clear hover
+		}
+	}
+	tooltip hide
+}
 
 } ;# namespace keybar
 

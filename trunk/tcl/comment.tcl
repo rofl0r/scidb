@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1508 $
-# Date   : $Date: 2018-08-15 12:20:03 +0000 (Wed, 15 Aug 2018) $
+# Version: $Revision: 1519 $
+# Date   : $Date: 2018-09-11 11:41:52 +0000 (Tue, 11 Sep 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -196,6 +196,7 @@ proc open {parent pos lang} {
 	$dlg.cancel	configure -command [namespace code [list Close $dlg]]
 	$dlg.hlp		configure -command [list ::help::open .application Comment-Editor-Dialog -parent $dlg]
 
+	::toolbar::setup $dlg -id comment
 	set tb [::toolbar::toolbar $dlg \
 		-id comment-languages \
 		-float 0 \

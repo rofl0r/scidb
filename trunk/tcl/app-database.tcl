@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1517 $
-# Date   : $Date: 2018-09-06 08:47:10 +0000 (Thu, 06 Sep 2018) $
+# Version: $Revision: 1519 $
+# Date   : $Date: 2018-09-11 11:41:52 +0000 (Tue, 11 Sep 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -270,6 +270,7 @@ proc build {tab width height} {
 	bind $main <Double-Button-2> { break }
 	bind $main <<FontSizeChanged>> [namespace code { FontSizeChanged %W }]
 
+	::toolbar::setup $switcher -id database
 	set tbFile [::toolbar::toolbar $switcher \
 		-hide 1 \
 		-id database-switcher \

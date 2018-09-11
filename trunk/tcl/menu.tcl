@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1511 $
-# Date   : $Date: 2018-08-20 12:43:10 +0000 (Mon, 20 Aug 2018) $
+# Version: $Revision: 1519 $
+# Date   : $Date: 2018-09-11 11:41:52 +0000 (Tue, 11 Sep 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -791,9 +791,27 @@ proc featureRequest {parent} {
 proc viewFullscreen {{toggle {}}} {
 	variable Fullscreen
 
-	if {[llength $toggle]} { set Fullscreen [expr {!$Fullscreen}] }
-	wm attributes .application -fullscreen $Fullscreen
-	event generate .application <<Fullscreen>> -data $Fullscreen
+	if {[llength $toggle]} {
+		set Fullscreen [expr {!$Fullscreen}]
+	}
+	if {[wm attributes .application -fullscreen] != $Fullscreen} {
+		wm attributes .application -fullscreen $Fullscreen
+		event generate .application <<Fullscreen>> -data $Fullscreen
+	}
+}
+
+
+proc setFullscreen {flag} {
+	variable Fullscreen
+
+	if {$Fullscreen != $flag} {
+		set Fullscreen $flag
+		if {[winfo ismapped .application]} {
+			viewFullscreen
+		} else {
+			bind .application <Map> [namespace code SetFullscreenMode]
+		}
+	}
 }
 
 
@@ -817,6 +835,12 @@ proc CheckFullscreen {app} {
 			if {$wd == [winfo screenwidth $app] && $ht == [winfo screenheight $app]} { set Fullscreen 1 }
 		}
 	}
+}
+
+
+proc SetFullscreenMode {} {
+	bind .application <Map> {#}
+	after idle [namespace code viewFullscreen]
 }
 
 
