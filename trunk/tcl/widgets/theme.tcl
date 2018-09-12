@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1517 $
-# Date   : $Date: 2018-09-06 08:47:10 +0000 (Thu, 06 Sep 2018) $
+# Version: $Revision: 1520 $
+# Date   : $Date: 2018-09-12 10:22:56 +0000 (Wed, 12 Sep 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -326,7 +326,13 @@ proc configureBackground {w} {
 
 
 proc notebookBorderwidth {} {
-	return [ttk::style lookup TNotebook -borderwidth]
+	switch [currentTheme] {
+		alt { return 1 }
+		clam - clearlooks - scidblue { return 2 }
+	}
+	set result [ttk::style lookup TNotebook -borderwidth]
+	if {[string is integer -strict $result]} { return $result }
+	return 1
 }
 
 

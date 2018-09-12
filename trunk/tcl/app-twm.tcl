@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author: gcramer $
-# Version: $Revision: 1519 $
-# Date   : $Date: 2018-09-11 11:41:52 +0000 (Tue, 11 Sep 2018) $
+# Version: $Revision: 1520 $
+# Date   : $Date: 2018-09-12 10:22:56 +0000 (Wed, 12 Sep 2018) $
 # Url    : $URL: https://svn.code.sf.net/p/scidb/code/trunk/tcl/app-twm.tcl $
 # ======================================================================
 
@@ -1143,6 +1143,7 @@ proc LoadLayout {twm layoutVariant name mode} {
 		if {[catch { ::load::source $file -encoding utf-8 -throw 1 } -> opts]} {
 			puts stderr "error while loading $file"
 			if {$mode ne "load"} { return false }
+			puts stderr $opts
 			return {*}$opts -rethrow 1
 		}
 	} elseif {$mode ne "load"} {
@@ -1455,7 +1456,7 @@ proc ComputeAlignedHeight {twm uid} {
 	set newHeight [expr {(($height - $overhang)/$linespace)*$linespace + $overhang}]
 	if {$newHeight == $height} { return 0 }
 #	if {abs($newHeight + $linespace - $height) <= abs($newHeight - $height)} {
-	incr newHeight $linespace
+#		incr newHeight $linespace
 #	}
 	return $newHeight
 }

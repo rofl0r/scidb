@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1519 $
-# Date   : $Date: 2018-09-11 11:41:52 +0000 (Tue, 11 Sep 2018) $
+# Version: $Revision: 1520 $
+# Date   : $Date: 2018-09-12 10:22:56 +0000 (Wed, 12 Sep 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -669,7 +669,7 @@ proc setOptions {id options} {
 
 		foreach tbId $Specs(idlist:$parent) {
 			set toolbar [dict get $Lookup $tbId]
-			if {$Specs(keepoptions:$toolbar)} {
+			if {[info exists Specs(keepoptions:$toolbar)] && $Specs(keepoptions:$toolbar)} {
 				if {$Specs(state:$toolbar) in {flat show}} {
 					RemoveFlatHandle $toolbar
 					Forget $toolbar
@@ -684,7 +684,7 @@ proc setOptions {id options} {
 
 		foreach tbId $Specs(idlist:$parent) {
 			set toolbar [dict get $Lookup $tbId]
-			if {$Specs(keepoptions:$toolbar)} {
+			if {[info exists Specs(keepoptions:$toolbar)] && $Specs(keepoptions:$toolbar)} {
 				PrepareToolbarOptions $toolbar $id
 				ChangeIcons $toolbar
 				setState $toolbar $Specs(state:$toolbar)

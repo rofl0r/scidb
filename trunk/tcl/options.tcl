@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1519 $
-# Date   : $Date: 2018-09-11 11:41:52 +0000 (Tue, 11 Sep 2018) $
+# Version: $Revision: 1520 $
+# Date   : $Date: 2018-09-12 10:22:56 +0000 (Wed, 12 Sep 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -183,7 +183,7 @@ proc writeItem {chan var {lowercaseOnly 1}} {
 		puts $chan "array set $var {"
 		writeArray $chan [array get $var] $lowercaseOnly
 		puts $chan "}"
-	} else {
+	} elseif {[info exists $var]} {
 		switch [llength [set $var]] {
 			0			{ puts $chan "set $var {}" }
 			1			{ puts $chan "set $var [set $var]" }
