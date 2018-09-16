@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1517 $
-# Date   : $Date: 2018-09-06 08:47:10 +0000 (Thu, 06 Sep 2018) $
+# Version: $Revision: 1522 $
+# Date   : $Date: 2018-09-16 13:56:42 +0000 (Sun, 16 Sep 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -88,7 +88,7 @@ proc build {parent menu width height} {
 		-takefocus 0     \
 		-command [namespace code [list $tb.t yview]] \
 		;
-	bind $sb <Any-Button> [list ::tooltip::hide]
+#	bind $sb <Any-Button> [list ::tooltip::hide]
 	::ttk::frame $sq -borderwidth 1 -relief sunken
 
 	grid $tb -row 0 -column 0 -rowspan 2 -sticky nsew

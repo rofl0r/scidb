@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1437 $
-// Date   : $Date: 2017-10-04 11:10:20 +0000 (Wed, 04 Oct 2017) $
+// Version: $Revision: 1522 $
+// Date   : $Date: 2018-09-16 13:56:42 +0000 (Sun, 16 Sep 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -165,6 +165,8 @@ public:
 	variant::Type variant(unsigned index) const;
 	/// Returns the (decoding) format of database
 	Format format() const;
+	/// Returns the original format of database
+	Format sourceFormat() const;
 	/// Returns the encoding of database
 	mstl::string const& encoding() const;
 	/// Returns the encoding of database which is used for reading.

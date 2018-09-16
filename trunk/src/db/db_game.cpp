@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1502 $
-// Date   : $Date: 2018-07-16 12:55:14 +0000 (Mon, 16 Jul 2018) $
+// Version: $Revision: 1522 $
+// Date   : $Date: 2018-09-16 13:56:42 +0000 (Sun, 16 Sep 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -4141,7 +4141,8 @@ Game::finishLoad(variant::Type variant, mstl::string const* fen)
 	m_currentBoard = m_startBoard;
 
 	moveToMainlineStart();
-	::checkRepetitions(m_startBoard, m_variant, m_startNode);
+	if (!variant::isAntichessExceptLosers(variant))
+		::checkRepetitions(m_startBoard, m_variant, m_startNode);
 	updateLine();
 	updateLanguageSet();
 //	m_wantedLanguages = m_languageSet;
@@ -4636,9 +4637,9 @@ Game::updateSubscriber(unsigned action)
 				m_flags |= GameInfo::Flag_Illegal_Castling;
 			else
 				m_flags &= ~GameInfo::Flag_Illegal_Castling;
-		}
 
-		::checkRepetitions(m_startBoard, m_variant, m_startNode);
+			::checkRepetitions(m_startBoard, m_variant, m_startNode);
+		}
 	}
 
 	{	// local scope

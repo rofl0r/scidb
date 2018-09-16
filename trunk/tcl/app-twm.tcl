@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author: gcramer $
-# Version: $Revision: 1520 $
-# Date   : $Date: 2018-09-12 10:22:56 +0000 (Wed, 12 Sep 2018) $
+# Version: $Revision: 1522 $
+# Date   : $Date: 2018-09-16 13:56:42 +0000 (Sun, 16 Sep 2018) $
 # Url    : $URL: https://svn.code.sf.net/p/scidb/code/trunk/tcl/app-twm.tcl $
 # ======================================================================
 
@@ -118,6 +118,8 @@ proc make {twm id prioArr options layout args} {
 		bind $twm <<TwmGeometry>> [namespace code [list geometry %d]]
 		bind $twm <<TwmFullscreen>> [namespace code [list Fullscreen $twm %d]]
 		bind $twm <<Fullscreen>> [namespace code geometry]
+		set Vars(lock:layout) 0
+		set Vars(fullscreen) [::menu::fullscreen?]
 	}
 
 	bind $twm <<TwmMenu>> [namespace code [list Menu $twm %d %x %y]]
@@ -129,7 +131,6 @@ proc make {twm id prioArr options layout args} {
 	set Vars($twm:id) $id
 	set Vars($id:twm) $twm
 	set Vars($twm:afterid) {}
-	set Vars(fullscreen) [::menu::fullscreen?]
 	lappend Vars(twm) $twm
 
 	return $twm
@@ -357,10 +358,15 @@ proc geometry {{data {}}} {
 }
 
 
+proc lock {}	{ set [namespace parent]::Vars(lock:layout) 1 }
+proc unlock {}	{ set [namespace parent]::Vars(lock:layout) 0 }
+
+
 proc switchLayout {variant reason} {
 	variable [namespace parent]::Vars
 	variable Options
 
+	if {$Vars(lock:layout)} { return }
 	set newLayoutVariant [toLayoutVariant $variant]
 
 	foreach twm $Vars(twm) {

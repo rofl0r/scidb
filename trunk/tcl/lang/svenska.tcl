@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1519 $
-# Date   : $Date: 2018-09-11 11:41:52 +0000 (Tue, 11 Sep 2018) $
+# Version: $Revision: 1522 $
+# Date   : $Date: 2018-09-16 13:56:42 +0000 (Sun, 16 Sep 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1369,6 +1369,7 @@
 ::gamestable::mc::Accel(browse)			"W"
 ::gamestable::mc::Accel(overview)		"O"
 ::gamestable::mc::Accel(tourntable)		"T"
+::gamestable::mc::Accel(openurl)			"U"
 ::gamestable::mc::Space						"Space"
 
 ::gamestable::mc::F_Number					"#"
@@ -1587,7 +1588,6 @@
 ::playercard::mc::WhiteMostPlayed			"Vanligaste öppning som vit"
 ::playercard::mc::BlackMostPlayed			"Vanligaste öppning som svart"
 
-::playercard::mc::OpenInWebBrowser			"Öppna i webbrowser"
 ::playercard::mc::OpenPlayerCard				"Öppna %s spelarkort"
 ::playercard::mc::OpenFileCard				"Öppna %s filkort"
 ::playercard::mc::OpenFideRatingHistory	"Öppna Fide ratinghistorik"

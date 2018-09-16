@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1393 $
-// Date   : $Date: 2017-08-07 14:41:16 +0000 (Mon, 07 Aug 2017) $
+// Version: $Revision: 1522 $
+// Date   : $Date: 2018-09-16 13:56:42 +0000 (Sun, 16 Sep 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -640,9 +640,9 @@ cmdCopy(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 	Progress			progress(progressCmd, progressArg);
 	tcl::Log			log(logCmd, logArg);
 	View&				view(scidb->cursor(source, variant).view(viewNo));
-	unsigned			n;
 	unsigned			accepted[variant::NumberOfVariants];
 	unsigned			rejected[variant::NumberOfVariants];
+	unsigned			n;
 
 	::memset(accepted, 0, sizeof(accepted));
 	::memset(rejected, 0, sizeof(rejected));

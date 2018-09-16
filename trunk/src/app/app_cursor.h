@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1383 $
-// Date   : $Date: 2017-08-06 17:18:29 +0000 (Sun, 06 Aug 2017) $
+// Version: $Revision: 1522 $
+// Date   : $Date: 2018-09-16 13:56:42 +0000 (Sun, 16 Sep 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -85,6 +85,7 @@ public:
 	bool hasTreeView() const;
 
 	db::format::Type format() const;
+	db::format::Type sourceFormat() const;
 	db::variant::Type variant() const;
 
 	MultiCursor const& multiCursor() const;

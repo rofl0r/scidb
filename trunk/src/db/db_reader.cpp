@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1219 $
-// Date   : $Date: 2017-06-27 09:32:32 +0000 (Tue, 27 Jun 2017) $
+// Version: $Revision: 1522 $
+// Date   : $Date: 2018-09-16 13:56:42 +0000 (Sun, 16 Sep 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -596,18 +596,18 @@ Reader::getAttributes(mstl::string const& filename, int& numGames, mstl::string*
 	{
 		mstl::string ext(util::misc::file::suffix(filename));
 
-		if (ext == "zip" || ext == "ZIP")
+		if (format::isZIPFile(ext))
 		{
 			if (util::ZStream::containsSuffix(filename, "pgn"))
 				numGames = PgnReader::estimateNumberOfGames(numGames);
 			else
 				numGames = -1;
 		}
-		else if (ext == "gz" || ext == "pgn" || ext == "PGN")
+		else if (format::isTextFile(ext))
 		{
 			numGames = PgnReader::estimateNumberOfGames(numGames);
 		}
-		else if (ext == "bpgn")
+		else if (format::isBPGNArchive(ext))
 		{
 			numGames = BpgnReader::estimateNumberOfGames(numGames);
 		}

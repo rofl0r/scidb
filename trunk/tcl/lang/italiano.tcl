@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1519 $
-# Date   : $Date: 2018-09-11 11:41:52 +0000 (Tue, 11 Sep 2018) $
+# Version: $Revision: 1522 $
+# Date   : $Date: 2018-09-16 13:56:42 +0000 (Sun, 16 Sep 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1370,6 +1370,7 @@
 ::gamestable::mc::Accel(browse)			"W"
 ::gamestable::mc::Accel(overview)		"O"
 ::gamestable::mc::Accel(tourntable)		"T"
+::gamestable::mc::Accel(openurl)			"U"
 ::gamestable::mc::Space						"Spazio"
 
 ::gamestable::mc::F_Number					"#"
@@ -1586,7 +1587,6 @@
 ::playercard::mc::WhiteMostPlayed			"Apertura più giocata da Bianco"
 ::playercard::mc::BlackMostPlayed			"Apertura più giocata da Nero"
 
-::playercard::mc::OpenInWebBrowser			"Apri nel browser"
 ::playercard::mc::OpenPlayerCard				"Apri profilo utente %s"
 ::playercard::mc::OpenFileCard				"Apri profilo file %s"
 ::playercard::mc::OpenFideRatingHistory	"Apri storia punteggio FIDE"

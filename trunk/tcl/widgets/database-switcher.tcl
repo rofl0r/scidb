@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1507 $
-# Date   : $Date: 2018-08-13 12:17:53 +0000 (Mon, 13 Aug 2018) $
+# Version: $Revision: 1522 $
+# Date   : $Date: 2018-09-16 13:56:42 +0000 (Sun, 16 Sep 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -250,7 +250,12 @@ proc WidgetProc {w command args} {
 
 		readonly {
 			lassign $args file flag
-			return [lset Vars(bases) $Vars(index:$file) 5 $flag]
+			set rc [lset Vars(bases) $Vars(index:$file) 5 $flag]
+			set variants [::scidb::db::get variants $file]
+			if {$Vars(variant) ni $variants} {
+				SwitchToVariant $w [lindex $variants 0]
+			}
+			return $Vars(variant)
 		}
 
 		current? {
@@ -443,7 +448,7 @@ proc UpdateBase {w id} {
 	variable ${w}::Vars
 	variable Options
 
-	lassign [lindex $Vars(bases) $Vars(map:$id)] _ type file
+	lassign [lindex $Vars(bases) $Vars(map:$id)] _ type file ext
 	set variants [::scidb::db::get variants $file]
 	set included [expr {$Vars(variant) in $variants}]
 	set canv $w.content
@@ -599,7 +604,7 @@ proc DeleteBase {w file} {
 
 	if {$Vars(selection) == $id} {
 		set i [lsearch -integer $Vars(subset) $id]
-		if {$i == 0} {
+		if {$i <= 0} {
 			set newId [lindex $Vars(subset) end]
 		} else {
 			set newId [lindex $Vars(subset) [expr {$i - 1}]]

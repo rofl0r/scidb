@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1519 $
-# Date   : $Date: 2018-09-11 11:41:52 +0000 (Tue, 11 Sep 2018) $
+# Version: $Revision: 1522 $
+# Date   : $Date: 2018-09-16 13:56:42 +0000 (Sun, 16 Sep 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -353,7 +353,7 @@ proc table {args} {
 	ttk::scrollbar $table.sb -orient horizontal -command [list $table.t xview]
 	after idle [list $table.t xview moveto 0.0]
 	$table.t notify bind $table.sb <Scroll-x> [namespace code { SbSet %W %l %u }]
-	::bind $table.sb <Any-Button> [list ::tooltip::hide]
+#	::bind $table.sb <Any-Button> [list ::tooltip::hide]
 	if {$Options(-takefocus) eq 1} {
 		::bind $table.sb <Any-Button> +[namespace code [list focus $table]]
 	}

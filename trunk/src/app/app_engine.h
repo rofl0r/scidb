@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1395 $
-// Date   : $Date: 2017-08-08 13:59:49 +0000 (Tue, 08 Aug 2017) $
+// Version: $Revision: 1522 $
+// Date   : $Date: 2018-09-16 13:56:42 +0000 (Sun, 16 Sep 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -529,6 +529,7 @@ private:
 	void exited();
 	void stopped();
 	void resumed();
+	void suspend(bool gameHasSwitched);
 
 	Concrete*				m_engine;
 	db::Game*				m_game;
@@ -603,6 +604,7 @@ private:
 	bool						m_useBestInfo;
 	bool						m_pausing;
 	bool						m_resumed;
+	bool						m_suspended;
 	bool						m_restart;
 	bool						m_clearHash;
 	Process*					m_process;

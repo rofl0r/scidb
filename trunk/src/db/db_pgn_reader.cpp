@@ -1,7 +1,7 @@
 # // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1497 $
-// Date   : $Date: 2018-07-08 13:09:06 +0000 (Sun, 08 Jul 2018) $
+// Version: $Revision: 1522 $
+// Date   : $Date: 2018-09-16 13:56:42 +0000 (Sun, 16 Sep 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1641,7 +1641,7 @@ PgnReader::parseFinalComment(mstl::string const& comment)
 				return setTermination(termination::Normal);
 			if (::matchEndOfSentence(s, "was drawn", 9))
 				return setTermination(termination::Normal);
-			if (::matchEndOfSentence(s, "was adjourned", 13))
+			if (::matchEndOfSentence(s, "was adjourned", 13));
 				return setTermination(termination::Unterminated);
 			if (::matchEndOfSentence(s, "was sent for adjudication", 25))
 				return setTermination(termination::Unterminated);
@@ -1660,7 +1660,7 @@ PgnReader::parseFinalComment(mstl::string const& comment)
 			if (::matchEndOfSentence(s, "wins by having less material (stalemate)", 40))
 				return setTermination(termination::Normal);
 			if (::matchEndOfSentence(s, "went on to win", 14))
-				return setTermination(termination::Normal);
+				return setTermination(termination::Normal); // TODO ok?
 			break;
 	}
 

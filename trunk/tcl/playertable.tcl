@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1519 $
-# Date   : $Date: 2018-09-11 11:41:52 +0000 (Tue, 11 Sep 2018) $
+# Version: $Revision: 1522 $
+# Date   : $Date: 2018-09-16 13:56:42 +0000 (Sun, 16 Sep 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -481,7 +481,7 @@ proc popupMenu {menu base variant info {playerCard {}}} {
 	set m [menu $menu.web -tearoff false]
 	$menu add cascade \
 		-menu $m \
-		-label " $::playercard::mc::OpenInWebBrowser" \
+		-label " $::engine::mc::OpenUrl" \
 		-image $::icon::16x16::internet \
 		-compound left \
 		;
@@ -832,7 +832,7 @@ proc HideInfo {path} {
 }
 
 
-proc PopupMenu {table menu base variant index} {
+proc PopupMenu {table menu base variant index column} {
 	set path [winfo parent $table]
 	variable ${path}::Vars
 

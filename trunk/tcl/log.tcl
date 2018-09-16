@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1138 $
-# Date   : $Date: 2017-04-08 15:54:51 +0000 (Sat, 08 Apr 2017) $
+# Version: $Revision: 1522 $
+# Date   : $Date: 2018-09-16 13:56:42 +0000 (Sun, 16 Sep 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -49,6 +49,7 @@ variable Log .application.log
 proc warning {args}	{ Print Warning 1 {*}$args }
 proc error {args}		{ Print Error 1 {*}$args }
 proc info {args}		{ Print Information 0 {*}$args }
+proc state {args}		{ Print Error 1 {*}$args }
 
 
 proc newline {} {

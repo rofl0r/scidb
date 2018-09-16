@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1383 $
-// Date   : $Date: 2017-08-06 17:18:29 +0000 (Sun, 06 Aug 2017) $
+// Version: $Revision: 1522 $
+// Date   : $Date: 2018-09-16 13:56:42 +0000 (Sun, 16 Sep 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -241,6 +241,7 @@ public:
 private:
 
 	unsigned exportGames(db::Consumer& destination,
+								db::variant::Type variant,
 								unsigned* illegalRejected,
 								db::Log& log,
 								util::Progress& progress) const;

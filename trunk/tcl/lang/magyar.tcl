@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1519 $
-# Date   : $Date: 2018-09-11 11:41:52 +0000 (Tue, 11 Sep 2018) $
+# Version: $Revision: 1522 $
+# Date   : $Date: 2018-09-16 13:56:42 +0000 (Sun, 16 Sep 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1371,6 +1371,7 @@
 ::gamestable::mc::Accel(browse)		"W"
 ::gamestable::mc::Accel(overview)	"O"
 ::gamestable::mc::Accel(tourntable)	"T"
+::gamestable::mc::Accel(openurl)	"U"
 ::gamestable::mc::Space			"Space"
 
 ::gamestable::mc::F_Number		"#"
@@ -1589,7 +1590,6 @@
 ::playercard::mc::WhiteMostPlayed	"Most common openings as White" ;# NEW
 ::playercard::mc::BlackMostPlayed	"Most common openings as Black" ;# NEW
 
-::playercard::mc::OpenInWebBrowser	"Mgnyitás böngészőben"
 ::playercard::mc::OpenPlayerCard	"%s játékos adatlapjának megynitása"
 ::playercard::mc::OpenFileCard		"%s fájl adatlapjának megnyitása"
 ::playercard::mc::OpenFideRatingHistory	"Fide értékszámának alakulása"

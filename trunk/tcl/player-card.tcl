@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1502 $
-# Date   : $Date: 2018-07-16 12:55:14 +0000 (Mon, 16 Jul 2018) $
+# Version: $Revision: 1522 $
+# Date   : $Date: 2018-09-16 13:56:42 +0000 (Sun, 16 Sep 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -43,7 +43,6 @@ set LastGamePlayed			"Last game played"
 set WhiteMostPlayed			"Most common openings as White"
 set BlackMostPlayed			"Most common openings as Black"
 
-set OpenInWebBrowser			"Open in web browser"
 set OpenPlayerCard			"%s player card"
 set OpenFileCard				"%s file card"
 set OpenFideRatingHistory	"FIDE rating history"
@@ -732,7 +731,7 @@ proc Mouse3Down {w key info nodes} {
 	menu $m -tearoff false
 	catch { wm attributes $m -type popup_menu }
 	$m add command                                       \
-		-label " $mc::OpenInWebBrowser"                   \
+		-label " $::engine::mc::OpenUrl"                  \
 		-image $::icon::16x16::none                       \
 		-compound left                                    \
 		-background $options(menu:headerbackground)       \

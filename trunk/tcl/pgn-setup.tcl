@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1510 $
-# Date   : $Date: 2018-08-19 12:42:28 +0000 (Sun, 19 Aug 2018) $
+# Version: $Revision: 1522 $
+# Date   : $Date: 2018-09-16 13:56:42 +0000 (Sun, 16 Sep 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -939,8 +939,8 @@ proc BuildFrame(topics) {w topic context position tree} {
 				-cursor {} \
 				-takefocus 0 \
 				;
-			bind $t <Any-Button> { break }
-			bind $t <Any-Key> { break }
+#			bind $t <Any-Button> { break }
+#			bind $t <Any-Key> { break }
 			$t tag configure link -foreground blue2
 			$t tag bind link <Enter> [list $t tag configure link -underline 1]
 			$t tag bind link <Leave> [list $t tag configure link -underline 0]

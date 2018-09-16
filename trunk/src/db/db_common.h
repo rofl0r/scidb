@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1519 $
-// Date   : $Date: 2018-09-11 11:41:52 +0000 (Tue, 11 Sep 2018) $
+// Version: $Revision: 1522 $
+// Date   : $Date: 2018-09-16 13:56:42 +0000 (Sun, 16 Sep 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1089,7 +1089,15 @@ namespace format
 
 	bool isScidFormat(Type type);
 	bool isChessBaseFormat(Type type);
+	bool isPGNArchive(Type type);
 	bool isWritable(Type type);
+
+	bool isTextFile(mstl::string const& extension);
+	bool isZIPFile(mstl::string const& extension);
+	bool isGZIPFile(mstl::string const& extension);
+	bool isBPGNArchive(mstl::string const& extension);
+
+	Type fromString(mstl::string const& extension);
 }
 
 namespace encoding

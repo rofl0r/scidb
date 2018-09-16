@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1519 $
-# Date   : $Date: 2018-09-11 11:41:52 +0000 (Tue, 11 Sep 2018) $
+# Version: $Revision: 1522 $
+# Date   : $Date: 2018-09-16 13:56:42 +0000 (Sun, 16 Sep 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -307,7 +307,7 @@ proc MakeEditor {lang} {
 
 	bind $t <ButtonPress-3>	 [namespace code [list PopupMenu $t]]
 	bind $t <Any-Button>		 [list $t configure -cursor xterm]
-	bind $t <Any-Button>		+[list ::tooltip::tooltip hide]
+#	bind $t <Any-Button>		+[list ::tooltip::tooltip hide] ;# TODO: needed?
 
 	grid $t -row 1 -column 1 -sticky ewns
 	grid $s -row 1 -column 2 -sticky ns

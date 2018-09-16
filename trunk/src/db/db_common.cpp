@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1519 $
-// Date   : $Date: 2018-09-11 11:41:52 +0000 (Tue, 11 Sep 2018) $
+// Version: $Revision: 1522 $
+// Date   : $Date: 2018-09-16 13:56:42 +0000 (Sun, 16 Sep 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -4804,6 +4804,64 @@ organization::fromString(char const* s)
 	}
 
 	return Unspecified;
+}
+
+
+format::Type
+format::fromString(mstl::string const& extension)
+{
+	switch (extension.front())
+	{
+		case '\0': return Scidb;
+
+		case 'p': if (extension == "pgn") return Pgn; break;
+		case 'z': if (extension == "zip") return Pgn; break;
+		case 'g': if (extension == "gz")  return Pgn; break;
+		case 'P': if (extension == "PGN") return Pgn; break;
+		case 'Z': if (extension == "ZIP") return Pgn; break;
+
+		case 's':
+			if (extension == "sci") return Scidb;
+			if (extension == "si3") return Scid3;
+			if (extension == "si4") return Scid4;
+			break;
+
+		case 'c':
+			if (extension == "cbh") return ChessBase;
+			if (extension == "cbf") return ChessBaseDOS;
+			if (extension == "CBF") return ChessBaseDOS;
+			break;
+	}
+
+	return Invalid;
+}
+
+
+bool
+format::isTextFile(mstl::string const& extension)
+{
+	return extension == "pgn" || extension == "PGN" || extension == "gz";
+}
+
+
+bool
+format::isZIPFile(mstl::string const& extension)
+{
+	return extension == "zip" || extension == "ZIP";
+}
+
+
+bool
+format::isGZIPFile(mstl::string const& extension)
+{
+	return extension == "gz";
+}
+
+
+bool
+format::isBPGNArchive(mstl::string const& extension)
+{
+	return extension == "bpgn";
 }
 
 // vi:set ts=3 sw=3:

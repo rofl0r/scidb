@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1517 $
-# Date   : $Date: 2018-09-06 08:47:10 +0000 (Thu, 06 Sep 2018) $
+# Version: $Revision: 1522 $
+# Date   : $Date: 2018-09-16 13:56:42 +0000 (Sun, 16 Sep 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1320,7 +1320,7 @@ proc Refresh {table} {
 }
 
 
-proc PopupMenu {table menu _ _ index} {
+proc PopupMenu {table menu _ _ index _} {
 	if {![string is digit -strict $index]} { return }
 	set info [scidb::player::info $index -web 1]
 	::playercard::buildWebMenu $table $menu $info

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1519 $
-# Date   : $Date: 2018-09-11 11:41:52 +0000 (Tue, 11 Sep 2018) $
+# Version: $Revision: 1522 $
+# Date   : $Date: 2018-09-16 13:56:42 +0000 (Sun, 16 Sep 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1359,6 +1359,7 @@
 ::gamestable::mc::Accel(browse)			"R"
 ::gamestable::mc::Accel(overview)		"U"
 ::gamestable::mc::Accel(tourntable)		"T"
+::gamestable::mc::Accel(openurl)			"L"
 ::gamestable::mc::Space						"Leertaste"
 
 ::gamestable::mc::F_Number					"#"
@@ -1577,7 +1578,6 @@
 ::playercard::mc::WhiteMostPlayed			"Häufigste Eröffnungen mit Weiß"
 ::playercard::mc::BlackMostPlayed			"Häufigste Eröffnungen mit Schwarz"
 
-::playercard::mc::OpenInWebBrowser			"Im Web-Browser öffnen"
 ::playercard::mc::OpenPlayerCard				"%s-Spielerkartei"
 ::playercard::mc::OpenFileCard				"%s-Karteikarte"
 ::playercard::mc::OpenFideRatingHistory	"Fide-Wertungszahlentwicklung"

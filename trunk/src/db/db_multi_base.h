@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1207 $
-// Date   : $Date: 2017-06-23 15:20:02 +0000 (Fri, 23 Jun 2017) $
+// Version: $Revision: 1522 $
+// Date   : $Date: 2018-09-16 13:56:42 +0000 (Sun, 16 Sep 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -14,7 +14,7 @@
 // ======================================================================
 
 // ======================================================================
-// Copyright: (C) 2012-2013 Gregor Cramer
+// Copyright: (C) 2012-2018 Gregor Cramer
 // ======================================================================
 
 // ======================================================================
@@ -75,6 +75,7 @@ public:
 	bool exists(unsigned variantIndex) const;
 	bool isSingleBase() const;
 	bool isTextFile() const;
+	bool isPGNArchive() const;
 	bool descriptionHasChanged() const;
 
 	unsigned countGames(Mode mode) const;
@@ -85,6 +86,8 @@ public:
 	Type type() const;
 	/// Returns the (decoding) format of database
 	Format format() const;
+	/// Returns the original format of database
+	Format sourceFormat() const;
 	/// Returns the variant of the leading database.
 	variant::Type variant() const;
 	/// Returns the leading database
@@ -114,6 +117,8 @@ public:
 	file::State save(mstl::string const& encoding, unsigned flags, util::Progress& progress);
 	/// Reset status of databases.
 	void resetInitialSize();
+	/// Set/unset read-only flag.
+	bool setReadonly(bool flag = true);
 
 	/// Setup data for PGN files.
 	void setup(FileOffsets* fileOffsets);

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1507 $
-# Date   : $Date: 2018-08-13 12:17:53 +0000 (Mon, 13 Aug 2018) $
+# Version: $Revision: 1522 $
+# Date   : $Date: 2018-09-16 13:56:42 +0000 (Sun, 16 Sep 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -323,7 +323,7 @@ proc openAdmininstration {parent} {
 	ttk::label			$setup.lparams -text $mc::Parameters
 	ttk::entry			$setup.eparams -textvar [namespace current]::Data(Parameters)
 
-	::tooltip::tooltip $setup.burl ::playercard::mc::OpenInWebBrowser
+	::tooltip::tooltip $setup.burl [namespace current]::mc::OpenUrl
 	::tooltip::tooltip $setup.blastused $::mc::Clear
 	::tooltip::tooltip $setup.blogo $mc::OpenFsbox
 	::tooltip::tooltip $setup.bdirectory $::dialog::fsbox::mc::Title(dir)
