@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1517 $
-# Date   : $Date: 2018-09-06 08:47:10 +0000 (Thu, 06 Sep 2018) $
+# Version: $Revision: 1524 $
+# Date   : $Date: 2018-09-17 13:27:59 +0000 (Mon, 17 Sep 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -186,6 +186,8 @@ bind Tooltip <Any-KeyPress> [namespace code hide]
 # NOTE: don't use this binding, because double clicks are not working anymore
 #bind Tooltip <Any-Button> [namespace code hide]
 bind . <Any-Button> [namespace code hide]
+
+::shadow::addBindings TooltipPopup no
 
 
 proc init {} {

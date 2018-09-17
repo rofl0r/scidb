@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1522 $
-# Date   : $Date: 2018-09-16 13:56:42 +0000 (Sun, 16 Sep 2018) $
+# Version: $Revision: 1524 $
+# Date   : $Date: 2018-09-17 13:27:59 +0000 (Mon, 17 Sep 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -2718,6 +2718,8 @@ switch -- [tk windowingsystem] {
 		bind AddLanguagePopdown <FocusOut> { comment::UnpostPopdown %W }
 	}
 }
+
+::shadow::addBindings AddLanguagePopdown
 
 
 ttk::copyBindings Text Comment

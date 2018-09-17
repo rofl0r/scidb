@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1520 $
-# Date   : $Date: 2018-09-12 10:22:56 +0000 (Wed, 12 Sep 2018) $
+# Version: $Revision: 1524 $
+# Date   : $Date: 2018-09-17 13:27:59 +0000 (Mon, 17 Sep 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1226,6 +1226,8 @@ bind ComboboxListbox <Any-Key> {
 
 bind ComboboxPopdown <ButtonPress-4> { %W.l yview scroll -1 units }
 bind ComboboxPopdown <ButtonPress-5> { %W.l yview scroll +1 units }
+
+::shadow::addBindings ComboboxPopdown
 
 }
 
