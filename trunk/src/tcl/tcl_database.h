@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1339 $
-// Date   : $Date: 2017-07-31 19:09:29 +0000 (Mon, 31 Jul 2017) $
+// Version: $Revision: 1523 $
+// Date   : $Date: 2018-09-17 12:11:58 +0000 (Mon, 17 Sep 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -51,6 +51,7 @@ namespace tcl
 			::db::move::Notation notation);
 		int getPlayerStats(::db::Database const& db, ::db::NamebasePlayer const& player);
 		int getTags(::db::TagSet const& tags, bool userSuppliedOnly);
+		int countNumGames(mstl::string const& filename);
 
 		char const* lookupType(::db::type::ID type);
 	}

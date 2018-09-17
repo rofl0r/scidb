@@ -1,7 +1,7 @@
 # =======================================================================
 # Author : $Author$
-# Version: $Revision: 1522 $
-# Date   : $Date: 2018-09-16 13:56:42 +0000 (Sun, 16 Sep 2018) $
+# Version: $Revision: 1523 $
+# Date   : $Date: 2018-09-17 12:11:58 +0000 (Mon, 17 Sep 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1018,7 +1018,8 @@ proc Display(pv) {tree score mate depth seldepth time nodes nps tbhits line pv} 
 	variable ${Vars(number)}::Options
 
 	if {$Vars(state:suspended)} {
-		set Vars(suspended,[lindex $args 6]) $args ;# XXX unused
+		set args [list $score $mate $depth $seldepth $time $nodes $nps $tbhits $line $pv]
+		set Vars(suspended,[lindex $args 9]) $args
 	} else {
 		Display(time) $tree $time $depth $seldepth $nodes $nps $tbhits
 

@@ -1,7 +1,7 @@
 # // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1522 $
-// Date   : $Date: 2018-09-16 13:56:42 +0000 (Sun, 16 Sep 2018) $
+// Version: $Revision: 1523 $
+// Date   : $Date: 2018-09-17 12:11:58 +0000 (Mon, 17 Sep 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1333,7 +1333,7 @@ PgnReader::finishGame(bool skip)
 
 	if (state == save::UnsupportedVariant)
 	{
-		if (m_countRejected == 0)
+		if (m_countRejected == 0 && m_fileOffsets)
 			m_fileOffsets->append(m_currentOffset);
 
 		++m_rejected[variantIndex];

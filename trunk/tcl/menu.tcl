@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1522 $
-# Date   : $Date: 2018-09-16 13:56:42 +0000 (Sun, 16 Sep 2018) $
+# Version: $Revision: 1523 $
+# Date   : $Date: 2018-09-17 12:11:58 +0000 (Mon, 17 Sep 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -582,7 +582,10 @@ proc dbNew {parent variant} {
 	if {$FileSelBoxInUse} { return 0 }
 	set FileSelBoxInUse 1
 
-	set filetypes [list [list $mc::ScidbBases {.sci}] [list $mc::PGNFilesArchives {.pgn .pgn.gz}]]
+	set filetypes [list [list $mc::ScidbBases {.sci}]]
+	if {$variant in {Normal Undetermined}} {
+		lappend filetypes [list $mc::PGNFilesArchives {.pgn .pgn.gz}]
+	}
 	set result [::dialog::saveFile \
 		-parent $parent \
 		-class database \

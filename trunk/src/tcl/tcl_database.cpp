@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1522 $
-// Date   : $Date: 2018-09-16 13:56:42 +0000 (Sun, 16 Sep 2018) $
+// Version: $Revision: 1523 $
+// Date   : $Date: 2018-09-17 12:11:58 +0000 (Mon, 17 Sep 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -665,6 +665,19 @@ struct MySubscriber : public ::app::Subscriber
 } // namespace
 
 
+int
+tcl::db::countNumGames(mstl::string const& filename)
+{
+	int						numGames;
+	uint32_t					creationTime;
+	::db::type::ID			type;
+	::db::variant::Type	variant;
+
+	if (!::db::DatabaseCodec::getAttributes(filename, numGames, type, variant, creationTime))
+		return -1;
+	return numGames;
+}
+
 
 char const*
 tcl::db::lookupType(type::ID type)
@@ -1097,21 +1110,33 @@ cmdImport(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 				return TCL_ERROR;
 			}
 
-			unsigned variantIndex = variant::toIndex(db->variant());
+			variant::Type variant = db->variant();
+			MultiCursor const& destination = Scidb->multiCursor(dst);
+			unsigned numGames = tcl::db::countNumGames(src);
 
-			if (Scidb->contains(dst, db->variant()))
+			if (	format::isScidFormat(db->format())
+				&& destination.multiBase().sourceFormat() == format::Scidb
+				&& destination.multiBase().variant() == variant::ThreeCheck)
 			{
-				Cursor& destination(scidb->cursor(dst, db->variant()));
-				unsigned k = destination.database().countGames();
-				unsigned n = destination.importGames(*db, illegalPtr, log, progress);
+				M_ASSERT(variant == variant::Normal);
+				variant = variant::ThreeCheck;
+			}
+
+			unsigned variantIndex = variant::toIndex(variant);
+
+			if (Scidb->contains(dst, variant))
+			{
+				M_ASSERT(destination[variantIndex]);
+				Cursor& cursor(*destination[variantIndex]);
+				unsigned n = cursor.importGames(*db, illegalPtr, log, progress);
 
 				count += n;
 				accepted[variantIndex] = n;
-				rejected[variantIndex] = destination.database().countGames() - n - k;
+				rejected[variantIndex] = numGames - n;
 			}
 			else
 			{
-				rejected[variantIndex] = db->countGames();
+				rejected[variantIndex] = tcl::db::countNumGames(src);
 			}
 		}
 

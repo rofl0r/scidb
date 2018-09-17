@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1517 $
-# Date   : $Date: 2018-09-06 08:47:10 +0000 (Thu, 06 Sep 2018) $
+# Version: $Revision: 1523 $
+# Date   : $Date: 2018-09-17 12:11:58 +0000 (Mon, 17 Sep 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -140,7 +140,8 @@ proc unmap {w} {
 	set r .__shadow__r__$id
 
 	if {[winfo exists $b]} {
-		# NOTE: destroying immediately is causing problems with exposures (Unix)
+		# NOTE: it seem's that the override redirect option is causing problems with exposure events.
+		# NOTE: probably this is a local problem.
 		after idle [list wm withdraw $b]
 		after idle [list wm withdraw $r]
 	}
