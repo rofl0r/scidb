@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1520 $
-# Date   : $Date: 2018-09-12 10:22:56 +0000 (Wed, 12 Sep 2018) $
+# Version: $Revision: 1525 $
+# Date   : $Date: 2018-09-18 10:54:18 +0000 (Tue, 18 Sep 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -218,7 +218,7 @@ proc toolbar {parent args} {
 			-tooltipvar		{ if {[llength $val]} { set Specs(tooltipvar:$handle:$toolbar) $val } }
 			-title			{ set Specs(title:$toolbar) $val }
 			-titlevar		{ set Specs(titlevar:$toolbar) $val }
-			-orientation	{ set Specs(side:$toolbar) $val }
+			-orientation	{ set Specs(orientation:$toolbar) $val }
 			-alignment		{ set alignment $val }
 			-iconsize		{ set Specs(iconsize:$toolbar) $val }
 			-state			{ set Specs(state:$toolbar) $val }

@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1519 $
-# Date   : $Date: 2018-09-11 11:41:52 +0000 (Tue, 11 Sep 2018) $
+# Version: $Revision: 1525 $
+# Date   : $Date: 2018-09-18 10:54:18 +0000 (Tue, 18 Sep 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -180,7 +180,6 @@ proc keybar::tr {text} {
 	return $::mc::KeyDescr($text)
 }
 
-proc fsbox::makeStateSpecificIcons {img} { return [::icon::makeStateSpecificIcons $img] }
 proc fsbox::tooltip {args} { return [::tooltip::tooltip {*}$args] }
 proc fsbox::makeStateSpecificIcons {args} { return [::icon::makeStateSpecificIcons {*}$args] }
 proc fsbox::busy {args} { ::widget::busyCursor on }

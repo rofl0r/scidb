@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1524 $
-# Date   : $Date: 2018-09-17 13:27:59 +0000 (Mon, 17 Sep 2018) $
+# Version: $Revision: 1525 $
+# Date   : $Date: 2018-09-18 10:54:18 +0000 (Tue, 18 Sep 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -201,15 +201,16 @@ proc init {} {
 	if {[tk windowingsystem] eq "aqua"} {
 		::tk::unsupported::MacWindowStyle style $b help none
 	} else {
-		wm overrideredirect $b 1
+		wm overrideredirect $b yes
 	}
 
 	if {[tk windowingsystem] eq "win32"} {
 		# avoid the blink issue with 1 to <1 alpha on Windows
 		catch { wm attributes $b -alpha 0.99 }
 	}
-	catch { wm attributes $b -topmost 1 }
+	catch { wm attributes $b -topmost yes }
 	catch { wm attributes $b -type tooltip }
+	wm focusmodel $b passive
 	wm positionfrom $b program
 	wm withdraw $b
 

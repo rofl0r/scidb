@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1522 $
-# Date   : $Date: 2018-09-16 13:56:42 +0000 (Sun, 16 Sep 2018) $
+# Version: $Revision: 1525 $
+# Date   : $Date: 2018-09-18 10:54:18 +0000 (Tue, 18 Sep 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -2590,7 +2590,7 @@ proc Build {w path args} {
 	pack propagate $path 0
 
 	::toolbar::setup $path -id fsbox-bookmarks
-	set tb [::toolbar::toolbar $path -id toolbar -hide 0 -side bottom]
+	set tb [::toolbar::toolbar $path -id fsbox:bookmarks -hide 0 -side bottom]
 
 	set Vars(button:add) [::toolbar::add $tb button    \
 		-image $icon::16x16::iconAdd                    \
@@ -3318,7 +3318,7 @@ proc Build {w path args} {
 	set sh $path.f.hscroll
 	set t  $path.f.files
 	::toolbar::setup $path -id fsbox-files
-	set tb [::toolbar::toolbar $path -id toolbar -hide 0 -side left]
+	set tb [::toolbar::toolbar $path -id fsbox:files -hide 0 -side left]
 
 	set Vars(toolbar:filelist) $tb
 
