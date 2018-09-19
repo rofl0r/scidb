@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1517 $
-# Date   : $Date: 2018-09-06 08:47:10 +0000 (Thu, 06 Sep 2018) $
+# Version: $Revision: 1526 $
+# Date   : $Date: 2018-09-19 13:32:13 +0000 (Wed, 19 Sep 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -521,7 +521,7 @@ proc addActionsToMenu {m command {extraActions {}}} {
 	} else {
 		lappend actionList replace variation mainline
 	}
-	if {![::scidb::game::query trial]} {
+	if {![::scidb::game::query trial] && [::scidb::game::current] < 9} {
 		lappend actionList trial
 	}
 	if {!$atEnd} {

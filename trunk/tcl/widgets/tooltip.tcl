@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1525 $
-# Date   : $Date: 2018-09-18 10:54:18 +0000 (Tue, 18 Sep 2018) $
+# Version: $Revision: 1526 $
+# Date   : $Date: 2018-09-19 13:32:13 +0000 (Wed, 19 Sep 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -487,7 +487,7 @@ proc popdown {w} {
 	if {$w ne $G(toplevel)} { tooltip on }
 
 	if {[winfo exists $w]} {
-		update idletasks
+		#update idletasks
 		wm withdraw $w
 	}
 }
