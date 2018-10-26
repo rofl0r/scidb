@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1522 $
-// Date   : $Date: 2018-09-16 13:56:42 +0000 (Sun, 16 Sep 2018) $
+// Version: $Revision: 1527 $
+// Date   : $Date: 2018-10-26 12:11:06 +0000 (Fri, 26 Oct 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -570,6 +570,8 @@ Reader::parseDescription(mstl::istream& strm, mstl::string& result, mstl::string
 bool
 Reader::getAttributes(mstl::string const& filename, int& numGames, mstl::string* description)
 {
+	int64_t num;
+
 	if (description)
 	{
 		util::ZStream strm(sys::file::internalName(filename), mstl::ios_base::in);
@@ -577,39 +579,35 @@ Reader::getAttributes(mstl::string const& filename, int& numGames, mstl::string*
 		if (!strm.isOpen())
 			return false;
 
-		numGames = strm.size();
+		num = strm.size();
 		parseDescription(strm, *description);
 		description->trim();
 		strm.close();
 	}
 	else
 	{
-		int64_t fileSize;
-
-		if (!util::ZStream::size(sys::file::internalName(filename), fileSize, 0))
+		if (!util::ZStream::size(sys::file::internalName(filename), num, 0))
 			return false;
-
-		numGames = fileSize;
 	}
 
-	if (numGames > 0)
+	if (num > 0)
 	{
 		mstl::string ext(util::misc::file::suffix(filename));
 
 		if (format::isZIPFile(ext))
 		{
 			if (util::ZStream::containsSuffix(filename, "pgn"))
-				numGames = PgnReader::estimateNumberOfGames(numGames);
+				numGames = PgnReader::estimateNumberOfGames(num);
 			else
 				numGames = -1;
 		}
 		else if (format::isTextFile(ext))
 		{
-			numGames = PgnReader::estimateNumberOfGames(numGames);
+			numGames = PgnReader::estimateNumberOfGames(num);
 		}
 		else if (format::isBPGNArchive(ext))
 		{
-			numGames = BpgnReader::estimateNumberOfGames(numGames);
+			numGames = BpgnReader::estimateNumberOfGames(num);
 		}
 	}
 

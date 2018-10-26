@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1525 $
-# Date   : $Date: 2018-09-18 10:54:18 +0000 (Tue, 18 Sep 2018) $
+# Version: $Revision: 1527 $
+# Date   : $Date: 2018-10-26 12:11:06 +0000 (Fri, 26 Oct 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -151,8 +151,8 @@ proc unmap {w} {
 	set r .__shadow__r__$id
 
 	if {[winfo exists $b]} {
-		after idle [list wm withdraw $b]
-		after idle [list wm withdraw $r]
+		after idle [list catch [list wm withdraw $b]]
+		after idle [list catch [list wm withdraw $r]]
 	}
 }
 

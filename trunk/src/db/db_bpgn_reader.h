@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1452 $
-// Date   : $Date: 2017-12-08 13:37:59 +0000 (Fri, 08 Dec 2017) $
+// Version: $Revision: 1527 $
+// Date   : $Date: 2018-10-26 12:11:06 +0000 (Fri, 26 Oct 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -14,7 +14,7 @@
 // ======================================================================
 
 // ======================================================================
-// Copyright: (C) 2013 Gregor Cramer
+// Copyright: (C) 2013-2018 Gregor Cramer
 // ======================================================================
 
 // ======================================================================
@@ -59,7 +59,7 @@ public:
 	unsigned process(util::Progress& progress) override;
 
 	unsigned estimateNumberOfGames() override;
-	static unsigned estimateNumberOfGames(unsigned fileSize);
+	static unsigned estimateNumberOfGames(uint64_t fileSize);
 
 private:
 

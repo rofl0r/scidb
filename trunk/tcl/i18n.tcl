@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1510 $
-# Date   : $Date: 2018-08-19 12:42:28 +0000 (Sun, 19 Aug 2018) $
+# Version: $Revision: 1527 $
+# Date   : $Date: 2018-10-26 12:11:06 +0000 (Fri, 26 Oct 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -71,6 +71,7 @@ set Delete				"Delete"
 set Edit					"Edit"
 set Empty				"Empty"
 set Enabled				"Enabled"
+set Error				"Error"
 set File					"File"
 set Filter				"Filter"
 set From					"From"

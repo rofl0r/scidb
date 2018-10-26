@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1517 $
-# Date   : $Date: 2018-09-06 08:47:10 +0000 (Thu, 06 Sep 2018) $
+# Version: $Revision: 1527 $
+# Date   : $Date: 2018-10-26 12:11:06 +0000 (Fri, 26 Oct 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -14,7 +14,7 @@
 # ======================================================================
 
 # ======================================================================
-# Copyright: (C) 2009-2017 Gregor Cramer
+# Copyright: (C) 2009-2018 Gregor Cramer
 # ======================================================================
 
 # ======================================================================
@@ -1360,7 +1360,7 @@ proc Destroy {dlg w position} {
 	::scidb::view::unsubscribe {*}$Vars(subscribe:close)
 
 	if {[info exists Vars(subscribe:tree)]} {
-		::scidb::db::unsubscribe tree {*}$Vars(subscribe:tree)
+		::scidb::db::unsubscribe tree $Vars(subscribe:tree)
 	}
 
 	set key "$Vars(base):$Vars(variant):$Vars(number):$Vars(view)"

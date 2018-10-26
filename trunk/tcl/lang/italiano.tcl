@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1523 $
-# Date   : $Date: 2018-09-17 12:11:58 +0000 (Mon, 17 Sep 2018) $
+# Version: $Revision: 1527 $
+# Date   : $Date: 2018-10-26 12:11:06 +0000 (Fri, 26 Oct 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -78,6 +78,7 @@
 ::mc::Edit					"Modifica"
 ::mc::Empty					"Vuoto"
 ::mc::Enabled				"Enabled" ;# NEW
+::mc::Error					"Error" ;# NEW
 ::mc::File					"File"
 ::mc::Filter				"Filtro"
 ::mc::From					"Da"
