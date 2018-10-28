@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1527 $
-# Date   : $Date: 2018-10-26 12:11:06 +0000 (Fri, 26 Oct 2018) $
+# Version: $Revision: 1528 $
+# Date   : $Date: 2018-10-28 14:02:07 +0000 (Sun, 28 Oct 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -586,7 +586,7 @@ if {0} {
 proc ShowPosition {parent position {state 0}} {
 	variable ${position}::Vars
 
-	if {[string length [set key [FindKey $w move]]]} {
+	if {[string length [set key [FindKey $parent move]]]} {
 		showPosition $parent $position [::board::diagram::rotated? $Vars(board)] $key $state
 	}
 }

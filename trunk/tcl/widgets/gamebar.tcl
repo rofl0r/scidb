@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1522 $
-# Date   : $Date: 2018-09-16 13:56:42 +0000 (Sun, 16 Sep 2018) $
+# Version: $Revision: 1528 $
+# Date   : $Date: 2018-10-28 14:02:07 +0000 (Sun, 28 Oct 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -2663,7 +2663,7 @@ proc EnterSite {gamebar id} {
 	set sid $Specs(selected:$gamebar)
 
 	if {$id eq $sid || $id eq "-1"} {
-		set site [lindex $Specs(data:$id:$gamebar) 3]
+		set site [lindex $Specs(data:$sid:$gamebar) 3]
 		if {[::web::isWebLink $site]} {
 			Hilite $gamebar $id line2
 		}
