@@ -1,7 +1,7 @@
 # =======================================================================
 # Author : $Author$
-# Version: $Revision: 1523 $
-# Date   : $Date: 2018-09-17 12:11:58 +0000 (Mon, 17 Sep 2018) $
+# Version: $Revision: 1529 $
+# Date   : $Date: 2018-11-22 10:48:49 +0000 (Thu, 22 Nov 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -792,6 +792,7 @@ proc SetMultiPV {tree {number 0}} {
 
 
 proc SetLinesPerPV {tree} {
+	variable ${tree}::Vars
 	variable ${Vars(number)}::Options
 
 	set Options(engine:nlines) [$Vars(widget:linesPerPV) get]

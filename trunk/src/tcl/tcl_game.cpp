@@ -1,7 +1,7 @@
 // ======================================================================
 // Author : $Author$
-// Version: $Revision: 1522 $
-// Date   : $Date: 2018-09-16 13:56:42 +0000 (Sun, 16 Sep 2018) $
+// Version: $Revision: 1529 $
+// Date   : $Date: 2018-11-22 10:48:49 +0000 (Thu, 22 Nov 2018) $
 // Url    : $URL$
 // ======================================================================
 
@@ -1977,14 +1977,28 @@ cmdGo(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 			}
 			break;
 
-		case 'p': // position
+		case 'p':
+			switch (cmd[1])
 			{
-				char const* fen = stringFromObj(objc, objv, index + 1);
+				case 'l': // ply
+				{
+					game.goTo(::db::edit::Key(unsignedFromObj(objc, objv, index + 1) + 1));
+					break;
+				}
 
-				if (*fen)
-					game.goToPosition(stringFromObj(objc, objv, index + 1));
-				else
-					game.goToStart();
+				case 'o': // position
+				{
+					char const* fen = stringFromObj(objc, objv, index + 1);
+
+					if (*fen)
+						game.goToPosition(fen);
+					else
+						game.goToStart();
+					break;
+				}
+
+				default:
+					return error(CmdGo, nullptr, nullptr, "unknown command '%s'", cmd);
 			}
 			break;
 
@@ -2117,7 +2131,7 @@ cmdNext(ClientData, Tcl_Interp* ti, int objc, Tcl_Obj* const objv[])
 		else if (equal(lastOption, "-usegamestyle"))
 			useGameStyle = true;
 		else
-			return error(CmdNext, nullptr, nullptr, "unknown option %s", lastOption);
+			return error(CmdNext, nullptr, nullptr, "unknown option '%s'", lastOption);
 
 		--objc;
 		lastOption = stringFromObj(objc, objv, objc - 1);

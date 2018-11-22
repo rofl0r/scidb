@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1522 $
-# Date   : $Date: 2018-09-16 13:56:42 +0000 (Sun, 16 Sep 2018) $
+# Version: $Revision: 1529 $
+# Date   : $Date: 2018-11-22 10:48:49 +0000 (Thu, 22 Nov 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -1135,8 +1135,8 @@ proc PopupMenu {table x y} {
 	set columnName [lindex [::table::columns $table] $col]
 
 	switch $row {
-		none		{ return }
-		outside	{ set index outside }
+		none	{ return }
+		-1		{ set index outside }
 
 		default {
 			set index [expr {$(start) + $row}]
@@ -1158,7 +1158,7 @@ proc PopupMenu {table x y} {
 	set variant $(variant)
 	{*}$(popupcmd) [winfo parent [winfo parent $table]] $menu $base $variant $index $columnName
 
-	if {[$menu index 0] ne "none"} {
+	if {$index ne "outside" && [$menu index 0] ne "none"} {
 		::table::keepFocus $table true
 		::bind $menu <<MenuUnpost>> [namespace code [list Popdown $table]]
 		tk_popup $menu {*}[winfo pointerxy $table]

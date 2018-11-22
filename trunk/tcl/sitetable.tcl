@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1522 $
-# Date   : $Date: 2018-09-16 13:56:42 +0000 (Sun, 16 Sep 2018) $
+# Version: $Revision: 1529 $
+# Date   : $Date: 2018-11-22 10:48:49 +0000 (Thu, 22 Nov 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -526,7 +526,7 @@ proc Find {path mode name} {
 proc GetSite {path base variant view index} {
 	variable ${path}::Vars
 
-	if {$index == -1} { return "" }
+	if {$index == "outside"} { return "" }
 	set col [lsearch -exact $Vars(columns) site]
 	set site [::scidb::db::get siteInfo $index $view $base $variant $col]
 }

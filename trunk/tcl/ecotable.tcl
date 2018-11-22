@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author: gcramer $
-# Version: $Revision: 1519 $
-# Date   : $Date: 2018-09-11 11:41:52 +0000 (Tue, 11 Sep 2018) $
+# Version: $Revision: 1529 $
+# Date   : $Date: 2018-11-22 10:48:49 +0000 (Thu, 22 Nov 2018) $
 # Url    : $URL: https://svn.code.sf.net/p/scidb/code/trunk/tcl/ecotable.tcl $
 # ======================================================================
 
@@ -98,7 +98,7 @@ proc build {parent args} {
 		-justify left \
 		-minwidth 5 \
 		-maxwidth 0 \
-		-width [expr {$(mode) eq "move" ? 10 : 50}] \
+		-width [expr {$(mode) eq "single" ? 10 : 50}] \
 		-stretch 0 \
 		-removable 0 \
 		-ellipsis 1 \
@@ -306,6 +306,8 @@ proc Update {w {force no}} {
 	variable ${(id)}::Options
 
 	HideBoard $w
+	Deselect $w
+
 	if {$(mode:fixed) || $(mode) eq $Options(move:mode)} {
 		set (oldData) $(data)
 	} else {
@@ -431,9 +433,13 @@ proc TableSelected {w table index} {
 	set row [::scrolledtable::indexToRow $table $index]
 	::scrolledtable::select $table none
 	::scrolledtable::select $table $row
-	set fen [::scidb::game::codeToFen [lindex $(data) $index 2]]
 	set (selection:active) 1
-	::scidb::game::go position $fen
+	if {$(mode) eq "single"} {
+		::scidb::game::go ply $index
+	} else {
+		set fen [::scidb::game::codeToFen [lindex $(data) $index 2]]
+		::scidb::game::go position $fen
+	}
 	set (selection:active) 0
 }
 

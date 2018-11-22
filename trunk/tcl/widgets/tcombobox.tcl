@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1510 $
-# Date   : $Date: 2018-08-19 12:42:28 +0000 (Sun, 19 Aug 2018) $
+# Version: $Revision: 1529 $
+# Date   : $Date: 2018-11-22 10:48:49 +0000 (Thu, 22 Nov 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -794,9 +794,13 @@ proc ConfigureListbox {cb} {
 		puts stderr "\[ttk::style lookup TCombobox -padding\] returns empty list"
 		set padding 0
 	}
+	set padding [lindex $padding 0]
 
 	if {[info tclversion] >= "8.6"} {
 		set borderwidth [::ttk::style lookup ComboboxPopdownFrame -borderwidth]
+		if {[llength $borderwidth] == 0} {
+			set borderwidth 1
+		}
 	} else {
 		 switch -- [tk windowingsystem] {
 			x11	{ set borderwidth 1 }
@@ -823,7 +827,7 @@ proc Strip {str} {
 
 proc Scroll {cb dir} {
 	if {![winfo exists $cb.popdown.l] || [winfo class $cb.popdown.l] ne "TListBoxFrame"} {
-		return [Scroll_tcb_orig_ $cb]
+		return [Scroll_tcb_orig_ $cb $dir]
 	}
 
 	$cb instate disabled { return }

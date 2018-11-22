@@ -1,7 +1,7 @@
 # ======================================================================
 # Author : $Author$
-# Version: $Revision: 1522 $
-# Date   : $Date: 2018-09-16 13:56:42 +0000 (Sun, 16 Sep 2018) $
+# Version: $Revision: 1529 $
+# Date   : $Date: 2018-11-22 10:48:49 +0000 (Thu, 22 Nov 2018) $
 # Url    : $URL$
 # ======================================================================
 
@@ -2085,7 +2085,6 @@ proc PopupMenu {table x y X Y} {
 
 	::bind $menu <<MenuUnpost>> [list event generate $table <<TablePopdown>>]
 	tk_popup $menu $X $Y
-
 	keepFocus $table false
 }
 
