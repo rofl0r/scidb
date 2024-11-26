@@ -205,8 +205,8 @@ sys::utf8::validate(char const* str, unsigned nbytes)
 	{
 		state = ::nextState(state, *str);
 
-		if (state == ::Error)
-			return false;
+		if (state == ::Error) { fprintf(stderr, "%s\n", str);
+			return false; }
 	}
 
 	return state == ::Start;

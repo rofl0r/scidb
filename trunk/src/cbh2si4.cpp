@@ -163,6 +163,10 @@ getDefaultTags()
 	return defaultTags;
 }
 
+#undef SHAREDIR
+#ifndef SHAREDIR
+#define SHAREDIR "."
+#endif
 
 static void
 loadEcoFile()

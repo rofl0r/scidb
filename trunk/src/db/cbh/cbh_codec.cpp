@@ -29,7 +29,7 @@
 // http://talkchess.com/forum/viewtopic.php?topic_view=threads&p=287896&t=29468&sid=a535ba2e9a17395e2582bdddf57c2425
 
 // Required files:	.cba .cbc .cbg .cbh .cbp .cbt
-// Used files:			.cba .cbc .cbg .cbh .cbp .cbt .cbs .cbe .cbj .ini .html/*
+// Used files:			.cba .cbc .cbg .cbh .cbp .cbt .cbs .cbe .cbj .ini .html/ *
 
 #include "cbh_codec.h"
 #include "cbh_decoder.h"
@@ -65,6 +65,49 @@ using namespace db::cbh;
 using namespace db::country;
 using namespace db::type;
 using namespace util;
+
+static unsigned valid_utf8(const char *seq) {
+	if((seq[0] & 0x80) == 0) return 1;
+	switch(seq[0] & 0xf0) {
+		case 0xc0: case 0xd0:
+			if((seq[1] & 0xc0) == 0x80) return 2;
+			return 0;
+		case 0xe0:
+			if(
+			(seq[1] & 0xc0) == 0x80 &&
+			(seq[2] & 0xc0) == 0x80) return 3;
+			return 0;
+		case 0xf0:
+			if((seq[0] & 0xf8) != 0xf0) return 0;
+			if(
+			(seq[1] & 0xc0) == 0x80 &&
+			(seq[2] & 0xc0) == 0x80 &&
+			(seq[3] & 0xc0) == 0x80) return 4;
+			return 0;
+		default:
+			return 0;
+	}
+}
+
+static void chessbase_char_to_ascii(mstl::string& str) {
+	const char *p = str.c_str();
+	for(unsigned i = 0; i < str.size(); ++i) {
+		if((*(p+i) & 0x80) == 0) continue;
+		unsigned ul = valid_utf8(p + i);
+		if(ul) i += ul - 1;
+		else switch(*(p+i)) {
+			case '\361': str[i] = 'n'; break; // "Ari\361o Falgas, Ferran"
+			case '\355': str[i] = 'i'; break;
+			case '\351': str[i] = 'e'; break; // "Olexa, Vil\351m"
+			case '\240': str[i] = ' '; break; // "Guerra, Rodrigo\240Pereira"
+			case '\370':
+			default:
+			//__asm__("int3");
+			str[i] = '?';
+			break;
+		}
+	}
+}
 
 
 enum { Deleted = -999 };
@@ -629,7 +672,29 @@ Codec::tagFilter(Section, TagSet const&) const
 	return m_infoTags;
 }
 
+static int contains_chess_move(mstl::string& str) {
+	int n_num = 0, n_dot = 0;
+	for(unsigned i=0; i<str.size(); ++i) {
+		switch(Byte(str[i])) {
+			case '0':
+			case '1':
+			case '2':
+			case '3':
+			case '4':
+			case '5':
+			case '6':
+			case '7':
+			case '8':
+			case '9': ++n_num; break;
+			case '.': ++n_dot; break;
+		}
+	}
+	return (n_num && n_dot);
+}
 
+/* total misnomer, this function turns chessbase magic bytes for King, Queen,
+   etc in a chessmove string into K,Q, etc.
+   used on a name, it can seriously mess it up. */
 void
 Codec::mapPlayerName(mstl::string& str)
 {
@@ -637,7 +702,7 @@ Codec::mapPlayerName(mstl::string& str)
 	{
 		str = '?';
 	}
-	else
+	else if(contains_chess_move(str))
 	{
 		mstl::vector<unsigned> indices;
 
@@ -947,9 +1012,25 @@ Codec::readPlayerData(mstl::string const& rootname, util::Progress& progress)
 			str.append(", ", 2);
 			strm.read(p + 2, 20);
 			str.set_size(::strippedLen(p + 2) + str.size());
+	if(str.size() > 2 && str[0] >= '1' && str[0] <= '9') {
+		printf("got chess move instead of player name\n");
+		goto proceed;
+	}
 
 			if (p + 2 == str.end())
 				str.resize(str.size() - 2);
+
+		if(str == "Vaca Molina, Maria de Los A\201nge")
+			str = "Vaca Molina, Maria de Los Angeles";
+
+		chessbase_char_to_ascii(str);
+#if 0
+		if(strstr(str, ", Moritz") != 0) {
+	for(int i = 0; i < str.size(); ++i) 
+//chessbase_char_to_ascii(&str[i]);
+		if((unsigned char)str[i] >= 0x80) { __asm__("int3"); break; }
+	}
+#endif
 
 			mapPlayerName(str);
 
@@ -966,6 +1047,7 @@ Codec::readPlayerData(mstl::string const& rootname, util::Progress& progress)
 
 			m_playerMap.container().push_back(
 				BaseMap::value_type(i, base.insertPlayer(str, fideID, nrecs)));
+proceed:
 			strm.seekg(RecordSize - 59, mstl::ios_base::cur);
 		}
 	}

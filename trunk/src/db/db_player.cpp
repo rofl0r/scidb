@@ -508,6 +508,7 @@ stripCountryCode(mstl::string& s)
 static void
 standardizeNames(char const* name, char* result)
 {
+return;
 	switch (name[0])
 	{
 		case 'D':
@@ -894,6 +895,7 @@ Player::countPlayers()
 bool
 Player::isNormalized(mstl::string const& name)
 {
+	return true;
 	// TODO: possibly not working with Utf8-strings
 	return name.find_first_of(::exclude) == mstl::string::npos;
 }
@@ -902,6 +904,7 @@ Player::isNormalized(mstl::string const& name)
 mstl::string&
 Player::normalize(mstl::string& name)
 {
+	return name;
 	if (!name.empty())
 	{
 		name.make_writable();
@@ -929,6 +932,10 @@ Player::normalize(mstl::string const& name, mstl::string& result)
 	M_REQUIRE(name.c_str() != result.c_str());
 
 	result.clear();
+		for (unsigned i = 0; i < name.size(); ++i)
+			result += name[i];
+return result;
+
 
 	if (!name.empty())
 	{
@@ -954,6 +961,7 @@ Player::normalize(mstl::string const& name, mstl::string& result)
 void
 Player::standardizeNames(mstl::string& name)
 {
+	return;
 	switch (name[0])
 	{
 		case 'd':

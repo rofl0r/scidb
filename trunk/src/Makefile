@@ -76,7 +76,7 @@ SRC = \
 	tkscidb.cpp \
 	tclscidb.cpp \
 
-ALL_LIBS = $(LIBS) $(TCL_LIBRARY) $(ZZIPLIB_LIB) $(MINIZIP_LIB) $(ZLIB_LIB) $(EXPAT_LIB) $(FAM_LIB) -lpthread
+ALL_LIBS = $(ZZIPLIB_LIB) $(MINIZIP_LIB) $(ZLIB_LIB) $(LIBS) $(TCL_LIBRARY) $(EXPAT_LIB) $(FAM_LIB) -lpthread $(ZZIPLIB_LIB) $(MINIZIP_LIB) $(ZLIB_LIB) $(USER_LDFLAGS)
 ALL_TK_LIBS = $(TCL_LIBS) $(TK_LIBS) $(TK_LIBRARY) $(X_LIBRARY)
 #ALL_TK_LIBS = $(TCL_LIBS) $(TK_LIBS) -L/usr/local/lib -ltk $(X_LIBRARY)
 
@@ -301,7 +301,7 @@ pgn_split_eco: pgn_split_eco.o $(LIBS)
 
 cbh2si4: cbh2si4.o $(LIBS)
 	@echo "Building $@"
-	@$(CXX) -o $@ $< $(LDFLAGS) $(PROFILING) $(ALL_LIBS)
+	$(CXX) -o $@ $< $(LDFLAGS) $(PROFILING) $(ALL_LIBS)
 
 cdb2sci: cdb2sci.o $(LIBS)
 	@echo "Building $@"

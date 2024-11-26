@@ -34,7 +34,6 @@ SRC_C = \
 	hpdf_catalog.c \
 	hpdf_destination.c \
 	hpdf_dict.c \
-	hpdf_doc.c \
 	hpdf_doc_png.c \
 	hpdf_encoder.c \
 	hpdf_encoder_cns.c \
@@ -83,6 +82,9 @@ SRC_C = \
 	hpdf_u3d.c \
 	hpdf_utils.c \
 	hpdf_xref.c \
+
+#	hpdf_doc.c \
+
 
 SRC	= $(SRC_C)
 OBJS	= $(SRC_C:.c=.o)

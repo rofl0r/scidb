@@ -117,7 +117,7 @@ static void
 throwInvalidEco(unsigned lineNo, char const* eco)
 {
 	M_RAISE(	"invalid ECO code '%s' (line %u)",
-				mstl::string(eco, eco + mstl::min(7u, strlen(eco))).c_str(), lineNo);
+				mstl::string(eco, eco + mstl::min(7ul, strlen(eco))).c_str(), lineNo);
 }
 
 
