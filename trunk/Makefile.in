@@ -1,0 +1,2 @@
+SYS_CXXFLAGS = -I/usr/include/tcl8.6 -Lutil/minizip -g3 -DBROKEN_LINKER_HACK
+USER_LDFLAGS = -Lutil/minizip -lminizip util/zzip/libzzip.a -ltcl8.6 -ltclstub8.6 -lz -lexpat
